@@ -10,7 +10,7 @@
     "photochoice": null,
     "camera": null,
     "particles": "Screen7.wav",
-    "final": null,
+    "final": "Screen8.wav",
     "home": null,
     "scanning": "Scan.wav (loop)",
     "answer-reveal": "ChangeScreen[1..5] sequential",
@@ -29,8 +29,7 @@
   },
   "pending": {
     "Screen5": "Photo instructions changed; exact full recording unavailable.",
-    "Screen6": "Old Screen6 says Discovery activation on camera; camera instruction recording unavailable.",
-    "Screen8": "Final recording has extra paragraph and old direction to wall; exact approved final unavailable."
+    "Screen6": "Old Screen6 says Discovery activation on camera; camera instruction recording unavailable."
   },
   "assets": [
     {
@@ -114,7 +113,8 @@
       "channels": 2,
       "sampleRate": 44100,
       "bitsPerSample": 16,
-      "waveFormatTag": 1
+      "waveFormatTag": 1,
+      "verification": "Enabled on the final screen by the user on 2026-10-05, as recorded. Known difference from the approved final copy: an extra paragraph and the old direction to the wall. Not listened to by the agent."
     },
     {
       "file": "Click.wav",

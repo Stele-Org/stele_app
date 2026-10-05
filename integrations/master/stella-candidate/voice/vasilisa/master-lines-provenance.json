@@ -34,6 +34,15 @@
       "bytes": 1829374,
       "replaced": "vk-question-ideal-content.wav",
       "note": "Copied on 2026-10-05 after the user replaced Screen3 in the master bank; until then the local file was already identical to the previous Screen3 (sha256 bce2390d4ece1d1bbd00b48f6cd863a5bc3ddfa3a674c9ce8d6be64506312d00)."
+    },
+    {
+      "cue": "vk-final",
+      "asset": "vk-final-studio.wav",
+      "source": "public/audio/vk-production-v1/Screen8.wav",
+      "sha256": "0f8571cdf9509b95c8f6cdee2424b410518eb2092be6e2039303f73aa3d6866d",
+      "bytes": 3296594,
+      "replaced": "vk-final.wav",
+      "note": "Copied on 2026-10-05 when the user asked to enable Screen8. Enabled on the final screen by the user on 2026-10-05, as recorded. Known difference from the approved final copy: an extra paragraph and the old direction to the wall. Not listened to by the agent."
     }
   ],
   "alreadyIdentical": [
@@ -45,7 +54,7 @@
       "supersededBy": "vk-discovery-timed-studio.wav: the same two phrases with pauses matched to the Discovery scene, see discovery-timing-provenance.json"
     }
   ],
-  "notCopied": "Screen5, Screen6 and Screen8 (photo, camera, final): the master mode does not play them either, their text no longer matches the approved copy. The local cues vk-digitize, vk-camera and vk-final stay pending.",
-  "verification": "SHA256 equality with the master bank only. The words spoken in Screen1, Screen2, Screen3 and Screen4 were not transcribed or listened to by the agent.",
-  "format": "Screen1, Screen2, Screen3, Screen4: PCM 16 bit, 44.1 kHz, stereo."
+  "notCopied": "Screen5 and Screen6 (photo, camera): the master mode does not play them either, their text no longer matches the approved copy. The local cues vk-digitize and vk-camera stay pending.",
+  "verification": "SHA256 equality with the master bank only. The words spoken in Screen1, Screen2, Screen3, Screen4 and Screen8 were not transcribed or listened to by the agent.",
+  "format": "Screen1, Screen2, Screen3, Screen4, Screen8: PCM 16 bit, 44.1 kHz, stereo."
 }

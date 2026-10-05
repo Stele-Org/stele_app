@@ -53,8 +53,9 @@ beforeEach(() => {
 afterEach(() => { act(() => root.unmount()); host.remove(); vi.restoreAllMocks(); vi.unstubAllGlobals(); vi.unstubAllEnvs() })
 
 const accepted = (manual = true) => act(() => window.dispatchEvent(new CustomEvent(acceptedSoundAction, { detail: { manual } })))
-it('keeps mismatched photo, camera and final silent; particles use the complete verified Discovery clip', () => {
-  expect(['photochoice','camera','final','photo-bridge'].map(s => masterNarration(s))).toEqual([null,null,null,null])
+it('keeps mismatched photo and camera silent; particles use the complete verified Discovery clip, the final speaks Screen8', () => {
+  expect(['photochoice','camera','photo-bridge'].map(s => masterNarration(s))).toEqual([null,null,null])
+  expect(masterNarration('final')).toBe('Screen8')
   expect(masterNarration('particles')).toBe('Screen7')
   expect(masterNarration('home')).toBeNull()
 })

@@ -125,7 +125,7 @@
       "path": "audio/vk-production-v1/Screen8.wav",
       "bus": "voice",
       "loop": false,
-      "playbackEnabled": false,
+      "playbackEnabled": true,
       "file": "Screen8.wav",
       "bytes": 3296594,
       "sha256": "0f8571cdf9509b95c8f6cdee2424b410518eb2092be6e2039303f73aa3d6866d",
@@ -133,7 +133,8 @@
       "channels": 2,
       "sampleRate": 44100,
       "bitsPerSample": 16,
-      "waveFormatTag": 1
+      "waveFormatTag": 1,
+      "verification": "Enabled on the final screen by the user on 2026-10-05, as recorded. Known difference from the approved final copy: an extra paragraph and the old direction to the wall. Not listened to by the agent."
     },
     {
       "assetId": "stella.Click",

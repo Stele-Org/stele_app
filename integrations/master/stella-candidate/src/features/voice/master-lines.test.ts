@@ -13,6 +13,7 @@ const lines: [string, ScreenState][] = [
   ['Screen2', { type: 'vk-question', index: 0, answers: [] }],
   ['Screen3', { type: 'vk-question', index: 1, answers: [] }],
   ['Screen4', { type: 'vk-question', index: 2, answers: [] }],
+  ['Screen8', { type: 'vk-final', themes: [] }],
 ]
 // Discovery speaks the same recording (Screen7) re-timed to its scene: discovery-timing.test.ts.
 
@@ -23,11 +24,11 @@ it.each(lines)('the local scenario speaks the master line %s byte for byte', (fi
   expect(createHash('sha256').update(bytes).digest('hex')).toBe(bank.assets.find(entry => entry.file === `${file}.wav`)!.sha256)
 })
 
-it('keeps the photo, camera and final lines silent in both modes until matching recordings exist', () => {
-  expect(Object.keys(bank.pending)).toEqual(['Screen5', 'Screen6', 'Screen8'])
+it('keeps the photo and camera lines silent in both modes until matching recordings exist', () => {
+  expect(Object.keys(bank.pending)).toEqual(['Screen5', 'Screen6'])
   const silent: ScreenState[] = [
     { type: 'vk-digitize', answers: [], rankedThemes: [], discoveryAnswerId: 'hero' },
-    { type: 'vk-camera', themes: [] }, { type: 'vk-final', themes: [] },
+    { type: 'vk-camera', themes: [] },
   ]
   for (const screen of silent) expect(getReadyNarrationAsset(publicManifest as VoiceManifest, narrationId(screen))).toBeUndefined()
 })

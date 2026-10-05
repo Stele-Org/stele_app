@@ -14,7 +14,9 @@ const manifest: VoiceManifest = { version: 1, voice: 'Василиса', ready: 
 } }
 
 it('suppresses all obsolete recordings despite ready manifest and cannot be bypassed by renaming a file', () => {
-  expect(pending.cues.map(cue => cue.id)).toEqual(['vk-digitize', 'vk-camera', 'vk-final'])
+  // vk-final left the list on 05.10.2026: the user enabled the master recording Screen8 as it is.
+  expect(pending.cues.map(cue => cue.id)).toEqual(['vk-digitize', 'vk-camera'])
+  expect(getReadyNarrationAsset(publicManifest as VoiceManifest, 'vk-final')).toBe('vk-final-studio.wav')
   for (const { id } of pending.cues) {
     expect(isNarrationAudioPending(id)).toBe(true)
     expect(getReadyNarrationAsset(manifest, id)).toBeUndefined()

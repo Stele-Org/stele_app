@@ -15,12 +15,6 @@
       "status": "awaiting_render",
       "staleAsset": "vk-camera.wav",
       "staleAssetSha256": "f4b8efe3989a8f50f3738ec15de07f735e0f66da406d4d5cf0440d49dfec9e28"
-    },
-    {
-      "id": "vk-final",
-      "status": "awaiting_render",
-      "staleAsset": "vk-final.wav",
-      "staleAssetSha256": "472f0e8bbf5837da7edf762600fcc18f6985c19cd89b3715db34c555b7fdcabe"
     }
   ]
 }
