@@ -2,7 +2,7 @@
 
 # Локальный репозиторий и материалы Claude Design — 05.10.2026
 
-Пакет STELLA-CAMERA-ROTATE-01 развёрнут в локальном git-репозитории. `main`/`b12eef5` с тегом `baseline/stella-camera-rotate-01` — пакет без изменений; все 827 файлов сверены с `PACKAGE-MANIFEST.json`. Исходники приложения в `integrations/master/stella-candidate` не менялись.
+Пакет STELLA-CAMERA-ROTATE-01 развёрнут в локальном git-репозитории. Коммит `b12eef5` с тегом `baseline/stella-camera-rotate-01` — пакет без изменений, тег `v0.1.0` на `main` — первая версия с настройкой и материалами дизайна; все 827 файлов сверены с `PACKAGE-MANIFEST.json`. Исходники приложения в `integrations/master/stella-candidate` не менялись.
 
 Добавлены: `scripts/stella.ps1` с командами запуска и проверок, закреплённые Node.js 24.21.0 и Gitleaks 8.30.1 в `.tools`, git-хуки с Gitleaks, порядок работы в [DEV_WORKFLOW.md](DEV_WORKFLOW.md). Системный Node.js 22 не тронут.
 

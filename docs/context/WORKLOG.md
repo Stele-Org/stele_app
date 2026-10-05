@@ -1,6 +1,6 @@
 ## 05.10.2026 — локальный репозиторий, инструменты и материалы Claude Design
 
-Проанализирован пакет STELLA-CAMERA-ROTATE-01: 827 файлов, приложение React 19 / Vite 8 / TypeScript 6 в `integrations/master/stella-candidate`, LumiCells из `artifacts/ribbon` и `docs/Research`. Целостность по `PACKAGE-MANIFEST.json` PASS. Создан git-репозиторий: `main`/`b12eef5`, тег `baseline/stella-camera-rotate-01`, рабочая ветка `codex/project-setup-20261005`.
+Проанализирован пакет STELLA-CAMERA-ROTATE-01: 827 файлов, приложение React 19 / Vite 8 / TypeScript 6 в `integrations/master/stella-candidate`, LumiCells из `artifacts/ribbon` и `docs/Research`. Целостность по `PACKAGE-MANIFEST.json` PASS. Создан git-репозиторий: коммит `b12eef5` с тегом `baseline/stella-camera-rotate-01`, рабочая ветка `codex/project-setup-20261005`, после проверок слита в `main` с тегом `v0.1.0`.
 
 Приложению нужен Node.js 24+, в системе 22.14.0. Node.js 24.21.0 и Gitleaks 8.30.1 поставлены в `.tools` со сверкой SHA256, без прав администратора; системный Node.js не менялся. `npm ci --ignore-scripts`: 227 пакетов, lockfile без изменений. Добавлены `scripts/stella.ps1`, смок-тест `scripts/smoke.mjs`, хуки `pre-commit` и `pre-push` с Gitleaks, [DEV_WORKFLOW.md](DEV_WORKFLOW.md).
 
