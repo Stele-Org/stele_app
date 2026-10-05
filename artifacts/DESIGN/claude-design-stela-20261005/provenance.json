@@ -1,0 +1,93 @@
+{
+  "importedLocal": "2026-10-05",
+  "session": "Claude Design, проект «Анализ дизайна Стелы», начата 2026-10-05 08:02 UTC",
+  "sources": [
+    {
+      "target": "Stela.standalone.html",
+      "original": "Downloads/Стела VK Видео.html",
+      "note": "Скопирован без изменений"
+    },
+    {
+      "target": "dc/Stela D2 - *.dc.html, dc/support.js, dc/assets/*, dc/fonts/VKSansDisplay.ttf",
+      "original": "Downloads/Анализ дизайна Стелы.zip (export/)",
+      "originalSha256": "da8c924c2fffdd8a82c1f78569a275210c7d0b67543539500519614bc63b468a",
+      "note": "Скопированы без изменений"
+    },
+    {
+      "target": "dc/Stela.dc.html, dc/fonts/jetbrains-mono-*.woff2",
+      "original": "Stela.standalone.html",
+      "note": "Распаковано scripts/import-design-bundle.mjs: идентификаторы ресурсов заменены относительными путями, остальной текст не менялся"
+    }
+  ],
+  "notImported": [
+    "Транскрипт чата и исходный Stela.dc.html из handoff-пакета: на этом компьютере отсутствуют",
+    "Записи stela-d2-gradient-q1-fullhd.mp4, stela-d2-solid-q1-fullhd.mp4, stela-discovery.mp4 (около 95 МБ, лежат в Downloads)",
+    "Скриншоты и референсы, загруженные в сессию"
+  ],
+  "files": {
+    "dc/assets/card-interview.png": {
+      "bytes": 162341,
+      "sha256": "1d26654d7f555ce2b7fb285d543d3b94e23fba3b0add2bb5111e12791e365f23"
+    },
+    "dc/assets/card-popcorn.png": {
+      "bytes": 120823,
+      "sha256": "5d4c6c2428f5ae785961da76d6913641061b799a7b90791c62650dbddcd5c841"
+    },
+    "dc/assets/logo-max.png": {
+      "bytes": 85930,
+      "sha256": "140cb07fd1383362ec22db2e279643d943d16be2b940461fe15e2f37410fcea6"
+    },
+    "dc/assets/logo-vk3d.png": {
+      "bytes": 84303,
+      "sha256": "1ec453449d598a4bed0f9a356dc8124efc2d2f4b8a5592656050449fa1b5c37f"
+    },
+    "dc/fonts/jetbrains-mono-cyrillic-ext.woff2": {
+      "bytes": 1640,
+      "sha256": "62213be8a78b42f1e29d1452d91e2f8b3e745572a9dd98d3941e39fa00b37d76"
+    },
+    "dc/fonts/jetbrains-mono-cyrillic.woff2": {
+      "bytes": 8872,
+      "sha256": "e17cfd15fb96909d64095015f958207063a0c07191da3512df7d560a781aebdf"
+    },
+    "dc/fonts/jetbrains-mono-greek.woff2": {
+      "bytes": 6836,
+      "sha256": "0a557721b1f8b36d3f3f84442689a71ca4a744300abcb46a1953f51bfc663b66"
+    },
+    "dc/fonts/jetbrains-mono-latin-ext.woff2": {
+      "bytes": 11624,
+      "sha256": "db5ff4db83e580426280e9337a58dc57d3a83784a1b03ad80914651594441d52"
+    },
+    "dc/fonts/jetbrains-mono-latin.woff2": {
+      "bytes": 31432,
+      "sha256": "83c005d49d8a6a50474c73a5a36ac0468076e9c4a29da7bdb14995d80560a5be"
+    },
+    "dc/fonts/jetbrains-mono-vietnamese.woff2": {
+      "bytes": 5888,
+      "sha256": "c89b9cc0bc6262bd4f8d8494b6961601f3aefa829d08c2e3635f4d501d3a47c2"
+    },
+    "dc/fonts/VKSansDisplay.ttf": {
+      "bytes": 24172,
+      "sha256": "2a4754512ae2e34867b32f3c7366371f94bc8a71845a5ef5b8f768e2f5ee5841"
+    },
+    "dc/Stela D2 - gradient.dc.html": {
+      "bytes": 55477,
+      "sha256": "8eb3526a1d0f3824bd52082c3f441ba4ab84eca6ab89d319e645c4c9f5897592"
+    },
+    "dc/Stela D2 - solid.dc.html": {
+      "bytes": 55471,
+      "sha256": "7bc608ab16c22f1df5ca0c581b7a556b03cea88d05cfc560c16f953663c937d6"
+    },
+    "dc/Stela.dc.html": {
+      "bytes": 64583,
+      "sha256": "846be51bb521331a6633d38fa2e6585f0ca6e3fff5d49feda5b92b6f7fd803a3"
+    },
+    "dc/support.js": {
+      "bytes": 69150,
+      "sha256": "8fe7df74405f3c55f49b7249c74ea1397e65d07dea2b1bd3b4a489bec2e28cbe"
+    },
+    "Stela.standalone.html": {
+      "bytes": 885056,
+      "sha256": "22240b22e03696cb13d0fb43db4973c083be0a1dca2571ed7bbbefa2796d7d79"
+    }
+  }
+}

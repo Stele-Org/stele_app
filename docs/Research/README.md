@@ -10,6 +10,7 @@
 - [stella-background-architecture-20261003](stella-background-architecture-20261003.md)
 - [stella-background-iteration-20261003](stella-background-iteration-20261003.md)
 - [stella-camera-presence-20261004](stella-camera-presence-20261004.md)
+- [stella-claude-design-session-20261005](stella-claude-design-session-20261005.md)
 - [stella-continuous-transitions-20261003](stella-continuous-transitions-20261003.md)
 - [stella-diagnostics-20261004](stella-diagnostics-20261004.md)
 - [stella-discovery-architecture-20261003](stella-discovery-architecture-20261003.md)

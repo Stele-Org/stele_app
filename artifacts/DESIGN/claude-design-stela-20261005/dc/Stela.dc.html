@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="support.js"></script>
+
+
+</head>
+<body>
+
+<x-dc>
+<helmet>
+<title>Стела · VK Видео и MAX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<style>/* cyrillic-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/jetbrains-mono-cyrillic-ext.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/jetbrains-mono-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/jetbrains-mono-greek.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/jetbrains-mono-vietnamese.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/jetbrains-mono-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/jetbrains-mono-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/jetbrains-mono-cyrillic-ext.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/jetbrains-mono-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/jetbrains-mono-greek.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/jetbrains-mono-vietnamese.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/jetbrains-mono-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/jetbrains-mono-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style>
+@font-face{font-family:"VK Sans Display";src:local("VK Sans Display"),url("fonts/VKSansDisplay.ttf") format("truetype");font-display:swap}
+html,body{margin:0;height:100%;background:#02021a;overflow:hidden}
+a{color:#7aa2ff}a:hover{color:#fff}
+</style>
+</helmet>
+<div ref="{{ rootRef }}" sc-camel-on-click="{{ onFirstTap }}" style="position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#02021a;font-family:'VK Sans Display','Onest',system-ui,sans-serif;color:#fff;user-select:none">
+<div style="position:relative;width:1080px;height:1920px;flex:none;overflow:hidden;transform:scale({{ scale }});transform-origin:center center;background:radial-gradient(ellipse 90% 60% at 50% 62%,#0a1a8f 0%,#06106a 30%,#04043a 62%,#02021c 100%)">
+<div style="position:absolute;inset:0;transition:opacity 1s;opacity:{{ tealOp }};background:radial-gradient(ellipse 100% 55% at 50% 72%,#06485a 0%,#05304a 35%,rgba(2,10,30,0) 75%),linear-gradient(#02041e,#031a34 60%,#020a20)"></div>
+<canvas ref="{{ canvasRef }}" width="2160" height="3840" style="position:absolute;inset:0;width:1080px;height:1920px"></canvas>
+<canvas ref="{{ fxRef }}" width="2160" height="3840" style="position:absolute;inset:0;width:1080px;height:1920px;pointer-events:none"></canvas>
+<canvas ref="{{ discRef }}" width="2160" height="3840" style="position:absolute;inset:0;width:1080px;height:1920px;pointer-events:none"></canvas>
+
+<div data-screen-label="01 Выбор" style="position:absolute;inset:0;transition:opacity .7s,transform .7s;opacity:{{ v.choice.o }};transform:{{ v.choice.t }};pointer-events:{{ v.choice.pe }}">
+<div style="position:absolute;top:350px;left:0;right:0;text-align:center;font-size:80px;font-weight:600;line-height:1.1">ЧТО ТЕБЕ<br>СЕЙЧАС БЛИЖЕ?</div>
+<div style="position:absolute;top:615px;left:0;right:0;display:flex;justify-content:center;gap:90px">
+<div data-float="0" sc-camel-on-click="{{ pickVK }}" style="width:264px;height:268px;cursor:pointer"><img src="assets/logo-vk3d.png" alt="VK Видео" style="width:100%;height:100%;mix-blend-mode:lighten;display:block"></div>
+<div data-float="1" sc-camel-on-click="{{ pickMax }}" style="width:268px;height:268px;cursor:pointer"><img src="assets/logo-max.png" alt="MAX" style="width:100%;height:100%;mix-blend-mode:lighten;display:block"></div>
+</div>
+</div>
+
+<div data-screen-label="02 Заставка" style="position:absolute;inset:0;transition:opacity .8s,transform .8s;opacity:{{ v.splash.o }};transform:{{ v.splash.t }};pointer-events:{{ v.splash.pe }}">
+<div style="position:absolute;top:688px;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:48px">
+<div style="position:relative;width:140px;height:140px"><div style="position:absolute;left:0;top:4px;width:118px;height:136px;border-radius:30px;background:#0a6cff"></div><div style="position:absolute;left:22px;top:0;width:118px;height:138px;border-radius:30px;background:#e8263f;display:flex;align-items:center;justify-content:center"><div style="width:0;height:0;border-left:50px solid #eceaf2;border-top:30px solid transparent;border-bottom:30px solid transparent;margin-left:10px"></div></div></div>
+<div style="font-size:104px;font-weight:500;color:#e8e8f0;letter-spacing:-1px">VK Видео</div>
+</div>
+</div>
+
+<div data-screen-label="03 Вступление" style="position:absolute;inset:0;transition:opacity .7s,transform .7s;opacity:{{ v.intro.o }};transform:{{ v.intro.t }};pointer-events:{{ v.intro.pe }}">
+<div style="position:absolute;top:142px;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:40px">
+<div style="position:relative;width:108px;height:108px"><div style="position:absolute;left:0;top:3px;width:90px;height:105px;border-radius:24px;background:#0a6cff"></div><div style="position:absolute;left:18px;top:0;width:90px;height:106px;border-radius:24px;background:#ff2b45;display:flex;align-items:center;justify-content:center"><div style="width:0;height:0;border-left:38px solid #fff;border-top:23px solid transparent;border-bottom:23px solid transparent;margin-left:8px"></div></div></div>
+<div style="font-size:76px;font-weight:600">VK Видео</div>
+</div>
+<div style="position:absolute;top:335px;left:0;right:0;text-align:center;font-size:72px;font-weight:600;line-height:1.08">Исследуй мир<br>вместе с VK Видео</div>
+<div style="position:absolute;top:575px;left:282px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;gap:30px;align-items:flex-start"><div style="font-size:96px;font-weight:600;line-height:.9;width:60px">1</div><div style="font-size:36px;font-weight:600;line-height:1.2">Расскажи, какой<br>контент ты любишь</div></div>
+<div style="display:flex;gap:30px;align-items:flex-start"><div style="font-size:96px;font-weight:600;line-height:.9;width:60px">2</div><div style="font-size:36px;font-weight:600;line-height:1.2">Получи персональную<br>подборку от технологии<br>Discovery</div></div>
+</div>
+<div style="position:absolute;top:888px;left:0;right:0;text-align:center;font-size:30px;line-height:1.2;color:#9ea3c4">Со мной можно говорить своими словами.<br>Скажи, например, «ПОЕХАЛИ»</div>
+<div sc-camel-on-click="{{ goQ1 }}" style="position:absolute;top:998px;left:360px;width:360px;height:140px;border-radius:44px;background:#ff2b45;display:flex;align-items:center;justify-content:center;font-size:44px;cursor:pointer;transition:transform .15s" style-active="transform:scale(.96)">Начать</div>
+<div style="position:absolute;top:1166px;left:0;right:0;text-align:center;font-size:24px;color:#9ea3c4">или просто нажми</div>
+<div sc-camel-on-click="{{ goChoice }}" style="position:absolute;top:1248px;left:407px;width:266px;height:100px;border-radius:40px;background:#0a3cff;display:flex;align-items:center;justify-content:center;gap:14px;font-size:34px;cursor:pointer;transition:transform .15s" style-active="transform:scale(.96)"><span style="font-size:26px">←</span><span>Назад</span></div>
+</div>
+
+<sc-for list="{{ questions }}" as="q" hint-placeholder-count="2">
+<div data-screen-label="{{ q.label }}" style="position:absolute;inset:0;transition:opacity .7s,transform .7s;opacity:{{ q.o }};transform:{{ q.t }};pointer-events:{{ q.pe }}">
+<div style="position:absolute;top:136px;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:40px">
+<div style="position:relative;width:108px;height:108px"><div style="position:absolute;left:0;top:3px;width:90px;height:105px;border-radius:24px;background:#0a6cff"></div><div style="position:absolute;left:18px;top:0;width:90px;height:106px;border-radius:24px;background:#ff2b45;display:flex;align-items:center;justify-content:center"><div style="width:0;height:0;border-left:38px solid #fff;border-top:23px solid transparent;border-bottom:23px solid transparent;margin-left:8px"></div></div></div>
+<div style="font-size:76px;font-weight:600">VK Видео</div>
+</div>
+<div style="position:absolute;top:330px;left:60px;right:60px;text-align:center;font-size:48px;font-weight:600;line-height:1.1;text-wrap:balance">{{ q.title }}</div>
+<div data-float="{{ q.cardSeed }}" data-delay="0.1" data-scr="{{ q.id }}" sc-camel-on-click="{{ q.onCard }}" style="position:absolute;left:{{ q.card.x }}px;top:{{ q.card.y }}px;width:458px;height:274px;border-radius:54px;overflow:hidden;cursor:pointer;box-shadow:{{ q.card.shadow }}"><img src="{{ q.card.img }}" alt="{{ q.card.alt }}" style="width:100%;height:100%;display:block;object-fit:cover;transform:scale(1.01)"></div>
+<sc-for list="{{ q.tags }}" as="tag" hint-placeholder-count="4">
+<div data-tag="1" data-i="{{ tag.i }}" data-seed="{{ tag.seed }}" data-v="{{ tag.v }}" data-x="{{ tag.x }}" data-y="{{ tag.y }}" data-word="{{ tag.text }}" data-code="{{ tag.code }}" data-scr="{{ q.id }}" sc-camel-on-click="{{ tag.onPick }}" style="position:absolute;left:{{ tag.x }}px;top:{{ tag.y }}px;height:{{ tag.h }}px;padding:0 {{ tag.pad }}px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:14px;border:2px solid transparent;background:{{ tag.bg }};box-shadow:{{ tag.shadow }};font-size:{{ tag.fs }}px;font-weight:{{ tag.fw }};white-space:nowrap;cursor:pointer;opacity:0;will-change:transform,opacity,filter">
+<span data-w="1" style="position:relative;text-shadow:{{ tag.ts }}"></span>
+</div>
+</sc-for>
+</div>
+</sc-for>
+
+<div data-screen-label="06 Discovery" style="position:absolute;inset:0;transition:opacity .7s,transform .7s;opacity:{{ v.discovery.o }};transform:{{ v.discovery.t }};pointer-events:{{ v.discovery.pe }}">
+<div style="position:absolute;top:136px;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:40px">
+<div style="position:relative;width:108px;height:108px"><div style="position:absolute;left:0;top:3px;width:90px;height:105px;border-radius:24px;background:#0a6cff"></div><div style="position:absolute;left:18px;top:0;width:90px;height:106px;border-radius:24px;background:#ff2b45;display:flex;align-items:center;justify-content:center"><div style="width:0;height:0;border-left:38px solid #fff;border-top:23px solid transparent;border-bottom:23px solid transparent;margin-left:8px"></div></div></div>
+<div style="font-size:76px;font-weight:600">VK Видео</div>
+</div>
+<div ref="{{ discStatusRef }}" style="position:absolute;top:278px;left:0;right:0;text-align:center;font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:2px;color:#9fd0ff;display:{{ statusD }}"></div>
+</div>
+
+<sc-if value="{{ showDiscPanel }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;left:40px;right:40px;bottom:24px;display:flex;flex-direction:column;gap:12px;padding:20px 24px;border-radius:26px;background:rgba(5,8,34,.85);border:2px solid #1d2a8a;font-family:'JetBrains Mono',monospace">
+<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-right:auto"><sc-for list="{{ discOpts }}" as="o" hint-placeholder-count="2"><div sc-camel-on-click="{{ o.on }}" style="padding:10px 16px;border-radius:18px;font-size:22px;border:2px solid {{ o.bd }};background:{{ o.bg }};color:#fff;cursor:pointer">{{ o.label }}</div></sc-for></div>
+<sc-for list="{{ resOpts }}" as="o" hint-placeholder-count="2"><div sc-camel-on-click="{{ o.on }}" style="padding:10px 14px;border-radius:18px;font-size:20px;border:2px solid {{ o.bd }};background:{{ o.bg }};color:#fff;cursor:pointer">{{ o.label }}</div></sc-for>
+<div sc-camel-on-click="{{ toggleRec }}" style="padding:10px 16px;border-radius:18px;font-size:22px;border:2px solid {{ recBd }};background:{{ recBg }};color:#fff;cursor:pointer">{{ recLabel }}</div>
+<div sc-camel-on-click="{{ replay }}" style="padding:10px 16px;border-radius:18px;font-size:22px;border:2px solid #2a3270;color:#fff;cursor:pointer">↻</div>
+</div>
+<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+<div style="font-size:18px;color:#8d93c8">ФОРМА</div>
+<sc-for list="{{ shapeOpts }}" as="o" hint-placeholder-count="2"><div sc-camel-on-click="{{ o.on }}" style="padding:10px 16px;border-radius:18px;font-size:22px;border:2px solid {{ o.bd }};background:{{ o.bg }};color:#fff;cursor:pointer">{{ o.label }}</div></sc-for>
+<div style="font-size:18px;color:#8d93c8;margin-left:16px">ЭКРАН</div>
+<sc-for list="{{ scrOpts }}" as="o" hint-placeholder-count="3"><div sc-camel-on-click="{{ o.on }}" style="padding:10px 16px;border-radius:18px;font-size:22px;border:2px solid {{ o.bd }};background:{{ o.bg }};color:#fff;cursor:pointer">{{ o.label }}</div></sc-for>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ showPanel }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;left:50px;right:50px;bottom:50px;display:flex;flex-direction:column;gap:16px;padding:26px 30px;border-radius:28px;background:rgba(5,8,34,.85);border:2px solid #1d2a8a;font-family:'JetBrains Mono',monospace">
+<div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+<div style="font-size:20px;color:#8d93c8;width:170px">ПОЯВЛЕНИЕ</div>
+<sc-for list="{{ emitOpts }}" as="o" hint-placeholder-count="3"><div sc-camel-on-click="{{ o.on }}" style="padding:10px 18px;border-radius:18px;font-size:24px;border:2px solid {{ o.bd }};background:{{ o.bg }};color:#fff;cursor:pointer">{{ o.label }}</div></sc-for></div>
+<sc-for list="{{ resOpts }}" as="o" hint-placeholder-count="2"><div sc-camel-on-click="{{ o.on }}" style="padding:10px 14px;border-radius:18px;font-size:20px;border:2px solid {{ o.bd }};background:{{ o.bg }};color:#fff;cursor:pointer">{{ o.label }}</div></sc-for>
+<div sc-camel-on-click="{{ toggleRec }}" style="padding:10px 18px;border-radius:18px;font-size:24px;border:2px solid {{ recBd }};background:{{ recBg }};color:#fff;cursor:pointer">{{ recLabel }}</div>
+<div sc-camel-on-click="{{ replay }}" style="padding:10px 18px;border-radius:18px;font-size:24px;border:2px solid #2a3270;color:#fff;cursor:pointer">↻ повтор</div>
+</div>
+
+<div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+<div style="font-size:20px;color:#8d93c8;width:170px">ВИД ТЕГА</div>
+<sc-for list="{{ lookOpts }}" as="o" hint-placeholder-count="2"><div sc-camel-on-click="{{ o.on }}" style="padding:10px 18px;border-radius:18px;font-size:24px;border:2px solid {{ o.bd }};background:{{ o.bg }};color:#fff;cursor:pointer">{{ o.label }}</div></sc-for>
+</div>
+<div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+<div style="font-size:20px;color:#8d93c8;width:170px">ЭКРАН</div>
+<sc-for list="{{ scrOpts }}" as="o" hint-placeholder-count="2"><div sc-camel-on-click="{{ o.on }}" style="padding:10px 18px;border-radius:18px;font-size:24px;border:2px solid {{ o.bd }};background:{{ o.bg }};color:#fff;cursor:pointer">{{ o.label }}</div></sc-for>
+</div>
+
+</sc-if></div>
+
+
+<sc-if value="{{ showMic }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;left:0;right:0;bottom:90px;display:flex;justify-content:center"><div style="display:flex;align-items:center;gap:16px;padding:16px 30px;border-radius:40px;background:rgba(10,14,60,.7);border:2px solid #1d2a8a;font-size:28px;color:#c9cdf0"><div style="width:16px;height:16px;border-radius:50%;background:{{ micColor }};box-shadow:0 0 16px {{ micColor }}"></div><span>{{ micText }}</span></div></div>
+</sc-if>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;discAnim&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;mix&quot;,&quot;code&quot;],&quot;default&quot;:&quot;mix&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Discovery&quot;},&quot;discShape&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;blob&quot;,&quot;play&quot;],&quot;default&quot;:&quot;blob&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Discovery&quot;},&quot;discDur&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:7,&quot;min&quot;:5,&quot;max&quot;:8,&quot;step&quot;:0.5,&quot;unit&quot;:&quot;s&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Discovery&quot;},&quot;showStatus&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Discovery&quot;},&quot;emit&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;threads&quot;,&quot;scatter&quot;,&quot;dots&quot;,&quot;codeDots&quot;,&quot;plainDots&quot;],&quot;default&quot;:&quot;dots&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Теги&quot;},&quot;loopSeq&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Сценарий&quot;},&quot;showPanel&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Сценарий&quot;},&quot;startScreen&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;choice&quot;,&quot;splash&quot;,&quot;intro&quot;,&quot;q1&quot;,&quot;q2&quot;,&quot;discovery&quot;],&quot;default&quot;:&quot;discovery&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Сценарий&quot;},&quot;splashMs&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:2600,&quot;min&quot;:800,&quot;max&quot;:8000,&quot;step&quot;:100,&quot;unit&quot;:&quot;ms&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Сценарий&quot;},&quot;tagLook&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;gradient&quot;,&quot;solid&quot;],&quot;default&quot;:&quot;gradient&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Теги&quot;}}">
+class Component extends DCLogic {
+  state = { screen: 'choice', scale: 0.4, picked: null, listening: false, heard: '', started: false, emit: null, code: null };
+  canvasRef = React.createRef(); fxRef = React.createRef(); discRef = React.createRef(); discStatusRef = React.createRef(); rootRef = React.createRef();
+  enterAt = performance.now(); modeW = { base: 1, ring: 0, teal: 1 };
+  G = '0123456789ABCDEF<>/{}#*+=';
+  D = '0123456789<>/{}[]#*+=:%$&';
+  TR = { а:'a',б:'b',в:'v',г:'g',д:'d',е:'e',ё:'e',ж:'zh',з:'z',и:'i',й:'y',к:'k',л:'l',м:'m',н:'n',о:'o',п:'p',р:'r',с:'s',т:'t',у:'u',ф:'f',х:'h',ц:'c',ч:'ch',ш:'sh',щ:'sh',ъ:'',ы:'y',ь:'',э:'e',ю:'yu',я:'ya',' ':'_' };
+  Q = [
+    { id: 'q1', label: '04 Вопрос 1', title: 'У вас внезапно освободился вечер. Что включаем?',
+      card: { x: 48, y: 560, img: (window.__resources && window.__resources.cardPopcorn) || 'assets/card-popcorn.png', alt: 'Новый сериал, который все обсуждают', words: ['сериал', 'новый', 'обсужда'] },
+      tags: [
+        { text: 'обсуждения', x: 623, y: 548, h: 92, pad: 48, accent: true, c: 'b' },
+        { text: 'сериал', x: 727, y: 777, h: 80, pad: 40, c: 'r' },
+        { text: 'премьера', x: 169, y: 943, h: 80, pad: 40, c: 'b' },
+        { text: 'популярное', x: 687, y: 1135, h: 80, pad: 40, c: 'r' }
+      ] },
+    { id: 'q2', label: '05 Вопрос 2', title: 'У вас внезапно освободился вечер. Что включаем?',
+      card: { x: 50, y: 862, img: (window.__resources && window.__resources.cardInterview) || 'assets/card-interview.png', alt: 'Интервью с интересным человеком', words: ['интервью', 'человек', 'интересн'] },
+      tags: [
+        { text: 'интервью', x: 145, y: 585, h: 80, pad: 40, c: 'b' },
+        { text: 'новости', x: 690, y: 692, h: 80, pad: 40, c: 'r' },
+        { text: 'подкаст', x: 675, y: 897, h: 92, pad: 48, accent: true, c: 'b' },
+        { text: 'люди', x: 175, y: 1153, h: 80, pad: 40, c: 'r' }
+      ] }
+  ];
+  order = ['choice', 'splash', 'intro', 'q1', 'q2', 'discovery'];
+
+  componentDidMount() {
+    this.fit = () => this.setState({ scale: Math.min(innerWidth / 1080, innerHeight / 1920) });
+    this.fit(); addEventListener('resize', this.fit);
+    this.loop = this.loop.bind(this); this.raf = requestAnimationFrame(this.loop);
+    const st = this.props.startScreen ?? 'discovery';
+    this.enterAt = performance.now();
+    this.setState({ screen: st }, () => this.onScreen(st));
+  }
+  componentWillUnmount() { cancelAnimationFrame(this.raf); removeEventListener('resize', this.fit); clearTimeout(this.tm); clearTimeout(this.adv); try { this.rec && (this.rec.onend = null, this.rec.stop()); } catch (e) {} window.speechSynthesis && speechSynthesis.cancel(); }
+
+  emitMode() { const m = this.state.emit ?? this.props.emit ?? 'dots'; return ['threads', 'scatter', 'dots', 'codeDots', 'plainDots'].includes(m) ? m : 'dots'; }
+  replay() { clearTimeout(this.adv); this.enterAt = performance.now(); this._ps = {}; this._dp = {}; this._bp = {}; this.setState({ picked: null }); }
+  go(screen) {
+    if (screen === this.state.screen) return this.replay();
+    clearTimeout(this.tm); clearTimeout(this.adv);
+    this.enterAt = performance.now(); this._ps = {}; this._dp = {}; this._bp = {};
+    this.setState({ screen, picked: null, heard: '' }, () => this.onScreen(screen));
+  }
+  onScreen(s) {
+    if (s === 'splash') this.tm = setTimeout(() => this.go('intro'), this.props.splashMs ?? 2600);
+    const lines = { choice: 'Что тебе сейчас ближе?', intro: 'Исследуй мир вместе с VK Видео. Со мной можно говорить своими словами. Скажи, например: поехали!', q1: this.Q[0].title, q2: 'А что ещё?', discovery: 'Подбираю для тебя персональную подборку' };
+    if (lines[s]) this.say(lines[s]);
+  }
+  say(text) {
+    if ((this.props.tts ?? false) === false || !this.state.started || !window.speechSynthesis) return;
+    speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text); u.lang = 'ru-RU'; u.rate = 1.02;
+    const v = speechSynthesis.getVoices().filter(v => /ru/i.test(v.lang));
+    const pref = v.find(v => /Milena|Google|Alena|Irina|Svetlana/i.test(v.name)) || v[0];
+    if (pref) u.voice = pref;
+    speechSynthesis.speak(u);
+  }
+  startVoice() {
+    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SR || (this.props.voice ?? false) === false) return;
+    const r = new SR(); r.lang = 'ru-RU'; r.continuous = true; r.interimResults = true;
+    r.onresult = e => { const res = e.results[e.results.length - 1]; const t = res[0].transcript.trim().toLowerCase(); this.setState({ heard: t }); if (res.isFinal) this.command(t); };
+    r.onerror = e => { if (e.error === 'not-allowed') this.setState({ listening: false }); };
+    r.onend = () => { if (this.state.listening) try { r.start(); } catch (e) {} };
+    try { r.start(); this.rec = r; this.setState({ listening: true }); } catch (e) {}
+  }
+  command(t) {
+    const s = this.state.screen, has = (...w) => w.some(x => t.includes(x));
+    if (s === 'choice') { if (has('видео', 'вк', 'vk')) this.go('splash'); else if (has('макс', 'max')) this.pickMaxFn(); }
+    else if (s === 'intro') { if (has('поехали', 'начать', 'начнём', 'начнем', 'давай', 'старт')) this.go('q1'); else if (has('назад')) this.go('choice'); }
+    else if (s === 'q1' || s === 'q2') {
+      const q = this.Q.find(x => x.id === s), tag = q.tags.find(g => t.includes(g.text.slice(0, 5)));
+      if (tag) this.pick(s, tag.text); else if (t.length > 2) this.pick(s, 'card');
+    }
+  }
+  pick(s, key) {
+    if (this.state.picked) return;
+    this.setState({ picked: key });
+    this.adv = setTimeout(() => this.go(s === 'q1' ? 'q2' : 'discovery'), 1100);
+  }
+  pickMaxFn() { const el = document.querySelector('[data-float="1"]'); if (el) el.animate([{ filter: 'brightness(1)' }, { filter: 'brightness(1.6)' }, { filter: 'brightness(1)' }], { duration: 500 }); this.say('Сценарий MAX пока в разработке'); }
+
+  hash(n) { const x = Math.sin(n * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); }
+  rg() { return this.G[(Math.random() * this.G.length) | 0]; }
+  codeOf(w, i) { return '#' + [...w.toLowerCase()].map(c => this.TR[c] ?? c).join('').slice(0, 9) + ':' + ((this.hash(i * 3 + w.length) * 255) | 0).toString(16).toUpperCase().padStart(2, '0'); }
+  bz(a, c, b, t) { const u = 1 - t; return { x: u * u * a.x + 2 * u * t * c.x + t * t * b.x, y: u * u * a.y + 2 * u * t * c.y + t * t * b.y }; }
+  edge(card, tx, ty) { const cx = card.x + card.w / 2, cy = card.y + card.h / 2, dx = tx - cx, dy = ty - cy; const k = Math.min(card.w / 2 / Math.abs(dx || 1e-3), card.h / 2 / Math.abs(dy || 1e-3)); return { x: cx + dx * k * 0.9, y: cy + dy * k * 0.9 }; }
+  scr(w, p) { const n = Math.floor(p * w.length); return [...w].map((c, j) => c === ' ' ? ' ' : (j < n ? c : this.rg())).join(''); }
+  mix(a, b, r) { const len = Math.round(a.length + (b.length - a.length) * r); let o = ''; for (let j = 0; j < len; j++) { const f = j / len; o += f < r - 0.15 ? (b[j] ?? '') : f < r + 0.15 ? this.rg() : (a[j] ?? this.rg()); } return o; }
+
+  loop(now) {
+    this.raf = requestAnimationFrame(this.loop);
+    const t = now / 1000, s = this.state.screen;
+    const target = { base: s === 'splash' ? 0.35 : 1, ring: s === 'splash' ? 1 : 0, teal: s === 'choice' ? 1 : 0 };
+    for (const k in target) this.modeW[k] += (target[k] - this.modeW[k]) * 0.04;
+    this.draw(t);
+    const since = (now - this.enterAt) / 1000;
+    document.querySelectorAll('[data-float]').forEach(el => {
+      const seed = +el.dataset.float || 0, scr = el.dataset.scr;
+      const dx = Math.sin(t * 0.6 + seed * 1.7) * 8, dy = Math.cos(t * 0.5 + seed * 2.3) * 10;
+      let k = 1; if (scr) k = scr === s ? Math.min(1, Math.max(0, (since - 0.3) / 0.6)) : 1;
+      const e = 1 - Math.pow(1 - k, 3);
+      el.style.transform = `translate(${dx}px,${dy + (1 - e) * 40}px) scale(${0.85 + 0.15 * e})`;
+      if (scr) el.style.opacity = e;
+    });
+    this.fxFrame(now, t, since);
+    this.discFrame(t, since);
+    if (this._rec) { this.composeFrame(); const sec = Math.floor(since); if (sec !== this.state.recT) this.setState({ recT: sec }); }
+  }
+  startRec() {
+    if (this._rec) return this.stopRec(true);
+    const types = ['video/mp4;codecs=avc1.640033', 'video/mp4;codecs=avc1.640028', 'video/mp4;codecs=avc1', 'video/mp4', 'video/webm;codecs=vp9', 'video/webm'];
+    const mt = window.MediaRecorder && types.find(t => MediaRecorder.isTypeSupported(t));
+    if (!mt) { alert('Браузер не поддерживает запись видео. Откройте в Chrome.'); return; }
+    if (!['q1', 'q2', 'discovery'].includes(this.state.screen)) this.go('q1');
+    const K = this.state.recRes === 'fhd' ? 1 : 2; this._K = K; const c = document.createElement('canvas'); c.width = 1080 * K; c.height = 1920 * K; this._rc = c; this.composeFrame();
+    const rec = new MediaRecorder(c.captureStream(30), { mimeType: mt, videoBitsPerSecond: K === 2 ? 40e6 : 16e6 }), chunks = [];
+    rec.ondataavailable = e => { if (e.data.size) chunks.push(e.data); };
+    rec.onstop = () => {
+      if (this._recCancel) return;
+      const url = URL.createObjectURL(new Blob(chunks, { type: mt.split(';')[0] })), a = document.createElement('a');
+      a.href = url; const scr = this.state.screen; a.download = (scr === 'discovery' ? 'stela-discovery' : 'stela-d2-' + (this.state.look ?? this.props.tagLook ?? 'gradient') + '-' + scr) + (this._K === 2 ? '-4k' : '-fullhd') + '.' + (mt.includes('mp4') ? 'mp4' : 'webm'); document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 10000);
+    };
+    this._recCancel = false; this._rec = rec; this.replay(); rec.start(500); this.setState({ rec: true, recT: 0 });
+  }
+  stopRec(cancel) { const r = this._rec; if (!r) return; this._recCancel = !!cancel; this._rec = null; try { r.stop(); } catch (e) {} this.setState({ rec: false, recT: 0 }); }
+  parseTr(str) { const m = /translate\(([-\d.]+)px,\s*([-\d.]+)px\)\s*scale\(([-\d.]+)\)/.exec(str || ''); return m ? { x: +m[1], y: +m[2], s: +m[3] } : { x: 0, y: 0, s: 1 }; }
+  wrap(g, text, max) { const out = []; let line = ''; for (const w of text.split(' ')) { const tst = line ? line + ' ' + w : w; if (g.measureText(tst).width > max && line) { out.push(line); line = w; } else line = tst; } if (line) out.push(line); return out; }
+  composeFrame() {
+    const c = this._rc; if (!c) return; const g = c.getContext('2d'), t = performance.now() / 1000, s = this.state.screen, F = "'VK Sans Display','Onest',system-ui,sans-serif";
+    const K = this._K || 2; g.setTransform(K, 0, 0, K, 0, 0);
+    g.save(); g.fillStyle = '#02021c'; g.fillRect(0, 0, 1080, 1920);
+    g.translate(540, 1190); g.scale(1, 1152 / 972);
+    const gr = g.createRadialGradient(0, 0, 0, 0, 0, 972); gr.addColorStop(0, '#0a1a8f'); gr.addColorStop(0.3, '#06106a'); gr.addColorStop(0.62, '#04043a'); gr.addColorStop(1, '#02021c');
+    g.fillStyle = gr; g.fillRect(-540, -1300, 1080, 2200); g.restore();
+    for (const r of [this.canvasRef, this.fxRef, this.discRef]) if (r.current) g.drawImage(r.current, 0, 0, 1080, 1920);
+    g.save(); g.font = "600 76px " + F; g.textBaseline = 'middle'; g.fillStyle = '#fff';
+    const tw = g.measureText('VK Видео').width, x0 = 540 - (148 + tw) / 2, hy = s === 'discovery' ? 136 : 136;
+    g.fillStyle = '#0a6cff'; g.beginPath(); g.roundRect(x0, hy + 3, 90, 105, 24); g.fill();
+    g.fillStyle = '#ff2b45'; g.beginPath(); g.roundRect(x0 + 18, hy, 90, 106, 24); g.fill();
+    const cx = x0 + 63, cy = hy + 53, lx = cx - 15; g.fillStyle = '#fff'; g.beginPath(); g.moveTo(lx, cy - 23); g.lineTo(lx, cy + 23); g.lineTo(lx + 38, cy); g.closePath(); g.fill();
+    g.fillText('VK Видео', x0 + 148, hy + 56);
+    g.restore();
+    const q = this.Q.find(x => x.id === s);
+    if (q) this.composeQ(g, q, t, F);
+    const st = this.discStatusRef.current;
+    if (s === 'discovery' && st && (this.props.showStatus ?? false)) { g.save(); g.font = "24px 'JetBrains Mono',monospace"; g.textAlign = 'center'; g.fillStyle = '#9fd0ff'; if ('letterSpacing' in g) g.letterSpacing = '2px'; g.fillText(st.textContent, 540, 293); g.restore(); }
+  }
+  composeQ(g, q, t, F) {
+    const sid = q.id, look = this.state.look ?? this.props.tagLook ?? 'gradient';
+    g.save(); g.font = "600 48px " + F; g.fillStyle = '#fff'; g.textAlign = 'center'; g.textBaseline = 'top';
+    this.wrap(g, q.title, 960).forEach((l, i) => g.fillText(l, 540, 334 + i * 52.8)); g.restore();
+    const ce = document.querySelector('[data-float][data-scr="' + sid + '"]'), img = ce && ce.querySelector('img');
+    if (ce && img && img.complete) {
+      const tr = this.parseTr(ce.style.transform), op = ce.style.opacity === '' ? 1 : +ce.style.opacity;
+      g.save(); g.globalAlpha = op; g.translate(q.card.x + 229 + tr.x, q.card.y + 137 + tr.y); g.scale(tr.s, tr.s);
+      g.shadowColor = 'rgba(0,20,120,.35)'; g.shadowBlur = 60; g.shadowOffsetY = 20; g.beginPath(); g.roundRect(-229, -137, 458, 274, 54); g.fillStyle = '#0a1a8f'; g.fill();
+      g.shadowColor = 'transparent'; g.clip(); g.drawImage(img, -229, -137, 458, 274); g.restore();
+    }
+    document.querySelectorAll('[data-tag][data-scr="' + sid + '"]').forEach(el => {
+      const op = +(el.style.opacity || 0); if (op < 0.01) return;
+      const w = el.offsetWidth, h = el.offsetHeight, X = +el.dataset.x, Y = +el.dataset.y, tr = this.parseTr(el.style.transform), bl = /blur\(([\d.]+)px\)/.exec(el.style.filter || '');
+      const tg = q.tags[+el.dataset.i], seed = +el.dataset.seed;
+      g.save(); g.globalAlpha = op; if (bl) g.filter = 'blur(' + bl[1] + 'px)';
+      g.translate(X + w / 2 + tr.x, Y + h / 2 + tr.y); g.scale(tr.s, tr.s);
+      if (look === 'solid') { const red = tg.c === 'r'; g.shadowColor = red ? 'rgba(255,43,69,.75)' : 'rgba(40,90,255,.8)'; g.shadowBlur = 34; g.fillStyle = red ? '#ff2b45' : '#1546ff'; g.beginPath(); g.roundRect(-w / 2, -h / 2, w, h, 14); g.fill(); }
+      else {
+        const cg = g.createConicGradient(((t * 60 + seed * 47) % 360 - 90) * Math.PI / 180, 0, 0); ['#1a3cff', '#3ee0ff', '#b44bff', '#ff2b6e', '#1a3cff'].forEach((c, i) => cg.addColorStop(i / 4, c));
+        g.shadowColor = 'rgba(62,140,255,.45)'; g.shadowBlur = 22; g.fillStyle = cg; g.beginPath(); g.roundRect(-w / 2, -h / 2, w, h, 14); g.fill();
+        g.shadowBlur = 0; g.fillStyle = '#070a2a'; g.beginPath(); g.roundRect(-w / 2 + 2, -h / 2 + 2, w - 4, h - 4, 12); g.fill();
+      }
+      g.shadowBlur = 0;
+      const sp = el.querySelector('[data-w]'), mono = (sp.style.fontFamily || '').includes('JetBrains'), fs = tg.accent ? 38 : 32;
+      g.font = mono ? '500 ' + fs + "px 'JetBrains Mono',monospace" : (tg.accent ? 600 : 500) + ' ' + fs + 'px ' + F;
+      g.fillStyle = mono ? '#9fe0ff' : '#fff'; g.textAlign = 'center'; g.textBaseline = 'middle';
+      if (look !== 'solid') { g.shadowColor = 'rgba(120,190,255,.5)'; g.shadowBlur = 12; }
+      g.fillText(sp.textContent, 0, 2); g.restore();
+    });
+  }
+
+
+  fxFrame(now, t, since) {
+    const fxc = this.fxRef.current; if (!fxc) return; const g = fxc.getContext('2d'); g.setTransform(2, 0, 0, 2, 0, 0); g.clearRect(0, 0, 1080, 1920);
+    const s = this.state.screen, q = this.Q.find(x => x.id === s), mode = this.emitMode();
+    const card = q ? { x: q.card.x, y: q.card.y, w: 458, h: 274 } : null;
+    const ball = mode === 'dots' || mode === 'codeDots' || mode === 'plainDots', noEnc = mode === 'dots' || mode === 'plainDots';
+    const tags = [], nT = q ? q.tags.length : 0, Tenc = 0.5 + (nT - 1) * 0.15 + 1.8 + 1.2;
+    document.querySelectorAll('[data-tag]').forEach(el => {
+      const d = el.dataset, seed = +d.seed, v = d.v;
+      el.style.setProperty('--a', ((t * (v === 'B' ? 150 : 60) + seed * 47) % 360).toFixed(1));
+      el.style.setProperty('--s', (((t * 0.5 + seed * 0.23) % 1.6) - 0.3).toFixed(3));
+      el.style.setProperty('--g', (0.55 + 0.45 * Math.sin(t * 2.2 + seed)).toFixed(3));
+      if (d.scr !== s || !card) return;
+      const i = +d.i, X = +d.x, Y = +d.y, w = el.offsetWidth, h = el.offsetHeight, end = { x: X + w / 2, y: Y + h / 2 };
+      const delay = 0.5 + i * 0.15, dur = 1.8, enc = Tenc + i * 0.12, dis = noEnc ? enc + 0.2 : enc + 1.0;
+      const st = this.edge(card, end.x, end.y);
+      const nx = -(end.y - st.y), ny = end.x - st.x, nl = Math.hypot(nx, ny) || 1, side = i % 2 ? 1 : -1;
+      const ctrl = { x: (st.x + end.x) / 2 + nx / nl * 140 * side, y: (st.y + end.y) / 2 + ny / nl * 140 * side };
+      const p = Math.min(1, Math.max(0, (since - delay) / dur)), e = 1 - Math.pow(1 - p, 4);
+      const sx = Math.sin(t * 0.6 + seed * 1.7) * 7, sy = Math.cos(t * 0.5 + seed * 2.3) * 9;
+      let tx, ty, sc, op, bl;
+      if (mode === 'scatter') {
+        const k = Math.min(1, Math.max(0, (since - delay - 0.9) / 0.7)), ke = 1 - Math.pow(1 - k, 3);
+        tx = sx * ke; ty = sy * ke; sc = 0.9 + 0.1 * ke; op = ke; bl = (1 - ke) * 6;
+      } else {
+        const P = this.bz(st, ctrl, end, e);
+        tx = P.x - end.x + sx * e; ty = P.y - end.y + sy * e; sc = 0.3 + 0.7 * e; op = Math.min(1, p * 2.5); bl = (1 - e) * 9;
+      }
+      const life = since > dis ? Math.max(0, 1 - (since - dis) / 0.45) : 1;
+      if (life < 1) { op *= life; bl = Math.max(bl, (1 - life) * 8); sc *= 1 + (1 - life) * 0.08; }
+      el.style.transform = `translate(${tx.toFixed(1)}px,${ty.toFixed(1)}px) scale(${sc.toFixed(3)})`;
+      el.style.opacity = op.toFixed(3); el.style.filter = bl > 0.2 ? `blur(${bl.toFixed(1)}px)` : 'none';
+      this.tagText(el, t, noEnc ? 0 : Math.min(1, Math.max(0, (since - enc) / 0.8)));
+      tags.push({ st, ctrl, end, e, p, i, seed, w, h, X, Y, delay, dur, life, dis, code: d.code, cx: end.x + tx, cy: end.y + ty });
+    });
+    if (!card) return;
+    const L = mode === 'codeDots' ? Tenc + (nT - 1) * 0.12 + 1.0 + 6.75 : Tenc + nT * 0.12 + (ball ? 8 : 6);
+    this._T = L; if (this._rec && since >= L) this.stopRec();
+    if ((this.props.loopSeq ?? true) && since > L) { this.replay(); return; }
+    g.save(); g.font = "500 18px 'JetBrains Mono',monospace"; g.textAlign = 'center'; g.textBaseline = 'middle';
+    if (mode !== 'codeDots') this.ambient(g, card, t, mode === 'scatter' ? 60 : 34, ball);
+    if (mode === 'threads' || mode === 'codeDots') this.fxThreads(g, tags, t, mode === 'codeDots');
+    if (mode === 'scatter') this.fxScatter(g, tags, card, since);
+    if (ball) { if (mode !== 'codeDots') this.fxThreadDots(g, tags, t); this.fxBalls(g, tags, since, t, Tenc, mode !== 'dots', mode === 'codeDots'); }
+    else this.fxDissolve(g, tags, since, t, Tenc);
+    g.restore();
+  }
+  tagText(el, t, r) {
+    const tick = Math.floor(t * 18); if (el._tk === tick) return; el._tk = tick;
+    const w = el.dataset.word, code = el.dataset.code, span = el.querySelector('[data-w]');
+    const txt = r <= 0 ? w : r >= 1 ? this.scr(code, 0.7 + 0.3 * Math.random()) : this.mix(w, code, r);
+    if (span.textContent !== txt) span.textContent = txt;
+    const c = r > 0.3; span.style.fontFamily = c ? "'JetBrains Mono',monospace" : ''; span.style.color = c ? '#9fe0ff' : '';
+  }
+  fxDissolve(g, tags, since, t, Tenc) {
+    const G0 = { x: 900, y: 520 }, SC = { x: 1010, y: 330 }, E = { x: 1180, y: 30 }, D = this.D;
+    this._dp = this._dp || {};
+    g.font = "500 22px 'JetBrains Mono',monospace";
+    for (const T of tags) {
+      if (since < T.dis || this._dp[T.i]) continue;
+      const arr = [];
+      for (let k = 0; k < 40; k++) {
+        const from = { x: T.cx - T.w / 2 + Math.random() * T.w, y: T.cy - T.h / 2 + Math.random() * T.h };
+        arr.push({ from, ctrl: { x: from.x * 0.55 + G0.x * 0.45 + (Math.random() - 0.5) * 160, y: from.y * 0.25 + G0.y * 0.75 + (Math.random() - 0.5) * 100 }, t0: T.dis + Math.random() * 0.4, d1: 1.4 + Math.random() * 0.8, d2: 1.1 + Math.random() * 0.6, lane: (Math.random() - 0.5) * 70, c: (Math.random() * 99) | 0, src: T.code });
+      }
+      this._dp[T.i] = arr;
+    }
+    for (const k in this._dp) for (const p of this._dp[k]) {
+      const u = since - p.t0; if (u < 0) continue;
+      let P, a, f = 1;
+      if (u < p.d1) {
+        f = u / p.d1; const e = f < 0.5 ? 2 * f * f : 1 - Math.pow(-2 * f + 2, 2) / 2;
+        P = this.bz(p.from, p.ctrl, { x: G0.x + p.lane * 0.42, y: G0.y + p.lane * 0.42 }, e); a = Math.min(1, f * 6);
+      } else {
+        const v = (u - p.d1) / p.d2; if (v > 1) continue;
+        const Q = this.bz(G0, SC, E, v), off = p.lane * 0.6 * (1 - v * 0.7);
+        P = { x: Q.x + off * 0.7, y: Q.y + off * 0.7 + Math.sin(t * 3 + p.c) * 3 }; a = 1 - v * v;
+      }
+      const ch = f < 0.4 ? p.src[p.c % p.src.length] : D[(p.c + Math.floor(since * 9)) % D.length];
+      g.fillStyle = `rgba(${150 + (p.c % 80)},${215 + (p.c % 40)},255,${a * 0.95})`;
+      g.fillText(ch, P.x, P.y);
+    }
+    const on = Math.min(1, Math.max(0, (since - Tenc - 1.6) / 1.2));
+    if (on > 0) for (let k = 0; k < 70; k++) {
+      const v = (t * 0.32 + k / 70) % 1, Q = this.bz(G0, SC, E, v), off = (this.hash(k * 13) - 0.5) * 34 * (1 - v * 0.5);
+      g.fillStyle = `rgba(150,215,255,${on * Math.sin(Math.PI * v) * (0.3 + 0.5 * this.hash(k + 7))})`;
+      g.fillText(D[(k * 7 + Math.floor(t * 6)) % D.length], Q.x + off * 0.7, Q.y + off * 0.7);
+    }
+  }
+  ambient(g, card, t, n, ball) {
+    for (let k = 0; k < n; k++) {
+      const ph = (t * 0.22 + k / n) % 1, h1 = this.hash(k), h2 = this.hash(k + 99);
+      const x = card.x + card.w - 20 + ph * (220 + h2 * 160), y = card.y + 20 + h1 * (card.h - 40) - ph * (40 + h2 * 80) + Math.sin(t * 1.3 + k) * 8;
+      const a = Math.sin(Math.PI * ph) * 0.55; if (a < 0.03) continue;
+      if (ball) { g.fillStyle = `rgba(255,255,255,${a})`; g.beginPath(); g.arc(x, y, 1.5 + 4 * h2 * h2, 0, 6.283); g.fill(); }
+      else { g.fillStyle = `rgba(140,210,255,${a})`; g.fillText(this.D[(Math.floor(t * 4) + k * 7) % this.D.length], x, y); }
+    }
+  }
+  fxThreadDots(g, tags, t) {
+    for (const T of tags) {
+      if (T.p <= 0 || T.life <= 0) continue;
+      const arrived = T.p >= 1, M = 18;
+      for (let k = 0; k < M; k++) {
+        const f = (t * (arrived ? 0.22 : 0.5) + k / M + T.seed * 0.13) % 1, P = this.bz(T.st, T.ctrl, T.end, f * T.e), h = this.hash(k * 7 + T.i * 31), h2 = this.hash(k * 3 + T.i * 17);
+        const a = Math.sin(Math.PI * f) * (arrived ? 0.8 : 0.95) * T.life; if (a < 0.03) continue;
+        g.fillStyle = `rgba(255,255,255,${a})`; g.beginPath(); g.arc(P.x + (h - 0.5) * 22, P.y + (h2 - 0.5) * 22, 1.8 + 6 * h * h, 0, 6.283); g.fill();
+      }
+      if (!arrived) { const H = this.bz(T.st, T.ctrl, T.end, T.e); g.fillStyle = `rgba(255,255,255,${T.life})`; g.shadowColor = '#7fb4ff'; g.shadowBlur = 22; g.beginPath(); g.arc(H.x, H.y, 8, 0, 6.283); g.fill(); g.shadowBlur = 0; }
+    }
+  }
+  fxBalls(g, tags, since, t, Tenc, matrix, quick) {
+    const G0 = { x: quick ? 1010 : 900, y: 520 }, SC = { x: 1010, y: 330 }, E = { x: 1180, y: 30 }, R = Math.random;
+    const cl = v => v < 0 ? 0 : v > 1 ? 1 : v, back = v => 1 + 2.70158 * Math.pow(v - 1, 3) + 1.70158 * Math.pow(v - 1, 2);
+    this._bp = this._bp || {};
+    const cloudT = Math.max(0, ...tags.map(T => T.dis)) + 5.15;
+    for (const T of tags) {
+      if (since < T.dis || this._bp[T.i]) continue;
+      const arr = [], x0 = T.cx - T.w / 2, y0 = T.cy - T.h / 2;
+      const mk = (fx, fy, r, tm, tf) => ({ fx, fy, r, tm, tf, ctrl: { x: fx * 0.55 + G0.x * 0.45 + (R() - 0.5) * 180, y: fy * 0.25 + G0.y * 0.75 + (R() - 0.5) * 120 }, d1: quick ? 1.95 : 1.4 + R() * 0.8, gd: quick ? 0.7 : 0.35, d2: quick ? 0.22 + R() * 0.12 : 1.1 + R() * 0.6, lane: (R() - 0.5) * (quick ? 220 : 70), ang: R() * 6.283, rad: Math.sqrt(R()) * 145, lag: R() * 0.35 });
+      if (matrix) {
+        const cols = Math.max(3, Math.round(T.w / 17)), rows = Math.max(3, Math.round(T.h / 17));
+        for (let a = 0; a < cols; a++) for (let b = 0; b < rows; b++) {
+          if ((a === 0 || a === cols - 1) && (b === 0 || b === rows - 1)) continue;
+          const h = R(), fa = a / cols;
+          if (quick) {
+            const fx = x0 + R() * T.w, fy = y0 + R() * T.h, tm = T.dis + R() * 1.0, p = mk(fx, fy, 1.6 + 6 * h * h, tm, tm + 2.0);
+            p.sx = fx + (R() - 0.5) * 300; p.sy = fy + (R() - 0.5) * 220; p.mx = (fx + p.sx) / 2 + (R() - 0.5) * 320; p.my = (fy + p.sy) / 2 + (R() - 0.5) * 320; p.gd = 2.0;
+            p.ctrl = { x: p.sx * 0.55 + G0.x * 0.45 + (R() - 0.5) * 180, y: p.sy * 0.25 + G0.y * 0.75 + (R() - 0.5) * 120 };
+            arr.push(p);
+          } else arr.push(mk(x0 + (a + 0.5) * T.w / cols, y0 + (b + 0.5) * T.h / rows, 1.6 + 6 * h * h, T.dis + fa * 0.35, T.dis + 1.7 + fa * 0.45 + R() * 0.3));
+        }
+      } else for (let k = 0; k < 55; k++) { const h = R(), tm = T.dis + R() * 0.2; arr.push(mk(x0 + R() * T.w, y0 + R() * T.h, 1.6 + 6.5 * h * h, tm, tm + 0.05 + R() * 0.3)); }
+      this._bp[T.i] = arr;
+    }
+    for (const k in this._bp) for (const p of this._bp[k]) {
+      if (since < p.tm) continue;
+      let x = p.fx, y = p.fy, r = p.r, a = 1;
+      if (since < p.tf) { const m = cl((since - p.tm) / p.gd); if (quick) { const e = m + 0.5 * m * (1 - m), P = this.bz({ x: p.fx, y: p.fy }, { x: p.mx, y: p.my }, { x: p.sx, y: p.sy }, e); x = P.x; y = P.y; r *= Math.max(0, back(m)); } else r *= Math.max(0, back(m)) * (1 + 0.22 * Math.sin(t * 6 - p.fx * 0.04)); a = Math.min(1, m * 2); }
+      else if (quick) {
+        const u = since - p.tf, ox = Math.cos(p.ang) * p.rad, oy = Math.sin(p.ang) * p.rad * 0.92, heap = { x: G0.x + ox, y: G0.y + oy };
+        if (u < p.d1) { const P = this.bz({ x: p.sx, y: p.sy }, p.ctrl, heap, u / p.d1); x = P.x; y = P.y; }
+        else { const v = (u - p.d1) / 1.2; if (v >= 1) continue; const e = 0.5 * v + 0.5 * v * v, P = this.bz(heap, { x: heap.x + 160, y: heap.y - 120 }, { x: 1350 + ox * 1.6, y: -220 + oy * 1.6 }, e); x = P.x; y = P.y; a = 1 - cl((v - 0.6) / 0.4); }
+      }
+      else {
+        const u = since - p.tf;
+        if (u < p.d1) { const f = u / p.d1, e = f < 0.5 ? 2 * f * f : 1 - Math.pow(-2 * f + 2, 2) / 2, P = this.bz({ x: p.fx, y: p.fy }, p.ctrl, { x: G0.x + p.lane * 0.42, y: G0.y + p.lane * 0.42 }, e); x = P.x; y = P.y; r *= 1 - 0.25 * e; }
+        else { const v = (u - p.d1) / p.d2; if (v > 1) continue; const Q = this.bz(G0, SC, E, v), off = p.lane * 0.6 * (1 - v * 0.7); x = Q.x + off * 0.7; y = Q.y + off * 0.7 + Math.sin(t * 3 + p.fx) * 3; a = 1 - v * v; r *= 0.75 - 0.3 * v; }
+      }
+      if (r < 0.3 || a < 0.02) continue;
+      g.fillStyle = `rgba(255,255,255,${a})`; g.beginPath(); g.arc(x, y, r, 0, 6.283); g.fill();
+    }
+    const on = quick ? 0 : cl((since - Tenc - 1.6) / 1.2);
+    if (on > 0) for (let k = 0; k < 60; k++) {
+      const v = (t * (quick ? 0.5 : 0.32) + k / 60) % 1, Q = this.bz(G0, SC, E, v), off = (this.hash(k * 13) - 0.5) * (quick ? 120 : 34) * (1 - v * 0.5), h = this.hash(k + 7);
+      g.fillStyle = `rgba(255,255,255,${on * Math.sin(Math.PI * v) * (0.35 + 0.5 * h)})`; g.beginPath(); g.arc(Q.x + off * 0.7, Q.y + off * 0.7, 1.5 + 4.5 * h * h, 0, 6.283); g.fill();
+    }
+  }
+  fxThreads(g, tags, t, noGlyph) {
+    g.lineCap = 'round';
+    for (const T of tags) {
+      if (T.p <= 0 || T.life <= 0) continue;
+      g.globalAlpha = T.life;
+      const N = 28, pts = []; for (let j = 0; j <= N; j++) pts.push(this.bz(T.st, T.ctrl, T.end, T.e * j / N));
+      const arrived = T.p >= 1, base = arrived && !noGlyph ? 0.3 + 0.15 * Math.sin(t * 1.5 + T.seed) : 0.95, H = pts[N];
+      const grad = g.createLinearGradient(T.st.x, T.st.y, H.x, H.y); grad.addColorStop(0, 'rgba(80,140,255,0.05)'); grad.addColorStop(1, `rgba(150,215,255,${base})`);
+      g.shadowColor = '#3f8cff'; g.shadowBlur = 16; g.strokeStyle = grad; g.lineWidth = arrived && !noGlyph ? 1.6 : 2.8;
+      g.beginPath(); pts.forEach((P, j) => j ? g.lineTo(P.x, P.y) : g.moveTo(P.x, P.y)); g.stroke();
+      if (!arrived) { g.fillStyle = 'rgba(225,242,255,.95)'; g.shadowColor = '#7fd8ff'; g.shadowBlur = 26; g.beginPath(); g.arc(H.x, H.y, 5, 0, 7); g.fill(); }
+      g.shadowBlur = 0;
+      const M = noGlyph ? 0 : arrived ? 6 : 10;
+      for (let k = 0; k < M; k++) {
+        const f = (t * (arrived ? 0.25 : 0.6) + k / M + T.seed * 0.13) % 1, P = this.bz(T.st, T.ctrl, T.end, f * T.e);
+        g.fillStyle = `rgba(150,215,255,${Math.sin(Math.PI * f) * (arrived ? 0.7 : 0.9)})`;
+        g.fillText(this.D[(Math.floor(t * 6) + k * 5 + T.i) % this.D.length], P.x, P.y - 12 * Math.sin(k * 2.1));
+      }
+    }
+    g.globalAlpha = 1;
+  }
+  fxScatter(g, tags, card, since) {
+    this._ps = this._ps || {};
+    for (const T of tags) {
+      if (!this._ps[T.i] && since > T.delay - 0.05) {
+        const arr = [];
+        for (let k = 0; k < 46; k++) {
+          const from = { x: card.x + card.w * (0.35 + Math.random() * 0.65), y: card.y + Math.random() * card.h };
+          const to = { x: T.X + Math.random() * T.w, y: T.Y + Math.random() * T.h };
+          const mid = { x: (from.x + to.x) / 2 + (Math.random() - 0.5) * 320, y: (from.y + to.y) / 2 + (Math.random() - 0.5) * 320 };
+          arr.push({ from, to, mid, t0: T.delay + Math.random() * 0.6, dur: 0.9 + Math.random() * 0.8, glyph: Math.random() < 0.5, sz: 4 + Math.random() * 6, c: (Math.random() * this.G.length) | 0 });
+        }
+        this._ps[T.i] = arr;
+      }
+      for (const p of this._ps[T.i] || []) {
+        const u = (since - p.t0) / p.dur; if (u < 0 || u > 1.35) continue;
+        const e = u < 1 ? 1 - Math.pow(1 - u, 3) : 1, P = this.bz(p.from, p.mid, p.to, e);
+        const a = u < 1 ? 0.95 : (1 - (u - 1) / 0.35) * 0.95;
+        const r = 30 + 120 * e | 0, gg = 80 + 135 * e | 0;
+        g.fillStyle = `rgba(${r},${gg},255,${a})`;
+        if (p.glyph) g.fillText(this.G[(p.c + Math.floor(since * 8)) % this.G.length], P.x, P.y); else g.fillRect(P.x - p.sz / 2, P.y - p.sz / 2, p.sz, p.sz);
+      }
+    }
+  }
+  draw(t) {
+    const c = this.canvasRef.current; if (!c) return; const g = c.getContext('2d'); g.setTransform(2, 0, 0, 2, 0, 0);
+    g.clearRect(0, 0, 1080, 1920);
+    const P = 22, S = 11, W = this.modeW, cx = 520, cy = 1010, R = 470;
+    for (let y = 0; y < 1920; y += P) for (let x = 0; x < 1080; x += P) {
+      const n = Math.sin(x * 0.006 + t * 0.35) * Math.cos(y * 0.0045 - t * 0.25) + Math.sin((x + y) * 0.003 + t * 0.2) * 0.6 + Math.sin(x * 0.013 - y * 0.009 + t * 0.5) * 0.35;
+      let a = Math.max(0, n - 0.15) * 0.55 * W.base;
+      const yv = y / 1920; a *= 0.45 + 0.55 * Math.sin(Math.PI * Math.min(1, yv * 1.15));
+      let r = 26, gg = 80, b = 255;
+      if (W.teal > 0.01) { const tl = Math.max(0, (y - 850) / 900) * W.teal; r += (20 - r) * tl; gg += (110 - gg) * tl; b += (170 - b) * tl; a *= 1 - 0.15 * W.teal; }
+      if (W.ring > 0.01) {
+        const d = Math.hypot((x - cx) * 0.95, (y - cy) * 0.82), ring = Math.exp(-Math.pow((d - R - Math.sin(t * 1.4) * 10) / 34, 2));
+        const ra = ring * (0.6 + 0.4 * Math.sin(Math.atan2(y - cy, x - cx) * 3 - t * 2.2)) * W.ring;
+        if (ra > 0.02) { const mix = Math.min(1, ra * 1.4); r += (230 - r) * mix; gg += (70 - gg) * mix; b += (170 - b) * mix; a = Math.max(a, ra * 0.95); }
+      }
+      if (a < 0.03) continue;
+      g.fillStyle = `rgba(${r | 0},${gg | 0},${b | 0},${Math.min(0.95, a)})`;
+      g.fillRect(x + 4, y + 4, S, S);
+    }
+  }
+
+  discMode() { const m = this.state.disc ?? this.props.discAnim; return m === 'code' ? 'code' : 'mix'; }
+  discShape() { return this.state.dshape ?? this.props.discShape ?? 'blob'; }
+  mixc(a, b, k) { return a.map((v, i) => (v + (b[i] - v) * k) | 0).join(','); }
+  dots(shape) {
+    if (this._dots && this._dotsK === shape) return this._dots;
+    const out = [], tri = [[330, 700], [330, 1340], [870, 1020]];
+    for (let j = 0; j < 28; j++) for (let i = -2; i < 17; i++) {
+      const x = 121 + 57.2 * i, y = 362 + 57.2 * j, k = j * 19 + i + 2, h = this.hash(k + 1), h2 = this.hash(k * 3.7 + 11), h3 = this.hash(k * 1.3 + 5);
+      let v;
+      if (shape === 'play') {
+        let dm = 1e9;
+        for (let e = 0; e < 3; e++) { const [ax, ay] = tri[e], [bx, by] = tri[(e + 1) % 3], ex = bx - ax, ey = by - ay; dm = Math.min(dm, ((x - ax) * ey - (y - ay) * ex) / Math.hypot(ex, ey)); }
+        v = Math.max(0, Math.min(1, dm / 110));
+      } else {
+        const dx = x - 555, dy = (y - 1200) * 0.88, th = Math.atan2(dy, dx), d = Math.hypot(dx, dy);
+        const rad = 430 + 45 * Math.sin(3 * th + 0.7) + 35 * Math.sin(5 * th - 1.2) + 25 * Math.cos(2 * th);
+        v = Math.max(0, Math.min(1, (rad - d) / 140), Math.max(0, 1 - Math.hypot((x - 560) / 160, (y - 400) / 60)) * 0.7);
+      }
+      if (h < 0.14) v *= 0.2;
+      let R = v > 0.04 ? 2.5 + 15 * v * (0.3 + 0.7 * h2) : 0, A = 1;
+      if (!R) { const n = 0.5 + 0.25 * Math.sin(x * 0.011 + y * 0.004) + 0.25 * Math.cos(y * 0.009 - x * 0.003), big = h2 * (0.6 + 0.8 * n) > 0.78; R = big ? 5.5 + 7 * n * (0.6 + 0.4 * h) : 1.4 + 3.6 * n * (0.5 + 0.5 * h); A = big ? 0.5 + 0.35 * n : 0.3 + 0.3 * n; }
+      out.push({ x, y, k, h, h2, h3, cl: (h3 * 5) | 0, R, A });
+    }
+    this._dots = out; this._dotsK = shape; return out;
+  }
+  discFrame(t, since) {
+    const c = this.discRef.current; if (!c) return; const g = c.getContext('2d'); g.setTransform(2, 0, 0, 2, 0, 0);
+    if (this.state.screen !== 'discovery') { if (!this._dcl) { g.clearRect(0, 0, 1080, 1920); this._dcl = true; } return; }
+    this._dcl = false; g.clearRect(0, 0, 1080, 1920);
+    const mode = this.discMode(), T = mode === 'mix' ? 23.3 : (this.props.discDur ?? 7), u = since / T, dots = this.dots(this.discShape());
+    this._T = T;
+    if (this._rec && since >= T) this.stopRec();
+    if ((this.props.loopSeq ?? true) && since > T + (mode === 'code' ? 1.5 : 0)) { this.replay(); return; }
+    const cl = v => v < 0 ? 0 : v > 1 ? 1 : v, io = v => v < .5 ? 4 * v * v * v : 1 - Math.pow(-2 * v + 2, 3) / 2, eo = v => 1 - Math.pow(1 - v, 3);
+    const back = v => 1 + 2.70158 * Math.pow(v - 1, 3) + 1.70158 * Math.pow(v - 1, 2);
+    const hold = cl((u - 0.85) / 0.1), br = d => 1 + 0.07 * Math.sin(t * 2.2 + d.h * 9) * hold, D = this.D, W = [255, 255, 255];
+    const dot = (x, y, r, a, col) => { if (r <= 0.3 || a <= 0.02) return; g.fillStyle = `rgba(${col || '255,255,255'},${a})`; g.beginPath(); g.arc(x, y, r, 0, 6.2832); g.fill(); };
+    g.save(); g.textAlign = 'center'; g.textBaseline = 'middle'; g.font = "500 20px 'JetBrains Mono',monospace";
+    if (mode === 'code') {
+      const O = { x: 1120, y: 340 }, amb = cl(u / 0.08) * (1 - cl((u - 0.6) / 0.15)), ring = cl((u - 0.8) / 0.18), rr = ring * 1250;
+      for (let n = 0; n < 60; n++) { const v = (t * 0.45 + n / 60) % 1, h = this.hash(n * 5.3), P = this.bz(O, { x: 760, y: 400 }, { x: 560 + (h - 0.5) * 700, y: 1250 + (h - 0.5) * 500 }, v); g.fillStyle = `rgba(150,215,255,${amb * Math.sin(Math.PI * v) * 0.6})`; g.fillText(D[(n * 7 + Math.floor(t * 8)) % D.length], P.x, P.y); }
+      for (const d of dots) {
+        if (d.R === 0) continue;
+        const t0 = 0.04 + Math.hypot(d.x - 1080, d.y - 250) / 1700 * 0.42 + d.h * 0.08, f = cl((u - t0) / 0.16); if (f <= 0) continue;
+        const land = cl((u - t0 - 0.16) / 0.08);
+        if (f < 1) { const P = this.bz(O, { x: d.x + 260, y: Math.max(360, Math.min(d.y, 520) - 120) }, d, io(f)); g.font = `500 ${18 + 10 * f | 0}px 'JetBrains Mono',monospace`; g.fillStyle = `rgba(160,220,255,${0.4 + 0.6 * f})`; g.fillText(D[(d.k + Math.floor(t * 14)) % D.length], P.x, P.y); }
+        else { if (land < 1) { g.font = "500 28px 'JetBrains Mono',monospace"; g.fillStyle = `rgba(200,235,255,${(1 - land) * d.A})`; g.fillText(D[d.k % D.length], d.x, d.y); } let wb = 0; if (ring > 0 && ring < 1) { const dd = Math.abs(Math.hypot(d.x - 555, d.y - 1150) - rr); if (dd < 110) wb = Math.pow(1 - dd / 110, 2) * (1 - ring * 0.4); } dot(d.x, d.y, d.R * back(land) * br(d) + wb * 6, Math.min(1, d.A + wb * 0.5), land < 1 ? '200,230,255' : null); }
+      }
+    }
+    else {
+      const ts = since, p1 = io(cl((ts - 6.0) / 5.0)), p2 = io(cl((ts - 11.0) / 2.8)), p3 = io(cl((ts - 19.8) / 1.4)), p4 = io(cl((ts - 20.3) / 1.4));
+      const amp = p1 * (1 - p4), net = p2 * (1 - p3), ring = cl((ts - 21.5) / 1.26), rr = ring * 1250;
+      const S = [[300 + 200 * Math.sin(t * 0.7), 800 + 300 * Math.cos(t * 0.5)], [800 + 150 * Math.cos(t * 0.6), 1300 + 250 * Math.sin(t * 0.8)], [555, 1150]];
+      const P = dots.map(d => {
+        const nx = 90 + d.h2 * 900 + Math.sin(t * 0.7 + d.h * 20) * 26, ny = 380 + d.h3 * 1420 + Math.cos(t * 0.6 + d.h2 * 20) * 26;
+        const x = d.x + (nx - d.x) * net, y = d.y + (ny - d.y) * net;
+        let w = 0; for (const [sx, sy] of S) w += Math.sin(Math.hypot(x - sx, y - sy) * 0.022 - t * 4.5); w = w / 6 + 0.5;
+        const fr = 1.5 + 12 * w * w * w;
+        let r = d.R + (fr - d.R) * amp;
+        let wb = 0; if (ring > 0 && ring < 1) { const dd = Math.abs(Math.hypot(d.x - 555, d.y - 1150) - rr); if (dd < 110) wb = Math.pow(1 - dd / 110, 2) * (1 - ring * 0.4); }
+        r += wb * (d.A === 1 ? 6 : 7);
+        const ap = cl((ts - Math.hypot(d.x - 555, d.y - 1150) / 1300 * 2.8 - d.h * 0.3) / 1.0);
+        if (ap < 1) r *= back(ap);
+        const al = Math.min(1, (d.A < 1 ? Math.max(d.A, amp * (0.4 + 0.5 * w)) : 1) + wb * 0.5) * cl(ap * 2);
+        return { x, y, r, al, d };
+      });
+      if (net > 0.02) {
+        g.lineWidth = 1.4;
+        for (let i = 0; i < P.length; i++) for (let j = i + 1; j < P.length; j++) {
+          const dx = P[i].x - P[j].x, dy = P[i].y - P[j].y, dd = dx * dx + dy * dy; if (dd > 16900) continue;
+          const la = net * Math.min(P[i].al, P[j].al) * (1 - Math.sqrt(dd) / 130) * 0.55; if (la < 0.02) continue;
+          g.strokeStyle = `rgba(110,170,255,${la})`; g.beginPath(); g.moveTo(P[i].x, P[i].y); g.lineTo(P[j].x, P[j].y); g.stroke();
+          if ((i * 7 + j) % 9 === 0) { const f = (t * 1.2 + P[i].d.h) % 1; dot(P[i].x - dx * f, P[i].y - dy * f, 2.6, net * 0.95, '200,235,255'); }
+        }
+      }
+      const col = this.mixc(W, [130, 190, 255], amp * 0.7);
+      for (const p of P) dot(p.x, p.y, Math.max(0, p.r), Math.min(1, p.al), amp > 0.01 ? col : null);
+    }
+    g.restore();
+    const el = this.discStatusRef.current;
+    if (el) { const ph = u < 0.3 ? 'СОБИРАЮ СИГНАЛЫ' : u < 0.55 ? 'АНАЛИЗИРУЮ ИНТЕРЕСЫ' : u < 0.85 ? 'ПОДБИРАЮ ВИДЕО' : 'ПОДБОРКА ГОТОВА'; const txt = ph + ' · ' + Math.min(100, Math.round(u / 0.85 * 100)) + '%'; if (el.textContent !== txt) el.textContent = txt; }
+  }
+
+  tagStyle(tg, sel) {
+    const look = this.state.look ?? this.props.tagLook ?? 'gradient';
+    if (look === 'solid' && !sel) { const red = tg.c === 'r', c = red ? '#ff2b45' : '#1546ff', gl = red ? 'rgba(255,43,69,.75)' : 'rgba(40,90,255,.8)'; return { bg: `linear-gradient(${c},${c}) padding-box, linear-gradient(${c},${c}) border-box`, shadow: `0 0 34px ${gl}`, ts: 'none' }; }
+    if (sel) return { bg: 'linear-gradient(#0a3cff,#0a3cff) padding-box, linear-gradient(#9fb6ff,#9fb6ff) border-box', shadow: '0 0 40px rgba(60,120,255,.8)', ts: 'none' };
+    return { bg: 'linear-gradient(#070a2a,#070a2a) padding-box, conic-gradient(from calc(var(--a) * 1deg), #1a3cff, #3ee0ff, #b44bff, #ff2b6e, #1a3cff) border-box', shadow: '0 0 22px rgba(62,140,255,.45), inset 0 0 16px rgba(62,140,255,.18)', ts: '0 0 12px rgba(120,190,255,.5)' };
+  }
+
+  renderVals() {
+    const s = this.state.screen, idx = this.order.indexOf(s);
+    const vis = id => { const i = this.order.indexOf(id), on = i === idx; return { o: on ? 1 : 0, t: on ? 'none' : (i < idx ? 'translateY(-60px)' : 'translateY(60px)'), pe: on ? 'auto' : 'none' }; };
+    const v = {}; ['choice', 'splash', 'intro', 'discovery'].forEach(k => v[k] = vis(k));
+    const picked = this.state.picked, em = this.emitMode();
+    const questions = this.Q.map((q, qi) => ({
+      ...vis(q.id), id: q.id, label: q.label, title: q.title, cardSeed: 10 + qi,
+      card: { ...q.card, shadow: picked === 'card' && s === q.id ? '0 0 0 6px #fff, 0 0 60px rgba(60,110,255,.8)' : '0 20px 60px rgba(0,20,120,.35)' },
+      onCard: () => this.pick(q.id, 'card'),
+      tags: q.tags.map((g, i) => ({
+        ...g, ...this.tagStyle(g, picked === g.text && s === q.id), i, seed: qi * 11 + i + 2,
+        code: this.codeOf(g.text, i + qi * 20), fs: g.accent ? 38 : 32, fw: g.accent ? 600 : 500,
+        onPick: () => this.pick(q.id, g.text)
+      }))
+    }));
+    const isQ = s === 'q1' || s === 'q2', P0 = this.props.showPanel ?? true, panel = P0 && isQ, dpanel = P0 && s === 'discovery', dm = this.discMode(), dsh = this.discShape();
+    const opt = (label, on, act) => ({ label, on: act, bd: on ? '#6d8cff' : '#2a3270', bg: on ? '#0a3cff' : 'transparent' });
+    const L = this.state.listening;
+    return {
+      scale: this.state.scale, canvasRef: this.canvasRef, fxRef: this.fxRef, rootRef: this.rootRef, v, questions,
+      tealOp: s === 'choice' ? 1 : 0,
+      toggleRec: () => this.startRec(),
+      resOpts: [['4k', '4K'], ['fhd', 'Full HD']].map(([k, l]) => opt(l, (this.state.recRes ?? '4k') === k, () => { if (!this.state.rec) this.setState({ recRes: k }); })),
+      recLabel: this.state.rec ? '■ запись ' + (this.state.recT || 0) + ' / ' + Math.ceil(this._T || 12) + ' с' : '⏺ MP4',
+      recBd: this.state.rec ? '#ff2b45' : '#2a3270', recBg: this.state.rec ? 'rgba(255,43,69,.25)' : 'transparent',
+      showPanel: panel, showDiscPanel: dpanel, discRef: this.discRef, discStatusRef: this.discStatusRef,
+      statusD: (this.props.showStatus ?? false) ? 'block' : 'none',
+      discOpts: [['mix', 'D1 пульс + нейросеть'], ['code', 'D3 из кода']].map(([k, l]) => opt(l, dm === k, () => { this.replay(); this.setState({ disc: k }); })),
+      shapeOpts: [['blob', 'облако'], ['play', 'плей']].map(([k, l]) => opt(l, dsh === k, () => { this.replay(); this.setState({ dshape: k }); })),
+      emitOpts: [['threads', '2A нити'], ['scatter', '2B рассыпание'], ['dots', 'D1 улёт шариками'], ['codeDots', 'D2 код → шарики'], ['plainDots', 'D3 шарики']].map(([k, l]) => opt(l, em === k, () => { this.replay(); this.setState({ emit: k }); })),
+      scrOpts: [['q1', 'вопрос 1'], ['q2', 'вопрос 2'], ['discovery', 'discovery']].map(([k, l]) => opt(l, s === k, () => this.go(k))),
+      lookOpts: [['gradient', 'градиентная рамка'], ['solid', 'заливка']].map(([k, l]) => opt(l, (this.state.look ?? this.props.tagLook ?? 'gradient') === k, () => this.setState({ look: k }))),
+      replay: () => this.replay(),
+      showMic: (this.props.showMic ?? false) && this.state.started && !panel && !dpanel,
+      micColor: L ? '#ff2b45' : '#5a5f8a',
+      micText: !L ? 'Голос недоступен — используйте касание' : (this.state.heard || 'Слушаю…'),
+      onFirstTap: () => { if (!this.state.started) this.setState({ started: true }, () => { this.startVoice(); this.onScreen(this.state.screen); }); },
+      pickVK: () => this.go('splash'), pickMax: () => this.pickMaxFn(),
+      goQ1: () => this.go('q1'), goChoice: () => this.go('choice')
+    };
+  }
+}
+</script>
+
+
+</body></html>
