@@ -10,10 +10,11 @@ import type { FlightRoute } from '../vendor/lumicells-scene/choreography'
 import type { TagReveal } from '../features/prototype/tag-reveal'
 import { referenceCards } from './ux-artwork'
 import { answerCardPosition } from '../features/prototype/answer-card-layout'
+import { dissolveTagBox } from '../features/prototype/tag-layout'
 
 // Adapter contract only; actual author WAAPI lifecycle has separate native-flight tests.
 beforeEach(() => vi.stubGlobal('matchMedia', () => ({ matches: false })))
-const runs = vi.hoisted(() => [] as { host: HTMLElement; entries: () => BubbleEntry[]; hooks: () => DemoSceneProps; done?: () => void; disposed: boolean; route?: FlightRoute; closing?: () => void }[])
+const runs = vi.hoisted(() => [] as { host: HTMLElement; entries: () => BubbleEntry[]; hooks: () => DemoSceneProps; done?: () => void; disposed: boolean; route?: FlightRoute; closing?: () => void; retiring?: HTMLElement | null }[])
 vi.mock('../vendor/lumicells-scene/choreography', () => ({ Choreographer: class {
   run: (typeof runs)[number]
   constructor(host: HTMLElement, entries: () => BubbleEntry[], hooks: () => DemoSceneProps, ...options: unknown[]) {
@@ -26,9 +27,9 @@ vi.mock('../vendor/lumicells-scene/choreography', () => ({ Choreographer: class 
 // VK Видео runs the Claude Design dot scene behind the same adapter contract.
 vi.mock('./tag-dissolve', () => ({ TagDissolve: class {
   run: (typeof runs)[number]
-  constructor(host: HTMLElement, entries: () => BubbleEntry[], hooks: () => DemoSceneProps, options: { card: { x: number; y: number; w: number; h: number }; onClosing?: () => void }) {
+  constructor(host: HTMLElement, entries: () => BubbleEntry[], hooks: () => DemoSceneProps, options: { card: { x: number; y: number; w: number; h: number }; onClosing?: () => void; retiring?: HTMLElement | null }) {
     const { card } = options
-    this.run = { host, entries, hooks, disposed: false, closing: options.onClosing,
+    this.run = { host, entries, hooks, disposed: false, closing: options.onClosing, retiring: options.retiring,
       route: { origin: { fx: (card.x + card.w / 2) / 1080, fy: (card.y - 100 + card.h / 2) / 1080 }, destination: { fx: 0, fy: 0 } } }
     runs.push(this.run)
   }
@@ -67,6 +68,14 @@ it.each([
     expect(host.querySelector('.answer-flight')!.getAttribute('data-tag-look')).toBe(product === 'vk-video' ? 'gradient' : null)
     expect(runs.at(-1)!.entries()[0].info().label).toBe('Серверный тег')
     expect(host.querySelector('[role="status"]')?.textContent).toBe('Текст сервера. Серверный тег.')
+    if (product === 'vk-video') {
+      // The dot scene fades this very card, and its tag lands one and a half tag heights (92 px) clear of it.
+      expect(runs.at(-1)!.retiring).toBe(card)
+      const slot = host.querySelector<HTMLElement>('.lc-scene-slot')!, box = dissolveTagBox('Серверный тег', true)
+      const x = parseFloat(slot.style.left) / 100 * 1080, y = parseFloat(slot.style.top) / 100 * 1080 + 100
+      expect(Math.max(expected.left - (x + box.w / 2), x - box.w / 2 - expected.left - expected.width,
+        expected.top - (y + box.h / 2), y - box.h / 2 - expected.top - expected.height)).toBeGreaterThanOrEqual(138)
+    }
   } finally { act(() => root.unmount()); host.remove(); vi.unstubAllGlobals() }
 })
 

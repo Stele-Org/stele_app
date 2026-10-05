@@ -8,7 +8,7 @@ import '../vendor/lumicells-scene/scene.css'
 import type { TagReveal } from '../features/prototype/tag-reveal'
 import { ProductMark } from './ProductMark'
 import { referenceCards } from './ux-artwork'
-import { tagPositions } from '../features/prototype/tag-layout'
+import { clearTagPositions, dissolveTagBox, tagPositions } from '../features/prototype/tag-layout'
 import { answerCardPosition } from '../features/prototype/answer-card-layout'
 import { ringToneColors } from './RingTag'
 import { CameraPreview } from './CameraPreview'
@@ -37,7 +37,10 @@ export function AnswerFlight({ reveal, playing, onComplete, onFinalExit, embedde
   const artwork = card?.artworkId && referenceCards[card.artworkId]
   const cardPosition = useMemo(() => card ? answerCardPosition({ slot: card.index, product: reveal.product,
     layout: card.photo ? 'photo' : 'grid', choiceCount: card.centered ? 3 : 4 }) : undefined, [card, reveal.product])
-  const positions = useMemo(() => tagPositions(card, seed, batch), [card, seed, batch])
+  // VK Видео tags keep clear of the answer card; MAX keeps its regions.
+  const positions = useMemo(() => dissolve && card && cardPosition
+    ? clearTagPositions({ ...cardPosition, photo: Boolean(card.photo) }, tags.map((tag, i) => dissolveTagBox(tag, i === 0)), seed, batch)
+    : tagPositions(card, seed, batch), [dissolve, card, cardPosition, tags, seed, batch])
   const finalExit = useEffectEvent(() => onFinalExit?.(reveal))
 
   useLayoutEffect(() => {
@@ -101,14 +104,19 @@ export function AnswerFlight({ reveal, playing, onComplete, onFinalExit, embedde
     ring?.addEventListener('lc-ready', bind)
     const reduced = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
     const box = stream.current?.box ?? { x: .46, y: .46, w: .08, h: .08 }
+    const last = batch === reveal.batches.length - 1
+    const answer = host.closest('.continuous-vk')?.querySelector<HTMLElement>('[data-retained="true"]')
+      ?? host.closest('.answer-flight')?.querySelector<HTMLElement>('.answer-flight__answer') ?? null
     const motion = dissolve
       ? new TagDissolve(host, () => entries, () => hooks, {
         canvas: dots.current, seed: seed + batch, reduced: reduced(),
+        // The answer thins out while the dots of the last batch gather and leave.
+        retiring: last ? answer : null,
         // Stage fractions to the 1080px-wide screen; the stage starts 100px below its top.
         card: { x: box.x * 1080, y: box.y * 1080 + 100, w: box.w * 1080, h: box.h * 1080 },
-        // The answer stays until the dots have left, then retires with the last batch.
+        // By then the answer has faded with the dots; it retires with the last batch.
         onClosing: () => {
-          if (batch !== reveal.batches.length - 1 || exitNotified) return
+          if (!last || exitNotified) return
           exitNotified = true
           finalExit()
         },

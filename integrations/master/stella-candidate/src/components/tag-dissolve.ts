@@ -44,6 +44,7 @@ const TRANSLIT: Record<string, string> = {
 }
 
 const clamp = (value: number) => value < 0 ? 0 : value > 1 ? 1 : value
+const inOut = (v: number) => v < 0.5 ? 2 * v * v : 1 - (-2 * v + 2) ** 2 / 2
 const hash = (n: number) => { const x = Math.sin(n * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x) }
 const back = (v: number) => 1 + 2.70158 * (v - 1) ** 3 + 1.70158 * (v - 1) ** 2
 const bezier = (a: Point, c: Point, b: Point, t: number): Point => {
@@ -55,11 +56,16 @@ const glyph = () => GLYPHS[Math.floor(Math.random() * GLYPHS.length)]
 /** Scene clock for one batch of tags, seconds from the start of the reveal. */
 export function tagDissolveTimeline(count: number) {
   const encodeAt = LEAD + Math.max(0, count - 1) * STAGGER + FLIGHT + IDLE
+  const lastDissolve = encodeAt + Math.max(0, count - 1) * ENCODE_STAGGER + ENCODED_HOLD
   return {
     enter: (index: number) => LEAD + index * STAGGER,
     encode: (index: number) => encodeAt + index * ENCODE_STAGGER,
     dissolve: (index: number) => encodeAt + index * ENCODE_STAGGER + ENCODED_HOLD,
-    duration: encodeAt + Math.max(0, count - 1) * ENCODE_STAGGER + ENCODED_HOLD + TAIL,
+    /** The first dot sets off for the heap: 6.95 s for four tags. */
+    gather: encodeAt + ENCODED_HOLD + SCATTER,
+    /** The last dot has left past the corner: 11.46 s for four tags. */
+    gone: lastDissolve + SCATTER_DELAY + SCATTER + GATHER + EXIT,
+    duration: lastDissolve + TAIL,
   }
 }
 
@@ -128,6 +134,8 @@ export interface TagDissolveOptions {
   reduced: boolean
   /** The scene is about to end: the caller may retire the retained answer card. */
   onClosing?: () => void
+  /** The answer card of the last batch: it fades for as long as its dots fly to the heap and past the corner. */
+  retiring?: HTMLElement | null
 }
 
 /**
@@ -144,6 +152,7 @@ export class TagDissolve {
   private contextRequested = false
   private tags: Tag[] = []
   private closing = false
+  private retire: { from: number; to: number; strength: string | null } | null = null
   private readonly random: () => number
 
   constructor(
@@ -178,6 +187,10 @@ export class TagDissolve {
     })
     this.setPhase('entering')
     const duration = reduced ? REDUCED_SECONDS : timeline.duration
+    if (this.options.retiring) this.retire = {
+      from: reduced ? REDUCED_SECONDS - REDUCED_FADE : timeline.gather, to: reduced ? REDUCED_SECONDS : timeline.gone,
+      strength: this.options.retiring.getAttribute('data-lc-strength'),
+    }
     const tick = (time: number) => { if (reduced) this.reducedFrame(time); else this.frame(time, duration) }
     return new Promise(resolve => {
       this.clock = animate(0, duration, {
@@ -208,6 +221,12 @@ export class TagDissolve {
     this.disposed = true
     this.clock?.stop()
     this.clock = null
+    // An interrupted scene gives the answer card back; a finished one leaves it faded for its exit.
+    const card = this.options.retiring
+    if (card && this.retire && this.busy) {
+      card.style.removeProperty('opacity')
+      if (this.retire.strength !== null) card.setAttribute('data-lc-strength', this.retire.strength)
+    }
     this.context?.clearRect(0, 0, STAGE_SIDE, CANVAS_HEIGHT)
     for (const tag of this.tags) {
       const el = tag.entry.el
@@ -288,11 +307,24 @@ export class TagDissolve {
       tag.center = { x: tag.rest.x + dx, y: tag.rest.y + dy }
       if (tag.step >= 3 && !tag.dots) tag.dots = this.scatter(tag)
     }
+    this.fadeCard(time)
     if (!this.closing && time >= duration - CLOSING_LEAD) {
       this.closing = true
       this.options.onClosing?.()
     }
     this.paint(time)
+  }
+
+  /** The card and its shadow in the cell field thin out together with the dots that carry the answer away. */
+  private fadeCard(time: number) {
+    const card = this.options.retiring, retire = this.retire
+    if (!card || !retire || time < retire.from) return
+    const left = 1 - inOut(clamp((time - retire.from) / (retire.to - retire.from)))
+    card.style.opacity = left.toFixed(3)
+    if (retire.strength === null) return
+    // LumiCells follows the attribute; twenty steps keep the mutations rare.
+    const strength = String(Math.round(Number(retire.strength) * left * 20) / 20)
+    if (card.getAttribute('data-lc-strength') !== strength) card.setAttribute('data-lc-strength', strength)
   }
 
   /** No flight, blur or dots: the tags fade in, stay readable and fade out. */
@@ -302,6 +334,7 @@ export class TagDissolve {
       this.advance(tag, time)
       tag.entry.el.style.opacity = Math.min(clamp(time / REDUCED_FADE), clamp((REDUCED_SECONDS - time) / REDUCED_FADE)).toFixed(3)
     }
+    this.fadeCard(time)
     if (!this.closing && time >= REDUCED_SECONDS - REDUCED_FADE) {
       this.closing = true
       this.options.onClosing?.()

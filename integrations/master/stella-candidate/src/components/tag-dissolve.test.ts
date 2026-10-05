@@ -18,7 +18,7 @@ beforeEach(() => { clock.tracks.length = 0 })
 const words = ['обсуждения', 'сериал', 'премьера', 'популярное']
 const places = [[.74, .46], [.26, .65], [.74, .81], [.26, .99]]
 
-function scene(reduced = false) {
+function scene(reduced = false, retiring: HTMLElement | null = null) {
   const root = document.createElement('div')
   const flights: string[] = []
   const entries: BubbleEntry[] = words.map((word, i) => {
@@ -42,7 +42,7 @@ function scene(reduced = false) {
   const closing = vi.fn(), done = vi.fn()
   const motion = new TagDissolve(root, () => entries,
     () => ({ onFlight: (_el, info, phase) => { flights.push(`${root.dataset.phase}:${info.label}:${phase}`) } }),
-    { canvas, card: { x: 45, y: 549, w: 468, h: 280 }, seed: 7, reduced, onClosing: closing })
+    { canvas, card: { x: 45, y: 549, w: 468, h: 280 }, seed: 7, reduced, onClosing: closing, retiring })
   void motion.revealOnce(350, done)
   const track = clock.tracks.at(-1)!
   const at = (time: number) => { drawn.length = 0; track.options.onUpdate(time); return drawn.filter(call => call === 'arc').length }
@@ -57,6 +57,46 @@ it('keeps the accepted D2 timings for four tags', () => {
   expect(timeline.dissolve(0)).toBeCloseTo(4.95)
   expect(timeline.dissolve(3)).toBeCloseTo(5.31)
   expect(timeline.duration).toBeCloseTo(12.06)
+  // Dots fly to the heap from 6.95 s; the last one is gone past the corner at 11.46 s.
+  expect(timeline.gather).toBeCloseTo(6.95)
+  expect(timeline.gone).toBeCloseTo(11.46)
+})
+
+it('fades the answer card and its field shadow for as long as the dots gather and leave', () => {
+  const card = document.createElement('button')
+  card.setAttribute('data-lc-strength', '1')
+  const { at, track, done } = scene(false, card)
+  at(6.9)
+  expect(card.style.opacity).toBe('')
+  expect(card.getAttribute('data-lc-strength')).toBe('1')
+  at(6.95 + 4.51 / 2)
+  expect(Number(card.style.opacity)).toBeCloseTo(0.5, 2)
+  expect(card.getAttribute('data-lc-strength')).toBe('0.5')
+  const early = Number(card.style.opacity)
+  at(10.25)
+  expect(Number(card.style.opacity)).toBeLessThan(early)
+  expect(Number(card.style.opacity)).toBeGreaterThan(0)
+  at(11.46)
+  expect(Number(card.style.opacity)).toBe(0)
+  expect(card.getAttribute('data-lc-strength')).toBe('0')
+  // A finished scene leaves the card faded for its exit.
+  track.options.onComplete()
+  expect(done).toHaveBeenCalledOnce()
+  expect(Number(card.style.opacity)).toBe(0)
+})
+
+it('gives the answer card back when the scene is interrupted, and leaves earlier batches alone', () => {
+  const card = document.createElement('button')
+  card.setAttribute('data-lc-strength', '1')
+  const interrupted = scene(false, card)
+  interrupted.at(9)
+  expect(Number(card.style.opacity)).toBeLessThan(1)
+  interrupted.motion.dispose()
+  expect(card.style.opacity).toBe('')
+  expect(card.getAttribute('data-lc-strength')).toBe('1')
+  const earlier = scene()
+  earlier.at(9)
+  expect(card.style.opacity).toBe('')
 })
 
 it('turns a Russian tag into a short stable code', () => {
