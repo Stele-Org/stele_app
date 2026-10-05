@@ -14,8 +14,9 @@ it('keeps the onboarding cascade, the brand splash and the answer cards on one a
   expect(delays[1] - delays[0]).toBe(ARRIVE_STAGGER_MS)
   expect(delays[2] - delays[1]).toBe(ARRIVE_STAGGER_MS)
 
-  // Around the question cards: the photo description and the controls that mount with the question.
-  expect(css).toContain(`.continuous-question .digitize-description, .continuous-extra[data-arriving='true'] > * { animation: soft-arrive ${ARRIVE_MS}ms ${curve} backwards; }`)
+  // Around the question cards: the photo description and the controls that mount with the question, from the top down.
+  expect(css).toContain(`.continuous-question .digitize-description, .continuous-extra[data-arriving='true'] > * { animation: soft-descend ${ARRIVE_MS}ms ${curve} backwards; }`)
+  expect(css).toContain('@keyframes soft-descend { from { opacity: 0; transform: translateY(-18px); }')
 
   // The splash spends one arrival on each of its thirds: in, hold, out.
   expect(PRODUCT_ENTRY_MS).toBe(3 * ARRIVE_MS)

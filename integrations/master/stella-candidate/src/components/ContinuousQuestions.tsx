@@ -31,8 +31,9 @@ function useSoftPresence(kind: 'card' | 'copy' | 'heading', order = 0, onReady?:
     const animation = animate(scope.current,
       card ? { opacity: present ? 1 : 0, y: reduced || present ? 0 : -38, scale: reduced || present ? 1 : .96 }
         : heading ? { opacity: present ? 1 : 0, y: 0 } : { opacity: present ? 1 : 0 },
-      // A question arrives in the rhythm of the onboarding screen: the heading first, like its title,
-      // then the answer cards one after another, like its steps. Leaving keeps its quick fade and spring.
+      // A question arrives in the rhythm of the onboarding screen, from the top down: the heading first, like its
+      // title, then the answer cards one after another, like its steps, each settling downwards into place.
+      // Leaving keeps its quick fade and spring.
       (card || heading) && present && !reduced ? { duration, ease: ARRIVE_EASE, delay: card ? (ARRIVE_LEAD_MS + order * ARRIVE_STAGGER_MS) / 1000 : 0 }
         : card && !reduced ? {
           type: 'spring', stiffness: 90, damping: 18, mass: 1.1, restDelta: .2, restSpeed: 2,
@@ -44,7 +45,18 @@ function useSoftPresence(kind: 'card' | 'copy' | 'heading', order = 0, onReady?:
       controls.current = null
       finish()
     })
-    return () => { cancelled = true; animation.stop(); controls.current = null }
+    // Motion cannot stop a native (WAAPI) animation that has not reached its first frame: with no start time yet
+    // it commits the final value, and the element is simply there. React StrictMode's probe run ends exactly at
+    // that point, so an animation that never showed a frame is cancelled back to its start instead of stopped.
+    let underway = false
+    let frame = requestAnimationFrame(() => { frame = requestAnimationFrame(() => { underway = true }) })
+    return () => {
+      cancelled = true
+      cancelAnimationFrame(frame)
+      if (underway) animation.stop()
+      else animation.cancel()
+      controls.current = null
+    }
   }, [present, kind, order, animate, scope])
   useLayoutEffect(() => {
     if (playing) controls.current?.play()
@@ -56,7 +68,7 @@ function useSoftPresence(kind: 'card' | 'copy' | 'heading', order = 0, onReady?:
 function Copy({ children, heading = false, onReady }: { children: ReactNode; heading?: boolean; onReady?: () => void }) {
   const { scope, present } = useSoftPresence(heading ? 'heading' : 'copy', 0, onReady)
   return <div ref={scope} className={heading ? 'continuous-heading-copy' : 'continuous-card-copy'}
-    style={heading ? { opacity: 0, transform: 'translateY(18px)' } : { opacity: 0 }} aria-hidden={!present || undefined}>{children}</div>
+    style={heading ? { opacity: 0, transform: 'translateY(-18px)' } : { opacity: 0 }} aria-hidden={!present || undefined}>{children}</div>
 }
 
 /** A control around the cards joins the arrival of its question (global.css) only when it mounts with it;
@@ -99,7 +111,7 @@ function AnswerOption({ slot, question, retained, onSelect, authoritativeCopy }:
   const position = answerCardPosition({ slot, product: question.product, layout: question.layout, choiceCount: question.options.length })
   return (
     <div ref={scope} className={`continuous-option continuous-option--${question.layout}`} inert={!present} aria-hidden={!present || undefined}
-      style={{ opacity: 0, transform: 'translateY(24px) scale(.98)', ...position }}>
+      style={{ opacity: 0, transform: 'translateY(-24px) scale(.98)', ...position }}>
       <FloatingCard slot={slot}>
         <RingTag disabled={!present} tone={tone} className={`${photo ? slot === 0 ? 'primary-button' : 'secondary-button' : gender ? 'gender-option' : 'option-button'} ${artwork ? 'option-button--reference' : ''}`}
           shadowStrength={present ? 1 : 0} data-option-id={option.id} data-retained={retained}
