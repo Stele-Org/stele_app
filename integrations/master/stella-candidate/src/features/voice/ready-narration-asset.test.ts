@@ -2,6 +2,8 @@ import { expect, it } from 'vitest'
 import phrases from '../../../voice/vasilisa/phrases.json'
 import pending from '../../../voice/vasilisa/pending-audio.json'
 import provenance from '../../../voice/vasilisa/studio-activation-provenance.json'
+import timing from '../../../voice/vasilisa/discovery-timing-provenance.json'
+import { DISCOVERY_NETWORK_SECONDS } from '../../components/discovery-network'
 import publicManifest from '../../../public/voice/vasilisa/manifest.json'
 import { getReadyNarrationAsset, isNarrationAudioPending } from './ready-narration-asset'
 import type { VoiceManifest } from './narration'
@@ -41,8 +43,9 @@ it('keeps intentional pauses outside spoken text and records the exact new scrip
   expect(digitize.delivery?.segments[0]).toBe('Сделаем фото?')
   expect(camera.text).toBe('Смотри в камеру над экраном')
   expect(final.text).toBe('Готово. Discovery разобрал твои ответы и собрал твой профиль интересов: темы, героев, настроение и атмосферу. Пройди к левой панели VK Видео – там твоя подборка оживёт вокруг тебя.')
-  expect(activation.delivery?.pauseDurationMs).toBe(400)
-  expect(particles.delivery?.pauseDurationMs).toBe(400)
+  // The pause is stretched to the Discovery scene: discovery-timing.test.ts.
+  expect(activation.delivery).toMatchObject({ pauseDurationMs: timing.pauseBetweenSegmentsMs, leadSilenceMs: timing.leadSilenceMs })
+  expect(particles.delivery).toEqual(activation.delivery)
   for (const phrase of [final, digitize]) {
     expect(phrase.delivery?.segments.join(' ')).toBe(phrase.text)
     expect(phrase.delivery?.pauseAfterSegments).toEqual([0])
@@ -54,8 +57,9 @@ it('keeps intentional pauses outside spoken text and records the exact new scrip
 it.each(['vk-discovery-activation', 'vk-particles'])('reuses the supplied recording for %s and finishes its whole spoken text within the screen duration', cue => {
   const activation = phrases.phrases.find(phrase => phrase.id === cue)!
   expect(isNarrationAudioPending(activation.id)).toBe(false)
-  expect(getReadyNarrationAsset(publicManifest as VoiceManifest, activation.id)).toBe(provenance.asset)
+  expect(getReadyNarrationAsset(publicManifest as VoiceManifest, activation.id)).toBe(timing.asset)
+  expect(timing.source).toEqual({ asset: provenance.asset, sha256: provenance.sha256 })
   expect(provenance.transcript).toBe(activation.text)
-  expect(provenance.insertedSilenceMs).toBe(activation.delivery?.pauseDurationMs)
-  expect(provenance.durationSeconds).toBeLessThan(7)
+  expect(timing.segments.map(segment => segment.text)).toEqual(activation.delivery?.segments)
+  expect(timing.durationSeconds).toBeLessThan(DISCOVERY_NETWORK_SECONDS)
 })

@@ -13,9 +13,8 @@ const lines: [string, ScreenState][] = [
   ['Screen2', { type: 'vk-question', index: 0, answers: [] }],
   ['Screen3', { type: 'vk-question', index: 1, answers: [] }],
   ['Screen4', { type: 'vk-question', index: 2, answers: [] }],
-  ['Screen7', { type: 'vk-particles', themes: [] }],
-  ['Screen7', { type: 'vk-discovery-activation', themes: [], metadata: [] }],
 ]
+// Discovery speaks the same recording (Screen7) re-timed to its scene: discovery-timing.test.ts.
 
 it.each(lines)('the local scenario speaks the master line %s byte for byte', (file, screen) => {
   const asset = getReadyNarrationAsset(publicManifest as VoiceManifest, narrationId(screen))

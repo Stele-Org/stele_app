@@ -19,8 +19,11 @@ it('fills the whole frame below the logo with a form of large dots and a field o
   expect(field.some(dot => dot.radius < 3)).toBe(true)
 })
 
-it('keeps the accepted scene length', () => {
-  expect(DISCOVERY_NETWORK_SECONDS).toBe(23.3)
+it('ends with the wave, without the closing hold of the prototype', () => {
+  expect(DISCOVERY_NETWORK_SECONDS).toBe(22.8)
+  // Shortly before the end the wave is still crossing the far corners.
+  const late = frame(22.5).points
+  expect(late.some((point, i) => point.radius > dots[i].radius + 0.01)).toBe(true)
 })
 
 it('starts empty, grows from the centre and rests on the exact pattern', () => {

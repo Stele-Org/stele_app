@@ -1,12 +1,14 @@
 // Claude Design «D1 пульс + нейросеть», принято 05.10.2026: the dot pattern appears, rests, pulses,
 // unfolds into a working neural network, returns to the same frame and ends with a wave.
-// Geometry and timings are the accepted prototype's (artifacts/DESIGN/claude-design-stela-20261005).
+// Geometry and timings are the accepted prototype's (artifacts/DESIGN/claude-design-stela-20261005),
+// except its closing half-second hold: the scenario leaves for the final screen as soon as the wave has passed.
 
-/** Authored on the 1080 × 1920 canvas; dots never rise above the logo line. */
-export const DISCOVERY_NETWORK_SECONDS = 23.3
+/** Authored on the 1080 × 1920 canvas; dots never rise above the logo line. The wave ends at 22.76 s. */
+export const DISCOVERY_NETWORK_SECONDS = 22.8
 /** The appearance front needs this long to reach the far corners; each dot then grows for one second. */
 const APPEAR_SPREAD = 2.8
-const PULSE_AT = 6
+/** The second spoken phrase starts with the pulse (voice/scripts/time-discovery-line.mjs). */
+export const DISCOVERY_PULSE_AT = 6
 const PULSE_SECONDS = 5
 const NETWORK_AT = 11
 const UNFOLD_SECONDS = 2.8
@@ -66,7 +68,7 @@ export function discoveryDots(): DiscoveryDot[] {
 
 /** Pure scene state at `time` seconds; the painter and the tests share it. */
 export function discoveryNetworkFrame(dots: DiscoveryDot[], time: number): DiscoveryFrame {
-  const pulseIn = inOut(clamp((time - PULSE_AT) / PULSE_SECONDS)), pulseOut = inOut(clamp((time - 20.3) / 1.4))
+  const pulseIn = inOut(clamp((time - DISCOVERY_PULSE_AT) / PULSE_SECONDS)), pulseOut = inOut(clamp((time - 20.3) / 1.4))
   const unfold = inOut(clamp((time - NETWORK_AT) / UNFOLD_SECONDS)), fold = inOut(clamp((time - RETURN_AT) / 1.4))
   const pulse = pulseIn * (1 - pulseOut), network = unfold * (1 - fold)
   const wave = clamp((time - WAVE_AT) / WAVE_SECONDS), waveRadius = wave * WAVE_RADIUS

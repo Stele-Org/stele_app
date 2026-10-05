@@ -1,0 +1,37 @@
+{
+  "asset": "vk-discovery-timed-studio.wav",
+  "cues": [
+    "vk-particles",
+    "vk-discovery-activation"
+  ],
+  "changeDate": "2026-10-05",
+  "change": "User asked to synchronise the Discovery lines with the scene: the first phrase while the dots appear, with a 0.5 s delay; the second from 6.0 s, with the pulse.",
+  "source": {
+    "asset": "vk-discovery-activation-studio.wav",
+    "sha256": "5b47fecca5313665cdd7a34e392a082b66104b345f8b50f9474d38bb2dfe0a4d"
+  },
+  "edit": "Both phrases are copied sample for sample from the source; only the silence before and between them is new. No synthesis, resampling, trimming or voice modification.",
+  "segments": [
+    {
+      "text": "Технологии Discovery активированы.",
+      "sourceStartSeconds": 0,
+      "sourceEndSeconds": 2.23,
+      "startSeconds": 0.5,
+      "endSeconds": 2.73
+    },
+    {
+      "text": "Технологии персонализации Discovery уже начали собирать подборку.",
+      "sourceStartSeconds": 2.63,
+      "sourceEndSeconds": 6.77,
+      "startSeconds": 6,
+      "endSeconds": 10.14
+    }
+  ],
+  "leadSilenceMs": 500,
+  "pauseBetweenSegmentsMs": 3270,
+  "durationSeconds": 10.14,
+  "format": "PCM 16 bit, 44100 Hz, 2 channels",
+  "bytes": 1788740,
+  "sha256": "84bee388ef2257fa05942573be82a374462d77366f39ac5edceb30ff9c596631",
+  "verification": "PCM equality of both phrases with the source and digital silence elsewhere (src/features/voice/discovery-timing.test.ts). The agent did not listen to the recording; which phrase is which follows studio-activation-provenance.json."
+}

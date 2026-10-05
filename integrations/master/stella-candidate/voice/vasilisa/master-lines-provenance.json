@@ -38,7 +38,8 @@
       "cue": "vk-particles, vk-discovery-activation",
       "asset": "vk-discovery-activation-studio.wav",
       "source": "public/audio/vk-production-v1/Screen7.wav",
-      "sha256": "5b47fecca5313665cdd7a34e392a082b66104b345f8b50f9474d38bb2dfe0a4d"
+      "sha256": "5b47fecca5313665cdd7a34e392a082b66104b345f8b50f9474d38bb2dfe0a4d",
+      "supersededBy": "vk-discovery-timed-studio.wav: the same two phrases with pauses matched to the Discovery scene, see discovery-timing-provenance.json"
     }
   ],
   "notCopied": "Screen5, Screen6 and Screen8 (photo, camera, final): the master mode does not play them either, their text no longer matches the approved copy. The local cues vk-digitize, vk-camera and vk-final stay pending.",

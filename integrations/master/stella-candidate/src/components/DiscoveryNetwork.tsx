@@ -12,7 +12,7 @@ type Props = {
   onComplete?: () => void
 }
 
-/** Recommendation stage of Discovery: one Motion clock drives the authored 23.3-second canvas scene. */
+/** Recommendation stage of Discovery: one Motion clock drives the authored 22.8-second canvas scene. */
 export function DiscoveryNetwork({ playing, loop = false, cueKey, onComplete }: Props) {
   const layer = useRef<HTMLCanvasElement>(null)
   const clock = useRef<AnimationPlaybackControls | null>(null)

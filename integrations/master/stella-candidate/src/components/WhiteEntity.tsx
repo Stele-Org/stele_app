@@ -35,7 +35,7 @@ function silhouetteMask(reveal: number, erase: number) {
 
 /**
  * Scan keeps the LumiCells field with the visitor's silhouette. The recommendation stages show the
- * Claude Design «пульс + нейросеть» scene, which owns its authored 23.3-second timeline.
+ * Claude Design «пульс + нейросеть» scene, which owns its authored 22.8-second timeline.
  */
 export function WhiteEntity(props: Props) {
   const stage = props.stage ?? 'scan'
