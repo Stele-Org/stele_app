@@ -293,6 +293,12 @@ h1, h2, p { margin: 0; }
 .screen--onboarding .onboarding-step + .onboarding-step + .onboarding-step { animation-delay: 580ms; }
 .screen--onboarding .onboarding-actions { animation-delay: 640ms; }
 .screen--onboarding .back-button { animation-delay: 800ms; }
+/* Question screens share the rhythm: Motion brings in the heading and the answer cards (ContinuousQuestions),
+ * these rules bring in what is left around them. */
+.continuous-extra { display: contents; }
+.continuous-question .digitize-description, .continuous-extra[data-arriving='true'] > * { animation: soft-arrive 1120ms cubic-bezier(.2, .7, .2, 1) backwards; }
+.continuous-question .digitize-description { animation-delay: 180ms; }
+.continuous-extra[data-arriving='true'] > * { animation-delay: 800ms; }
 /* Leaving, local scenario only: while an accepted tap plays its 520ms cue (SCREEN_EXIT_CUE_MS), the screen it leaves fades out,
  * so the next one does not replace it with a cut. The server mode keeps its content visible:
  * there the next screen waits for MASTER and a refused action must not leave an empty screen. */

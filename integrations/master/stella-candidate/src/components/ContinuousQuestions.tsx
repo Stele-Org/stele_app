@@ -4,7 +4,7 @@ import { ChevronRight } from 'lucide-react'
 import type { QuestionPresentation } from '../features/prototype/question-presentation'
 import type { TagReveal } from '../features/prototype/tag-reveal'
 import { answerCardPosition } from '../features/prototype/answer-card-layout'
-import { ARRIVE_EASE, ARRIVE_MS, ARRIVE_STAGGER_MS } from '../features/prototype/arrival'
+import { ARRIVE_EASE, ARRIVE_LEAD_MS, ARRIVE_MS, ARRIVE_STAGGER_MS } from '../features/prototype/arrival'
 import { startFloat } from '../vendor/lumicells-scene/flight'
 import { AnswerFlight } from './AnswerFlight'
 import { BackButton } from './BackButton'
@@ -26,13 +26,14 @@ function useSoftPresence(kind: 'card' | 'copy' | 'heading', order = 0, onReady?:
   useLayoutEffect(() => {
     let cancelled = false
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    const card = kind === 'card'
-    const duration = reduced ? 0 : present ? (card ? ARRIVE_MS / 1000 : kind === 'heading' ? .62 : .42) : card ? .44 : .28
+    const card = kind === 'card', heading = kind === 'heading'
+    const duration = reduced ? 0 : present ? (card || heading ? ARRIVE_MS / 1000 : .42) : card ? .44 : .28
     const animation = animate(scope.current,
       card ? { opacity: present ? 1 : 0, y: reduced || present ? 0 : -38, scale: reduced || present ? 1 : .96 }
-        : { opacity: present ? 1 : 0 },
-      // Answer cards arrive in the rhythm of the onboarding steps; leaving keeps its quick spring.
-      card && present && !reduced ? { duration, ease: ARRIVE_EASE, delay: order * ARRIVE_STAGGER_MS / 1000 }
+        : heading ? { opacity: present ? 1 : 0, y: 0 } : { opacity: present ? 1 : 0 },
+      // A question arrives in the rhythm of the onboarding screen: the heading first, like its title,
+      // then the answer cards one after another, like its steps. Leaving keeps its quick fade and spring.
+      (card || heading) && present && !reduced ? { duration, ease: ARRIVE_EASE, delay: card ? (ARRIVE_LEAD_MS + order * ARRIVE_STAGGER_MS) / 1000 : 0 }
         : card && !reduced ? {
           type: 'spring', stiffness: 90, damping: 18, mass: 1.1, restDelta: .2, restSpeed: 2,
           opacity: { type: 'tween', duration, ease: 'easeInOut' }, delay: order * .025,
@@ -55,7 +56,14 @@ function useSoftPresence(kind: 'card' | 'copy' | 'heading', order = 0, onReady?:
 function Copy({ children, heading = false, onReady }: { children: ReactNode; heading?: boolean; onReady?: () => void }) {
   const { scope, present } = useSoftPresence(heading ? 'heading' : 'copy', 0, onReady)
   return <div ref={scope} className={heading ? 'continuous-heading-copy' : 'continuous-card-copy'}
-    style={{ opacity: 0 }} aria-hidden={!present || undefined}>{children}</div>
+    style={heading ? { opacity: 0, transform: 'translateY(18px)' } : { opacity: 0 }} aria-hidden={!present || undefined}>{children}</div>
+}
+
+/** A control around the cards joins the arrival of its question (global.css) only when it mounts with it;
+ * one that returns later, when the server allows the action again, appears at once. */
+function Extra({ withQuestion, children }: { withQuestion: boolean; children: ReactNode }) {
+  const [arriving] = useState(withQuestion)
+  return <div className="continuous-extra" data-arriving={arriving}>{children}</div>
 }
 
 function FloatingCard({ slot, children }: { slot: number; children: ReactNode }) {
@@ -157,7 +165,10 @@ export function ContinuousQuestions({ question, reveal, playing, onSelect, onBac
                   authoritativeCopy={authoritativeCopy} onSelect={id => { if (enabled) onSelect(id) }} />
               ))}
             </AnimatePresence>
-            {!question.answering && <>{children}{backEnabled && <BackButton product={question.product} onClick={() => { if (enabled) onBack() }} />}</>}
+            {!question.answering && <>
+              {children && <Extra key={`extra:${question.id}`} withQuestion={readyPhase !== phase}>{children}</Extra>}
+              {backEnabled && <Extra key={`back:${question.id}`} withQuestion={readyPhase !== phase}><BackButton product={question.product} onClick={() => { if (enabled) onBack() }} /></Extra>}
+            </>}
           </RingActions>
         </div>
         {reveal && <AnswerFlight embedded flightDurationScale={1.25} reveal={reveal} playing={playing} onComplete={onComplete} onFinalExit={setClosingReveal} />}

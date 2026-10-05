@@ -7,6 +7,7 @@ import { questionPresentation } from '../features/prototype/question-presentatio
 import { vkQuestions } from '../content/vkVideo'
 import { tagPresentation } from '../features/prototype/tag-reveal'
 import type { TagReveal } from '../features/prototype/tag-reveal'
+import { ARRIVE_MS } from '../features/prototype/arrival'
 import { CameraSessionContext } from './camera-session-context'
 
 // Real React DOM + installed AnimatePresence/useAnimate. Only native tag flight is
@@ -30,7 +31,8 @@ const select = vi.fn(), back = vi.fn(), complete = vi.fn()
 const option = vkQuestions[0].options[0]
 const reveal = tagPresentation({ type: 'vk-answer-reveal', questionIndex: 0, optionIndex: 0,
   label: option.label, metadata: option.metadata, next: { type: 'vk-question', index: 1, answers: [option.id] } })!
-const wait = (ms = 850) => act(async () => { await new Promise(resolve => setTimeout(resolve, ms)) })
+// By default long enough for a question to arrive: input unlocks when its heading has landed.
+const wait = (ms = ARRIVE_MS + 230) => act(async () => { await new Promise(resolve => setTimeout(resolve, ms)) })
 const button = (id: string) => host.querySelector<HTMLButtonElement>(`[data-option-id="${id}"]`)!
 function show(index: number, revealing = false, playing = true) {
   act(() => root.render(<StrictMode><ContinuousQuestions question={questionPresentation(revealing ? reveal.source : { type: 'vk-question', index, answers: [] })!} reveal={revealing ? reveal : null}
@@ -146,19 +148,27 @@ describe('continuous first VK question with real Motion presence', () => {
     expect(floats.filter(animation => animation.playState !== 'idle').every(animation => animation.playState === 'paused')).toBe(true)
     expect(button(vkQuestions[1].options[0].id).disabled).toBe(true)
     show(1, false, true)
-    await wait(1200)
+    await wait()
     expect(old.isConnected).toBe(false)
     expect(oldCopy.isConnected).toBe(false)
     expect(button(vkQuestions[1].options[0].id).disabled).toBe(false)
-    act(() => host.querySelector<HTMLButtonElement>('[aria-label="Назад"]')!.click())
+    // The Back button arrived with the question; one that returns within the same question appears at once.
+    const backButton = host.querySelector<HTMLButtonElement>('[aria-label="Назад"]')!
+    expect(backButton.closest<HTMLElement>('.continuous-extra')?.dataset.arriving).toBe('true')
+    act(() => backButton.click())
     expect(back).toHaveBeenCalledTimes(1)
     show(0)
     await wait()
     expect(button(option.id).disabled).toBe(false)
+    act(() => root.render(<StrictMode><ContinuousQuestions question={questionPresentation({ type: 'vk-question', index: 0, answers: [] })!} reveal={null}
+      playing backEnabled={false} onSelect={select} onBack={back} onComplete={complete} /></StrictMode>))
+    expect(host.querySelector('[aria-label="Назад"]')).toBeNull()
+    show(0)
+    expect(host.querySelector<HTMLButtonElement>('[aria-label="Назад"]')!.closest<HTMLElement>('.continuous-extra')?.dataset.arriving).toBe('false')
     act(() => button(option.id).click())
     await wait(300)
     expect(select).toHaveBeenCalledTimes(1)
-  })
+  }, 10000)
 
   it('cancels an accepted but uncommitted answer when the flow unmounts', async () => {
     show(0)
