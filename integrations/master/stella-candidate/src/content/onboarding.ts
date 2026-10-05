@@ -25,7 +25,7 @@ export const onboardingIntroductions: Record<Product, {
   'vk-video': {
     title: 'Исследуй мир\nвместе с VK Видео',
     steps: [
-      'Расскажи, какой\nконтент ты любишь',
+      'Расскажи, какой контент\nты любишь',
       'Получи персональную\nподборку от технологии\nDiscovery',
     ],
   },

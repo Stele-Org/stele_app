@@ -16,7 +16,7 @@ describe('onboarding presentation', () => {
       expect(host.querySelector('.onboarding-voice')).toBeNull()
       expect(host.querySelector('.onboarding-touch')).toBeNull()
       expect(html).not.toContain(onboardingCopy.touch)
-      expect(host.querySelector('.onboarding-start')?.textContent).toBe('Начать')
+      expect(host.querySelector('.onboarding-start')?.textContent).toBe('начать')
     } else {
       expect(host.querySelector('.onboarding-voice-example')?.textContent).toBe('Скажи, например, «поехали»')
       expect(host.querySelector('.onboarding-voice')?.textContent).toBe(onboardingCopy.voice)
@@ -33,7 +33,7 @@ describe('onboarding presentation', () => {
     const html = renderToStaticMarkup(<OnboardingScreen product="vk-video" voiceEnabled={false} onStart={() => {}} onBack={() => {}} />)
     expect(html).not.toContain('onboarding-voice')
     expect(html).not.toContain(onboardingCopy.touch)
-    expect(html).toContain('Начать')
+    expect(html).toContain('>начать<')
   })
 
   it('opens a new session on the question and two logos, not onboarding', () => {
