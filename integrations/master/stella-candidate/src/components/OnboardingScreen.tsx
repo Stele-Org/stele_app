@@ -16,6 +16,8 @@ interface OnboardingScreenProps {
 export function OnboardingScreen({ product, onStart, onBack, showProductMark = true, voiceEnabled = true }: OnboardingScreenProps) {
   const introduction = onboardingIntroductions[product]
   const [voiceIntroduction, voiceExample] = onboardingCopy.voice.split(' Скажи, ')
+  // VK Видео follows STELLA Onboard.png: the start button stands alone, without voice or touch hints.
+  const hints = product !== 'vk-video'
   return (
     <section className="screen screen--onboarding" aria-labelledby="onboarding-title">
       {showProductMark && <ProductMark product={product} />}
@@ -31,11 +33,11 @@ export function OnboardingScreen({ product, onStart, onBack, showProductMark = t
         </ol>
       </div>
       <div className="onboarding-actions">
-        {voiceEnabled && <p className="onboarding-voice">
+        {hints && voiceEnabled && <p className="onboarding-voice">
           {voiceIntroduction}{' '}
-          <span className="onboarding-voice-example">{product === 'vk-video' ? 'Скажи, например, «ПОЕХАЛИ»' : `Скажи, ${voiceExample}`}</span>
+          <span className="onboarding-voice-example">{`Скажи, ${voiceExample}`}</span>
         </p>}
-        <p className="onboarding-touch">{onboardingCopy.touch}</p>
+        {hints && <p className="onboarding-touch">{onboardingCopy.touch}</p>}
         <RingTag tone={product === 'max' ? 'violet' : 'red'} className="primary-button onboarding-start" onClick={onStart}>
           {product === 'vk-video' ? 'Начать' : onboardingCopy.start}
         </RingTag>

@@ -6,15 +6,22 @@ import { Prototype } from '../features/prototype/Prototype'
 import { onboardingCopy, onboardingIntroductions } from '../content/onboarding'
 
 describe('onboarding presentation', () => {
-  it.each(['max', 'vk-video'] as const)('preserves approved %s copy without a microphone', (product) => {
+  it.each(['max', 'vk-video'] as const)('preserves approved %s copy without a microphone; VK Видео shows no voice or touch hint', (product) => {
     const html = renderToStaticMarkup(<OnboardingScreen product={product} onStart={() => {}} onBack={() => {}} />)
     const host = document.createElement('div')
     host.innerHTML = html
     expect(html).toContain(onboardingIntroductions[product].title)
-    const example = host.querySelector('.onboarding-voice-example')
-    expect(example?.textContent).toBe(product === 'vk-video' ? 'Скажи, например, «ПОЕХАЛИ»' : 'Скажи, например, «поехали»')
-    expect(host.querySelector('.onboarding-voice')?.textContent).toBe(product === 'vk-video'
-      ? 'Со мной можно говорить своими словами. Скажи, например, «ПОЕХАЛИ»' : onboardingCopy.voice)
+    if (product === 'vk-video') {
+      // STELLA Onboard.png: only the start button below the steps.
+      expect(host.querySelector('.onboarding-voice')).toBeNull()
+      expect(host.querySelector('.onboarding-touch')).toBeNull()
+      expect(html).not.toContain(onboardingCopy.touch)
+      expect(host.querySelector('.onboarding-start')?.textContent).toBe('Начать')
+    } else {
+      expect(host.querySelector('.onboarding-voice-example')?.textContent).toBe('Скажи, например, «поехали»')
+      expect(host.querySelector('.onboarding-voice')?.textContent).toBe(onboardingCopy.voice)
+      expect(host.querySelector('.onboarding-touch')?.textContent).toBe(onboardingCopy.touch)
+    }
     for (const step of onboardingIntroductions[product].steps) expect(html).toContain(step)
     expect(html).not.toContain(onboardingCopy.spokenGreeting)
     expect(html).not.toContain('lucide-mic')
@@ -22,10 +29,10 @@ describe('onboarding presentation', () => {
     expect(html).toContain('data-lc-pulse="click"')
   })
 
-  it('preserves the server mode without a voice hint when voice is unavailable', () => {
+  it('keeps the VK server mode free of voice and touch hints', () => {
     const html = renderToStaticMarkup(<OnboardingScreen product="vk-video" voiceEnabled={false} onStart={() => {}} onBack={() => {}} />)
     expect(html).not.toContain('onboarding-voice')
-    expect(html).toContain(onboardingCopy.touch)
+    expect(html).not.toContain(onboardingCopy.touch)
     expect(html).toContain('Начать')
   })
 

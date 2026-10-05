@@ -202,9 +202,13 @@ h1, h2, p { margin: 0; }
 .screen--onboarding .onboarding-step { padding: 0 90px; gap: 20px; }
 .screen--onboarding .onboarding-step__label { font-size: 88px; }
 .experience--vk-video .screen--onboarding .onboarding-steps { position: absolute; top: 240px; left: 0; width: 100%; margin: 0; gap: 75px; }
-.experience--vk-video .screen--onboarding .onboarding-step { padding: 0 0 0 177px; gap: 20px; line-height: 1.25; font-weight: 600; }
+/* Sizes measured in artifacts/DESIGN/UI/stela/STELLA Onboard.png: title 65px regular, step text 33px on a 37px line. */
+.experience--vk-video .screen--onboarding .onboarding-intro h1 { font-size: 65px; line-height: 1.12; font-weight: 400; }
+.experience--vk-video .screen--onboarding .onboarding-step { padding: 0 0 0 177px; gap: 20px; font-size: 33px; line-height: 37px; font-weight: 600; }
 .experience--vk-video .screen--onboarding .onboarding-step__label { font-size: 100px; line-height: .9; }
 .onboarding-actions { top: 885px; }
+/* Without the hints the start button keeps the place it had below them. */
+.experience--vk-video .screen--onboarding .onboarding-actions { top: 956px; }
 .onboarding-start { margin-top: 36px; width: 360px; min-height: 140px; }
 .screen--onboarding .onboarding-touch { font-size: 25px; }
 .screen--result .mission-label { font-size: 46px; opacity: 1; }
