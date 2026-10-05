@@ -2,7 +2,8 @@
 import { act } from 'react'
 import { createRoot, type Root } from 'react-dom/client'
 import { afterEach, beforeEach, expect, it, vi } from 'vitest'
-import { WhiteEntity } from './WhiteEntity'
+// The LumiCells field itself; routing of the recommendation stages is covered in DiscoveryNetwork.test.tsx.
+import { WhiteEntityField as WhiteEntity } from './WhiteEntity'
 
 type RendererCallbacks = { onReady: () => void; onError: (error?: unknown) => void }
 type TimelineOptions = { onUpdate: (value: number) => void; onComplete: () => void; repeat?: number; duration: number }

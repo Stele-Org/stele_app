@@ -1,3 +1,15 @@
+## 05.10.2026 — сцены Claude Design перенесены в приложение
+
+Пользователь уточнил: язык приложения — как в пакете, прототипы Claude Design должны запускаться вместе с приложением, аналогичные экраны заменяются версией из Claude Design. Сцены переписаны на React и TypeScript, ветка `codex/claude-design-scenes-20261005`.
+
+Показ тегов VK Видео: новый `TagDissolve` повторяет интерфейс и события `Choreographer`, поэтому `AnswerFlight` сохранил привязку теней LumiCells, эхо и завершение показа; время ведёт Motion. Discovery: `WhiteEntity` оставляет этап `scan` на поле LumiCells, этапы `generation` и `activation` показывают `DiscoveryNetwork`. Тайминги взяты из принятого прототипа: 12,06 с и 23,3 с. Добавлены вид тега `?tagLook=solid` и предпросмотр `?reveal=<id ответа>`.
+
+Не менялись: MAX, экраны выбора, заставки и вступления, тексты, звук, камера, клиент MASTER, `dist`. Запись MP4 осталась в исходной странице прототипа.
+
+Типы PASS; Vitest 322 из 324, 20 новых тестов; ESLint без новых замечаний; сборка в отдельную папку PASS, отличаются `app.js` и `index.css`; смок-тест 11 из 11. Браузер, headless, камера, MASTER и AI не запускались; визуальная приёмка за пользователем. [Отчёт](../../artifacts/reports/claude-design-scenes-20261005.md).
+
+Трафик SIM: не измерено; сетевых загрузок в этой итерации не было; 0 МБ передачи файлов на стенд.
+
 ## 05.10.2026 — локальный репозиторий, инструменты и материалы Claude Design
 
 Проанализирован пакет STELLA-CAMERA-ROTATE-01: 827 файлов, приложение React 19 / Vite 8 / TypeScript 6 в `integrations/master/stella-candidate`, LumiCells из `artifacts/ribbon` и `docs/Research`. Целостность по `PACKAGE-MANIFEST.json` PASS. Создан git-репозиторий: коммит `b12eef5` с тегом `baseline/stella-camera-rotate-01`, рабочая ветка `codex/project-setup-20261005`, после проверок слита в `main` с тегом `v0.1.0`.

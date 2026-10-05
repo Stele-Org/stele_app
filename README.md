@@ -12,7 +12,7 @@
 .\scripts\stella.ps1 dev      # http://127.0.0.1:5218/stella/
 ```
 
-Системный Node.js не используется и не меняется. Все команды и порядок работы с git: [docs/context/DEV_WORKFLOW.md](docs/context/DEV_WORKFLOW.md). Прототипы анимаций из Claude Design: [artifacts/DESIGN/claude-design-stela-20261005](artifacts/DESIGN/claude-design-stela-20261005/README.md), запуск `.\scripts\stella.ps1 design`.
+Системный Node.js не используется и не меняется. Все команды и порядок работы с git: [docs/context/DEV_WORKFLOW.md](docs/context/DEV_WORKFLOW.md). Сцены из Claude Design — показ тегов VK Видео и Discovery — работают внутри приложения. Предпросмотр в dev-сервере: `/stella/?reveal=series` и `/stella/?discovery=generation`. Исходные страницы прототипа: [artifacts/DESIGN/claude-design-stela-20261005](artifacts/DESIGN/claude-design-stela-20261005/README.md).
 
 ## Быстрый старт
 

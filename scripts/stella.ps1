@@ -86,7 +86,8 @@ Usage: .\scripts\stella.ps1 <task>
   lint            ESLint
   build-check     type-check and bundle into .cache/build-check (dist/ stays untouched)
   smoke           typecheck + build-check + browserless HTTP smoke test + design prototype checks
-  design [port]   serve the Claude Design prototypes: http://127.0.0.1:5219/
+  design [port]   serve the original Claude Design reference pages: http://127.0.0.1:5219/
+                  (the scenes themselves run inside the app: dev, then ?reveal=series or ?discovery=generation)
   verify-dist     compare dist/ with the accepted build manifest
   verify-package  compare the working tree with PACKAGE-MANIFEST.json (add --extra to list new files)
   secrets         Gitleaks over working files and git history (required before push)

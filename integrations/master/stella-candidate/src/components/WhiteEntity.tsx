@@ -3,6 +3,7 @@ import { animate, type AnimationPlaybackControls } from 'motion'
 import { useReducedMotion } from 'motion/react'
 import { createWhiteEntityRenderer } from './white-entity-renderer'
 import { whiteEntityCenters, whiteEntityFeather, type WhiteEntityStage } from './white-entity-envelope'
+import { DiscoveryNetwork } from './DiscoveryNetwork'
 
 type Stage = WhiteEntityStage
 type Props = {
@@ -32,8 +33,18 @@ function silhouetteMask(reveal: number, erase: number) {
   return `radial-gradient(circle farthest-corner at ${cx / 1080 * 100}% ${cy / 1920 * 100}%, ${colors[0]} ${inner}%, ${colors[1]} ${outer}%)`
 }
 
-/** One native field across both stages; Motion drives the authored contour's circular ramp. */
-export function WhiteEntity({ playing, stage = 'scan', preview = false, onComplete, silhouetteSrc, controlledActive, onHidden, onError, generationDurationSeconds = 7, cueKey }: Props) {
+/**
+ * Scan keeps the LumiCells field with the visitor's silhouette. The recommendation stages show the
+ * Claude Design «пульс + нейросеть» scene, which owns its authored 23.3-second timeline.
+ */
+export function WhiteEntity(props: Props) {
+  const stage = props.stage ?? 'scan'
+  if (stage === 'scan' || props.controlledActive !== undefined) return <WhiteEntityField {...props} />
+  return <DiscoveryNetwork playing={props.playing} loop={props.preview} cueKey={props.cueKey ?? stage} onComplete={props.onComplete} />
+}
+
+/** One native field; Motion drives the authored contour's circular ramp. */
+export function WhiteEntityField({ playing, stage = 'scan', preview = false, onComplete, silhouetteSrc, controlledActive, onHidden, onError, generationDurationSeconds = 7, cueKey }: Props) {
   const layer = useRef<HTMLCanvasElement>(null)
   const silhouette = useRef<HTMLImageElement>(null)
   const [loadedSilhouette, setLoadedSilhouette] = useState<string>()

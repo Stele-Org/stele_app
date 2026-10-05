@@ -16,6 +16,16 @@ describe('local Discovery preview entry', () => {
     expect(readDiscoveryPreview('?discovery=sequence', false)).toBeNull()
   })
 
+  it('opens a held tag scene for one VK answer', () => {
+    expect(readDiscoveryPreview('?reveal=series', true)).toEqual({ hold: true, screen: {
+      type: 'vk-answer-reveal', questionIndex: 0, optionIndex: 0, label: 'Новый сериал, который все обсуждают',
+      metadata: ['обсуждения', 'сериал', 'премьера', 'популярное'], next: { type: 'vk-question', index: 0, answers: [] },
+    } })
+    expect(readDiscoveryPreview('?reveal=hero', true)?.screen).toMatchObject({ type: 'vk-answer-reveal', questionIndex: 2 })
+    expect(readDiscoveryPreview('?reveal=series', false)).toBeNull()
+    expect(readDiscoveryPreview('?reveal=unknown', true)).toBeNull()
+  })
+
   it('preserves normal entry for missing, unrelated or unsupported queries', () => {
     expect(readDiscoveryPreview('', true)).toBeNull()
     expect(readDiscoveryPreview('?screen=scan', true)).toBeNull()

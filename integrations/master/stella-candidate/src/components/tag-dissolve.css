@@ -1,0 +1,19 @@
+/* Claude Design «D2 код → шарики»: threads and dots on one canvas over the full 1080 × 1920 frame. */
+.tag-dissolve__canvas { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; pointer-events: none; }
+.answer-flight--vk-video .answer-flight__visuals .tag-dissolve__tag {
+  --a: 0;
+  width: auto; min-width: 0; max-width: none; height: 80px; padding: 0 40px; border: 2px solid transparent; border-radius: 14px;
+  font: 500 32px/1 'VK Sans Display', Arial, sans-serif; letter-spacing: 0; white-space: nowrap; color: #fff;
+  transition: none; will-change: transform, opacity, filter;
+}
+.answer-flight--vk-video .answer-flight__visuals .tag-dissolve__tag::before, .answer-flight--vk-video .answer-flight__visuals .tag-dissolve__tag::after { display: none; }
+.answer-flight--vk-video .answer-flight__visuals .tag-dissolve__tag[data-kind='primary'] { height: 92px; padding: 0 48px; font-size: 38px; font-weight: 600; }
+/* Gradient frame: the border sweeps around the perimeter, the driver turns --a. */
+.answer-flight--vk-video[data-tag-look='gradient'] .answer-flight__visuals .tag-dissolve__tag {
+  background: linear-gradient(#070a2a, #070a2a) padding-box, conic-gradient(from calc(var(--a) * 1deg), #1a3cff, #3ee0ff, #b44bff, #ff2b6e, #1a3cff) border-box;
+  box-shadow: 0 0 22px rgba(62, 140, 255, .45), inset 0 0 16px rgba(62, 140, 255, .18); text-shadow: 0 0 12px rgba(120, 190, 255, .5);
+}
+/* Solid fill: blue and red tags alternate. */
+.answer-flight--vk-video[data-tag-look='solid'] .answer-flight__visuals .tag-dissolve__tag { background: #1546ff; box-shadow: 0 0 34px rgba(40, 90, 255, .8); }
+.answer-flight--vk-video[data-tag-look='solid'] .answer-flight__visuals .tag-dissolve__tag[data-tone='red'] { background: #ff2b45; box-shadow: 0 0 34px rgba(255, 43, 69, .75); }
+.answer-flight--vk-video .answer-flight__visuals .tag-dissolve__tag[data-encoded] .lc-scene-label { font-family: ui-monospace, Consolas, monospace; font-weight: 500; color: #9fe0ff; }

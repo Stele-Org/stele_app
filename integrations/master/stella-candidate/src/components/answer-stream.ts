@@ -12,7 +12,8 @@ export class AnswerStream {
   private readonly layer: HTMLDivElement
   private readonly animations = new Set<Animation>()
   private readonly nodes = new Set<Element>()
-  private readonly box: { x: number; y: number; w: number; h: number }
+  /** The answer card in stage fractions; the VK dot scene starts its threads from it. */
+  readonly box: { x: number; y: number; w: number; h: number }
   private dissolved = false
   private playing = true
   private disposed = false

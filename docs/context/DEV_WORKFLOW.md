@@ -26,11 +26,25 @@
 | `.\scripts\stella.ps1 lint` | ESLint |
 | `.\scripts\stella.ps1 build-check` | Проверка типов и сборка в `.cache/build-check`. Папку `dist` не трогает. |
 | `.\scripts\stella.ps1 smoke` | Смок-тест без браузера, см. ниже |
-| `.\scripts\stella.ps1 design` | Прототипы Claude Design: http://127.0.0.1:5219/ |
+| `.\scripts\stella.ps1 design` | Исходные страницы прототипа Claude Design для сравнения: http://127.0.0.1:5219/ |
 | `.\scripts\stella.ps1 verify-dist` | Сверка `dist` с принятым манифестом сборки |
 | `.\scripts\stella.ps1 verify-package` | Сверка рабочих файлов с `PACKAGE-MANIFEST.json`: показывает, что изменено относительно полученного пакета |
 | `.\scripts\stella.ps1 secrets` | Gitleaks по рабочим файлам и по истории git |
 | `.\scripts\stella.ps1 build` | Сборка в `dist`. После неё принятый манифест и pin стенда перестают совпадать с `dist`. |
+
+## Предпросмотр сцен
+
+Сцены Claude Design работают внутри приложения. После `.\scripts\stella.ps1 dev`:
+
+| Адрес | Что показывает |
+| --- | --- |
+| http://127.0.0.1:5218/stella/ | Весь сценарий |
+| http://127.0.0.1:5218/stella/?reveal=series | Сцена тегов одного ответа VK по кругу; `series` — id ответа из `src/content/vkVideo.ts` |
+| http://127.0.0.1:5218/stella/?reveal=series&tagLook=solid | То же с тегами-заливкой |
+| http://127.0.0.1:5218/stella/?discovery=generation | Сцена Discovery «пульс + нейросеть» по кругу |
+| http://127.0.0.1:5218/stella/?discovery=scan | Этап сканирования по кругу |
+
+Предпросмотры `?reveal` и `?discovery` работают только в dev-сервере. `?tagLook=solid` действует и в собранном приложении.
 
 ## Смок-тест
 

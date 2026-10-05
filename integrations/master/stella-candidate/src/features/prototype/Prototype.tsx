@@ -84,8 +84,9 @@ export function Prototype() {
   const completeProductEntry = useCallback(() => setEnteringProduct(null), [])
   const tagReveal = useMemo(() => tagPresentation(screen), [screen])
   const completeAnswerFlight = useCallback((reveal: TagReveal) => {
-    setScreen(current => current === reveal.source ? reveal.next : current)
-  }, [])
+    // A held preview replays the same reveal: a fresh screen object restarts the scene.
+    setScreen(current => current !== reveal.source ? current : discoveryPreview?.hold ? { ...current } : reveal.next)
+  }, [discoveryPreview])
   const [termsOpen, setTermsOpen] = useState(false)
   const [termsMounted, setTermsMounted] = useState(false)
   const [canvasScale, setCanvasScale] = useState(1)

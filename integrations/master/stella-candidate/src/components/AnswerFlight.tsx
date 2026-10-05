@@ -14,16 +14,23 @@ import { ringToneColors } from './RingTag'
 import { CameraPreview } from './CameraPreview'
 import { AnswerStream } from './answer-stream'
 import './answer-stream.css'
+import { TagDissolve } from './tag-dissolve'
+import './tag-dissolve.css'
+import { readTagLook } from '../features/prototype/tag-look'
 
 export function AnswerFlight({ reveal, playing, onComplete, onFinalExit, embedded = false, flightDurationScale = 1, showProductMark = true }: {
   reveal: TagReveal; playing: boolean; onComplete: (reveal: TagReveal) => void; onFinalExit?: (reveal: TagReveal) => void; embedded?: boolean; flightDurationScale?: number
   showProductMark?: boolean
 }) {
   const root = useRef<HTMLDivElement>(null)
-  const choreographer = useRef<Choreographer | null>(null)
+  const choreographer = useRef<Choreographer | TagDissolve | null>(null)
+  const dots = useRef<HTMLCanvasElement>(null)
   const stream = useRef<AnswerStream | null>(null)
   const [batch, setBatch] = useState(0)
   const [seed] = useState(() => Math.floor(Math.random() * 0x100000000))
+  // VK Видео follows the accepted Claude Design scene; MAX keeps the LumiCells flight.
+  const dissolve = reveal.product === 'vk-video'
+  const [look] = useState(() => readTagLook(typeof window === 'undefined' ? '' : window.location.search))
   const tags = reveal.batches[batch]
   const card = reveal.answerCard
   const cameraPreview = reveal.product === 'vk-video' && card?.artworkId === 'hero'
@@ -69,11 +76,11 @@ export function AnswerFlight({ reveal, playing, onComplete, onFinalExit, embedde
         const rec = records.find(record => record.el === el)!
         const index = records.indexOf(rec)
         const entering = host.dataset.phase === 'entering'
-        if (phase === 'start') {
+        if (phase === 'start' && !dissolve) {
           if (entering) stream.current?.enterTag(el, positions[index], index, 920 * flightDurationScale)
           else stream.current?.leaveTag(el, positions[index], index, 640 * flightDurationScale)
         }
-        if (host.dataset.phase === 'leaving' && phase === 'start' && batch === reveal.batches.length - 1 && !exitNotified) {
+        if (!dissolve && host.dataset.phase === 'leaving' && phase === 'start' && batch === reveal.batches.length - 1 && !exitNotified) {
           exitNotified = true
           finalExit()
         }
@@ -92,8 +99,21 @@ export function AnswerFlight({ reveal, playing, onComplete, onFinalExit, embedde
     }
     bind()
     ring?.addEventListener('lc-ready', bind)
-    const motion = new Choreographer(host, () => entries, () => hooks,
-      () => window.matchMedia('(prefers-reduced-motion: reduce)').matches, flightDurationScale, stream.current?.route)
+    const reduced = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const box = stream.current?.box ?? { x: .46, y: .46, w: .08, h: .08 }
+    const motion = dissolve
+      ? new TagDissolve(host, () => entries, () => hooks, {
+        canvas: dots.current, seed: seed + batch, reduced: reduced(),
+        // Stage fractions to the 1080px-wide screen; the stage starts 100px below its top.
+        card: { x: box.x * 1080, y: box.y * 1080 + 100, w: box.w * 1080, h: box.h * 1080 },
+        // The answer stays until the dots have left, then retires with the last batch.
+        onClosing: () => {
+          if (batch !== reveal.batches.length - 1 || exitNotified) return
+          exitNotified = true
+          finalExit()
+        },
+      })
+      : new Choreographer(host, () => entries, () => hooks, reduced, flightDurationScale, stream.current?.route)
     choreographer.current = motion
     void motion.revealOnce(350, () => {
       if (batch + 1 < reveal.batches.length) setBatch(batch + 1)
@@ -105,7 +125,7 @@ export function AnswerFlight({ reveal, playing, onComplete, onFinalExit, embedde
       for (const rec of records) rec.handle?.dispose()
       choreographer.current = null
     }
-  }, [reveal, onComplete, batch, tags, positions, flightDurationScale])
+  }, [reveal, onComplete, batch, tags, positions, flightDurationScale, dissolve, seed])
 
   useLayoutEffect(() => {
     choreographer.current?.setPlaying(playing)
@@ -113,7 +133,7 @@ export function AnswerFlight({ reveal, playing, onComplete, onFinalExit, embedde
   }, [playing, reveal, batch])
 
   return (
-    <section className={`screen answer-flight answer-flight--${reveal.product}`} data-has-answer={Boolean(card)} data-description={Boolean(reveal.description)} aria-label="Метаданные ответа" data-motion="lumicells-native-flight" data-effect="digital-answer-stream">
+    <section className={`screen answer-flight answer-flight--${reveal.product}`} data-has-answer={Boolean(card)} data-description={Boolean(reveal.description)} aria-label="Метаданные ответа" data-motion="lumicells-native-flight" data-effect={dissolve ? 'discovery-dots' : 'digital-answer-stream'} data-tag-look={dissolve ? look : undefined}>
       {!embedded && showProductMark && <ProductMark product={reveal.product} />}
       {!embedded && <div className={card ? 'question-heading' : 'progress-copy'} data-lc-influence="shadow" data-lc-strength="0.35"><h1>{reveal.prompt ?? reveal.label}</h1>{reveal.description && <p>{reveal.description}</p>}</div>}
       {!embedded && card && (
@@ -127,12 +147,13 @@ export function AnswerFlight({ reveal, playing, onComplete, onFinalExit, embedde
       )}
       <p className="visually-hidden" role="status">{reveal.label}. {tags.join(', ')}.</p>
       <div ref={root} aria-hidden="true" className="lc-scene answer-flight__visuals">
+        {dissolve && <canvas ref={dots} className="tag-dissolve__canvas" />}
         <div className="lc-scene-stage">
           {tags.map((tag, i) => (
             <div key={`${batch}:${tag}`} className="lc-scene-slot" style={{ left: `${positions[i].fx * 100}%`, top: `${positions[i].fy * 100}%` }}>
-              <span className="lc-scene-bubble lc-scene-pill lc-scene-stream-tag" data-kind={i === 0 ? 'primary' : 'topic'} data-selected={i === 0 ? '' : undefined}>
+              <span className={`lc-scene-bubble lc-scene-pill ${dissolve ? 'tag-dissolve__tag' : 'lc-scene-stream-tag'}`} data-kind={i === 0 ? 'primary' : 'topic'} data-selected={i === 0 ? '' : undefined} data-tone={dissolve ? i % 2 ? 'red' : 'blue' : undefined}>
                 <span className="lc-scene-label">{tag}</span>
-                <span className="answer-stream-code">{`0${i + 1} / ${[...tag].length.toString(16).toUpperCase()} · 0101`}</span>
+                {!dissolve && <span className="answer-stream-code">{`0${i + 1} / ${[...tag].length.toString(16).toUpperCase()} · 0101`}</span>}
               </span>
             </div>
           ))}
