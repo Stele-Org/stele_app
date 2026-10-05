@@ -17,10 +17,12 @@ describe('onboarding presentation', () => {
       expect(host.querySelector('.onboarding-touch')).toBeNull()
       expect(html).not.toContain(onboardingCopy.touch)
       expect(host.querySelector('.onboarding-start')?.textContent).toBe('начать')
+      expect(host.querySelector('.back-button')).toBeNull()
     } else {
       expect(host.querySelector('.onboarding-voice-example')?.textContent).toBe('Скажи, например, «поехали»')
       expect(host.querySelector('.onboarding-voice')?.textContent).toBe(onboardingCopy.voice)
       expect(host.querySelector('.onboarding-touch')?.textContent).toBe(onboardingCopy.touch)
+      expect(host.querySelector('.back-button')).not.toBeNull()
     }
     for (const step of onboardingIntroductions[product].steps) expect(html).toContain(step)
     expect(html).not.toContain(onboardingCopy.spokenGreeting)

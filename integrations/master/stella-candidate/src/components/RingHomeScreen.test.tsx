@@ -19,7 +19,8 @@ it('offers the two products with the supplied horizontal logos and keeps the hea
   expect(max.getAttribute('aria-label')).toBe('MAX')
   expect(max.querySelector('img')?.getAttribute('src')).toBe(maxHomeLogo)
   expect(html).not.toContain('vk-new-home')
-  // Both choices keep the LumiCells shadow and click pulse of the previous buttons.
+  // Both choices keep the click pulse; their LumiCells shadow is switched off, the field shows behind the logos.
   expect(html.match(/data-lc-pulse="click"/g)).toHaveLength(2)
-  expect(html.match(/data-lc-influence="shadow"/g)).toHaveLength(3)
+  expect(video.getAttribute('data-lc-strength')).toBe('0')
+  expect(max.getAttribute('data-lc-strength')).toBe('0')
 })

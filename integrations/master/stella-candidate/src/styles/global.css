@@ -202,11 +202,12 @@ h1, h2, p { margin: 0; }
 .screen--onboarding .onboarding-step { padding: 0 90px; gap: 20px; }
 .screen--onboarding .onboarding-step__label { font-size: 88px; }
 /* Steps as in artifacts/DESIGN/UI/stela/STELLA Onboard.png: 568 x 170 frames from (269, 622), 204px apart,
- * with a 68px number badge centred on the left edge of the frame and on the description. */
+ * with a 68px number badge centred on the left edge of the frame and on the description.
+ * The frame has no fill: the background field shows through. */
 .experience--vk-video .screen--onboarding .onboarding-steps { position: absolute; top: 287px; left: 159px; width: 568px; margin: 0; gap: 34px; }
 /* Sizes measured in artifacts/DESIGN/UI/stela/STELLA Onboard.png: title 65px regular, step text 33px on a 37px line. */
 .experience--vk-video .screen--onboarding .onboarding-intro h1 { font-size: 65px; line-height: 1.12; font-weight: 400; }
-.experience--vk-video .screen--onboarding .onboarding-step { position: relative; height: 170px; padding: 0 28px 0 78px; align-items: center; gap: 0; border: 3px solid #0040FF; border-radius: 40px; background: #000206; font-size: 33px; line-height: 37px; font-weight: 600; }
+.experience--vk-video .screen--onboarding .onboarding-step { position: relative; height: 170px; padding: 0 28px 0 78px; align-items: center; gap: 0; border: 3px solid #0040FF; border-radius: 40px; font-size: 33px; line-height: 37px; font-weight: 600; }
 .experience--vk-video .screen--onboarding .onboarding-step__label { position: absolute; left: -34px; top: 50%; width: 68px; height: 68px; margin-top: -34px; border-radius: 20px; background: #0040FF; display: grid; place-items: center; font-size: 33px; line-height: 1; }
 .onboarding-actions { top: 885px; }
 /* Start button as in the same layout: 312 x 103 at (384, 1094), lower-case bold label. */
