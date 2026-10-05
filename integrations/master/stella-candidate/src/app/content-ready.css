@@ -1,0 +1,6 @@
+.content-loading { position: fixed; inset: 0; display: grid; place-items: center; background: #000426; color: white; font-family: Arial, sans-serif; }
+.content-loading__panel { width: min(420px, 85vw); text-align: center; }
+.content-loading h1 { font-size: clamp(22px, 4vw, 32px); margin-bottom: 16px; }
+.content-loading p { font-size: 18px; opacity: .75; }
+.content-loading progress { width: 100%; height: 8px; margin-top: 24px; accent-color: #0044ff; }
+.content-loading button { border: 0; border-radius: 20px; margin-top: 24px; padding: 16px 24px; color: white; background: #0044ff; cursor: pointer; }

@@ -1,0 +1,238 @@
+[
+  {
+    "asset": "vk-new-series.svg",
+    "source": "artifacts/DESIGN/UI/stela/new/STELLA-2.svg",
+    "sourceSha256": "12a172381b9c4b084a96367d02bd4ee0b1969bdabe184e4c6d92d2e82aee1830",
+    "sha256": "bc0018b966ad0b571fd5bca17edfcacb7dc2428765aff7b3e30070786feaa686",
+    "viewBox": [
+      "45",
+      "549",
+      "468",
+      "280"
+    ],
+    "removedLabelPaths": 1,
+    "vectorCropProvenance": "vk-popcorn-only.provenance.json"
+  },
+  {
+    "asset": "vk-new-standup.svg",
+    "source": "artifacts/DESIGN/UI/stela/new/STELLA-2.svg",
+    "sourceSha256": "12a172381b9c4b084a96367d02bd4ee0b1969bdabe184e4c6d92d2e82aee1830",
+    "sha256": "c5d1ba8fe48e5db8a7e317481254a356d97fe775e0fce207875f620a7db5bf8e",
+    "viewBox": [
+      "557",
+      "543",
+      "468.438",
+      "280"
+    ],
+    "removedLabelPaths": 0
+  },
+  {
+    "asset": "vk-new-interview.svg",
+    "source": "artifacts/DESIGN/UI/stela/new/STELLA-2.svg",
+    "sourceSha256": "12a172381b9c4b084a96367d02bd4ee0b1969bdabe184e4c6d92d2e82aee1830",
+    "sha256": "80a469eee968d0c79282f8d1688b50795fbd4e104441cf8b1d9c7eff62054e7b",
+    "viewBox": [
+      "45",
+      "869",
+      "468.438",
+      "280"
+    ],
+    "removedLabelPaths": 1
+  },
+  {
+    "asset": "vk-new-science.svg",
+    "source": "artifacts/DESIGN/UI/stela/new/STELLA-2.svg",
+    "sourceSha256": "12a172381b9c4b084a96367d02bd4ee0b1969bdabe184e4c6d92d2e82aee1830",
+    "sha256": "ef8ec2d703995bcf3cfe582b07c4860ddfcc9fae0ff972f53a79dd84716d7211",
+    "viewBox": [
+      "557",
+      "869",
+      "468.438",
+      "280"
+    ],
+    "removedLabelPaths": 1
+  },
+  {
+    "asset": "vk-new-drive.svg",
+    "source": "artifacts/DESIGN/UI/stela/new/STELLA-3.svg",
+    "sourceSha256": "9ec00c62cff933a386770d6c91effde571869dda103b924b3c35796d9c314400",
+    "sha256": "ed367a74c2af8fac90e626ffa7efccda4eaf744543e7b1d75c94db39c3329d1b",
+    "viewBox": [
+      "45",
+      "549",
+      "468",
+      "280"
+    ],
+    "removedLabelPaths": 1,
+    "imageReplacementProvenance": "vk-drive-cheering-couple.provenance.json"
+  },
+  {
+    "asset": "vk-new-heroes.svg",
+    "source": "artifacts/DESIGN/UI/stela/new/STELLA-3.svg",
+    "sourceSha256": "9ec00c62cff933a386770d6c91effde571869dda103b924b3c35796d9c314400",
+    "sha256": "955a5822a314cc3737a5032d74e8d778b61594c9ad2f04947152c2ed6d06b3bb",
+    "viewBox": [
+      "557",
+      "543",
+      "468.438",
+      "280"
+    ],
+    "removedLabelPaths": 0
+  },
+  {
+    "asset": "vk-new-learn.svg",
+    "source": "artifacts/DESIGN/UI/stela/new/STELLA-3.svg",
+    "sourceSha256": "9ec00c62cff933a386770d6c91effde571869dda103b924b3c35796d9c314400",
+    "sha256": "4ef9e01a800a8d7973067a765a166d6dce4a8a8691abdb4c71df93c30ac8310d",
+    "viewBox": [
+      "45",
+      "869",
+      "468.438",
+      "280"
+    ],
+    "removedLabelPaths": 1
+  },
+  {
+    "asset": "vk-new-rest.svg",
+    "source": "artifacts/DESIGN/UI/stela/new/STELLA-3.svg",
+    "sourceSha256": "9ec00c62cff933a386770d6c91effde571869dda103b924b3c35796d9c314400",
+    "sha256": "b0d4f59c9c35238516612d83e8bb8a2c68f18cd4770f94169c40776f9afe7b79",
+    "viewBox": [
+      "557",
+      "869",
+      "468.438",
+      "280"
+    ],
+    "removedLabelPaths": 1
+  },
+  {
+    "asset": "vk-new-familiar.svg",
+    "source": "artifacts/DESIGN/UI/stela/new/STELLA-7.svg",
+    "sourceSha256": "4ae70bb1e96ac474f72ef8595fd8c22374b61bfa09249e4bc2a2e9038589b1a1",
+    "sha256": "6a1e1ddedf676865459daaf202ffdf429aff0f3d4f11f14fe98ea5ce530b4edc",
+    "viewBox": [
+      "45",
+      "549",
+      "468",
+      "280"
+    ],
+    "removedLabelPaths": 1
+  },
+  {
+    "asset": "vk-new-new.svg",
+    "source": "artifacts/DESIGN/UI/stela/new/STELLA-7.svg",
+    "sourceSha256": "4ae70bb1e96ac474f72ef8595fd8c22374b61bfa09249e4bc2a2e9038589b1a1",
+    "sha256": "cc108292b2edc02f61282daf5fcd63a8a4635a257d3cc728a2531eec9fdac55f",
+    "viewBox": [
+      "557",
+      "550",
+      "468.438",
+      "280"
+    ],
+    "removedLabelPaths": 1
+  },
+  {
+    "asset": "vk-new-hero.svg",
+    "source": "artifacts/DESIGN/UI/stela/new/STELLA-7.svg",
+    "sourceSha256": "4ae70bb1e96ac474f72ef8595fd8c22374b61bfa09249e4bc2a2e9038589b1a1",
+    "sha256": "680c5784d40f4289194393072fe983121ed95c230e4fc475ebae2c72ba614cbb",
+    "viewBox": [
+      "45",
+      "869",
+      "468.438",
+      "280"
+    ],
+    "removedLabelPaths": 1
+  },
+  {
+    "asset": "vk-new-popular.svg",
+    "source": "artifacts/DESIGN/UI/stela/new/STELLA-7.svg",
+    "sourceSha256": "4ae70bb1e96ac474f72ef8595fd8c22374b61bfa09249e4bc2a2e9038589b1a1",
+    "sha256": "5fb814f1a11f4b8343b1318e1469e675ae76fa9a3039fccb319beb87a0af4d81",
+    "viewBox": [
+      "557",
+      "869",
+      "468.438",
+      "280"
+    ],
+    "removedLabelPaths": 1
+  },
+  {
+    "asset": "vk-new-onboarding.svg",
+    "source": "artifacts/DESIGN/UI/stela/new/STELLA-1.svg",
+    "sourceSha256": "03c479d46e8b67667dda62b138cea8a9a6a27416253054f6e300bffe172580b0",
+    "sha256": "8a8824b065b75435cf9a4fbbad71662af7ade46cb02175d44db69432202b8184",
+    "viewBox": [
+      "628.825",
+      "584.109",
+      "389.949",
+      "150.04"
+    ],
+    "removedLabelPaths": 0
+  },
+  {
+    "asset": "vk-new-camera.svg",
+    "source": "artifacts/DESIGN/UI/stela/new/STELLA-10.svg",
+    "sourceSha256": "959cd079bda29ca167b874f506649e9ae3d934575afc45be9f5700f202db7437",
+    "sha256": "2083ff01ddc19740b02673bda2cff2108b7f9657d71d9eabf43aaa9e58395a8c",
+    "viewBox": [
+      "390",
+      "740",
+      "300",
+      "220"
+    ],
+    "removedLabelPaths": 0
+  },
+  {
+    "asset": "vk-new-silhouette.svg",
+    "source": "artifacts/DESIGN/UI/stela/new/STELLA-8.svg",
+    "sourceSha256": "4ef949b61c664a5692d06a2fa29e69dffc9fe8523a5381823504fbbaed2c1831",
+    "sha256": "4a3581c597d1abaf1773affa9c599034e9860d6d6467525b71a3fe8964f1e520",
+    "viewBox": [
+      "0",
+      "0",
+      "1080",
+      "1920"
+    ],
+    "removedLabelPaths": 0
+  },
+  {
+    "asset": "vk-new-particles.svg",
+    "source": "artifacts/DESIGN/UI/stela/new/STELLA-9.svg",
+    "sourceSha256": "43426fce94e7141516609c7a6b683eab5b8a051b725fc4ebfe7e63093fe2819f",
+    "sha256": "9d2e3d86d4b51c7d8b851546a810d1ef29e002dc06b1a731ada2f8e9cf9f46c2",
+    "viewBox": [
+      "0",
+      "0",
+      "1080",
+      "1920"
+    ],
+    "removedLabelPaths": 0
+  },
+  {
+    "asset": "vk-new-qr.svg",
+    "source": "artifacts/DESIGN/UI/stela/new/STELLA-5.svg",
+    "sourceSha256": "1c4782fffef3576fd9ad5dff4c75c843489a7d49592df1cb7b6d9d2bc6fa6916",
+    "sha256": "06f26525b0a1ab5c84b508a3b11a0864563c65e4411918fc93444b946f07a6e3",
+    "viewBox": [
+      "296",
+      "717",
+      "487",
+      "487"
+    ],
+    "removedLabelPaths": 0
+  },
+  {
+    "asset": "vk-new-home.svg",
+    "source": "artifacts/DESIGN/UI/stela/new/STELLA.svg",
+    "sourceSha256": "ca9fb6ef1f0fcc5a16bdec1edb8866444d43508f6ff206df1c100628bce0e1b1",
+    "sha256": "919922be3f7e7e88a65fa7cf8daaa3d87bf7e77f5eda4d19d069af4895d52477",
+    "viewBox": [
+      "235.744",
+      "632.82",
+      "256.23",
+      "256.23"
+    ],
+    "removedLabelPaths": 0
+  }
+]

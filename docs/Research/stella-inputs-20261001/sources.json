@@ -1,0 +1,20 @@
+{
+  "received": "2026-10-01",
+  "sources": [
+    {
+      "file": "Пользователь_VK_MAX13 (1).md",
+      "bytes": 9939,
+      "sha256": "302da79209e456b57a523e1ea090c0b8e7da7eab79dd45eff2153770398dabb9"
+    },
+    {
+      "file": "VK Видео_Стелла.md",
+      "bytes": 1269912,
+      "sha256": "7f84edf73032ab6d923ad12329eb5fc6ad7a4c738afa7bf8bbab63f2c845b159"
+    },
+    {
+      "file": "Метаданные_VK_Видео_и_MAX.xlsx",
+      "bytes": 28762,
+      "sha256": "5c70f80693abb3f858f295f1db7cb949ed28b545b4f8f89371875990a84c67c5"
+    }
+  ]
+}

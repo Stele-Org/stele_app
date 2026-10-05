@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-04",
+  "tool": "built-in image_gen.imagegen",
+  "editor": "/root/cleanplates_05_07",
+  "excluded": "06_MUSICLE_F_2.png",
+  "sourceDimensions": {
+    "width": 2688,
+    "height": 1520
+  },
+  "outputDimensions": {
+    "width": 1668,
+    "height": 943
+  },
+  "visualQa": "All six outputs visually inspected in tool result. Main heroes absent; lettering and major composition preserved. COMEDY pixel characters/HUD kept; MUSICLE F1 main feather fan removed; MUSICLE M peripheral ensemble retained in final retry; SCI-FI robots, billboard faces and distant crowd kept.",
+  "limitations": [
+    "Generated pixels outside removal regions are not guaranteed identical to originals.",
+    "Output resolution is lower than originals; no resampling or pixel-perfect claim.",
+    "Previously hidden areas are plausible reconstructed scenery rather than recovered source pixels."
+  ],
+  "attemptNotes": [
+    {
+      "file": "06_MUSICLE_M.png",
+      "attempt": 1,
+      "result": "Output moderation blocked (sexual)",
+      "requestId": "4c84c66d-ae77-40a8-8b11-ad54a3e97f99"
+    },
+    {
+      "file": "06_MUSICLE_M.png",
+      "attempt": 2,
+      "result": "Generated safe theatre backdrop but removed peripheral dancers; superseded."
+    },
+    {
+      "file": "06_MUSICLE_M.png",
+      "attempt": 3,
+      "result": "Targeted edit preserving existing stage ensemble succeeded. Selected final."
+    },
+    {
+      "file": "07_SCI-FI_F.png",
+      "attempt": 1,
+      "result": "User interrupted call after 10.3s; directory inspection showed no output."
+    },
+    {
+      "file": "07_SCI-FI_F.png",
+      "attempt": 2,
+      "result": "Succeeded after user resume."
+    }
+  ],
+  "assets": [
+    {
+      "file": "05_COMEDY_M.png",
+      "source": "05_COMEDY_M.png",
+      "output": "05_COMEDY_M.png",
+      "prompt": "Use case: precise-object-edit. Edit the input poster into a clean background plate. Remove ONLY the large photorealistic foreground man completely, including all hair, face, body, shirt, hands and arms, and the play logo printed on his shirt. Reconstruct the colorful pixel-game landscape behind his silhouette: blue sky, block terrain, castle, path and scenery in exactly the existing style. Preserve the composition, framing, colors and all typography verbatim 'ГЕРОЙ', 'ВК ВИДЕО', 'СТАРТ'. Preserve the small pixel-art decorative game characters, top-left avatar, x03 and heart HUD, coins, question block, treasure chest, castle and visible background pixels. Do not remove pixel sprites; only the large photographic hero disappears. Do not invent any new people or photographic faces, shadows, clothing fragments. No new text. Same landscape aspect ratio; retain original poster dimensions if possible. Return only one finished clean background poster.",
+      "sourceSha256": "55bceb69545590e981d6a7fa04c08fff1c170baec320dd2ead5c24f484092b78",
+      "outputSha256": "3c39c718a88e95a1617e72e51b7010c70b274215d28dad7825f8c8655032f5c2",
+      "width": 1668,
+      "height": 943
+    },
+    {
+      "file": "05_COMEDY_F.png",
+      "source": "05_COMEDY_F.png",
+      "output": "05_COMEDY_F.png",
+      "prompt": "Use case: precise-object-edit. Edit the input poster into a clean background plate. Remove ONLY the large photorealistic foreground woman completely, including all hair, face, body, shirt, hands and arms, and the play logo printed on her shirt. Reconstruct the colorful pixel-game landscape behind her silhouette: blue sky, block terrain, castle, path and scenery in exactly the existing style. Preserve the composition, framing, colors and all typography verbatim 'ГЕРОИНЯ', 'ВК ВИДЕО', 'СТАРТ'. Preserve the small pixel-art decorative game characters, top-left avatar, x03 and heart HUD, coins, question block, treasure chest, castle and visible background pixels. Do not remove pixel sprites; only the large photographic heroine disappears. Do not invent any new people or photographic faces, shadows, clothing fragments. No new text. Same landscape aspect ratio; retain original poster dimensions if possible. Return only one finished clean background poster.",
+      "sourceSha256": "f2624ae74034b226aa5d0c19da5efa45e90abd44b4ae6d90396deeaeffbcd62a",
+      "outputSha256": "558bd04bd92a22321d10f509853e675210ca533f53ce723626a5b30ff121a3fe",
+      "width": 1668,
+      "height": 943
+    },
+    {
+      "file": "06_MUSICLE_M.png",
+      "source": "06_MUSICLE_M.png",
+      "output": "06_MUSICLE_M.png",
+      "prompt": "Use case: precise-object-edit. Make a background plate from this theatre poster by removing ONLY the large foreground man in the black suit at center-right, including his extended hand. Reconstruct empty red velvet theatre curtains and stage behind him. Preserve the background stage ensemble at the far left and far right and all decor in the source image exactly as they are: do not remove or alter the peripheral ensemble figures, costumes or feathers. Leave ornate illuminated lettering 'герой' and 'ВК ВИДЕО', gold ornament, illuminated windmill, red curtains and bulbs intact. Do not add new people or body parts. Keep original framing, landscape aspect ratio, perspective, lighting and color. One completed clean background plate.",
+      "sourceSha256": "00b07cd60e99291e86af529fc3ef33caef162289dff706dfb3c6a5b558a025e1",
+      "outputSha256": "45743328fc2458a4626368b8dfa98b5e2f06a686a3448a52925988596b7a3578",
+      "width": 1668,
+      "height": 943
+    },
+    {
+      "file": "06_MUSICLE_F_1.png",
+      "source": "06_MUSICLE_F_1.png",
+      "output": "06_MUSICLE_F_1.png",
+      "prompt": "Use case: precise-object-edit. Edit this theatre poster into a clean background plate by completely removing the large central foreground female performer and ALL of the enormous red-and-white feather fan she holds behind her head. Remove her entire silhouette including hair, costume, gown train, hands and arms. Fill the removed region with coherent empty red velvet curtains, theatre stage, warm lights and the architecture already present behind her. Preserve the exact original framing and landscape aspect ratio. Keep the left ornate text verbatim 'героиня' and 'ВК ВИДЕО' with all gold ornaments and bulbs in their original position. Keep the illuminated windmill on the right, background decoration and existing small distant audience figures along bottom edge unchanged. Do not add new people, faces or bodies, do not invent exposed skin or suggestive details. The former performer and her huge feather fan must be gone entirely. Preserve visible background and color grading as closely as possible. One finished background poster.",
+      "sourceSha256": "6309c7a928180475c11de5a21503eda740751ef3504e30f2e738a397d0091677",
+      "outputSha256": "be3894f4c04338078b56d51e11f838ffacb9a09ded18abdbd8e5af2d328a5a9f",
+      "width": 1668,
+      "height": 943
+    },
+    {
+      "file": "07_SCI-FI_M.png",
+      "source": "07_SCI-FI_M.png",
+      "output": "07_SCI-FI_M.png",
+      "prompt": "Use case: precise-object-edit. Remove ONLY the large monochrome foreground male silent-film actor in the middle, including hat, hair, face, hands, whole suit, legs, shoes and his floor reflection/shadow. Fill his former silhouette with the already existing background: monochrome old street visible through the film-frame portal on the left and continuous neon futuristic city and reflective walkway on the right. Preserve the exact boundary between black-and-white and color worlds. Leave the robot at far right, distant crowd on walkway, hologram faces on skyscraper advertisements, flying cars, holographic globe, film reels, film strips and all architecture intact. Preserve Cyrillic title verbatim 'ГЕРОЙ' and 'ВК ВИДЕО', position, size, texture, frame, colors, lighting and original crop. No new foreground human or clothing fragments; the central portal/walkway remains vacant for later insertion. Keep all small background figures in their original positions. Output one finished clean background poster, same landscape aspect ratio.",
+      "sourceSha256": "d2c04dc156256edb284f1508eb98e748360697ad14204e9066372007f8ad0418",
+      "outputSha256": "d9faa23e9aab29a3b14bc5e572a548af7c39929cc259945c32a9026a827199ce",
+      "width": 1668,
+      "height": 943
+    },
+    {
+      "file": "07_SCI-FI_F.png",
+      "source": "07_SCI-FI_F.png",
+      "output": "07_SCI-FI_F.png",
+      "prompt": "Use case: precise-object-edit. Remove ONLY the large monochrome foreground female silent-film actor in the middle, including cloche hat, hair, face, hands, whole dress, fur stole, gloves, jewelry, legs, shoes and her floor reflection/shadow. Fill her former silhouette with the already existing background: monochrome old street visible through the film-frame portal on the left and continuous neon futuristic city and reflective walkway on the right. Preserve the exact boundary between black-and-white and color worlds. Leave the robot at far right, distant crowd on walkway, hologram faces on skyscraper advertisements, flying cars, holographic globe, film reels, film strips and all architecture intact. Preserve Cyrillic title verbatim 'ГЕРОИНЯ' and 'ВК ВИДЕО', position, size, texture, frame, colors, lighting and original crop. No new foreground human or clothing fragments; the central portal/walkway remains vacant for later insertion. Keep all small background figures in their original positions. Output one finished clean background poster, same landscape aspect ratio.",
+      "sourceSha256": "cc90b7a27d8e4fe2bc27aa39b932dd3b537dfe9c6cf586a3cdfa6aed49bff50e",
+      "outputSha256": "fd9c9a0199538affadeaa02ee94f04d701b72f460ed371a37c6c39f3217cf293",
+      "width": 1668,
+      "height": 943
+    }
+  ]
+}

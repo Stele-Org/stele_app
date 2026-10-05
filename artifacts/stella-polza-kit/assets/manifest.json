@@ -1,0 +1,379 @@
+{
+  "version": "clean-plates-v1",
+  "date": "2026-10-04",
+  "tool": "image_gen.imagegen",
+  "archive_sha256": "bc31f58643f7351acc32f93359b204ebccce3ad7719cf26ed05478300187df2b",
+  "excluded": [
+    "06_MUSICLE_F_2.png"
+  ],
+  "count": 20,
+  "male": 10,
+  "female": 10,
+  "assets": [
+    {
+      "genre": "01_BOEVIK",
+      "variant": "M",
+      "source": {
+        "file": "01_BOEVIK_M.png",
+        "width": 2688,
+        "height": 1520,
+        "bytes": 6081638,
+        "sha256": "28df1f24a1029b627bab57a058eeeb804a05447b8bdbf140149d23ca3b0618e7"
+      },
+      "output": {
+        "file": "01_BOEVIK_M.png",
+        "width": 1668,
+        "height": 943,
+        "bytes": 2336199,
+        "sha256": "7648998a660c562c7af0e4c217d458d429126e6d51e4f56011215ef5162c7fe7"
+      }
+    },
+    {
+      "genre": "01_BOEVIK",
+      "variant": "F",
+      "source": {
+        "file": "01_BOEVIK_F.png",
+        "width": 2688,
+        "height": 1520,
+        "bytes": 6368758,
+        "sha256": "9a46e315193231af5bc2004d903d42b483b8055d3c2ad969658653703713c837"
+      },
+      "output": {
+        "file": "01_BOEVIK_F.png",
+        "width": 1668,
+        "height": 943,
+        "bytes": 2655109,
+        "sha256": "0adee14b94eed4d8c5b121abed743ccde0817e8903e697516e307512efa84d61"
+      }
+    },
+    {
+      "genre": "02_DETECTIVE",
+      "variant": "M",
+      "source": {
+        "file": "02_DETECTIVE_M.png",
+        "width": 2688,
+        "height": 1520,
+        "bytes": 5645686,
+        "sha256": "9c99110939baf656811c38b0e5152d4b82e315499aa21cb0650abe721d5bd337"
+      },
+      "output": {
+        "file": "02_DETECTIVE_M.png",
+        "width": 1667,
+        "height": 943,
+        "bytes": 2402540,
+        "sha256": "bfeef39c8c5c9e3a1153b0683703f9c0fc359a75059c514db8037b1508875e37"
+      }
+    },
+    {
+      "genre": "02_DETECTIVE",
+      "variant": "F",
+      "source": {
+        "file": "02_DETECTIVE_F.png",
+        "width": 2688,
+        "height": 1520,
+        "bytes": 6106764,
+        "sha256": "1a5e6701dcbd6a840b474a9a1f833c4f4f3e5178757a94ffda6dab04434d3f7b"
+      },
+      "output": {
+        "file": "02_DETECTIVE_F.png",
+        "width": 1668,
+        "height": 943,
+        "bytes": 2378852,
+        "sha256": "616a4c5e3b537690e264645d34260ed31cb1e408b90f63115d7516cd7d692054"
+      }
+    },
+    {
+      "genre": "03_DRAMA",
+      "variant": "M",
+      "source": {
+        "file": "03_DRAMA_M.png",
+        "width": 2688,
+        "height": 1520,
+        "bytes": 5358720,
+        "sha256": "e2331d346c07402df3a5683636803a1d0d097970c5a307f39770212010fa8741"
+      },
+      "output": {
+        "file": "03_DRAMA_M.png",
+        "width": 1667,
+        "height": 943,
+        "bytes": 2177027,
+        "sha256": "1e4a85d64ce23ceac455ba1fc1114089d25f411b98b2991f40002349047e87e1"
+      }
+    },
+    {
+      "genre": "03_DRAMA",
+      "variant": "F",
+      "source": {
+        "file": "03_DRAMA_F.png",
+        "width": 2688,
+        "height": 1520,
+        "bytes": 5400995,
+        "sha256": "b5f4e607dc1047fa178802e8bf28b70899330c931e993a2af417e001c6cb30e7"
+      },
+      "output": {
+        "file": "03_DRAMA_F.png",
+        "width": 1668,
+        "height": 943,
+        "bytes": 2148019,
+        "sha256": "d8a63670efdbe5200e38103214e0346d5afcc66e39aec24ed747a154edf90623"
+      }
+    },
+    {
+      "genre": "04_HISTORY",
+      "variant": "M",
+      "source": {
+        "file": "04_HISTORY_M.png",
+        "width": 2688,
+        "height": 1520,
+        "bytes": 6175047,
+        "sha256": "fc181aa6ca535c4e6adee5294f425cebae66abfb085bc16c7c30fa256ddafcac"
+      },
+      "output": {
+        "file": "04_HISTORY_M.png",
+        "width": 1668,
+        "height": 943,
+        "bytes": 2648373,
+        "sha256": "a8e019b8a24d261ff552ac89a182781da2bf29c86bf6379ef9e27612545a0b6a"
+      }
+    },
+    {
+      "genre": "04_HISTORY",
+      "variant": "F",
+      "source": {
+        "file": "04_HISTORY_F.png",
+        "width": 2688,
+        "height": 1520,
+        "bytes": 6407447,
+        "sha256": "c2fd9ec000c09ec93bfd5e4a19a409dca12ea98154fa96e717e994e0cebf697e"
+      },
+      "output": {
+        "file": "04_HISTORY_F.png",
+        "width": 1667,
+        "height": 943,
+        "bytes": 2634036,
+        "sha256": "1e88e3be212b51a0b2fdf4471ac451df762369ef43da56a4da192e9655208d32"
+      }
+    },
+    {
+      "genre": "05_COMEDY",
+      "variant": "M",
+      "source": {
+        "file": "05_COMEDY_M.png",
+        "width": 2688,
+        "height": 1520,
+        "bytes": 4937691,
+        "sha256": "55bceb69545590e981d6a7fa04c08fff1c170baec320dd2ead5c24f484092b78"
+      },
+      "output": {
+        "file": "05_COMEDY_M.png",
+        "width": 1668,
+        "height": 943,
+        "bytes": 1867002,
+        "sha256": "3c39c718a88e95a1617e72e51b7010c70b274215d28dad7825f8c8655032f5c2"
+      }
+    },
+    {
+      "genre": "05_COMEDY",
+      "variant": "F",
+      "source": {
+        "file": "05_COMEDY_F.png",
+        "width": 2688,
+        "height": 1520,
+        "bytes": 5176162,
+        "sha256": "f2624ae74034b226aa5d0c19da5efa45e90abd44b4ae6d90396deeaeffbcd62a"
+      },
+      "output": {
+        "file": "05_COMEDY_F.png",
+        "width": 1668,
+        "height": 943,
+        "bytes": 2103209,
+        "sha256": "558bd04bd92a22321d10f509853e675210ca533f53ce723626a5b30ff121a3fe"
+      }
+    },
+    {
+      "genre": "06_MUSICLE",
+      "variant": "M",
+      "source": {
+        "file": "06_MUSICLE_M.png",
+        "width": 2688,
+        "height": 1520,
+        "bytes": 5282060,
+        "sha256": "00b07cd60e99291e86af529fc3ef33caef162289dff706dfb3c6a5b558a025e1"
+      },
+      "output": {
+        "file": "06_MUSICLE_M.png",
+        "width": 1668,
+        "height": 943,
+        "bytes": 2082715,
+        "sha256": "45743328fc2458a4626368b8dfa98b5e2f06a686a3448a52925988596b7a3578"
+      }
+    },
+    {
+      "genre": "06_MUSICLE",
+      "variant": "F",
+      "source": {
+        "file": "06_MUSICLE_F_1.png",
+        "width": 2688,
+        "height": 1520,
+        "bytes": 5680235,
+        "sha256": "6309c7a928180475c11de5a21503eda740751ef3504e30f2e738a397d0091677"
+      },
+      "output": {
+        "file": "06_MUSICLE_F_1.png",
+        "width": 1668,
+        "height": 943,
+        "bytes": 1946998,
+        "sha256": "be3894f4c04338078b56d51e11f838ffacb9a09ded18abdbd8e5af2d328a5a9f"
+      }
+    },
+    {
+      "genre": "07_SCI-FI",
+      "variant": "M",
+      "source": {
+        "file": "07_SCI-FI_M.png",
+        "width": 2688,
+        "height": 1520,
+        "bytes": 5845621,
+        "sha256": "d2c04dc156256edb284f1508eb98e748360697ad14204e9066372007f8ad0418"
+      },
+      "output": {
+        "file": "07_SCI-FI_M.png",
+        "width": 1668,
+        "height": 943,
+        "bytes": 2299399,
+        "sha256": "d9faa23e9aab29a3b14bc5e572a548af7c39929cc259945c32a9026a827199ce"
+      }
+    },
+    {
+      "genre": "07_SCI-FI",
+      "variant": "F",
+      "source": {
+        "file": "07_SCI-FI_F.png",
+        "width": 2688,
+        "height": 1520,
+        "bytes": 6078753,
+        "sha256": "cc90b7a27d8e4fe2bc27aa39b932dd3b537dfe9c6cf586a3cdfa6aed49bff50e"
+      },
+      "output": {
+        "file": "07_SCI-FI_F.png",
+        "width": 1668,
+        "height": 943,
+        "bytes": 2338517,
+        "sha256": "fd9c9a0199538affadeaa02ee94f04d701b72f460ed371a37c6c39f3217cf293"
+      }
+    },
+    {
+      "genre": "08_ADVENTURE",
+      "variant": "M",
+      "source": {
+        "file": "08_ADVENTURE_M.png",
+        "width": 2688,
+        "height": 1520,
+        "bytes": 7502731,
+        "sha256": "0489cde6c22501b91a9dd6a1b38a7f17195a31c6aeafc30236064081c88cdd3c"
+      },
+      "output": {
+        "file": "08_ADVENTURE_M.png",
+        "width": 1668,
+        "height": 943,
+        "bytes": 2992500,
+        "sha256": "3a5832b671b64fc7d77ea12a5ab6cc0cd0a0a2e3d186843584cc48c01838b2b2"
+      }
+    },
+    {
+      "genre": "08_ADVENTURE",
+      "variant": "F",
+      "source": {
+        "file": "08_ADVENTURE_F.png",
+        "width": 2688,
+        "height": 1520,
+        "bytes": 7496875,
+        "sha256": "c564317bd927d2539e478748a446b6bbd74b665c9dd6a8a568e81e2a7208393e"
+      },
+      "output": {
+        "file": "08_ADVENTURE_F.png",
+        "width": 1668,
+        "height": 943,
+        "bytes": 2923730,
+        "sha256": "fc475e7f1ab4c6546dee9c0af45aba8e60066b0daabc375c4d88380a3e5302ad"
+      }
+    },
+    {
+      "genre": "09_HORROR",
+      "variant": "M",
+      "source": {
+        "file": "09_HORROR_M.png",
+        "width": 2688,
+        "height": 1520,
+        "bytes": 4928894,
+        "sha256": "6eb46c37ad2b1edf64eac0960ae4aadc06b5a99565f515d62856175589878cf2"
+      },
+      "output": {
+        "file": "09_HORROR_M.png",
+        "width": 1668,
+        "height": 943,
+        "bytes": 1771208,
+        "sha256": "6fe2d5b802c47cd3361e209bdc4e4f57b0b765835457e1d2f2bacf603f40e43a"
+      }
+    },
+    {
+      "genre": "09_HORROR",
+      "variant": "F",
+      "source": {
+        "file": "09_HORROR_F.png",
+        "width": 2688,
+        "height": 1520,
+        "bytes": 4895643,
+        "sha256": "c15b0bab7d23ea67454c4a509715776ebbf92ffe7d85e6089a7b06afbbbccb61"
+      },
+      "output": {
+        "file": "09_HORROR_F.png",
+        "width": 1668,
+        "height": 943,
+        "bytes": 1755523,
+        "sha256": "29045006a70a2e1e7b338840fd025950d6fd0ea71308603ab8a0854dcac0e393"
+      }
+    },
+    {
+      "genre": "10_FANTASY",
+      "variant": "M",
+      "source": {
+        "file": "10_FANTASY_M.png",
+        "width": 2688,
+        "height": 1520,
+        "bytes": 5749269,
+        "sha256": "43fb4eabea975e1fef100af6ab05a3a979895cac572ab45d6ead4fde35884d11"
+      },
+      "output": {
+        "file": "10_FANTASY_M.png",
+        "width": 1667,
+        "height": 943,
+        "bytes": 2405337,
+        "sha256": "b1fd205d728c14042936160c429218fcda23b39a965ed927e4a24305c5a8b869"
+      }
+    },
+    {
+      "genre": "10_FANTASY",
+      "variant": "F",
+      "source": {
+        "file": "10_FANTASY_F.png",
+        "width": 2688,
+        "height": 1520,
+        "bytes": 6064671,
+        "sha256": "b0dcc3661a421ca20e2bceb6454430f7215c81f241f573f3773f85417fa29060"
+      },
+      "output": {
+        "file": "10_FANTASY_F.png",
+        "width": 1668,
+        "height": 943,
+        "bytes": 2474731,
+        "sha256": "aea88a05a89ccc2581df5ca0438145008163c4da7ceffb4ddd5384bbffc7e091"
+      }
+    }
+  ],
+  "limitations": [
+    "Generated reconstruction, not pixel-identical to source.",
+    "Output 1667/1668x943; originals2688x1520; no upscale.",
+    "One male action-cover personalization accepted by user; other19 not provider-tested."
+  ]
+}

@@ -1,0 +1,398 @@
+[
+  {
+    "name": "STELLA",
+    "pngSize": [
+      1080,
+      1920
+    ],
+    "svgSize": {
+      "width": "1080",
+      "height": "1920",
+      "viewBox": "0 0 1080 1920"
+    },
+    "textCount": 0,
+    "texts": [],
+    "elements": 4536,
+    "embeddedImages": 1,
+    "pngSha256": "6896c1b939932cb19a6ef21f023a33163940abf0168e44e494cee86c2610a3c2",
+    "svgSha256": "7d3989dcd606e14b2327ac3ca1558a10643712b0748837d08e6e9be1bac76a35"
+  },
+  {
+    "name": "STELLA-1",
+    "pngSize": [
+      1080,
+      1920
+    ],
+    "svgSize": {
+      "width": "1080",
+      "height": "1920",
+      "viewBox": "0 0 1080 1920"
+    },
+    "textCount": 0,
+    "texts": [],
+    "elements": 4540,
+    "embeddedImages": 0,
+    "pngSha256": "a8a1dff81f1ae50517641f74513d8dd059cdf0736f231479300fe34b21d0050e",
+    "svgSha256": "d39e54af6e0b77baaa7c41cd5234aaa1d1c5ca6769dd2cc1d67d55c243b8fa94"
+  },
+  {
+    "name": "STELLA-2",
+    "pngSize": [
+      1080,
+      1920
+    ],
+    "svgSize": {
+      "width": "1080",
+      "height": "1920",
+      "viewBox": "0 0 1080 1920"
+    },
+    "textCount": 0,
+    "texts": [],
+    "elements": 5635,
+    "embeddedImages": 2,
+    "pngSha256": "2d4cfd1e4b1c31fe44a7c59c50bf5a366f2edc1e34f09611ec139359c173e058",
+    "svgSha256": "ab52c4270705ad614f85a76c40339360dfa53d702d3aa2dfece4608d60a66a4f"
+  },
+  {
+    "name": "STELLA-3",
+    "pngSize": [
+      1080,
+      1920
+    ],
+    "svgSize": {
+      "width": "1080",
+      "height": "1920",
+      "viewBox": "0 0 1080 1920"
+    },
+    "textCount": 0,
+    "texts": [],
+    "elements": 5281,
+    "embeddedImages": 1,
+    "pngSha256": "3b5fa46dec247c8bd6664b25eb66b72635bf7cd4dced06735933a4d5a4da0d5e",
+    "svgSha256": "78f9ee628fdf065e720f179e776b7af0a59897cef68b6c73e56df01a54c60cb2"
+  },
+  {
+    "name": "STELLA-4",
+    "pngSize": [
+      1080,
+      1920
+    ],
+    "svgSize": {
+      "width": "1080",
+      "height": "1920",
+      "viewBox": "0 0 1080 1920"
+    },
+    "textCount": 0,
+    "texts": [],
+    "elements": 4597,
+    "embeddedImages": 4,
+    "pngSha256": "aa2521de9563c55058327ad0f6ca73dc860e066f5e30a4f8d255fb49e9f5676e",
+    "svgSha256": "b6d15e01675e2dbb3ff0ff402e0d9f273f703950478fc36760595c236cc5b9db"
+  },
+  {
+    "name": "STELLA-5",
+    "pngSize": [
+      1080,
+      1920
+    ],
+    "svgSize": {
+      "width": "1080",
+      "height": "1920",
+      "viewBox": "0 0 1080 1920"
+    },
+    "textCount": 0,
+    "texts": [],
+    "elements": 5266,
+    "embeddedImages": 0,
+    "pngSha256": "aac263b58181147f343ca270d1c5b9e5910ab40200e1813d6c6430361924dc7d",
+    "svgSha256": "6b488928c386a28dd4807ca5680388e1838138c47eef935c48393d3f578b3144"
+  },
+  {
+    "name": "STELLA-6",
+    "pngSize": [
+      1080,
+      1920
+    ],
+    "svgSize": {
+      "width": "1080",
+      "height": "1920",
+      "viewBox": "0 0 1080 1920"
+    },
+    "textCount": 0,
+    "texts": [],
+    "elements": 5299,
+    "embeddedImages": 1,
+    "pngSha256": "18bd97226022a5eb8707197829178ade83587fa3a7d46bec4126229c70e423ec",
+    "svgSha256": "c66dc96fc8061d8d2e58f315f07fa7f3c406ad5035e7216ec3b762f5da48a67a"
+  },
+  {
+    "name": "STELLA-7",
+    "pngSize": [
+      1080,
+      1920
+    ],
+    "svgSize": {
+      "width": "1080",
+      "height": "1920",
+      "viewBox": "0 0 1080 1920"
+    },
+    "textCount": 0,
+    "texts": [],
+    "elements": 5298,
+    "embeddedImages": 1,
+    "pngSha256": "1f105635203f773905ff28b162a04ea1ff2f3a3fd4c01c218930610ee01d42c8",
+    "svgSha256": "26c17fd26ae1e6c5569bfe15163141d5753c161f096d04bc93de2ceefb0bc76f"
+  },
+  {
+    "name": "STELLA-8",
+    "pngSize": [
+      1080,
+      1920
+    ],
+    "svgSize": {
+      "width": "1080",
+      "height": "1920",
+      "viewBox": "0 0 1080 1920"
+    },
+    "textCount": 0,
+    "texts": [],
+    "elements": 5446,
+    "embeddedImages": 4,
+    "pngSha256": "e1d85d2296efe601e471010ee0a352bd87ec25155d52519eef579276452db88e",
+    "svgSha256": "a6c5b59557b326b70c2392c7b6e02c8ff8a7d5ea1c103e187b4f89299f14489c"
+  },
+  {
+    "name": "STELLA-9",
+    "pngSize": [
+      1080,
+      1920
+    ],
+    "svgSize": {
+      "width": "1080",
+      "height": "1920",
+      "viewBox": "0 0 1080 1920"
+    },
+    "textCount": 0,
+    "texts": [],
+    "elements": 4732,
+    "embeddedImages": 0,
+    "pngSha256": "1e64c93ebd4ea7546e193f43a0f68d218cabe46ea29a7e5834278523dd40d9fe",
+    "svgSha256": "1c8acc4aa54e59a73971caa72c65da8f5705e9e42aa14d0db029e75c4e993c6d"
+  },
+  {
+    "name": "STELLA-10",
+    "pngSize": [
+      1080,
+      1920
+    ],
+    "svgSize": {
+      "width": "1080",
+      "height": "1920",
+      "viewBox": "0 0 1080 1920"
+    },
+    "textCount": 0,
+    "texts": [],
+    "elements": 4597,
+    "embeddedImages": 5,
+    "pngSha256": "62b7f10dd1f886d734adca04ac6269da58313a0b369700d0c523819f893fbc81",
+    "svgSha256": "2465426ee68488976a37d5b025c21e657228a1dd3e7a440ba492d0baae9747df"
+  },
+  {
+    "name": "STELLA-11",
+    "pngSize": [
+      1080,
+      1920
+    ],
+    "svgSize": {
+      "width": "1080",
+      "height": "1920",
+      "viewBox": "0 0 1080 1920"
+    },
+    "textCount": 0,
+    "texts": [],
+    "elements": 4600,
+    "embeddedImages": 5,
+    "pngSha256": "c1ef619a3d2c109d58f26d48432f4e026ca331eba6cf2aa6d6010c1d6b228fc5",
+    "svgSha256": "789daa2749655d78bc32ad089b74d1b2c61dd394e9ce5a94e00badcce7b3dd96"
+  },
+  {
+    "name": "STELLA-12",
+    "pngSize": [
+      1080,
+      1920
+    ],
+    "svgSize": {
+      "width": "1080",
+      "height": "1920",
+      "viewBox": "0 0 1080 1920"
+    },
+    "textCount": 0,
+    "texts": [],
+    "elements": 4597,
+    "embeddedImages": 5,
+    "pngSha256": "d78581425a197995a6206a5a83f7c441865cda107eb24035d33b77d1a2aa6088",
+    "svgSha256": "04a125cf82b6267d22564331871eaadd98c2e880eb92ec1b030ca37e8d1203f2"
+  },
+  {
+    "name": "STELLA-13",
+    "pngSize": [
+      1080,
+      1920
+    ],
+    "svgSize": {
+      "width": "1080",
+      "height": "1920",
+      "viewBox": "0 0 1080 1920"
+    },
+    "textCount": 0,
+    "texts": [],
+    "elements": 4597,
+    "embeddedImages": 5,
+    "pngSha256": "3b9749254257f318a28ec24a5dbe4e348522e08a78bd254df863746b42817b3f",
+    "svgSha256": "4c09fb352aad1a5011691dbdab7ef82df3991f5c0a0d5dd225db0d3476e69c93"
+  },
+  {
+    "name": "STELLA-14",
+    "pngSize": [
+      1080,
+      1920
+    ],
+    "svgSize": {
+      "width": "1080",
+      "height": "1920",
+      "viewBox": "0 0 1080 1920"
+    },
+    "textCount": 0,
+    "texts": [],
+    "elements": 4558,
+    "embeddedImages": 1,
+    "pngSha256": "86dea50bdbc06f961b36f90cfa22296a16cb15bbb77087c1607f77379488bf56",
+    "svgSha256": "0b7a4e5c1bb8683c6ecf96b573734c51d028d33441ac724c28fbd556da4ec2b6"
+  },
+  {
+    "name": "STELLA-15",
+    "pngSize": [
+      1080,
+      1920
+    ],
+    "svgSize": {
+      "width": "1080",
+      "height": "1920",
+      "viewBox": "0 0 1080 1920"
+    },
+    "textCount": 0,
+    "texts": [],
+    "elements": 4549,
+    "embeddedImages": 1,
+    "pngSha256": "e90e23c73de153569bb7601147d3b8d3707ec4719cfedd0934fa81e3b6bb8cb4",
+    "svgSha256": "935cbe02b7984f2869499ae971e47d2e67e1198715f7db6b83d484ba6255b3c9"
+  },
+  {
+    "name": "STELLA-16",
+    "pngSize": [
+      1080,
+      1920
+    ],
+    "svgSize": {
+      "width": "1080",
+      "height": "1920",
+      "viewBox": "0 0 1080 1920"
+    },
+    "textCount": 0,
+    "texts": [],
+    "elements": 4781,
+    "embeddedImages": 1,
+    "pngSha256": "d11e665e9f94bd8ddd9eed36c9cc1c68c06f970c695965dd7e67629aec7ae6fc",
+    "svgSha256": "f463dfdeeb3979d38c598f05ff0b704ef5561c7d8363d261cf0ca062b94d8452"
+  },
+  {
+    "name": "STELLA-17",
+    "pngSize": [
+      1080,
+      1920
+    ],
+    "svgSize": {
+      "width": "1080",
+      "height": "1920",
+      "viewBox": "0 0 1080 1920"
+    },
+    "textCount": 0,
+    "texts": [],
+    "elements": 5395,
+    "embeddedImages": 3,
+    "pngSha256": "4c91bb9b8ff29e8f5861ed52dda7d98378181abdcd4791b266c1b2c13f73cb47",
+    "svgSha256": "87d29c493264724c19db6a6fe7a2ae40de3d4b5df623bbc7c49c60f82e52982e"
+  },
+  {
+    "name": "STELLA-18",
+    "pngSize": [
+      1080,
+      1920
+    ],
+    "svgSize": {
+      "width": "1080",
+      "height": "1920",
+      "viewBox": "0 0 1080 1920"
+    },
+    "textCount": 0,
+    "texts": [],
+    "elements": 5381,
+    "embeddedImages": 2,
+    "pngSha256": "46c7ca303def15cc72d66c4f6b74af464c6109102120731428278f4deac5bb4e",
+    "svgSha256": "a85c4b5b3fee41a3d8b2f62e929855a35db1628f1dce09524fe4c00dcba77bd8"
+  },
+  {
+    "name": "STELLA-19",
+    "pngSize": [
+      1080,
+      1920
+    ],
+    "svgSize": {
+      "width": "1080",
+      "height": "1920",
+      "viewBox": "0 0 1080 1920"
+    },
+    "textCount": 0,
+    "texts": [],
+    "elements": 4595,
+    "embeddedImages": 1,
+    "pngSha256": "71b92478d8798fa9268f841ffa8bbbf800350ac8310dba894d8a47501caba405",
+    "svgSha256": "0a24027c9ff2e7ae1693dfd2705853cc73661dc8813451e48ce91a3bee5088d8"
+  },
+  {
+    "name": "STELLA-20",
+    "pngSize": [
+      1080,
+      1920
+    ],
+    "svgSize": {
+      "width": "1080",
+      "height": "1920",
+      "viewBox": "0 0 1080 1920"
+    },
+    "textCount": 0,
+    "texts": [],
+    "elements": 5436,
+    "embeddedImages": 3,
+    "pngSha256": "3e92839e4e573fab19055b3a310c03245f66a7dbea78de376ce19a3fa18672f9",
+    "svgSha256": "b716a529fe205dbd482529f4813f68200573049b9be89ba4835b821781f62b77"
+  },
+  {
+    "name": "STELLA-21",
+    "pngSize": [
+      1080,
+      1920
+    ],
+    "svgSize": {
+      "width": "1080",
+      "height": "1920",
+      "viewBox": "0 0 1080 1920"
+    },
+    "textCount": 0,
+    "texts": [],
+    "elements": 5464,
+    "embeddedImages": 0,
+    "pngSha256": "9efa3263f08dff0c04a3da122742e19755aba22036c139a86f10def0a31a2904",
+    "svgSha256": "a25faf541853de3426f67512b19b5ae3d57d8db2a3ade8f8e1c27cb443c333fe"
+  }
+]

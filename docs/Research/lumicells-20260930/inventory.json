@@ -1,0 +1,945 @@
+{
+  "commit": "1007717d72cfd9d768d4b9a3f7fc80a126e49c51",
+  "archiveVerified": true,
+  "extractionVerified": true,
+  "fileCount": 187,
+  "totalBytes": 6741482,
+  "testFiles": 28,
+  "files": [
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/.editorconfig",
+      "bytes": 147,
+      "sha256": "49e53afa4ae47ecc7446a8b471792dbbc91575262b3d3b161b063801aa096f5f"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/.gitattributes",
+      "bytes": 59,
+      "sha256": "07864b24c41b2504a3cd1c01e1e30a39408588e52ca396b36ca64d8bfa2e2f83"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/.github/workflows/ci.yml",
+      "bytes": 727,
+      "sha256": "015a65e94a21ea3a17286015e3660f2dafd8f5c0543067a9fcda4f49b449d173"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/.github/workflows/pages.yml",
+      "bytes": 902,
+      "sha256": "e09adebe03e599916d657264826841febf9ec1c1780e51a44a8904738072eea0"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/.gitignore",
+      "bytes": 392,
+      "sha256": "fc5564479475ac27c4ff7778a3425bc7e8ebce9d2b463dc13d3af6f75d583053"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/README.md",
+      "bytes": 18523,
+      "sha256": "6d00875f45efd10db996ab6fdfec91dfaf6704ce5f4e5a0934dd6f6035917d02"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/README.ru.md",
+      "bytes": 25634,
+      "sha256": "301af8b80b24b7d9af1954805e744dbdab1b6bc8da5c521ec44618d1603728fb"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/biome.json",
+      "bytes": 523,
+      "sha256": "657ba75a97d853d3f090dd89676c68130fcd3f8218968c8f49ba45e82fde8775"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/App.tsx",
+      "bytes": 11938,
+      "sha256": "059eff6e12f39a273a8779ba69d7f740cc9a329970e1fbdb8f9c916b436a802c"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/app.css",
+      "bytes": 13987,
+      "sha256": "7b6dba2e5eeacf3509e2c57ff8e11693b5b86aa97c7bf4b082ec8becda473b8f"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/main.tsx",
+      "bytes": 580,
+      "sha256": "e1b1ab85f16b7c6748dfb5a67308574fe552564da708a263edf4221c9d76e469"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/scene/DemoScene.tsx",
+      "bytes": 4183,
+      "sha256": "0b2a23181ba1437a8f1c6d1e1f9d9a3c825775dae1034c3e5a190a6e06d7700d"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/scene/Headphones.tsx",
+      "bytes": 2732,
+      "sha256": "4fe2d1a1b0035a52a7be6e76d45a419613881740fd0e6c3c36bcd6f8c0a92385"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/scene/bubbles.tsx",
+      "bytes": 6023,
+      "sha256": "1b07a08320a6bc986e551066e37300f720f089a454fba82b87559b01aeec00ee"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/scene/choreography.ts",
+      "bytes": 6492,
+      "sha256": "d538bf692afb3bb112ce461a30890fa68958058027c8e97028f08c5dc8c64055"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/scene/flight.ts",
+      "bytes": 4674,
+      "sha256": "2dda96bce6ff646fe3a8b763e019e62401d9772034a6e3ef84a3b37831723cfb"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/scene/index.ts",
+      "bytes": 421,
+      "sha256": "5aabba608bf733f67808c6a7f9a0a52ab65b92db4120323d59033380d7f09f78"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/scene/layout.ts",
+      "bytes": 1798,
+      "sha256": "0d67e1f91a3280b56e5b1b22905d15335d462ef3ff945f202ee5114918c6f43f"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/scene/preview.css",
+      "bytes": 2732,
+      "sha256": "61fcbb26288b667912eb58469935066f6c6e0227a28f509aad6f4267385316e3"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/scene/preview.tsx",
+      "bytes": 4396,
+      "sha256": "8d3f0b8b7ae06ae42f014cad9f5aafd3dc445a852c1b2ee0eb4c4be5743bbee3"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/scene/scene.css",
+      "bytes": 7046,
+      "sha256": "d6d4bc5a58751498899345f58d6005c2842e77a7ff87ba4f5183e2e1d9550c5b"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/scene/texts.ts",
+      "bytes": 1840,
+      "sha256": "f46c0df8b33820686f4027834be83dc2894ab71e441506cd0b5cc735a37cb07b"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/scene/types.ts",
+      "bytes": 1781,
+      "sha256": "e62a8dd1d1b3c7517da7e3880a32823378cda1246af91e885a16c909eb25c771"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/stand/ExportModal.tsx",
+      "bytes": 5085,
+      "sha256": "4c832b453a7497e1abe69de76e1932cf691ba2a0a99e4ef7b0a55371dc4b41c7"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/stand/ImportModal.tsx",
+      "bytes": 4866,
+      "sha256": "5439e2435e77e6839e2c3864afe68b9de2d87c7b691f2e056720292741b2627a"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/stand/Stage.tsx",
+      "bytes": 4355,
+      "sha256": "d4754be37de1cf4690f06298aa05cc68da441192b71145cb2ef35fe12d81e580"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/stand/StandPanel.tsx",
+      "bytes": 2512,
+      "sha256": "d0ccab339cca1ef232e8a53af18deae71f3c7bf1b0001a0ffaa69e83a25baff8"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/stand/StatsBlock.tsx",
+      "bytes": 3442,
+      "sha256": "1263deaabb13de98dc6f32d86808c21fdba5d6b68c900d09f72074cfcf17f3bb"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/stand/Toolbar.tsx",
+      "bytes": 10249,
+      "sha256": "38dbf3d08a2beee6c20b151f2af8cdc57c65142dc7d33bc4debae6575499736a"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/stand/hotkeys.ts",
+      "bytes": 525,
+      "sha256": "7dab5c09ebb4c7f85ae245bcb886e89610dfd3d07e1088da0d480516dfbcd519"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/stand/i18n/en.ts",
+      "bytes": 7511,
+      "sha256": "0f7a414da505bc6ba21f2d9bc434944edc456a55befce5d148ad7c4998d9aa1a"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/stand/i18n/index.tsx",
+      "bytes": 3579,
+      "sha256": "1db747656c020c6ca005c5a64d76bc55be9af3613359cf1c36b70b0948f13033"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/stand/i18n/ru.ts",
+      "bytes": 9707,
+      "sha256": "d990eee4540092ac98231db8cb76be714ba3effa57850132beba9c86ef853c18"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/stand/model.ts",
+      "bytes": 5584,
+      "sha256": "beaeee86f68d4d455e897e19b657abaaa16beb9ab335ec89be9649a7f4f355f3"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/stand/modulation.ts",
+      "bytes": 3471,
+      "sha256": "1a3a51ff225b3071edba997dc0612fca01849fd1c2583821472e84c85be693ba"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/stand/pause.ts",
+      "bytes": 1497,
+      "sha256": "110afe81da5c39ac22ef17eb695e7424a887d4b83ff02c95e141eb161faaddbd"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/stand/persistence.ts",
+      "bytes": 5123,
+      "sha256": "81a4294cb1acb3abc5328f3f9d29ad5522df4abdac430bf634ed3825d1798272"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/stand/prefs.ts",
+      "bytes": 3200,
+      "sha256": "7ead4b0c3f11aec0d5feda59f3d66761f5a20bdc6eb1ef31b799209b127a0ac9"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/stand/scene-binding.tsx",
+      "bytes": 9483,
+      "sha256": "5080f199e8e29c02fa5484ff7dd5473112e1afaf2d9d8540718e2787f2eb19cc"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/stand/schema-panel.tsx",
+      "bytes": 10435,
+      "sha256": "8369b4fdfea6a4670d3f50c08ce125ef8c7d4bc90735aa91895f4ffbae6923f3"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/stand/store.ts",
+      "bytes": 6642,
+      "sha256": "a62b0360758676bb0c090842412b6238965d4d048f75ce55d00caed687e9f850"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/stand/ui/Button.tsx",
+      "bytes": 4294,
+      "sha256": "38efa6d331123debbc1f863a5833b3ac03377c1cee0989cdd1f484f4691645e9"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/stand/ui/CodeBlock.tsx",
+      "bytes": 1719,
+      "sha256": "b80ad2f03a5bb29e801a5d0b83f82be80054fee2e78fcdb71981624289790cbe"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/stand/ui/Field.tsx",
+      "bytes": 3711,
+      "sha256": "dbf5dd63245551201d6cb580798081056bb6b36c54d30d5e5e5068bcbad056cf"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/stand/ui/FileDrop.tsx",
+      "bytes": 3051,
+      "sha256": "258ea68df9a8497fcf1513350c7b20edbec1ccd88c7b8b152bb5fd7530afc97b"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/stand/ui/Icon.tsx",
+      "bytes": 1975,
+      "sha256": "1dd00c7cbf767f6959df419c35a241ff009e18d99b74ffd07a5d21637fb7baec"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/stand/ui/Inputs.tsx",
+      "bytes": 21059,
+      "sha256": "8b2e59175fd864f04919240e969531be979b421c55867131527797d630e72dc4"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/stand/ui/Layout.tsx",
+      "bytes": 8416,
+      "sha256": "89580844476ff0343ffb5811f218623167c6caec86bfe2ddcfba2bc010242c6f"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/stand/ui/Modal.tsx",
+      "bytes": 2815,
+      "sha256": "d128b4c706cfefc0c568f2a08c86ef4f19db9a5c04517b1f9a9c7abc1665511a"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/stand/ui/NumberInput.tsx",
+      "bytes": 3066,
+      "sha256": "9fdd17aaad9eac41223df2b1e59cbfcfe5bbc2971b72c38b63d013dd2d6b9e00"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/stand/ui/PaletteEditor.tsx",
+      "bytes": 17013,
+      "sha256": "1a9e52eecc1ccd09de1ceb0f12a1874dfe1ccf4d47db348457afbd57d6eb2fd2"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/stand/ui/Slider.tsx",
+      "bytes": 11428,
+      "sha256": "2bb4d0410f5801fd2a12ec696771eadb52c4463bd0c198d8f5902f4a4e4c46a7"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/stand/ui/StatsGraph.tsx",
+      "bytes": 8288,
+      "sha256": "b966ecbf1a43760547b041801a5574206bafe4baadc97d99d5c2e21b42e05a67"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/stand/ui/Tabs.tsx",
+      "bytes": 3736,
+      "sha256": "2db6b355c454f69b8bb9023d1825b77b814b05f00498776ec6fcc51b28bc0c6e"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/stand/ui/Toast.tsx",
+      "bytes": 3302,
+      "sha256": "5d82eb3be0af229a09d9f13c65778e99933af50a842d7b8b678d21f93941928e"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/stand/ui/Tooltip.tsx",
+      "bytes": 4211,
+      "sha256": "0842dbaea2c8631b1317791c97257efb9dc8c0311c0eecdb8b06501b79b70ce0"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/stand/ui/index.ts",
+      "bytes": 2098,
+      "sha256": "32c9f92c40514223cd1cc0431c6514366d770000055eb2d7b20b5ea91bced9e0"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/stand/ui/preview.tsx",
+      "bytes": 24308,
+      "sha256": "b7e96d487608a8706fe27fcf3360d27914b6dc65558fc83f6912b7669d71546d"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/stand/ui/ui.css",
+      "bytes": 40262,
+      "sha256": "8e8c16cd093ee85d32e9e7912afd3c0c9bf239c716b49824fc30382139ae0d99"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/demo/stand/ui/utils.ts",
+      "bytes": 7533,
+      "sha256": "e63e6a31240cfd4f090c60c0ebe532269de0a9b9a9d312b5f4689471c1a98af0"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/docs/media/hero.png",
+      "bytes": 684448,
+      "sha256": "cdb60f499b708acaa8d017714e44214a38b6b3a246909ea489b78004e6ca42e1"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/docs/media/hero.webp",
+      "bytes": 3088418,
+      "sha256": "014a71eae7777c2af3465e8cd6698e971a9a3537182acc4f7bd1c0d8fe4dd796"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/docs/media/playground.png",
+      "bytes": 877404,
+      "sha256": "97de52c42c306be0ffc64ba45230b42ec03441600ec3fd3931f8bf637736cd6d"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/docs/media/presets.png",
+      "bytes": 823420,
+      "sha256": "09bbc899454ed898e008813aaabd064853a6112317f582b600069aef65614149"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/examples/core-basic.html",
+      "bytes": 4931,
+      "sha256": "f4ef2c5485ae9a265922e5ce63338ea4f796f4177e7b1b3714ea57a59ed7b9e5"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/examples/core-basic/main.ts",
+      "bytes": 7630,
+      "sha256": "7cc68977a5c2704b4811cacc5295c38b9a87f249bf89115c98b6f9d0d67b9ea3"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/examples/engine-harness.html",
+      "bytes": 1526,
+      "sha256": "e5ae3afbc1d8d60305001166fc2a6e8e03b765cea357f05c3ba4c4b51f2b7cff"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/examples/engine-harness/main.ts",
+      "bytes": 20849,
+      "sha256": "ff51eee5561b1fbebdb1230244b7cb1ebfdca68a561bcf32b9de5a78661c9f4a"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/examples/scene-preview.html",
+      "bytes": 1085,
+      "sha256": "3aadbf5f8f1590c562ac22858f63f8f3f02964701ee95317557cebea567f04ed"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/examples/tune.html",
+      "bytes": 1524,
+      "sha256": "0b2979ec087ddc14b24f38d1a1fe75ca095feb9ebf74463d455eef9c606cfaaf"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/examples/tune/dev-flags.ts",
+      "bytes": 3348,
+      "sha256": "c4f1c9506bb690700feb18cf2dd1e079e679352248fb2e8ef9fd68353abc93c3"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/examples/tune/main.ts",
+      "bytes": 5215,
+      "sha256": "65aeb1eccf7c53b59e1ccacea72f0a8b9da01c941359bb5fa4fa90ddaf8ba59e"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/examples/tune/virtual-time.ts",
+      "bytes": 1510,
+      "sha256": "d4e34f197174472d7b68422bd5745646acfb688fb83aa78a70cf70f34b658267"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/examples/ui-kit.html",
+      "bytes": 3869,
+      "sha256": "35f6e18df6d27d18a6992cfb898e9d7f881e7663949cac57847dbb49bcafea29"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/examples/web-component.html",
+      "bytes": 11083,
+      "sha256": "0a209899d40e1cb29a6b8a32a8246094c0ddeb9bc4d5702fc43ee221d50aa462"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/index.html",
+      "bytes": 841,
+      "sha256": "19531440742554b14f4db1a172bdbb75b7368af08aa1763bbb580c79f9beb97b"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/package-lock.json",
+      "bytes": 75326,
+      "sha256": "cb25be8322c84782dafde9fc5ea4fc2445cb45766a2df7f379221b9613a8cac4"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/package.json",
+      "bytes": 3090,
+      "sha256": "7b6c1b8a5296b93c9777a23d2ce24c787e7185b8d668f54fab9ecb36fe626e04"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/public/examples/lumicells.config.json",
+      "bytes": 390,
+      "sha256": "adfe3647ea4e9174dd6ecb8216698370a5add5f88fee5ca5d5908302c257ea91"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/scripts/check-types.mjs",
+      "bytes": 4548,
+      "sha256": "fbac2bd7b5adb324eb23022e63ff1e298c04309930401224968caf7bb65013de"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/scripts/fix-dts.mjs",
+      "bytes": 2913,
+      "sha256": "ab408787cb1a49bb17376aa0c8bd0bdc3fdf877933ddd76bde8b29aa3525b37d"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/color.ts",
+      "bytes": 4469,
+      "sha256": "3f6083805af477f8275cf9ebed6dae78bb9d455a21d269cff125634deefddf56"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/controller/clock.ts",
+      "bytes": 3577,
+      "sha256": "efb34c5c96cee2d3958dd27e0154d287e5dc44f3e40d773d3c589a7e6d922f19"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/controller/controller.ts",
+      "bytes": 27661,
+      "sha256": "d994ced42c955c43738ef742c6e58c6b6ea80d2a2dfc3eb3ce071f6f024cee34"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/controller/geometry.ts",
+      "bytes": 5955,
+      "sha256": "9c7dcfc7b12452631acfcf3b59bafd2c27512cfe24630ba1f8a9a0e571f995be"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/controller/influences.ts",
+      "bytes": 12183,
+      "sha256": "ea927fe2c16d4516d53a13cd56491564910e32815580a6c8842d26431964cbea"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/controller/layout.ts",
+      "bytes": 6897,
+      "sha256": "4f93325d3696657f2293baeda5b97add47fdbdf5b6a2c2ab90f1ea7800ad85d5"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/controller/lifts.ts",
+      "bytes": 15892,
+      "sha256": "92fca61c5de75ad3a8c9a61bc4c773f8b58fbebfd58080d530208ab6df72b158"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/controller/lut.ts",
+      "bytes": 6313,
+      "sha256": "aaa6e804018569ce88d6db036bfaa739087cd26e76d0daffa6a299c35d2cf9c7"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/controller/math.ts",
+      "bytes": 3478,
+      "sha256": "5b17c7b9cae7ca05c50a09c4a93cc4631c996902c5a16e33d4b7160848348d26"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/controller/modulators.ts",
+      "bytes": 3262,
+      "sha256": "2b95773bc27f7f5cfc8539d937d75ef1dd0b2d615fd1ab51954321cb970ec08b"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/controller/perf.ts",
+      "bytes": 12303,
+      "sha256": "6bd2412afb5e32cddcbf048cdf39b2e17edfa10b124b9db475ad8268e9e5b2e2"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/controller/pulses.ts",
+      "bytes": 4932,
+      "sha256": "d4e82c408b0a608b3b48e6403a42ba247b3a97161ab7f8ab8518444170e61ae7"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/controller/tween.ts",
+      "bytes": 16634,
+      "sha256": "0997aa4b33d11902432b7e650e7e6b0f759fe9cab8f709ac707811951324482d"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/dom/host.ts",
+      "bytes": 9055,
+      "sha256": "44e360cfe412badf80e55ee31f9f636b5d4c8f45c6ec42b9ce8ea5c120ef277e"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/dom/pointer.ts",
+      "bytes": 7119,
+      "sha256": "0102e462854462ed91a35c017c145593e8197d9b00f2282baf57c3ffa728ecca"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/dom/tracking.ts",
+      "bytes": 9251,
+      "sha256": "c95f91b76b851ab96456bdadd48d4fb057fbd9611969b97f5e74759b48d514b4"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/engine.ts",
+      "bytes": 16156,
+      "sha256": "da7b94a13427d18d0b4bb1c5a611728e9ff30e22575613b58321a133ec83bef2"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/frame-block.ts",
+      "bytes": 6942,
+      "sha256": "5161f6fa51ab0cecf042b4f355b1fc2de749685e2d276fc2347e792dbda7c1d8"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/glsl/common.ts",
+      "bytes": 9281,
+      "sha256": "c8b90dc6696e860022965af0cbe7e970d76288c983f786cf7fb09d961e3dd0d5"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/glsl/influence.ts",
+      "bytes": 869,
+      "sha256": "bd5cacce2e996d6ae30999e4e2775a552d60eb915f4b272c47d3bddf911574e2"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/glsl/modes/flow.ts",
+      "bytes": 1637,
+      "sha256": "4852403c495f7daa2956e40a1f40dcdf99e1ebee7a7c2782fee104b879467233"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/glsl/modes/index.ts",
+      "bytes": 1862,
+      "sha256": "80b68becf79e56d87e82e7c65b02fd2323e1426e4d2089192a655020f3644b3f"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/glsl/modes/life.ts",
+      "bytes": 1345,
+      "sha256": "4fb6b51ae84c882dfea5c8afda03115d381cceaba4e6364b92f042e824d4d4d6"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/glsl/modes/pulse.ts",
+      "bytes": 912,
+      "sha256": "158976f9d7ae2633a755f8c5b687ca7960019894217c655231e68f3a3c9977fa"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/glsl/modes/rain.ts",
+      "bytes": 2399,
+      "sha256": "504ab8e2ee780e11c5a7f2b57125f17dfa3b495cb6cbaf2e16872c298e133dad"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/glsl/modes/ripple.ts",
+      "bytes": 1597,
+      "sha256": "d158e58fb25926f9c4ab0c26c0e73d8ff34c94a72ce9bd7fcaaca19d275a9e70"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/glsl/modes/sphere.ts",
+      "bytes": 5010,
+      "sha256": "419da7b861fcb9efdecae4522f491d7a356c1e185b61b2b6a9f111a220da9569"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/glsl/modes/vortex.ts",
+      "bytes": 860,
+      "sha256": "0d371595890f7d11693c9cd32f4e58ebba89c589ca73b7bf4d67cfac572cbab2"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/glsl/modes/wave.ts",
+      "bytes": 1911,
+      "sha256": "6b477403d6e017c11145ce0802e334cd4f8af9a63e076c55a60957fcac4c1558"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/glsl/noise.ts",
+      "bytes": 3375,
+      "sha256": "4cb259e4cef05d7a327abcb304ab2cfc53f9ad6b0079616f586b82d2a5b1a53e"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/glsl/params.ts",
+      "bytes": 5679,
+      "sha256": "44f6c907afab2153e861b5c77fc66e7d1bfb214bcb4f1595147954ae056c16fb"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/gpu-timer.ts",
+      "bytes": 3582,
+      "sha256": "6985b2965f20e6a29289bf788fef47b9b8af1037383eae57cb80cdeefd2580a6"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/index.ts",
+      "bytes": 268,
+      "sha256": "178de6aa1444417424d73efc3b03f4689c3f35e8ae19515a57e47f2d90cd3982"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/passes/bloom.ts",
+      "bytes": 13265,
+      "sha256": "965ea1ea64ccd844e3c67630614cbe6cb2d9f82c773f7c94b9984016066f0ee7"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/passes/composite.ts",
+      "bytes": 9079,
+      "sha256": "8ebe59f191965135c1db1439b15ac199176eadc636c065133fd0d0b63191a527"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/passes/field.ts",
+      "bytes": 13725,
+      "sha256": "bd4e055b5569232a46058f6ceadf0a359b5480337afa04a592ba1f141de91fae"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/passes/life.ts",
+      "bytes": 4952,
+      "sha256": "308f84d216a71165d25102241f63187e3506e4668bab45cf3e25862bee5d5494"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/passes/lift.ts",
+      "bytes": 10143,
+      "sha256": "f9d251e3696356f1bdf82575d0815c2c380aa8f8b53058de222ebd869c8ad148"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/passes/shared.ts",
+      "bytes": 4165,
+      "sha256": "09e35af26aad2b21cb06d661f67118c8b7aaf9c8c6884b6cf817f118336cb08f"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/passes/stamp.ts",
+      "bytes": 5843,
+      "sha256": "30b37a250114bdf5547da801f0fb83a6a0daccc96c53870256347d1eaa3c8fcc"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/resources.ts",
+      "bytes": 5218,
+      "sha256": "5551cb4bad72c147482d373a76c5117be26890df58594f7cde2470349a4d0cb5"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/types.ts",
+      "bytes": 3711,
+      "sha256": "daf921aea6bbc50629ea7bc356d84a4af6d7a35a16ece339f5b49c41cb93bc88"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/gl/caps.ts",
+      "bytes": 6427,
+      "sha256": "3770096108a910a8f60c83de6c3c5e3a2a142e59dadd1d8cbe5b48db8d76a67a"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/gl/program.ts",
+      "bytes": 6393,
+      "sha256": "601ec965c89e0478871d6d90603cd45f4cf94ffdf36d1d0e20db8d58bde44651"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/gl/target.ts",
+      "bytes": 4329,
+      "sha256": "c171726968eda571cc431d48b6de02484b3e7778b0c96b34b9e6e4bba22729dc"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/index.ts",
+      "bytes": 492,
+      "sha256": "5db70f9a979da55d647eb8da5a59f3c21d315a126a22000cca33f2966b77c3d3"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/lumi-cells.ts",
+      "bytes": 29579,
+      "sha256": "86dde77962dac853b7c1dbc7074cddce609841114d242f9492a072aac7899611"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/ticker.ts",
+      "bytes": 2360,
+      "sha256": "c328eefea025400df6cfb9e863b0e12e49c5f026e2e736f0540a60d281c21d13"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/types.ts",
+      "bytes": 6519,
+      "sha256": "058a20557a26116bc358772d391287f639bf8f3b6fd05c20da5da93aedf5c81a"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/element/data-attrs.ts",
+      "bytes": 4830,
+      "sha256": "327d279f3d328aeaaf4f3ec81faea350d426fe17ec16798f538c6ac1163fcab5"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/element/define.ts",
+      "bytes": 287,
+      "sha256": "406830a2af91b32df30b2edab48d08a34d6a0701e02d41f4ae465a0adc1598d1"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/element/iife.ts",
+      "bytes": 308,
+      "sha256": "e50198c7fac6f6dd309a7501d0f0d75f26e63b5aed78a60e3a9c4a14e2803f9b"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/element/index.ts",
+      "bytes": 706,
+      "sha256": "d9f83f5ae1a60a9344d85674412a22dfed353eb1636d23f657e8ffb60912db9e"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/element/lumi-cells-element.ts",
+      "bytes": 24994,
+      "sha256": "bef17d8263129c6e21ba9c7946ddd6bbd8b709bb868d3af8714f45dc560e0c00"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/element/rebind.ts",
+      "bytes": 1073,
+      "sha256": "5aafe0819191a046af88af9d68ff056fae6f705846301e656b90a8b9040a0f96"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/element/resolve.ts",
+      "bytes": 2276,
+      "sha256": "f1558ce12afd1e37c54cfc091e0716a24f2234616b68b6348c794e3063feffad"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/react/LumiCells.tsx",
+      "bytes": 6926,
+      "sha256": "9ebfa5b8f40a7c1c9bc1ed4a77db0e4e1304c08ec741451f548c752e0a7a3630"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/react/context.ts",
+      "bytes": 465,
+      "sha256": "d76df2120bb1be4062aae89664a192c432a356c6d400a5a0613fda8d639182c7"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/react/hooks.ts",
+      "bytes": 6170,
+      "sha256": "d66af3995fef44da113e56255e51c28db57d43cac48d87dbe987c543913f5c61"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/react/index.ts",
+      "bytes": 601,
+      "sha256": "45383135e81524187672c9ca20b437be6def266f659844e13402af8ccd18b2f2"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/schema/defaults.ts",
+      "bytes": 677,
+      "sha256": "f76440cb87dc7441169700c937d3c07762c66f90a0ec23303fa2398ce455b23d"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/schema/export.ts",
+      "bytes": 5428,
+      "sha256": "c24999ee0ee2b656e9c1b25afb1efd957236f3499980d432329415ec26f1de49"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/schema/fields.ts",
+      "bytes": 7656,
+      "sha256": "b8d5f9d9ba32c7edded39f640524922d854f8ba6cb53460f617e282a2ad02453"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/schema/index.ts",
+      "bytes": 828,
+      "sha256": "bd19356e2fd9470de0f76102e647008008a489438cec40e626a600a32522949e"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/schema/json-schema.ts",
+      "bytes": 3262,
+      "sha256": "7a26e342e8ef48058272b1388fcb44b5ad2802a9aba2343da2d8fd40521aafb3"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/schema/locale.ts",
+      "bytes": 3654,
+      "sha256": "e31d1ff3e890bf9ad79d4f8f574368eb4f3caa4091c391e8317132a0bb2d654c"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/schema/locales/ru.ts",
+      "bytes": 33603,
+      "sha256": "234539be875c6bb016ab6c1e910a0334977c8528d0483428867684e009c1b2bd"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/schema/normalize.ts",
+      "bytes": 12863,
+      "sha256": "9f723eee1a5937d3e586130f275d7eebeb462d6fd673b19c614e0a12d401dcb3"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/schema/paths.ts",
+      "bytes": 6315,
+      "sha256": "210c3b022223e57c32f2f33daaa5753b91093b143ec5416f8966a6a28aef855d"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/schema/poster.ts",
+      "bytes": 4623,
+      "sha256": "c43305f8dc5b45dfa633ee038e8bd911cecf577f6855e9007e5a487481215a33"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/schema/presets.ts",
+      "bytes": 9712,
+      "sha256": "2f7654421f2682d7c8491e5c862e52c10cd2cc960f0b98f714f012f95699bbc5"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/schema/schema.ts",
+      "bytes": 40798,
+      "sha256": "8ce09ba8b8556c0a59d67dbc8f6cb4c9f270ab8a91daa2853eb19bdae5623df1"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/tests/controller-alloc.test.ts",
+      "bytes": 6297,
+      "sha256": "1d599da338e706fbec172b7b919425492af67e20867da00d5c521ceb081197da"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/tests/controller-clock.test.ts",
+      "bytes": 8613,
+      "sha256": "dd7bc83f0ab0ff12e6a36291512180f0b761dbfb763ebf6447eaf02e8df67179"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/tests/controller-geometry.test.ts",
+      "bytes": 8710,
+      "sha256": "0a864cf4d8977b4c4fc5b9cbf0417fcd21f81943781c4a613c0ae64b801f789a"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/tests/controller-influences.test.ts",
+      "bytes": 9235,
+      "sha256": "50d8cc665e0d9280aef2f6b901cc23a5ce93805b46e78dfdc0433ec35c102e2f"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/tests/controller-lifts.test.ts",
+      "bytes": 9641,
+      "sha256": "a1c46f79ed063a825035931ba9d0599b97733418a9d3fc35c6297292639f2c4f"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/tests/controller-lut.test.ts",
+      "bytes": 5372,
+      "sha256": "80454019b10f26f9c6fa20ca79fd6a03dde0d4fb10f9736a21df399fe68299a1"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/tests/controller-modulators.test.ts",
+      "bytes": 6901,
+      "sha256": "d55b61804ed15a548ec839ca7dd9a78d6724c6bc242cd44216023c93a9be24d5"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/tests/controller-perf.test.ts",
+      "bytes": 9481,
+      "sha256": "025587e560d44886254c19d86f540ae3345015915c29c662977a4fcb2d152a52"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/tests/controller-pulses.test.ts",
+      "bytes": 3989,
+      "sha256": "81881a5e88edc3674b86865ff646f177ee8db6a6da8c44c675db5c0aa9957bac"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/tests/controller-tween.test.ts",
+      "bytes": 8878,
+      "sha256": "6afb3f97818da4a8663267e53a07e79e20aa641e5db40f1147d27733c8afdf90"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/tests/element.test.ts",
+      "bytes": 28955,
+      "sha256": "6b4986014c2b3184ef2360bdfb1f0bbdefafbf3c3947ff42c8641150a0542bae"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/tests/engine-bloom-kernel.test.ts",
+      "bytes": 2471,
+      "sha256": "6793248be57501903020b1533801e14aa27d47dcf8221a424d60bad05bac1195"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/tests/engine-frame-upload.test.ts",
+      "bytes": 3781,
+      "sha256": "e0a4da768ecf259e3f6aa69674ac6502c90c1459ad99b1d875ddeeb9e15036fe"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/tests/engine-gpu-timer.test.ts",
+      "bytes": 3700,
+      "sha256": "ad8cfa42cbf7f6f749591a749e2c91d5135ef43bbb22beba4a1301a67b507e61"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/tests/gl-target.test.ts",
+      "bytes": 1981,
+      "sha256": "7d37cbd2c28a8b71390467046d262c40cdd7de89225c60c9e0f321278848b59c"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/tests/layout.test.ts",
+      "bytes": 4338,
+      "sha256": "31b0ca1a9e1e729949110b4adab0d28ab7b5d5de27e612ed179318c07c69fc3e"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/tests/react.test.ts",
+      "bytes": 18627,
+      "sha256": "050902a2e4e49326a2baef6e56c9e885cc28f6d14b00510be2e9da38acb12486"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/tests/runtime-dom.test.ts",
+      "bytes": 7540,
+      "sha256": "4b79d654f211457d9c14bfed0d2a929443a654f05bc1a934cb42797878b87ba9"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/tests/runtime-engine.test.ts",
+      "bytes": 12120,
+      "sha256": "a022ff9ad9da17b090aaaa9e8390d4b334f5566436f2311f1432a1fda274e503"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/tests/runtime-facade.test.ts",
+      "bytes": 8553,
+      "sha256": "2380cf3b19d9ce776320052b428a357bb77b5583360140063b7139bcf9bfb793"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/tests/runtime-ssr.test.ts",
+      "bytes": 780,
+      "sha256": "69c68b4362743f7b62d26d1669715341a64847c754d9b3bb8a44a450a50e05d5"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/tests/schema-locale.test.ts",
+      "bytes": 5220,
+      "sha256": "55fd7e59a1143f7e787f7e8c7949122746d052106d6e08201ac0676ffe5cc977"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/tests/schema-types.test.ts",
+      "bytes": 2610,
+      "sha256": "121c4a9967d9e4a844e0f9247208813dbdde0d2def2e5ea3ec6ae8b00a453467"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/tests/schema.test.ts",
+      "bytes": 19990,
+      "sha256": "d155e8bf21e4382964570e56713081f4c45f140ea6ccb30a1415adc620740022"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/tests/ssr.test.ts",
+      "bytes": 4757,
+      "sha256": "be70bb328709abbf0c29e9a3aab557227030e5c057566b734612f4cf96a1c4a0"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/tests/stand-hotkeys.test.ts",
+      "bytes": 1092,
+      "sha256": "307cb5eb70f74fa9bfaccee7b9ed8bdfc9dddd88c35e42574d4b684b2f271082"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/tests/stand-store.test.ts",
+      "bytes": 1832,
+      "sha256": "79728e54c386d8113eea33d897d0933149386894d28abd2eba9be87ec06cc5fe"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/tests/types-dts.test.ts",
+      "bytes": 3214,
+      "sha256": "8a8d92abdca41debfb5ab9a9e748d7354e035b083f8181c3731b7691a7e99dd3"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/tsconfig.json",
+      "bytes": 871,
+      "sha256": "cdeb29a69e46e8107bf8ad37f981f8cd237cebf2bb7ad52f91d91b703b113ee3"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/tsconfig.lib.json",
+      "bytes": 306,
+      "sha256": "dd94f4d229fbba868d87762bd7bfcd2908a9b33fc77cab0a31098d53b48f23d0"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/tsconfig.node.json",
+      "bytes": 189,
+      "sha256": "cb05e6c36417d3f3d3ecff6439afbc12ab254c1d3dd63f1fb7431805738a7322"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/vite.config.ts",
+      "bytes": 1645,
+      "sha256": "121513777c10c946fa0a24fb44a2341a9c89f81883fd84a0b0d562cfa9df101a"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/vite.element.config.ts",
+      "bytes": 809,
+      "sha256": "3c4464ade87977927bf30bbadc0905192f418aec647a15e19284e672b2419b05"
+    },
+    {
+      "path": "lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/vite.lib.config.ts",
+      "bytes": 1614,
+      "sha256": "99eaf6e0dd5e0e480730bd1cab42d33ca9dce5e2041c4220cf793638558a2416"
+    }
+  ]
+}

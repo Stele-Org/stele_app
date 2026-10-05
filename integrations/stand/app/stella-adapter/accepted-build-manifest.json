@@ -1,0 +1,199 @@
+{
+  "protocol": "stella-master-vk-max-v1",
+  "iteration": "STELLA-CAMERA-ROTATE-01",
+  "candidateOnly": false,
+  "entry": "/stella/?master=1",
+  "sourceManifestSha256": "a64696c4851e0a3c67a7ad83523457e2a1776fc095ba3d209ce7d367467ea2b6",
+  "scope": "BRIO preview and JPEG rotate90CW; preserve exact binding/permissions/MAX stop/audio/motion",
+  "files": {
+    "assets/app.js": "a527375784a726437259e230ba0fcc6444c0d7547e0d25e5f6d1e888dd7ce2ef",
+    "assets/business.svg": "3833b6805584112b51fd0d744295d8457ebfc9aa074acdab66530f7b4ba3803d",
+    "assets/connection.svg": "8fa6e2fe6c6f3d8d5b18e192caca1ec408bf912f55b250b8e141bd3fe02b25fd",
+    "assets/identity.svg": "ca959186ed4f793e2cfd706c4e343d67f50d2e36d4ad1ecb577bbe963ba9f49e",
+    "assets/illustration-0c524dbbe287.png": "ad5d0e4548a44fa52f5aa45686b133a4fa4bc87814b93a1c91a4d371425f3fbb",
+    "assets/illustration-15676423b654.png": "1327faa26f0949a8e6743ba3ae3c600f53e26a9bf8e11dd6055364b8ab4edf71",
+    "assets/illustration-15902855a698.png": "647d1a8532c103c66617bbdfd70bf427f200f0df93e1cc949008f1d055211674",
+    "assets/illustration-935e2d0f1faa.png": "45375664ae6ba614aeea5ad15a24a87683c09199b10a7d3f57422c4880aa78ca",
+    "assets/index.css": "7451b7ef3084159aecfafbf24d48576290c547eb38f1c1334dfa3291fe65c5bf",
+    "assets/max-primary-white.svg": "0b17b845199235e8cc32b8ead7475abe9f66490a64809e018fa10d3ea866ce8f",
+    "assets/max-sans-400.woff2": "16b5a57c3fb0188774b86704addba2d2bbab81457b6d85e835e2227d0c20d02f",
+    "assets/max-symbol-color.svg": "f7bcbeb580c12e017f34d3545763085eb09e10adac8a3c13aa926c603563533a",
+    "assets/personal.svg": "9f845666ba4c514711edd7378a4b8a269fc00fb35adf81c0ec3cf585e67ff11c",
+    "assets/visibility.svg": "0514eecaa61f412f9167f189aec579410846d4d58903c79c361edd973c852a57",
+    "assets/vk-camera-discovery-border.svg": "9bba02128eee9ba3274f498c4a508c11258f5d73a1f5040e294d512301bd779f",
+    "assets/vk-new-drive.svg": "ed367a74c2af8fac90e626ffa7efccda4eaf744543e7b1d75c94db39c3329d1b",
+    "assets/vk-new-familiar.svg": "6a1e1ddedf676865459daaf202ffdf429aff0f3d4f11f14fe98ea5ce530b4edc",
+    "assets/vk-new-hero.svg": "680c5784d40f4289194393072fe983121ed95c230e4fc475ebae2c72ba614cbb",
+    "assets/vk-new-heroes.svg": "955a5822a314cc3737a5032d74e8d778b61594c9ad2f04947152c2ed6d06b3bb",
+    "assets/vk-new-home.svg": "919922be3f7e7e88a65fa7cf8daaa3d87bf7e77f5eda4d19d069af4895d52477",
+    "assets/vk-new-interview.svg": "80a469eee968d0c79282f8d1688b50795fbd4e104441cf8b1d9c7eff62054e7b",
+    "assets/vk-new-learn.svg": "4ef9e01a800a8d7973067a765a166d6dce4a8a8691abdb4c71df93c30ac8310d",
+    "assets/vk-new-new.svg": "cc108292b2edc02f61282daf5fcd63a8a4635a257d3cc728a2531eec9fdac55f",
+    "assets/vk-new-popular.svg": "5fb814f1a11f4b8343b1318e1469e675ae76fa9a3039fccb319beb87a0af4d81",
+    "assets/vk-new-qr.svg": "06f26525b0a1ab5c84b508a3b11a0864563c65e4411918fc93444b946f07a6e3",
+    "assets/vk-new-rest.svg": "b0d4f59c9c35238516612d83e8bb8a2c68f18cd4770f94169c40776f9afe7b79",
+    "assets/vk-new-science.svg": "ef8ec2d703995bcf3cfe582b07c4860ddfcc9fae0ff972f53a79dd84716d7211",
+    "assets/vk-new-series.svg": "bc0018b966ad0b571fd5bca17edfcacb7dc2428765aff7b3e30070786feaa686",
+    "assets/vk-new-silhouette.svg": "4a3581c597d1abaf1773affa9c599034e9860d6d6467525b71a3fe8964f1e520",
+    "assets/vk-new-standup.svg": "c5d1ba8fe48e5db8a7e317481254a356d97fe775e0fce207875f620a7db5bf8e",
+    "assets/vk-sans-display-bold.ttf": "6642aaa8d21e1987776e64d93879d32b6e23a20a361cb51ffabcf2738299f95a",
+    "assets/vk-sans-display-demibold.ttf": "fbc525a6b4fff40d9819c42ce03292fb5af55212fa7bca2d76a1f5492494e03f",
+    "assets/vk-sans-display-regular.ttf": "0cb5ec75fedd6c6dc9d670f2b4b0ce0923df235086fa7d1c0a35e656ded979be",
+    "assets/vk-sans-text-demibold.ttf": "05a9076c381adb7f396e759d8b95cb4bfd9432c14437a347bb34cb0a5b2084a6",
+    "assets/vk-sans-text-medium.ttf": "dc3e1b8cb1e3411bdd303ab65f48acaca6e8b4ae6d9c2f4c27e34b4ae6940259",
+    "assets/vk-sans-text-regular.ttf": "97ce056e8ece47119f24ef1f34932fb5a0a395a55fb85b4f3cd547a51aba7f14",
+    "assets/vk-video-mono-white.svg": "3db1eacf4de4fdadb267edfc960c68c6736cc13024abf2ed986a94bff1db84f4",
+    "audio/vk-production-v1/AmbienceMain.wav": "7cf0a8372950283729161cfe3b20a3abc47e63a9237641d2edad6667d4493509",
+    "audio/vk-production-v1/central-catalogue.candidate.json": "bed7c4aa56a93d1fa0ffe4a1cfb38f372d18e8c2f5fc73a3152af6c5b2b13cea",
+    "audio/vk-production-v1/ChangeScreen.wav": "a019a3fc6711ddcc29262739842bcc38d7d7da7eb80727811250fbd896c79e44",
+    "audio/vk-production-v1/ChangeScreen2.wav": "0ad48f62f86c86b6419aba0056a82fac67527335ccae99505211450e8dc26714",
+    "audio/vk-production-v1/ChangeScreen3.wav": "7dda0d6b4c6f67ec9919506bcc33b7bf1ef0fa6ecb05e19d3392e3155b57100c",
+    "audio/vk-production-v1/ChangeScreen4.wav": "5b39aeb87c9cff5f1f3ee632fea4ca0ab924488b2925ec4059348a19c7f310ca",
+    "audio/vk-production-v1/ChangeScreen5.wav": "bfaeecd3968da1506b690626e286c7253fc03a2c3aedb3e315e7150eb7fff4a1",
+    "audio/vk-production-v1/Click.wav": "b0c51d24bffa6cb2446f32757587e71108d6320f063c06f069f9d248a2848252",
+    "audio/vk-production-v1/manifest.json": "c6f73ec7202297584d62cc2695f8a7cfb46f8fdc8b7b040874568733d6de6c7b",
+    "audio/vk-production-v1/README.md": "c1057f087d9ec3a32fab1e7af1bed428b2990713e4b273cf0eaad4d7aec48c8c",
+    "audio/vk-production-v1/Scan.wav": "de719ef299dfd589a12b6de877fb1aa078167a63c826e7e00bc298419b22aa18",
+    "audio/vk-production-v1/ScanEnd1.wav": "e2fa8ba655601b19155a5ed702ba6935f74138f74f8c76506f31b7bac52e1745",
+    "audio/vk-production-v1/ScanEnd2.wav": "e8499f9589391e4289ab112960c2d0f7b706acdeee4f4d5059f47013c676378b",
+    "audio/vk-production-v1/ScanStart1.wav": "2971ae5a7b80db39bed0e82c712a2d8d80e22efbfd30449f0b80a8692a2db889",
+    "audio/vk-production-v1/ScanStart2.wav": "f7996ca83d05475a4885e8f2a00dc86c8990e3deec4e678d1fc0b0ede9fbe129",
+    "audio/vk-production-v1/Screen1.wav": "2d4c953cead1b98a1411faf3f766d76f52a40c78f4f56c0f731f52a320469249",
+    "audio/vk-production-v1/Screen2.wav": "ebb31994562fd38762f294dd34cc63d6d7b39a0e2bfefbcde0671ad2abe7b6fb",
+    "audio/vk-production-v1/Screen3.wav": "bce2390d4ece1d1bbd00b48f6cd863a5bc3ddfa3a674c9ce8d6be64506312d00",
+    "audio/vk-production-v1/Screen4.wav": "02f7fb031506fce6921964941cfc4b11cf119f3cea8ed16d54e2b718d983d65b",
+    "audio/vk-production-v1/Screen5.wav": "7390adab0bae900c113ec5bcd9bf2d9c1233e581178a0dcef75787485ee5b0e0",
+    "audio/vk-production-v1/Screen6.wav": "93a0a7c12e3c1d0f3c3e0e65de7d399ad7a956d6c60f4a28ebbf96ece4411488",
+    "audio/vk-production-v1/Screen7.wav": "5b47fecca5313665cdd7a34e392a082b66104b345f8b50f9474d38bb2dfe0a4d",
+    "audio/vk-production-v1/Screen8.wav": "0f8571cdf9509b95c8f6cdee2424b410518eb2092be6e2039303f73aa3d6866d",
+    "audio/vk-production-v1/Tags.wav": "4952db05acd4a687695d9b0c5db9018032df439d2d0da5dbe8b20cb3d9809471",
+    "index.html": "7ddeab16156b3b1fa4c3d923f70f21c4dea4e74cf5799f249fea6e59ae7999d8",
+    "LICENSE-howler.txt": "0ad5aef7beeb552832fe01db1c46933f948dfe5da35017bd0efa0006ffd2ced9",
+    "LICENSE-qrcode-generator.txt": "3a850fa5f08101db6f40676c2786e10bd2cd5fff7b12ffdf1e0c434d4e49d90c",
+    "sound/stella/manifest.json": "14c495b91e0997f877f7bc975065530f0148e9da3e77e9f8fcd09e767eba8887",
+    "sound/stella/README.md": "923c073720622c14126b15010a503d6d1eec4365f06258bbaaeeb9a783ded855",
+    "sound/stella/sound-source-manifest.json": "b02e73172721d2ffb8e3040d0b4d45df7e43b7e4b8e0e997bfba03f93a029f5f",
+    "sound/stella/stella_ambience_loop_main.wav": "7cf0a8372950283729161cfe3b20a3abc47e63a9237641d2edad6667d4493509",
+    "sound/stella/stella_ambience_loop_scan.wav": "de719ef299dfd589a12b6de877fb1aa078167a63c826e7e00bc298419b22aa18",
+    "sound/stella/stella_button_click.wav": "b0c51d24bffa6cb2446f32757587e71108d6320f063c06f069f9d248a2848252",
+    "sound/stella/stella_scan_end_1.wav": "e2fa8ba655601b19155a5ed702ba6935f74138f74f8c76506f31b7bac52e1745",
+    "sound/stella/stella_scan_end_2.wav": "e8499f9589391e4289ab112960c2d0f7b706acdeee4f4d5059f47013c676378b",
+    "sound/stella/stella_scan_start_1.wav": "2971ae5a7b80db39bed0e82c712a2d8d80e22efbfd30449f0b80a8692a2db889",
+    "sound/stella/stella_scan_start_2.wav": "f7996ca83d05475a4885e8f2a00dc86c8990e3deec4e678d1fc0b0ede9fbe129",
+    "sound/stella/stella_transition_1.wav": "a019a3fc6711ddcc29262739842bcc38d7d7da7eb80727811250fbd896c79e44",
+    "sound/stella/stella_transition_2.wav": "0ad48f62f86c86b6419aba0056a82fac67527335ccae99505211450e8dc26714",
+    "sound/stella/stella_transition_3.wav": "7dda0d6b4c6f67ec9919506bcc33b7bf1ef0fa6ecb05e19d3392e3155b57100c",
+    "sound/stella/stella_transition_4.wav": "5b39aeb87c9cff5f1f3ee632fea4ca0ab924488b2925ec4059348a19c7f310ca",
+    "sound/stella/stella_transition_5.wav": "bfaeecd3968da1506b690626e286c7253fc03a2c3aedb3e315e7150eb7fff4a1",
+    "third-party-motion-notices.txt": "ca3c927c5a74ad6285e77a0e68ca8805f28f2e8d34ee9c915b77f4196f56ff5e",
+    "voice/vasilisa/home.wav": "c9514a8c0779e6520000b9f4e7bf69ba5177b917e712e0af70e035dd9f9c565c",
+    "voice/vasilisa/manifest.json": "e316b71aa4c420c64c8ff1cf5a48de0519125ef9195ad9ab1b3b823c8b91eb6e",
+    "voice/vasilisa/max-audience.wav": "8680f167401ba34ec19b70a8617e83fe8964d95be2f7181c0551baa2dcda8b50",
+    "voice/vasilisa/max-goal.wav": "66d6438e7c3d472b46872d94a3a4749d0566cc1248abfa2dcc5e6f822c026327",
+    "voice/vasilisa/max-onboarding.wav": "d79c9c657aa5185e9a9b18a3e3b12229eee2d98a28ef52efe7c8d7900699cfb2",
+    "voice/vasilisa/max-result-blogger.wav": "7b66456254341d84a6428d96dea80a451f561e61d1907ed3558299f284d5d293",
+    "voice/vasilisa/max-result-business-promotion.wav": "88d882356056643ec3a9602158d33953f155b5d1dfd290fc76430d28377290f8",
+    "voice/vasilisa/max-result-communication.wav": "fc75e78ed60bc904024d0cd6b18206d4e5a493e259b6545cf7c175be38321325",
+    "voice/vasilisa/max-result-digital-id.wav": "152b430a411add863fcbd03298b864172528b19f9f6abe79fd692861e23faf9c",
+    "voice/vasilisa/vk-camera.wav": "f4b8efe3989a8f50f3738ec15de07f735e0f66da406d4d5cf0440d49dfec9e28",
+    "voice/vasilisa/vk-digitize.wav": "5e0b474ea5dd85baa1603a1e9d471def0a09394ede6a68dba8ae02a3c0ac042c",
+    "voice/vasilisa/vk-discovery-activation-studio.wav": "5b47fecca5313665cdd7a34e392a082b66104b345f8b50f9474d38bb2dfe0a4d",
+    "voice/vasilisa/vk-discovery-activation.wav": "5c212a528bab5c077ffb8cb06b7179666a21b35558f4901b295691f14ba2cbc2",
+    "voice/vasilisa/vk-final.wav": "472f0e8bbf5837da7edf762600fcc18f6985c19cd89b3715db34c555b7fdcabe",
+    "voice/vasilisa/vk-gender.wav": "7bcf54aa350089b705b867b7897f3623738163228989266070cc037f82e9e3e2",
+    "voice/vasilisa/vk-onboarding.wav": "a55331601087365b8b7ee0c9dee11b1eb459e782a5a712555aba82b58920c607",
+    "voice/vasilisa/vk-particles.wav": "cc7bdc2d0b0641a6d0cac962b705590dcc0dba69aba67ca745303bafd54ae7b0",
+    "voice/vasilisa/vk-question-discovery.wav": "5c2062bcd64abd04a0d6ce4ee1eec3197d3d7b02c91ef1339fb0b6e76d8ba59a",
+    "voice/vasilisa/vk-question-evening.wav": "b03d3d7c5a00099e0349004b72b1da8b75865ba78e82a270d6d6bb482c6b9257",
+    "voice/vasilisa/vk-question-ideal-content.wav": "bce2390d4ece1d1bbd00b48f6cd863a5bc3ddfa3a674c9ce8d6be64506312d00",
+    "voice/vasilisa/vk-scanning.wav": "554edd6fce293a097a2d089581830bc9a0bdca591a44207b1fb895cfc67a10c9"
+  },
+  "sourceChanges": {
+    "src/app/App.tsx": "60f973b15bd4740b565f034cb4466440426933b994f04315eb6ebd5daff08203",
+    "src/features/master/MasterCamera.tsx": "4fc8f0eb67ba07c965b0cb59595cef393a8597fdf3180c1b6f8d5acc2b9d8769",
+    "src/components/ContinuousQuestions.tsx": "559a16445d3ae4ac0c3e9fac5dbf5d414668f5836e2195f447d7597f7c4913f9",
+    "src/components/AnswerFlight.tsx": "fd4a4b5afb1ab8d7a1eb29e4313717f977b56ef67c33c1de79c26e15c3d6b45d",
+    "src/components/camera-preview.css": "61ef16e22033fbc7f21705d85bcc34639d090ca07844396d7c9fb693a84be5c5"
+  },
+  "audioSourceChanges": {
+    "src/features/audio/production-audio.ts": {
+      "beforeSha256": "3933ecfd4ad0818e8bf44fe0c13a044947823d8e0823b0141c7c3fd94e4cd370",
+      "sha256": "8fc0b45dbeb461a6c8c84c9e3e3d160225d678d31a13df83f8b7f0c1e5232e3e"
+    },
+    "src/features/audio/remote-audio-observer.ts": {
+      "beforeSha256": null,
+      "sha256": "ace964d0509d10cf4bfde69059e87289a4b7118981873c43b12f9cb19eff3bb4"
+    },
+    "src/features/audio/remote-audio-observer.test.ts": {
+      "beforeSha256": null,
+      "sha256": "ad99e2b2a21b18923b191905c814c6f76956e8c27dac5644484501c3d376915f"
+    }
+  },
+  "motionSourceChanges": [
+    {
+      "path": "src/components/CameraPreview.test.tsx",
+      "beforeSha256": "523c213125cfd03f63b9dbe6f811a8d3a42c8938459835e8120b7901f52325ae",
+      "afterSha256": "30ceb9c912a50e021072bf8cbc1c6ac2209909e2b26f68f0eae1cdc2520917a4"
+    },
+    {
+      "path": "src/components/WhiteEntity.test.tsx",
+      "beforeSha256": "14949914e8e3091759779dd6ae23e4998dfc270db940a7120a417929686b97a1",
+      "afterSha256": "c003361cd87ca54ebc23f01ffcf0e856e828a500a617e03884a88ef6418f59cd"
+    },
+    {
+      "path": "src/components/WhiteEntity.tsx",
+      "beforeSha256": "67e51146433b9aa2dddaad682ce39f193962346fdfdd54d7586427262d162f14",
+      "afterSha256": "b1e4298554c7e06d923a337c7e6c35ad73fa513e74d82f23603256dbeddbea39"
+    },
+    {
+      "path": "src/features/master/MasterSlice.test.tsx",
+      "beforeSha256": "38e560f721054bf487df763d010faa70411a660e02ca7db42842d4c8d9db32b6",
+      "afterSha256": "8d48420c64c24c1a83d3d28bc5d09b0d7ff258623b72367f03440a37dbbfd534"
+    },
+    {
+      "path": "src/features/master/MasterSlice.tsx",
+      "beforeSha256": "fcb48c2ec480c2dd629214a719d1168aeb2af45ef72879f17e50ace49d2de8d7",
+      "afterSha256": "5a65ec885a14cd007d681515efbecebff2c8c2061b6a52ba447d1364a4a93457"
+    },
+    {
+      "path": "src/features/master/presentation-playing.ts",
+      "beforeSha256": null,
+      "afterSha256": "fdfc726da093107920ed39c09ea498a43bd0c743b3b86f63933d4b5643749cf9"
+    },
+    {
+      "path": "src/features/master/usePresentationCompletion.ts",
+      "beforeSha256": null,
+      "afterSha256": "e45bbd8d0b4605c1fa36b46beaae20668c24b088a43ff94ed2efb892d860dd2a"
+    }
+  ],
+  "audio03SourceChanges": {
+    "src/features/audio/remote-audio-observer.ts": {
+      "beforeSha256": "ace964d0509d10cf4bfde69059e87289a4b7118981873c43b12f9cb19eff3bb4",
+      "sha256": "72c2acbff0ba70ef16fc5149d8b9ddcf7d4eef667084fd5bc4b8134aa5b83803"
+    },
+    "src/features/master/useMasterAudio.ts": {
+      "beforeSha256": "41a271ba2cfb857171c5061f7faa4ee8d44e32fb112bb33410fbc940a6ddef2a",
+      "sha256": "63c99696e0c153bda8878b5719b9ef14b410585ca643bf26dd11388675a07658"
+    },
+    "src/features/master-max/MasterMaxSlice.tsx": {
+      "beforeSha256": "a5bb6ab301b02d9e1ab67a4d2c8e892871ab3c70fcac85262ce7f4f81503d899",
+      "sha256": "9b51b54faf47fb36c8dca2ed8c6f8d9d1e1ea566ba2b28fb8af0d1693014d9d4"
+    },
+    "src/features/audio/remote-audio-observer.test.ts": {
+      "beforeSha256": "ad99e2b2a21b18923b191905c814c6f76956e8c27dac5644484501c3d376915f",
+      "sha256": "b8c1b6608ded6eda3923ca3b4ea803da40ff8581afc3374d5dab3d767b1b1597"
+    }
+  },
+  "motion03SourceChanges": [
+    {
+      "path": "src/features/master-max/MasterMaxPresentation.test.tsx",
+      "beforeSha256": null,
+      "afterSha256": "1cdc5d8c9adb4e60227468cba3564e139f9005d9f90f5825960c09497d22d760"
+    },
+    {
+      "path": "src/features/master-max/MasterMaxSlice.tsx",
+      "beforeSha256": "e0de726af8e3a2202a9dc73aa5d559b68893ab5f31a832387cc7aaa1e1af6999",
+      "afterSha256": "6939018c532ab8a0a7800a9d4264c11f31d73033dfe7264c9c3a85493da87256"
+    }
+  ]
+}

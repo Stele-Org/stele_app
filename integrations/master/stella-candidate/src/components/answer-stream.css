@@ -1,0 +1,27 @@
+/* A light data stream above the dissolving card; the stage and text keep author coordinates. */
+.answer-flight .answer-flight__visuals { z-index: 3; }
+.continuous-vk > .answer-flight { z-index: 4; }
+.continuous-vk > .product-mark { z-index: 5; }
+.answer-stream { position: absolute; inset: 0; pointer-events: none; }
+.answer-stream__filament { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; opacity: 0; }
+.answer-stream__fragment { position: absolute; overflow: hidden; pointer-events: none; transform-origin: center; }
+.answer-stream__fragment img { position: absolute; max-width: none; object-fit: fill; }
+.answer-stream__fragment--light { background: currentColor; border: 1px solid #bdeaff; border-radius: 3px; }
+.answer-stream__glyph { position: absolute; font: 500 1.65cqmin/1.1 ui-monospace, Consolas, monospace; letter-spacing: .08em; color: #c3e8ff; opacity: 0; text-shadow: 0 0 .8cqmin currentColor; }
+.answer-flight .answer-flight__visuals .lc-scene-stream-tag {
+  border: 0; border-radius: 0; background: transparent; box-shadow: none;
+  padding: 0 1.5cqmin; color: #eef8ff; text-shadow: 0 0 1.2cqmin #399affaa;
+}
+.answer-flight .answer-flight__visuals .lc-scene-stream-tag::before, .answer-flight .answer-flight__visuals .lc-scene-stream-tag::after { display: none; }
+.answer-flight--max .answer-flight__visuals .lc-scene-stream-tag { text-shadow: 0 0 1.2cqmin #9885ffaa; }
+.answer-stream-code { position: absolute; inset: 0; display: grid; place-items: center; opacity: 0; font: 500 2.3cqmin/1 ui-monospace, Consolas, monospace; white-space: nowrap; letter-spacing: .12em; color: #9cdcff; }
+.answer-flight .answer-flight__answer { height: 280px; border-radius: 60px; background: #0040FF; }
+.answer-flight--max .answer-flight__answer { background: #0D001A33; }
+.answer-flight .answer-flight__answer > .answer-flight__label { position: absolute; z-index: 1; left: 46px; bottom: 34px; max-width: 405px; font-size: 34px; font-weight: 600; white-space: pre-line; text-shadow: 0 1px 8px #00184466; }
+.answer-flight--max .answer-flight__answer > .answer-flight__label { left: 40px; max-width: 390px; font-size: 36px; font-weight: 400; }
+.answer-flight .primary-button.answer-flight__answer { border-radius: 40px; }
+.answer-flight .primary-button.answer-flight__answer > .answer-flight__label { position: static; font-size: 44px; font-weight: 400; text-shadow: none; }
+@media (prefers-reduced-motion: reduce) {
+  .answer-stream, .answer-stream-code { display: none; }
+  .answer-flight .answer-flight__visuals .lc-scene-stream-tag { text-shadow: none; }
+}

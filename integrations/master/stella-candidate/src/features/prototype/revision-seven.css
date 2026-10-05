@@ -1,0 +1,9 @@
+.screen.screen--vk-final #vk-result-title { top: 330px; left: 90px; width: 900px; font-size: 43px; line-height: 1.2; }
+.vk-final-direction { position: absolute; top: 615px; left: 100px; width: 880px; font-size: 42px; line-height: 1.18; text-align: center; white-space: pre-line; }
+.screen.screen--vk-final .vk-final-qr { top: 825px; left: 370px; width: 340px; height: 340px; }
+.screen.screen--vk-final .vk-final-caption { top: 1180px; font-size: 25px; }
+.discovery-generation-copy { position: absolute; top: 330px; left: 110px; width: 860px; text-align: center; text-shadow: 0 2px 15px #020320, 0 0 35px #020320; }
+.discovery-generation-copy h1 { font-size: 44px; line-height: 1.15; }
+.discovery-generation-copy p { margin-top: 22px; font-size: 34px; line-height: 1.2; }
+.continuous-card-label { position: relative; z-index: 1; }
+

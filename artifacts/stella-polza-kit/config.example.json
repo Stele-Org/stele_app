@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "providerId": "polza-seedream5-cleanplates-v1",
+  "model": "bytedance/seedream-5-lite",
+  "quality": "basic",
+  "aspectRatio": "16:9",
+  "enabled": false,
+  "credentialEnvironmentVariable": "POLZA_API_KEY",
+  "recipeCatalog": "prompts/recipes.json",
+  "assetManifest": "assets/manifest.json",
+  "inputOrder": ["visitorPhoto", "cleanPlate"],
+  "submitAttempts": 1,
+  "pollIntervalSecondsSuggested": 5,
+  "unknownSubmitPolicy": "reconcile-by-master-no-automatic-resubmit",
+  "ownerOfQueueAndResultState": "master",
+  "note": "Integration defaults; this file does not enable API access or start a worker."
+}

@@ -1,0 +1,217 @@
+{
+  "archive": "C:\\Users\\futuronika_ai\\Downloads\\COVER_02_10_26.zip",
+  "archiveSha256": "bc31f58643f7351acc32f93359b204ebccce3ad7719cf26ed05478300187df2b",
+  "count": 21,
+  "items": [
+    {
+      "archiveEntry": "COVER_02_10_26/01_BOEVIK/01_BOEVIK_F.png",
+      "bytes": 6368758,
+      "sha256": "9a46e315193231af5bc2004d903d42b483b8055d3c2ad969658653703713c837",
+      "size": [
+        2688,
+        1520
+      ],
+      "mode": "RGB"
+    },
+    {
+      "archiveEntry": "COVER_02_10_26/01_BOEVIK/01_BOEVIK_M.png",
+      "bytes": 6081638,
+      "sha256": "28df1f24a1029b627bab57a058eeeb804a05447b8bdbf140149d23ca3b0618e7",
+      "size": [
+        2688,
+        1520
+      ],
+      "mode": "RGB"
+    },
+    {
+      "archiveEntry": "COVER_02_10_26/02_DETECTIVE/02_DETECTIVE_F.png",
+      "bytes": 6106764,
+      "sha256": "1a5e6701dcbd6a840b474a9a1f833c4f4f3e5178757a94ffda6dab04434d3f7b",
+      "size": [
+        2688,
+        1520
+      ],
+      "mode": "RGB"
+    },
+    {
+      "archiveEntry": "COVER_02_10_26/02_DETECTIVE/02_DETECTIVE_M.png",
+      "bytes": 5645686,
+      "sha256": "9c99110939baf656811c38b0e5152d4b82e315499aa21cb0650abe721d5bd337",
+      "size": [
+        2688,
+        1520
+      ],
+      "mode": "RGB"
+    },
+    {
+      "archiveEntry": "COVER_02_10_26/03_DRAMA/03_DRAMA_F.png",
+      "bytes": 5400995,
+      "sha256": "b5f4e607dc1047fa178802e8bf28b70899330c931e993a2af417e001c6cb30e7",
+      "size": [
+        2688,
+        1520
+      ],
+      "mode": "RGB"
+    },
+    {
+      "archiveEntry": "COVER_02_10_26/03_DRAMA/03_DRAMA_M.png",
+      "bytes": 5358720,
+      "sha256": "e2331d346c07402df3a5683636803a1d0d097970c5a307f39770212010fa8741",
+      "size": [
+        2688,
+        1520
+      ],
+      "mode": "RGB"
+    },
+    {
+      "archiveEntry": "COVER_02_10_26/04_HISTORY/04_HISTORY_F.png",
+      "bytes": 6407447,
+      "sha256": "c2fd9ec000c09ec93bfd5e4a19a409dca12ea98154fa96e717e994e0cebf697e",
+      "size": [
+        2688,
+        1520
+      ],
+      "mode": "RGB"
+    },
+    {
+      "archiveEntry": "COVER_02_10_26/04_HISTORY/04_HISTORY_M.png",
+      "bytes": 6175047,
+      "sha256": "fc181aa6ca535c4e6adee5294f425cebae66abfb085bc16c7c30fa256ddafcac",
+      "size": [
+        2688,
+        1520
+      ],
+      "mode": "RGB"
+    },
+    {
+      "archiveEntry": "COVER_02_10_26/05_COMEDY/05_COMEDY_F.png",
+      "bytes": 5176162,
+      "sha256": "f2624ae74034b226aa5d0c19da5efa45e90abd44b4ae6d90396deeaeffbcd62a",
+      "size": [
+        2688,
+        1520
+      ],
+      "mode": "RGB"
+    },
+    {
+      "archiveEntry": "COVER_02_10_26/05_COMEDY/05_COMEDY_M.png",
+      "bytes": 4937691,
+      "sha256": "55bceb69545590e981d6a7fa04c08fff1c170baec320dd2ead5c24f484092b78",
+      "size": [
+        2688,
+        1520
+      ],
+      "mode": "RGB"
+    },
+    {
+      "archiveEntry": "COVER_02_10_26/06_MUSICLE/06_MUSICLE_F_1.png",
+      "bytes": 5680235,
+      "sha256": "6309c7a928180475c11de5a21503eda740751ef3504e30f2e738a397d0091677",
+      "size": [
+        2688,
+        1520
+      ],
+      "mode": "RGB"
+    },
+    {
+      "archiveEntry": "COVER_02_10_26/06_MUSICLE/06_MUSICLE_F_2.png",
+      "bytes": 5116823,
+      "sha256": "b7924714e4da2a4f3452ab2cb0ec362598a90dc7ddbdbf62be589320562ce5a1",
+      "size": [
+        2688,
+        1520
+      ],
+      "mode": "RGB"
+    },
+    {
+      "archiveEntry": "COVER_02_10_26/06_MUSICLE/06_MUSICLE_M.png",
+      "bytes": 5282060,
+      "sha256": "00b07cd60e99291e86af529fc3ef33caef162289dff706dfb3c6a5b558a025e1",
+      "size": [
+        2688,
+        1520
+      ],
+      "mode": "RGB"
+    },
+    {
+      "archiveEntry": "COVER_02_10_26/07_SCI-FI/07_SCI-FI_F.png",
+      "bytes": 6078753,
+      "sha256": "cc90b7a27d8e4fe2bc27aa39b932dd3b537dfe9c6cf586a3cdfa6aed49bff50e",
+      "size": [
+        2688,
+        1520
+      ],
+      "mode": "RGB"
+    },
+    {
+      "archiveEntry": "COVER_02_10_26/07_SCI-FI/07_SCI-FI_M.png",
+      "bytes": 5845621,
+      "sha256": "d2c04dc156256edb284f1508eb98e748360697ad14204e9066372007f8ad0418",
+      "size": [
+        2688,
+        1520
+      ],
+      "mode": "RGB"
+    },
+    {
+      "archiveEntry": "COVER_02_10_26/08_ADVENTURE/08_ADVENTURE_F.png",
+      "bytes": 7496875,
+      "sha256": "c564317bd927d2539e478748a446b6bbd74b665c9dd6a8a568e81e2a7208393e",
+      "size": [
+        2688,
+        1520
+      ],
+      "mode": "RGB"
+    },
+    {
+      "archiveEntry": "COVER_02_10_26/08_ADVENTURE/08_ADVENTURE_M.png",
+      "bytes": 7502731,
+      "sha256": "0489cde6c22501b91a9dd6a1b38a7f17195a31c6aeafc30236064081c88cdd3c",
+      "size": [
+        2688,
+        1520
+      ],
+      "mode": "RGB"
+    },
+    {
+      "archiveEntry": "COVER_02_10_26/09_HORROR/09_HORROR_F.png",
+      "bytes": 4895643,
+      "sha256": "c15b0bab7d23ea67454c4a509715776ebbf92ffe7d85e6089a7b06afbbbccb61",
+      "size": [
+        2688,
+        1520
+      ],
+      "mode": "RGB"
+    },
+    {
+      "archiveEntry": "COVER_02_10_26/09_HORROR/09_HORROR_M.png",
+      "bytes": 4928894,
+      "sha256": "6eb46c37ad2b1edf64eac0960ae4aadc06b5a99565f515d62856175589878cf2",
+      "size": [
+        2688,
+        1520
+      ],
+      "mode": "RGB"
+    },
+    {
+      "archiveEntry": "COVER_02_10_26/10_FANTASY/10_FANTASY_F.png",
+      "bytes": 6064671,
+      "sha256": "b0dcc3661a421ca20e2bceb6454430f7215c81f241f573f3773f85417fa29060",
+      "size": [
+        2688,
+        1520
+      ],
+      "mode": "RGB"
+    },
+    {
+      "archiveEntry": "COVER_02_10_26/10_FANTASY/10_FANTASY_M.png",
+      "bytes": 5749269,
+      "sha256": "43fb4eabea975e1fef100af6ab05a3a979895cac572ab45d6ead4fde35884d11",
+      "size": [
+        2688,
+        1520
+      ],
+      "mode": "RGB"
+    }
+  ]
+}

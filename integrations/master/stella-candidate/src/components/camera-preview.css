@@ -1,0 +1,49 @@
+.camera-preview {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+  container-type: size;
+}
+
+.camera-preview__video {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  /* BRIO is mounted sideways: swap the box before rotating clockwise. */
+  width: 100cqh;
+  height: 100cqw;
+  transform: translate(-50%, -50%) rotate(90deg);
+  object-fit: cover;
+  opacity: 0;
+}
+
+.camera-preview[data-camera-status="ready"] .camera-preview__video {
+  opacity: 1;
+}
+
+.camera-preview__status {
+  position: absolute;
+  inset: 12%;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  color: inherit;
+  font: inherit;
+  font-size: .65em;
+  line-height: 1.25;
+}
+
+.camera-preview__discovery {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  pointer-events: none;
+}
+
+/* Keep the selected hero label above its live preview during server tag reveal. */
+.answer-flight__answer--camera > span { position: relative; z-index: 1; }

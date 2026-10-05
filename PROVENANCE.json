@@ -1,0 +1,22 @@
+{
+  "createdUtc": "2026-10-05T14:06:09.937018+00:00",
+  "baseCommit": "f24a10677fe05fee5e1d23bed519c84a8f817d2c",
+  "includesWorkingTreeChanges": true,
+  "installedIteration": "STELLA-CAMERA-ROTATE-01",
+  "buildSha256": "493dfdde595641aa029f19f0b9814ce9dfd1ef2321718a164b43fac74a2d6bce",
+  "shellFiles": {
+    "main.cjs": "96599afef7bb30a67f7d04cc8f8ab617c3ff16c887e5bbef0aeec9b4f5a1b49d",
+    "camera-diagnostics.cjs": "7af16cb1a757b379c7e1b5fb925acf90a8e3ee6176c25712667cd1d9f68d8c0b"
+  },
+  "liveAudit": "Last technical verification saved 2026-10-05; no new network access for packaging",
+  "exclusions": [
+    "secrets",
+    "node_modules",
+    ".git",
+    "visitor photos",
+    "live logs",
+    "MASTER backend and machine config",
+    "historical standalone source",
+    "raw SOUND duplicates"
+  ]
+}

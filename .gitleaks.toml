@@ -1,0 +1,13 @@
+title = "Stella default rules plus provider tokens"
+[extend]
+useDefault = true
+
+[[rules]]
+id = "polza-provider-token"
+description = "Polza provider token"
+regex = '''\bpza_[A-Za-z0-9_-]{20,}\b'''
+
+[[rules]]
+id = "provider-sk-token"
+description = "Provider sk token"
+regex = '''\bsk-[A-Za-z0-9_-]{24,}\b'''

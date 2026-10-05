@@ -1,0 +1,3312 @@
+{
+  "files": {
+    ".env.example": {
+      "bytes": 434,
+      "sha256": "7bfe500106c212f9a63427e6cf9fd5517de86bb3367762bfdf4b64a64d9e3042"
+    },
+    ".gitattributes": {
+      "bytes": 93,
+      "sha256": "0de182b23b8e4ddfd8f011c210cea960c18f201569913479c96f9209d9f4534d"
+    },
+    ".gitignore": {
+      "bytes": 453,
+      "sha256": "85166752cd63e727eb778de30eedbf7ebb73dc62ef4371dc073edc4fba924ec2"
+    },
+    ".gitleaks.toml": {
+      "bytes": 306,
+      "sha256": "8f93b9d646c2708f1e72b760d133dcb4aa52eba422869b56144cae43011518da"
+    },
+    "AGENTS.md": {
+      "bytes": 3299,
+      "sha256": "7b0f1d1827ddd5ec065fe7c52023ba156eb4c1f0d21c927abf4e5803a419a18d"
+    },
+    "apps/stella-prototype/docs/DEPLOYMENT.md": {
+      "bytes": 4706,
+      "sha256": "bcaa8db58fcdc2a48c8c08d717af23c8497ba41a3b1236d8b1b19ccac44a54ca"
+    },
+    "apps/stella-prototype/docs/DESIGN.md": {
+      "bytes": 50089,
+      "sha256": "53567a45ccd9db1e761730e873e22841079d570a8f8405f769e472a9006cc14f"
+    },
+    "apps/stella-prototype/docs/DIAGNOSTICS.md": {
+      "bytes": 7012,
+      "sha256": "831630db09699e232fac992bcf83f2182cf05c28941f8189212f2749ff0a35dd"
+    },
+    "apps/stella-prototype/docs/LOCAL_PAGE.md": {
+      "bytes": 12916,
+      "sha256": "46fb3620c99cae5daa84b5e0b2ae56c642f5043e21b68831deb6b0b366ffa93f"
+    },
+    "apps/stella-prototype/docs/RING_HOME.md": {
+      "bytes": 5915,
+      "sha256": "78846a07a30abef4f71d3f3f5f77d293a519272a77f39ae7436a8aa359a84b17"
+    },
+    "apps/stella-prototype/docs/RING_INTERFACE.md": {
+      "bytes": 15105,
+      "sha256": "140511298cbe452ea799f33804f310d78ef7e1b832dc64611fe379d758b1dac4"
+    },
+    "apps/stella-prototype/docs/SERVICE.md": {
+      "bytes": 10738,
+      "sha256": "ce7d75b6b58c962a2a66882707974d79fac00b5bcb630079ea7535a38d0dc028"
+    },
+    "apps/stella-prototype/docs/VK_FLOW.md": {
+      "bytes": 9995,
+      "sha256": "53dfbc2396227a48a7b5d67bd1d970d1ee6acc9f755cea8ae04d5f2b60f7d087"
+    },
+    "apps/stella-prototype/docs/VOICE.md": {
+      "bytes": 10730,
+      "sha256": "f3c8ed5f8617c7bc7d9c124bd5ef0a5fda4690a91567600e091cd560f7fbeb03"
+    },
+    "artifacts/DESIGN/BRANDS/MAX/assets/fonts/max-sans-400.woff2": {
+      "bytes": 18308,
+      "sha256": "16b5a57c3fb0188774b86704addba2d2bbab81457b6d85e835e2227d0c20d02f"
+    },
+    "artifacts/DESIGN/BRANDS/MAX/assets/logos/max-mono-white.svg": {
+      "bytes": 2797,
+      "sha256": "bfbf88ca67b4d4199b751401c56f1b76536db889a29796af8e50edd57ea5954e"
+    },
+    "artifacts/DESIGN/BRANDS/MAX/assets/logos/max-primary-white.svg": {
+      "bytes": 78436,
+      "sha256": "0b17b845199235e8cc32b8ead7475abe9f66490a64809e018fa10d3ea866ce8f"
+    },
+    "artifacts/DESIGN/BRANDS/MAX/assets/logos/max-symbol-color.svg": {
+      "bytes": 75634,
+      "sha256": "f7bcbeb580c12e017f34d3545763085eb09e10adac8a3c13aa926c603563533a"
+    },
+    "artifacts/DESIGN/BRANDS/vk-video/assets/illustrations/illustration-0c524dbbe287.png": {
+      "bytes": 320715,
+      "sha256": "ad5d0e4548a44fa52f5aa45686b133a4fa4bc87814b93a1c91a4d371425f3fbb"
+    },
+    "artifacts/DESIGN/BRANDS/vk-video/assets/illustrations/illustration-15676423b654.png": {
+      "bytes": 845316,
+      "sha256": "1327faa26f0949a8e6743ba3ae3c600f53e26a9bf8e11dd6055364b8ab4edf71"
+    },
+    "artifacts/DESIGN/BRANDS/vk-video/assets/illustrations/illustration-15902855a698.png": {
+      "bytes": 497416,
+      "sha256": "647d1a8532c103c66617bbdfd70bf427f200f0df93e1cc949008f1d055211674"
+    },
+    "artifacts/DESIGN/BRANDS/vk-video/assets/illustrations/illustration-935e2d0f1faa.png": {
+      "bytes": 391880,
+      "sha256": "45375664ae6ba614aeea5ad15a24a87683c09199b10a7d3f57422c4880aa78ca"
+    },
+    "artifacts/DESIGN/BRANDS/vk-video/assets/logos/vk-video-mono-white.svg": {
+      "bytes": 4508,
+      "sha256": "3db1eacf4de4fdadb267edfc960c68c6736cc13024abf2ed986a94bff1db84f4"
+    },
+    "artifacts/DESIGN/BRANDS/vk-video/assets/logos/vk-video-primary-white.svg": {
+      "bytes": 3971,
+      "sha256": "fa73d44a63d44e9a7752d65259fd960e8a1f34edf15f6135e3f70f4fd93580bf"
+    },
+    "artifacts/DESIGN/BRANDS/vk-video/assets/logos/vk-video-symbol-color.svg": {
+      "bytes": 1463,
+      "sha256": "22f739b62ebfdfcf743e0d97c0bee186e5bae372b85aced8e50b9cf77896bf3c"
+    },
+    "artifacts/DESIGN/UI/stela/new/STELLA-1.png": {
+      "bytes": 1721777,
+      "sha256": "79ae42ed8383c85b8171c74cb4f0680868ab4d9c73c292806e233aed1ffeb168"
+    },
+    "artifacts/DESIGN/UI/stela/new/STELLA-1.svg": {
+      "bytes": 3833691,
+      "sha256": "03c479d46e8b67667dda62b138cea8a9a6a27416253054f6e300bffe172580b0"
+    },
+    "artifacts/DESIGN/UI/stela/new/STELLA-10.png": {
+      "bytes": 1606438,
+      "sha256": "ca4c943101e0fce576f06b1895767af06c26c609921fbcd59c68f6073111f9bb"
+    },
+    "artifacts/DESIGN/UI/stela/new/STELLA-10.svg": {
+      "bytes": 689084,
+      "sha256": "959cd079bda29ca167b874f506649e9ae3d934575afc45be9f5700f202db7437"
+    },
+    "artifacts/DESIGN/UI/stela/new/STELLA-2.png": {
+      "bytes": 1725943,
+      "sha256": "c910c85820d41e6f2e193d5837817ae014dc07339111b5b39552130121eebe9a"
+    },
+    "artifacts/DESIGN/UI/stela/new/STELLA-2.svg": {
+      "bytes": 7042188,
+      "sha256": "12a172381b9c4b084a96367d02bd4ee0b1969bdabe184e4c6d92d2e82aee1830"
+    },
+    "artifacts/DESIGN/UI/stela/new/STELLA-3.png": {
+      "bytes": 1689898,
+      "sha256": "359326dd492181e742d005f04955cb4509830e69eace429c8931e3123ed2274a"
+    },
+    "artifacts/DESIGN/UI/stela/new/STELLA-3.svg": {
+      "bytes": 13041611,
+      "sha256": "9ec00c62cff933a386770d6c91effde571869dda103b924b3c35796d9c314400"
+    },
+    "artifacts/DESIGN/UI/stela/new/STELLA-4.png": {
+      "bytes": 1620593,
+      "sha256": "a5045d2df5fbab1b17f8b0a6a773ac2d6ad8d3f3e81759a8c8c478067cf138b7"
+    },
+    "artifacts/DESIGN/UI/stela/new/STELLA-4.svg": {
+      "bytes": 2579038,
+      "sha256": "fc2240fd6bdd6db7a45352832ca74ca37cf369b1287e893c89c8a4a48d02f64a"
+    },
+    "artifacts/DESIGN/UI/stela/new/STELLA-5.png": {
+      "bytes": 1609738,
+      "sha256": "2ef2c33ded3dcc448267e62b1642562c3a9eef1ade4d5aa2b2a4c9e49a2c692d"
+    },
+    "artifacts/DESIGN/UI/stela/new/STELLA-5.svg": {
+      "bytes": 785708,
+      "sha256": "1c4782fffef3576fd9ad5dff4c75c843489a7d49592df1cb7b6d9d2bc6fa6916"
+    },
+    "artifacts/DESIGN/UI/stela/new/STELLA-6.png": {
+      "bytes": 1594212,
+      "sha256": "c7e51cc7c62a4bd0cf291a9c26874e312f486e63e0168737a5165829f05d388d"
+    },
+    "artifacts/DESIGN/UI/stela/new/STELLA-6.svg": {
+      "bytes": 3640556,
+      "sha256": "27c175a9c4c716d06b43915fc161e0b70558fdd98adb44a98ad046de265dba2c"
+    },
+    "artifacts/DESIGN/UI/stela/new/STELLA-7.png": {
+      "bytes": 1803072,
+      "sha256": "acd18ae95084c2b4eae9b7a70b4764777a5c224bb936157b45e9f7fbb11afb87"
+    },
+    "artifacts/DESIGN/UI/stela/new/STELLA-7.svg": {
+      "bytes": 13273369,
+      "sha256": "4ae70bb1e96ac474f72ef8595fd8c22374b61bfa09249e4bc2a2e9038589b1a1"
+    },
+    "artifacts/DESIGN/UI/stela/new/STELLA-8.png": {
+      "bytes": 1815951,
+      "sha256": "23c42b939510ea57bf5e636434787c3ea0cd3e9f27dd1a9be32cc6ddc4e08baf"
+    },
+    "artifacts/DESIGN/UI/stela/new/STELLA-8.svg": {
+      "bytes": 1897957,
+      "sha256": "4ef949b61c664a5692d06a2fa29e69dffc9fe8523a5381823504fbbaed2c1831"
+    },
+    "artifacts/DESIGN/UI/stela/new/STELLA-9.png": {
+      "bytes": 1526144,
+      "sha256": "1aada984b787a043fffe81da069abbacfa2d2ad960345c01e0c21f2206452f4a"
+    },
+    "artifacts/DESIGN/UI/stela/new/STELLA-9.svg": {
+      "bytes": 733576,
+      "sha256": "43426fce94e7141516609c7a6b683eab5b8a051b725fc4ebfe7e63093fe2819f"
+    },
+    "artifacts/DESIGN/UI/stela/new/STELLA.png": {
+      "bytes": 1703934,
+      "sha256": "b4d08938fb5358a7c7a72cb7cb3ffbbcc86f00378d79c6e6a51a3ff95f904630"
+    },
+    "artifacts/DESIGN/UI/stela/new/STELLA.svg": {
+      "bytes": 8365691,
+      "sha256": "ca9fb6ef1f0fcc5a16bdec1edb8866444d43508f6ff206df1c100628bce0e1b1"
+    },
+    "artifacts/DESIGN/UI/stela/STELLA.png": {
+      "bytes": 1613046,
+      "sha256": "4d70ac9309d8c68e72557df3e1f35d44b0ae936e1c962c5117e26b4963997643"
+    },
+    "artifacts/DESIGN/UI/stela/STELLA.svg": {
+      "bytes": 688358,
+      "sha256": "296d21c948d5f926947c06887a2c27152f3b0446040096228cb5411c5529dfda"
+    },
+    "artifacts/DESIGN/UI/stela/\u0421\u0442\u0435\u043b\u0430 UX/STELLA-1.png": {
+      "bytes": 1606397,
+      "sha256": "a8a1dff81f1ae50517641f74513d8dd059cdf0736f231479300fe34b21d0050e"
+    },
+    "artifacts/DESIGN/UI/stela/\u0421\u0442\u0435\u043b\u0430 UX/STELLA-1.svg": {
+      "bytes": 689104,
+      "sha256": "d39e54af6e0b77baaa7c41cd5234aaa1d1c5ca6769dd2cc1d67d55c243b8fa94"
+    },
+    "artifacts/DESIGN/UI/stela/\u0421\u0442\u0435\u043b\u0430 UX/STELLA-10.png": {
+      "bytes": 1862356,
+      "sha256": "62b7f10dd1f886d734adca04ac6269da58313a0b369700d0c523819f893fbc81"
+    },
+    "artifacts/DESIGN/UI/stela/\u0421\u0442\u0435\u043b\u0430 UX/STELLA-10.svg": {
+      "bytes": 9343495,
+      "sha256": "2465426ee68488976a37d5b025c21e657228a1dd3e7a440ba492d0baae9747df"
+    },
+    "artifacts/DESIGN/UI/stela/\u0421\u0442\u0435\u043b\u0430 UX/STELLA-11.png": {
+      "bytes": 1771864,
+      "sha256": "c1ef619a3d2c109d58f26d48432f4e026ca331eba6cf2aa6d6010c1d6b228fc5"
+    },
+    "artifacts/DESIGN/UI/stela/\u0421\u0442\u0435\u043b\u0430 UX/STELLA-11.svg": {
+      "bytes": 7567099,
+      "sha256": "789daa2749655d78bc32ad089b74d1b2c61dd394e9ce5a94e00badcce7b3dd96"
+    },
+    "artifacts/DESIGN/UI/stela/\u0421\u0442\u0435\u043b\u0430 UX/STELLA-12.png": {
+      "bytes": 1900840,
+      "sha256": "d78581425a197995a6206a5a83f7c441865cda107eb24035d33b77d1a2aa6088"
+    },
+    "artifacts/DESIGN/UI/stela/\u0421\u0442\u0435\u043b\u0430 UX/STELLA-12.svg": {
+      "bytes": 11004560,
+      "sha256": "04a125cf82b6267d22564331871eaadd98c2e880eb92ec1b030ca37e8d1203f2"
+    },
+    "artifacts/DESIGN/UI/stela/\u0421\u0442\u0435\u043b\u0430 UX/STELLA-13.png": {
+      "bytes": 1769478,
+      "sha256": "3b9749254257f318a28ec24a5dbe4e348522e08a78bd254df863746b42817b3f"
+    },
+    "artifacts/DESIGN/UI/stela/\u0421\u0442\u0435\u043b\u0430 UX/STELLA-13.svg": {
+      "bytes": 14917718,
+      "sha256": "4c09fb352aad1a5011691dbdab7ef82df3991f5c0a0d5dd225db0d3476e69c93"
+    },
+    "artifacts/DESIGN/UI/stela/\u0421\u0442\u0435\u043b\u0430 UX/STELLA-14.png": {
+      "bytes": 1600967,
+      "sha256": "86dea50bdbc06f961b36f90cfa22296a16cb15bbb77087c1607f77379488bf56"
+    },
+    "artifacts/DESIGN/UI/stela/\u0421\u0442\u0435\u043b\u0430 UX/STELLA-14.svg": {
+      "bytes": 2537853,
+      "sha256": "0b7a4e5c1bb8683c6ecf96b573734c51d028d33441ac724c28fbd556da4ec2b6"
+    },
+    "artifacts/DESIGN/UI/stela/\u0421\u0442\u0435\u043b\u0430 UX/STELLA-15.png": {
+      "bytes": 1616046,
+      "sha256": "e90e23c73de153569bb7601147d3b8d3707ec4719cfedd0934fa81e3b6bb8cb4"
+    },
+    "artifacts/DESIGN/UI/stela/\u0421\u0442\u0435\u043b\u0430 UX/STELLA-15.svg": {
+      "bytes": 2523946,
+      "sha256": "935cbe02b7984f2869499ae971e47d2e67e1198715f7db6b83d484ba6255b3c9"
+    },
+    "artifacts/DESIGN/UI/stela/\u0421\u0442\u0435\u043b\u0430 UX/STELLA-16.png": {
+      "bytes": 1702274,
+      "sha256": "d11e665e9f94bd8ddd9eed36c9cc1c68c06f970c695965dd7e67629aec7ae6fc"
+    },
+    "artifacts/DESIGN/UI/stela/\u0421\u0442\u0435\u043b\u0430 UX/STELLA-16.svg": {
+      "bytes": 2788210,
+      "sha256": "f463dfdeeb3979d38c598f05ff0b704ef5561c7d8363d261cf0ca062b94d8452"
+    },
+    "artifacts/DESIGN/UI/stela/\u0421\u0442\u0435\u043b\u0430 UX/STELLA-17.png": {
+      "bytes": 1845168,
+      "sha256": "4c91bb9b8ff29e8f5861ed52dda7d98378181abdcd4791b266c1b2c13f73cb47"
+    },
+    "artifacts/DESIGN/UI/stela/\u0421\u0442\u0435\u043b\u0430 UX/STELLA-17.svg": {
+      "bytes": 5413162,
+      "sha256": "87d29c493264724c19db6a6fe7a2ae40de3d4b5df623bbc7c49c60f82e52982e"
+    },
+    "artifacts/DESIGN/UI/stela/\u0421\u0442\u0435\u043b\u0430 UX/STELLA-18.png": {
+      "bytes": 1838487,
+      "sha256": "46c7ca303def15cc72d66c4f6b74af464c6109102120731428278f4deac5bb4e"
+    },
+    "artifacts/DESIGN/UI/stela/\u0421\u0442\u0435\u043b\u0430 UX/STELLA-18.svg": {
+      "bytes": 2205784,
+      "sha256": "a85c4b5b3fee41a3d8b2f62e929855a35db1628f1dce09524fe4c00dcba77bd8"
+    },
+    "artifacts/DESIGN/UI/stela/\u0421\u0442\u0435\u043b\u0430 UX/STELLA-19.png": {
+      "bytes": 1629373,
+      "sha256": "71b92478d8798fa9268f841ffa8bbbf800350ac8310dba894d8a47501caba405"
+    },
+    "artifacts/DESIGN/UI/stela/\u0421\u0442\u0435\u043b\u0430 UX/STELLA-19.svg": {
+      "bytes": 2466785,
+      "sha256": "0a24027c9ff2e7ae1693dfd2705853cc73661dc8813451e48ce91a3bee5088d8"
+    },
+    "artifacts/DESIGN/UI/stela/\u0421\u0442\u0435\u043b\u0430 UX/STELLA-2.png": {
+      "bytes": 1703329,
+      "sha256": "2d4cfd1e4b1c31fe44a7c59c50bf5a366f2edc1e34f09611ec139359c173e058"
+    },
+    "artifacts/DESIGN/UI/stela/\u0421\u0442\u0435\u043b\u0430 UX/STELLA-2.svg": {
+      "bytes": 8366636,
+      "sha256": "ab52c4270705ad614f85a76c40339360dfa53d702d3aa2dfece4608d60a66a4f"
+    },
+    "artifacts/DESIGN/UI/stela/\u0421\u0442\u0435\u043b\u0430 UX/STELLA-20.png": {
+      "bytes": 1991518,
+      "sha256": "3e92839e4e573fab19055b3a310c03245f66a7dbea78de376ce19a3fa18672f9"
+    },
+    "artifacts/DESIGN/UI/stela/\u0421\u0442\u0435\u043b\u0430 UX/STELLA-20.svg": {
+      "bytes": 7601022,
+      "sha256": "b716a529fe205dbd482529f4813f68200573049b9be89ba4835b821781f62b77"
+    },
+    "artifacts/DESIGN/UI/stela/\u0421\u0442\u0435\u043b\u0430 UX/STELLA-21.png": {
+      "bytes": 1650302,
+      "sha256": "9efa3263f08dff0c04a3da122742e19755aba22036c139a86f10def0a31a2904"
+    },
+    "artifacts/DESIGN/UI/stela/\u0421\u0442\u0435\u043b\u0430 UX/STELLA-21.svg": {
+      "bytes": 780706,
+      "sha256": "a25faf541853de3426f67512b19b5ae3d57d8db2a3ade8f8e1c27cb443c333fe"
+    },
+    "artifacts/DESIGN/UI/stela/\u0421\u0442\u0435\u043b\u0430 UX/STELLA-3.png": {
+      "bytes": 1908987,
+      "sha256": "3b5fa46dec247c8bd6664b25eb66b72635bf7cd4dced06735933a4d5a4da0d5e"
+    },
+    "artifacts/DESIGN/UI/stela/\u0421\u0442\u0435\u043b\u0430 UX/STELLA-3.svg": {
+      "bytes": 1934867,
+      "sha256": "78f9ee628fdf065e720f179e776b7af0a59897cef68b6c73e56df01a54c60cb2"
+    },
+    "artifacts/DESIGN/UI/stela/\u0421\u0442\u0435\u043b\u0430 UX/STELLA-4.png": {
+      "bytes": 1761219,
+      "sha256": "aa2521de9563c55058327ad0f6ca73dc860e066f5e30a4f8d255fb49e9f5676e"
+    },
+    "artifacts/DESIGN/UI/stela/\u0421\u0442\u0435\u043b\u0430 UX/STELLA-4.svg": {
+      "bytes": 7401810,
+      "sha256": "b6d15e01675e2dbb3ff0ff402e0d9f273f703950478fc36760595c236cc5b9db"
+    },
+    "artifacts/DESIGN/UI/stela/\u0421\u0442\u0435\u043b\u0430 UX/STELLA-5.png": {
+      "bytes": 1667002,
+      "sha256": "aac263b58181147f343ca270d1c5b9e5910ab40200e1813d6c6430361924dc7d"
+    },
+    "artifacts/DESIGN/UI/stela/\u0421\u0442\u0435\u043b\u0430 UX/STELLA-5.svg": {
+      "bytes": 750289,
+      "sha256": "6b488928c386a28dd4807ca5680388e1838138c47eef935c48393d3f578b3144"
+    },
+    "artifacts/DESIGN/UI/stela/\u0421\u0442\u0435\u043b\u0430 UX/STELLA-6.png": {
+      "bytes": 1810343,
+      "sha256": "18bd97226022a5eb8707197829178ade83587fa3a7d46bec4126229c70e423ec"
+    },
+    "artifacts/DESIGN/UI/stela/\u0421\u0442\u0435\u043b\u0430 UX/STELLA-6.svg": {
+      "bytes": 2849056,
+      "sha256": "c66dc96fc8061d8d2e58f315f07fa7f3c406ad5035e7216ec3b762f5da48a67a"
+    },
+    "artifacts/DESIGN/UI/stela/\u0421\u0442\u0435\u043b\u0430 UX/STELLA-7.png": {
+      "bytes": 2000541,
+      "sha256": "1f105635203f773905ff28b162a04ea1ff2f3a3fd4c01c218930610ee01d42c8"
+    },
+    "artifacts/DESIGN/UI/stela/\u0421\u0442\u0435\u043b\u0430 UX/STELLA-7.svg": {
+      "bytes": 2846689,
+      "sha256": "26c17fd26ae1e6c5569bfe15163141d5753c161f096d04bc93de2ceefb0bc76f"
+    },
+    "artifacts/DESIGN/UI/stela/\u0421\u0442\u0435\u043b\u0430 UX/STELLA-8.png": {
+      "bytes": 2075515,
+      "sha256": "e1d85d2296efe601e471010ee0a352bd87ec25155d52519eef579276452db88e"
+    },
+    "artifacts/DESIGN/UI/stela/\u0421\u0442\u0435\u043b\u0430 UX/STELLA-8.svg": {
+      "bytes": 5295161,
+      "sha256": "a6c5b59557b326b70c2392c7b6e02c8ff8a7d5ea1c103e187b4f89299f14489c"
+    },
+    "artifacts/DESIGN/UI/stela/\u0421\u0442\u0435\u043b\u0430 UX/STELLA-9.png": {
+      "bytes": 1601360,
+      "sha256": "1e64c93ebd4ea7546e193f43a0f68d218cabe46ea29a7e5834278523dd40d9fe"
+    },
+    "artifacts/DESIGN/UI/stela/\u0421\u0442\u0435\u043b\u0430 UX/STELLA-9.svg": {
+      "bytes": 697661,
+      "sha256": "1c8acc4aa54e59a73971caa72c65da8f5705e9e42aa14d0db029e75c4e993c6d"
+    },
+    "artifacts/DESIGN/UI/stela/\u0421\u0442\u0435\u043b\u0430 UX/STELLA.png": {
+      "bytes": 1917293,
+      "sha256": "6896c1b939932cb19a6ef21f023a33163940abf0168e44e494cee86c2610a3c2"
+    },
+    "artifacts/DESIGN/UI/stela/\u0421\u0442\u0435\u043b\u0430 UX/STELLA.svg": {
+      "bytes": 2201283,
+      "sha256": "7d3989dcd606e14b2327ac3ca1558a10643712b0748837d08e6e9be1bac76a35"
+    },
+    "artifacts/ribbon/cubes-art.js": {
+      "bytes": 4342,
+      "sha256": "c40de16faaf6f403a6fd8223bb1ca0b57f6210ff1473b3d819b20ec5fb6f2733"
+    },
+    "artifacts/ribbon/cubes-art.json": {
+      "bytes": 1686,
+      "sha256": "89a3219f726cd5def5a3298bffd4fd5db07984e867fead839d33dc80fb227041"
+    },
+    "artifacts/ribbon/discovery-cutout.js": {
+      "bytes": 1816,
+      "sha256": "4c518374875005bb82884f9019e5565bfd44e2daf34f446a351741bddba95046"
+    },
+    "artifacts/ribbon/vendor/lumicells/entry.ts": {
+      "bytes": 165,
+      "sha256": "2a9118713fa8b31304f65fd63018bd00ad743ea85827640791cd58111fa8dc80"
+    },
+    "artifacts/ribbon/vendor/lumicells/lumicells-fill-mvp.js": {
+      "bytes": 297754,
+      "sha256": "e73ef5174d6a3bb0197381cc67959a9e263d4a6f3d42fb397ec8c348415ea9ef"
+    },
+    "artifacts/ribbon/vendor/lumicells/lumicells-lookup-mvp.js": {
+      "bytes": 297754,
+      "sha256": "e73ef5174d6a3bb0197381cc67959a9e263d4a6f3d42fb397ec8c348415ea9ef"
+    },
+    "artifacts/ribbon/vendor/lumicells/lumicells.js": {
+      "bytes": 297754,
+      "sha256": "e73ef5174d6a3bb0197381cc67959a9e263d4a6f3d42fb397ec8c348415ea9ef"
+    },
+    "artifacts/ribbon/vendor/lumicells/original/playground.css": {
+      "bytes": 45935,
+      "sha256": "ccf13936d87c82dad9f5a72d7a69824be277858d8150923f30479da670a0a733"
+    },
+    "artifacts/ribbon/vendor/lumicells/original/playground.js": {
+      "bytes": 604401,
+      "sha256": "d6dc5c188f6950851951660000748098c339fda32b3e30ff21a7152d7704c2a6"
+    },
+    "artifacts/ribbon/vendor/lumicells/original/pnpm-lock.yaml": {
+      "bytes": 948,
+      "sha256": "55a93e03ca3a9c35524380fab90726babef33e3fbe1920cc4168c52b55555d81"
+    },
+    "artifacts/ribbon/vendor/lumicells/original/provenance.json": {
+      "bytes": 528,
+      "sha256": "e06966a7cdb82f9bdfab4c57bc2e3077a93bc61c9cbc6961f0df8d67d35931dc"
+    },
+    "artifacts/ribbon/vendor/lumicells/permission.json": {
+      "bytes": 549,
+      "sha256": "5eab090b97f74c057e42f90ebc02ab0a4107b5b09a9dcfb54a85de63fd6103b8"
+    },
+    "artifacts/ribbon/vendor/lumicells/provenance.json": {
+      "bytes": 413,
+      "sha256": "b0917a8911ff399fb3c9c5121fabefe16eb2b2e4db90ce11b355bf6b305f6b28"
+    },
+    "artifacts/ribbon/vendor/lumicells/reference-entry.ts": {
+      "bytes": 395,
+      "sha256": "ca353d0df4406da9a2cd24987b99880eee1a6c82079447ddaf2eed15e8b5908c"
+    },
+    "artifacts/ribbon/vendor/lumicells/reference.js": {
+      "bytes": 261181,
+      "sha256": "88d02df693e9914122f140771525970d1df62dc7f126b2c6dd9606ffcd5a59c7"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/color.ts": {
+      "bytes": 4469,
+      "sha256": "3f6083805af477f8275cf9ebed6dae78bb9d455a21d269cff125634deefddf56"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/controller/clock.ts": {
+      "bytes": 3577,
+      "sha256": "efb34c5c96cee2d3958dd27e0154d287e5dc44f3e40d773d3c589a7e6d922f19"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/controller/controller.ts": {
+      "bytes": 28595,
+      "sha256": "a67f0b679201fe20d6f6e7b59dd6efa60f42dbd0f6dde626534521dead00ed57"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/controller/geometry.ts": {
+      "bytes": 6598,
+      "sha256": "6207b7fa147a0787a4bcd08eef760d4eb715f213b1eaf6c2f2ec68bf3d6e9ce6"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/controller/influences.ts": {
+      "bytes": 12183,
+      "sha256": "ea927fe2c16d4516d53a13cd56491564910e32815580a6c8842d26431964cbea"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/controller/layout.ts": {
+      "bytes": 6897,
+      "sha256": "4f93325d3696657f2293baeda5b97add47fdbdf5b6a2c2ab90f1ea7800ad85d5"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/controller/lifts.ts": {
+      "bytes": 15892,
+      "sha256": "92fca61c5de75ad3a8c9a61bc4c773f8b58fbebfd58080d530208ab6df72b158"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/controller/lut.ts": {
+      "bytes": 6313,
+      "sha256": "aaa6e804018569ce88d6db036bfaa739087cd26e76d0daffa6a299c35d2cf9c7"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/controller/math.ts": {
+      "bytes": 3478,
+      "sha256": "5b17c7b9cae7ca05c50a09c4a93cc4631c996902c5a16e33d4b7160848348d26"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/controller/modulators.ts": {
+      "bytes": 3262,
+      "sha256": "2b95773bc27f7f5cfc8539d937d75ef1dd0b2d615fd1ab51954321cb970ec08b"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/controller/perf.ts": {
+      "bytes": 12303,
+      "sha256": "6bd2412afb5e32cddcbf048cdf39b2e17edfa10b124b9db475ad8268e9e5b2e2"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/controller/pulses.ts": {
+      "bytes": 4932,
+      "sha256": "d4e82c408b0a608b3b48e6403a42ba247b3a97161ab7f8ab8518444170e61ae7"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/controller/tween.ts": {
+      "bytes": 16634,
+      "sha256": "0997aa4b33d11902432b7e650e7e6b0f759fe9cab8f709ac707811951324482d"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/dom/host.ts": {
+      "bytes": 9055,
+      "sha256": "44e360cfe412badf80e55ee31f9f636b5d4c8f45c6ec42b9ce8ea5c120ef277e"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/dom/pointer.ts": {
+      "bytes": 7119,
+      "sha256": "0102e462854462ed91a35c017c145593e8197d9b00f2282baf57c3ffa728ecca"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/dom/tracking.ts": {
+      "bytes": 9251,
+      "sha256": "c95f91b76b851ab96456bdadd48d4fb057fbd9611969b97f5e74759b48d514b4"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/engine/engine.ts": {
+      "bytes": 19201,
+      "sha256": "6e068782b3c3c89794b4d5b00a930acdb6fe2d825da19f52fc0402aeef98737e"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/engine/frame-block.ts": {
+      "bytes": 6942,
+      "sha256": "5161f6fa51ab0cecf042b4f355b1fc2de749685e2d276fc2347e792dbda7c1d8"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/engine/glsl/common.ts": {
+      "bytes": 9281,
+      "sha256": "c8b90dc6696e860022965af0cbe7e970d76288c983f786cf7fb09d961e3dd0d5"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/engine/glsl/composite-background.ts": {
+      "bytes": 1678,
+      "sha256": "8897c3b64160ce21474152cce43615b6d9bd2cb97bb69dcf864f68fed5d259c4"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/engine/glsl/composite-glow.ts": {
+      "bytes": 628,
+      "sha256": "525ede7b88aad14639b1067525b9749cdcbb5fd76cde899a993512edb17f9e91"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/engine/glsl/cubes-mask.ts": {
+      "bytes": 4381,
+      "sha256": "819fc44cf93eab6eb0e54546d5248a06532748590655adc10489d994435e029a"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/engine/glsl/influence.ts": {
+      "bytes": 869,
+      "sha256": "bd5cacce2e996d6ae30999e4e2775a552d60eb915f4b272c47d3bddf911574e2"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/engine/glsl/modes/flow.ts": {
+      "bytes": 1637,
+      "sha256": "4852403c495f7daa2956e40a1f40dcdf99e1ebee7a7c2782fee104b879467233"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/engine/glsl/modes/index.ts": {
+      "bytes": 1862,
+      "sha256": "80b68becf79e56d87e82e7c65b02fd2323e1426e4d2089192a655020f3644b3f"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/engine/glsl/modes/life.ts": {
+      "bytes": 1345,
+      "sha256": "4fb6b51ae84c882dfea5c8afda03115d381cceaba4e6364b92f042e824d4d4d6"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/engine/glsl/modes/pulse.ts": {
+      "bytes": 912,
+      "sha256": "158976f9d7ae2633a755f8c5b687ca7960019894217c655231e68f3a3c9977fa"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/engine/glsl/modes/rain.ts": {
+      "bytes": 2399,
+      "sha256": "504ab8e2ee780e11c5a7f2b57125f17dfa3b495cb6cbaf2e16872c298e133dad"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/engine/glsl/modes/ripple.ts": {
+      "bytes": 1597,
+      "sha256": "d158e58fb25926f9c4ab0c26c0e73d8ff34c94a72ce9bd7fcaaca19d275a9e70"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/engine/glsl/modes/sphere.ts": {
+      "bytes": 5010,
+      "sha256": "419da7b861fcb9efdecae4522f491d7a356c1e185b61b2b6a9f111a220da9569"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/engine/glsl/modes/vortex.ts": {
+      "bytes": 860,
+      "sha256": "0d371595890f7d11693c9cd32f4e58ebba89c589ca73b7bf4d67cfac572cbab2"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/engine/glsl/modes/wave.ts": {
+      "bytes": 1911,
+      "sha256": "6b477403d6e017c11145ce0802e334cd4f8af9a63e076c55a60957fcac4c1558"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/engine/glsl/noise.ts": {
+      "bytes": 3375,
+      "sha256": "4cb259e4cef05d7a327abcb304ab2cfc53f9ad6b0079616f586b82d2a5b1a53e"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/engine/glsl/params.ts": {
+      "bytes": 5679,
+      "sha256": "44f6c907afab2153e861b5c77fc66e7d1bfb214bcb4f1595147954ae056c16fb"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/engine/gpu-timer.ts": {
+      "bytes": 3582,
+      "sha256": "6985b2965f20e6a29289bf788fef47b9b8af1037383eae57cb80cdeefd2580a6"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/engine/index.ts": {
+      "bytes": 268,
+      "sha256": "178de6aa1444417424d73efc3b03f4689c3f35e8ae19515a57e47f2d90cd3982"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/engine/passes/bloom.ts": {
+      "bytes": 13265,
+      "sha256": "965ea1ea64ccd844e3c67630614cbe6cb2d9f82c773f7c94b9984016066f0ee7"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/engine/passes/composite.ts": {
+      "bytes": 13775,
+      "sha256": "659caf705f3c7776a701033da62c0e2e5036f717540ab54a6d13baaa38885222"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/engine/passes/cubes.ts": {
+      "bytes": 11284,
+      "sha256": "c91be7802b815c47d06cd2876d94de49f779546f776b420d0d264abffcdbf27b"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/engine/passes/field.ts": {
+      "bytes": 27736,
+      "sha256": "bac4a828958210c935d12ce8c7cc738281e82c8947aea84a34f9dbab0a3b4158"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/engine/passes/life.ts": {
+      "bytes": 4952,
+      "sha256": "308f84d216a71165d25102241f63187e3506e4668bab45cf3e25862bee5d5494"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/engine/passes/lift.ts": {
+      "bytes": 10338,
+      "sha256": "7a24f704f18fa54b05ead8e26f539bce31eef1315abbf89fca9bf2dc798bf1b3"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/engine/passes/shared.ts": {
+      "bytes": 4233,
+      "sha256": "3246ba27236b26d5390ecfb9605a630c63158f4efd8bef64575fb948f129a9db"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/engine/passes/stamp.ts": {
+      "bytes": 5931,
+      "sha256": "9deb0a00a2a0db6e33fad52851cce57926a49c62e6c5150af3d44ed25e467d97"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/engine/passes/td-morph.ts": {
+      "bytes": 1226,
+      "sha256": "f7bb917aed0de733ac435cebaf5145a2fd068e56c00e9c79f1dc411da7f36d1b"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/engine/resources.ts": {
+      "bytes": 5218,
+      "sha256": "5551cb4bad72c147482d373a76c5117be26890df58594f7cde2470349a4d0cb5"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/engine/types.ts": {
+      "bytes": 4503,
+      "sha256": "e8ec8bf38bdfa6f49b2f19b3c4a70d92c3b64698e2494fb43505dc11b5a3d46a"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/gl/caps.ts": {
+      "bytes": 6427,
+      "sha256": "3770096108a910a8f60c83de6c3c5e3a2a142e59dadd1d8cbe5b48db8d76a67a"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/gl/program.ts": {
+      "bytes": 6393,
+      "sha256": "601ec965c89e0478871d6d90603cd45f4cf94ffdf36d1d0e20db8d58bde44651"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/gl/target.ts": {
+      "bytes": 4329,
+      "sha256": "c171726968eda571cc431d48b6de02484b3e7778b0c96b34b9e6e4bba22729dc"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/index.ts": {
+      "bytes": 492,
+      "sha256": "5db70f9a979da55d647eb8da5a59f3c21d315a126a22000cca33f2966b77c3d3"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/lumi-cells.ts": {
+      "bytes": 29579,
+      "sha256": "86dde77962dac853b7c1dbc7074cddce609841114d242f9492a072aac7899611"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/ticker.ts": {
+      "bytes": 2360,
+      "sha256": "c328eefea025400df6cfb9e863b0e12e49c5f026e2e736f0540a60d281c21d13"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/core/types.ts": {
+      "bytes": 6519,
+      "sha256": "058a20557a26116bc358772d391287f639bf8f3b6fd05c20da5da93aedf5c81a"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/element/data-attrs.ts": {
+      "bytes": 4830,
+      "sha256": "327d279f3d328aeaaf4f3ec81faea350d426fe17ec16798f538c6ac1163fcab5"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/element/define.ts": {
+      "bytes": 287,
+      "sha256": "406830a2af91b32df30b2edab48d08a34d6a0701e02d41f4ae465a0adc1598d1"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/element/iife.ts": {
+      "bytes": 308,
+      "sha256": "e50198c7fac6f6dd309a7501d0f0d75f26e63b5aed78a60e3a9c4a14e2803f9b"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/element/index.ts": {
+      "bytes": 706,
+      "sha256": "d9f83f5ae1a60a9344d85674412a22dfed353eb1636d23f657e8ffb60912db9e"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/element/lumi-cells-element.ts": {
+      "bytes": 24994,
+      "sha256": "bef17d8263129c6e21ba9c7946ddd6bbd8b709bb868d3af8714f45dc560e0c00"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/element/rebind.ts": {
+      "bytes": 1073,
+      "sha256": "5aafe0819191a046af88af9d68ff056fae6f705846301e656b90a8b9040a0f96"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/element/resolve.ts": {
+      "bytes": 2276,
+      "sha256": "f1558ce12afd1e37c54cfc091e0716a24f2234616b68b6348c794e3063feffad"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/react/context.ts": {
+      "bytes": 465,
+      "sha256": "d76df2120bb1be4062aae89664a192c432a356c6d400a5a0613fda8d639182c7"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/react/hooks.ts": {
+      "bytes": 6170,
+      "sha256": "d66af3995fef44da113e56255e51c28db57d43cac48d87dbe987c543913f5c61"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/react/index.ts": {
+      "bytes": 601,
+      "sha256": "45383135e81524187672c9ca20b437be6def266f659844e13402af8ccd18b2f2"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/react/LumiCells.tsx": {
+      "bytes": 6926,
+      "sha256": "9ebfa5b8f40a7c1c9bc1ed4a77db0e4e1304c08ec741451f548c752e0a7a3630"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/schema/defaults.ts": {
+      "bytes": 677,
+      "sha256": "f76440cb87dc7441169700c937d3c07762c66f90a0ec23303fa2398ce455b23d"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/schema/export.ts": {
+      "bytes": 5428,
+      "sha256": "c24999ee0ee2b656e9c1b25afb1efd957236f3499980d432329415ec26f1de49"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/schema/fields.ts": {
+      "bytes": 7656,
+      "sha256": "b8d5f9d9ba32c7edded39f640524922d854f8ba6cb53460f617e282a2ad02453"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/schema/index.ts": {
+      "bytes": 828,
+      "sha256": "bd19356e2fd9470de0f76102e647008008a489438cec40e626a600a32522949e"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/schema/json-schema.ts": {
+      "bytes": 3262,
+      "sha256": "7a26e342e8ef48058272b1388fcb44b5ad2802a9aba2343da2d8fd40521aafb3"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/schema/locale.ts": {
+      "bytes": 3654,
+      "sha256": "e31d1ff3e890bf9ad79d4f8f574368eb4f3caa4091c391e8317132a0bb2d654c"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/schema/locales/ru.ts": {
+      "bytes": 33603,
+      "sha256": "234539be875c6bb016ab6c1e910a0334977c8528d0483428867684e009c1b2bd"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/schema/normalize.ts": {
+      "bytes": 12863,
+      "sha256": "9f723eee1a5937d3e586130f275d7eebeb462d6fd673b19c614e0a12d401dcb3"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/schema/paths.ts": {
+      "bytes": 6315,
+      "sha256": "210c3b022223e57c32f2f33daaa5753b91093b143ec5416f8966a6a28aef855d"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/schema/poster.ts": {
+      "bytes": 4623,
+      "sha256": "c43305f8dc5b45dfa633ee038e8bd911cecf577f6855e9007e5a487481215a33"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/schema/presets.ts": {
+      "bytes": 9712,
+      "sha256": "2f7654421f2682d7c8491e5c862e52c10cd2cc960f0b98f714f012f95699bbc5"
+    },
+    "artifacts/ribbon/vendor/lumicells/src/schema/schema.ts": {
+      "bytes": 40798,
+      "sha256": "8ce09ba8b8556c0a59d67dbc8f6cb4c9f270ab8a91daa2853eb19bdae5623df1"
+    },
+    "artifacts/ribbon/vendor/lumicells/upstream-package.json": {
+      "bytes": 3090,
+      "sha256": "7b6c1b8a5296b93c9777a23d2ce24c787e7185b8d668f54fab9ecb36fe626e04"
+    },
+    "artifacts/stella-polza-kit/.gitignore": {
+      "bytes": 46,
+      "sha256": "3ae4bba6e0d98b927994b42e3b8f3eb82fbdd9b9866d8b9b799fd236671a9476"
+    },
+    "artifacts/stella-polza-kit/assets/clean-plates/01_BOEVIK_F.png": {
+      "bytes": 2655109,
+      "sha256": "0adee14b94eed4d8c5b121abed743ccde0817e8903e697516e307512efa84d61"
+    },
+    "artifacts/stella-polza-kit/assets/clean-plates/01_BOEVIK_M.png": {
+      "bytes": 2336199,
+      "sha256": "7648998a660c562c7af0e4c217d458d429126e6d51e4f56011215ef5162c7fe7"
+    },
+    "artifacts/stella-polza-kit/assets/clean-plates/02_DETECTIVE_F.png": {
+      "bytes": 2378852,
+      "sha256": "616a4c5e3b537690e264645d34260ed31cb1e408b90f63115d7516cd7d692054"
+    },
+    "artifacts/stella-polza-kit/assets/clean-plates/02_DETECTIVE_M.png": {
+      "bytes": 2402540,
+      "sha256": "bfeef39c8c5c9e3a1153b0683703f9c0fc359a75059c514db8037b1508875e37"
+    },
+    "artifacts/stella-polza-kit/assets/clean-plates/03_DRAMA_F.png": {
+      "bytes": 2148019,
+      "sha256": "d8a63670efdbe5200e38103214e0346d5afcc66e39aec24ed747a154edf90623"
+    },
+    "artifacts/stella-polza-kit/assets/clean-plates/03_DRAMA_M.png": {
+      "bytes": 2177027,
+      "sha256": "1e4a85d64ce23ceac455ba1fc1114089d25f411b98b2991f40002349047e87e1"
+    },
+    "artifacts/stella-polza-kit/assets/clean-plates/04_HISTORY_F.png": {
+      "bytes": 2634036,
+      "sha256": "1e88e3be212b51a0b2fdf4471ac451df762369ef43da56a4da192e9655208d32"
+    },
+    "artifacts/stella-polza-kit/assets/clean-plates/04_HISTORY_M.png": {
+      "bytes": 2648373,
+      "sha256": "a8e019b8a24d261ff552ac89a182781da2bf29c86bf6379ef9e27612545a0b6a"
+    },
+    "artifacts/stella-polza-kit/assets/clean-plates/05_COMEDY_F.png": {
+      "bytes": 2103209,
+      "sha256": "558bd04bd92a22321d10f509853e675210ca533f53ce723626a5b30ff121a3fe"
+    },
+    "artifacts/stella-polza-kit/assets/clean-plates/05_COMEDY_M.png": {
+      "bytes": 1867002,
+      "sha256": "3c39c718a88e95a1617e72e51b7010c70b274215d28dad7825f8c8655032f5c2"
+    },
+    "artifacts/stella-polza-kit/assets/clean-plates/06_MUSICLE_F_1.png": {
+      "bytes": 1946998,
+      "sha256": "be3894f4c04338078b56d51e11f838ffacb9a09ded18abdbd8e5af2d328a5a9f"
+    },
+    "artifacts/stella-polza-kit/assets/clean-plates/06_MUSICLE_M.png": {
+      "bytes": 2082715,
+      "sha256": "45743328fc2458a4626368b8dfa98b5e2f06a686a3448a52925988596b7a3578"
+    },
+    "artifacts/stella-polza-kit/assets/clean-plates/07_SCI-FI_F.png": {
+      "bytes": 2338517,
+      "sha256": "fd9c9a0199538affadeaa02ee94f04d701b72f460ed371a37c6c39f3217cf293"
+    },
+    "artifacts/stella-polza-kit/assets/clean-plates/07_SCI-FI_M.png": {
+      "bytes": 2299399,
+      "sha256": "d9faa23e9aab29a3b14bc5e572a548af7c39929cc259945c32a9026a827199ce"
+    },
+    "artifacts/stella-polza-kit/assets/clean-plates/08_ADVENTURE_F.png": {
+      "bytes": 2923730,
+      "sha256": "fc475e7f1ab4c6546dee9c0af45aba8e60066b0daabc375c4d88380a3e5302ad"
+    },
+    "artifacts/stella-polza-kit/assets/clean-plates/08_ADVENTURE_M.png": {
+      "bytes": 2992500,
+      "sha256": "3a5832b671b64fc7d77ea12a5ab6cc0cd0a0a2e3d186843584cc48c01838b2b2"
+    },
+    "artifacts/stella-polza-kit/assets/clean-plates/09_HORROR_F.png": {
+      "bytes": 1755523,
+      "sha256": "29045006a70a2e1e7b338840fd025950d6fd0ea71308603ab8a0854dcac0e393"
+    },
+    "artifacts/stella-polza-kit/assets/clean-plates/09_HORROR_M.png": {
+      "bytes": 1771208,
+      "sha256": "6fe2d5b802c47cd3361e209bdc4e4f57b0b765835457e1d2f2bacf603f40e43a"
+    },
+    "artifacts/stella-polza-kit/assets/clean-plates/10_FANTASY_F.png": {
+      "bytes": 2474731,
+      "sha256": "aea88a05a89ccc2581df5ca0438145008163c4da7ceffb4ddd5384bbffc7e091"
+    },
+    "artifacts/stella-polza-kit/assets/clean-plates/10_FANTASY_M.png": {
+      "bytes": 2405337,
+      "sha256": "b1fd205d728c14042936160c429218fcda23b39a965ed927e4a24305c5a8b869"
+    },
+    "artifacts/stella-polza-kit/assets/manifest.json": {
+      "bytes": 10977,
+      "sha256": "40e428d9835ba719b283e2309e5909a5f9b8e93d7f54e8d49d9ef51c094a9fcb"
+    },
+    "artifacts/stella-polza-kit/config.example.json": {
+      "bytes": 631,
+      "sha256": "6327695b434681d7f4d621f599632fd36b1b5a71e11c531415ce99618bac6c42"
+    },
+    "artifacts/stella-polza-kit/docs/MASTER_INTEGRATION.md": {
+      "bytes": 25975,
+      "sha256": "1669848c058bad38bebfb3d97dc87645e4c550e0742a70003ee9e43daac0f26d"
+    },
+    "artifacts/stella-polza-kit/docs/OPERATIONS.md": {
+      "bytes": 3302,
+      "sha256": "1fbb731c9b39d200ea78876d7a96d7a3f6f9593c78b0d02cbb8b5a5587c9bada"
+    },
+    "artifacts/stella-polza-kit/docs/Research/README.md": {
+      "bytes": 12565,
+      "sha256": "62c600b33d9b9c2b3001129f1965780022e4b7b6ab8274a59f7ec22363030cec"
+    },
+    "artifacts/stella-polza-kit/docs/VERIFICATION.md": {
+      "bytes": 3816,
+      "sha256": "ada939046cafb7b9b69e8b2cb012a2b50c5117db5f779f9f5840c5d2a1030510"
+    },
+    "artifacts/stella-polza-kit/examples/master_boundary.py": {
+      "bytes": 4883,
+      "sha256": "abcd84edb44c2625c467444d20b97588fc972abfac7e0bf5d6ade31989e45dc4"
+    },
+    "artifacts/stella-polza-kit/kit.py": {
+      "bytes": 3935,
+      "sha256": "b04acfb6fa446f4b1c8bf6897b13f107e336133f3aee5b01790c6931e75d70eb"
+    },
+    "artifacts/stella-polza-kit/KIT_MANIFEST.json": {
+      "bytes": 10215,
+      "sha256": "483764fad70a6936d52fc14b66a4ae2cd8f09d0d2f65f1cde1c825da040a6c27"
+    },
+    "artifacts/stella-polza-kit/licenses/anyio-4.15.1-LICENSE": {
+      "bytes": 1081,
+      "sha256": "5361ac9dc58f2ef5fd2e9b09c68297c17f04950909bbc8023bdb82eacf22c2b0"
+    },
+    "artifacts/stella-polza-kit/licenses/certifi-2026.7.22-LICENSE": {
+      "bytes": 989,
+      "sha256": "e93716da6b9c0d5a4a1df60fe695b370f0695603d21f6f83f053e42cfc10caf7"
+    },
+    "artifacts/stella-polza-kit/licenses/h11-0.16.0-LICENSE.txt": {
+      "bytes": 1124,
+      "sha256": "37db5bb85926db28a427a25867f10b1232003aea1be69ccb851138adb8e6f361"
+    },
+    "artifacts/stella-polza-kit/licenses/httpcore-1.0.9-LICENSE.md": {
+      "bytes": 1518,
+      "sha256": "fdcb59154c74cbaba16a11242f7740bea9f23d6feb5547917d8c5f94a80392a5"
+    },
+    "artifacts/stella-polza-kit/licenses/httpx-0.28.1-LICENSE.md": {
+      "bytes": 1508,
+      "sha256": "4ec59d544f12b5f539a3a716fd321ac58ccd8030b465221f2c880200cdf28d8d"
+    },
+    "artifacts/stella-polza-kit/licenses/idna-3.20-LICENSE.md": {
+      "bytes": 1541,
+      "sha256": "1a9a4f0e3d479a27240ddd59a9137a66ab4a0f9dfdc8ca6188cc0bfd85187f04"
+    },
+    "artifacts/stella-polza-kit/licenses/pillow-12.3.0-LICENSE": {
+      "bytes": 78016,
+      "sha256": "4f7866a74802c6326f81faff59a56546b6aec2b10b91973e0e9308de95e79857"
+    },
+    "artifacts/stella-polza-kit/licenses/typing_extensions-4.16.0-LICENSE": {
+      "bytes": 13936,
+      "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf"
+    },
+    "artifacts/stella-polza-kit/NOTICE.md": {
+      "bytes": 1169,
+      "sha256": "84331533d8d8b9e38938d4344d35ef5bb79c1b6b1af955904ff1e1f4e8932047"
+    },
+    "artifacts/stella-polza-kit/preview/index.html": {
+      "bytes": 11514,
+      "sha256": "af874674d8d85c417629075396c49a95396c87a695b5867cb0314b7be5c22c64"
+    },
+    "artifacts/stella-polza-kit/prompts/PROMPTS.md": {
+      "bytes": 17368,
+      "sha256": "25133bc7488b010b25c57321467134ca1c0db37fd44c20b737af267f47c4ce58"
+    },
+    "artifacts/stella-polza-kit/prompts/recipes.json": {
+      "bytes": 17789,
+      "sha256": "e9faaf11d9cf3772bbdbc5faf2f8d97c874fd08473d26531ede58c2149c13b59"
+    },
+    "artifacts/stella-polza-kit/provenance/generation-log-01.json": {
+      "bytes": 2300,
+      "sha256": "0a46392c43511a7073471ce00acd4ab4537e170755f9917c187df93c2442d59d"
+    },
+    "artifacts/stella-polza-kit/provenance/generation-log-02-04.json": {
+      "bytes": 11400,
+      "sha256": "5ffb73683ecf142afc0ba5f2477d5df0ffa7181af73d19353e5949dee9b71acf"
+    },
+    "artifacts/stella-polza-kit/provenance/generation-log-05-07.json": {
+      "bytes": 9899,
+      "sha256": "63e537c9524e545a623bf7313c855f6f3e46fb46612466ae361987fb7902fe7a"
+    },
+    "artifacts/stella-polza-kit/provenance/generation-log-08-10.json": {
+      "bytes": 9746,
+      "sha256": "ff15d80fa93e5326fcea80804fbbbce72528e461a708ce93be78e9cdc7b628ae"
+    },
+    "artifacts/stella-polza-kit/README.md": {
+      "bytes": 7077,
+      "sha256": "c12c14f08a50ba5ff9730c63a3cbf72dc01f7c4c2593a3fd0ee7e10dead14a21"
+    },
+    "artifacts/stella-polza-kit/requirements.lock.txt": {
+      "bytes": 128,
+      "sha256": "0abf7bc140e30845488da20bf79d4f0b66b903acf67efb638aff651cf4f9b866"
+    },
+    "artifacts/stella-polza-kit/requirements.txt": {
+      "bytes": 118,
+      "sha256": "f0a3e8d7857c0046b16b71e21fed6244b3ed2c508ebffebda7d6b8cceabb9cd6"
+    },
+    "artifacts/stella-polza-kit/setup.ps1": {
+      "bytes": 633,
+      "sha256": "a07a137ce1a7d4761f54167e7e235bc59bc23d655f0aa4ef28cdd23e5c46d93f"
+    },
+    "artifacts/stella-polza-kit/stella_polza/__init__.py": {
+      "bytes": 481,
+      "sha256": "a0494c9cc1e927b79b1069da7d84991a0af034d156a133c67d26ec37619db589"
+    },
+    "artifacts/stella-polza-kit/stella_polza/adapter.py": {
+      "bytes": 19120,
+      "sha256": "db27cc85069afae4b5fcfa36001f519b3cc4a0e4ec8df7f2bb10cd5f720d9781"
+    },
+    "artifacts/stella-polza-kit/tests/test_adapter.py": {
+      "bytes": 12532,
+      "sha256": "fc06e6be08fc294e6925d765ec997d6e2bbb50b3e9bfc7ab786f5f64340c0379"
+    },
+    "artifacts/stella-polza-kit/VERSION": {
+      "bytes": 7,
+      "sha256": "4ca8bbd3c595ee306226c6996b32b8d47a900217c55a7ed0cfc868ee444f34f1"
+    },
+    "docs/context/ARCHITECTURE.md": {
+      "bytes": 474038,
+      "sha256": "1ef7e0fcc651657df54c7c8014539607903f1de3bf961bcfc5f5f7a05fe1abbb"
+    },
+    "docs/context/BACKLOG.md": {
+      "bytes": 380732,
+      "sha256": "0311f9a53d387c1cfe64edc9ae86916f805f459d4c33e486f6a512ae429bae02"
+    },
+    "docs/context/CURRENT_STATE.md": {
+      "bytes": 23797,
+      "sha256": "bebe6b383013038544f9d1bb18e6c3d214145db4263aadc76bc421d7dc05f205"
+    },
+    "docs/context/DESIGN_DOCUMENT.md": {
+      "bytes": 391520,
+      "sha256": "8182908d4e58e73532e7444d4e0aa75bc85f347bb22c388f74b3cd6479bb30ef"
+    },
+    "docs/context/export-manifest.json": {
+      "bytes": 233925,
+      "sha256": "6504a3fe67e57a3028bbfaa7a05d3ce974193384adcab8989d4d1b7be98a09da"
+    },
+    "docs/context/PORTABILITY.md": {
+      "bytes": 3023,
+      "sha256": "09670eba4d5ad6ffadfc03b39d335df369df32a99b607e2ac8cc1c622896d286"
+    },
+    "docs/context/REQUEST_HISTORY.md": {
+      "bytes": 9374,
+      "sha256": "0d39e55056e82791f4915897de5bf6cb6ae83d4b18bf1527a5d27e183401367c"
+    },
+    "docs/context/source-manifest.json": {
+      "bytes": 396267,
+      "sha256": "83fbbe5bc9595141fca9baa31da2afe9fe5ccfd4498418f0971c95c63b21233f"
+    },
+    "docs/context/WORKLOG.md": {
+      "bytes": 469028,
+      "sha256": "83455ea73a7654b12f007afca8e88ac544cf3616d38ff38b6f795768343ec31b"
+    },
+    "docs/d_to_f_import/AGENT_INTEGRATION_GUIDE.md": {
+      "bytes": 15784,
+      "sha256": "81e1f22b213d504ed48cff9fb60f184149abbd1b4dcdf1c29268883bbd244920"
+    },
+    "docs/d_to_f_import/AGENT_STELLA.md": {
+      "bytes": 21910,
+      "sha256": "e14f65f5f83d1fc0a3361d5069309e259ae87eef9b7eb2a126dc344e644f9ed9"
+    },
+    "docs/Research/cover-i2i-20261004/archive-inventory.json": {
+      "bytes": 5886,
+      "sha256": "ba0ff8ae3a453e902f64659b85661bfe1e0031f06f4a887d416308d2c88b1ca4"
+    },
+    "docs/Research/cover-i2i-20261004/faceswap-fixed-background.md": {
+      "bytes": 23333,
+      "sha256": "2bfbf20ad4a44ceda93ed59f63f3d326b723e3a5084abfde638b5ac257374388"
+    },
+    "docs/Research/cover-i2i-20261004/README.md": {
+      "bytes": 22103,
+      "sha256": "137db95f4d7b0c9e8a1b8f9c04d228560aab51bd8dd5d323408eb39b3b7ee4dc"
+    },
+    "docs/Research/lumicells-20260930/inventory.json": {
+      "bytes": 40451,
+      "sha256": "ba8eecd954323a6e1fc155780766452143507ce521441cdb7d30f28117dfe274"
+    },
+    "docs/Research/lumicells-20260930/permission.json": {
+      "bytes": 549,
+      "sha256": "5eab090b97f74c057e42f90ebc02ab0a4107b5b09a9dcfb54a85de63fd6103b8"
+    },
+    "docs/Research/lumicells-20260930/provenance.json": {
+      "bytes": 413,
+      "sha256": "b0917a8911ff399fb3c9c5121fabefe16eb2b2e4db90ce11b355bf6b305f6b28"
+    },
+    "docs/Research/lumicells-20260930/README.md": {
+      "bytes": 23714,
+      "sha256": "c059729bd225c09ea3fbe40a75778d605aabfa2b100ee14b0e0fee8898c8c8a0"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/package-lock.json": {
+      "bytes": 75326,
+      "sha256": "cb25be8322c84782dafde9fc5ea4fc2445cb45766a2df7f379221b9613a8cac4"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/package.json": {
+      "bytes": 3090,
+      "sha256": "7b6c1b8a5296b93c9777a23d2ce24c787e7185b8d668f54fab9ecb36fe626e04"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/README.md": {
+      "bytes": 18523,
+      "sha256": "6d00875f45efd10db996ab6fdfec91dfaf6704ce5f4e5a0934dd6f6035917d02"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/README.ru.md": {
+      "bytes": 25634,
+      "sha256": "301af8b80b24b7d9af1954805e744dbdab1b6bc8da5c521ec44618d1603728fb"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/color.ts": {
+      "bytes": 4469,
+      "sha256": "3f6083805af477f8275cf9ebed6dae78bb9d455a21d269cff125634deefddf56"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/controller/clock.ts": {
+      "bytes": 3577,
+      "sha256": "efb34c5c96cee2d3958dd27e0154d287e5dc44f3e40d773d3c589a7e6d922f19"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/controller/controller.ts": {
+      "bytes": 27661,
+      "sha256": "d994ced42c955c43738ef742c6e58c6b6ea80d2a2dfc3eb3ce071f6f024cee34"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/controller/geometry.ts": {
+      "bytes": 5955,
+      "sha256": "9c7dcfc7b12452631acfcf3b59bafd2c27512cfe24630ba1f8a9a0e571f995be"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/controller/influences.ts": {
+      "bytes": 12183,
+      "sha256": "ea927fe2c16d4516d53a13cd56491564910e32815580a6c8842d26431964cbea"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/controller/layout.ts": {
+      "bytes": 6897,
+      "sha256": "4f93325d3696657f2293baeda5b97add47fdbdf5b6a2c2ab90f1ea7800ad85d5"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/controller/lifts.ts": {
+      "bytes": 15892,
+      "sha256": "92fca61c5de75ad3a8c9a61bc4c773f8b58fbebfd58080d530208ab6df72b158"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/controller/lut.ts": {
+      "bytes": 6313,
+      "sha256": "aaa6e804018569ce88d6db036bfaa739087cd26e76d0daffa6a299c35d2cf9c7"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/controller/math.ts": {
+      "bytes": 3478,
+      "sha256": "5b17c7b9cae7ca05c50a09c4a93cc4631c996902c5a16e33d4b7160848348d26"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/controller/modulators.ts": {
+      "bytes": 3262,
+      "sha256": "2b95773bc27f7f5cfc8539d937d75ef1dd0b2d615fd1ab51954321cb970ec08b"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/controller/perf.ts": {
+      "bytes": 12303,
+      "sha256": "6bd2412afb5e32cddcbf048cdf39b2e17edfa10b124b9db475ad8268e9e5b2e2"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/controller/pulses.ts": {
+      "bytes": 4932,
+      "sha256": "d4e82c408b0a608b3b48e6403a42ba247b3a97161ab7f8ab8518444170e61ae7"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/controller/tween.ts": {
+      "bytes": 16634,
+      "sha256": "0997aa4b33d11902432b7e650e7e6b0f759fe9cab8f709ac707811951324482d"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/dom/host.ts": {
+      "bytes": 9055,
+      "sha256": "44e360cfe412badf80e55ee31f9f636b5d4c8f45c6ec42b9ce8ea5c120ef277e"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/dom/pointer.ts": {
+      "bytes": 7119,
+      "sha256": "0102e462854462ed91a35c017c145593e8197d9b00f2282baf57c3ffa728ecca"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/dom/tracking.ts": {
+      "bytes": 9251,
+      "sha256": "c95f91b76b851ab96456bdadd48d4fb057fbd9611969b97f5e74759b48d514b4"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/engine.ts": {
+      "bytes": 16156,
+      "sha256": "da7b94a13427d18d0b4bb1c5a611728e9ff30e22575613b58321a133ec83bef2"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/frame-block.ts": {
+      "bytes": 6942,
+      "sha256": "5161f6fa51ab0cecf042b4f355b1fc2de749685e2d276fc2347e792dbda7c1d8"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/glsl/common.ts": {
+      "bytes": 9281,
+      "sha256": "c8b90dc6696e860022965af0cbe7e970d76288c983f786cf7fb09d961e3dd0d5"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/glsl/influence.ts": {
+      "bytes": 869,
+      "sha256": "bd5cacce2e996d6ae30999e4e2775a552d60eb915f4b272c47d3bddf911574e2"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/glsl/modes/flow.ts": {
+      "bytes": 1637,
+      "sha256": "4852403c495f7daa2956e40a1f40dcdf99e1ebee7a7c2782fee104b879467233"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/glsl/modes/index.ts": {
+      "bytes": 1862,
+      "sha256": "80b68becf79e56d87e82e7c65b02fd2323e1426e4d2089192a655020f3644b3f"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/glsl/modes/life.ts": {
+      "bytes": 1345,
+      "sha256": "4fb6b51ae84c882dfea5c8afda03115d381cceaba4e6364b92f042e824d4d4d6"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/glsl/modes/pulse.ts": {
+      "bytes": 912,
+      "sha256": "158976f9d7ae2633a755f8c5b687ca7960019894217c655231e68f3a3c9977fa"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/glsl/modes/rain.ts": {
+      "bytes": 2399,
+      "sha256": "504ab8e2ee780e11c5a7f2b57125f17dfa3b495cb6cbaf2e16872c298e133dad"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/glsl/modes/ripple.ts": {
+      "bytes": 1597,
+      "sha256": "d158e58fb25926f9c4ab0c26c0e73d8ff34c94a72ce9bd7fcaaca19d275a9e70"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/glsl/modes/sphere.ts": {
+      "bytes": 5010,
+      "sha256": "419da7b861fcb9efdecae4522f491d7a356c1e185b61b2b6a9f111a220da9569"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/glsl/modes/vortex.ts": {
+      "bytes": 860,
+      "sha256": "0d371595890f7d11693c9cd32f4e58ebba89c589ca73b7bf4d67cfac572cbab2"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/glsl/modes/wave.ts": {
+      "bytes": 1911,
+      "sha256": "6b477403d6e017c11145ce0802e334cd4f8af9a63e076c55a60957fcac4c1558"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/glsl/noise.ts": {
+      "bytes": 3375,
+      "sha256": "4cb259e4cef05d7a327abcb304ab2cfc53f9ad6b0079616f586b82d2a5b1a53e"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/glsl/params.ts": {
+      "bytes": 5679,
+      "sha256": "44f6c907afab2153e861b5c77fc66e7d1bfb214bcb4f1595147954ae056c16fb"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/gpu-timer.ts": {
+      "bytes": 3582,
+      "sha256": "6985b2965f20e6a29289bf788fef47b9b8af1037383eae57cb80cdeefd2580a6"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/index.ts": {
+      "bytes": 268,
+      "sha256": "178de6aa1444417424d73efc3b03f4689c3f35e8ae19515a57e47f2d90cd3982"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/passes/bloom.ts": {
+      "bytes": 13265,
+      "sha256": "965ea1ea64ccd844e3c67630614cbe6cb2d9f82c773f7c94b9984016066f0ee7"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/passes/composite.ts": {
+      "bytes": 9079,
+      "sha256": "8ebe59f191965135c1db1439b15ac199176eadc636c065133fd0d0b63191a527"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/passes/field.ts": {
+      "bytes": 13725,
+      "sha256": "bd4e055b5569232a46058f6ceadf0a359b5480337afa04a592ba1f141de91fae"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/passes/life.ts": {
+      "bytes": 4952,
+      "sha256": "308f84d216a71165d25102241f63187e3506e4668bab45cf3e25862bee5d5494"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/passes/lift.ts": {
+      "bytes": 10143,
+      "sha256": "f9d251e3696356f1bdf82575d0815c2c380aa8f8b53058de222ebd869c8ad148"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/passes/shared.ts": {
+      "bytes": 4165,
+      "sha256": "09e35af26aad2b21cb06d661f67118c8b7aaf9c8c6884b6cf817f118336cb08f"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/passes/stamp.ts": {
+      "bytes": 5843,
+      "sha256": "30b37a250114bdf5547da801f0fb83a6a0daccc96c53870256347d1eaa3c8fcc"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/resources.ts": {
+      "bytes": 5218,
+      "sha256": "5551cb4bad72c147482d373a76c5117be26890df58594f7cde2470349a4d0cb5"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/engine/types.ts": {
+      "bytes": 3711,
+      "sha256": "daf921aea6bbc50629ea7bc356d84a4af6d7a35a16ece339f5b49c41cb93bc88"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/gl/caps.ts": {
+      "bytes": 6427,
+      "sha256": "3770096108a910a8f60c83de6c3c5e3a2a142e59dadd1d8cbe5b48db8d76a67a"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/gl/program.ts": {
+      "bytes": 6393,
+      "sha256": "601ec965c89e0478871d6d90603cd45f4cf94ffdf36d1d0e20db8d58bde44651"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/gl/target.ts": {
+      "bytes": 4329,
+      "sha256": "c171726968eda571cc431d48b6de02484b3e7778b0c96b34b9e6e4bba22729dc"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/index.ts": {
+      "bytes": 492,
+      "sha256": "5db70f9a979da55d647eb8da5a59f3c21d315a126a22000cca33f2966b77c3d3"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/lumi-cells.ts": {
+      "bytes": 29579,
+      "sha256": "86dde77962dac853b7c1dbc7074cddce609841114d242f9492a072aac7899611"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/ticker.ts": {
+      "bytes": 2360,
+      "sha256": "c328eefea025400df6cfb9e863b0e12e49c5f026e2e736f0540a60d281c21d13"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/core/types.ts": {
+      "bytes": 6519,
+      "sha256": "058a20557a26116bc358772d391287f639bf8f3b6fd05c20da5da93aedf5c81a"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/element/data-attrs.ts": {
+      "bytes": 4830,
+      "sha256": "327d279f3d328aeaaf4f3ec81faea350d426fe17ec16798f538c6ac1163fcab5"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/element/define.ts": {
+      "bytes": 287,
+      "sha256": "406830a2af91b32df30b2edab48d08a34d6a0701e02d41f4ae465a0adc1598d1"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/element/iife.ts": {
+      "bytes": 308,
+      "sha256": "e50198c7fac6f6dd309a7501d0f0d75f26e63b5aed78a60e3a9c4a14e2803f9b"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/element/index.ts": {
+      "bytes": 706,
+      "sha256": "d9f83f5ae1a60a9344d85674412a22dfed353eb1636d23f657e8ffb60912db9e"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/element/lumi-cells-element.ts": {
+      "bytes": 24994,
+      "sha256": "bef17d8263129c6e21ba9c7946ddd6bbd8b709bb868d3af8714f45dc560e0c00"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/element/rebind.ts": {
+      "bytes": 1073,
+      "sha256": "5aafe0819191a046af88af9d68ff056fae6f705846301e656b90a8b9040a0f96"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/element/resolve.ts": {
+      "bytes": 2276,
+      "sha256": "f1558ce12afd1e37c54cfc091e0716a24f2234616b68b6348c794e3063feffad"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/react/context.ts": {
+      "bytes": 465,
+      "sha256": "d76df2120bb1be4062aae89664a192c432a356c6d400a5a0613fda8d639182c7"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/react/hooks.ts": {
+      "bytes": 6170,
+      "sha256": "d66af3995fef44da113e56255e51c28db57d43cac48d87dbe987c543913f5c61"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/react/index.ts": {
+      "bytes": 601,
+      "sha256": "45383135e81524187672c9ca20b437be6def266f659844e13402af8ccd18b2f2"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/react/LumiCells.tsx": {
+      "bytes": 6926,
+      "sha256": "9ebfa5b8f40a7c1c9bc1ed4a77db0e4e1304c08ec741451f548c752e0a7a3630"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/schema/defaults.ts": {
+      "bytes": 677,
+      "sha256": "f76440cb87dc7441169700c937d3c07762c66f90a0ec23303fa2398ce455b23d"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/schema/export.ts": {
+      "bytes": 5428,
+      "sha256": "c24999ee0ee2b656e9c1b25afb1efd957236f3499980d432329415ec26f1de49"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/schema/fields.ts": {
+      "bytes": 7656,
+      "sha256": "b8d5f9d9ba32c7edded39f640524922d854f8ba6cb53460f617e282a2ad02453"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/schema/index.ts": {
+      "bytes": 828,
+      "sha256": "bd19356e2fd9470de0f76102e647008008a489438cec40e626a600a32522949e"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/schema/json-schema.ts": {
+      "bytes": 3262,
+      "sha256": "7a26e342e8ef48058272b1388fcb44b5ad2802a9aba2343da2d8fd40521aafb3"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/schema/locale.ts": {
+      "bytes": 3654,
+      "sha256": "e31d1ff3e890bf9ad79d4f8f574368eb4f3caa4091c391e8317132a0bb2d654c"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/schema/locales/ru.ts": {
+      "bytes": 33603,
+      "sha256": "234539be875c6bb016ab6c1e910a0334977c8528d0483428867684e009c1b2bd"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/schema/normalize.ts": {
+      "bytes": 12863,
+      "sha256": "9f723eee1a5937d3e586130f275d7eebeb462d6fd673b19c614e0a12d401dcb3"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/schema/paths.ts": {
+      "bytes": 6315,
+      "sha256": "210c3b022223e57c32f2f33daaa5753b91093b143ec5416f8966a6a28aef855d"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/schema/poster.ts": {
+      "bytes": 4623,
+      "sha256": "c43305f8dc5b45dfa633ee038e8bd911cecf577f6855e9007e5a487481215a33"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/schema/presets.ts": {
+      "bytes": 9712,
+      "sha256": "2f7654421f2682d7c8491e5c862e52c10cd2cc960f0b98f714f012f95699bbc5"
+    },
+    "docs/Research/lumicells-20260930/upstream/lumicells-1007717d72cfd9d768d4b9a3f7fc80a126e49c51/src/schema/schema.ts": {
+      "bytes": 40798,
+      "sha256": "8ce09ba8b8556c0a59d67dbc8f6cb4c9f270ab8a91daa2853eb19bdae5623df1"
+    },
+    "docs/Research/README.md": {
+      "bytes": 2600,
+      "sha256": "396a9711a434785b33d14071a974f0c972ff3e26fc2708a54340c5be82098782"
+    },
+    "docs/Research/stella-ai-api-20261004.md": {
+      "bytes": 19926,
+      "sha256": "96817852eb772f94d9c27e22cd254686d2de79142d50030239e6d989cf14b321"
+    },
+    "docs/Research/stella-ai-mirror-transfer-20261004.md": {
+      "bytes": 22947,
+      "sha256": "319e03d800cf026c3612d1a6420696761f358e995b8521031d2e9959e1d4049c"
+    },
+    "docs/Research/stella-all-transitions-20261003.md": {
+      "bytes": 3040,
+      "sha256": "b33e28d6107a0482e762d04e939201909bb30667ea5f6ee3be552872aef6c845"
+    },
+    "docs/Research/stella-background-architecture-20261003.md": {
+      "bytes": 26245,
+      "sha256": "cc4bd42429b092bd6aae50bdffd094321145820175a9187e00b04ae718310cbd"
+    },
+    "docs/Research/stella-background-iteration-20261003.md": {
+      "bytes": 6067,
+      "sha256": "c4f652f731a62fc0a60cb28af4f55ed89cce1d6ec732fdccce96537af26eeaaf"
+    },
+    "docs/Research/stella-camera-presence-20261004.md": {
+      "bytes": 2043,
+      "sha256": "97f22849020c8addfc34d32be3d352d0383c2dc22488a17fffb36d65513e9c60"
+    },
+    "docs/Research/stella-continuous-transitions-20261003.md": {
+      "bytes": 26720,
+      "sha256": "9bef07741183f2aaee5125980e6c2d0662e8a4f915158f8a6fa99fbe209f9fa2"
+    },
+    "docs/Research/stella-continuous-transitions-packages-20261003.json": {
+      "bytes": 4472,
+      "sha256": "312924236f31d056a71aed607a1da2643076ff549a5dd59e358f2af8ff41cb1a"
+    },
+    "docs/Research/stella-diagnostics-20261004.md": {
+      "bytes": 7465,
+      "sha256": "53a9e0ccde291d983e0837f2c78fe2a504885fd8d1a0c967108a941bc5b45b7e"
+    },
+    "docs/Research/stella-discovery-architecture-20261003.md": {
+      "bytes": 43184,
+      "sha256": "70ca9901dfe0fc340ce5dff2218b419c2d5564a04d335d75e1bd7328f42b2c43"
+    },
+    "docs/Research/stella-discovery-ramps-20261003.md": {
+      "bytes": 6558,
+      "sha256": "fb2a98474b484abed05ce9e1befa7c8145216279152d8d69c1c9b18aeb379d14"
+    },
+    "docs/Research/stella-final-card-exit-20261003.md": {
+      "bytes": 2642,
+      "sha256": "5286fb80c0137e8abd50a07f843d4531c0053f69308f5e321fd031cabfc9a93e"
+    },
+    "docs/Research/stella-final-screens-20260928/prompt-v5-layout-edit.txt": {
+      "bytes": 1308,
+      "sha256": "2aeb611ffbf65ff783f092183c29fda873ffbd2e854b7894cb25dba4cdde8e99"
+    },
+    "docs/Research/stella-final-screens-20260928/prompt-v5-universes.txt": {
+      "bytes": 5412,
+      "sha256": "27ef140f2d90ab983c4ebcd87c537688c6c87d31d80342029ad993ea2426d7b4"
+    },
+    "docs/Research/stella-final-screens-20260928/prompt-v6-large-cards.txt": {
+      "bytes": 3541,
+      "sha256": "f3fcb0fb560358f8f15f535321b54a4b9c4b90f81b28c1ce00390688cce709fb"
+    },
+    "docs/Research/stella-final-screens-20260928/prompt-v6-layout-edit.txt": {
+      "bytes": 1165,
+      "sha256": "455bceb1db790e5b23f9de61b041c85efb7055fab1d8ea03852d06478606a316"
+    },
+    "docs/Research/stella-final-screens-20260928/prompts-v2.json": {
+      "bytes": 14359,
+      "sha256": "b5468ae9261801c8c7dc787021e55b5a473be8b2d38fc67e9910961dd475b1f6"
+    },
+    "docs/Research/stella-final-screens-20260928/prompts-v3-ring.json": {
+      "bytes": 13823,
+      "sha256": "690d130ff4436b075b3659e1e3ddcc9ebb6602123faae42b58ffc6152073feb8"
+    },
+    "docs/Research/stella-final-screens-20260928/prompts-v4-reach.json": {
+      "bytes": 19359,
+      "sha256": "a2193ad1985f5ccd56cdc4c845e99456a19916e2b493d83cab8375304a4a3702"
+    },
+    "docs/Research/stella-final-screens-20260928/prompts.json": {
+      "bytes": 8763,
+      "sha256": "a8a5098fb5fa2a7b809a4a236220b0e832a6352cadbcc1c1df33c853bc79c376"
+    },
+    "docs/Research/stella-final-screens-20260928/README.md": {
+      "bytes": 11703,
+      "sha256": "2ca367b5346b2f550e9a9fd47454c90b6b143fd55455f2db58a84f3ac68eb3a0"
+    },
+    "docs/Research/stella-inputs-20261001/metadata-extracted.json": {
+      "bytes": 21491,
+      "sha256": "2de45921949375250d1677c06c456987b6afcf6f581c3121be0e274ea5016a08"
+    },
+    "docs/Research/stella-inputs-20261001/README.md": {
+      "bytes": 2585,
+      "sha256": "87456d346540e5c350ebce0e6a37b5218afa8643cff0462b08d48210152424f0"
+    },
+    "docs/Research/stella-inputs-20261001/sources.json": {
+      "bytes": 594,
+      "sha256": "5cb7fad7e054b797647b44928476da3522bb5de2f988e72abe87a50e9808add1"
+    },
+    "docs/Research/stella-inputs-20261001/VK \u0412\u0438\u0434\u0435\u043e_\u0421\u0442\u0435\u043b\u043b\u0430.md": {
+      "bytes": 1269912,
+      "sha256": "7f84edf73032ab6d923ad12329eb5fc6ad7a4c738afa7bf8bbab63f2c845b159"
+    },
+    "docs/Research/stella-inputs-20261001/\u041c\u0435\u0442\u0430\u0434\u0430\u043d\u043d\u044b\u0435_VK_\u0412\u0438\u0434\u0435\u043e_\u0438_MAX.xlsx": {
+      "bytes": 28762,
+      "sha256": "5c70f80693abb3f858f295f1db7cb949ed28b545b4f8f89371875990a84c67c5"
+    },
+    "docs/Research/stella-inputs-20261001/\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c_VK_MAX13 (1).md": {
+      "bytes": 9939,
+      "sha256": "302da79209e456b57a523e1ea090c0b8e7da7eab79dd45eff2153770398dabb9"
+    },
+    "docs/Research/stella-live-dialogue-architecture-20261004.md": {
+      "bytes": 55892,
+      "sha256": "9b9d7f33976ecd0f46e9f47ed631cf22bf8f55ba7ff1ed6b2b6d128fad404827"
+    },
+    "docs/Research/stella-lumicells-entity-20261003.md": {
+      "bytes": 4747,
+      "sha256": "9aaced0728d2169b71f4d7f4e2d845468ee3f964fbe6af725ba5c4708610d296"
+    },
+    "docs/Research/stella-lumicells-native-motion-20261002.md": {
+      "bytes": 19345,
+      "sha256": "831e4914fbe75e73efad638979bbf637725ff1bbddfeafe23f1759c1910daacf"
+    },
+    "docs/Research/stella-max-auto-20261005.md": {
+      "bytes": 3508,
+      "sha256": "23f5b24dd4cb8609aecd85debbd960b533931dcfb05b0c6d13b966bc28eec9cb"
+    },
+    "docs/Research/stella-motion-libraries-20261002.md": {
+      "bytes": 42531,
+      "sha256": "85c4a1addeca0292386af7aa4ea153a68ac5ddd21c618cdbf46a62e78ecc2898"
+    },
+    "docs/Research/stella-omni-voice-control-20261004.md": {
+      "bytes": 52424,
+      "sha256": "8f19b1a3079da84b86edd79eb246e6b6f4d39a42b5aa5eb276b3953b331c0a7e"
+    },
+    "docs/Research/stella-persistent-brand-20261003.md": {
+      "bytes": 1978,
+      "sha256": "e5c68d496d91af72d0d429d7ed5214e11007a42250e3f61b9a53a20550cf74b4"
+    },
+    "docs/Research/stella-pulse-colors-20261003.md": {
+      "bytes": 3424,
+      "sha256": "bf54a955dfbe5ccee562c4873c8debf4a073defd055c725a7a2f82728003c060"
+    },
+    "docs/Research/stella-random-spread-20261003.md": {
+      "bytes": 4025,
+      "sha256": "9487f0976990f651684a9e9a87a1c70f3316069257105a5faabe0d35ce3a59ea"
+    },
+    "docs/Research/stella-ring-controls-20261001.md": {
+      "bytes": 18729,
+      "sha256": "e61b35c8b8635dfb94ff01ac140c6ad711591a62dbf543ffc4792b07993dc359"
+    },
+    "docs/Research/stella-selectel-20261003.md": {
+      "bytes": 2212,
+      "sha256": "8858368deb5148a4135af0094d03ebae0c05c784425d1febded8baf69ed63aeb"
+    },
+    "docs/Research/stella-silhouette-ramp-20261003.md": {
+      "bytes": 2585,
+      "sha256": "6527e00fcef36b90cfb930ba883c7146f29fbf30b7840a6103071b21fcbe46d4"
+    },
+    "docs/Research/stella-soft-inertia-20261003.md": {
+      "bytes": 4421,
+      "sha256": "a604de22e04736a7ace3f43da48819e915442507383365f107072d02be24a9d8"
+    },
+    "docs/Research/stella-startup-content-20261004.md": {
+      "bytes": 4929,
+      "sha256": "2f9efd5700b2060c1b7f522d41862484205ca849d0a2a12dc541a1dd8af5e3e1"
+    },
+    "docs/Research/stella-static-master-host-20261004.md": {
+      "bytes": 2296,
+      "sha256": "cfa7bc24e125a9015fc056e840416f7a71421f7626b2e2e4ce7463f5823caa40"
+    },
+    "docs/Research/stella-ux-iteration-20261003.md": {
+      "bytes": 3730,
+      "sha256": "e2fe0b9b812c14eae1d414c15c692fa7f89ec7e9b1fa68b94fbe8fe09609609d"
+    },
+    "docs/Research/stella-ux-screens-20261003/inventory.json": {
+      "bytes": 10023,
+      "sha256": "01584937dcdd9a8b91fbe36d3340d9fbd7bb1000d53eb77a4a37adef38773e15"
+    },
+    "docs/Research/stella-ux-screens-20261003/svg-structure.json": {
+      "bytes": 57888,
+      "sha256": "ef8fb6165565056a7852b1032c912e8d56d617a5444a44789b2c1bd925bfd732"
+    },
+    "docs/Research/stella-ux-screens-20261003.md": {
+      "bytes": 12722,
+      "sha256": "42b02fdfe8ca1b7d6601052d1e822c0ef6b63d399dff2bacc8f3a4f413cb042a"
+    },
+    "docs/Research/stella-vasilisa-voice-20261004.md": {
+      "bytes": 4697,
+      "sha256": "76839a3622b71e5827162071714596fe189fa01a71ea27f2f90ec2171983f3a9"
+    },
+    "docs/Research/stella-white-entity-20261003.md": {
+      "bytes": 5148,
+      "sha256": "2e8f1933ac5a3245ca90436036225b65feacc268d612cbc4d547131bf73e5145"
+    },
+    "integrations/master/README.md": {
+      "bytes": 3740,
+      "sha256": "d7859006d13041cb325034605e6a2dfbf571821b6f3a9dc99e5c80b6241bba5b"
+    },
+    "integrations/master/reference/accepted-build-manifest.json": {
+      "bytes": 15466,
+      "sha256": "493dfdde595641aa029f19f0b9814ce9dfd1ef2321718a164b43fac74a2d6bce"
+    },
+    "integrations/master/reference/contracts/arc-tags-v1.md": {
+      "bytes": 5677,
+      "sha256": "5dffd315e3a5eb5733f511f9726e45f99874a4a289bb1c072e94431d4b94bc4f"
+    },
+    "integrations/master/reference/contracts/content-entities-v1.md": {
+      "bytes": 5539,
+      "sha256": "d69ff942b9dabd8b4836caf419e6e104c300417ec20c43a1183c57d137a7b4ca"
+    },
+    "integrations/master/reference/contracts/content-package-v1.md": {
+      "bytes": 11338,
+      "sha256": "7ddcf11d7c86adf5381d92f5dafe550e5a687ef37e9252af8f1db9e12e309556"
+    },
+    "integrations/master/reference/contracts/discovery-cycle-v1.md": {
+      "bytes": 6997,
+      "sha256": "d3655fba9908553b6949c7937a7fb4188a355554e5b523a503afc5db80e01325"
+    },
+    "integrations/master/reference/contracts/early-plan-result-v1.md": {
+      "bytes": 4874,
+      "sha256": "afe65c77a499083d26eb9678c8165120f6cea06ddddb248129d9bd1402ac2bb3"
+    },
+    "integrations/master/reference/contracts/execution-v1.md": {
+      "bytes": 18479,
+      "sha256": "cecc0d09fc6ded35c1049999ebba4f7e7c1fd289db7f619060bc280e33aa9f0c"
+    },
+    "integrations/master/reference/contracts/local-admission-v1.md": {
+      "bytes": 7128,
+      "sha256": "ee7ed87af585490883cae0fb484294ea99cd951aaf79c161b41e6c89cc15ffbc"
+    },
+    "integrations/master/reference/contracts/max-assignment-v1.md": {
+      "bytes": 5619,
+      "sha256": "88b4ec67dd5cd8e219a2bf87eb1a861d18d15f33bfbeb1d9d5cc154d4858698c"
+    },
+    "integrations/master/reference/contracts/session-close-v1.md": {
+      "bytes": 6543,
+      "sha256": "605aa60d3889a6177d5bcdd2e818db08a92a9094ae45d9f0edaeee02c13a4633"
+    },
+    "integrations/master/reference/contracts/vk-ribbon-release-v1.md": {
+      "bytes": 6644,
+      "sha256": "6e95da12f8dc113afe213f8958dadfc7895bac66d5a8bffb51d7f505baa19953"
+    },
+    "integrations/master/reference/contracts/vk-wall-items-v1.md": {
+      "bytes": 6673,
+      "sha256": "5e57c2227bd3cbc43d6caf4e1523499c69b1fe0477dac98676ab912c2dc6cd72"
+    },
+    "integrations/master/reference/contracts/vk-wall-v1.md": {
+      "bytes": 6640,
+      "sha256": "34a6fb2a3746cfe059e868d9a7597a2f259b1da160800db76fbba7b58771b921"
+    },
+    "integrations/master/reference/docs/CONTENT_PACKAGE_POLICY.md": {
+      "bytes": 22528,
+      "sha256": "3885fff9eab5b19a2112fa083bc7253d349b7b03a3f6b90adb889e0888c27452"
+    },
+    "integrations/master/reference/docs/MASKS_INTEGRATION_ARCHITECTURE.md": {
+      "bytes": 41585,
+      "sha256": "c12059c7a3c48586115a541eee99d06108d80bfb49019f0ae77045dc1d4e4013"
+    },
+    "integrations/master/reference/docs/MAX_LAUNCH_CONTRACT.md": {
+      "bytes": 9941,
+      "sha256": "1d38a0ca11ba3bea2d882c30d633a3c75dba09b8f26fc1e3724888db9c1c3955"
+    },
+    "integrations/master/reference/docs/SCENARIO_ENTITIES_AND_RELEASE.md": {
+      "bytes": 12547,
+      "sha256": "2872be400948290b54f89e4f2af5e8401c39b53f9d6dd270741d2e302a291305"
+    },
+    "integrations/master/reference/docs/STELLA_MASTER_SLICE.md": {
+      "bytes": 2758,
+      "sha256": "d861f29b825da40a993d0a7963a68f6102d01fdf526c3cee3b5aa7add010fb8f"
+    },
+    "integrations/master/reference/docs/VK_ARCH_RIBBON_SCENARIO.md": {
+      "bytes": 26057,
+      "sha256": "6bc4225faa51b97d330c7afb503cf927ee7e2f508c38e9d1646bb99e5a942e1c"
+    },
+    "integrations/master/reference/docs/WAVE_08_INTEGRATION_PLAN.md": {
+      "bytes": 19389,
+      "sha256": "c2850a4a9a97b6b29fa01c635ca763f7d0084376add7a0f8b8b76230e6c5b6be"
+    },
+    "integrations/master/reference/docs/WAVE_08_RUNTIME.md": {
+      "bytes": 5866,
+      "sha256": "3ca7f5cb5604532518a9a39515320a92b24b55fdbcc4b0dbb3d47aa44362cb89"
+    },
+    "integrations/master/reference/installed-source-manifest.json": {
+      "bytes": 85408,
+      "sha256": "de88fafb6dfb0724f134ec86311ef9061da4ed305314302ec7d7bb108d58e79e"
+    },
+    "integrations/master/reference/repository-source-manifest.json": {
+      "bytes": 54799,
+      "sha256": "d9d13e7a4543ee98704beb8c1a719cddb32e86a92e312b4b2909b95e8be7d466"
+    },
+    "integrations/master/stella-candidate/dist/assets/app.js": {
+      "bytes": 914181,
+      "sha256": "a527375784a726437259e230ba0fcc6444c0d7547e0d25e5f6d1e888dd7ce2ef"
+    },
+    "integrations/master/stella-candidate/dist/assets/business.svg": {
+      "bytes": 3173283,
+      "sha256": "3833b6805584112b51fd0d744295d8457ebfc9aa074acdab66530f7b4ba3803d"
+    },
+    "integrations/master/stella-candidate/dist/assets/connection.svg": {
+      "bytes": 1423458,
+      "sha256": "8fa6e2fe6c6f3d8d5b18e192caca1ec408bf912f55b250b8e141bd3fe02b25fd"
+    },
+    "integrations/master/stella-candidate/dist/assets/identity.svg": {
+      "bytes": 1107604,
+      "sha256": "ca959186ed4f793e2cfd706c4e343d67f50d2e36d4ad1ecb577bbe963ba9f49e"
+    },
+    "integrations/master/stella-candidate/dist/assets/illustration-0c524dbbe287.png": {
+      "bytes": 320715,
+      "sha256": "ad5d0e4548a44fa52f5aa45686b133a4fa4bc87814b93a1c91a4d371425f3fbb"
+    },
+    "integrations/master/stella-candidate/dist/assets/illustration-15676423b654.png": {
+      "bytes": 845316,
+      "sha256": "1327faa26f0949a8e6743ba3ae3c600f53e26a9bf8e11dd6055364b8ab4edf71"
+    },
+    "integrations/master/stella-candidate/dist/assets/illustration-15902855a698.png": {
+      "bytes": 497416,
+      "sha256": "647d1a8532c103c66617bbdfd70bf427f200f0df93e1cc949008f1d055211674"
+    },
+    "integrations/master/stella-candidate/dist/assets/illustration-935e2d0f1faa.png": {
+      "bytes": 391880,
+      "sha256": "45375664ae6ba614aeea5ad15a24a87683c09199b10a7d3f57422c4880aa78ca"
+    },
+    "integrations/master/stella-candidate/dist/assets/index.css": {
+      "bytes": 34019,
+      "sha256": "7451b7ef3084159aecfafbf24d48576290c547eb38f1c1334dfa3291fe65c5bf"
+    },
+    "integrations/master/stella-candidate/dist/assets/max-primary-white.svg": {
+      "bytes": 78436,
+      "sha256": "0b17b845199235e8cc32b8ead7475abe9f66490a64809e018fa10d3ea866ce8f"
+    },
+    "integrations/master/stella-candidate/dist/assets/max-sans-400.woff2": {
+      "bytes": 18308,
+      "sha256": "16b5a57c3fb0188774b86704addba2d2bbab81457b6d85e835e2227d0c20d02f"
+    },
+    "integrations/master/stella-candidate/dist/assets/max-symbol-color.svg": {
+      "bytes": 75634,
+      "sha256": "f7bcbeb580c12e017f34d3545763085eb09e10adac8a3c13aa926c603563533a"
+    },
+    "integrations/master/stella-candidate/dist/assets/personal.svg": {
+      "bytes": 1409882,
+      "sha256": "9f845666ba4c514711edd7378a4b8a269fc00fb35adf81c0ec3cf585e67ff11c"
+    },
+    "integrations/master/stella-candidate/dist/assets/visibility.svg": {
+      "bytes": 1965409,
+      "sha256": "0514eecaa61f412f9167f189aec579410846d4d58903c79c361edd973c852a57"
+    },
+    "integrations/master/stella-candidate/dist/assets/vk-camera-discovery-border.svg": {
+      "bytes": 19039,
+      "sha256": "9bba02128eee9ba3274f498c4a508c11258f5d73a1f5040e294d512301bd779f"
+    },
+    "integrations/master/stella-candidate/dist/assets/vk-new-drive.svg": {
+      "bytes": 3237918,
+      "sha256": "ed367a74c2af8fac90e626ffa7efccda4eaf744543e7b1d75c94db39c3329d1b"
+    },
+    "integrations/master/stella-candidate/dist/assets/vk-new-familiar.svg": {
+      "bytes": 3775880,
+      "sha256": "6a1e1ddedf676865459daaf202ffdf429aff0f3d4f11f14fe98ea5ce530b4edc"
+    },
+    "integrations/master/stella-candidate/dist/assets/vk-new-hero.svg": {
+      "bytes": 2904483,
+      "sha256": "680c5784d40f4289194393072fe983121ed95c230e4fc475ebae2c72ba614cbb"
+    },
+    "integrations/master/stella-candidate/dist/assets/vk-new-heroes.svg": {
+      "bytes": 2681589,
+      "sha256": "955a5822a314cc3737a5032d74e8d778b61594c9ad2f04947152c2ed6d06b3bb"
+    },
+    "integrations/master/stella-candidate/dist/assets/vk-new-home.svg": {
+      "bytes": 3968255,
+      "sha256": "919922be3f7e7e88a65fa7cf8daaa3d87bf7e77f5eda4d19d069af4895d52477"
+    },
+    "integrations/master/stella-candidate/dist/assets/vk-new-interview.svg": {
+      "bytes": 1811085,
+      "sha256": "80a469eee968d0c79282f8d1688b50795fbd4e104441cf8b1d9c7eff62054e7b"
+    },
+    "integrations/master/stella-candidate/dist/assets/vk-new-learn.svg": {
+      "bytes": 2532394,
+      "sha256": "4ef9e01a800a8d7973067a765a166d6dce4a8a8691abdb4c71df93c30ac8310d"
+    },
+    "integrations/master/stella-candidate/dist/assets/vk-new-new.svg": {
+      "bytes": 2742058,
+      "sha256": "cc108292b2edc02f61282daf5fcd63a8a4635a257d3cc728a2531eec9fdac55f"
+    },
+    "integrations/master/stella-candidate/dist/assets/vk-new-popular.svg": {
+      "bytes": 1277197,
+      "sha256": "5fb814f1a11f4b8343b1318e1469e675ae76fa9a3039fccb319beb87a0af4d81"
+    },
+    "integrations/master/stella-candidate/dist/assets/vk-new-qr.svg": {
+      "bytes": 63325,
+      "sha256": "06f26525b0a1ab5c84b508a3b11a0864563c65e4411918fc93444b946f07a6e3"
+    },
+    "integrations/master/stella-candidate/dist/assets/vk-new-rest.svg": {
+      "bytes": 2335197,
+      "sha256": "b0d4f59c9c35238516612d83e8bb8a2c68f18cd4770f94169c40776f9afe7b79"
+    },
+    "integrations/master/stella-candidate/dist/assets/vk-new-science.svg": {
+      "bytes": 686119,
+      "sha256": "ef8ec2d703995bcf3cfe582b07c4860ddfcc9fae0ff972f53a79dd84716d7211"
+    },
+    "integrations/master/stella-candidate/dist/assets/vk-new-series.svg": {
+      "bytes": 1141758,
+      "sha256": "bc0018b966ad0b571fd5bca17edfcacb7dc2428765aff7b3e30070786feaa686"
+    },
+    "integrations/master/stella-candidate/dist/assets/vk-new-silhouette.svg": {
+      "bytes": 1155995,
+      "sha256": "4a3581c597d1abaf1773affa9c599034e9860d6d6467525b71a3fe8964f1e520"
+    },
+    "integrations/master/stella-candidate/dist/assets/vk-new-standup.svg": {
+      "bytes": 836820,
+      "sha256": "c5d1ba8fe48e5db8a7e317481254a356d97fe775e0fce207875f620a7db5bf8e"
+    },
+    "integrations/master/stella-candidate/dist/assets/vk-sans-display-bold.ttf": {
+      "bytes": 32816,
+      "sha256": "6642aaa8d21e1987776e64d93879d32b6e23a20a361cb51ffabcf2738299f95a"
+    },
+    "integrations/master/stella-candidate/dist/assets/vk-sans-display-demibold.ttf": {
+      "bytes": 33000,
+      "sha256": "fbc525a6b4fff40d9819c42ce03292fb5af55212fa7bca2d76a1f5492494e03f"
+    },
+    "integrations/master/stella-candidate/dist/assets/vk-sans-display-regular.ttf": {
+      "bytes": 33072,
+      "sha256": "0cb5ec75fedd6c6dc9d670f2b4b0ce0923df235086fa7d1c0a35e656ded979be"
+    },
+    "integrations/master/stella-candidate/dist/assets/vk-sans-text-demibold.ttf": {
+      "bytes": 90196,
+      "sha256": "05a9076c381adb7f396e759d8b95cb4bfd9432c14437a347bb34cb0a5b2084a6"
+    },
+    "integrations/master/stella-candidate/dist/assets/vk-sans-text-medium.ttf": {
+      "bytes": 90084,
+      "sha256": "dc3e1b8cb1e3411bdd303ab65f48acaca6e8b4ae6d9c2f4c27e34b4ae6940259"
+    },
+    "integrations/master/stella-candidate/dist/assets/vk-sans-text-regular.ttf": {
+      "bytes": 90116,
+      "sha256": "97ce056e8ece47119f24ef1f34932fb5a0a395a55fb85b4f3cd547a51aba7f14"
+    },
+    "integrations/master/stella-candidate/dist/assets/vk-video-mono-white.svg": {
+      "bytes": 4508,
+      "sha256": "3db1eacf4de4fdadb267edfc960c68c6736cc13024abf2ed986a94bff1db84f4"
+    },
+    "integrations/master/stella-candidate/dist/audio/vk-production-v1/AmbienceMain.wav": {
+      "bytes": 16588880,
+      "sha256": "7cf0a8372950283729161cfe3b20a3abc47e63a9237641d2edad6667d4493509"
+    },
+    "integrations/master/stella-candidate/dist/audio/vk-production-v1/central-catalogue.candidate.json": {
+      "bytes": 10967,
+      "sha256": "bed7c4aa56a93d1fa0ffe4a1cfb38f372d18e8c2f5fc73a3152af6c5b2b13cea"
+    },
+    "integrations/master/stella-candidate/dist/audio/vk-production-v1/ChangeScreen.wav": {
+      "bytes": 691280,
+      "sha256": "a019a3fc6711ddcc29262739842bcc38d7d7da7eb80727811250fbd896c79e44"
+    },
+    "integrations/master/stella-candidate/dist/audio/vk-production-v1/ChangeScreen2.wav": {
+      "bytes": 691280,
+      "sha256": "0ad48f62f86c86b6419aba0056a82fac67527335ccae99505211450e8dc26714"
+    },
+    "integrations/master/stella-candidate/dist/audio/vk-production-v1/ChangeScreen3.wav": {
+      "bytes": 1209680,
+      "sha256": "7dda0d6b4c6f67ec9919506bcc33b7bf1ef0fa6ecb05e19d3392e3155b57100c"
+    },
+    "integrations/master/stella-candidate/dist/audio/vk-production-v1/ChangeScreen4.wav": {
+      "bytes": 1209680,
+      "sha256": "5b39aeb87c9cff5f1f3ee632fea4ca0ab924488b2925ec4059348a19c7f310ca"
+    },
+    "integrations/master/stella-candidate/dist/audio/vk-production-v1/ChangeScreen5.wav": {
+      "bytes": 864080,
+      "sha256": "bfaeecd3968da1506b690626e286c7253fc03a2c3aedb3e315e7150eb7fff4a1"
+    },
+    "integrations/master/stella-candidate/dist/audio/vk-production-v1/Click.wav": {
+      "bytes": 172880,
+      "sha256": "b0c51d24bffa6cb2446f32757587e71108d6320f063c06f069f9d248a2848252"
+    },
+    "integrations/master/stella-candidate/dist/audio/vk-production-v1/manifest.json": {
+      "bytes": 7688,
+      "sha256": "c6f73ec7202297584d62cc2695f8a7cfb46f8fdc8b7b040874568733d6de6c7b"
+    },
+    "integrations/master/stella-candidate/dist/audio/vk-production-v1/README.md": {
+      "bytes": 3760,
+      "sha256": "c1057f087d9ec3a32fab1e7af1bed428b2990713e4b273cf0eaad4d7aec48c8c"
+    },
+    "integrations/master/stella-candidate/dist/audio/vk-production-v1/Scan.wav": {
+      "bytes": 6220880,
+      "sha256": "de719ef299dfd589a12b6de877fb1aa078167a63c826e7e00bc298419b22aa18"
+    },
+    "integrations/master/stella-candidate/dist/audio/vk-production-v1/ScanEnd1.wav": {
+      "bytes": 432080,
+      "sha256": "e2fa8ba655601b19155a5ed702ba6935f74138f74f8c76506f31b7bac52e1745"
+    },
+    "integrations/master/stella-candidate/dist/audio/vk-production-v1/ScanEnd2.wav": {
+      "bytes": 432080,
+      "sha256": "e8499f9589391e4289ab112960c2d0f7b706acdeee4f4d5059f47013c676378b"
+    },
+    "integrations/master/stella-candidate/dist/audio/vk-production-v1/ScanStart1.wav": {
+      "bytes": 691280,
+      "sha256": "2971ae5a7b80db39bed0e82c712a2d8d80e22efbfd30449f0b80a8692a2db889"
+    },
+    "integrations/master/stella-candidate/dist/audio/vk-production-v1/ScanStart2.wav": {
+      "bytes": 583280,
+      "sha256": "f7996ca83d05475a4885e8f2a00dc86c8990e3deec4e678d1fc0b0ede9fbe129"
+    },
+    "integrations/master/stella-candidate/dist/audio/vk-production-v1/Screen1.wav": {
+      "bytes": 2553518,
+      "sha256": "2d4c953cead1b98a1411faf3f766d76f52a40c78f4f56c0f731f52a320469249"
+    },
+    "integrations/master/stella-candidate/dist/audio/vk-production-v1/Screen2.wav": {
+      "bytes": 2152102,
+      "sha256": "ebb31994562fd38762f294dd34cc63d6d7b39a0e2bfefbcde0671ad2abe7b6fb"
+    },
+    "integrations/master/stella-candidate/dist/audio/vk-production-v1/Screen3.wav": {
+      "bytes": 249678,
+      "sha256": "bce2390d4ece1d1bbd00b48f6cd863a5bc3ddfa3a674c9ce8d6be64506312d00"
+    },
+    "integrations/master/stella-candidate/dist/audio/vk-production-v1/Screen4.wav": {
+      "bytes": 2604332,
+      "sha256": "02f7fb031506fce6921964941cfc4b11cf119f3cea8ed16d54e2b718d983d65b"
+    },
+    "integrations/master/stella-candidate/dist/audio/vk-production-v1/Screen5.wav": {
+      "bytes": 2349238,
+      "sha256": "7390adab0bae900c113ec5bcd9bf2d9c1233e581178a0dcef75787485ee5b0e0"
+    },
+    "integrations/master/stella-candidate/dist/audio/vk-production-v1/Screen6.wav": {
+      "bytes": 429012,
+      "sha256": "93a0a7c12e3c1d0f3c3e0e65de7d399ad7a956d6c60f4a28ebbf96ece4411488"
+    },
+    "integrations/master/stella-candidate/dist/audio/vk-production-v1/Screen7.wav": {
+      "bytes": 1194272,
+      "sha256": "5b47fecca5313665cdd7a34e392a082b66104b345f8b50f9474d38bb2dfe0a4d"
+    },
+    "integrations/master/stella-candidate/dist/audio/vk-production-v1/Screen8.wav": {
+      "bytes": 3296594,
+      "sha256": "0f8571cdf9509b95c8f6cdee2424b410518eb2092be6e2039303f73aa3d6866d"
+    },
+    "integrations/master/stella-candidate/dist/audio/vk-production-v1/Tags.wav": {
+      "bytes": 1292342,
+      "sha256": "4952db05acd4a687695d9b0c5db9018032df439d2d0da5dbe8b20cb3d9809471"
+    },
+    "integrations/master/stella-candidate/dist/build-manifest.json": {
+      "bytes": 15466,
+      "sha256": "493dfdde595641aa029f19f0b9814ce9dfd1ef2321718a164b43fac74a2d6bce"
+    },
+    "integrations/master/stella-candidate/dist/index.html": {
+      "bytes": 483,
+      "sha256": "7ddeab16156b3b1fa4c3d923f70f21c4dea4e74cf5799f249fea6e59ae7999d8"
+    },
+    "integrations/master/stella-candidate/dist/LICENSE-howler.txt": {
+      "bytes": 1088,
+      "sha256": "0ad5aef7beeb552832fe01db1c46933f948dfe5da35017bd0efa0006ffd2ced9"
+    },
+    "integrations/master/stella-candidate/dist/LICENSE-qrcode-generator.txt": {
+      "bytes": 1071,
+      "sha256": "3a850fa5f08101db6f40676c2786e10bd2cd5fff7b12ffdf1e0c434d4e49d90c"
+    },
+    "integrations/master/stella-candidate/dist/sound/stella/manifest.json": {
+      "bytes": 485,
+      "sha256": "14c495b91e0997f877f7bc975065530f0148e9da3e77e9f8fcd09e767eba8887"
+    },
+    "integrations/master/stella-candidate/dist/sound/stella/README.md": {
+      "bytes": 2793,
+      "sha256": "923c073720622c14126b15010a503d6d1eec4365f06258bbaaeeb9a783ded855"
+    },
+    "integrations/master/stella-candidate/dist/sound/stella/sound-source-manifest.json": {
+      "bytes": 5765,
+      "sha256": "b02e73172721d2ffb8e3040d0b4d45df7e43b7e4b8e0e997bfba03f93a029f5f"
+    },
+    "integrations/master/stella-candidate/dist/sound/stella/stella_ambience_loop_main.wav": {
+      "bytes": 16588880,
+      "sha256": "7cf0a8372950283729161cfe3b20a3abc47e63a9237641d2edad6667d4493509"
+    },
+    "integrations/master/stella-candidate/dist/sound/stella/stella_ambience_loop_scan.wav": {
+      "bytes": 6220880,
+      "sha256": "de719ef299dfd589a12b6de877fb1aa078167a63c826e7e00bc298419b22aa18"
+    },
+    "integrations/master/stella-candidate/dist/sound/stella/stella_button_click.wav": {
+      "bytes": 172880,
+      "sha256": "b0c51d24bffa6cb2446f32757587e71108d6320f063c06f069f9d248a2848252"
+    },
+    "integrations/master/stella-candidate/dist/sound/stella/stella_scan_end_1.wav": {
+      "bytes": 432080,
+      "sha256": "e2fa8ba655601b19155a5ed702ba6935f74138f74f8c76506f31b7bac52e1745"
+    },
+    "integrations/master/stella-candidate/dist/sound/stella/stella_scan_end_2.wav": {
+      "bytes": 432080,
+      "sha256": "e8499f9589391e4289ab112960c2d0f7b706acdeee4f4d5059f47013c676378b"
+    },
+    "integrations/master/stella-candidate/dist/sound/stella/stella_scan_start_1.wav": {
+      "bytes": 691280,
+      "sha256": "2971ae5a7b80db39bed0e82c712a2d8d80e22efbfd30449f0b80a8692a2db889"
+    },
+    "integrations/master/stella-candidate/dist/sound/stella/stella_scan_start_2.wav": {
+      "bytes": 583280,
+      "sha256": "f7996ca83d05475a4885e8f2a00dc86c8990e3deec4e678d1fc0b0ede9fbe129"
+    },
+    "integrations/master/stella-candidate/dist/sound/stella/stella_transition_1.wav": {
+      "bytes": 691280,
+      "sha256": "a019a3fc6711ddcc29262739842bcc38d7d7da7eb80727811250fbd896c79e44"
+    },
+    "integrations/master/stella-candidate/dist/sound/stella/stella_transition_2.wav": {
+      "bytes": 691280,
+      "sha256": "0ad48f62f86c86b6419aba0056a82fac67527335ccae99505211450e8dc26714"
+    },
+    "integrations/master/stella-candidate/dist/sound/stella/stella_transition_3.wav": {
+      "bytes": 1209680,
+      "sha256": "7dda0d6b4c6f67ec9919506bcc33b7bf1ef0fa6ecb05e19d3392e3155b57100c"
+    },
+    "integrations/master/stella-candidate/dist/sound/stella/stella_transition_4.wav": {
+      "bytes": 1209680,
+      "sha256": "5b39aeb87c9cff5f1f3ee632fea4ca0ab924488b2925ec4059348a19c7f310ca"
+    },
+    "integrations/master/stella-candidate/dist/sound/stella/stella_transition_5.wav": {
+      "bytes": 864080,
+      "sha256": "bfaeecd3968da1506b690626e286c7253fc03a2c3aedb3e315e7150eb7fff4a1"
+    },
+    "integrations/master/stella-candidate/dist/third-party-motion-notices.txt": {
+      "bytes": 5392,
+      "sha256": "ca3c927c5a74ad6285e77a0e68ca8805f28f2e8d34ee9c915b77f4196f56ff5e"
+    },
+    "integrations/master/stella-candidate/dist/voice/vasilisa/home.wav": {
+      "bytes": 437838,
+      "sha256": "c9514a8c0779e6520000b9f4e7bf69ba5177b917e712e0af70e035dd9f9c565c"
+    },
+    "integrations/master/stella-candidate/dist/voice/vasilisa/manifest.json": {
+      "bytes": 1022,
+      "sha256": "e316b71aa4c420c64c8ff1cf5a48de0519125ef9195ad9ab1b3b823c8b91eb6e"
+    },
+    "integrations/master/stella-candidate/dist/voice/vasilisa/max-audience.wav": {
+      "bytes": 215118,
+      "sha256": "8680f167401ba34ec19b70a8617e83fe8964d95be2f7181c0551baa2dcda8b50"
+    },
+    "integrations/master/stella-candidate/dist/voice/vasilisa/max-goal.wav": {
+      "bytes": 211278,
+      "sha256": "66d6438e7c3d472b46872d94a3a4749d0566cc1248abfa2dcc5e6f822c026327"
+    },
+    "integrations/master/stella-candidate/dist/voice/vasilisa/max-onboarding.wav": {
+      "bytes": 380238,
+      "sha256": "d79c9c657aa5185e9a9b18a3e3b12229eee2d98a28ef52efe7c8d7900699cfb2"
+    },
+    "integrations/master/stella-candidate/dist/voice/vasilisa/max-result-blogger.wav": {
+      "bytes": 268878,
+      "sha256": "7b66456254341d84a6428d96dea80a451f561e61d1907ed3558299f284d5d293"
+    },
+    "integrations/master/stella-candidate/dist/voice/vasilisa/max-result-business-promotion.wav": {
+      "bytes": 284238,
+      "sha256": "88d882356056643ec3a9602158d33953f155b5d1dfd290fc76430d28377290f8"
+    },
+    "integrations/master/stella-candidate/dist/voice/vasilisa/max-result-communication.wav": {
+      "bytes": 295758,
+      "sha256": "fc75e78ed60bc904024d0cd6b18206d4e5a493e259b6545cf7c175be38321325"
+    },
+    "integrations/master/stella-candidate/dist/voice/vasilisa/max-result-digital-id.wav": {
+      "bytes": 337998,
+      "sha256": "152b430a411add863fcbd03298b864172528b19f9f6abe79fd692861e23faf9c"
+    },
+    "integrations/master/stella-candidate/dist/voice/vasilisa/vk-camera.wav": {
+      "bytes": 76372,
+      "sha256": "f4b8efe3989a8f50f3738ec15de07f735e0f66da406d4d5cf0440d49dfec9e28"
+    },
+    "integrations/master/stella-candidate/dist/voice/vasilisa/vk-digitize.wav": {
+      "bytes": 476238,
+      "sha256": "5e0b474ea5dd85baa1603a1e9d471def0a09394ede6a68dba8ae02a3c0ac042c"
+    },
+    "integrations/master/stella-candidate/dist/voice/vasilisa/vk-discovery-activation-studio.wav": {
+      "bytes": 1194272,
+      "sha256": "5b47fecca5313665cdd7a34e392a082b66104b345f8b50f9474d38bb2dfe0a4d"
+    },
+    "integrations/master/stella-candidate/dist/voice/vasilisa/vk-discovery-activation.wav": {
+      "bytes": 149838,
+      "sha256": "5c212a528bab5c077ffb8cb06b7179666a21b35558f4901b295691f14ba2cbc2"
+    },
+    "integrations/master/stella-candidate/dist/voice/vasilisa/vk-final.wav": {
+      "bytes": 441678,
+      "sha256": "472f0e8bbf5837da7edf762600fcc18f6985c19cd89b3715db34c555b7fdcabe"
+    },
+    "integrations/master/stella-candidate/dist/voice/vasilisa/vk-gender.wav": {
+      "bytes": 169038,
+      "sha256": "7bcf54aa350089b705b867b7897f3623738163228989266070cc037f82e9e3e2"
+    },
+    "integrations/master/stella-candidate/dist/voice/vasilisa/vk-onboarding.wav": {
+      "bytes": 407118,
+      "sha256": "a55331601087365b8b7ee0c9dee11b1eb459e782a5a712555aba82b58920c607"
+    },
+    "integrations/master/stella-candidate/dist/voice/vasilisa/vk-particles.wav": {
+      "bytes": 199758,
+      "sha256": "cc7bdc2d0b0641a6d0cac962b705590dcc0dba69aba67ca745303bafd54ae7b0"
+    },
+    "integrations/master/stella-candidate/dist/voice/vasilisa/vk-question-discovery.wav": {
+      "bytes": 330318,
+      "sha256": "5c2062bcd64abd04a0d6ce4ee1eec3197d3d7b02c91ef1339fb0b6e76d8ba59a"
+    },
+    "integrations/master/stella-candidate/dist/voice/vasilisa/vk-question-evening.wav": {
+      "bytes": 261198,
+      "sha256": "b03d3d7c5a00099e0349004b72b1da8b75865ba78e82a270d6d6bb482c6b9257"
+    },
+    "integrations/master/stella-candidate/dist/voice/vasilisa/vk-question-ideal-content.wav": {
+      "bytes": 249678,
+      "sha256": "bce2390d4ece1d1bbd00b48f6cd863a5bc3ddfa3a674c9ce8d6be64506312d00"
+    },
+    "integrations/master/stella-candidate/dist/voice/vasilisa/vk-scanning.wav": {
+      "bytes": 126500,
+      "sha256": "554edd6fce293a097a2d089581830bc9a0bdca591a44207b1fb895cfc67a10c9"
+    },
+    "integrations/master/stella-candidate/eslint.config.js": {
+      "bytes": 774,
+      "sha256": "a176049666fc16f02d26c001ef41bd40c43bf7941e7561bb6b52ec7cfaefb731"
+    },
+    "integrations/master/stella-candidate/index.html": {
+      "bytes": 391,
+      "sha256": "1c9fa1fc425258ec12ca4dd4740aecbaa4b532e369ea464983eb5fdc2990a505"
+    },
+    "integrations/master/stella-candidate/package-lock.json": {
+      "bytes": 132896,
+      "sha256": "55177cc773670d8ac754e9ec43fa5e789ea2200c648181b8092eaf0b579089b6"
+    },
+    "integrations/master/stella-candidate/package.json": {
+      "bytes": 1032,
+      "sha256": "f65079fba4c9ab411e11b72ba76ef0e2201936043b8552fa75e3a4a3f1146b79"
+    },
+    "integrations/master/stella-candidate/preload-baseline-source.json": {
+      "bytes": 81425,
+      "sha256": "11b5c27402e2fab5844b86582b349c36c1b747e1617c80471402bb06605b68f5"
+    },
+    "integrations/master/stella-candidate/public/audio/vk-production-v1/AmbienceMain.wav": {
+      "bytes": 16588880,
+      "sha256": "7cf0a8372950283729161cfe3b20a3abc47e63a9237641d2edad6667d4493509"
+    },
+    "integrations/master/stella-candidate/public/audio/vk-production-v1/central-catalogue.candidate.json": {
+      "bytes": 10967,
+      "sha256": "bed7c4aa56a93d1fa0ffe4a1cfb38f372d18e8c2f5fc73a3152af6c5b2b13cea"
+    },
+    "integrations/master/stella-candidate/public/audio/vk-production-v1/ChangeScreen.wav": {
+      "bytes": 691280,
+      "sha256": "a019a3fc6711ddcc29262739842bcc38d7d7da7eb80727811250fbd896c79e44"
+    },
+    "integrations/master/stella-candidate/public/audio/vk-production-v1/ChangeScreen2.wav": {
+      "bytes": 691280,
+      "sha256": "0ad48f62f86c86b6419aba0056a82fac67527335ccae99505211450e8dc26714"
+    },
+    "integrations/master/stella-candidate/public/audio/vk-production-v1/ChangeScreen3.wav": {
+      "bytes": 1209680,
+      "sha256": "7dda0d6b4c6f67ec9919506bcc33b7bf1ef0fa6ecb05e19d3392e3155b57100c"
+    },
+    "integrations/master/stella-candidate/public/audio/vk-production-v1/ChangeScreen4.wav": {
+      "bytes": 1209680,
+      "sha256": "5b39aeb87c9cff5f1f3ee632fea4ca0ab924488b2925ec4059348a19c7f310ca"
+    },
+    "integrations/master/stella-candidate/public/audio/vk-production-v1/ChangeScreen5.wav": {
+      "bytes": 864080,
+      "sha256": "bfaeecd3968da1506b690626e286c7253fc03a2c3aedb3e315e7150eb7fff4a1"
+    },
+    "integrations/master/stella-candidate/public/audio/vk-production-v1/Click.wav": {
+      "bytes": 172880,
+      "sha256": "b0c51d24bffa6cb2446f32757587e71108d6320f063c06f069f9d248a2848252"
+    },
+    "integrations/master/stella-candidate/public/audio/vk-production-v1/manifest.json": {
+      "bytes": 7688,
+      "sha256": "c6f73ec7202297584d62cc2695f8a7cfb46f8fdc8b7b040874568733d6de6c7b"
+    },
+    "integrations/master/stella-candidate/public/audio/vk-production-v1/README.md": {
+      "bytes": 3760,
+      "sha256": "c1057f087d9ec3a32fab1e7af1bed428b2990713e4b273cf0eaad4d7aec48c8c"
+    },
+    "integrations/master/stella-candidate/public/audio/vk-production-v1/Scan.wav": {
+      "bytes": 6220880,
+      "sha256": "de719ef299dfd589a12b6de877fb1aa078167a63c826e7e00bc298419b22aa18"
+    },
+    "integrations/master/stella-candidate/public/audio/vk-production-v1/ScanEnd1.wav": {
+      "bytes": 432080,
+      "sha256": "e2fa8ba655601b19155a5ed702ba6935f74138f74f8c76506f31b7bac52e1745"
+    },
+    "integrations/master/stella-candidate/public/audio/vk-production-v1/ScanEnd2.wav": {
+      "bytes": 432080,
+      "sha256": "e8499f9589391e4289ab112960c2d0f7b706acdeee4f4d5059f47013c676378b"
+    },
+    "integrations/master/stella-candidate/public/audio/vk-production-v1/ScanStart1.wav": {
+      "bytes": 691280,
+      "sha256": "2971ae5a7b80db39bed0e82c712a2d8d80e22efbfd30449f0b80a8692a2db889"
+    },
+    "integrations/master/stella-candidate/public/audio/vk-production-v1/ScanStart2.wav": {
+      "bytes": 583280,
+      "sha256": "f7996ca83d05475a4885e8f2a00dc86c8990e3deec4e678d1fc0b0ede9fbe129"
+    },
+    "integrations/master/stella-candidate/public/audio/vk-production-v1/Screen1.wav": {
+      "bytes": 2553518,
+      "sha256": "2d4c953cead1b98a1411faf3f766d76f52a40c78f4f56c0f731f52a320469249"
+    },
+    "integrations/master/stella-candidate/public/audio/vk-production-v1/Screen2.wav": {
+      "bytes": 2152102,
+      "sha256": "ebb31994562fd38762f294dd34cc63d6d7b39a0e2bfefbcde0671ad2abe7b6fb"
+    },
+    "integrations/master/stella-candidate/public/audio/vk-production-v1/Screen3.wav": {
+      "bytes": 249678,
+      "sha256": "bce2390d4ece1d1bbd00b48f6cd863a5bc3ddfa3a674c9ce8d6be64506312d00"
+    },
+    "integrations/master/stella-candidate/public/audio/vk-production-v1/Screen4.wav": {
+      "bytes": 2604332,
+      "sha256": "02f7fb031506fce6921964941cfc4b11cf119f3cea8ed16d54e2b718d983d65b"
+    },
+    "integrations/master/stella-candidate/public/audio/vk-production-v1/Screen5.wav": {
+      "bytes": 2349238,
+      "sha256": "7390adab0bae900c113ec5bcd9bf2d9c1233e581178a0dcef75787485ee5b0e0"
+    },
+    "integrations/master/stella-candidate/public/audio/vk-production-v1/Screen6.wav": {
+      "bytes": 429012,
+      "sha256": "93a0a7c12e3c1d0f3c3e0e65de7d399ad7a956d6c60f4a28ebbf96ece4411488"
+    },
+    "integrations/master/stella-candidate/public/audio/vk-production-v1/Screen7.wav": {
+      "bytes": 1194272,
+      "sha256": "5b47fecca5313665cdd7a34e392a082b66104b345f8b50f9474d38bb2dfe0a4d"
+    },
+    "integrations/master/stella-candidate/public/audio/vk-production-v1/Screen8.wav": {
+      "bytes": 3296594,
+      "sha256": "0f8571cdf9509b95c8f6cdee2424b410518eb2092be6e2039303f73aa3d6866d"
+    },
+    "integrations/master/stella-candidate/public/audio/vk-production-v1/Tags.wav": {
+      "bytes": 1292342,
+      "sha256": "4952db05acd4a687695d9b0c5db9018032df439d2d0da5dbe8b20cb3d9809471"
+    },
+    "integrations/master/stella-candidate/public/LICENSE-howler.txt": {
+      "bytes": 1088,
+      "sha256": "0ad5aef7beeb552832fe01db1c46933f948dfe5da35017bd0efa0006ffd2ced9"
+    },
+    "integrations/master/stella-candidate/public/LICENSE-qrcode-generator.txt": {
+      "bytes": 1071,
+      "sha256": "3a850fa5f08101db6f40676c2786e10bd2cd5fff7b12ffdf1e0c434d4e49d90c"
+    },
+    "integrations/master/stella-candidate/public/sound/stella/manifest.json": {
+      "bytes": 485,
+      "sha256": "14c495b91e0997f877f7bc975065530f0148e9da3e77e9f8fcd09e767eba8887"
+    },
+    "integrations/master/stella-candidate/public/sound/stella/README.md": {
+      "bytes": 2793,
+      "sha256": "923c073720622c14126b15010a503d6d1eec4365f06258bbaaeeb9a783ded855"
+    },
+    "integrations/master/stella-candidate/public/sound/stella/sound-source-manifest.json": {
+      "bytes": 5765,
+      "sha256": "b02e73172721d2ffb8e3040d0b4d45df7e43b7e4b8e0e997bfba03f93a029f5f"
+    },
+    "integrations/master/stella-candidate/public/sound/stella/stella_ambience_loop_main.wav": {
+      "bytes": 16588880,
+      "sha256": "7cf0a8372950283729161cfe3b20a3abc47e63a9237641d2edad6667d4493509"
+    },
+    "integrations/master/stella-candidate/public/sound/stella/stella_ambience_loop_scan.wav": {
+      "bytes": 6220880,
+      "sha256": "de719ef299dfd589a12b6de877fb1aa078167a63c826e7e00bc298419b22aa18"
+    },
+    "integrations/master/stella-candidate/public/sound/stella/stella_button_click.wav": {
+      "bytes": 172880,
+      "sha256": "b0c51d24bffa6cb2446f32757587e71108d6320f063c06f069f9d248a2848252"
+    },
+    "integrations/master/stella-candidate/public/sound/stella/stella_scan_end_1.wav": {
+      "bytes": 432080,
+      "sha256": "e2fa8ba655601b19155a5ed702ba6935f74138f74f8c76506f31b7bac52e1745"
+    },
+    "integrations/master/stella-candidate/public/sound/stella/stella_scan_end_2.wav": {
+      "bytes": 432080,
+      "sha256": "e8499f9589391e4289ab112960c2d0f7b706acdeee4f4d5059f47013c676378b"
+    },
+    "integrations/master/stella-candidate/public/sound/stella/stella_scan_start_1.wav": {
+      "bytes": 691280,
+      "sha256": "2971ae5a7b80db39bed0e82c712a2d8d80e22efbfd30449f0b80a8692a2db889"
+    },
+    "integrations/master/stella-candidate/public/sound/stella/stella_scan_start_2.wav": {
+      "bytes": 583280,
+      "sha256": "f7996ca83d05475a4885e8f2a00dc86c8990e3deec4e678d1fc0b0ede9fbe129"
+    },
+    "integrations/master/stella-candidate/public/sound/stella/stella_transition_1.wav": {
+      "bytes": 691280,
+      "sha256": "a019a3fc6711ddcc29262739842bcc38d7d7da7eb80727811250fbd896c79e44"
+    },
+    "integrations/master/stella-candidate/public/sound/stella/stella_transition_2.wav": {
+      "bytes": 691280,
+      "sha256": "0ad48f62f86c86b6419aba0056a82fac67527335ccae99505211450e8dc26714"
+    },
+    "integrations/master/stella-candidate/public/sound/stella/stella_transition_3.wav": {
+      "bytes": 1209680,
+      "sha256": "7dda0d6b4c6f67ec9919506bcc33b7bf1ef0fa6ecb05e19d3392e3155b57100c"
+    },
+    "integrations/master/stella-candidate/public/sound/stella/stella_transition_4.wav": {
+      "bytes": 1209680,
+      "sha256": "5b39aeb87c9cff5f1f3ee632fea4ca0ab924488b2925ec4059348a19c7f310ca"
+    },
+    "integrations/master/stella-candidate/public/sound/stella/stella_transition_5.wav": {
+      "bytes": 864080,
+      "sha256": "bfaeecd3968da1506b690626e286c7253fc03a2c3aedb3e315e7150eb7fff4a1"
+    },
+    "integrations/master/stella-candidate/public/third-party-motion-notices.txt": {
+      "bytes": 5392,
+      "sha256": "ca3c927c5a74ad6285e77a0e68ca8805f28f2e8d34ee9c915b77f4196f56ff5e"
+    },
+    "integrations/master/stella-candidate/public/voice/vasilisa/home.wav": {
+      "bytes": 437838,
+      "sha256": "c9514a8c0779e6520000b9f4e7bf69ba5177b917e712e0af70e035dd9f9c565c"
+    },
+    "integrations/master/stella-candidate/public/voice/vasilisa/manifest.json": {
+      "bytes": 1022,
+      "sha256": "e316b71aa4c420c64c8ff1cf5a48de0519125ef9195ad9ab1b3b823c8b91eb6e"
+    },
+    "integrations/master/stella-candidate/public/voice/vasilisa/max-audience.wav": {
+      "bytes": 215118,
+      "sha256": "8680f167401ba34ec19b70a8617e83fe8964d95be2f7181c0551baa2dcda8b50"
+    },
+    "integrations/master/stella-candidate/public/voice/vasilisa/max-goal.wav": {
+      "bytes": 211278,
+      "sha256": "66d6438e7c3d472b46872d94a3a4749d0566cc1248abfa2dcc5e6f822c026327"
+    },
+    "integrations/master/stella-candidate/public/voice/vasilisa/max-onboarding.wav": {
+      "bytes": 380238,
+      "sha256": "d79c9c657aa5185e9a9b18a3e3b12229eee2d98a28ef52efe7c8d7900699cfb2"
+    },
+    "integrations/master/stella-candidate/public/voice/vasilisa/max-result-blogger.wav": {
+      "bytes": 268878,
+      "sha256": "7b66456254341d84a6428d96dea80a451f561e61d1907ed3558299f284d5d293"
+    },
+    "integrations/master/stella-candidate/public/voice/vasilisa/max-result-business-promotion.wav": {
+      "bytes": 284238,
+      "sha256": "88d882356056643ec3a9602158d33953f155b5d1dfd290fc76430d28377290f8"
+    },
+    "integrations/master/stella-candidate/public/voice/vasilisa/max-result-communication.wav": {
+      "bytes": 295758,
+      "sha256": "fc75e78ed60bc904024d0cd6b18206d4e5a493e259b6545cf7c175be38321325"
+    },
+    "integrations/master/stella-candidate/public/voice/vasilisa/max-result-digital-id.wav": {
+      "bytes": 337998,
+      "sha256": "152b430a411add863fcbd03298b864172528b19f9f6abe79fd692861e23faf9c"
+    },
+    "integrations/master/stella-candidate/public/voice/vasilisa/vk-camera.wav": {
+      "bytes": 76372,
+      "sha256": "f4b8efe3989a8f50f3738ec15de07f735e0f66da406d4d5cf0440d49dfec9e28"
+    },
+    "integrations/master/stella-candidate/public/voice/vasilisa/vk-digitize.wav": {
+      "bytes": 476238,
+      "sha256": "5e0b474ea5dd85baa1603a1e9d471def0a09394ede6a68dba8ae02a3c0ac042c"
+    },
+    "integrations/master/stella-candidate/public/voice/vasilisa/vk-discovery-activation-studio.wav": {
+      "bytes": 1194272,
+      "sha256": "5b47fecca5313665cdd7a34e392a082b66104b345f8b50f9474d38bb2dfe0a4d"
+    },
+    "integrations/master/stella-candidate/public/voice/vasilisa/vk-discovery-activation.wav": {
+      "bytes": 149838,
+      "sha256": "5c212a528bab5c077ffb8cb06b7179666a21b35558f4901b295691f14ba2cbc2"
+    },
+    "integrations/master/stella-candidate/public/voice/vasilisa/vk-final.wav": {
+      "bytes": 441678,
+      "sha256": "472f0e8bbf5837da7edf762600fcc18f6985c19cd89b3715db34c555b7fdcabe"
+    },
+    "integrations/master/stella-candidate/public/voice/vasilisa/vk-gender.wav": {
+      "bytes": 169038,
+      "sha256": "7bcf54aa350089b705b867b7897f3623738163228989266070cc037f82e9e3e2"
+    },
+    "integrations/master/stella-candidate/public/voice/vasilisa/vk-onboarding.wav": {
+      "bytes": 407118,
+      "sha256": "a55331601087365b8b7ee0c9dee11b1eb459e782a5a712555aba82b58920c607"
+    },
+    "integrations/master/stella-candidate/public/voice/vasilisa/vk-particles.wav": {
+      "bytes": 199758,
+      "sha256": "cc7bdc2d0b0641a6d0cac962b705590dcc0dba69aba67ca745303bafd54ae7b0"
+    },
+    "integrations/master/stella-candidate/public/voice/vasilisa/vk-question-discovery.wav": {
+      "bytes": 330318,
+      "sha256": "5c2062bcd64abd04a0d6ce4ee1eec3197d3d7b02c91ef1339fb0b6e76d8ba59a"
+    },
+    "integrations/master/stella-candidate/public/voice/vasilisa/vk-question-evening.wav": {
+      "bytes": 261198,
+      "sha256": "b03d3d7c5a00099e0349004b72b1da8b75865ba78e82a270d6d6bb482c6b9257"
+    },
+    "integrations/master/stella-candidate/public/voice/vasilisa/vk-question-ideal-content.wav": {
+      "bytes": 249678,
+      "sha256": "bce2390d4ece1d1bbd00b48f6cd863a5bc3ddfa3a674c9ce8d6be64506312d00"
+    },
+    "integrations/master/stella-candidate/public/voice/vasilisa/vk-scanning.wav": {
+      "bytes": 126500,
+      "sha256": "554edd6fce293a097a2d089581830bc9a0bdca591a44207b1fb895cfc67a10c9"
+    },
+    "integrations/master/stella-candidate/src/app/App.camera.test.tsx": {
+      "bytes": 3602,
+      "sha256": "f0a050bbe47877507e213859531dc1d47ecf5fdaa3713ba00ca1845c43c842c6"
+    },
+    "integrations/master/stella-candidate/src/app/App.tsx": {
+      "bytes": 456,
+      "sha256": "60f973b15bd4740b565f034cb4466440426933b994f04315eb6ebd5daff08203"
+    },
+    "integrations/master/stella-candidate/src/app/content-assets.ts": {
+      "bytes": 1589,
+      "sha256": "216e46944c02ec6806ac3939528fe8b2143eaa5d90223da09a33500a09a59518"
+    },
+    "integrations/master/stella-candidate/src/app/content-ready.css": {
+      "bytes": 605,
+      "sha256": "3a754e1df962c18fc4e0497c41cb88e5d115815f73f5364cc2f0ee9a5c3ada92"
+    },
+    "integrations/master/stella-candidate/src/app/ContentReady.test.tsx": {
+      "bytes": 3526,
+      "sha256": "ad4bcdf2fd53990adf1d66fee1d673d819fb5e541644d2267ed5d3b15e3b743a"
+    },
+    "integrations/master/stella-candidate/src/app/ContentReady.tsx": {
+      "bytes": 1142,
+      "sha256": "a8ebf6a6211a229715dd5d093567fcf3578e21ed0e48bbbc73182b08f498d719"
+    },
+    "integrations/master/stella-candidate/src/app/preloadImages.test.ts": {
+      "bytes": 5297,
+      "sha256": "05383b8861c1ac60808c42e3849138aacef8edcbb4c0ac5f74379cbee2724e4d"
+    },
+    "integrations/master/stella-candidate/src/app/preloadImages.ts": {
+      "bytes": 3221,
+      "sha256": "52af1edb5686b17aaf5b42550d9a79174eac0cde547e650ce9656d7f78cc49ca"
+    },
+    "integrations/master/stella-candidate/src/assets/fonts/montserrat-variable.ttf": {
+      "bytes": 744936,
+      "sha256": "0f7b311b2f3279e4eef9b2f968bcdbab6e28f4daeb1f049f4f278a902bcd82f7"
+    },
+    "integrations/master/stella-candidate/src/assets/fonts/vk-sans-display-bold.ttf": {
+      "bytes": 32816,
+      "sha256": "6642aaa8d21e1987776e64d93879d32b6e23a20a361cb51ffabcf2738299f95a"
+    },
+    "integrations/master/stella-candidate/src/assets/fonts/vk-sans-display-demibold.ttf": {
+      "bytes": 33000,
+      "sha256": "fbc525a6b4fff40d9819c42ce03292fb5af55212fa7bca2d76a1f5492494e03f"
+    },
+    "integrations/master/stella-candidate/src/assets/fonts/vk-sans-display-regular.ttf": {
+      "bytes": 33072,
+      "sha256": "0cb5ec75fedd6c6dc9d670f2b4b0ce0923df235086fa7d1c0a35e656ded979be"
+    },
+    "integrations/master/stella-candidate/src/assets/fonts/vk-sans-text-demibold.ttf": {
+      "bytes": 90196,
+      "sha256": "05a9076c381adb7f396e759d8b95cb4bfd9432c14437a347bb34cb0a5b2084a6"
+    },
+    "integrations/master/stella-candidate/src/assets/fonts/vk-sans-text-medium.ttf": {
+      "bytes": 90084,
+      "sha256": "dc3e1b8cb1e3411bdd303ab65f48acaca6e8b4ae6d9c2f4c27e34b4ae6940259"
+    },
+    "integrations/master/stella-candidate/src/assets/fonts/vk-sans-text-regular.ttf": {
+      "bytes": 90116,
+      "sha256": "97ce056e8ece47119f24ef1f34932fb5a0a395a55fb85b4f3cd547a51aba7f14"
+    },
+    "integrations/master/stella-candidate/src/assets/images/backgrounds/home.png": {
+      "bytes": 1960076,
+      "sha256": "ce4a30ca208d72f7038831f292cc72687a13397f453c2c40a9fccc228d0b0a98"
+    },
+    "integrations/master/stella-candidate/src/assets/images/backgrounds/home.webp": {
+      "bytes": 129774,
+      "sha256": "aa6e59033131a845519c87ba14f9eea569f6e5bbbf4d1ae2ca1edf8bca9236c0"
+    },
+    "integrations/master/stella-candidate/src/assets/images/backgrounds/max.png": {
+      "bytes": 1915062,
+      "sha256": "00efb4cb8b7b1cc3823e71259df4f34dac3c4e4dcae9d9e7ce68ae9da50a4a40"
+    },
+    "integrations/master/stella-candidate/src/assets/images/backgrounds/max.webp": {
+      "bytes": 86486,
+      "sha256": "53db4aac2115ff25d75d2ae30fd3c3176a9b38f48f87c7b1e96d17dfd3336534"
+    },
+    "integrations/master/stella-candidate/src/assets/images/backgrounds/vk-video.png": {
+      "bytes": 1818368,
+      "sha256": "de2b6fcf061672b29cbdfbc3b3f20fe70511e9a33b425e8c28cc18c5d3238869"
+    },
+    "integrations/master/stella-candidate/src/assets/images/backgrounds/vk-video.webp": {
+      "bytes": 98202,
+      "sha256": "56375ac0be7889264e3b42dcad42d4c30b575b1102812c83373e64c65210135b"
+    },
+    "integrations/master/stella-candidate/src/assets/images/brands/max.png": {
+      "bytes": 26347,
+      "sha256": "d7289f8c38a2f5d73cd29a6a8af5bf018c83240ef8366e7f9a587d56c4842ed7"
+    },
+    "integrations/master/stella-candidate/src/assets/images/brands/vk-video.png": {
+      "bytes": 7664,
+      "sha256": "bbc1c1ee9afda6ff0297e4b79c251c3bdcc051bd6005d13959c8bcaa5ae42b9f"
+    },
+    "integrations/master/stella-candidate/src/assets/images/controls/back.png": {
+      "bytes": 45488,
+      "sha256": "91f84217329a02c54226d89f8288ae9cd61360370ae252b33ce4242ef703bb45"
+    },
+    "integrations/master/stella-candidate/src/assets/images/controls/max-option.png": {
+      "bytes": 25240,
+      "sha256": "ac66c93216edb8a8c38b4f2508dd15f22e7b4badb2444ed569b46ace65b4c937"
+    },
+    "integrations/master/stella-candidate/src/assets/images/home/digital-solutions.png": {
+      "bytes": 14133,
+      "sha256": "3ed02ec22fac2eb147d712a46930d68a956d4d4117b0d167bb91a920f2eb3916"
+    },
+    "integrations/master/stella-candidate/src/assets/images/home/max-button.png": {
+      "bytes": 107011,
+      "sha256": "f134aaa2618417a0d339ab8bfe2f2a3d99fe80ed864068546465420b0d7e28d3"
+    },
+    "integrations/master/stella-candidate/src/assets/images/home/pointer.png": {
+      "bytes": 47777,
+      "sha256": "05e35ccee9757423b7aedc21b5980d10f0f238f3c23f737c9df541cbb7eefa89"
+    },
+    "integrations/master/stella-candidate/src/assets/images/home/vk-video-button.png": {
+      "bytes": 105532,
+      "sha256": "e48601e620afdee9c0c2fec3ea395cd113b5aabbf4f9093a2db2a46c4aea0711"
+    },
+    "integrations/master/stella-candidate/src/assets/images/results/max-chat.png": {
+      "bytes": 35745,
+      "sha256": "50c96b313227196ace0d82ae69dfbf543a28c2f7a2ab49c56895ea4ca990c18b"
+    },
+    "integrations/master/stella-candidate/src/assets/images/vk-drive-cheering-couple.png": {
+      "bytes": 2427538,
+      "sha256": "b6dd495c474fe99ec7501be3b891e8bb9f388b5f4ec2ecd3a780675172f349cd"
+    },
+    "integrations/master/stella-candidate/src/assets/images/vk-flow/final-qr-reference.png": {
+      "bytes": 1948200,
+      "sha256": "c4461352ed5633c4472be5d32b059f8c988788d26ea0fe29a3aa4c503dea1a46"
+    },
+    "integrations/master/stella-candidate/src/assets/README.md": {
+      "bytes": 813,
+      "sha256": "02606fa27db7af6194b3354bbdba503ae53ae3c3886eedd76c3103f12395e78c"
+    },
+    "integrations/master/stella-candidate/src/assets/ux-reference/action.svg": {
+      "bytes": 1769487,
+      "sha256": "51ec9f89ef44f559245afe6528a692aabcfdcade19a956734039964f5119c856"
+    },
+    "integrations/master/stella-candidate/src/assets/ux-reference/business.svg": {
+      "bytes": 3173283,
+      "sha256": "3833b6805584112b51fd0d744295d8457ebfc9aa074acdab66530f7b4ba3803d"
+    },
+    "integrations/master/stella-candidate/src/assets/ux-reference/connection.svg": {
+      "bytes": 1423458,
+      "sha256": "8fa6e2fe6c6f3d8d5b18e192caca1ec408bf912f55b250b8e141bd3fe02b25fd"
+    },
+    "integrations/master/stella-candidate/src/assets/ux-reference/conversation.svg": {
+      "bytes": 2132971,
+      "sha256": "67b734d29d7f7d92d0d9db679ca2ecda7393b2cdf5257c8af0176436fc0ff5ca"
+    },
+    "integrations/master/stella-candidate/src/assets/ux-reference/explorer.svg": {
+      "bytes": 1811110,
+      "sha256": "9b38f8b7636353241d17edd01c8e7c10b4e228f9cb9a06b5e55bf3dcd6677ee4"
+    },
+    "integrations/master/stella-candidate/src/assets/ux-reference/heroes.svg": {
+      "bytes": 2438913,
+      "sha256": "9899035d338ddfc318434350baf25fe60a639ae7a0ac2ca2b79e370844dd956c"
+    },
+    "integrations/master/stella-candidate/src/assets/ux-reference/identity.svg": {
+      "bytes": 1107604,
+      "sha256": "ca959186ed4f793e2cfd706c4e343d67f50d2e36d4ad1ecb577bbe963ba9f49e"
+    },
+    "integrations/master/stella-candidate/src/assets/ux-reference/lightbulb.svg": {
+      "bytes": 700118,
+      "sha256": "bab200f54ab09d4959c51f75954b4a39e2b14eab1753df442c86dc044eb3f08c"
+    },
+    "integrations/master/stella-candidate/src/assets/ux-reference/max-cta.svg": {
+      "bytes": 528,
+      "sha256": "09b29a1cbf0f2b61777051707f519390a32426756cefcfe1580dafe5a01e6195"
+    },
+    "integrations/master/stella-candidate/src/assets/ux-reference/microphone.svg": {
+      "bytes": 836822,
+      "sha256": "5e2a7393946bf7f841ef2b2878142c9db080162fd194de56377ca6135f6cf174"
+    },
+    "integrations/master/stella-candidate/src/assets/ux-reference/party.svg": {
+      "bytes": 1092218,
+      "sha256": "cbce84cd44adb1586e8b91a6557bd8930c36b195ebe3b97f801745a217f41f85"
+    },
+    "integrations/master/stella-candidate/src/assets/ux-reference/personal.svg": {
+      "bytes": 1409882,
+      "sha256": "9f845666ba4c514711edd7378a4b8a269fc00fb35adf81c0ec3cf585e67ff11c"
+    },
+    "integrations/master/stella-candidate/src/assets/ux-reference/popcorn.svg": {
+      "bytes": 1141071,
+      "sha256": "95ec4393f4b54b7a09d7179f26c74b1a22a80feabdda11976edd5f394809cd48"
+    },
+    "integrations/master/stella-candidate/src/assets/ux-reference/provenance.json": {
+      "bytes": 6808,
+      "sha256": "7767822e198ecaf0154dfd50d5b0a46e27e5a6433fcdee040d1320fd6f8110e3"
+    },
+    "integrations/master/stella-candidate/src/assets/ux-reference/README.md": {
+      "bytes": 1579,
+      "sha256": "1f6b96a930ea53d53a65c6b7e794911263c375b9337f3210cb9be2ad728d788f"
+    },
+    "integrations/master/stella-candidate/src/assets/ux-reference/sofa.svg": {
+      "bytes": 2836346,
+      "sha256": "3d0dfc6231c2097fab7e06399d49f0cc56a64a039f5812ab980284d42c9dba8b"
+    },
+    "integrations/master/stella-candidate/src/assets/ux-reference/touch-hand.svg": {
+      "bytes": 1991158,
+      "sha256": "814fa6d78b7edaacba8edb659ba32948d86824e81a60c0986ceb283ae0904840"
+    },
+    "integrations/master/stella-candidate/src/assets/ux-reference/travel.svg": {
+      "bytes": 1400698,
+      "sha256": "ed9eaed30578835184faf831cf4406fc9f3b18aa66abf8a6f4b540ea9fb536d7"
+    },
+    "integrations/master/stella-candidate/src/assets/ux-reference/visibility.svg": {
+      "bytes": 1965409,
+      "sha256": "0514eecaa61f412f9167f189aec579410846d4d58903c79c361edd973c852a57"
+    },
+    "integrations/master/stella-candidate/src/assets/ux-reference/vk-camera-discovery-border.svg": {
+      "bytes": 19039,
+      "sha256": "9bba02128eee9ba3274f498c4a508c11258f5d73a1f5040e294d512301bd779f"
+    },
+    "integrations/master/stella-candidate/src/assets/ux-reference/vk-drive-cheering-couple.provenance.json": {
+      "bytes": 934,
+      "sha256": "c05ae3aa3c478fba99756eb0da6149cdf90efbf5c08c2b5af4947f316845ff6b"
+    },
+    "integrations/master/stella-candidate/src/assets/ux-reference/vk-new-camera.svg": {
+      "bytes": 1873,
+      "sha256": "2083ff01ddc19740b02673bda2cff2108b7f9657d71d9eabf43aaa9e58395a8c"
+    },
+    "integrations/master/stella-candidate/src/assets/ux-reference/vk-new-drive.svg": {
+      "bytes": 3237918,
+      "sha256": "ed367a74c2af8fac90e626ffa7efccda4eaf744543e7b1d75c94db39c3329d1b"
+    },
+    "integrations/master/stella-candidate/src/assets/ux-reference/vk-new-familiar.svg": {
+      "bytes": 3775880,
+      "sha256": "6a1e1ddedf676865459daaf202ffdf429aff0f3d4f11f14fe98ea5ce530b4edc"
+    },
+    "integrations/master/stella-candidate/src/assets/ux-reference/vk-new-hero.svg": {
+      "bytes": 2904483,
+      "sha256": "680c5784d40f4289194393072fe983121ed95c230e4fc475ebae2c72ba614cbb"
+    },
+    "integrations/master/stella-candidate/src/assets/ux-reference/vk-new-heroes.svg": {
+      "bytes": 2681589,
+      "sha256": "955a5822a314cc3737a5032d74e8d778b61594c9ad2f04947152c2ed6d06b3bb"
+    },
+    "integrations/master/stella-candidate/src/assets/ux-reference/vk-new-home.svg": {
+      "bytes": 3968255,
+      "sha256": "919922be3f7e7e88a65fa7cf8daaa3d87bf7e77f5eda4d19d069af4895d52477"
+    },
+    "integrations/master/stella-candidate/src/assets/ux-reference/vk-new-interview.svg": {
+      "bytes": 1811085,
+      "sha256": "80a469eee968d0c79282f8d1688b50795fbd4e104441cf8b1d9c7eff62054e7b"
+    },
+    "integrations/master/stella-candidate/src/assets/ux-reference/vk-new-learn.svg": {
+      "bytes": 2532394,
+      "sha256": "4ef9e01a800a8d7973067a765a166d6dce4a8a8691abdb4c71df93c30ac8310d"
+    },
+    "integrations/master/stella-candidate/src/assets/ux-reference/vk-new-new.svg": {
+      "bytes": 2742058,
+      "sha256": "cc108292b2edc02f61282daf5fcd63a8a4635a257d3cc728a2531eec9fdac55f"
+    },
+    "integrations/master/stella-candidate/src/assets/ux-reference/vk-new-onboarding.svg": {
+      "bytes": 1045004,
+      "sha256": "8a8824b065b75435cf9a4fbbad71662af7ade46cb02175d44db69432202b8184"
+    },
+    "integrations/master/stella-candidate/src/assets/ux-reference/vk-new-particles.svg": {
+      "bytes": 57966,
+      "sha256": "9d2e3d86d4b51c7d8b851546a810d1ef29e002dc06b1a731ada2f8e9cf9f46c2"
+    },
+    "integrations/master/stella-candidate/src/assets/ux-reference/vk-new-popular.svg": {
+      "bytes": 1277197,
+      "sha256": "5fb814f1a11f4b8343b1318e1469e675ae76fa9a3039fccb319beb87a0af4d81"
+    },
+    "integrations/master/stella-candidate/src/assets/ux-reference/vk-new-provenance.json": {
+      "bytes": 7189,
+      "sha256": "1ad75a295ef8be131184fc01c486c28c295349313c3f45b00d40733e23ad92c9"
+    },
+    "integrations/master/stella-candidate/src/assets/ux-reference/vk-new-qr.svg": {
+      "bytes": 63325,
+      "sha256": "06f26525b0a1ab5c84b508a3b11a0864563c65e4411918fc93444b946f07a6e3"
+    },
+    "integrations/master/stella-candidate/src/assets/ux-reference/vk-new-rest.svg": {
+      "bytes": 2335197,
+      "sha256": "b0d4f59c9c35238516612d83e8bb8a2c68f18cd4770f94169c40776f9afe7b79"
+    },
+    "integrations/master/stella-candidate/src/assets/ux-reference/vk-new-science.svg": {
+      "bytes": 686119,
+      "sha256": "ef8ec2d703995bcf3cfe582b07c4860ddfcc9fae0ff972f53a79dd84716d7211"
+    },
+    "integrations/master/stella-candidate/src/assets/ux-reference/vk-new-series.svg": {
+      "bytes": 1141758,
+      "sha256": "bc0018b966ad0b571fd5bca17edfcacb7dc2428765aff7b3e30070786feaa686"
+    },
+    "integrations/master/stella-candidate/src/assets/ux-reference/vk-new-silhouette.svg": {
+      "bytes": 1155995,
+      "sha256": "4a3581c597d1abaf1773affa9c599034e9860d6d6467525b71a3fe8964f1e520"
+    },
+    "integrations/master/stella-candidate/src/assets/ux-reference/vk-new-standup.svg": {
+      "bytes": 836820,
+      "sha256": "c5d1ba8fe48e5db8a7e317481254a356d97fe775e0fce207875f620a7db5bf8e"
+    },
+    "integrations/master/stella-candidate/src/assets/ux-reference/vk-popcorn-only.provenance.json": {
+      "bytes": 871,
+      "sha256": "151ec1e7a821e75c93c3e09cb365273cc4ba3508bd5abd783c83640d0b0231c9"
+    },
+    "integrations/master/stella-candidate/src/components/answer-stream.css": {
+      "bytes": 2591,
+      "sha256": "a2bce464ef3f3d90fef7aea237d390a00af6e59cde73e682a966401ea0b80de8"
+    },
+    "integrations/master/stella-candidate/src/components/answer-stream.test.ts": {
+      "bytes": 6223,
+      "sha256": "14a46ed06de9756e614e5e9ea093eb69324975865dd7afe0d40644097cdda66b"
+    },
+    "integrations/master/stella-candidate/src/components/answer-stream.ts": {
+      "bytes": 9065,
+      "sha256": "6b85c0e354187797e27f7604102aa71e88695e447ebe85c43d80930109906807"
+    },
+    "integrations/master/stella-candidate/src/components/AnswerFlight.test.tsx": {
+      "bytes": 7726,
+      "sha256": "20c1c1ba568dbf5213b13149a17098b9af664c57f1daa6fcdd5821bd7e147c31"
+    },
+    "integrations/master/stella-candidate/src/components/AnswerFlight.tsx": {
+      "bytes": 8816,
+      "sha256": "6182d9dc099aac5062449824b3ef89982a204e2e3d19aa240d38608ff6d8a9b8"
+    },
+    "integrations/master/stella-candidate/src/components/BackButton.tsx": {
+      "bytes": 541,
+      "sha256": "3fad56acbcbff75be773cf5b03239cfaca4b6feb3bfd88a5cfbc4cd866f84910"
+    },
+    "integrations/master/stella-candidate/src/components/BrandSplash.test.tsx": {
+      "bytes": 2022,
+      "sha256": "3d766e6daef2aaee916237d63baf9fca8c7ac483dbbc1b0e92fbebbdcf61e2fc"
+    },
+    "integrations/master/stella-candidate/src/components/BrandSplash.tsx": {
+      "bytes": 1199,
+      "sha256": "3acdc0c0b52e775450f01f27011e1465d974e4635f741b53ab8f9700c8dfb83f"
+    },
+    "integrations/master/stella-candidate/src/components/camera-diagnostics.ts": {
+      "bytes": 2411,
+      "sha256": "ff24c29a43356a669410cb1729654690949dbf14c7d8b1f16451726ddcf331af"
+    },
+    "integrations/master/stella-candidate/src/components/camera-preview.css": {
+      "bytes": 1075,
+      "sha256": "6290909f435db00f3d35fd53990e4a273eb8875b46119e6d467a4c675a197139"
+    },
+    "integrations/master/stella-candidate/src/components/camera-session-context.ts": {
+      "bytes": 417,
+      "sha256": "9dee5c17f5eaeae02364f958bff64a38a640e63f897f0cdd29f0adf35c579820"
+    },
+    "integrations/master/stella-candidate/src/components/CameraPreview.test.tsx": {
+      "bytes": 13924,
+      "sha256": "24c0cfd314accb40b2d51af483036dc6dab262408fa0e4db291e4dee760ab8b0"
+    },
+    "integrations/master/stella-candidate/src/components/CameraPreview.tsx": {
+      "bytes": 3460,
+      "sha256": "20f8dded76c9681464c28e2bd5b48274368032a6c8045b9323ed5979fe507615"
+    },
+    "integrations/master/stella-candidate/src/components/CameraSession.tsx": {
+      "bytes": 7312,
+      "sha256": "b5a5c587fa772bd5dde2665ec5c42c5b00866dd04196143d574193272f2f4a19"
+    },
+    "integrations/master/stella-candidate/src/components/ContinuousQuestions.tsx": {
+      "bytes": 9894,
+      "sha256": "1f5fba57f614b985b24d2aae9542e8e673c14e8dc834158b12f77ace38d5dbe4"
+    },
+    "integrations/master/stella-candidate/src/components/ContinuousVkQuestions.test.tsx": {
+      "bytes": 8990,
+      "sha256": "d62c4d9944310b039c1ed31480781fe2ed76d1e9d5a60b5fba874485746178f8"
+    },
+    "integrations/master/stella-candidate/src/components/lumi-cells.d.ts": {
+      "bytes": 342,
+      "sha256": "37044e01ea37d2c75988a45b5c0c3d81b6bc673f79ea44c300e7a7f46eb930d6"
+    },
+    "integrations/master/stella-candidate/src/components/OnboardingScreen.test.tsx": {
+      "bytes": 2665,
+      "sha256": "2e49040e13005cac4adb661af151b3d6a03b2949c8faeff0eea10b4076607af3"
+    },
+    "integrations/master/stella-candidate/src/components/OnboardingScreen.tsx": {
+      "bytes": 2081,
+      "sha256": "d9c0f556bffb35013838d05fb4d4dcd8a9046d793f4c71905e29b813229aa14e"
+    },
+    "integrations/master/stella-candidate/src/components/ProductMark.tsx": {
+      "bytes": 1185,
+      "sha256": "dd2cd8ece0bf00c0eb7cb3741470079469a947d70f9d99cb2258c5b07434a0fb"
+    },
+    "integrations/master/stella-candidate/src/components/question-artwork.ts": {
+      "bytes": 570,
+      "sha256": "d23ba88742848923d30cb524c38cb2c7c75243648424c1aed6f8ba662568104d"
+    },
+    "integrations/master/stella-candidate/src/components/QuestionScreen.tsx": {
+      "bytes": 1714,
+      "sha256": "64a75e8b888849c0d2f1c72fd06a61f47a6f49340306afe72f86473221e96214"
+    },
+    "integrations/master/stella-candidate/src/components/ring-action-context.ts": {
+      "bytes": 397,
+      "sha256": "ad384d65143056e972f5a43ca972a213f8e000252a287e00921b0d1efaad4775"
+    },
+    "integrations/master/stella-candidate/src/components/ring-home-config.ts": {
+      "bytes": 1406,
+      "sha256": "9b966adcc5ed9488d77f5d10c04e3201863e273a5009fe91af81a0f269310124"
+    },
+    "integrations/master/stella-candidate/src/components/ring-home-marks.css": {
+      "bytes": 787,
+      "sha256": "52b1bd8178e82b6fe093ebadf1c9fe994f77832d4cde024152355e25ca4557d9"
+    },
+    "integrations/master/stella-candidate/src/components/ring-scene-config.ts": {
+      "bytes": 1271,
+      "sha256": "b53843cd3f3bef937127bc79cea6a69de02dcdaa4b471e8e0a791678925fcb5e"
+    },
+    "integrations/master/stella-candidate/src/components/RingActions.tsx": {
+      "bytes": 1429,
+      "sha256": "1fd8c117842a69af12656e40c60693e3e60f101b027b1d74049083b30403daeb"
+    },
+    "integrations/master/stella-candidate/src/components/RingHomeScreen.tsx": {
+      "bytes": 1148,
+      "sha256": "168ad3f14f78c6558ada7aa723384dcbbda39de89605175d30c7ad3e983fbaa1"
+    },
+    "integrations/master/stella-candidate/src/components/RingInterface.test.tsx": {
+      "bytes": 2597,
+      "sha256": "c6f46d1ede5efb37c51ecaa8bdd6332e4d1f51cbaaaaf1cd6ff11abfeea7a340"
+    },
+    "integrations/master/stella-candidate/src/components/RingScene.tsx": {
+      "bytes": 1925,
+      "sha256": "87a1ad36cafb6c7166479d8d21d16f7e31de538ea315cd74a440f20a3be4afed"
+    },
+    "integrations/master/stella-candidate/src/components/RingTag.tsx": {
+      "bytes": 1312,
+      "sha256": "c260748fdbacbd82a46d2494aac2e115eea38d1a30677a7f09cdb39bca557f96"
+    },
+    "integrations/master/stella-candidate/src/components/ux-artwork.ts": {
+      "bytes": 2481,
+      "sha256": "9e68838ceafd8ffc38bfe5e54c2031cce8f97d677c1082489128c88a7d5b2a27"
+    },
+    "integrations/master/stella-candidate/src/components/VkProgressScreen.test.tsx": {
+      "bytes": 632,
+      "sha256": "01665f7dd3736b960d05c9399e70ef9a4accd88e36d99e3165bf817e78cdc98f"
+    },
+    "integrations/master/stella-candidate/src/components/VkProgressScreen.tsx": {
+      "bytes": 640,
+      "sha256": "390e3a0b02b3879c7328e837a3da845a3ac4e31fa81ad470a416435437694785"
+    },
+    "integrations/master/stella-candidate/src/components/white-entity-config.ts": {
+      "bytes": 2046,
+      "sha256": "85bfccdfbef824a793a6def9a3355ac5b00959062c130982839c0934889d5da0"
+    },
+    "integrations/master/stella-candidate/src/components/white-entity-envelope.ts": {
+      "bytes": 5456,
+      "sha256": "4c266eb6a4a421e4e6f8402435b2bf8844957664126ca33805054a03565cac6f"
+    },
+    "integrations/master/stella-candidate/src/components/white-entity-renderer.ts": {
+      "bytes": 8458,
+      "sha256": "84473a6e256a59aedeae430dc13d99b896c310441678d20633489bd923121b39"
+    },
+    "integrations/master/stella-candidate/src/components/WhiteEntity.test.tsx": {
+      "bytes": 16956,
+      "sha256": "dd4f60fb9dcd35158732303661c9887612f525a50edae58d781c5785bc71dfe0"
+    },
+    "integrations/master/stella-candidate/src/components/WhiteEntity.tsx": {
+      "bytes": 11644,
+      "sha256": "f87742e398c90b7351d5b8c6349762dafe9dc62e28c360ef9ab28030c2b14fab"
+    },
+    "integrations/master/stella-candidate/src/content/copy.test.ts": {
+      "bytes": 3021,
+      "sha256": "1846aaab07bbfb82024a7e00f0b8e00acf310c1a81f5b562e866aa0e9ff822a3"
+    },
+    "integrations/master/stella-candidate/src/content/max.ts": {
+      "bytes": 2949,
+      "sha256": "47ece9678da9da1e2fbed25208f69f7bcc82991e32131cff1dbb012a2c7976b6"
+    },
+    "integrations/master/stella-candidate/src/content/onboarding.ts": {
+      "bytes": 1365,
+      "sha256": "1d70efa0d740238254f5746b3b5235ca718de55f859f6cb520544cca35fce12b"
+    },
+    "integrations/master/stella-candidate/src/content/vk-consent.json": {
+      "bytes": 5877,
+      "sha256": "6706002785602f4e832c5f92be5a3c23c83eee2d2cbb2fe3708dee072ec00c77"
+    },
+    "integrations/master/stella-candidate/src/content/vkVideo.ts": {
+      "bytes": 6514,
+      "sha256": "1f2443a3a2918fedf3260bc5f1804fa267eba8d01223f8e44844ba501d57d2f0"
+    },
+    "integrations/master/stella-candidate/src/features/audio/central-catalogue.test.ts": {
+      "bytes": 1466,
+      "sha256": "0a47174ab682ee731c186cbeb99a28a0acfb58db3b3b27c6dfc3ecc43a290b44"
+    },
+    "integrations/master/stella-candidate/src/features/audio/master-sound.ts": {
+      "bytes": 3387,
+      "sha256": "c04a1221af56b8fc9544e0137aef17c5e50225567b216b58a2698ac3f953269b"
+    },
+    "integrations/master/stella-candidate/src/features/audio/production-audio.ts": {
+      "bytes": 1730,
+      "sha256": "463de02c911b6534ac7e4c4e6bd4c905caf0a54f39570eee638a5e52fd2f3623"
+    },
+    "integrations/master/stella-candidate/src/features/audio/remote-audio-observer.test.ts": {
+      "bytes": 7182,
+      "sha256": "b8c1b6608ded6eda3923ca3b4ea803da40ff8581afc3374d5dab3d767b1b1597"
+    },
+    "integrations/master/stella-candidate/src/features/audio/remote-audio-observer.ts": {
+      "bytes": 7763,
+      "sha256": "72c2acbff0ba70ef16fc5149d8b9ddcf7d4eef667084fd5bc4b8134aa5b83803"
+    },
+    "integrations/master/stella-candidate/src/features/audio/useMasterAudio.test.tsx": {
+      "bytes": 10228,
+      "sha256": "47abe1c410df051a0da163176f72525bd5e83f67b810e1c52ceb0aaab007d822"
+    },
+    "integrations/master/stella-candidate/src/features/master/accepted-flow.test.ts": {
+      "bytes": 2798,
+      "sha256": "2eced3a5bc7498f334f12cc417dd42f6eff7791d5a17eb6959499b7bdb2c67e9"
+    },
+    "integrations/master/stella-candidate/src/features/master/accepted-flow.ts": {
+      "bytes": 2080,
+      "sha256": "a59c5672cd6da6e4c9c78ff050ee402aa2978694203aedd694511720b723940b"
+    },
+    "integrations/master/stella-candidate/src/features/master/accepted-presentation.test.ts": {
+      "bytes": 2878,
+      "sha256": "ffea25b587d73e01e45ce3dc261f00d6b4337be1eb45c15e3ad5a7ba3216e598"
+    },
+    "integrations/master/stella-candidate/src/features/master/accepted-presentation.ts": {
+      "bytes": 1312,
+      "sha256": "59380e26b4113afb243ae631ffe62ea800d987488f06f01d1e86aba06899264d"
+    },
+    "integrations/master/stella-candidate/src/features/master/camera-capture.test.ts": {
+      "bytes": 3396,
+      "sha256": "8f00a1b603cf8db0bc0b3073902f19774523dc225d4957e14622336c438d33f8"
+    },
+    "integrations/master/stella-candidate/src/features/master/camera-capture.ts": {
+      "bytes": 2008,
+      "sha256": "b09f294771babf6061aac26c2277ce9d70d52fce50370569145618e8c35f1f6e"
+    },
+    "integrations/master/stella-candidate/src/features/master/master-camera.css": {
+      "bytes": 2469,
+      "sha256": "9d7dc504c82e2ad12a70ccad1453b5e66e227614e01cc81f6197f03c78914b4d"
+    },
+    "integrations/master/stella-candidate/src/features/master/master-slice.css": {
+      "bytes": 2139,
+      "sha256": "fd45ae367342091843fcfd3fecc5944cbeb357406fcd93801bdff226f02b8844"
+    },
+    "integrations/master/stella-candidate/src/features/master/MasterCamera.test.tsx": {
+      "bytes": 3625,
+      "sha256": "6e4d0b32194ab569d23732538c650329e4cf6581482eb103c912e56c3e1743c7"
+    },
+    "integrations/master/stella-candidate/src/features/master/MasterCamera.tsx": {
+      "bytes": 6060,
+      "sha256": "88db0483062f3d0264af06951e8bd853a6d980a575fa2fb8486e666f688da668"
+    },
+    "integrations/master/stella-candidate/src/features/master/MasterShell.test.tsx": {
+      "bytes": 3000,
+      "sha256": "1d7a609fb568d1e72b6d9fb730011bb830a95a24ad1aee4ee98e410e947a2d85"
+    },
+    "integrations/master/stella-candidate/src/features/master/MasterShell.tsx": {
+      "bytes": 3114,
+      "sha256": "c122df60cc635ab25c8f07706a1d90382c50f3529e1e8c468340ed3523be623c"
+    },
+    "integrations/master/stella-candidate/src/features/master/MasterSlice.test.tsx": {
+      "bytes": 20869,
+      "sha256": "15a90c150e82118e2eebf0971d5c9018a099660072d729edb9f95ffc111d98a1"
+    },
+    "integrations/master/stella-candidate/src/features/master/MasterSlice.tsx": {
+      "bytes": 16107,
+      "sha256": "5ca9843a42f823f9333a9940156efacb999bc12dd309d7429d871cf67f019a53"
+    },
+    "integrations/master/stella-candidate/src/features/master/PhotoReveal.test.tsx": {
+      "bytes": 1516,
+      "sha256": "5cc62abe493ec91593a6401a0d7945a00500c74501bab6b993dfae329692b5a6"
+    },
+    "integrations/master/stella-candidate/src/features/master/PhotoReveal.tsx": {
+      "bytes": 1114,
+      "sha256": "be1189a2ec0f29ae1443df7c06be30acee6a16ac10fd5c64c9a443486d5b6648"
+    },
+    "integrations/master/stella-candidate/src/features/master/presentation-playing.ts": {
+      "bytes": 1724,
+      "sha256": "fdfc726da093107920ed39c09ea498a43bd0c743b3b86f63933d4b5643749cf9"
+    },
+    "integrations/master/stella-candidate/src/features/master/presentation.test.ts": {
+      "bytes": 1996,
+      "sha256": "df4ea56de5c40932c57c94af227f058441c30b44976aee7c12dcad1a843334f3"
+    },
+    "integrations/master/stella-candidate/src/features/master/presentation.ts": {
+      "bytes": 2231,
+      "sha256": "b8e0f8a36774b35b252917886ba508321cec86d44b7b64417bb845ab70e41776"
+    },
+    "integrations/master/stella-candidate/src/features/master/result-qr.d.mts": {
+      "bytes": 135,
+      "sha256": "6f9d34eee538a0ad1b6b03dc1802485a0aa6a79d8d0a03f48f1bdfea8257d9df"
+    },
+    "integrations/master/stella-candidate/src/features/master/result-qr.mjs": {
+      "bytes": 876,
+      "sha256": "01e898bc8c4b9d57dffdb29cb6e709e04f16aa48b68f819be357524782f399c7"
+    },
+    "integrations/master/stella-candidate/src/features/master/ResultQr.test.tsx": {
+      "bytes": 2553,
+      "sha256": "c131ec22416bb1515dd2fda8f6435e1762a040bc7b326417ca06fc635c66fdbb"
+    },
+    "integrations/master/stella-candidate/src/features/master/ResultQr.tsx": {
+      "bytes": 2466,
+      "sha256": "d503c07e219e5ead2f58514588e28edbcef0fcd4c91121d3763fcf549b94fce9"
+    },
+    "integrations/master/stella-candidate/src/features/master/slice-client.d.mts": {
+      "bytes": 2211,
+      "sha256": "d9734dc7d89ffb40cbbe5097803da0b83ddc168b8ea4ca39e2a73abb84f1c949"
+    },
+    "integrations/master/stella-candidate/src/features/master/slice-client.mjs": {
+      "bytes": 4708,
+      "sha256": "214254eb808f903a189ea20c842acc3dbffbcc3368b0ea14386bc0def6780d36"
+    },
+    "integrations/master/stella-candidate/src/features/master/use-visible-dwell.test.tsx": {
+      "bytes": 1984,
+      "sha256": "db36c8b8f99d9081852d1bf10b08365ecc0e5485af920ce463fff2e574501286"
+    },
+    "integrations/master/stella-candidate/src/features/master/use-visible-dwell.ts": {
+      "bytes": 1472,
+      "sha256": "5329887bee83d9c0a70bc72f9a43d610b984f88e81c818e018c92de128a91317"
+    },
+    "integrations/master/stella-candidate/src/features/master/useMasterAudio.ts": {
+      "bytes": 7516,
+      "sha256": "3a1403b42c7b592229036c2f15c43f2a79d556c17c47ce8894120ee3f0b06b0c"
+    },
+    "integrations/master/stella-candidate/src/features/master/useMasterMaxAudio.ts": {
+      "bytes": 385,
+      "sha256": "97f133f1ed81ce7a64c8a67e7e9135516b69f850bfa20c18cf73092b1a4c806b"
+    },
+    "integrations/master/stella-candidate/src/features/master/usePresentationCompletion.ts": {
+      "bytes": 1274,
+      "sha256": "e45bbd8d0b4605c1fa36b46beaae20668c24b088a43ff94ed2efb892d860dd2a"
+    },
+    "integrations/master/stella-candidate/src/features/master/vendor/LICENSE-qrcode-generator.txt": {
+      "bytes": 1071,
+      "sha256": "3a850fa5f08101db6f40676c2786e10bd2cd5fff7b12ffdf1e0c434d4e49d90c"
+    },
+    "integrations/master/stella-candidate/src/features/master/vendor/panel-client.mjs": {
+      "bytes": 14230,
+      "sha256": "1b6da5b2fde1d91dca64d808d90f3df72ec85f4bf016a604b53c2015633f06be"
+    },
+    "integrations/master/stella-candidate/src/features/master/vendor/qrcode-source.json": {
+      "bytes": 955,
+      "sha256": "49bcfa4d4155f099236041dfe5dab56b8d86b9417a6443e6a13f5f26f6c7065a"
+    },
+    "integrations/master/stella-candidate/src/features/master/vendor/qrcode.mjs": {
+      "bytes": 51907,
+      "sha256": "ea91d7118a5395289170da848b7c6758b996163bfbccf312591ab65a4911b7c0"
+    },
+    "integrations/master/stella-candidate/src/features/master/VisitorStatus.test.tsx": {
+      "bytes": 1058,
+      "sha256": "acc0614894bc75f10af8d26c033f508557ff3c4e4057a528cf2cdb4fb8c08ea5"
+    },
+    "integrations/master/stella-candidate/src/features/master/VisitorStatus.tsx": {
+      "bytes": 990,
+      "sha256": "b67061ba1b915aff9fd11e75ad3ed1d2207014eb3ad1879ea25732c31fe386a7"
+    },
+    "integrations/master/stella-candidate/src/features/master-max/master-max-show.css": {
+      "bytes": 1838,
+      "sha256": "666a5a5d9381b09ded38a2d48685cf94e9e0b65f8f968aa6add38f54a38e7f29"
+    },
+    "integrations/master/stella-candidate/src/features/master-max/MasterMaxControls.test.tsx": {
+      "bytes": 2628,
+      "sha256": "bec0fd56bfe7f886cd45e436579d826071c3573df437f9402ca33c11efd3610b"
+    },
+    "integrations/master/stella-candidate/src/features/master-max/MasterMaxFlight.test.tsx": {
+      "bytes": 3270,
+      "sha256": "a556cd3b0a49571e5f6524da0d13c6d2b18af93980f5015753b1c192b44fbe70"
+    },
+    "integrations/master/stella-candidate/src/features/master-max/MasterMaxPresentation.test.tsx": {
+      "bytes": 6946,
+      "sha256": "1cdc5d8c9adb4e60227468cba3564e139f9005d9f90f5825960c09497d22d760"
+    },
+    "integrations/master/stella-candidate/src/features/master-max/MasterMaxSlice.test.tsx": {
+      "bytes": 15315,
+      "sha256": "d0e82768d2339485985c6d0c1ef0359e21cbac855c148b8910d53461fecc9535"
+    },
+    "integrations/master/stella-candidate/src/features/master-max/MasterMaxSlice.tsx": {
+      "bytes": 14070,
+      "sha256": "b2803a52dda7c9fe5539160ddd8f748131c90bc82248d717794b12da487d9c38"
+    },
+    "integrations/master/stella-candidate/src/features/master-max/max-client.d.mts": {
+      "bytes": 1623,
+      "sha256": "2b6ba3524880c1c06dcbe2d694f3f1b9c204734882c66c1375b5327367d13d2f"
+    },
+    "integrations/master/stella-candidate/src/features/master-max/max-client.mjs": {
+      "bytes": 12914,
+      "sha256": "ffc2d1e3ca18e72db6f04608f25f8fe6378c873d74ab73e306ccb9d1621f91cd"
+    },
+    "integrations/master/stella-candidate/src/features/prototype/all-transitions.test.tsx": {
+      "bytes": 14909,
+      "sha256": "072098716d8929981139e61a29751740ef2b91a0e1c0c0b10fb348b032af4a46"
+    },
+    "integrations/master/stella-candidate/src/features/prototype/answer-card-layout.test.ts": {
+      "bytes": 2805,
+      "sha256": "468c12f2464d8662574859da0875d2f97ce7b43b9828a8b4d1b225e39bd7fb03"
+    },
+    "integrations/master/stella-candidate/src/features/prototype/answer-card-layout.ts": {
+      "bytes": 807,
+      "sha256": "f949367a33b71f55248648c82010ef71054bcc66b32179c5620872aa7b653f1e"
+    },
+    "integrations/master/stella-candidate/src/features/prototype/discovery-preview.test.ts": {
+      "bytes": 1085,
+      "sha256": "333328810d7758576a5ddff89e62ab4c10049e708020630f95f12487060939a3"
+    },
+    "integrations/master/stella-candidate/src/features/prototype/discovery-preview.ts": {
+      "bytes": 661,
+      "sha256": "7eb17e2473aebb552bf185e98174c4363084aedbd964ea6791324f7ecddf7ccd"
+    },
+    "integrations/master/stella-candidate/src/features/prototype/events.test.ts": {
+      "bytes": 4374,
+      "sha256": "12510107eebbf80c500735eec5c5b01ec4bdaa56d61d0e702def63a7d7b67517"
+    },
+    "integrations/master/stella-candidate/src/features/prototype/events.ts": {
+      "bytes": 2661,
+      "sha256": "df92956a5710bda9dfe3bbb487f5ca5d1a572ef5740b9b36b3b6e6add3c2b5a7"
+    },
+    "integrations/master/stella-candidate/src/features/prototype/final-reference.css": {
+      "bytes": 482,
+      "sha256": "5c154a350290344fb0f069dd380e75f53e929cf498d534b8e818e1f411f1b355"
+    },
+    "integrations/master/stella-candidate/src/features/prototype/logic.test.ts": {
+      "bytes": 4843,
+      "sha256": "2c6f9acbe1f7a2880e2867ae30e8ae421b26e8407438c27b215f8844332b14bb"
+    },
+    "integrations/master/stella-candidate/src/features/prototype/logic.ts": {
+      "bytes": 2528,
+      "sha256": "7ebb61fe5733e0b6eeca3be63671598a68e53f5b5cae484001b49b3ae2b8e5e9"
+    },
+    "integrations/master/stella-candidate/src/features/prototype/native-flight.test.ts": {
+      "bytes": 10131,
+      "sha256": "ac165b91bb78dd4ed5f809a0333c6588a652a065f5a32201da42f674f2e196c9"
+    },
+    "integrations/master/stella-candidate/src/features/prototype/persistent-vk-header.test.tsx": {
+      "bytes": 4844,
+      "sha256": "03553b609eeca19af18cafb8d1507bb1e26af3f4f627a793c3c926e03ae54402"
+    },
+    "integrations/master/stella-candidate/src/features/prototype/product-entry-flow.test.tsx": {
+      "bytes": 3127,
+      "sha256": "acffa64ad629b3a291a51a83a53c00731bcf434eee0f65db1bf24b82bdd5cf25"
+    },
+    "integrations/master/stella-candidate/src/features/prototype/product-entry.test.ts": {
+      "bytes": 2021,
+      "sha256": "9d8e824c48e91da748d92a624496d3c6685a076591d194702a71558ebcbf3be7"
+    },
+    "integrations/master/stella-candidate/src/features/prototype/product-entry.ts": {
+      "bytes": 1557,
+      "sha256": "5cd0ba563a0bbc97a53da21efa111e1daf39f1aa6fff025fb7400fc8d5565b79"
+    },
+    "integrations/master/stella-candidate/src/features/prototype/Prototype.tsx": {
+      "bytes": 22573,
+      "sha256": "533695507eabfaf6cf55c809b499bda47cf4a44c302481c10aafd359fa9cb6cd"
+    },
+    "integrations/master/stella-candidate/src/features/prototype/question-presentation.ts": {
+      "bytes": 2345,
+      "sha256": "6ee75f7dec72964d418adba94639ab9275e61d2bd223ab87e4136ce574257c51"
+    },
+    "integrations/master/stella-candidate/src/features/prototype/revision-seven.css": {
+      "bytes": 832,
+      "sha256": "74474c6293fe00503e243e6d82055fff5f57b57c1b1b950fcff5fc3442d28dee"
+    },
+    "integrations/master/stella-candidate/src/features/prototype/ring-cue.test.ts": {
+      "bytes": 2160,
+      "sha256": "8e0ac3795898f7d0fbf1f9668993f5dc97d7805fc3d81410d803941780917830"
+    },
+    "integrations/master/stella-candidate/src/features/prototype/ring-cue.ts": {
+      "bytes": 1581,
+      "sha256": "805c7852ece64ba735f1e821117758d0a68c3a37cc6063daedf07f98729979ec"
+    },
+    "integrations/master/stella-candidate/src/features/prototype/tag-layout.test.ts": {
+      "bytes": 2196,
+      "sha256": "a042e65b17157aa8e235247c520c290acc78db444b651d5d2afff143606d9d7b"
+    },
+    "integrations/master/stella-candidate/src/features/prototype/tag-layout.ts": {
+      "bytes": 1502,
+      "sha256": "986fc8a3338c0b7e1c397070f7b5e7476da659bdb50a252abad9c163c53ee2cb"
+    },
+    "integrations/master/stella-candidate/src/features/prototype/tag-reveal.test.tsx": {
+      "bytes": 4746,
+      "sha256": "582f9f226d7e4a771044a77417e1f2243702116d87d851bccbb77789abd67967"
+    },
+    "integrations/master/stella-candidate/src/features/prototype/tag-reveal.ts": {
+      "bytes": 2427,
+      "sha256": "76b1fcd3d5c7353d95f4852e0a10577ad5d50a3b94dadca7e1664672dd1ccb5d"
+    },
+    "integrations/master/stella-candidate/src/features/prototype/timed-transition.test.ts": {
+      "bytes": 2355,
+      "sha256": "64eb6326e54292747ed98dce0b9f17aab3009e20df94e132c214a1dd809601fb"
+    },
+    "integrations/master/stella-candidate/src/features/prototype/timed-transition.ts": {
+      "bytes": 705,
+      "sha256": "493c91017041f87671dc5f652e6a4ce71013fb0458021aa3dc775b09c01af9f5"
+    },
+    "integrations/master/stella-candidate/src/features/sound/sfx-events.ts": {
+      "bytes": 463,
+      "sha256": "06f901c6b51acc0e5482d640d6680e80feeb6544ddd8002b330639b861407f3e"
+    },
+    "integrations/master/stella-candidate/src/features/sound/stella-sound.test.ts": {
+      "bytes": 8456,
+      "sha256": "ee59fe6740a985bc6e4adf2862635a94c24ecdef950a21fa7f54eed144de8e98"
+    },
+    "integrations/master/stella-candidate/src/features/sound/stella-sound.ts": {
+      "bytes": 4079,
+      "sha256": "ddf24792a7c23e5d426985d1aeacb876ae5ece3870f26461414adb30872bdeee"
+    },
+    "integrations/master/stella-candidate/src/features/sound/use-stella-sound.ts": {
+      "bytes": 1598,
+      "sha256": "7e676347235d357345900c8dea7f7f91e81d7b838b12b28e6cfb7a40801b84a2"
+    },
+    "integrations/master/stella-candidate/src/features/voice/narration.test.ts": {
+      "bytes": 3125,
+      "sha256": "d49aaa0cd0283cfb5bd62cef157c95f6e762993c2fce0da5d08623a1f029567e"
+    },
+    "integrations/master/stella-candidate/src/features/voice/narration.ts": {
+      "bytes": 1565,
+      "sha256": "0d75ab83de11389b1654bccfc3b7198a2846fda4e25e1bfcc0eda6bdbcff94d0"
+    },
+    "integrations/master/stella-candidate/src/features/voice/ready-narration-asset.test.ts": {
+      "bytes": 4395,
+      "sha256": "b4e1ecf35ce9ba6aea091eb67e0aa10cef6aa3da0cc7b1a2cc5ad4ae2572c617"
+    },
+    "integrations/master/stella-candidate/src/features/voice/ready-narration-asset.ts": {
+      "bytes": 771,
+      "sha256": "b27f32383b5650a048d6b3eabd1b3d12c2f2d4bfb544e4e32fefcc2cfb1d19b6"
+    },
+    "integrations/master/stella-candidate/src/features/voice/use-screen-narration.test.tsx": {
+      "bytes": 6604,
+      "sha256": "656026131d149a3e2b1e965feada2a47432f1148a59bf18b049539121b4e5791"
+    },
+    "integrations/master/stella-candidate/src/features/voice/use-screen-narration.ts": {
+      "bytes": 4501,
+      "sha256": "65ebeeef12e5d075d932c5ff378e52f90e57a5f917d4c87bca596b632bc79590"
+    },
+    "integrations/master/stella-candidate/src/main.tsx": {
+      "bytes": 390,
+      "sha256": "8ea56e369a19df1f73c4f9ddc3682ce9cf754868578d6ad988d3df97ad18d459"
+    },
+    "integrations/master/stella-candidate/src/pages/PrototypePage.tsx": {
+      "bytes": 125,
+      "sha256": "38af95c7bf0ad812f59acce91a2f8924ce91d14b2d949954fad8cb4ba5d89d03"
+    },
+    "integrations/master/stella-candidate/src/service.ts": {
+      "bytes": 1476,
+      "sha256": "0e83328e0f817ff18b75c299493da29d0e2967ddf126a127974105bb4af76d8f"
+    },
+    "integrations/master/stella-candidate/src/styles/global.css": {
+      "bytes": 21869,
+      "sha256": "e9600d075d068316adc0b520a454c0a413ef63edb6792f67d2e9239f2569fc9d"
+    },
+    "integrations/master/stella-candidate/src/types/prototype.ts": {
+      "bytes": 915,
+      "sha256": "c6341058ca180c89f50bb2b7fdc283e90b08f270a7076aae39205479e6f6159d"
+    },
+    "integrations/master/stella-candidate/src/vendor/cubes-art.d.ts": {
+      "bytes": 57,
+      "sha256": "ac3d31e9b221ec9323a6d39fa8f03d8213e1d5cf96932a963012602a0b463aa8"
+    },
+    "integrations/master/stella-candidate/src/vendor/cubes-art.js": {
+      "bytes": 4342,
+      "sha256": "c40de16faaf6f403a6fd8223bb1ca0b57f6210ff1473b3d819b20ec5fb6f2733"
+    },
+    "integrations/master/stella-candidate/src/vendor/cubes-art.json": {
+      "bytes": 1686,
+      "sha256": "89a3219f726cd5def5a3298bffd4fd5db07984e867fead839d33dc80fb227041"
+    },
+    "integrations/master/stella-candidate/src/vendor/lumicells-project.d.ts": {
+      "bytes": 1573,
+      "sha256": "28ccf3bb4889d2f1979128f15890e0ccccb1cd18dd47a6938affbea493b89396"
+    },
+    "integrations/master/stella-candidate/src/vendor/lumicells-scene/bubbles.ts": {
+      "bytes": 286,
+      "sha256": "774b2dcfdb5918a6705865b7b83c91d1fc1f0831823a078350186617fcd30fd2"
+    },
+    "integrations/master/stella-candidate/src/vendor/lumicells-scene/choreography.ts": {
+      "bytes": 8729,
+      "sha256": "3e834935f29a5973b13ac446da9ae9f43ff2b319e5d851d386013d380cfe15a1"
+    },
+    "integrations/master/stella-candidate/src/vendor/lumicells-scene/flight.ts": {
+      "bytes": 5498,
+      "sha256": "22d4bc03531b5b321ebf340fefcb141fc299e1130fc0c076f526c7ca887fcf91"
+    },
+    "integrations/master/stella-candidate/src/vendor/lumicells-scene/layout.ts": {
+      "bytes": 1798,
+      "sha256": "0d67e1f91a3280b56e5b1b22905d15335d462ef3ff945f202ee5114918c6f43f"
+    },
+    "integrations/master/stella-candidate/src/vendor/lumicells-scene/provenance.json": {
+      "bytes": 1692,
+      "sha256": "faa191cb7e470d5256c09bb9ba635c99f164925d60efeba268463b6edcc12309"
+    },
+    "integrations/master/stella-candidate/src/vendor/lumicells-scene/scene.css": {
+      "bytes": 7046,
+      "sha256": "d6d4bc5a58751498899345f58d6005c2842e77a7ff87ba4f5183e2e1d9550c5b"
+    },
+    "integrations/master/stella-candidate/src/vendor/lumicells-scene/types.ts": {
+      "bytes": 1781,
+      "sha256": "e62a8dd1d1b3c7517da7e3880a32823378cda1246af91e885a16c909eb25c771"
+    },
+    "integrations/master/stella-candidate/src/vite-env.d.ts": {
+      "bytes": 39,
+      "sha256": "424faf9241dd699dda995b367ed36665732da1e6ec1f33b2fd40394488ecac92"
+    },
+    "integrations/master/stella-candidate/tsconfig.app.json": {
+      "bytes": 938,
+      "sha256": "0c41de2f65530ea53d6507a82b8cdeb0327d8c95ddcef4b331e5fc51e0c64e50"
+    },
+    "integrations/master/stella-candidate/tsconfig.json": {
+      "bytes": 126,
+      "sha256": "ad28d132ee48d6e23917cf5827cace785d0fc01a44ca68b0dda51cc8c3fd3f52"
+    },
+    "integrations/master/stella-candidate/tsconfig.node.json": {
+      "bytes": 470,
+      "sha256": "d9e38e52128c5a9087e976777ecdcc665e474078fef9128b73db57a41dc074f0"
+    },
+    "integrations/master/stella-candidate/vite.config.ts": {
+      "bytes": 1380,
+      "sha256": "efb33b8b9e23749a92216da3154c41e45d26ac32df827f19cb9680355675264e"
+    },
+    "integrations/master/stella-candidate/voice/README.md": {
+      "bytes": 3381,
+      "sha256": "b0fcb243877e4ccbe0cf394d03f692eba4ed634b31a60f00143e7754f00b7de3"
+    },
+    "integrations/master/stella-candidate/voice/scripts/qwen-voice.mjs": {
+      "bytes": 7494,
+      "sha256": "d4e6948847553916852a46db9d178aa3a113a3cb4cb64a1316fa4c3f9a03825b"
+    },
+    "integrations/master/stella-candidate/voice/scripts/verify_audio.py": {
+      "bytes": 1529,
+      "sha256": "3c7dbefb51a32238774a020f774f85fff5b078927636644c443f59a2d795dae8"
+    },
+    "integrations/master/stella-candidate/voice/vasilisa/pending-audio.json": {
+      "bytes": 1113,
+      "sha256": "68d6fe287b2682795f888eebf956983f040bf0fe236de21cd4caf196f31076fc"
+    },
+    "integrations/master/stella-candidate/voice/vasilisa/phrases.json": {
+      "bytes": 5771,
+      "sha256": "0bbcf2ca49009cf3f11759df6cce541e08556af5f537bcf4addbbbef0e7c8648"
+    },
+    "integrations/master/stella-candidate/voice/vasilisa/reference.wav": {
+      "bytes": 1181306,
+      "sha256": "c2373e077f70f07ce8902b2bb6045a9aa09d55d6bb25e49dfeae28fb1a496f18"
+    },
+    "integrations/master/stella-candidate/voice/vasilisa/studio-activation-provenance.json": {
+      "bytes": 1145,
+      "sha256": "6721f15aeb7ba9580af20826c60af571c7be722f2e4354526e768450ec2ef05b"
+    },
+    "integrations/master/UNIFIED_BUILD.md": {
+      "bytes": 6569,
+      "sha256": "dd852e2c3a3133eb40561a9049ff1bed70dd82b9e20e88fde2829dcfd6ae711e"
+    },
+    "integrations/master/verify-build.mjs": {
+      "bytes": 1046,
+      "sha256": "8f9a1a59396885471d3c93e80f19ff65e9de4f7ed33c758bea819381b0c10d77"
+    },
+    "integrations/stand/app/master-audio/control/audio-client.mjs": {
+      "bytes": 1817,
+      "sha256": "5065afec376ead575cc369a30e7d1906c497a5927c0d8bc69c28a4053cfe9543"
+    },
+    "integrations/stand/app/master-audio/control/local-audio-bridge.mjs": {
+      "bytes": 1721,
+      "sha256": "2f5738389a2598864ca9bfa4352edda8abc66259041cb42d524248fac2750d3f"
+    },
+    "integrations/stand/app/stella-adapter/accepted-build-manifest.json": {
+      "bytes": 15466,
+      "sha256": "493dfdde595641aa029f19f0b9814ce9dfd1ef2321718a164b43fac74a2d6bce"
+    },
+    "integrations/stand/app/stella-adapter/local-server.mjs": {
+      "bytes": 9234,
+      "sha256": "5745e8d528fc79cdf6cacca4742a9abbb2b8744af36469a909772b7b2ee952c7"
+    },
+    "integrations/stand/app/stella-adapter/stella-package.mjs": {
+      "bytes": 8256,
+      "sha256": "641cd4759656fb97b21128bdccf4feaad873fa140b22f9afb2552a766c1b0061"
+    },
+    "integrations/stand/app/stella-kiosk/camera-diagnostics.cjs": {
+      "bytes": 678,
+      "sha256": "7af16cb1a757b379c7e1b5fb925acf90a8e3ee6176c25712667cd1d9f68d8c0b"
+    },
+    "integrations/stand/app/stella-kiosk/display-policy.cjs": {
+      "bytes": 1069,
+      "sha256": "352d480f40a095b44f2c3b0ec92a2a968ac3211467ca2ba32a8f48b0df101467"
+    },
+    "integrations/stand/app/stella-kiosk/main.cjs": {
+      "bytes": 12651,
+      "sha256": "96599afef7bb30a67f7d04cc8f8ab617c3ff16c887e5bbef0aeec9b4f5a1b49d"
+    },
+    "integrations/stand/app/stella-kiosk/package.json": {
+      "bytes": 79,
+      "sha256": "51cd4900a537e60eb8f44811735e32ac37e7f3089f93bab41598a78ffb830394"
+    },
+    "integrations/stand/app/stella-kiosk/start.cjs": {
+      "bytes": 2438,
+      "sha256": "d9194f468b0920a0ab67f958da6e9951e8a1c5f7b71177614aad1bd1627bd3d0"
+    },
+    "integrations/stand/app/stella-kiosk/ui-ready.cjs": {
+      "bytes": 2081,
+      "sha256": "3a65d576387f84a7f56fb21b62283eec167f256209973b5da8685f6edd5cd868"
+    },
+    "integrations/stand/provenance.json": {
+      "bytes": 1833,
+      "sha256": "2dc1645116d6c5de6a5491dc6192e9e3604d4c59697b71b08b174eceb7564adc"
+    },
+    "integrations/stand/README.md": {
+      "bytes": 3510,
+      "sha256": "d9c1da27e3ced7996bc1ed216f4656e2b18618f7c00747efa33d8c7f36eb2da7"
+    },
+    "NOTICE.md": {
+      "bytes": 1653,
+      "sha256": "cb1e3396c26ebfc2b8808244d5ebb8c410c129a2c7cf8941300ea7e6e34bf46d"
+    },
+    "PROVENANCE.json": {
+      "bytes": 826,
+      "sha256": "2eae73baf99fcff77093d881c180e18444d3b47b387031f4ef8fd3e1ad1d5ba6"
+    },
+    "README.md": {
+      "bytes": 6610,
+      "sha256": "55d2c1adce383a54e145978e407c0df5a3e27433f2ee399394363cfeae5c1cce"
+    }
+  }
+}

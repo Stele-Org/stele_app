@@ -1,0 +1,28 @@
+{
+  "asset": "vk-discovery-activation-studio.wav",
+  "cue": "vk-discovery-activation",
+  "transcript": "Технологии Discovery активированы. Технологии персонализации Discovery уже начали собирать подборку.",
+  "verification": "Automatic local faster-whisper-small Russian ASR; listening not available in this agent.",
+  "sources": [
+    {
+      "filename": "VK_VOX/6.wav",
+      "sha256": "a615aa10022b51444499ce8796f2ebeafc807429abd63ba9a0730015ba91a228",
+      "startSeconds": 0.04,
+      "endSeconds": 2.27
+    },
+    {
+      "filename": "VK_VOX/7.wav",
+      "sha256": "3eb1011c5e65e5a5cd468cf92e601df232006e6b96946588320f12019c2a757e",
+      "startSeconds": 0.36,
+      "endSeconds": 4.5
+    }
+  ],
+  "edit": "PCM concatenation of unchanged supplied recordings; only silent edges trimmed. No synthesis, resampling or voice modification.",
+  "insertedSilenceMs": 400,
+  "durationSeconds": 6.77,
+  "sha256": "5b47fecca5313665cdd7a34e392a082b66104b345f8b50f9474d38bb2dfe0a4d",
+  "cues": [
+    "vk-discovery-activation",
+    "vk-particles"
+  ]
+}

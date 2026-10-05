@@ -1,0 +1,2740 @@
+[
+  {
+    "name": "STELLA-1",
+    "tags": {
+      "svg": 1,
+      "g": 5,
+      "rect": 4497,
+      "mask": 1,
+      "ellipse": 1,
+      "path": 13,
+      "defs": 1,
+      "filter": 1,
+      "feFlood": 1,
+      "feColorMatrix": 2,
+      "feOffset": 1,
+      "feGaussianBlur": 1,
+      "feComposite": 1,
+      "feBlend": 2,
+      "linearGradient": 1,
+      "stop": 7,
+      "radialGradient": 2,
+      "clipPath": 2
+    },
+    "topColors": [
+      [
+        "#046EFF",
+        4401
+      ],
+      [
+        "#0077FF",
+        91
+      ],
+      [
+        "#FF2B42",
+        2
+      ],
+      [
+        "#02032F",
+        1
+      ]
+    ],
+    "images": [],
+    "externalReferences": [],
+    "largeRects": [
+      {
+        "width": "429.464",
+        "height": "130",
+        "fill": "white",
+        "transform": "translate(412.713 140)"
+      }
+    ]
+  },
+  {
+    "name": "STELLA-10",
+    "tags": {
+      "svg": 1,
+      "g": 10,
+      "rect": 4507,
+      "mask": 1,
+      "ellipse": 2,
+      "path": 17,
+      "defs": 1,
+      "pattern": 5,
+      "use": 5,
+      "filter": 1,
+      "feFlood": 1,
+      "feColorMatrix": 2,
+      "feOffset": 1,
+      "feGaussianBlur": 1,
+      "feComposite": 1,
+      "feBlend": 2,
+      "linearGradient": 6,
+      "stop": 19,
+      "radialGradient": 3,
+      "clipPath": 6,
+      "image": 5
+    },
+    "topColors": [
+      [
+        "#046EFF",
+        4394
+      ],
+      [
+        "#0077FF",
+        91
+      ],
+      [
+        "#0040FF",
+        5
+      ],
+      [
+        "#02032F",
+        1
+      ],
+      [
+        "#FF2B42",
+        1
+      ]
+    ],
+    "images": [
+      {
+        "id": "image0_4435_105681",
+        "type": "image/png",
+        "width": "2022",
+        "height": "778",
+        "sha256": "d2b1bd3ed278a6f87b1da42600adbfbcc9618995f6094a72ada4abd798167655"
+      },
+      {
+        "id": "image1_4435_105681",
+        "type": "image/png",
+        "width": "2022",
+        "height": "778",
+        "sha256": "e8cf0e1033cc44a9d1deeacd9d69cf54bd6a779f0600a72542ddc49536faf172"
+      },
+      {
+        "id": "image2_4435_105681",
+        "type": "image/png",
+        "width": "2020",
+        "height": "778",
+        "sha256": "855b8813df4b04d3bc515f3c42451d80952f2bdd6f72b8135cf4d43b57ddf20c"
+      },
+      {
+        "id": "image3_4435_105681",
+        "type": "image/png",
+        "width": "2022",
+        "height": "778",
+        "sha256": "586a9f62d3f1cb046d1309bf02b0aac04724cb78233e8f3b6c7df1643ee78877"
+      },
+      {
+        "id": "image4_4435_105681",
+        "type": "image/png",
+        "width": "1536",
+        "height": "1024",
+        "sha256": "c3f16833b245e2235cde0f38da57563fb359c4ce250f478a4dc6baff2f5aece7"
+      }
+    ],
+    "externalReferences": [],
+    "largeRects": [
+      {
+        "x": "45.2676",
+        "y": "869.172",
+        "width": "468",
+        "height": "280",
+        "rx": "60",
+        "fill": "#0040FF"
+      },
+      {
+        "x": "53.25",
+        "y": "870.398",
+        "width": "524.058",
+        "height": "201.641",
+        "fill": "url(#pattern0_4435_105681)"
+      },
+      {
+        "y": "914.344",
+        "width": "645.717",
+        "height": "234.828",
+        "fill": "url(#paint3_linear_4435_105681)"
+      },
+      {
+        "x": "407.34",
+        "y": "1205.34",
+        "width": "265.319",
+        "height": "120",
+        "rx": "35",
+        "fill": "#0040FF"
+      },
+      {
+        "x": "556.102",
+        "y": "869.172",
+        "width": "468.438",
+        "height": "280",
+        "rx": "60",
+        "fill": "#0040FF"
+      },
+      {
+        "x": "231.756",
+        "y": "864.516",
+        "width": "871.835",
+        "height": "335.454",
+        "fill": "url(#pattern1_4435_105681)"
+      },
+      {
+        "x": "556.102",
+        "y": "844.516",
+        "width": "645.717",
+        "height": "312.734",
+        "fill": "url(#paint6_linear_4435_105681)"
+      },
+      {
+        "x": "45.2676",
+        "y": "549",
+        "width": "468",
+        "height": "280",
+        "rx": "60",
+        "fill": "#0040FF"
+      },
+      {
+        "x": "-43.75",
+        "y": "537.68",
+        "width": "777.764",
+        "height": "299.258",
+        "fill": "url(#pattern2_4435_105681)"
+      },
+      {
+        "y": "524.344",
+        "width": "645.717",
+        "height": "304.656",
+        "fill": "url(#paint7_linear_4435_105681)"
+      },
+      {
+        "x": "558.5",
+        "y": "549",
+        "width": "468.438",
+        "height": "280",
+        "rx": "60",
+        "fill": "#0040FF"
+      },
+      {
+        "x": "410.941",
+        "y": "504.734",
+        "width": "882.534",
+        "height": "339.57",
+        "fill": "url(#pattern3_4435_105681)"
+      },
+      {
+        "x": "513.232",
+        "y": "549",
+        "width": "645.717",
+        "height": "280",
+        "fill": "url(#paint8_linear_4435_105681)"
+      },
+      {
+        "x": "717.857",
+        "y": "1053.86",
+        "width": "280.228",
+        "height": "236.555",
+        "fill": "url(#pattern4_4435_105681)"
+      },
+      {
+        "x": "45.2676",
+        "y": "869.172",
+        "width": "468",
+        "height": "280",
+        "rx": "60",
+        "fill": "white"
+      },
+      {
+        "width": "429.464",
+        "height": "130",
+        "fill": "white",
+        "transform": "translate(412.6 140)"
+      },
+      {
+        "x": "556.102",
+        "y": "869.172",
+        "width": "468.438",
+        "height": "280",
+        "rx": "60",
+        "fill": "white"
+      },
+      {
+        "x": "45.2676",
+        "y": "549",
+        "width": "468",
+        "height": "280",
+        "rx": "60",
+        "fill": "white"
+      },
+      {
+        "x": "558.5",
+        "y": "549",
+        "width": "468.438",
+        "height": "280",
+        "rx": "60",
+        "fill": "white"
+      }
+    ]
+  },
+  {
+    "name": "STELLA-11",
+    "tags": {
+      "svg": 1,
+      "g": 11,
+      "rect": 4507,
+      "mask": 2,
+      "ellipse": 2,
+      "path": 18,
+      "defs": 1,
+      "pattern": 5,
+      "use": 5,
+      "filter": 1,
+      "feFlood": 1,
+      "feColorMatrix": 2,
+      "feOffset": 1,
+      "feGaussianBlur": 1,
+      "feComposite": 1,
+      "feBlend": 2,
+      "linearGradient": 6,
+      "stop": 19,
+      "radialGradient": 3,
+      "clipPath": 6,
+      "image": 5
+    },
+    "topColors": [
+      [
+        "#046EFF",
+        4394
+      ],
+      [
+        "#0077FF",
+        91
+      ],
+      [
+        "#0040FF",
+        5
+      ],
+      [
+        "#02032F",
+        1
+      ],
+      [
+        "#FF2B42",
+        1
+      ],
+      [
+        "#D9D9D9",
+        1
+      ]
+    ],
+    "images": [
+      {
+        "id": "image0_4435_114096",
+        "type": "image/png",
+        "width": "2022",
+        "height": "778",
+        "sha256": "37511b19afc1574904fe341c9cdaa48b734a6943842c51b50d498e192caab9d9"
+      },
+      {
+        "id": "image1_4435_114096",
+        "type": "image/png",
+        "width": "2020",
+        "height": "778",
+        "sha256": "6181b8698c6f15623a0cabd8bb7923544165915cc6da50dd566cae730c996e2f"
+      },
+      {
+        "id": "image2_4435_114096",
+        "type": "image/png",
+        "width": "2023",
+        "height": "777",
+        "sha256": "29edfbcf03477ec62c575280c9cd2d55828ac266837bc68d6b960ea607146d9e"
+      },
+      {
+        "id": "image3_4435_114096",
+        "type": "image/png",
+        "width": "2022",
+        "height": "778",
+        "sha256": "9f3a47c42a2e2dd1f460e7617cd72a7f466d8037fa8fa9b62bf89f16bf2cc1a8"
+      },
+      {
+        "id": "image4_4435_114096",
+        "type": "image/png",
+        "width": "1536",
+        "height": "1024",
+        "sha256": "c3f16833b245e2235cde0f38da57563fb359c4ce250f478a4dc6baff2f5aece7"
+      }
+    ],
+    "externalReferences": [],
+    "largeRects": [
+      {
+        "x": "45.2676",
+        "y": "868.172",
+        "width": "468",
+        "height": "280",
+        "rx": "60",
+        "fill": "#0040FF"
+      },
+      {
+        "x": "-33.1562",
+        "y": "852.316",
+        "width": "810.128",
+        "height": "311.711",
+        "fill": "url(#pattern0_4435_114096)"
+      },
+      {
+        "y": "913.344",
+        "width": "645.717",
+        "height": "234.828",
+        "fill": "url(#paint3_linear_4435_114096)"
+      },
+      {
+        "x": "407.34",
+        "y": "1205.34",
+        "width": "265.319",
+        "height": "120",
+        "rx": "35",
+        "fill": "#0040FF"
+      },
+      {
+        "x": "556.102",
+        "y": "868.172",
+        "width": "468.438",
+        "height": "280",
+        "rx": "60",
+        "fill": "#0040FF"
+      },
+      {
+        "x": "811.088",
+        "y": "562.814",
+        "width": "841.29",
+        "height": "323.701",
+        "fill": "url(#pattern1_4435_114096)",
+        "transform": "rotate(60 811.088 562.814)"
+      },
+      {
+        "x": "493.752",
+        "y": "843.516",
+        "width": "577.97",
+        "height": "312.734",
+        "fill": "url(#paint6_linear_4435_114096)"
+      },
+      {
+        "x": "45.2676",
+        "y": "549",
+        "width": "468",
+        "height": "280",
+        "rx": "60",
+        "fill": "#0040FF"
+      },
+      {
+        "x": "5.23828",
+        "y": "549",
+        "width": "727.712",
+        "height": "280",
+        "fill": "url(#pattern2_4435_114096)"
+      },
+      {
+        "x": "18.4902",
+        "y": "549",
+        "width": "608.738",
+        "height": "318.438",
+        "fill": "url(#paint7_linear_4435_114096)"
+      },
+      {
+        "x": "558.5",
+        "y": "549",
+        "width": "468.438",
+        "height": "280",
+        "rx": "60",
+        "fill": "#0040FF"
+      },
+      {
+        "x": "451.57",
+        "y": "549",
+        "width": "801.275",
+        "height": "308.305",
+        "fill": "url(#pattern3_4435_114096)"
+      },
+      {
+        "x": "513.232",
+        "y": "549",
+        "width": "645.717",
+        "height": "280",
+        "fill": "url(#paint8_linear_4435_114096)"
+      },
+      {
+        "x": "717.857",
+        "y": "1053.86",
+        "width": "280.228",
+        "height": "236.555",
+        "fill": "url(#pattern4_4435_114096)"
+      },
+      {
+        "x": "45.2676",
+        "y": "868.172",
+        "width": "468",
+        "height": "280",
+        "rx": "60",
+        "fill": "white"
+      },
+      {
+        "width": "429.464",
+        "height": "130",
+        "fill": "white",
+        "transform": "translate(412.6 140)"
+      },
+      {
+        "x": "556.102",
+        "y": "868.172",
+        "width": "468.438",
+        "height": "280",
+        "rx": "60",
+        "fill": "white"
+      },
+      {
+        "x": "45.2676",
+        "y": "549",
+        "width": "468",
+        "height": "280",
+        "rx": "60",
+        "fill": "white"
+      },
+      {
+        "x": "558.5",
+        "y": "549",
+        "width": "468.438",
+        "height": "280",
+        "rx": "60",
+        "fill": "white"
+      }
+    ]
+  },
+  {
+    "name": "STELLA-12",
+    "tags": {
+      "svg": 1,
+      "g": 10,
+      "rect": 4507,
+      "mask": 1,
+      "ellipse": 2,
+      "path": 17,
+      "defs": 1,
+      "pattern": 5,
+      "use": 5,
+      "filter": 1,
+      "feFlood": 1,
+      "feColorMatrix": 2,
+      "feOffset": 1,
+      "feGaussianBlur": 1,
+      "feComposite": 1,
+      "feBlend": 2,
+      "linearGradient": 6,
+      "stop": 19,
+      "radialGradient": 3,
+      "clipPath": 6,
+      "image": 5
+    },
+    "topColors": [
+      [
+        "#046EFF",
+        4394
+      ],
+      [
+        "#0077FF",
+        91
+      ],
+      [
+        "#0040FF",
+        5
+      ],
+      [
+        "#02032F",
+        1
+      ],
+      [
+        "#FF2B42",
+        1
+      ]
+    ],
+    "images": [
+      {
+        "id": "image0_4435_122513",
+        "type": "image/png",
+        "width": "2022",
+        "height": "778",
+        "sha256": "563678f0f492e8c56500a71c5b139cbbf2102f1614eb3062c9322a685bb28236"
+      },
+      {
+        "id": "image1_4435_122513",
+        "type": "image/png",
+        "width": "2022",
+        "height": "778",
+        "sha256": "b9771d5918f8635e1a7dcea63430668f074ea246b6bd8f66db7c32eb0bbcc8bd"
+      },
+      {
+        "id": "image2_4435_122513",
+        "type": "image/png",
+        "width": "2022",
+        "height": "778",
+        "sha256": "56df3466244fa04dae8c15054b45e77c4ee69da6fc1db6bc07438e0901db9b6c"
+      },
+      {
+        "id": "image3_4435_122513",
+        "type": "image/png",
+        "width": "2022",
+        "height": "778",
+        "sha256": "c23f582c44b63b8fbcfa20a4c8f434f5f1e29476f706c173436b0d5d694d8adb"
+      },
+      {
+        "id": "image4_4435_122513",
+        "type": "image/png",
+        "width": "1536",
+        "height": "1024",
+        "sha256": "c3f16833b245e2235cde0f38da57563fb359c4ce250f478a4dc6baff2f5aece7"
+      }
+    ],
+    "externalReferences": [],
+    "largeRects": [
+      {
+        "x": "45.2676",
+        "y": "868.172",
+        "width": "468",
+        "height": "280",
+        "rx": "60",
+        "fill": "#0040FF"
+      },
+      {
+        "x": "-147.502",
+        "y": "869.781",
+        "width": "712.742",
+        "height": "274.24",
+        "fill": "url(#pattern0_4435_122513)"
+      },
+      {
+        "y": "859.234",
+        "width": "645.717",
+        "height": "288.938",
+        "fill": "url(#paint3_linear_4435_122513)"
+      },
+      {
+        "x": "407.34",
+        "y": "1205.34",
+        "width": "265.319",
+        "height": "120",
+        "rx": "35",
+        "fill": "#0040FF"
+      },
+      {
+        "x": "556.102",
+        "y": "868.172",
+        "width": "468.438",
+        "height": "280",
+        "rx": "60",
+        "fill": "#0040FF"
+      },
+      {
+        "x": "247.025",
+        "y": "859.156",
+        "width": "812.057",
+        "height": "312.453",
+        "fill": "url(#pattern1_4435_122513)"
+      },
+      {
+        "x": "493.752",
+        "y": "859.156",
+        "width": "577.97",
+        "height": "297.094",
+        "fill": "url(#paint6_linear_4435_122513)"
+      },
+      {
+        "x": "45.2676",
+        "y": "549",
+        "width": "468",
+        "height": "280",
+        "rx": "60",
+        "fill": "#0040FF"
+      },
+      {
+        "x": "-174.252",
+        "y": "511.352",
+        "width": "825.559",
+        "height": "317.648",
+        "fill": "url(#pattern2_4435_122513)"
+      },
+      {
+        "x": "18.4902",
+        "y": "549",
+        "width": "608.738",
+        "height": "318.438",
+        "fill": "url(#paint7_linear_4435_122513)"
+      },
+      {
+        "x": "558.5",
+        "y": "549",
+        "width": "468.438",
+        "height": "280",
+        "rx": "60",
+        "fill": "#0040FF"
+      },
+      {
+        "x": "232.156",
+        "y": "549",
+        "width": "895.151",
+        "height": "344.425",
+        "fill": "url(#pattern3_4435_122513)"
+      },
+      {
+        "x": "513.232",
+        "y": "549",
+        "width": "645.717",
+        "height": "280",
+        "fill": "url(#paint8_linear_4435_122513)"
+      },
+      {
+        "x": "717.857",
+        "y": "1053.86",
+        "width": "280.228",
+        "height": "236.555",
+        "fill": "url(#pattern4_4435_122513)"
+      },
+      {
+        "x": "45.2676",
+        "y": "868.172",
+        "width": "468",
+        "height": "280",
+        "rx": "60",
+        "fill": "white"
+      },
+      {
+        "width": "429.464",
+        "height": "130",
+        "fill": "white",
+        "transform": "translate(412.6 140)"
+      },
+      {
+        "x": "556.102",
+        "y": "868.172",
+        "width": "468.438",
+        "height": "280",
+        "rx": "60",
+        "fill": "white"
+      },
+      {
+        "x": "45.2676",
+        "y": "549",
+        "width": "468",
+        "height": "280",
+        "rx": "60",
+        "fill": "white"
+      },
+      {
+        "x": "558.5",
+        "y": "549",
+        "width": "468.438",
+        "height": "280",
+        "rx": "60",
+        "fill": "white"
+      }
+    ]
+  },
+  {
+    "name": "STELLA-13",
+    "tags": {
+      "svg": 1,
+      "g": 10,
+      "rect": 4507,
+      "mask": 1,
+      "ellipse": 2,
+      "path": 17,
+      "defs": 1,
+      "filter": 1,
+      "feFlood": 1,
+      "feColorMatrix": 2,
+      "feOffset": 1,
+      "feGaussianBlur": 1,
+      "feComposite": 1,
+      "feBlend": 2,
+      "pattern": 5,
+      "use": 5,
+      "linearGradient": 6,
+      "stop": 19,
+      "radialGradient": 3,
+      "clipPath": 6,
+      "image": 5
+    },
+    "topColors": [
+      [
+        "#046EFF",
+        4394
+      ],
+      [
+        "#0077FF",
+        91
+      ],
+      [
+        "#0040FF",
+        5
+      ],
+      [
+        "#02032F",
+        1
+      ],
+      [
+        "#FF2B42",
+        1
+      ]
+    ],
+    "images": [
+      {
+        "id": "image0_4435_130928",
+        "type": "image/png",
+        "width": "4096",
+        "height": "1576",
+        "sha256": "9622629be65c90c4ba457ec0e8371f0380e843a1628957336a5c4cd37acf2425"
+      },
+      {
+        "id": "image1_4435_130928",
+        "type": "image/png",
+        "width": "4096",
+        "height": "1576",
+        "sha256": "0ad8abeabd8a9e3dda9b94b0b59f4b23a0d25200dfd45e21777becb1e9b4d740"
+      },
+      {
+        "id": "image2_4435_130928",
+        "type": "image/png",
+        "width": "2020",
+        "height": "778",
+        "sha256": "10eeb8cbc99f2f19c953cc458d3750ea4fbd92a84fbbc820d8957fd109b2e083"
+      },
+      {
+        "id": "image3_4435_130928",
+        "type": "image/png",
+        "width": "2022",
+        "height": "778",
+        "sha256": "9bad8d6a648d47d673e01132f840e673c082ef04b0c11a19e31e7d949a098ece"
+      },
+      {
+        "id": "image4_4435_130928",
+        "type": "image/png",
+        "width": "1536",
+        "height": "1024",
+        "sha256": "c3f16833b245e2235cde0f38da57563fb359c4ce250f478a4dc6baff2f5aece7"
+      }
+    ],
+    "externalReferences": [],
+    "largeRects": [
+      {
+        "x": "407.34",
+        "y": "1205.34",
+        "width": "265.319",
+        "height": "120",
+        "rx": "35",
+        "fill": "#0040FF"
+      },
+      {
+        "x": "57",
+        "y": "870",
+        "width": "468",
+        "height": "280",
+        "rx": "60",
+        "fill": "#0040FF"
+      },
+      {
+        "x": "-101.635",
+        "y": "835.789",
+        "width": "711.702",
+        "height": "273.84",
+        "fill": "url(#pattern0_4435_130928)"
+      },
+      {
+        "x": "11.7324",
+        "y": "915.172",
+        "width": "645.717",
+        "height": "234.828",
+        "fill": "url(#paint5_linear_4435_130928)"
+      },
+      {
+        "x": "57",
+        "y": "560",
+        "width": "468",
+        "height": "280",
+        "rx": "60",
+        "fill": "#0040FF"
+      },
+      {
+        "x": "9.59961",
+        "y": "574.141",
+        "width": "663.946",
+        "height": "255.465",
+        "fill": "url(#pattern1_4435_130928)"
+      },
+      {
+        "x": "11.7324",
+        "y": "605.172",
+        "width": "645.717",
+        "height": "234.828",
+        "fill": "url(#paint6_linear_4435_130928)"
+      },
+      {
+        "x": "555",
+        "y": "870",
+        "width": "468",
+        "height": "280",
+        "rx": "60",
+        "fill": "#0040FF"
+      },
+      {
+        "x": "516.576",
+        "y": "874.141",
+        "width": "781.6",
+        "height": "300.734",
+        "fill": "url(#pattern2_4435_130928)"
+      },
+      {
+        "x": "509.732",
+        "y": "915.172",
+        "width": "645.717",
+        "height": "234.828",
+        "fill": "url(#paint7_linear_4435_130928)"
+      },
+      {
+        "x": "555",
+        "y": "560",
+        "width": "468",
+        "height": "280",
+        "rx": "60",
+        "fill": "#0040FF"
+      },
+      {
+        "x": "509.732",
+        "y": "605.172",
+        "width": "645.717",
+        "height": "234.828",
+        "fill": "url(#paint8_linear_4435_130928)"
+      },
+      {
+        "x": "717.857",
+        "y": "1063.86",
+        "width": "280.228",
+        "height": "236.555",
+        "fill": "url(#pattern4_4435_130928)"
+      },
+      {
+        "width": "429.464",
+        "height": "130",
+        "fill": "white",
+        "transform": "translate(412.6 140)"
+      },
+      {
+        "x": "57",
+        "y": "870",
+        "width": "468",
+        "height": "280",
+        "rx": "60",
+        "fill": "white"
+      },
+      {
+        "x": "57",
+        "y": "560",
+        "width": "468",
+        "height": "280",
+        "rx": "60",
+        "fill": "white"
+      },
+      {
+        "x": "555",
+        "y": "870",
+        "width": "468",
+        "height": "280",
+        "rx": "60",
+        "fill": "white"
+      },
+      {
+        "x": "555",
+        "y": "560",
+        "width": "468",
+        "height": "280",
+        "rx": "60",
+        "fill": "white"
+      }
+    ]
+  },
+  {
+    "name": "STELLA-14",
+    "tags": {
+      "svg": 1,
+      "g": 7,
+      "rect": 4492,
+      "mask": 1,
+      "ellipse": 2,
+      "path": 15,
+      "defs": 1,
+      "filter": 2,
+      "feFlood": 2,
+      "feColorMatrix": 4,
+      "feOffset": 2,
+      "feGaussianBlur": 2,
+      "feComposite": 2,
+      "feBlend": 4,
+      "pattern": 1,
+      "use": 1,
+      "linearGradient": 2,
+      "stop": 11,
+      "radialGradient": 3,
+      "clipPath": 2,
+      "image": 1
+    },
+    "topColors": [
+      [
+        "#046EFF",
+        4394
+      ],
+      [
+        "#0077FF",
+        91
+      ],
+      [
+        "#FF2B42",
+        2
+      ],
+      [
+        "#02032F",
+        1
+      ],
+      [
+        "#0040FF",
+        1
+      ]
+    ],
+    "images": [
+      {
+        "id": "image0_4435_139334",
+        "type": "image/png",
+        "width": "1536",
+        "height": "1024",
+        "sha256": "c3f16833b245e2235cde0f38da57563fb359c4ce250f478a4dc6baff2f5aece7"
+      }
+    ],
+    "externalReferences": [],
+    "largeRects": [
+      {
+        "x": "360.84",
+        "y": "930",
+        "width": "358.319",
+        "height": "120",
+        "rx": "35",
+        "fill": "#0040FF"
+      },
+      {
+        "x": "332.5",
+        "y": "750",
+        "width": "415",
+        "height": "140",
+        "rx": "40.25",
+        "fill": "#FF2B42"
+      },
+      {
+        "x": "547.387",
+        "y": "799.094",
+        "width": "280.228",
+        "height": "236.555",
+        "fill": "url(#pattern0_4435_139334)"
+      },
+      {
+        "width": "429.464",
+        "height": "130",
+        "fill": "white",
+        "transform": "translate(412.6 140)"
+      }
+    ]
+  },
+  {
+    "name": "STELLA-15",
+    "tags": {
+      "svg": 1,
+      "g": 6,
+      "rect": 4491,
+      "mask": 1,
+      "ellipse": 2,
+      "path": 14,
+      "defs": 1,
+      "filter": 1,
+      "feFlood": 1,
+      "feColorMatrix": 2,
+      "feOffset": 1,
+      "feGaussianBlur": 1,
+      "feComposite": 1,
+      "feBlend": 2,
+      "pattern": 1,
+      "use": 1,
+      "linearGradient": 3,
+      "stop": 13,
+      "radialGradient": 3,
+      "clipPath": 2,
+      "image": 1
+    },
+    "topColors": [
+      [
+        "#046EFF",
+        4394
+      ],
+      [
+        "#0077FF",
+        91
+      ],
+      [
+        "#FF2B42",
+        2
+      ],
+      [
+        "#02032F",
+        1
+      ]
+    ],
+    "images": [
+      {
+        "id": "image0_4435_147726",
+        "type": "image/png",
+        "width": "1536",
+        "height": "1024",
+        "sha256": "c3f16833b245e2235cde0f38da57563fb359c4ce250f478a4dc6baff2f5aece7"
+      }
+    ],
+    "externalReferences": [],
+    "largeRects": [
+      {
+        "x": "362",
+        "y": "750.234",
+        "width": "356",
+        "height": "140",
+        "rx": "40.25",
+        "fill": "#FF2B42"
+      },
+      {
+        "x": "547.386",
+        "y": "799.094",
+        "width": "280.228",
+        "height": "236.555",
+        "fill": "url(#pattern0_4435_147726)"
+      },
+      {
+        "width": "429.464",
+        "height": "130",
+        "fill": "white",
+        "transform": "translate(412.6 140)"
+      }
+    ]
+  },
+  {
+    "name": "STELLA-16",
+    "tags": {
+      "svg": 1,
+      "g": 18,
+      "rect": 4615,
+      "path": 19,
+      "mask": 1,
+      "ellipse": 4,
+      "circle": 1,
+      "defs": 1,
+      "filter": 4,
+      "feFlood": 4,
+      "feBlend": 5,
+      "feGaussianBlur": 4,
+      "feColorMatrix": 2,
+      "feOffset": 1,
+      "feComposite": 1,
+      "pattern": 1,
+      "use": 1,
+      "linearGradient": 12,
+      "stop": 76,
+      "radialGradient": 6,
+      "clipPath": 3,
+      "image": 1
+    },
+    "topColors": [
+      [
+        "#046EFF",
+        4498
+      ],
+      [
+        "#0077FF",
+        94
+      ],
+      [
+        "#18CDFF",
+        6
+      ],
+      [
+        "#7A02FF",
+        2
+      ],
+      [
+        "#013CEE",
+        2
+      ],
+      [
+        "#FF2B42",
+        2
+      ]
+    ],
+    "images": [
+      {
+        "id": "image0_4435_156116",
+        "type": "image/png",
+        "width": "1536",
+        "height": "1024",
+        "sha256": "c8a41993ca68c622639afcbbc2cc19a3e7c444da33a31bc06093f4b9bdafb8c7"
+      }
+    ],
+    "externalReferences": [],
+    "largeRects": [
+      {
+        "x": "387.4",
+        "y": "1052.09",
+        "width": "305.2",
+        "height": "140",
+        "rx": "40.25",
+        "fill": "#FF2B42"
+      },
+      {
+        "x": "532.434",
+        "y": "1100.91",
+        "width": "280.903",
+        "height": "237.125",
+        "fill": "url(#pattern0_4435_156116)"
+      },
+      {
+        "width": "429.464",
+        "height": "130",
+        "fill": "white",
+        "transform": "translate(412.891 139.656)"
+      },
+      {
+        "x": "250",
+        "y": "418.648",
+        "width": "601",
+        "height": "280",
+        "rx": "60",
+        "fill": "white"
+      }
+    ]
+  },
+  {
+    "name": "STELLA-17",
+    "tags": {
+      "svg": 1,
+      "g": 51,
+      "rect": 4506,
+      "mask": 4,
+      "ellipse": 14,
+      "foreignObject": 7,
+      "div": 7,
+      "circle": 4,
+      "path": 169,
+      "defs": 1,
+      "filter": 24,
+      "feFlood": 24,
+      "feBlend": 26,
+      "feGaussianBlur": 24,
+      "clipPath": 11,
+      "pattern": 3,
+      "use": 3,
+      "feColorMatrix": 2,
+      "feOffset": 1,
+      "feComposite": 1,
+      "linearGradient": 159,
+      "stop": 347,
+      "radialGradient": 3,
+      "image": 3
+    },
+    "topColors": [
+      [
+        "#046EFF",
+        4399
+      ],
+      [
+        "#0077FF",
+        90
+      ],
+      [
+        "#0D001A",
+        2
+      ],
+      [
+        "#00EAFF",
+        2
+      ],
+      [
+        "#02032F",
+        1
+      ]
+    ],
+    "images": [
+      {
+        "id": "image0_4435_181328",
+        "type": "image/png",
+        "width": "1942",
+        "height": "809",
+        "sha256": "a11722f4b4ffa9824283a938fb81c938e525b3a893d36acafdf29c48acd0659f"
+      },
+      {
+        "id": "image1_4435_181328",
+        "type": "image/png",
+        "width": "1942",
+        "height": "809",
+        "sha256": "fa5d17836b41807fbe2a499352e39b86a3b80de3287396028aa03db55d4d3e5d"
+      },
+      {
+        "id": "image2_4435_181328",
+        "type": "image/png",
+        "width": "1536",
+        "height": "1024",
+        "sha256": "463f1c0985856f3db7b597e47f38eb115f0703a26447068ca181c9413ccd0dcb"
+      }
+    ],
+    "externalReferences": [],
+    "largeRects": [
+      {
+        "x": "45.2656",
+        "y": "560",
+        "width": "465",
+        "height": "280",
+        "rx": "23",
+        "fill": "#0D001A"
+      },
+      {
+        "x": "169.59",
+        "y": "534.727",
+        "width": "363.815",
+        "height": "312.119",
+        "fill": "url(#pattern0_4435_181328)"
+      },
+      {
+        "x": "-0.0351562",
+        "y": "560",
+        "width": "645.717",
+        "height": "280",
+        "fill": "url(#paint8_linear_4435_181328)"
+      },
+      {
+        "x": "558.268",
+        "y": "560",
+        "width": "465",
+        "height": "280",
+        "rx": "23",
+        "fill": "#0D001A"
+      },
+      {
+        "x": "711.898",
+        "y": "542.203",
+        "width": "321.358",
+        "height": "275.695",
+        "fill": "url(#pattern1_4435_181328)"
+      },
+      {
+        "x": "512.965",
+        "y": "560",
+        "width": "645.717",
+        "height": "280",
+        "fill": "url(#paint13_linear_4435_181328)"
+      },
+      {
+        "x": "408.84",
+        "y": "875.664",
+        "width": "262.319",
+        "height": "120",
+        "rx": "60",
+        "fill": "black"
+      },
+      {
+        "x": "771.756",
+        "y": "722.078",
+        "width": "280.228",
+        "height": "236.555",
+        "fill": "url(#pattern2_4435_181328)"
+      },
+      {
+        "x": "45.2656",
+        "y": "560",
+        "width": "465",
+        "height": "280",
+        "rx": "23",
+        "fill": "white"
+      },
+      {
+        "x": "558.268",
+        "y": "560",
+        "width": "465",
+        "height": "280",
+        "rx": "23",
+        "fill": "white"
+      }
+    ]
+  },
+  {
+    "name": "STELLA-18",
+    "tags": {
+      "svg": 1,
+      "g": 42,
+      "rect": 4505,
+      "mask": 2,
+      "ellipse": 7,
+      "foreignObject": 4,
+      "div": 4,
+      "circle": 2,
+      "path": 171,
+      "defs": 1,
+      "filter": 24,
+      "feFlood": 24,
+      "feBlend": 25,
+      "feGaussianBlur": 24,
+      "clipPath": 8,
+      "pattern": 2,
+      "use": 2,
+      "feColorMatrix": 2,
+      "feOffset": 1,
+      "feComposite": 1,
+      "linearGradient": 166,
+      "stop": 359,
+      "radialGradient": 2,
+      "image": 2
+    },
+    "topColors": [
+      [
+        "#046EFF",
+        4399
+      ],
+      [
+        "#0077FF",
+        90
+      ],
+      [
+        "#00EAFF",
+        2
+      ],
+      [
+        "#02032F",
+        1
+      ],
+      [
+        "#0D001A",
+        1
+      ]
+    ],
+    "images": [
+      {
+        "id": "image0_4435_198120",
+        "type": "image/png",
+        "width": "1254",
+        "height": "1254",
+        "sha256": "8b8aba042d91dc14d19000f150b93b0c32520b84f2f9d8a556d9c9a54aca473c"
+      },
+      {
+        "id": "image1_4435_198120",
+        "type": "image/png",
+        "width": "160",
+        "height": "160",
+        "sha256": "1b97288bceb280480bb8c57aa8f1eab9eec821520de46b2f36d9df19c2d96e96"
+      }
+    ],
+    "externalReferences": [],
+    "largeRects": [
+      {
+        "x": "766.078",
+        "y": "940.279",
+        "width": "398.094",
+        "height": "184.094",
+        "rx": "92.0469",
+        "fill": "url(#paint160_linear_4435_198120)"
+      },
+      {
+        "x": "-52.1523",
+        "y": "571",
+        "width": "371.953",
+        "height": "140.953",
+        "rx": "70.4764",
+        "fill": "url(#paint162_linear_4435_198120)"
+      },
+      {
+        "x": "133.824",
+        "y": "971.887",
+        "width": "228",
+        "height": "100",
+        "rx": "50",
+        "fill": "url(#paint164_linear_4435_198120)"
+      },
+      {
+        "x": "564.566",
+        "y": "552.375",
+        "width": "465",
+        "height": "280",
+        "rx": "60",
+        "fill": "#0D001A"
+      },
+      {
+        "x": "725.33",
+        "y": "556.273",
+        "width": "314.629",
+        "height": "269.922",
+        "fill": "url(#pattern0_4435_198120)"
+      },
+      {
+        "x": "519.266",
+        "y": "552.375",
+        "width": "645.717",
+        "height": "280",
+        "fill": "url(#paint169_linear_4435_198120)"
+      },
+      {
+        "x": "380.172",
+        "y": "496.727",
+        "width": "400",
+        "height": "100",
+        "rx": "50",
+        "fill": "url(#paint170_linear_4435_198120)"
+      },
+      {
+        "x": "564.566",
+        "y": "552.375",
+        "width": "465",
+        "height": "280",
+        "rx": "23",
+        "fill": "white"
+      },
+      {
+        "x": "564.566",
+        "y": "552.375",
+        "width": "465",
+        "height": "280",
+        "rx": "60",
+        "fill": "white"
+      }
+    ]
+  },
+  {
+    "name": "STELLA-19",
+    "tags": {
+      "svg": 1,
+      "g": 10,
+      "rect": 4500,
+      "mask": 1,
+      "ellipse": 2,
+      "path": 15,
+      "defs": 1,
+      "filter": 4,
+      "feFlood": 4,
+      "feBlend": 8,
+      "feColorMatrix": 8,
+      "feMorphology": 4,
+      "feOffset": 4,
+      "feGaussianBlur": 4,
+      "feComposite": 4,
+      "pattern": 1,
+      "use": 1,
+      "linearGradient": 3,
+      "stop": 13,
+      "radialGradient": 3,
+      "clipPath": 3,
+      "image": 1
+    },
+    "topColors": [
+      [
+        "#046EFF",
+        4395
+      ],
+      [
+        "#0077FF",
+        90
+      ],
+      [
+        "#000033",
+        4
+      ],
+      [
+        "#02032F",
+        1
+      ],
+      [
+        "#FF2B42",
+        1
+      ],
+      [
+        "#0040FF",
+        1
+      ]
+    ],
+    "images": [
+      {
+        "id": "image0_4435_214909",
+        "type": "image/png",
+        "width": "2023",
+        "height": "777",
+        "sha256": "29edfbcf03477ec62c575280c9cd2d55828ac266837bc68d6b960ea607146d9e"
+      }
+    ],
+    "externalReferences": [],
+    "largeRects": [
+      {
+        "x": "744.519",
+        "y": "628.039",
+        "width": "381.481",
+        "height": "200",
+        "rx": "65.4321",
+        "fill": "#000033"
+      },
+      {
+        "x": "45.6426",
+        "y": "548.766",
+        "width": "468",
+        "height": "280",
+        "rx": "60",
+        "fill": "#0040FF"
+      },
+      {
+        "x": "5.61426",
+        "y": "548.766",
+        "width": "727.712",
+        "height": "280",
+        "fill": "url(#pattern0_4435_214909)"
+      },
+      {
+        "x": "18.8643",
+        "y": "548.766",
+        "width": "608.738",
+        "height": "318.438",
+        "fill": "url(#paint5_linear_4435_214909)"
+      },
+      {
+        "x": "336.676",
+        "y": "771.667",
+        "width": "206.882",
+        "height": "95.5358",
+        "rx": "33",
+        "fill": "#000033"
+      },
+      {
+        "x": "336.676",
+        "y": "771.667",
+        "width": "206.882",
+        "height": "95.5358",
+        "rx": "33"
+      },
+      {
+        "width": "429.464",
+        "height": "130",
+        "fill": "white",
+        "transform": "translate(412.601 140)"
+      },
+      {
+        "x": "45.6426",
+        "y": "548.766",
+        "width": "468",
+        "height": "280",
+        "rx": "60",
+        "fill": "white"
+      }
+    ]
+  },
+  {
+    "name": "STELLA-2",
+    "tags": {
+      "svg": 1,
+      "g": 48,
+      "rect": 4653,
+      "mask": 2,
+      "ellipse": 4,
+      "circle": 1,
+      "path": 169,
+      "foreignObject": 4,
+      "div": 4,
+      "defs": 1,
+      "filter": 22,
+      "feFlood": 22,
+      "feBlend": 22,
+      "feGaussianBlur": 22,
+      "pattern": 3,
+      "use": 3,
+      "clipPath": 6,
+      "linearGradient": 182,
+      "stop": 458,
+      "radialGradient": 6,
+      "image": 2
+    },
+    "topColors": [
+      [
+        "#046EFF",
+        4498
+      ],
+      [
+        "#0077FF",
+        92
+      ],
+      [
+        "#18CDFF",
+        26
+      ],
+      [
+        "#7A02FF",
+        3
+      ],
+      [
+        "#00EAFF",
+        2
+      ],
+      [
+        "#02032F",
+        1
+      ]
+    ],
+    "images": [
+      {
+        "id": "image0_4435_29878",
+        "type": "image/png",
+        "width": "2048",
+        "height": "2048",
+        "sha256": "e74368ef76f43180bc1d9907b2f37c1e6c1e16edca8985aafdd3ad70a2c13ebc"
+      },
+      {
+        "id": "image1_4435_29878",
+        "type": "image/png",
+        "width": "2048",
+        "height": "2048",
+        "sha256": "2b6400c9c0dcb95f3718bd84b9ccffea01d5eced8c89ffbca719d68330c7bab6"
+      }
+    ],
+    "externalReferences": [],
+    "largeRects": [
+      {
+        "x": "235.744",
+        "y": "632.82",
+        "width": "256.23",
+        "height": "256.23",
+        "fill": "url(#pattern0_4435_29878)"
+      },
+      {
+        "x": "235.744",
+        "y": "632.82",
+        "width": "256.23",
+        "height": "256.23",
+        "fill": "url(#pattern1_4435_29878)"
+      },
+      {
+        "x": "235.744",
+        "y": "632.82",
+        "width": "256.23",
+        "height": "256.23",
+        "fill": "url(#pattern2_4435_29878)"
+      }
+    ]
+  },
+  {
+    "name": "STELLA-20",
+    "tags": {
+      "svg": 1,
+      "g": 52,
+      "rect": 4506,
+      "mask": 2,
+      "ellipse": 14,
+      "foreignObject": 7,
+      "div": 7,
+      "circle": 2,
+      "path": 180,
+      "defs": 1,
+      "filter": 24,
+      "feFlood": 24,
+      "feBlend": 25,
+      "feGaussianBlur": 25,
+      "clipPath": 14,
+      "pattern": 3,
+      "use": 3,
+      "feColorMatrix": 2,
+      "feOffset": 1,
+      "feComposite": 1,
+      "linearGradient": 166,
+      "stop": 368,
+      "radialGradient": 5,
+      "image": 3
+    },
+    "topColors": [
+      [
+        "#046EFF",
+        4399
+      ],
+      [
+        "#0077FF",
+        90
+      ],
+      [
+        "#0D001A",
+        2
+      ],
+      [
+        "#00EAFF",
+        2
+      ],
+      [
+        "#02032F",
+        1
+      ]
+    ],
+    "images": [
+      {
+        "id": "image0_4435_248505",
+        "type": "image/png",
+        "width": "1312",
+        "height": "1199",
+        "sha256": "e4f75d46d78a39fcf857ae79b80e0b73ea9822c4d5a43ab6ce8a782b726cd1bb"
+      },
+      {
+        "id": "image1_4435_248505",
+        "type": "image/png",
+        "width": "1254",
+        "height": "1254",
+        "sha256": "8b8aba042d91dc14d19000f150b93b0c32520b84f2f9d8a556d9c9a54aca473c"
+      },
+      {
+        "id": "image2_4435_248505",
+        "type": "image/png",
+        "width": "1536",
+        "height": "1024",
+        "sha256": "463f1c0985856f3db7b597e47f38eb115f0703a26447068ca181c9413ccd0dcb"
+      }
+    ],
+    "externalReferences": [],
+    "largeRects": [
+      {
+        "x": "45.2656",
+        "y": "549",
+        "width": "465",
+        "height": "280",
+        "rx": "60",
+        "fill": "#0D001A"
+      },
+      {
+        "x": "191.277",
+        "y": "549",
+        "width": "331.472",
+        "height": "302.923",
+        "fill": "url(#pattern0_4435_248505)"
+      },
+      {
+        "x": "558.5",
+        "y": "549",
+        "width": "465",
+        "height": "280",
+        "rx": "60",
+        "fill": "#0D001A"
+      },
+      {
+        "x": "719.264",
+        "y": "552.898",
+        "width": "314.629",
+        "height": "269.922",
+        "fill": "url(#pattern1_4435_248505)"
+      },
+      {
+        "x": "513.199",
+        "y": "549",
+        "width": "645.717",
+        "height": "280",
+        "fill": "url(#paint10_linear_4435_248505)"
+      },
+      {
+        "x": "408.84",
+        "y": "864.664",
+        "width": "262.319",
+        "height": "120",
+        "rx": "60",
+        "fill": "url(#paint22_linear_4435_248505)"
+      },
+      {
+        "x": "715.652",
+        "y": "760.071",
+        "width": "280.228",
+        "height": "236.555",
+        "fill": "url(#pattern2_4435_248505)"
+      },
+      {
+        "x": "45.2656",
+        "y": "549",
+        "width": "465",
+        "height": "280",
+        "rx": "60",
+        "fill": "white"
+      },
+      {
+        "x": "558.5",
+        "y": "549",
+        "width": "465",
+        "height": "280",
+        "rx": "23",
+        "fill": "white"
+      },
+      {
+        "x": "558.5",
+        "y": "549",
+        "width": "465",
+        "height": "280",
+        "rx": "60",
+        "fill": "white"
+      }
+    ]
+  },
+  {
+    "name": "STELLA-21",
+    "tags": {
+      "svg": 1,
+      "g": 33,
+      "rect": 4611,
+      "mask": 2,
+      "ellipse": 3,
+      "circle": 1,
+      "path": 174,
+      "defs": 1,
+      "filter": 18,
+      "feFlood": 18,
+      "feBlend": 18,
+      "feGaussianBlur": 18,
+      "linearGradient": 162,
+      "stop": 396,
+      "radialGradient": 5,
+      "clipPath": 3
+    },
+    "topColors": [
+      [
+        "#046EFF",
+        4499
+      ],
+      [
+        "#0077FF",
+        92
+      ],
+      [
+        "#18CDFF",
+        6
+      ],
+      [
+        "#7A02FF",
+        3
+      ],
+      [
+        "#00EAFF",
+        2
+      ],
+      [
+        "#02032F",
+        1
+      ]
+    ],
+    "images": [],
+    "externalReferences": [],
+    "largeRects": [
+      {
+        "width": "462.5",
+        "height": "140",
+        "fill": "white",
+        "transform": "translate(402.801 640)"
+      }
+    ]
+  },
+  {
+    "name": "STELLA-3",
+    "tags": {
+      "svg": 1,
+      "g": 26,
+      "rect": 4496,
+      "mask": 2,
+      "ellipse": 1,
+      "foreignObject": 1,
+      "div": 1,
+      "circle": 2,
+      "path": 168,
+      "defs": 1,
+      "pattern": 1,
+      "use": 1,
+      "filter": 17,
+      "feFlood": 17,
+      "feBlend": 17,
+      "feGaussianBlur": 17,
+      "clipPath": 3,
+      "linearGradient": 158,
+      "stop": 347,
+      "radialGradient": 3,
+      "image": 1
+    },
+    "topColors": [
+      [
+        "#046EFF",
+        4397
+      ],
+      [
+        "#0077FF",
+        90
+      ],
+      [
+        "#00EAFF",
+        2
+      ],
+      [
+        "#02032F",
+        1
+      ],
+      [
+        "#9500FF",
+        1
+      ]
+    ],
+    "images": [
+      {
+        "id": "image0_4435_38343",
+        "type": "image/png",
+        "width": "1024",
+        "height": "1024",
+        "sha256": "0cefcbcd6f4545f028785f04b33ec198deaebff2df15552325e81d9eaee463a8"
+      }
+    ],
+    "externalReferences": [],
+    "largeRects": [
+      {
+        "x": "250",
+        "y": "1051.41",
+        "width": "580",
+        "height": "120",
+        "rx": "60",
+        "fill": "url(#paint161_linear_4435_38343)"
+      }
+    ]
+  },
+  {
+    "name": "STELLA-4",
+    "tags": {
+      "svg": 1,
+      "g": 10,
+      "rect": 4513,
+      "mask": 1,
+      "ellipse": 2,
+      "path": 17,
+      "defs": 1,
+      "filter": 1,
+      "feFlood": 1,
+      "feColorMatrix": 2,
+      "feOffset": 1,
+      "feGaussianBlur": 1,
+      "feComposite": 1,
+      "feBlend": 2,
+      "pattern": 4,
+      "use": 4,
+      "linearGradient": 5,
+      "stop": 17,
+      "radialGradient": 3,
+      "clipPath": 6,
+      "image": 4
+    },
+    "topColors": [
+      [
+        "#046EFF",
+        4401
+      ],
+      [
+        "#0077FF",
+        91
+      ],
+      [
+        "#0040FF",
+        5
+      ],
+      [
+        "#02032F",
+        1
+      ],
+      [
+        "#FF2B42",
+        1
+      ]
+    ],
+    "images": [
+      {
+        "id": "image0_4435_46756",
+        "type": "image/png",
+        "width": "2022",
+        "height": "778",
+        "sha256": "693a93e706b0e8bd9cb20169f90b01f48a2a19c4e75b566e731f8cbdae18d838"
+      },
+      {
+        "id": "image1_4435_46756",
+        "type": "image/png",
+        "width": "2022",
+        "height": "778",
+        "sha256": "53bd0206edb5f29251e662805331aaac4caf5fa26503de50f2cf19e63fe2605c"
+      },
+      {
+        "id": "image2_4435_46756",
+        "type": "image/png",
+        "width": "2020",
+        "height": "778",
+        "sha256": "10eeb8cbc99f2f19c953cc458d3750ea4fbd92a84fbbc820d8957fd109b2e083"
+      },
+      {
+        "id": "image3_4435_46756",
+        "type": "image/png",
+        "width": "2022",
+        "height": "778",
+        "sha256": "9bad8d6a648d47d673e01132f840e673c082ef04b0c11a19e31e7d949a098ece"
+      }
+    ],
+    "externalReferences": [],
+    "largeRects": [
+      {
+        "x": "407.621",
+        "y": "1189.77",
+        "width": "265.319",
+        "height": "120",
+        "rx": "35",
+        "fill": "#0040FF"
+      },
+      {
+        "x": "57.2812",
+        "y": "869.766",
+        "width": "468",
+        "height": "280",
+        "rx": "60",
+        "fill": "#0040FF"
+      },
+      {
+        "x": "-219.813",
+        "y": "834.297",
+        "width": "816.382",
+        "height": "314.117",
+        "fill": "url(#pattern0_4435_46756)"
+      },
+      {
+        "x": "12.0137",
+        "y": "914.938",
+        "width": "645.717",
+        "height": "234.828",
+        "fill": "url(#paint4_linear_4435_46756)"
+      },
+      {
+        "x": "57.2812",
+        "y": "559.766",
+        "width": "468",
+        "height": "280",
+        "rx": "60",
+        "fill": "#0040FF"
+      },
+      {
+        "x": "-11.1426",
+        "y": "573.906",
+        "width": "705.992",
+        "height": "271.643",
+        "fill": "url(#pattern1_4435_46756)"
+      },
+      {
+        "x": "12.0137",
+        "y": "604.938",
+        "width": "645.717",
+        "height": "234.828",
+        "fill": "url(#paint5_linear_4435_46756)"
+      },
+      {
+        "x": "555.281",
+        "y": "869.766",
+        "width": "468",
+        "height": "280",
+        "rx": "60",
+        "fill": "#0040FF"
+      },
+      {
+        "x": "516.857",
+        "y": "873.906",
+        "width": "781.6",
+        "height": "300.734",
+        "fill": "url(#pattern2_4435_46756)"
+      },
+      {
+        "x": "510.014",
+        "y": "914.938",
+        "width": "645.717",
+        "height": "234.828",
+        "fill": "url(#paint6_linear_4435_46756)"
+      },
+      {
+        "x": "555.281",
+        "y": "559.766",
+        "width": "468",
+        "height": "280",
+        "rx": "60",
+        "fill": "#0040FF"
+      },
+      {
+        "x": "510.014",
+        "y": "604.938",
+        "width": "645.717",
+        "height": "234.828",
+        "fill": "url(#paint7_linear_4435_46756)"
+      },
+      {
+        "width": "429.464",
+        "height": "130",
+        "fill": "white",
+        "transform": "translate(412.774 139.766)"
+      },
+      {
+        "x": "57.2812",
+        "y": "869.766",
+        "width": "468",
+        "height": "280",
+        "rx": "60",
+        "fill": "white"
+      },
+      {
+        "x": "57.2812",
+        "y": "559.766",
+        "width": "468",
+        "height": "280",
+        "rx": "60",
+        "fill": "white"
+      },
+      {
+        "x": "555.281",
+        "y": "869.766",
+        "width": "468",
+        "height": "280",
+        "rx": "60",
+        "fill": "white"
+      },
+      {
+        "x": "555.281",
+        "y": "559.766",
+        "width": "468",
+        "height": "280",
+        "rx": "60",
+        "fill": "white"
+      }
+    ]
+  },
+  {
+    "name": "STELLA-5",
+    "tags": {
+      "svg": 1,
+      "g": 27,
+      "rect": 4496,
+      "mask": 2,
+      "ellipse": 2,
+      "foreignObject": 1,
+      "div": 1,
+      "circle": 2,
+      "path": 164,
+      "defs": 1,
+      "filter": 17,
+      "feFlood": 17,
+      "feBlend": 17,
+      "feGaussianBlur": 17,
+      "clipPath": 3,
+      "linearGradient": 155,
+      "stop": 340,
+      "radialGradient": 3
+    },
+    "topColors": [
+      [
+        "#046EFF",
+        4399
+      ],
+      [
+        "#0077FF",
+        90
+      ],
+      [
+        "#9500FF",
+        2
+      ],
+      [
+        "#00EAFF",
+        2
+      ],
+      [
+        "#02032F",
+        1
+      ]
+    ],
+    "images": [],
+    "externalReferences": [],
+    "largeRects": []
+  },
+  {
+    "name": "STELLA-6",
+    "tags": {
+      "svg": 1,
+      "g": 32,
+      "rect": 4498,
+      "mask": 2,
+      "ellipse": 4,
+      "foreignObject": 2,
+      "div": 2,
+      "circle": 2,
+      "path": 173,
+      "defs": 1,
+      "filter": 18,
+      "feFlood": 18,
+      "feBlend": 18,
+      "feGaussianBlur": 18,
+      "clipPath": 4,
+      "pattern": 1,
+      "use": 1,
+      "linearGradient": 156,
+      "stop": 344,
+      "radialGradient": 3,
+      "image": 1
+    },
+    "topColors": [
+      [
+        "#046EFF",
+        4399
+      ],
+      [
+        "#0077FF",
+        90
+      ],
+      [
+        "#00EAFF",
+        2
+      ],
+      [
+        "#02032F",
+        1
+      ],
+      [
+        "#9500FF",
+        1
+      ],
+      [
+        "#FFEFF0",
+        1
+      ]
+    ],
+    "images": [
+      {
+        "id": "image0_4435_63573",
+        "type": "image/png",
+        "width": "1536",
+        "height": "1024",
+        "sha256": "c8a41993ca68c622639afcbbc2cc19a3e7c444da33a31bc06093f4b9bdafb8c7"
+      }
+    ],
+    "externalReferences": [],
+    "largeRects": [
+      {
+        "x": "360",
+        "y": "1084.46",
+        "width": "360",
+        "height": "140",
+        "rx": "70",
+        "fill": "#A067DA"
+      },
+      {
+        "x": "360",
+        "y": "1084.46",
+        "width": "360",
+        "height": "140",
+        "rx": "70",
+        "fill": "url(#paint160_linear_4435_63573)"
+      },
+      {
+        "x": "532.434",
+        "y": "1134.45",
+        "width": "280.903",
+        "height": "237.125",
+        "fill": "url(#pattern0_4435_63573)"
+      }
+    ]
+  },
+  {
+    "name": "STELLA-7",
+    "tags": {
+      "svg": 1,
+      "g": 27,
+      "rect": 4498,
+      "mask": 2,
+      "ellipse": 2,
+      "foreignObject": 1,
+      "div": 1,
+      "circle": 2,
+      "path": 173,
+      "defs": 1,
+      "filter": 17,
+      "feFlood": 17,
+      "feBlend": 17,
+      "feGaussianBlur": 17,
+      "clipPath": 3,
+      "pattern": 1,
+      "use": 1,
+      "linearGradient": 161,
+      "stop": 352,
+      "radialGradient": 3,
+      "image": 1
+    },
+    "topColors": [
+      [
+        "#046EFF",
+        4399
+      ],
+      [
+        "#0077FF",
+        90
+      ],
+      [
+        "#9500FF",
+        2
+      ],
+      [
+        "#00EAFF",
+        2
+      ],
+      [
+        "#02032F",
+        1
+      ]
+    ],
+    "images": [
+      {
+        "id": "image0_4435_71997",
+        "type": "image/png",
+        "width": "1536",
+        "height": "1024",
+        "sha256": "c8a41993ca68c622639afcbbc2cc19a3e7c444da33a31bc06093f4b9bdafb8c7"
+      }
+    ],
+    "externalReferences": [],
+    "largeRects": [
+      {
+        "x": "360",
+        "y": "1051.41",
+        "width": "360",
+        "height": "140",
+        "rx": "70",
+        "fill": "url(#paint161_linear_4435_71997)"
+      },
+      {
+        "x": "532.436",
+        "y": "1101.23",
+        "width": "280.903",
+        "height": "237.125",
+        "fill": "url(#pattern0_4435_71997)"
+      }
+    ]
+  },
+  {
+    "name": "STELLA-8",
+    "tags": {
+      "svg": 1,
+      "g": 61,
+      "rect": 4512,
+      "mask": 2,
+      "ellipse": 20,
+      "foreignObject": 10,
+      "div": 10,
+      "circle": 2,
+      "path": 171,
+      "defs": 1,
+      "filter": 28,
+      "feFlood": 28,
+      "feBlend": 29,
+      "feGaussianBlur": 28,
+      "clipPath": 17,
+      "pattern": 4,
+      "use": 4,
+      "feColorMatrix": 2,
+      "feOffset": 1,
+      "feComposite": 1,
+      "linearGradient": 160,
+      "stop": 348,
+      "radialGradient": 2,
+      "image": 4
+    },
+    "topColors": [
+      [
+        "#046EFF",
+        4399
+      ],
+      [
+        "#0077FF",
+        90
+      ],
+      [
+        "#0D001A",
+        3
+      ],
+      [
+        "#9500FF",
+        2
+      ],
+      [
+        "#00EAFF",
+        2
+      ],
+      [
+        "#02032F",
+        1
+      ]
+    ],
+    "images": [
+      {
+        "id": "image0_4435_80421",
+        "type": "image/png",
+        "width": "1024",
+        "height": "1024",
+        "sha256": "0cefcbcd6f4545f028785f04b33ec198deaebff2df15552325e81d9eaee463a8"
+      },
+      {
+        "id": "image1_4435_80421",
+        "type": "image/png",
+        "width": "1254",
+        "height": "1254",
+        "sha256": "996b2f0e4bf0b34739db1397d616f5d3912f6ea6a1df39cac243262d9012557a"
+      },
+      {
+        "id": "image2_4435_80421",
+        "type": "image/png",
+        "width": "160",
+        "height": "160",
+        "sha256": "1b97288bceb280480bb8c57aa8f1eab9eec821520de46b2f36d9df19c2d96e96"
+      },
+      {
+        "id": "image3_4435_80421",
+        "type": "image/png",
+        "width": "1024",
+        "height": "1024",
+        "sha256": "d292d1008bede9e5d5f68e46278868f242977fc8db967b26db9077b688ef99d6"
+      }
+    ],
+    "externalReferences": [],
+    "largeRects": [
+      {
+        "x": "409.051",
+        "y": "1192.08",
+        "width": "262.319",
+        "height": "120",
+        "rx": "60",
+        "fill": "url(#paint159_linear_4435_80421)"
+      },
+      {
+        "x": "50.8828",
+        "y": "552.375",
+        "width": "465",
+        "height": "280",
+        "rx": "60",
+        "fill": "#0D001A"
+      },
+      {
+        "width": "308",
+        "height": "309",
+        "fill": "url(#pattern0_4435_80421)",
+        "transform": "translate(200.695 541.234)"
+      },
+      {
+        "x": "5.58203",
+        "y": "552.375",
+        "width": "645.717",
+        "height": "280",
+        "fill": "url(#paint163_linear_4435_80421)"
+      },
+      {
+        "x": "564.117",
+        "y": "552.375",
+        "width": "465",
+        "height": "280",
+        "rx": "60",
+        "fill": "#0D001A"
+      },
+      {
+        "x": "724.881",
+        "y": "550.273",
+        "width": "314.629",
+        "height": "269.922",
+        "fill": "url(#pattern1_4435_80421)"
+      },
+      {
+        "x": "518.816",
+        "y": "552.375",
+        "width": "645.717",
+        "height": "280",
+        "fill": "url(#paint167_linear_4435_80421)"
+      },
+      {
+        "x": "307.5",
+        "y": "872.727",
+        "width": "465",
+        "height": "280",
+        "rx": "60",
+        "fill": "#0D001A"
+      },
+      {
+        "x": "454.51",
+        "y": "855.965",
+        "width": "315.883",
+        "height": "315.883",
+        "fill": "url(#pattern3_4435_80421)"
+      },
+      {
+        "x": "262.199",
+        "y": "872.727",
+        "width": "645.717",
+        "height": "280",
+        "fill": "url(#paint171_linear_4435_80421)"
+      },
+      {
+        "x": "50.8828",
+        "y": "552.375",
+        "width": "465",
+        "height": "280",
+        "rx": "60",
+        "fill": "white"
+      },
+      {
+        "x": "564.117",
+        "y": "552.375",
+        "width": "465",
+        "height": "280",
+        "rx": "23",
+        "fill": "white"
+      },
+      {
+        "x": "564.117",
+        "y": "552.375",
+        "width": "465",
+        "height": "280",
+        "rx": "60",
+        "fill": "white"
+      },
+      {
+        "x": "307.5",
+        "y": "872.727",
+        "width": "465",
+        "height": "280",
+        "rx": "23",
+        "fill": "white"
+      },
+      {
+        "x": "307.5",
+        "y": "872.727",
+        "width": "465",
+        "height": "280",
+        "rx": "60",
+        "fill": "white"
+      }
+    ]
+  },
+  {
+    "name": "STELLA-9",
+    "tags": {
+      "svg": 1,
+      "g": 15,
+      "rect": 4609,
+      "path": 11,
+      "mask": 1,
+      "ellipse": 4,
+      "circle": 1,
+      "defs": 1,
+      "filter": 2,
+      "feFlood": 2,
+      "feBlend": 2,
+      "feGaussianBlur": 2,
+      "linearGradient": 7,
+      "stop": 66,
+      "radialGradient": 6,
+      "clipPath": 2
+    },
+    "topColors": [
+      [
+        "#046EFF",
+        4498
+      ],
+      [
+        "#0077FF",
+        93
+      ],
+      [
+        "#18CDFF",
+        6
+      ],
+      [
+        "#7A02FF",
+        3
+      ],
+      [
+        "#02032F",
+        1
+      ],
+      [
+        "#FF2B42",
+        1
+      ]
+    ],
+    "images": [],
+    "externalReferences": [],
+    "largeRects": [
+      {
+        "width": "555.744",
+        "height": "168.225",
+        "fill": "white",
+        "transform": "translate(367.139 664.195)"
+      }
+    ]
+  },
+  {
+    "name": "STELLA",
+    "tags": {
+      "svg": 1,
+      "g": 5,
+      "rect": 4498,
+      "mask": 2,
+      "ellipse": 1,
+      "path": 10,
+      "defs": 1,
+      "pattern": 1,
+      "use": 1,
+      "linearGradient": 2,
+      "stop": 9,
+      "radialGradient": 2,
+      "clipPath": 2,
+      "image": 1
+    },
+    "topColors": [
+      [
+        "#046EFF",
+        4401
+      ],
+      [
+        "#0077FF",
+        91
+      ],
+      [
+        "#02032F",
+        1
+      ],
+      [
+        "#FF2B42",
+        1
+      ]
+    ],
+    "images": [
+      {
+        "id": "image0_4435_13101",
+        "type": "image/png",
+        "width": "941",
+        "height": "1672",
+        "sha256": "d856782e8d2c07b5ae58c931292926e6117e7dcda610ffc5b9b28182d03470b5"
+      }
+    ],
+    "externalReferences": [],
+    "largeRects": [
+      {
+        "width": "429.464",
+        "height": "130",
+        "fill": "white",
+        "transform": "translate(412.808 140)"
+      }
+    ]
+  }
+]

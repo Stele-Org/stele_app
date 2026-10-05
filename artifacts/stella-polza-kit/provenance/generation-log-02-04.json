@@ -1,0 +1,137 @@
+{
+  "createdDate": "2026-10-04",
+  "tool": "image_gen.imagegen",
+  "mode": "built-in precise-object-edit",
+  "authorization": "User explicitly requested 20 existing posters without heroes; parent assigned 02_DETECTIVE, 03_DRAMA, 04_HISTORY M/F. No external provider API used.",
+  "sourceDimensions": {
+    "width": 2688,
+    "height": 1520
+  },
+  "pixelEditing": "Built-in imagegen only; generated PNG files copied unchanged, no Python editing or resampling.",
+  "visualReview": {
+    "status": "self-reviewed; user approval pending",
+    "checked": [
+      "Six saved outputs reopened with view_image.",
+      "No foreground hero remains.",
+      "Drama foreground person and reflected person both removed; broken heart retained.",
+      "History held cup removed with person; empty chair and tabletop service retained.",
+      "Main titles read correctly; scene and key props remain recognizable."
+    ],
+    "limitations": [
+      "Outputs are 1667/1668 x 943, below 2688x1520 source resolution. No upscaling performed.",
+      "Generative edit is not pixel-exact: rebuilt occluded scenery and fine textures differ; some framing/detail drift is visible.",
+      "Poster title appearance is visually retained; no automated OCR or pixel equivalence guarantee.",
+      "No visitor photo personalization was run."
+    ]
+  },
+  "items": [
+    {
+      "source": "02_DETECTIVE_F.png",
+      "output": "02_DETECTIVE_F.png",
+      "generatedToolPath": "exec-9e008899-4d63-4977-be2d-f994a8368fb8.png",
+      "prompt": "Use case: precise-object-edit. Input image is the sole edit target, a finished horizontal movie poster, 2688x1520. Make a clean plate of THIS EXACT poster: remove only the large foreground woman completely, including all hair, face, body, coat and personal accessories. Fill the formerly occluded area naturally with continuation of this same night-time house frontage, trees, path and wet ground. Keep the layout, framing, camera, cinematic grading and every existing background object as unchanged as possible. Preserve the left evidence-board collage, small evidence photos (including figures printed on those photos), fingerprints and red strings, the police car on the right, house architecture, warm windows, police tape, lights and reflections. Preserve every visible word exactly, especially 'героиня', 'ВК ВИДЕО', 'ОПЕЧАТАНО', and 'ПОЛИЦИЯ', with identical position, font, size, distress and colors. Do not move or enlarge the text. No new person, silhouette, ghost, mannequin, portrait or floating accessories in the cleared foreground. This is removal/inpainting, not redesign. Return one opaque landscape PNG, original composition and aspect ratio.",
+      "transparent_background": false,
+      "requestedDimensions": {
+        "width": 2688,
+        "height": 1520
+      },
+      "actual": {
+        "name": "02_DETECTIVE_F.png",
+        "width": 1668,
+        "height": 943,
+        "bytes": 2378852,
+        "sha256": "616A4C5E3B537690E264645D34260ED31CB1E408B90F63115D7516CD7D692054"
+      }
+    },
+    {
+      "source": "02_DETECTIVE_M.png",
+      "output": "02_DETECTIVE_M.png",
+      "generatedToolPath": "exec-834e3890-fb29-4b53-b781-b8ee005839d7.png",
+      "prompt": "Use case: precise-object-edit. Input image is the sole edit target, a finished horizontal movie poster, 2688x1520. Make a clean plate of THIS EXACT poster: remove only the large foreground man completely, including all hair, face, body, coat, suit and tie and personal accessories. Fill the formerly occluded area naturally with continuation of this same night-time house frontage, trees, path and wet ground. Keep the layout, framing, camera, cinematic grading and every existing background object as unchanged as possible. Preserve the left evidence-board collage, small evidence photos (including figures printed on those photos), fingerprints and red strings, the police car on the right, house architecture, warm windows, police tape, lights and reflections. Preserve every visible word exactly, especially 'герой', 'ВК ВИДЕО', 'ОПЕЧАТАНО', and 'ПОЛИЦИЯ', with identical position, font, size, distress and colors. Do not move or enlarge the text. No new person, silhouette, ghost, mannequin, portrait or floating accessories in the cleared foreground. This is removal/inpainting, not redesign. Return one opaque landscape PNG, original composition and aspect ratio.",
+      "transparent_background": false,
+      "requestedDimensions": {
+        "width": 2688,
+        "height": 1520
+      },
+      "actual": {
+        "name": "02_DETECTIVE_M.png",
+        "width": 1667,
+        "height": 943,
+        "bytes": 2402540,
+        "sha256": "BFEEF39C8C5C9E3A1153B0683703F9C0FC359A75059C514DB8037B1508875E37"
+      }
+    },
+    {
+      "source": "03_DRAMA_F.png",
+      "output": "03_DRAMA_F.png",
+      "generatedToolPath": "exec-10008cbb-2941-4ad4-b2dd-d94a4729afab.png",
+      "prompt": "Use case: precise-object-edit. The attached horizontal movie poster (2688x1520) is the sole edit target. Prepare a clean plate of this exact image by removing the main woman BOTH from the right foreground (back of head, hair, shoulder, white shirt, full body) AND her reflected face/body/shirt in the mirror. Remove all traces of that person and reflection. Naturally reconstruct the empty bathroom behind the foreground figure and the empty bathroom reflected in the mirror. Preserve the identical mirror edges, perspective, tiles, cool dark blue light, condensation, water droplets, and the exact drawn broken-heart symbol on the fogged mirror. Preserve all bottles/toothbrushes/sink items. Preserve title at left verbatim 'героиня' and 'ВК ВИДЕО', exactly same style, scale and position. No new people, faces, ghosts or silhouettes in the room or mirror. Do not erase the broken-heart drawing or turn the mirror into a window. No redesign, no reframing, no palette shift. Return one opaque landscape PNG with original aspect ratio.",
+      "transparent_background": false,
+      "requestedDimensions": {
+        "width": 2688,
+        "height": 1520
+      },
+      "actual": {
+        "name": "03_DRAMA_F.png",
+        "width": 1668,
+        "height": 943,
+        "bytes": 2148019,
+        "sha256": "D8A63670EFDBE5200E38103214E0346D5AFCC66E39AEC24ED747A154EDF90623"
+      }
+    },
+    {
+      "source": "03_DRAMA_M.png",
+      "output": "03_DRAMA_M.png",
+      "generatedToolPath": "exec-71a634c2-0405-4ecf-9da3-cd51f07f518e.png",
+      "prompt": "Use case: precise-object-edit. The attached horizontal movie poster (2688x1520) is the sole edit target. Prepare a clean plate of this exact image by removing the main man BOTH from the right foreground (back of head, hair, shoulder, white shirt, full body) AND his reflected face/body/shirt in the mirror. Remove all traces of that person and reflection. Naturally reconstruct the empty bathroom behind the foreground figure and the empty bathroom reflected in the mirror. Preserve the identical mirror edges, perspective, tiles, cool dark blue light, condensation, water droplets, and the exact drawn broken-heart symbol on the fogged mirror. Preserve all bottles/toothbrushes/sink items. Preserve title at left verbatim 'герой' and 'ВК ВИДЕО', exactly same style, scale and position. No new people, faces, ghosts or silhouettes in the room or mirror. Do not erase the broken-heart drawing or turn the mirror into a window. No redesign, no reframing, no palette shift. Return one opaque landscape PNG with original aspect ratio.",
+      "transparent_background": false,
+      "requestedDimensions": {
+        "width": 2688,
+        "height": 1520
+      },
+      "actual": {
+        "name": "03_DRAMA_M.png",
+        "width": 1667,
+        "height": 943,
+        "bytes": 2177027,
+        "sha256": "1E4A85D64CE23CEAC455BA1FC1114089D25F411B98B2991F40002349047E87E1"
+      }
+    },
+    {
+      "source": "04_HISTORY_F.png",
+      "output": "04_HISTORY_F.png",
+      "generatedToolPath": "exec-c9d519db-e488-4cf6-b612-cf5a7c0542e7.png",
+      "prompt": "Use case: precise-object-edit. Sole edit target is this exact finished horizontal historical movie poster, 2688x1520. Prepare a clean plate: remove the seated foreground woman completely, including face, hair, hands, arms, full dress and personal jewelry. Also remove the teacup that is in her raised hand. Keep and restore her empty ornate upholstered chair in precisely the same location and orientation, naturally complete the seat and backrest where she occluded them. Fill the rest of her former silhouette with continuation of the same pavilion, balcony rail, floor, garden and distant palace. Preserve the table, lace cloth, full tea service and cups already on the table, flowers, columns, curtains, sunlight, architecture and perspective. Preserve left golden wording exactly 'героиня' and 'ВК ВИДЕО' with same gold type, scale, ornament, crown and placement. No person, ghost, mannequin, floating hand or floating cup. Do not add objects or move existing props. Do not redesign the poster or change aspect ratio. Return one opaque landscape PNG, as close to the source as possible outside the removal area.",
+      "transparent_background": false,
+      "requestedDimensions": {
+        "width": 2688,
+        "height": 1520
+      },
+      "actual": {
+        "name": "04_HISTORY_F.png",
+        "width": 1667,
+        "height": 943,
+        "bytes": 2634036,
+        "sha256": "1E88E3BE212B51A0B2FDF4471AC451DF762369EF43DA56A4DA192E9655208D32"
+      }
+    },
+    {
+      "source": "04_HISTORY_M.png",
+      "output": "04_HISTORY_M.png",
+      "generatedToolPath": "exec-28473811-2acf-4ace-9d0e-36b9aca38ef9.png",
+      "prompt": "Use case: precise-object-edit. Sole edit target is this exact finished horizontal historical movie poster, 2688x1520. Prepare a clean plate: remove the seated foreground man completely, including face, hair, all body parts, uniform, boots, personal fur cape and sword. Also remove the teacup that is in his raised hand. Keep and restore his empty ornate upholstered chair in precisely the same location and orientation, naturally complete the seat and backrest where he occluded them. Fill the rest of his former silhouette with continuation of the same pavilion, balcony rail, floor, garden and distant palace. Preserve the table, lace cloth, tea service, hat resting on the table on the far right, flowers, columns, red curtain, sunlight, architecture and perspective. Preserve left golden wording exactly 'герой' and 'ВК ВИДЕО' with same gold type, scale, ornament, eagle crest and placement. No person, ghost, mannequin, floating hand, clothing or floating cup. Do not add objects or move existing props. Do not redesign the poster or change aspect ratio. Return one opaque landscape PNG, as close to the source as possible outside the removal area.",
+      "transparent_background": false,
+      "requestedDimensions": {
+        "width": 2688,
+        "height": 1520
+      },
+      "actual": {
+        "name": "04_HISTORY_M.png",
+        "width": 1668,
+        "height": 943,
+        "bytes": 2648373,
+        "sha256": "A8E019B8A24D261FF552AC89A182781DA2BF29C86BF6379EF9E27612545A0B6A"
+      }
+    }
+  ]
+}

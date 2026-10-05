@@ -1,0 +1,2118 @@
+## 05.10.2026 — Стелла: откат декора,0501-2-стенд и MAX auto-home
+
+Последний декор отменён, старый checkout чист и dist вернулся к исходному SHA. Загружена GitHub0501-2-стенд/f24a106. На её основе локально исправлен авторежим MAX: полный логотип, существующий admission/canonical ACK, затем Home без тестовых вопросов/reveal/mission-final. Без fake answer/confirm/cancel. Reload и отказ запуска обработаны, ручной режим сохранён. Typecheck/build/24теста/duplicate PASS, локальный preview5306 HTTP200. Браузер не использовался. Возврат визуальный: сервер пока держит station до завершения/отмены, новый допуск запрещён. F/стенд/сайт/GitHub не обновлялись. [Отчёт](artifacts/reports/stella-max-auto-20261005.md), [исследование контракта](docs/Research/stella-max-auto-20261005.md).
+
+Трафик SIM: RX не измерено; TX не измерено; всего не измерено; учёт: не измерено; основание: GitHub fetch с разработческого ПК, маршрут через SIM не подтверждён; 0 МБ передачи файлов на стенд, сборка и preview по localhost; общий интернет-трафик не измерен; остаток: неизвестен. Прошлые передачи повторно не списаны.
+
+## 05.10.2026 — локальный цифровой поток из выбранной обложки
+
+По поручению пользователя скачан GitHub ZIP `0501-стенд`/`8cab859`, распакован отдельно в `VK_Stella-0501-stand-8cab859` (1290 файлов, CRC распаковки PASS, SHA256 a452003ba6cfe296611ffb83745de4eede673b7934974a5970f0a952ba7e1276). Рабочий источник переключён с прежнего ZIP на этот архив.
+
+В стендовом candidate добавлены 24 фрагмента точной referenceCards обложки, декоративные коды/цифры, световые нити и превращение тегов при входе/выходе в общий поток. Вопрос/reveal используют общую геометрию без прежнего скачка размера/позиции; MAX передаёт artworkId, положение и тон выбранного ответа. Choreographer сохраняет владение паузой и завершением; эффекты не меняют metadata, клиент мастера, ACK, звуки и фото. Нет независимых release timers, захвата камеры для декорации или AI-вызовов.
+
+Typecheck/build/ESLint PASS; 92 адресных проверки PASS. Отдельный QR-test MasterSlice уже падает в исходном ZIP: синхронно ожидает SVG до fetch result-config и не mock-ит fetch. Результат и test не менялись. Визуальная приёмка пользователем; браузер/headless не запускались. Dev5218 запущен из новой рабочей папки, локальный preview без master query не подтверждает серверный backend. Accepted runtime pin сохранён; никаких seal/deploy и изменений F/живого стенда/старого standalone. По следующему поручению пользователя правки подготовлены к публикации в новой GitHub-ветке `0501.2-стенд` от `0501-стенд`/`8cab859`, с проверкой Gitleaks рабочих файлов и Git-истории.
+
+## 05.10.2026 — 0501-стенд: экспорт установленного UI, camera и AUDIO-02
+
+Обновлён integrations/master/stella-candidate, добавлены10точных stand companion sources, portable manifests и инструкции. Сохранены standalone и poster-generation-kit. Проверены35тестов/типы/build; все74runtime SHA совпали. Исторические install scripts WAVE08 заменены действующим описанием интеграции; host запускать через существующую Windows task, а не напрямую изSSH. Секреты/данные посетителей не переносились. F/сайт/стенд эта публикация не меняет.
+
+Трафик SIM: RX не измерено; TX не измерено; всего не измерено; учёт: не измерено; основание: локальный экспорт,0МБ передачи файлов на стенд; GitHub идёт с разработческого ПК, маршрут черезSIMнеподтверждён, общийинтернет-трафикнеизмерен; остаток: неизвестен. Прежние передачи на стенд не списаны повторно.
+
+# Исторические выдержки: WORKLOG.md
+
+## 04.10.2026 — публикация комплекта Polza в GitHub
+
+По прямому запросу пользователя комплект `artifacts/stella-polza-kit` и актуальный контекст подготовлены к commit/push в `premium-producer/VK_Stella`, ветка `codex/poster-cleanplates-20261004`. Локальные промежуточные копии, pilot-скрипт с машинными путями и виртуальное окружение в commit не включаются. Manifest комплекта сохраняет снимок состояния до commit; его файловые SHA остаются идентификатором поставки. Сайт и F не обновляются этой операцией.
+
+## 04.10.2026 — POLZA-KIT-01
+
+В artifacts/stella-polza-kit собран самостоятельный комплект20фонов/10рецептов/Polzaadapter сsetup, pinnedзависимостями, лицензиями, примером и Fпланом. Экспорт D/artifacts/stella-polza-kit:59файлов, SHAmanifest483764fad70a6936d52fc14b66a4ae2cd8f09d0d2f65f1cde1c825da040a6c27. 26offlinetests и exportverify PASS; Gitleaks, pipcheck, AST/import,20PNGи IABgallery PASS. Ключей/оригинальногофото нет; новыхAIвызовов0. ProductionинтеграцияF не выполнена,19вариантов не provider-tested. Commit/pushне выполнялись.
+
+## 04.10.2026 — clean plates v1
+
+Подготовлено20PNGбезглавного героя,10рецептовсM/F,JSON/manifestSHA/HTMLгалерея в artifacts/posters/clean-plates-v1. Root+3субагента; исходники неизменены; размеры1667/1668×943;20promptсборок1130–1376символов,25HTTPиSHA20/20PASS,визуальнаяпроверка/IABconsole0. Интеграция/подстановкапосетителя/пользовательскаяприёмка не выполнены. Runtime/F/сайт/APIне менялись.
+
+Срез 04.10.2026. Актуальный статус — CURRENT_STATE.md.
+
+## 04.10.2026 — ветка обновлений 0410upd
+
+Пользователь поручил отправить обновления в ветку `0410upd`, затем уточнил: пока без публикации сайта. Подготовлен изолированный checkout `premium-producer/VK_Stella` с сохранением истории main (266293b), накопленными правками UI/фото/Discovery/согласия/озвучки/SFX и текущими проверками. Исходный каталог из ZIP сохранён, пустой родительский Git и соседний MAX не используются для commit. Ветка не объединяется с main, публичный сайт не переключается. Gitleaks по рабочим файлам и истории PASS; SHA источника/checkout1180/1180. Отчёт `artifacts/reports/stella-0410upd-20261004.md`.
+
+## 04.10.2026 — подключение нового SFX по порядку
+
+Пользователь согласовал распределение вариантов «просто по порядку». Standalone получил12 неизменённых WAV (SHA12/12), manifest ролей и source provenance. Использован Howler: ambience main/scan, принятый ручной клик через общий RingActions, последовательные transition1..5 на reveal с reset home; парные scan start/end1/1,2/2 при фактическом сканировании. В проходе без фото scan-эффекты не запускаются. Voice остаётся отдельным player; уровень ambience0.07/click0.25/прочие0.18. Paused host, hidden, terms и listening/thinking приостанавливают фон, останавливают one-shots; resume не дублирует переход. Autoplay retry на Howler unlock/pointerup; sfx.* в журнале и ?sound=debug в консоли.
+
+Субагент voice_final подготовил assets без изменения PCM. Flow_review добавил10 controllertests и изолировал hook в3flowfixtures:22tests4files PASS. Root49tests5files PASS, typecheck/build/lint изменённых runtime PASS. В реальном браузере main/click/transition1/2/3 play/end, loop restart и итоговый VK финал подтверждены; playerror отсутствует. Preview5198 пересобран. Слуховая приёмка уровней на целевом оборудовании не заявлена. Сайт/master/голосовые тексты не менялись.
+
+## 04.10.2026 — учёт нового пакета SFX
+
+По запросу проверить учёт новой папки выполнены inventory RIFF-duration/format/SHA и сверка с существующими WAV; voice_final независимо проверил code/docs/manifests.12 WAV PCM24 stereo48kHz плюсMP4; новых имён в runtime/docs нет, совпаденийSHA с прежними WAV нет. Старый export-manifest учитывает другие background/transition, voice manifest — речь. Созданы `stella-sfx-intake-20261004.md/json`, статус received_not_integrated. Назначение файлов пока только по именам, варианты/уровни/события не выбраны. Приложение, исходные файлы и playback не менялись; ASR/синтез/сеть/деплой не выполнялись.
+
+## 04.10.2026 — частицы вместо текста активации в ветках без фото
+
+Пользователь отменил прежний текстовый activation для всех веток без фото. Prototype больше не рендерит VkProgressScreen, показывает один WhiteEntity stage=activation. В существующем envelope добавлен нейтральный овальный контур, чтобы даже расположение частиц не напоминало голову/тело; исходные photo scan/generation не менялись. Силуэт не передаётся, DOM текста активации отсутствует. Same studio narration6.77с/пауза400мс включена во время7с последовательности. Завершение renderer открывает принятый финал, отдельный7000ms timeout удалён. Устаревший tagPresentation activation-case удалён для непустых metadata. Факт новой композиции проверен в браузере после reload dev-preview; HMR сохранял старый native envelope и был перезагружен перед финальной проверкой.
+
+Subagent flow_review: обычные ответы, photo skip,20s final timer —15tests3files PASS. Root74tests5files PASS (WhiteEntity, tag-reveal, dev-preview, ready audio, hook playback), typecheck/build PASS. Preview5198 пересобран. Новых изображений/аудиогенерации/API/деплоя не было.
+
+## 04.10.2026 — перенос описания миссии Цифровой ID
+
+По поручению «упрощает жизнь» в описании результата MAX вынесено на вторую строку явным newline; описание MAX учитывает pre-line. Typecheck/build PASS, preview5198 пересобран.
+
+## 04.10.2026 — перенос голосовой подсказки онбординга
+
+По короткому отзыву пользователя фраза «Скажи, например, „ПОЕХАЛИ“» на VK-онбординге теперь целиком на второй строке: отдельный block-span, white-space:nowrap. Остальной copy и MAX сохранены. Typecheck/build PASS, preview5198 обновлён.
+
+По следующему уточнению тот же перенос применён и к MAX; регистр исходного «поехали» сохранён. Typecheck/build PASS, локальный preview пересобран.
+
+## 04.10.2026 — точная проверка озвучки и настоящее согласие
+
+По уточнению пользователя исправлен timing/mapping: `vk-particles` воспроизводит существующий studio WAV Discovery6.77с с400мс паузой внутри7с рассеивания. Сам визуальный финал сохранён. Spoken script финала восстановлен полностью («Готово. Discovery разобрал…» плюс «к левой панели»), фото записано в phrases по последнему поручению. Аудит реальных файлов подтвердил несоответствие старых фото/финала; эти два шага pending, новая запись не генерировалась. Voice-subagent29tests PASS; итоговый typecheck58tests/build PASS.
+
+Вместо заглушки согласия добавлен полный текст21 абзаца/7 разделов из предоставленного `Discovery ВК ЦР 2026 Согласие_v.2.docx`, SHA47c464fc5f24c05830845b4de12e08cb9e9052453b723446a905f06b83d34756. Посимвольная сверка и нумерация разделов PASS. Реальные редакция, оператор, цели, сроки, отзыв сохранены дословно. Окно рассчитано flex-layout для длинного заголовка/прокрутки; закрытие и возврат фокуса проверены transition-test. Сайт/master не менялись.
+
+## 04.10.2026 — локальные правки VK Видео по отзыву пользователя
+
+Standalone: текст ответа «Чтобы был азарт и драйв» и предоставленная пользователем пара на синем диване; телевизор скрыт контурной SVG-маской при сохранении исходных пикселей попкорна, без генерации. Фото только из hero-ответа, устранена вспышка старого вопроса на переходе; текст камеры «Смотри в камеру над экраном»; рассеивание 7 секунд без текста активации. Последний отзыв: после фото и анимации сразу финал, промежуточная активация удалена. Короткий финал/крупный QR приняты, «стене» заменено на «панели», U+2013, конечная точка убрана; финальный таймаут20с с новым visitor/session при возврате.
+
+Субагенты flow_review, visual_audit, voice_final помогли проверить переходы, SVG/изображения и supplied WAV. Локальная offline ASR существующим cached faster-whisper: VK_VOX/6+7 подходят для активации, точные фрагменты объединены с400мс паузой, provenance сохранён. VK_VOX/5 содержит прежнее фото-согласие без новой инструкции; VK_VOX/8 содержит длинный финал со «стеной»; подходящей новой камеры нет. Устаревшая озвучка этих pending-шагов заблокирована. Платных API/генерации/деплоя не было; принятый финальный фон и master сохранены. Typecheck/72 профильных теста/build PASS. Полный предыдущий прогон311/313, два наследованных сбоя отмечены в отчёте. Preview5198 обновлён локально.
+
+## 04.10.2026 — Update полного переноса после завершения работ
+
+Полной SHA-сверкой D/F/Python/Node/pinned packages с каталогом полного переноса найдены 147 новых/изменённых файлов (79 D, 68 F) — 41,64 МБ до сжатия; два удаления в тестовом кандидате WAVE08. TRANSFER/Update содержит отдельную дельту, закрытый новый секрет, обновлённый конечный каталог и helper применения. Старые ZIP не перезаписываются. Добавлены итоговые записи/документация упаковщика. F WAVE08 G1 установлен,19/19 release SHA совпали; приёмка пользователя OPEN, дальнейшие gates/physical/media остаются открыты. Git HEAD/branch/index/sparse шести checkout и зависимости неизменны, новая копия Git bundle не требуется. Live 3DB остаются DEFERRED; новые historical integration backups не объявлены текущим dataset. F не менялся и не останавливался.
+
+Малые fixture проверки: dry-run без записи, anchor guard, отказ при process.json назначения, конфликт изменённого удаляемого файла до записи, replacement/deletion backup и повторное применение PASS. Полный payloadSHA/CRC новых ZIP и итоговый manifest проверяются упаковщиком; прогоны рендера не запускались. [Инструкция Update](TRANSFER/Update/README.md), [отчёт](artifacts/reports/transfer-update-20261004/README.md). Полное применение на принимающем ПК ещё не проверено.
+
+04.10.2026 — **WAVE08 G1 принят в F; приёмка пользователя OPEN.** Обновлённая серверная Стелла, художественный single-VK renderer; MAX no-op после SHA/build аудита.19files,3DB backup/integrity, прежние данные сохранены. IAB8850 полный цикл19/18элементов, QR/Discovery/пауза/reload/cancel; независимый review исправил cancel/loading и legacy completed gate. [Отчёт](artifacts/reports/parallel-wave8-integration-20261004.md). G2–G4, физический вывод и production media открыты; следующая итерация после отзыва. Компонентные worktrees не изменены.
+
+
+## 04.10.2026 — STELLA: убрать текст согласия из анимации фото
+
+В ContinuousQuestions source stella-voice-v1 заголовок и пояснение photo-layout скрываются синхронно при answering. Выбранная кнопка/теги и остальные вопросы сохраняются. Root — правка и публикация, photo_text_review — read-only аудит. Typecheck/build/duplicates/13tests PASS; IAB до финала, на reveal оба текста display:none, console0. Опубликован20261004T143212Z, HTTPS59SHA PASS, предыдущий релиз сохранён. [Отчёт/кадр](artifacts/reports/stella-selectel-20261004T143212Z/README.md). AI/F/мастер не затронуты, визуальный отзыв OPEN.
+
+
+## 04.10.2026 — STELLA-DEPLOY: актуальная Стелла на Selectel
+
+По прямому запросу опубликован standalone из worktree stella-voice-v1 на https://futuronika.pro/df/stela/, релиз20261004T141956Z. Root — сборка/публикация, deploy_stella_review — read-only аудит. Build/duplicate/27 профильных тестов/HTTPS59SHA/no-cache PASS; IAB локально VK доQ2, публично MAX доQ1 и reload, console0. Камера ждала разрешения, физический поток не подтверждён. AI остаётся выключенным; F/мастер/платные API не затронуты. Предыдущий релиз сохранён, маршрут Caddy не изменён. [Отчёт и кадр](artifacts/reports/stella-selectel-20261004T141956Z/README.md).
+
+
+## 04.10.2026 — COVER-FIXED: Magic Hour как дополнительный FaceSwap API
+
+По ссылке пользователя проверены photo-product и официальные endpoint/credits/resolution/rights Magic Hour. Добавлен в [исследование FaceSwap](docs/Research/cover-i2i-20261004/faceswap-fixed-background.md):10credits/photo, async imageID/get-details, individual mapping, plan-dependent output-size; ориентир$0.025 из starterpack — расчёт, не универсальный тариф. Строгая неизменность фона остаётся original+mask+compositor, не обещаниемAPI. Доступ/качество/patch-sizeNOT TESTED; uploads/аккаунты/secrets/платные вызовы и приложение не затрагивались.
+
+
+## 04.10.2026 — COVER-FIXED: неподвижная основа и FaceSwap
+
+По уточнению пользователя фон не должен изменяться вообще. Root и read-only faceswap_api_compare изучили SegmindHyperSwap/PiAPI/AKOOL и ready sharp compositor. [Актуальное исследование](docs/Research/cover-i2i-20261004/faceswap-fixed-background.md): неизменный original + face/character layer через разрешённую маску, pixel-invariant вне маски. Первоначальный целыйSeedreamoutput помечен несовместимым; FaceSwap сохраняет тело/костюм/волосы исходного героя. [Scope проверки](artifacts/reports/cover-faceswap-research-20261004.md):21PNG RGB/noICC, ссылкиPASS; лица/маски/provider-output/качествоNOT TESTED. Расхождение ценыPiAPI и unavailableSegmindV3 отмечены. Изображения/Стелла/F/runtime/secrets/AIpolicy не менялись, платных вызовов не было. Следующая малая итерация — один fixed-cover recipe с mask/crop и локальной композицией.
+
+
+## 04.10.2026 — COVER-I2I: схема персональных обложек
+
+Root и read-only cover_i2i_provider разобрали клиентский COVER_02_10_26.zip и действующий multi-reference Seedream adapter Mirror. Проверены21PNG2688×1520/SHA и просмотрены жанровые композиции. [Исследование](docs/Research/cover-i2i-20261004/README.md): подготовленный фон без героя + фото посетителя + versioned genre/appearance prompt; предложен отдельный title-overlay и сохранение порядка входов Mirror. [Проверка входов](artifacts/reports/cover-i2i-input-audit-20261004.md). Фоны/генерация ещё не выполнены, художественная приёмка OPEN. Код Стеллы/F/runtime/AI policy не менялся, секреты не читались, платных запросов не было. Следующий малый шаг — один подготовленный фон боевика для визуальной сверки.
+
+
+## 04.10.2026 — WAVE-08 начат: три изолированных кандидата
+
+Root+A/B/C реализуют первый связанный VK срез: A fresh Stella UI на принятом MasterSlice, B artistic RenderPort с exact typed IDs, C сверка MAX managed visual delta. Root optional async resource gate/current executor/coordinator и routes. Fresh186SHA master-candidate; Git ownership блокирует worktree, настройки Git не менялись, кандидаты явно SHA-isolated. Текущие авторские worktrees и live8782/данные не меняются. SYS07 business concurrency, MAX launch и physical output остаются последующими gates. Применение/проверки будут отдельной записью.
+
+
+## 04.10.2026 — WAVE-08: план параллельной интеграции
+
+Root и три read-only субагента подготовили [план в F](F:/project/VK_DigitalProducts_Stand/docs/WAVE_08_INTEGRATION_PLAN.md): A Стелла/UI, B художественный frame/content adapter, C MAX managed visual delta; root общие contracts/SYS-07 business binding. Проверен актуальный WAVE07 и новый smooth-fades snapshot. Gates: один VK без фото → два VK → MAX → mixed; между применениями отзыв пользователя. TODO/roadmap F обновлены как план, аудиты перенесены вместе с кадрами. Код/БД/службы не менялись; реализация не начата. SHA плана совпал, ссылки проверены.
+
+
+## 04.10.2026 — Аудит актуальных MAX, Стеллы и Native scenario
+
+Root и три read-only аудитора сверили текущие worktrees с F. Полный визуальный fixture VK уже есть; новые Stella/MAX presentation ещё требуют контролируемых адаптеров. IAB: Discovery/лента/стена и главная Стеллы просмотрены, console0; MAX19441 недоступен. Найдены старый executor и отсутствие реального presentation ACK в demo. Код/F/службы не менялись. [Сводка и доказательства](artifacts/reports/components-current-integration-audit-20261004.md). Фото-контур учитывает отдельный STELLA-PHOTO-AUDIT-13; новая реализация не начата.
+
+
+## 04.10.2026 — STELLA-PHOTO-AUDIT-13: AI Mirror и результат F
+
+Root и два read-only субагента изучили Mirror0.7.16, текущую Стеллу и F/WAVE-07. Подтверждены Polza/Seedream, capture/review, durable jobs, отдельная S3-публикация; обнаружены multiple-charge retry и расхождение installed provenance. На F есть package/resource/result, но отсутствуют photo upload/gender/real provider/public hosting; current freeze отвергает referenceAssetId, media overlay только technical result. Подготовлены [план переноса](docs/Research/stella-ai-mirror-transfer-20261004.md) и [аудит с SHA](artifacts/reports/stella-ai-mirror-audit-20261004.md). Код, F, БД, secrets, службы и платные API не менялись/не вызывались. Следующий малый срез — capture/review/вариант образа в D без AI; master-интеграция отдельно.
+
+
+## 04.10.2026 — STELLA-CAM-12: камера не гаснет в начале ухода карточки
+
+В кандидате5196 убрано преждевременное отключение CameraPreview по answering/present. Видео остаётся до фактического удаления карточки Motion; поток камеры не перезапускается. TypeScript/ESLint/duplicate guard/18тестов PASS, в том числе выбранная и уходящая hero с реальной Motion. HTTP отдаёт исправление. В IAB камера denied, живая визуальная приёмка ожидается. [Отчёт](artifacts/reports/stella-camera-exit-20261004.md). F/runtime/AI не менялись.
+
+04.10.2026 — **WAVE-07 начат: SYS-07, отдельный технический контур.** A: новые surface models/store/workflows/API; root: технический compositor/UI и shared integration; B: независимый fence/receipt review; C: compatibility/restart review. Fresh178SHA candidate D/artifacts/workspace/tests/parallel-wave7/master-candidate; отдельные данные и порты, не Git worktree. Сначала один owner, exclusive arch и concurrent ribbon entries с явным technicalOnly; живые бизнес-workflows, physical GPU/TD и автоматическое переключение VK/MAX не меняются. Полный SYS-07 этим малым срезом не закрывается.
+
+
+## 04.10.2026 — STELLA-LOAD-11: однократная подготовка визуального контента
+
+В изолированном кандидате 5196 добавлены каталог 33 изображений/7 шрифтов, ожидание decode перед интерфейсом, сохранение Image между экранами, прогресс, timeout и повтор ошибок. Камера запускается до готовности контента. Сборка, ESLint, 22 теста, duplicate guard и IAB-проход VK вперёд/назад PASS; один прогрев 40/40, ошибок нет. AI выключен. F/runtime/Selectel не менялись. Пользовательская оценка плавности ожидается; GPU-кеш браузер может выгружать. [Отчёт](artifacts/reports/stella-content-preload-20261004.md).
+
+
+## 04.10.2026 — STELLA-CAM-10: круги Discovery по контуру камеры
+
+В кандидате5196 поверх CameraPreview возвращены42+38исходных белых paths из клиентского hero SVG: прозрачный центр, оригинальные размеры/расположение и rounded clip, без портрета и фоновых rect. Root + read-only SVG review; TypeScript/ESLint/duplicate guard/12camera tests PASS. IAB после reload подтвердил декор на третьем вопросе, console0; живое видео в IAB остаётся denied, пользовательская приёмка OPEN. [Кадр, источник, SHA и ограничения](artifacts/reports/stella-camera-discovery-border-20261004.md). Камерный lifecycle/fullscreen Discovery/F/runtime/Selectel не менялись, AI выключен, commit/push нет.
+
+
+## 04.10.2026 — STELLA-CAM-09: видимый запрос камеры с главной
+
+В кандидате5196 добавлена глобальная панель доступа: автоматический запрос на старте, кнопка «Разрешить камеру» после отказа на всех экранах, скрытие после ready. Работающий поток сохранён, повторные pending не создаются, включая BFCache. Root + read-only reviewer;12/12 tests, TypeScript/ESLint/duplicate guard PASS. IAB: start и retry requesting→denied, панель видна с главной; фактический доступ остаётся за браузером. AI=false; F/runtime/Selectel не менялись. [Отчёт](artifacts/reports/stella-camera-notice-20261004.md).
+
+
+## 04.10.2026 — STELLA-CAM-08: камера с запуска и между всеми экранами
+
+В изолированном codex/stella-voice-v1/5196 запрос video-only перенесён на App; единый MediaStream сохраняется при переходах, hidden и host pause, preview больше не закрывает capture. StrictMode один запрос, page exit/late cleanup и BFCache обработаны. Root implementation + read-only voice_narration_audit.9/9 targeted tests, TypeScript/ESLint/duplicate guard PASS. IAB: запрос на главной688мс, отказ браузера999,5мс; физическая камера ещё не подтверждена. Остановленный DEV5196 восстановлен; AI выключен, F/runtime/Selectel не менялись. [Отчёт](artifacts/reports/stella-camera-session-20261004.md).
+
+
+## 04.10.2026 — STELLA-REV-07: клиентские правки и общий offline-диалог
+
+В отдельном codex/stella-voice-v1/5196 сведены планы и правки: одинаковый видимый размер знаков, intro без video-heart, «Чтобы азарт и драйв», локальный preview камеры в hero-card, полные Discovery/final тексты на экране и направление к левой панели, generation7с. XState/RingActions общий для кнопок и offline-команд текущих экранов; actual pinned presentation class связан с Howler и журналом. Root+3 исполнителя с отдельными файлами и read-only reviewer. 137 targeted checks, TypeScript/duplicate guard/IAB PASS; ESLint0errors/1existingwarning. Найденный в браузере конфликт CSS полного финала исправлен. Камера без выданного доступа — реальный видеопоток ещё не подтверждён. Новые тексты озвучки pending, старые несовпадающие WAV заблокированы; AI=false, mic/paid calls не включались. [Отчёт, сводка планов, кадры и58SHA](artifacts/reports/stella-revision7-20261004.md). Полный network Gateway/Omni/master CommandPort остаются следующими этапами. F/основной D runtime/Selectel и их процессы не изменялись, commit/push нет; пользовательская приёмка OPEN.
+
+
+## 04.10.2026 — Тестовая страница VK: три развёртки и выбор состояния
+
+В codex/native-mask-provider добавлена [scenario.html](http://127.0.0.1:8816/scenario.html): rear/лента/арка,12состояний, пауза/seek/повтор/скорость/масштаб. Используются actual LumiCellsDualBackground, DiscoveryBubbles, фирменная рамка и pinned Anime executor F; пять карточек явно тестовые. Root UI/model/build + unfolded_render_adapter renderer. Duplicate guard/syntax/2CPU/build/IAB PASS; исправлены подключение масок, смешивание сеток, culling/UV карточек и wall opacity. [Отчёт и кадр](artifacts/reports/vk-unfolded-preview-20261004.md). Художественная приёмка открыта; entity field fixture не заявлен точной копией Стеллы, реальные медиа/Spout не подключены. F/общие source/runtime/TD/configs не менялись, commit/push нет. Только scoped static preview8816.
+
+04.10.2026 — **WAVE-04 применён на8782, техническая проверка PASS; ожидает проверки пользователя.** MX-06 сохраняет выбранные MAX tags/IDs/orbit; standalone `/runner` работает без админки; asset overlay обновляет result под тем же itemId. Найден и исправлен барьер раннего прихода к середине до финала Стеллы: wait без marker spam, pause/cancel доступны. 25 exactSHA, backup двухБД/integrity и10business tables unchanged. BFCache persisted не сработал в IAB: native Back/reload PASS, BFCache gate OPEN. Canonical игра/GPU/общий owner/реальные медиа и генерация ещё не подключены. [Отчёт](artifacts/reports/parallel-wave4-integration-20261004.md). Следующий срез — canonical MAX за launch-v3; параллельно identity/preflight/ownership и actual media adapter.
+
+
+## 04.10.2026 — STELLA-LIVE-IMPL-06: тихая главная и внешняя Василиса
+
+В codex/stella-voice-v1/5196 полностью отключено home-приветствие: initial/return/repeat silent, подсказки после бренда сохранены. Продолжен отдельный offline-срез: pinned Gateway presentation runtime расширен external playback; Howler bridge проверен с actual class и WAV в DEV-панели. Identity/currentness, bounded TTL, terminal cleanup до callbacks, completed-only history. Root + два исполнителя с разными файлами + read-only reviewer;19module и47Vitest checks, TypeScript/lint/duplicate guard/IAB PASS. [Отчёт, SHA, ограничения](artifacts/reports/stella-live-dialogue-slice3-20261004.md). Wire/router/ownership полного Gateway и живое подключение остаются следующим шагом; AI=false, no mic/paid requests. F, основной D source/runtime, Selectel и общие документы интеграции не изменялись, commit/push нет.
+
+04.10.2026 — **WAVE-04 в работе по поручению пользователя.** A/parallel_components_plan: MX-06, same-tags/orbit handoff MAX (canonical game — следующий отдельный срез). B/parallel_backend_plan: standalone technical runner + BE-13 + явное владение. C/content_entities_backend: asset overlay/late-fill result на immutable itemId. Root: app/registry/config/panel wiring, IAB, единственное применение F. Свежий SHA candidate D/artifacts/workspace/tests/parallel-wave4/master-candidate, отдельные fixture data/ports; live8782 не используется для сценарных тестов. Общий production AV/GPU, реальные генерации и железо в этот малый принимаемый срез не входят.
+
+
+## 04.10.2026 — План финальных визуальных компонентов VK после обновления мастера
+
+Сверены WAVE-03 и новый AUD-03/READINESS_ROADMAP F, сценарные контракты и фактические исходники D; два read-only субагента независимо проверили мастер и визуалы. Подготовлен [план разработки](docs/Research/vk-video-final-visuals-plan-20261004.md), уточнён [VISUAL_TODO](docs/VISUAL_TODO.md). Первый художественный срез — один принятый tagId на LumiCells-арке финальным Discovery-материалом; далее Native adapter, сценарная белая сущность, карточка ленты, поэлементная стена и typed late-fill. Учтены уже принятый VK touch и новый общий маршрут MAX без белой сущности. SYS-07/BE-13/BE-16 и production RenderPort остаются у F; технический DOM evidence не означает GPU-показ. [Аудит источников и границы проверки](artifacts/reports/vk-video-final-visuals-audit-20261004.md). Код/конфиги/процессы и F не менялись; выполнена проверка ссылок документов, новая визуальная/аппаратная приёмка не проводилась.
+
+04.10.2026 — **AUD-03 завершён: аудит после WAVE-03 и roadmap полной готовности.** Проверено14/14SHA и health8782; root+3read-only исполнителя, без новых runtime/аппаратных тестов. Подтверждён MX-06: подмена выбранных тегов MAX на mission defaults и сброс движения. Открыты canonical game, независимый runner/общий owner, late-fill, identity/portable release; полная VK touch-Стелла уже принята. [Аудит](artifacts/reports/master-roadmap-audit-20261004.md) · [Дорожная карта](F:/project/VK_DigitalProducts_Stand/docs/READINESS_ROADMAP.md). Реализация новой волны не начата.
+
+
+## 04.10.2026 — MAX Full HD: резервный сервер
+
+Тот же release20261004T101343Z опубликован по запросу пользователя на https://vidrs.ru/df/max-game-client/ . Архив не пересобирался; субагент подтвердил SHA173, HTTPS173/173PASS. Использован существующий file_server и отдельная public-ссылка; Caddy/порты/сервисы/редактор/Selectel не менялись. Прежний MAX CloudCore20260930T090006Z сохранён. [Отчёт](artifacts/reports/max-client-1080-cloudcore-20261004.md).
+
+
+04.10.2026 — **WAVE-03 установлен на8782; техническая проверка PASS, ожидает проверки пользователя.** MAX: принятые ответы проявляют теги; теги на арке → объекты ленты → SCREEN_RIGHT → отдельный presented → ожидание руки. Белой сущности нет. Очередь освобождает Стеллу после enqueue; новый квиз использует арку, сохраняя прежнюю миссию справа. Legacy v1 сохранён. Реальная Стелла теперь проходит все VK-вопросы, camera-not-connected/skip и финал со ссылкой результата. 64 backend assertions,10 UI tests,30 Stella tests+4 adapter tests+2 HTTP paths; IAB MAX/FIFO/pause/reload и полный VK PASS. Применены14exactSHA, SQLite backup/integrity и сравнение10business tables PASS. Реальная игра MAX, общий production AV ownership, GPU/Spout, камера/AI остаются вне принятого среза. [Отчёт](artifacts/reports/parallel-wave3-integration-20261004.md).
+
+
+## 04.10.2026 — STELLA-LIVE-IMPL-05: ввод, рампа и прерванная озвучка
+
+В изолированном codex/stella-voice-v1/5196 подключён XState 5.33.2; готовая команда не ждёт исчезновения Discovery, ошибка сразу возвращает ввод без приветствия, новая речь/stop отменяет ещё не исполненный локальный RingCue. Howler не перезапускает прерванную подсказку при разблокировке. Root + три исполнителя с отдельными файлами + read-only review. 47 offline-проверок, TypeScript, scoped ESLint, duplicate guard и IAB PASS; в demo действие выполнено через263,4мс, рампа закончилась через1670,8мс, повторов narration после ошибки0. Отдельно подготовлен Gateway2.0.1 provider patch (text-only/Omni tool_choice), 10/10VM checks; к Стелле не подключён. External playback Gateway и живые перебивания остаются следующим срезом, полный диалог не заявлен. [Отчёт, SHA и ограничения](artifacts/reports/stella-live-dialogue-slice2-20261004.md). AI=false, платных запросов и микрофона не было; F, основной D source/runtime, Selectel и общие документы параллельной интеграции не изменялись. Commit/push не выполнялись.
+
+
+## 04.10.2026 — STELLA-LIVE-IMPL-04: первый offline-срез диалога
+
+В отдельном codex/stella-voice-v1/5196 реализованы общий home catalog для tools/кнопок, точные aliases, explicit negative tool results и фиксация исхода до отправки ACK. Root + catalog-исполнитель + read-only reviewers;41mocked tests, TypeScript, scoped ESLint, duplicate guard PASS. Пять записанных outputs воспроизведены без AI; IAB ручной старт VK/MAX и пауза AI проверены. Gateway2.0.1 при read-only квалификации показал incompatibilities text-only/external playback/tool_choice; не установлен и не запущен. [Отчёт и ограничения](artifacts/reports/stella-live-dialogue-slice1-20261004.md). AI остаётся false; F, основной D source/runtime, Selectel, процессы мастера и общие документы WAVE-02 не изменялись. Следующий срез — совместимость готового разговорного runtime, после проверки пользователя; полный живой диалог ещё не готов.
+
+04.10.2026 — **WAVE-03 в работе.** Новое требование MAX: теги на арке → объекты на ленте → SCREEN_RIGHT → миссия; белой сущности нет. Очередь и допуск сохраняются: queued освобождает Стеллу после enqueue, свободный слот — после presented миссии. Root — контракт, routes/config, IAB и единственное применение F. B/parallel_components_plan — additive MAX launch v2 backend; C/parallel_backend_plan — technical preview на /max с Anime/markers; A/content_entities_backend — оставшиеся VK вопросы/skip-photo в реальной Стелле. Изолированные SHA-кандидаты parallel-wave3; root fixture8844, live8782/данные не используются для тестов. CanonicalMaxPort с настоящей игрой переносится после проверки нового запуска, прежний кандидат сохраняется. Общий AV ownership физических арки/ленты ещё не production. Статусы обновляются по фактическим проверкам.
+
+
+## 04.10.2026 — WAVE-02: первое подключение Стеллы
+
+04.10.2026 — **WAVE-02: первый срез реальной Стеллы установлен на8782/stella/?master=1.** Один VK answer/reveal→следующий вопрос read-only, reload/cancel проверены IAB; polling reset заставки найден и исправлен. F:63exactSHA, SQLite backup/integrity, прежние20сессий и все сравниваемые business rows сохранены. Реальный MAX v5 managed и отдельный technical runner прошли HTTP/IAB, остаются кандидатами D. Полный квиз, CanonicalMaxPort v2/FIFO и реальный GPU renderer — следующие независимые шаги; AI/TD/железо не трогались. [Отчёт](artifacts/reports/parallel-wave2-integration-20261004.md). Изолированные8842/8843/62193 остановлены. Художественная приёмка открыта; commit/push не выполнялись.
+
+
+## 04.10.2026 — архитектура надёжного живого разговора Стеллы
+
+STELLA-LIVE-ARCH-03: root и три read-only субагента сверили последний разговор, Omni protocol, готовые runtimes и актуальные контракты F. [Исследование и архитектура](docs/Research/stella-live-dialogue-architecture-20261004.md): Qwen Gateway2.0.1 (SHA a73bcbc2e1278bf664df38bdd169ffba1fb2451f) как кандидат готового разговорного runtime; XState для прикладных состояний; один CommandPort touch/voice поверх принятого master adapter, явные tool results/receipts, перебивания без потери pending, Василиса и рампа независимо от commit. Учтён существующий владелец WAVE-02: второй transport/admission не создаётся. Проверены локальные ссылки и неизменный AI_REQUESTS_ENABLED=false; установки/реализации/платных запросов/микрофона не было. Открыты квалификация Gateway с внешней Василисой, offline replay, затем отдельная разрешённая живая проверка. F, runtime, процессы и общие документы параллельной интеграции не изменялись; обновлены только исследование, его индекс и ссылка в VOICE.md.
+
+
+## 04.10.2026 — запуск WAVE-02
+
+04.10.2026 — **WAVE-02 начата по указанию пользователя.** A/content_entities_backend: реальная Стелла, touch-first один VK ответ/reveal/reload; B/parallel_components_plan: real MAX managed assignment/client вертикаль; C/parallel_backend_plan: отдельный technical renderer-runner вне админки и RenderPort boundary. Root: contracts, статическая доставка, browser, единственное применение F. Отдельные SHA-pinned D candidates/data/ports в artifacts/workspace/tests/parallel-wave2. Первый принимаемый видимый срез — Стелла; остальные кандидаты не объявляются production или установленными заранее. AI/TD/железо/пользовательские данные не используются в тестах.
+
+
+## 04.10.2026 — аудит параллельной интеграции реальных компонентов
+
+Root + три read-only агента сверили Стеллу, MAX game, arc/ribbon/wall и общий rear/output. В [план F](F:/project/VK_DigitalProducts_Stand/docs/PARALLEL_DELIVERY_PLAN.md) добавлены3варианта, рекомендуемая общая исполнительная основа + независимые adapters, source ownership и first slices. Подтверждены fixtureOnly, runner в админке, MAX gameEnabled=false/старыйauth/autocreate/lifecyclegap, local scoring/staticQR Стеллы, отдельный wall displayedACK. Runtime/процессы/БД/AI/TD/доступы не менялись; новые задачи не запускались, готовность железа не заявлена.
+
+
+## 04.10.2026 — STELLA-VOICE-AUDIT-02: AI на паузе, последний разговор разобран
+
+По запросу пользователя закрыта текущая Omni session и отключены новые обращения в кандидате5196: общий AI_REQUESTS_ENABLED=false, disabled mic/probe UI, server503 до credentials/fetch.4mockedHTTPtests/types/lint/duplicates PASS; live local statusfalse/active0/POST503, IAB обычный VK-переход работает. Root+read-only агент разобрали разговор11:01:56–11:02:25МСК:5ответов/0переходов, vk_video/max не совпали с choose_vk_video/choose_max; отсутствует negative tool result, ошибки повторяют home, erase добавляет1.67с. [Подробности/таблица](artifacts/reports/stella-last-conversation-20261004.md). Новых AI-вызовов не было, исправление диалога отдельно; F/runtime/Selectel не менялись.
+
+
+## 04.10.2026 — STELLA-DIAG-01: единый журнал голоса и интерфейса
+
+В изолированном кандидате5196 root+3агента подключили Pino10.4.0/Dexie4.2.1: durable outbox/ACK, локальный JSONL, viewer с фильтром/скачиванием, события Omni/ASR/tools/отказов, кнопок/экранов/анимаций/озвучки. Запись действует и без микрофона; ключи/SDP/raw audio исключены.57Vitest+10HTTPchecks PASS, types/lintбезerrors/build/duplicates PASS. IAB ручной ответ и demo voice переходы, viewer/session/reload PASS; liveWebRTC подтвердил ASR-config безфизическогомикрофона. Независимое review исправило deep-link, payloadrefresh, redactaliases, межпакетный порядок и ACKcounter двухвкладок. [Отчёт/SHA/кадр](artifacts/reports/stella-diagnostics-20261004.md), [исследование](docs/Research/stella-diagnostics-20261004.md), [журнал](http://localhost:5196/stella/diagnostics/). Реальный разговор/акустика ждут пользователя; прежние беседы не восстановлены. Основнойsource/runtime/5186/F/Selectel не менялись, Gitcommit/push нет.
+
+
+## 04.10.2026 — MX-LOCAL-01: технический MAX принят в локальный мастер F
+
+Архитектура и первый технический цикл MAX применены на8782/max: квиз из D, общий со VK допуск Стеллы, immutable JSON definition/settings, две готовые DBOS Queue, FIFO, presented/enqueue release, два входа, таймеры20/60, pause/cancel/restart. Root — wiring/guards/архитектура/browser/единственная интеграция F; backend/UI/review агенты работали в непересекающихся D candidate файлах. Backend5, UIHTTP7, UI11, VK7 PASS; independentreview исправил два P1; browser цикл/очередь/reload/crossVK PASS, console0. ExactSHA16, обе SQLite backup/integrity,20 пользовательских сессий и остальные старые business rows сохранены. [Отчёт](artifacts/reports/max-local-integration-20261004.md), [исследование](docs/Research/max-local-master-mvp-20261004.md), [архитектура F](F:/project/VK_DigitalProducts_Stand/docs/MAX_LOCAL_MASTER_ARCHITECTURE.md). Тестовые посетители — только isolatedD; live VK-квиз не отменялся. TechnicalMaxPort не заменяет canonicalgame, Dvisual и physicalinput; queued cancellation, productionready/AV-пауза и BE-14 остаются. TODO/документы F обновлены; приёмка пользователя открыта. Gitcommit/push не выполнялись.
+
+
+## 04.10.2026 — STELLA-VOICE-V1: отдельный кандидат главного экрана
+
+В worktree codex/stella-voice-v1 сохранён scoped dirty baseline; root +3агента подключили native WebRTC/SDP proxy, bounded tools, общий gate/RingCue и controlled Discovery overlay. Speech/thinking закрывают pointer/keyboard, экран blur, белая сущность чёткая; erase возвращает управление либо один проверенный выбор. Исправлены гонки отложенногоcue/stop и повторногоonHidden, cleanup probes.60адресныхтестов+3middleware PASS; types/lintбезerrors/build/duplicates PASS. LiveWS tools/text-only/VAD PASS, IAB WebRTC session.updated безмикрофона PASS; demo VK/MAX/error/timeout визуально проверены, ошибок послеfreshload нет.4сбояобщихтестов подтверждены наисходнойDсборке, не объявлены регрессиями и не исправлялись. [Отчёт/кадр](artifacts/reports/stella-voice-v1-20261004.md), [кандидат5196](http://localhost:5196/stella/?voice-control=1). Микрофон/акустика/полныйпуть и seamlessbarge-in ещё открыты; текущий overlappingturn безопасно завершаетsession. Основнойsource/runtime/5186/F/Selectel не обновлены, commit/push нет. Следующаяитерация послеотзыва пользователя.
+
+
+## 04.10.2026 — текущая Стелла опубликована на Selectel
+
+По запросу пользователя обновлён https://futuronika.pro/df/stela/ : релиз20261004T064616Z из текущего Dsource, новые экраны/Discovery/записанная Василиса. Root — сборка/публикация, read-only агент — независимая сверка упаковки и тестовых расхождений. Предыдущий20261003T134547Z сохранён. Duplicate guard/build/source SHA PASS; Vitest134/138,4 прежних расхождения тестовых ожиданий/SSR/mock подробно в [отчёте](artifacts/reports/stella-selectel-20261004T064616Z/README.md). Локальный5197 VK доQR и публичныйMAX с play/end PASS; JavaScript errors нет, initial autoplay warning учтён. HTTPS59/59 SHA, manifest/redirect/Caddy PASS; маршрут неизменен. Изолированный preview остановлен. Код приложения/F/TD/apps-runtime/5175/секреты не менялись; живой Omni не добавлен. Художественная приёмка открыта.
+
+
+## 04.10.2026 — голосовая Стелла: blur, Discovery и блокировка ввода
+
+В [архитектуру диалога](docs/Research/stella-omni-voice-control-20261004.md) внесено новое требование пользователя: speech-start сразу закрывает ручной ввод, экран плавно размывается, белая сущность появляется рампой из центра и удерживается до решения AI. Уход — стирание из центра; проверенное voice-действие проходит отдельным разрешением через существующий gate/cue, без окна доступных кнопок. Уточнены повторная речь, гонка touch/start, timeout, GPU failure и отдельная pending/ACK-блокировка F. Переиспользуются нынешние renderer/envelope, потребуется управляемый hold вместо scan timer. Это обновление архитектуры, source/runtime/F не менялись; визуальная реализация и проверка ещё впереди.
+
+
+## 04.10.2026 — Стелла: архитектурное исследование полного голосового управления
+
+Root и три независимых read-only исследования: Qwen Omni tools/VAD, готовые frameworks/media и UI/F contracts. Подготовлены [архитектура](docs/Research/stella-omni-voice-control-20261004.md) и [фактический аудит с SHA](artifacts/reports/stella-voice-control-code-audit-20261004.md). Предложены постоянная voice session, каталог доступных действий через существующий gate кнопок, utterance/epoch protection, управляемые реплики Василисы и отдельный свободный речевой режим. Проверены ограничения qwen-audio-agent2.0.1, native WebRTC, SDK, VAD и реальный опыт issues; готовность tools/text-only на нашей Flash пока не заявлена. Обновлены индекс исследований и VOICE.md. Новых платных вызовов, записи микрофона, source/runtime/F изменений, установки и сборок не было. Следующий малый шаг — проверка совместимости готового voice runtime, затем главный экран; реализация и приёмка открыты.
+
+
+## 04.10.2026 — повтор Omni09:16: основной model ID работает
+
+По просьбе пользователя выполнен один короткий вызов qwen3.5-omni-flash-realtime: session.updated, текст→аудио/транскрипт, response.done completed.53760байт,11символов; первый звук1829мс от начала соединения, usage481/20. Model/voice подтверждены, manualTurns пока не подтверждён возвращаемой схемой. Ошибки доступа нет. [JSON](artifacts/reports/ai-api-probe-20261004-modern-1791094568024.json). Исследование и отчёт обновлены: прежний BLOCKED исторический; живой Omni в UI и микрофон ещё не подключены/не проверены. Код приложений, настройки аккаунта, секреты/F не менялись.
+
+
+## 04.10.2026 — доступ Qwen-Omni подтверждён, 09:08 МСК
+
+Повторный короткий API-прогон точной версии `qwen3.5-omni-flash-realtime-2026-03-15` успешно прошёл session.updated → отправка текста → текст/аудио → response.done completed. Получено49920 байт аудио и16 символов транскрипта; usage481 input/20 output, первый аудиопакет через2034мс от начала соединения. `AccessDenied.Unpurchased` в этом вызове отсутствует. [Фактический результат](artifacts/reports/ai-api-probe-20261004-modern-1791094093377.json). Проверен один текстовый ввод с аудиоответом; микрофон, непрерывная работа и интеграция Стеллы не проверялись. Диагностические confirmedModel=false/manualTurns=false требуют отдельной сверки возвращаемой схемы сессии перед интеграцией; отсутствующий response error скрипт обозначает unclassified, это не полученная ошибка провайдера. Код/настройки/секреты/F не менялись.
+
+
+## 04.10.2026 — уточнение Permission All и повтор Omni
+
+По скриншоту пользователя проверено наличие записи об ошибке BMF без type (раздел4 исследования), добавлен явный статус: задокументировано, BMF код не исправлялся. Повтор08:34МСК: session.created→AccessDenied.Unpurchased безtype→close1006, доready/текста/аудио. Уточнено различие permissions ключа, доступности конкретной модели и интеграции: Qwen TTS/Василиса с теми же реквизитами успешно работают, realtime Omni ещё не подключён. All не приравнивается к готовому inference; полная неактивация аккаунта не утверждается. [Исследование](docs/Research/stella-ai-api-20261004.md), [отчёт](artifacts/reports/stella-ai-api-20261004.md). Аккаунт/права/код приложений/F не менялись.
+
+
+## 04.10.2026 — STELLA-VOICE-01: Василиса для локальной Стеллы
+
+Root + независимый API-аудит и исполнитель hook. В отдельной папке voice склеены5 записей (24,609с), создан Qwen TTS-клон Василиса, сгенерировано19 локальных WAV. Howler2.2.4 озвучивает экраны, останавливает старые реплики, учитывает splash/reveal/terms/pause/hidden без remount UI. Credentials/voice ID только secrets. Camera1,5895с укладывается в прежние1,8с.10тестов, audio19/19, typecheck/lint/build/duplicate guard PASS. IAB VK/MAX play/end подтверждены; стартовый autoplay требует клика. Тембр ожидает приёмки. Preview http://localhost:5186/stella/;5175 был недоступен. F/мастер/runtime не применялись, Git commit/push нет; прежний dirty state сохранён. [Отчёт](artifacts/reports/stella-vasilisa-20261004.md), [ресерч](docs/Research/stella-vasilisa-voice-20261004.md), [эксплуатация](apps/stella-prototype/docs/VOICE.md).
+
+
+## 04.10.2026 — повторная проверка доступа Qwen-Omni, 08:23 МСК
+
+По запросу пользователя повторно проверены текущий ключ и два имени модели: `qwen3.5-omni-flash-realtime` и точная версия со скриншота `qwen3.5-omni-flash-realtime-2026-03-15`. Оба соединения получают session.created, затем `AccessDenied.Unpurchased` до session.updated; текст не отправлен, аудио не получено. Проблема доступа сохраняется. Пробник теперь принимает только два разрешённых model ID и сохраняет отдельный timestamp-отчёт каждого запуска; node --check PASS. [Результаты](artifacts/reports/stella-ai-api-20261004.md). Приложения, F, секреты и настройки аккаунта не изменялись.
+
+
+## 04.10.2026 — исследование нового AI API для Стеллы
+
+Root проверил новый Alibaba CSV без вывода credentials; субагент независимо сверил D/F source. Singapore endpoints согласованы, оба каталога HTTP200. Realtime qwen3.5-omni-flash-realtime получает session.created, но legacy и modern session.update отклонены AccessDenied.Unpurchased до отправки тестовой фразы. Официальное объяснение — проверить активацию Model Studio. Найден нетипизированный error-envelope, который старый BMF gateway пропускает. D/F пока не подключают новый API; production, секреты, кабинет и БД не изменены. [Исследование](docs/Research/stella-ai-api-20261004.md), [проверка](artifacts/reports/stella-ai-api-20261004.md). Git commit/push не выполнялись.
+
+
+## 04.10.2026 — SYS-06A, ранний пакет и технический Discovery применены в мастер F
+
+Root интегратор + sys06_research (psutil/lifecycle/DBOS restore), early_reconcile (merge BE-12, Anime/client), discovery_contract (executor v6/HTTP/recovery). В изолированных D-кандидатах подготовлены точный process ownership/OS mutex, ранний plan/result и единый технический цикл Discovery → выпуск карточек → все появились → erase → центр → стена. Snapshot профиля/пакета и прежние durable v1–v5 сохранены; неизвестные ACK сохраняют pending. Исправлен старый renderer-failure mock manual-owner-v1: baseline8PASS/2FAIL →10PASS.
+
+6 process fixture групп, real-app quiz restart/coherent two-DB restore, 3 HTTP/DBOS группы, 5 actual Anime групп, 6 клиентских групп BE-12/sync, v6 restart/explicit takeover/delivery exactly once — PASS. IAB isolated skip/photo: 6 карточек, pause/reload/restore, 27 видимых клеток на0.44с, resume→wall, console[]. После exact stop сделан backup исходников и двух SQLite;26 адресных файлов применены F8782,4 HTTP SHA и station/execution до/после совпали. Первый postapply запрос /index.html дал404; проверка исправлена на реальный /, runtime не требовал ремонта. Все созданные fixture процессы остановлены.
+
+[Отчёт](F:/project/VK_DigitalProducts_Stand/artifacts/reports/sys06-discovery-integration-20261004.md), [контракт](F:/project/VK_DigitalProducts_Stand/artifacts/contracts/discovery-cycle-v1.md), [исследование](docs/Research/master-process-lifecycle-20261003.md). TODO F, сценарий, архитектура, план, README/контракты и manifest обновлены. Пользовательская приёмка открыта. F IAB connected/free/wall5/5; новая вкладка наблюдатель из-за ранее удерживаемого browser Web Lock — старому клиенту нужен reload/закрытие прежней вкладки; автоперехват не включали.
+
+Это техническая DOM-схема; canonical художественный Discovery из D, TD/native output, реальные media/capture/jobs/late-fill/QR, поэлементная стена, MAX FIFO и production packaging ещё открыты. Следующий сценарный срез — item-arrival и второй посетитель, с BE-09/13 как рисками. D8770/TD/Spout и другие приложения не изменялись. Git commit/push не выполнялись.
+
+
+## 03.10.2026 — инструкции агентам Стеллы, MAX и визуальных компонентов D
+
+Root + три независимых агента: guide_stella, guide_max, guide_visual. Каждый владел только своим новым документом; root — общая инструкция, сверка, ссылки и статус. Изучены фактические исходники D, runtime/build, текущий WORKLOG и read-only контракты/архитектура F. Созданы [общий порядок](docs/AGENT_INTEGRATION_GUIDE.md), [Стелла](docs/AGENT_STELLA.md), [MAX](docs/AGENT_MAX.md), [визуал и маски](docs/AGENT_VISUAL.md). Ссылки подключены в root AGENTS, MAX AGENTS и общие архитектуру/дизайн/бэклог.
+
+Отделены standalone-логика Стеллы от серверного квиза F, local v5 MAX от canonical F backend, текущие визуальные компоненты от целевого six-channel/ACK/compositor. Назначены правила source authority, shared hotspots, worktree baseline с dirty-зависимостями, ownership и handoff с SHA/контрактами/проверками. Разработка в D не разрешает автоматическую запись в F или копирование старого backend поверх адаптаций мастера.
+
+[Сверка](artifacts/reports/component-agent-architecture-audit-20261003.md):39 локальных ссылок новых инструкций/отчёта PASS; DOC-AGENTS-01 добавлен в F TODO один раз. В F этой итерацией изменён только TODO. Runtime, код, БД, серверы, TD/TOX, Git и доступы не менялись; браузер/GPU не запускались для документационной задачи. Worktrees/CI и фактическая master-интеграция остаются отдельными шагами, а инструкции не назначают все работы автоматически.
+
+
+## 03.10.2026 — архитектура интеграции TD / Native и масок в мастер F
+
+- По запросу пользователя подготовлена архитектура в `F:/project/VK_DigitalProducts_Stand/docs/MASKS_INTEGRATION_ARCHITECTURE.md`: шесть независимых physical/color/morph каналов, отдельная белая сущность Стеллы, fine replacement по независимому coverage и подавление крупных клеток до материала/свечения. Мастер DBOS хранит решения/версии/ACK; локальные исполнители рассчитывают кадры.
+- Сохранены исследование `docs/research/native-mask-integration-mechanisms-20261003.md` и статический отчёт `artifacts/reports/mask-integration-architecture-review-20261003.md` в проекте F. Независимые read-only агенты проверили backend и готовые механизмы. По замечанию review разделены постоянный domain clock и конечный scene execution; новый all-visible маркер не подменяет текущий emission_complete.
+- В F обновлены ссылки общей документации/плана, research README, manifest и единый TODO: DOC-MASK-01 завершён как документация, SYS-01/UI-02/VIS-01/VIS-03 остаются реализацией. Проверены12 относительных ссылок новых документов и7 хешей затронутых документов; публикация защищена сверкой исходных байтов, резерв сохранён в `artifacts/workspace/tasks/native-mask-architecture/publication-backup/` на D.
+- Код, рабочие конфиги, БД, сервисы и TD/TOX не менялись этой итерацией. GPU/браузерные проверки не выполнялись: предмет работы — архитектура. Следующий малый срез — durable source selection и applied ACK одного fixture-домена на F. Полный compositor, перенос полей, stateful fluid recovery и распределённая синхронизация ещё не реализованы; ранний plan/result остаётся неприменённым кандидатом по текущему отчёту.
+
+
+## 03.10.2026 — ранний план/result проверены; применение8782 заблокировано CIM
+
+Три субагента: backend v2 / result UI / независимые HTTP/restart; root — контракт, review, интеграция, браузер, безопасное применение. Новые admissions фиксируют video-план на skip/scan до final; result URL и itemId стабильны. Согласие не подменяет reference; фото/генераций в этом срезе нет. Кандидат перенесён в [F artifacts/workspace/early-plan-candidate](F:/project/VK_DigitalProducts_Stand/artifacts/workspace/early-plan-candidate/README.md), [отчёт](F:/project/VK_DigitalProducts_Stand/artifacts/reports/early-plan-result-integration-20261003.md).
+
+Первоначальные7 и повторные8 HTTP/DBOS-групп PASS: v1 upgrade, v2 restart, idempotency/back/photo/cancel/404, compatibility execution. Браузер: skip/photo-reveal→8карточек; scan→6; result до final, reload/final те жеID/URL; обе ручные доставки завершились, станция свободна, wall1/5, console[]. SHA-gate обнаружил параллельные owner-изменения; panel/index объединены без их потери, тесты повторены.
+
+НЕ ПРИМЕНЕНО: три запуска штатного Stop.ps1 остановились на Get-CimInstance Win32_Process `Call cancelled` HRESULT0x80041032 до Stop-Process/записи. Start также зависит от CIM; fallback не вводился.8782 healthy со старой early-result capability=null; рабочие файлы и обе БД этой итерацией не менялись. Кандидат11SHA, manifest/TODO проверены; все fixtures offline, временная вкладка закрыта. TODO/архитектура/дизайн/сценарий/план/research/контракт честно отмечают блокировку. Следующее: восстановить штатное управление процессами, повторить baseline/check/apply; затем Discovery/автовыпуск. Late generation fills, точный commit→ACK crash, production/GPU/QR открыты.
+
+
+
+## 03.10.2026 — Native: аудит полного контракта масок
+
+По новому уточнению пользователя изучены актуальный MASK_SYSTEM, source TD→WebRender, белая сущность стеллы/арки и F-контракт силуэта/флюидов. Native должен управлять physical/color/morph обеих сеток, иметь отдельную entity-envelope и общий после выбора TD/Native этап интерактивного замещения. Два read-only субагента проверили TD-тракт и сущность/сценарий; root интегрировал выводы. [Исследование](docs/Research/native-mask-contract-20261003.md), [статическая сверка](artifacts/reports/native-mask-contract-audit-20261003.md).
+
+Обнаружены реальные gaps: комплементарный fine fallback/morph0, нет source selector, entity только на арке с тестовым loop вместо событий выпуска, старый overlay не заменяет fine-mask и не подавляет large. Новые алгоритмы не выбраны; описаны готовая база и открытый механизм произвольного замещения. Только документы: код/runtime/настройки/TD/TOX не менялись, F читался без изменений; браузер/GPU/live TD/тесты не запускались.
+
+
+## 03.10.2026 — BE-11: исправлен перехват исполнителя между окнами
+
+На F local-master8782 устранён цикл preparing/ready: Web Lock ошибочно считался разрешением автоматически заменить любого backend owner. В пользовательском показе обнаружено ownerGeneration213; к чтению он уже завершился. Новый серверный operation v5 запрещает чужой auto-attach; явная кнопка передаёт владение с прежним checkpoint. Вторая вкладка наблюдает. Reload получает новый ownerId и требует ручной передачи; отдельный production renderer/lease остаётся открытым.
+
+wall_backend —3 backend-файла, wall_frontend —3 UI-файла, package_verify — исследование/независимые HTTP/Anime/restart, root — review/браузер/интеграция.4 группы и реальный v4→v5 restart PASS;26 прежних durable AST и registry schema5 сохранены. Браузер в двух origins: ready generation1 → явная передача generation2 → running57.96с → pause → reload/передача на той же позиции → cancel. Same-origin observer/Web Lock проверен, console[]. Fixtures offline, временные вкладки закрыты.
+
+6 файлов применены штатными F Stop/Start с резервом before-renderer-owner-20261003-230032; pending execution workflows отсутствовали.19 бизнес-таблиц неизменны,3 HTTP SHA PASS. На8782 старый completed12с/8карточек, свободная Стелла и4/5 наборов стены сохранены; живые пользовательские данные тестами не менялись. TODO/архитектура/план/дизайн/README/контракт/ресерч/manifest обновлены. [Отчёт](F:/project/VK_DigitalProducts_Stand/artifacts/reports/renderer-owner-integration-20261003.md). Пользовательская приёмка открыта. Старые страницы надо обновить: rejected attach больше не отбирают владение, но могут накапливать историю. TD/GPU/визуал Discovery не менялись.
+
+
+
+## 03.10.2026 — Белая сущность стеллы: первый проход на арке
+
+Отдельный native LumiCells слой на vk-arch, линейное проявление/стирание по часовой,6с/2с/6с/2с. Сетка80×8 сохраняется в economy, настройки через прежний discovery JSON/revision API; независимы от баблов. Подтверждён готовый renderer/Canvas/Three screen; два субагента — ресерч/review и settings/UI, root — интеграция. [Отчёт](artifacts/reports/white-entity-arch-20261003/README.md).
+
+26CPU,syntax,duplicate,сборки,7SHA PASS. Штатный restart сохранил run/economy;5источников Spout sending. UI save/reopen и фактический поток on/off проверены, console[]. Слой оставлен включённым. TD/TOX не менялись; художественная приёмка, нижний шов и полная плавность OPEN. На ленту/общий задник пока не переносилось: ждём отзыв первой итерации. Локальная общая карта не показывает новый слой, рядом дана ссылка на фактическую арку.
+
+
+## 03.10.2026 — чистый проект: реальная логика VK Стеллы перенесена в мастер
+
+В F:/project/VK_DigitalProducts_Stand выполнен первый ST-01:3 исходных вопроса,8 канонических тем, веса/теги, Discovery, фото-намерение и переходы — в новом DBOS workflow; техническая панель8782 отображает серверные view/actions. Backend/UI/независимые проверки разделены между3 субагентами, root выполнил браузер и применение.16 сочетаний совпали с исходным TS, AST9 legacy/recovery/API и20 client PASS; браузер: back/reload, pending→unavailable, final→6 слотов/0 генераций→показ→стена1/5, station free, console[]. Проверенный кандидат применён после offline backup;19 таблиц неизменны, HTTP3SHA PASS. TODO/архитектура/дизайн/план/manifest обновлены. [Отчёт](F:/project/VK_DigitalProducts_Stand/artifacts/reports/stella-master-integration-20261003.md).
+
+Художественная Стелла D не изменена: следующий шаг — API-адаптер вместо её локальной бизнеслогики. Камера, реальные медиа, генератор и MAX отдельно; пользовательская приёмка открыта. В исходнике label «Чтобы смеяться» расходится с прежними drive-метаданными; перенос сохраняет веса до отдельной сверки. Автоматический отказ прямой непроверенной записи устранён безопасным путём через изолированный кандидат и независимую проверку.
+
+
+## 03.10.2026 — Стелла: цвет волны принадлежит кнопке; смешивание ещё открыто
+
+Возвращён data-lc-color после неверной трактовки запроса. AnswerFlight наследует цвет ответа вместо красных pulse декоративных тегов; VK «Начать» получил red. 24 теста, duplicate и build PASS. Браузер: синий ответ исправлен; красный импульс ещё розовеет по краям из-за native tint/hot. Полное требование FAIL/OPEN, самописный compositor не вводился. [Отчёт](artifacts/reports/stella-pulse-colors-20261003.md).
+
+
+## 03.10.2026 — Стелла: усилена читаемость пикселей
+
+Один параметр animation.brightness поднят0.28→0.65 в общем профиле, пятно0.045/0.07 сохранено. Duplicate/build PASS; после reload+GPU-ready наhome клетки заметно отчётливее, console[]. Пользовательская приёмка OPEN. [Отчёт](artifacts/reports/stella-cell-brightness-20261003.md).
+
+
+## 03.10.2026 — Стелла: приглушено цветное пятно
+
+По узкому запросу уменьшен spotA вчетверо: home0.18→0.045, VK Видео/MAX0.28→0.07. В native composite пятно уже является bg, клетки добавляются поверх; новый renderer/шейдер не вводился. Duplicate/build PASS, браузер до/после на вопросе VK: пятно приглушено, console[]. Пользовательская приёмка OPEN. [Отчёт](artifacts/reports/stella-subdued-spot-20261003.md).
+
+
+## 03.10.2026 — актуализирован технический аудит фона Стеллы
+
+Сверены текущие профили, пути двух LumiCells и SHA с первым аудитом:3файла основного фона и2референса неизменны. Разделены основной upstream-фон и новый проектный Discovery; уточнено ограничение внешних масок. Прежние native/ROI измерения явно отмечены историческими. Аудит и архитектура обновлены, приложение не менялось. Фон по референсу остаётся нерешённым и непринятым. [Аудит](artifacts/reports/stella-background-audit-20261003/README.md).
+
+
+## 03.10.2026 — Стелла: удалён указатель-палец у «Начать»
+
+Из общего OnboardingScreen убраны img onboarding-hand и его CSS; изменение относится к VK Видео и MAX. Кнопки и подсказки сохранены. Duplicate/tsc/Vite PASS; браузер5175: инструкция VK без пальца, DOM0, console[]. Художественная приёмка OPEN.
+
+
+## 03.10.2026 — Стелла: восстановлен брендовый вход VK Видео
+
+startProduct больше не исключает VK Видео из enteringProduct: общий BrandSplash снова показывается перед инструкцией. Браузер подтвердил выбор→VK логотип→инструкция, console[]. Duplicate/build/ESLint PASS. Пользовательская приёмка OPEN. [Отчёт](artifacts/reports/stella-vk-brand-entry-20261003.md).
+
+
+## 03.10.2026 — Стелла: согласована геометрия кнопки «спасибо» MAX
+
+Кнопка580×120 не совпадала с SVG360×140: заливка получалась уже hit-area/тени. CSS приведён к360×140 с сохранением центра; оригинальный SVG не менялся. Независимый аудит подтвердил причину. Duplicate/build PASS; browser computed+скриншот PASS, console[]. Пользовательская приёмка OPEN. [Отчёт](artifacts/reports/stella-max-thanks-size-20261003.md).
+
+
+## 03.10.2026 — Стелла: силуэт появляется и исчезает радиальной рампой
+
+Силуэт перенесён в WhiteEntity как отдельный img с прежним Color Dodge. Общий Motion progress управляет CSS radial mask и клеточным envelope; GPU-ready+decode предотвращают внезапный первый кадр, перед completion изображение полностью скрывается. Два субагента проверили CSS механизм и регрессию. Duplicate/build/ESLint PASS,13 тестов PASS; browser scan-preview: reveal/hold/erase видны, console[]. Пользовательская оценка OPEN. [Отчёт](artifacts/reports/stella-silhouette-ramp-20261003.md).
+
+
+## 03.10.2026 — Стелла: постоянный VK логотип между этапами
+
+Убрано пересоздание общего main через React key; существующий phaseKey сбрасывает только gate кнопок. VK header вынесен из анимации сменяемых экранов и сохраняется до выхода из продукта. Два субагента: независимый аудит и регрессия DOM identity. Duplicate/tsc/Vite/ESLint PASS,12 тестов PASS; браузер scan/generation — одинаковая позиция, opacity1, animation:none, console[]. Пользовательская оценка плавности OPEN. [Отчёт](artifacts/reports/stella-persistent-brand-20261003.md).
+
+
+## 03.10.2026 — Discovery: два контура и круговое появление/исчезновение
+
+Три субагента разделили адаптер маски, сценарий и тесты; root подключил opt-in envelope в FieldPass, Motion и браузерную проверку. Canvas2D Path2D/radialGradient задаёт scan-контур чуть шире человека и центральный generation; маска уменьшает диаметр целых кругов до0. Оба этапа идут reveal→hold→erase из центра,5.2/6с; timeline ждёт GPU-ready, смена по completion. Добавлены dev-only прямые ссылки. Duplicate/tsc/Vite/ESLint/HTTP7 PASS,25тестов PASS; в браузере видны оба контура, sequence доходит до QR, console[]. Художественная приёмка OPEN; баланс не измерен. [Отчёт](artifacts/reports/stella-discovery-ramps-20261003/README.md), [решение](docs/Research/stella-discovery-ramps-20261003.md).
+
+
+## 03.10.2026 — BE-07: редакции профиля и повтор подготовки после отказа
+
+Root +2 субагента исправили F local-master: renderer принимает новые редакции настроек (version не протокол), rendererId фиксируется только после полной подготовки, init-error сохраняется с явной кнопкой retry. Backend не изменён: существующая Pydantic проверка уже отвергает badshape до слота. Направление первоначального аудита уточнено, запрет revision3 не вводился. PASS:4/4 actual HTTP/DBOS/SQLite/Anime;3/3 client/Anime; syntax3/duplicate. Browser57963: badconfig→validrevision3 ready/start/pause; отдельная копия с одноразовым init-frame throw→видимая ошибка→Retry→та же пауза0.25s→Cancel убирает карточки. Console[]. Штатный Restart8782, HTTP3SHA, browser reload прежнего completed/свободной Стеллы без новых сессий. Тестовые процессы/вкладки закрыты, пользовательские БД сохранены. TODO/контракт/README/research/manifest обновлены. Зависимость от вкладки, checkpoint-паузы, один слот и операторское завершение повреждённого snapshot остаются открыты. [Отчёт](F:/project/VK_DigitalProducts_Stand/artifacts/reports/be07-integration-20261003.md).
+
+
+## 03.10.2026 — Discovery: первый per-cell слой на нативном LumiCells
+
+С тремя субагентами подключены проектные Controller/Engine/CubesPass вместо общего stamp/gap. Константный morph G=1, процедурная маска с нулями и отдельная вариация размеров, шаг60; canvas на полную высоту, Color Dodge сохранён. Пауза/visibility/reduced motion, resize и очистка проверены; исправлен double dispose. Duplicate/typecheck/Vite PASS, lifecycle5/5 и сценарные7/7 PASS. GPU/визуальная приёмка и баланс распределения ещё не подтверждены; таймеры сценария пока прежние. Только локальный исходник5175, без apps/Selectel/мастера. [Отчёт](artifacts/reports/stella-discovery-native-20261003/README.md).
+
+
+## 03.10.2026 — Discovery: диаметр от нуля и связные пустоты
+
+Уточнена архитектура по запросу пользователя: непрерывный диапазон 0…Dmax, без положительного минимума; связные участки с ровно нулевым диаметром и плавным появлением кругов на границах. Баланс положительных размеров и доля пустоты учитываются отдельно; преобразование распределения не заполняет нули. По коду подтверждена нулевая нижняя граница в cubeMask-ветке CubesPass; обычная ветка с минимумом0.02 не подходит. Обновлена только документация, интеграция/GPU/визуальная приёмка остаются открытыми. [Архитектура](docs/Research/stella-discovery-architecture-20261003.md).
+
+
+## 03.10.2026 — VK-01: маркер середины освобождает Стеллу
+
+В новом F-проекте три субагента реализовали DBOS release, Anime waypoint и независимую проверку; root отделил показ от текущего квиза, добавил середину пути и привязку сессии в UI. Новый v2 маркер последней карточки атомарно освобождает только session/visit/generation своего пакета; legacy v1 сохранён, registry3 без DDL.5/5 actual Anime/HTTP/SQLite групп PASS, syntax/AST/duplicate и HTTP7/7SHA PASS, штатный Restart8782. Browser8782 подтвердил busy до середины и release/complete; короткое окно одновременного входа упускалось из-за задержек инструмента. Отдельный55918 с прежним кодом и удлинённым тестовым профилем подтвердил новый paused квиз + продолжающийся старый show, reload обоих и движение51→77%, console[]. Временные вкладки/сервер закрыты. Исходный пользовательский completed/3ответа сохранён, на8782 Стелла свободна. Один дополнительный тестовый квиз истёк, два завершены, история не удалялась. TODO VK-01 ждёт пользователя;44SHA документов обновлены. Реальные поверхности/Spout, одновременные показы пакетов и отмена всей завершённой сессии остаются отдельными задачами. [Отчёт](F:/project/VK_DigitalProducts_Stand/artifacts/reports/vk-release-integration-20261003.md).
+
+
+## 03.10.2026 — Discovery: баланс размеров вместо редких крупных точек
+
+По новому уточнению пользователя архитектура требует сопоставимого количества маленьких, средних, больших и переходных кругов с непрерывными диаметрами. Прежняя цель «много мелких, редкие крупные» заменена. Проверены штатные variation/clamp в FieldPass, исследованы D3 quantile/linear как кандидат калибровки; совместимость D3 с GPU LumiCells не подтверждена. Добавлены проверка итогового распределения, запрет покадровой пересортировки и критерии пространственного разнообразия. Изменена только документация; приложение, сборка и GPU не затрагивались. [Архитектура](docs/Research/stella-discovery-architecture-20261003.md).
+
+
+## 03.10.2026 — Стелла: аудит и архитектура независимых кругов Discovery
+
+Проверены текущий WhiteEntity, сценарные переходы, SVG и существующий per-cell путь LumiCells/CUBES. Подготовлены сравнение готовых механизмов, ограничения и этапы интеграции. По уточнению пользователя точные диаметры копировать не нужно: сохраняем широкий разброс, редкие крупные узлы и независимое локальное изменение размеров. Кандидат — проектный CubesPass с белым morph; совместимость со Стеллой ещё не подтверждена. Аудит исходников/SVG и HTTP 3/3 выполнен; код приложения, сборка, GPU и публикация не менялись. Следующий шаг — малая проверка выбранного backend. [Архитектура](docs/Research/stella-discovery-architecture-20261003.md), [технический аудит](artifacts/reports/stella-discovery-architecture-audit-20261003/README.md).
+
+
+## 03.10.2026 — Discovery: SVG подтверждает независимые размеры; общий gap отклонён
+
+По кадру пользователя измерены535белых paths в STELLA-8/9, сохранены координаты, статистика, SHA и исходный кадр. Discovery249точек:0.17–59.04px, медиана8.91px; человек286точек:0.11–32.41px, медиана4.43px. Текущая анимация глобального gap18–32px не соответствует; визуальная приёмка FAIL. Изучен существующий per-cell size в проектной ветке LumiCells/CUBES, но его подключение к Стелле ещё не проверено. Это разбор SVG, без изменения приложения/сборки/GPU/публикации. [Аудит](artifacts/reports/stella-discovery-svg-20261003/README.md).
+
+
+## 03.10.2026 — Стелла: белая сущность переведена на LumiCells
+
+По уточнению пользователя убран Ribbon EntityRenderer/маска сообщения, подключён тот же pinned LumiCells отдельным overlay: count24, круглые белые клетки, screen. Диаметр всей сетки меняется через штатный grid.gap0.60↔0.28 и Motion13.5, цикл3.6с; поле/яркость отдельных клеток — исходный движок. Color Dodge силуэта сохранён. Pause/visibility/reduced motion и cleanup подключены. Duplicate/tsc/Vite/ESLint PASS,3adapter/schema+7scenario тестов PASS, HTTP4/4. GPU/визуальная оценка не выполнялась; ждём пользовательский кадр. Только localhost5175, без публикации. [Проверка](artifacts/reports/stella-lumicells-entity-20261003.md), [исследование](docs/Research/stella-lumicells-entity-20261003.md).
+
+
+## 03.10.2026 — Стелла: Color Dodge силуэта и исходная белая сущность
+
+Силуэт отделён от статичных точек и вынесен над фоновым host с CSS Color Dodge. Два processing-экрана используют оригинальный Ribbon EntityRenderer, штатную маску сообщения и ENTITY_DEFAULTS: один экземпляр, пауза, отмена загрузки и dispose. Общие Ribbon исходники не менялись. Duplicate guard, tsc/Vite, ESLint PASS; 9 сценарных/lifecycle и 9 исходных CPU-тестов PASS; HTTP7/7. GPU/визуальная проверка не выполнялась по текущему порядку; форма/масштаб ждут кадра пользователя. Только localhost5175, без публикации и обновления apps. [Отчёт](artifacts/reports/stella-white-entity-20261003.md), [исследование](docs/Research/stella-white-entity-20261003.md).
+
+
+## 03.10.2026 — Новый local-мастер: первый технический исполнитель BE-03
+
+В F:/project/VK_DigitalProducts_Stand команда A/B/C + root добавила DBOS execution/API и Anime.js4.5.0 MIT: два профиля одного пакета, подтверждения жизненного цикла, пауза/продолжение/отмена, checkpoints и semantic markers. Исследования и контракт сохранены; старые durable workflow не изменены, registry2→3. Независимые реальные Anime/HTTP/SQLite проверки9/9 PASS; root syntax/AST/static IDs/duplicate PASS, штатный Restart8782, HTTP7/7SHA. Станция и полный ответ завершённой пользовательской сессии до/после совпадают. Web Locks/браузерная и художественная проверка ожидаются: браузер не открывался по текущему правилу. Fixture ready=false, реальные GPU/Spout/медиа и release Стеллы не реализованы этим шагом. TODO BE-03 ожидает проверки,42хэша документации обновлены. [Интеграция](F:/project/VK_DigitalProducts_Stand/artifacts/reports/execution-integration-20261003.md).
+
+
+## 03.10.2026 — Стелла: новая ветка VK Видео по папке new и подтверждённому порядку
+
+Перенесены тексты3вопросов/12ответов,18оригинальных SVG-ассетов (карточки, знак VK Видео, intro, камера, силуэт, частицы, QR). Последовательность по4скриншотам пользователя: вступление →3вопроса/теги →фото →камера/силуэт →частицы →QR; пропуск сразу к частицам. Активные VK splash/пол исключены; правильный Discovery ID сохраняется до рекомендации. MAX/фон/движок полётов прежние. PASS44CPU-теста/5файлов, TypeScript/Vite/ESLint/duplicate; HTTP18/18 и оригинальность вложенных изображений. [Отчёт](artifacts/reports/stella-vk-new-20261003/README.md), [локальный сценарий](apps/stella-prototype/docs/VK_FLOW.md). Визуальная приёмка ожидает скриншота; камера/обработка — прежняя демонстрация. Только source/dist/5175, без apps runtime/Selectel/мастера/TD/Git.
+
+
+## 03.10.2026 — Стелла: аудит отвергнутого фона и новая архитектура
+
+По разрешению пользователя выполнен короткий аудит открытой5175: home и VK intro, native canvas1080×1920, сохранены полное полотно и одинаковые ROI. Технический запуск PASS; визуальное соответствие FAIL, локальная итерация отвергнута пользователем. Причина по коду: слабый flow/brightness попадает под native near-black gate, а spot остаётся ярким; единый stamp не повторяет переменные SVG-клетки. Исследованы LumiCells, Motion, PixiJS и исходный SVG/PNG. Подготовлен план на штатном wave с разделением формы/материала/подложки/тем; точное соответствие формы не доказано, запасной ассетный путь и его потери обозначены. [Архитектура/ресерч](docs/Research/stella-background-architecture-20261003.md), [аудит](artifacts/reports/stella-background-audit-20261003/README.md). Код/сборки/мастер/TD/Selectel/Git не менялись. Следующий шаг — один образец формы после запуска реализации, затем отзыв пользователя.
+
+
+## 03.10.2026 — Стелла: крупнее сетка, шире зазоры, слабее пятно
+
+По новым STELLA.svg/png измерен шагоколо21.5px; count80→50, gap0.45→0.5 дают шаг21.6 и тело/зазор10.8px вместо7.43/6.08. Приглушено native spot: home0.18 вместо0.48, продукты0.28 вместо0.5. Цвета/тени/без lift/полёты прежние. PASS18 адресных тестов/duplicate/TypeScript/Vite/HTTP2/2. [Сверка/проверка](artifacts/reports/stella-background-iteration-20261003/README.md). Визуальная читаемость ожидает скриншота; только5175, Selectel финал не обновлён.
+
+
+## 03.10.2026 — Стелла: стартовая палитра исправлена по STELLA-2
+
+Повторно просмотрен выбранный PNG и прочитан SVG: база#02032F, главный gradient#01FFFF→#000033. Убрана ошибочная фиолетовая home-палитра, установлены бирюзовое пятно и синяя/голубая сетка. Продуктовые VK/MAX overrides прежние. PASS18 адресных тестов/duplicate/TypeScript/Vite/HTTP200. [Обновлённый отчёт](artifacts/reports/stella-background-iteration-20261003/README.md). Визуальная приёмка ожидается; только5175, финал Selectel не менялся.
+
+
+## 03.10.2026 — Стелла: финал прошлого этапа и новая фоновая итерация
+
+Пользователь обозначил текущую опубликованную20261003T134547Z финалом прошлого этапа. Сохранён отдельный sourceZIP118файлов сSHA/CRC. Новая итерация только5175: штатные LumiCells spot/vignette, lift/hover-lift/sparkle выключены, более спокойная сетка; RingTag и AnswerFlight используют native shadow вместо light плюс мягкую CSS-тень. Сценарии/полёты прежние. PASS99тестов+адресные13 реальной схемы, typecheck/lint/duplicate/build, HTTP6/6,15контентных/логических/vendor файлов без изменений; опубликованный app.js/release подтверждены прежними. [Отчёт](artifacts/reports/stella-background-iteration-20261003/README.md), [обоснование](docs/Research/stella-background-iteration-20261003.md). Яркость/мягкость/ощущение ждут скриншота пользователя; браузер/GPU не запускались. Selectel/мастер/TD/runtime/Git не обновлялись.
+
+
+## 03.10.2026 — Стелла опубликована на Selectel /df/stela/
+
+По прямому запросу опубликована текущая standalone Стелла: https://futuronika.pro/df/stela/ ,релиз20261003T134547Z. Vite base адаптирован только для отдельной сборки.35публичных файлов, архив24.83MB; серверный SHA и HTTPS35/35 PASS, root/redirect/manifest PASS. Новый изолированный маршрут Caddy2.11.4, validate/reload/active PASS;9 существующих маршрутов+Caddyfile SHA неизменны, оба MAX current прежние. [Отчёт](artifacts/reports/stella-selectel-20261003T134547Z/README.md), [готовое решение](docs/Research/stella-selectel-20261003.md). Первая публикация безprevious, релиз сохранён. Браузер/GPU не проверялись; пользовательская приёмка открыта. Мастер/TD/локальная5175/Git не переключались. Постоянного разрешения автопубликации нет.
+
+
+## 03.10.2026 — TODO чистого проекта уточнён по аудиту реализации
+
+В F:/project/VK_DigitalProducts_Stand/TODO.md сохранён ближайший порядок BE-02 → BE-03 → VK-01. Добавлены задачи совместимости workflow/схемы, нормализации каталога, сверки версий Стеллы/MAX/визуализаторов, привязки pending-команд к instanceKey, целевой проверки потерянного POST-ответа и переносимого runtime/backup. Уточнены сроки ранних GPU/сенсорных проверок и границы уже принятой панели; будущие проверки не объявлены общими блокерами. PASS: 51 уникальный ID и разрешение локальных ссылок; таблица бэклога сохранена единой. Код, сервисы и технические испытания не запускались; реализация новых задач остаётся запланированной. Статусы ведутся только в каноническом F TODO.
+
+
+## 03.10.2026 — Стелла:2/3 больше не обрезают теги
+
+По уточнению пользователя найден inherited `.lc-scene overflow:clip` на1280px слое AnswerFlight. Локальный specificity override задаёт overflow:visible для всех тегов VK Видео/MAX. Область компоновки, stage/cqmin, vendor и полёты сохранены; физический край полотна остаётся границей вывода. PASS duplicate guard/TypeScript/Vite/HTTP200, визуальный пролёт ожидает пользователя; браузер не открывался. [Проверка](artifacts/reports/stella-tag-overflow-20261003.md).
+
+
+## 03.10.2026 — Стелла: единая синяя «Назад» на всех экранах
+
+По двум скриншотам унифицированы фон#0040FF,265×100,радиус35 и центр кнопки для всех экранов VK Видео/MAX. Убраны компактный onboarding и MAX gradient override; все позиции опущены на32px, зазор после карточек53px. Последний запрос расширяет нижнюю границу навигации доY1342 во вступлении. Только CSS, обработчики/сценарий/анимации прежние. PASS duplicate guard/TypeScript/Vite/HTTP200 нового CSS; браузер не открывался, визуальная приёмка ожидает пользователя. [Проверка](artifacts/reports/stella-back-style-20261003.md).
+
+
+## 03.10.2026 — Стелла: отступы шагов1/2 по референсу
+
+По паре скриншотов и оригиналу STELLA-16 исправлен только блок шагов вступления VK Видео: цифры100px, текст600/36px, колонкиX287/X367, начала строкY575/Y740. Увеличены интервалы относительно заголовка и между шагами; текущие слова/переносы, MAX и CTA сохранены. PASS duplicate guard, TypeScript/Vite build и HTTP200 с новым CSS на5175. Визуальная приёмка ожидает скриншота пользователя, браузер не открывался. [Проверка](artifacts/reports/stella-onboarding-steps-20261003.md).
+
+
+## 03.10.2026 — Стелла: «Назад» под основной кнопкой
+
+По скриншоту пользователя убрано левое угловое положение «Назад» во вступлении VK Видео/MAX. Центр X540 совпадает с «Начать»; кнопка занимает Y1210–1270. Блок действий и декоративная рука подняты, чтобы оставить место ниже подсказки и сохранить верхние2/3. Только3 CSS-значения, механика прежняя. PASS duplicate guard, TypeScript/Vite build и HTTP200 с новым CSS на5175. Визуальная приёмка ожидает пользователя; браузер не открывался. [Проверка](artifacts/reports/stella-back-centered-20261003.md).
+
+
+## 03.10.2026 — Стелла: Стела UX на локальной5175
+
+По выбранным пользователем STELLA-2 и сохранению текущих вопросов/рекомендаций перенесены17SVG материалов:15 карточек, указатель, CTA MAX. Исходные embeddedPNG/defs сохранены, подписи живые; третья цель MAX центрирована, теги VK тёмные с контуром. Геометрия и свободные области тегов согласованы, native preloader расширен. Motion/LumiCells, сценарий/веса, совместный уход ответа с последней группой сохранены. PASS99/17 тестов, typecheck/lint/duplicate/build, HTTP8/8+17SVG SHA,44SHA оригиналов иCRC резерва;77 прежних src файлов без изменений. [Отчёт](artifacts/reports/stella-ux-iteration-20261003.md), [решение](docs/Research/stella-ux-iteration-20261003.md). Визуальная приёмка/SVG filters/декодирование27.23MB остаются открыты; браузер/GPU не запускались. Мастер/TD/3D/runtime/Git не обновлялись.
+
+
+## 03.10.2026 — VK:2 видео и1 генерация на тему, аудит Master ZIP
+
+По новому уточнению пользователя зафиксировано N тем→2N видео без фото/3N медиа с фото (по1генерации на тему). Read-only ZIP C:/Users/futuronika_ai/Downloads/VK Видео Master.zip:50MP4,34основных/16согласование; manifest27записей,17валидных точных путей,10отсутствующих,17основных файлов без текущего пути вmanifest.2авто перенесены вИгрыиавто,8путей ведут кфайлам, фактически находящимся в«Несогласовано»; Музыка содержит только1основнойролик. Код D Стеллы выбираетslice(0,3) вlogic/events и содержит прежние Discoveryправила количества; F localmaster остаётся техническимквизом безBE02. Созданы F artifacts/reports/vk-content-package-audit-20261003.md/json, уточнены scenario-visual-decoupling/TODO/38SHA. ИтоговыйN/политика выбора2видео ещё не утверждены; генератор не подключён. ZIP/Pythonвнутриархива не запускался, видео не распаковывались/не декодировались, внешниеURL не проверялись; source/runtime/сервисы не менялись.
+
+
+## 03.10.2026 — Стела UX: изучены22пары PNG/SVG
+
+Просмотрены всеPNG, отдельные кадры и embedded-примеры в полном размере; прочитаны22SVG. Зафиксированы карта экранов/вариантов, геометрия, разделение брендов, пространственные теги,32уникальных embeddedPNG, текст в контурах и отсутствие заданной анимации. [Исследование](docs/Research/stella-ux-screens-20261003.md), [сверка с кодом](artifacts/reports/stella-ux-reference-study-20261003.md).
+
+PASS:44SHA оригиналов/XML/локальные ссылки. SVG→PNG pixel equivalence и визуал действующей сборки не проверялись. Не выбраны вместо пользователя варианты входа/вопросов; текущие переходы/контент, source/runtime/мастер/TD/сервисы/Git не изменялись. Запрос был только на изучение; реализации/браузера/сборки не было.
+
+
+
+## 03.10.2026 — BE-01: local-мастер, реестр и атомарный допуск к Стелле
+
+По «приступи к реализации» root+A/B/C выполнили первый предметный срез F:/project/VK_DigitalProducts_Stand/artifacts/local-master. До кода C подтвердил готовый DBOS3.2.0 SQLAlchemyDatasource: business writes+transaction checkpoint атомарны в registry.sqlite; parent workflow запускает fixed-ID child через публичный DBOS. Самописный outbox/replay не добавлялся. A: visits/sessions/admissions/station, immutable accepted/rejected receipts, one-station conditional claim/generation, finite session, cancel/expiry owner guard; completed удерживает станцию. Source AST PASS; root/C исправили ложный404 claimed-but-not-started→503SESSION_STARTING и уточнили needsReconciliation. B PASS8/8 exit0 (~20с), run20261003-150834-3f0ac0: concurrent distinct/identical, payload409/stickybusy/collision/visitreuse, occupiedrestart, claim→child crash onechild, completionhold, expiry/cancel guard, failure последнего businessINSERT rollbackбезpartialwrites. Source hashes unchanged; duplicate guard PASS. F docs/research/local-master-admission-20261003.md и artifacts/reports/local-master-integration-20261003.md; TODO DEV-06 выполнен, BE-01 остаётсяВработе,37 документальных SHA. Следующий малый шаг — техническая панель на новом API. Production/очередь/releaseмаркеры/backupдвухБД/переносruntime неготовы. Live quiz-panel8781/MAX/master8770/TD, браузер/GPU/оборудование не менялись; постоянный новый сервер не запускался.
+
+
+## 03.10.2026 — MAX v5: обе стороны ряда следуют за перенесённым телефоном
+
+Только v5: native CSS Flexbox gap400/align-items:center задаёт цели через новый presentation adapter, существующие WebGL motion/clock сохранены. Phone anchor переживает ответ/смену задания, ручная камера не перецентрируется; answer восстанавливает временно сдвинутые иконки, restart/menu очищают anchor. Исправлены inverse drag/Y-100 и несовпадение CSS392/descriptor360 корпуса. PASS20 CPU/syntax/duplicate/scoped build/CSS/HTTP SHA7/7. Первый fixture исправлен с392 на360 после выявленного mismatch. [Отчёт](artifacts/reports/max-v5-anchored-row-20261003.md), [ресерч](docs/Research/max-webgl-v5-bfm-theme-20261003.md). Native Flexbox/GPU/видимый ввод не проверены, пользовательская приёмка открыта; отсутствие всех промежуточных пересечений не заявляется. Мастер/TD/старые runtime не переключались.
+
+
+## 03.10.2026 — Подтверждены правила MAX, бездействия и полного восстановления
+
+Приняты ответы пользователя: mission-ready освобождает Стеллу без ожидания руки; FIFO; следующая миссия автоматически выходит и ждёт касания;60с без касания (настраиваемо) — сброс;20с бездействия квиза — сброс. После перезапуска сохраняются все состояния/данные/пакеты/очереди, текущая миссия и квиз с прогрессом, продолжение с места остановки. Прежняя рекомендация abort/reset явно заменена; гарантия готового восстановления не заявлена. Обновлены основной контракт, прежние архитектурные исследования и три общих документа. Проверка документальная; код/runtime/TD не менялись. Выбор и проверка готового durable recovery теперь часть первого шага.
+
+
+## 03.10.2026 — MAX: очередь сразу освобождает Стеллу
+
+Пользователь подтвердил: при занятой игре Стелла освобождается после подтверждённой постановки миссии в очередь, не ожидая её запуска. При свободной игре сохраняется освобождение после доставки анимации и запуска на стене. Уточнение внесено в контракт и три общих документа, вопрос закрыт. Проверка документальная; код/runtime/TD не менялись.
+
+
+## 03.10.2026 — MAX: миссии без владельца, прямой выбор и очередь
+
+Сохранено уточнение пользователя: Стелла освобождается после доставки анимации/запуска миссии на стене; играет любой приложивший руку. Прямой вход у стены начинается с выбора миссий. При занятой игре миссия Стеллы ставится в очередь, количество ожидающих видно на обоих экранах. Для случая очереди задан вопрос об освобождении Стеллы; ответ не предполагается. Обновлены контракт и три общих документа. Проверка документальная; код/runtime/TD не менялись, готовый механизм очереди и интеграция ещё предстоят.
+
+
+## 03.10.2026 — Стена:5 пользовательских пакетов по умолчанию
+
+Зафиксирован изменяемый на площадке лимит хранения персональных наборов стены: default5, новый пакет заменяет самый старый по первому поступлению. Лимит отделён от допуска на Стеллу/числа карточек/числа tracked-тел. Обновлены контракт, три общих документа и аудит VK-сценария. Статически проверено: validWall в artifacts/video-wall/model.js пока требует ровно2 owner-слота. Код/runtime/TD не менялись; динамическая вместимость, настройка панели и визуальная приёмка ещё предстоят.
+
+
+## 03.10.2026 — Допуск следующей VK-сессии после центра ленты
+
+Зафиксировано прямое правило пользователя: тест занимает вход Стеллы, проход контента через центр ленты завершает эту сессию и открывает следующую. Пакет и владелец сохраняются до стены и далее. Рабочая трактовка — проход заднего края последнего элемента при завершённом выпуске; граница относится к логическому пути. Отмечены ограничения гарантии зазора при разных скоростях/остановках. Обновлены исследовательский контракт и три общих документа. Проверка документальная; код/TD/runtime не менялись, маркер и приёмка предстоят.
+
+
+## 03.10.2026 — Параллельные поверхности и общий контекст сессии
+
+Дополнено [исследование модели состояний](docs/Research/scenario-visual-decoupling-20261003.md): «Стелла работает» для арки — наблюдаемый контекст, собственное исполнение поверхности отдельно. Уточнены вложенность этапов Стеллы, независимый срок жизни стенового контента, готовность данных, правила задержек/отмены/reconnect и обязательные участники переходов. Проверены официальные XState actors/parallel states, MQTT5 и Sofie; готовая интеграция не заявлена. Обновлены три общих документа. Проверка документальная, код/TD/runtime/оборудование не менялись; внедрение и приёмка остаются открыты.
+
+
+## 03.10.2026 — Стелла: переход с финальным уходом на всех вопросах
+
+По прямому запросу распространён ContinuousQuestions: VK3/MAX2/фото/пол. Выбранная RingTag уходит с последней группой; далее новый набор вариантов нужного размера. Пустые metadata и Discovery сохранены по сценарию. Исправлен выявленный тестом возврат фокуса/ввода после условий. [Исследование](docs/Research/stella-all-transitions-20261003.md), [проверка](artifacts/reports/stella-all-transitions-20261003.md).
+
+PASS: duplicate guard, typecheck/lint,98/98 тестов (включая обе ветки до результата), изолированная build, HTTP5175+Motion;20 защищённых файлов совпали с резервом. Визуальная самопроверка BLOCKED до пользовательского просмотра, приёмка ожидается. Runtime/мастер/TD/3D/Git не обновлялись.
+
+
+
+## 03.10.2026 — Аудит визуальных слоёв, объектов и режимов
+
+По запросу пользователя создан [реестр27 сущностей](artifacts/reports/visual-layer-inventory-20261003.md): маски physical/RGB/morph, фон/сетки/материалы/заполнение/свет, Кольцо Саурона, Discovery-сущность/теги, Lumicell-теги, кубики PixelTags, полосы RowStreams, видео/карточки/рамки, силуэты/флюиды, Стелла/MAX/Journey/AV и служебные слои. Сверены исходники рендера и сохранённые визуальные настройки; приведены режимы, управление, статус, порядок композиции и ссылки на код. Обновлены три общих документа.
+
+Ключевые находки: dualScale включает только fill0; server RowStreams выключен при включённом дефолте редактора; MAX gameEnabled=false в service; арка использует Discovery вместо старых текстовых тегов; morph независим от physical; текущий timeout TD-входа уже даёт процедурный fallback поля, но не полный автономный сценарий. Применён vk-visual-reference-gate как статический аудит без утверждения картинки. Проверка — чтение кода/конфигов и локальные ссылки; браузер/TD/сборка/restart/нагрузка не запускались. Runtime/арт-JSON не менялись; live-картинка и её ревизия не проверялись.
+
+
+## 03.10.2026 — Стелла: финальный ответ уходит вместе с тегами
+
+По отзыву выбранная карточка первой цепочки VK Видео уходит при старте последнего вылета тегов; далее входят четыре новых варианта. Сохранение/подмена содержимого кнопки между вопросами отменены. Использованы существующие LumiCells onFlight и Motion presence, без изменения таймингов/движка. [Исследование](docs/Research/stella-final-card-exit-20261003.md), [отчёт](artifacts/reports/stella-final-card-exit-20261003.md).
+
+PASS: duplicate guard, typecheck/lint,93/93 теста, изолированная build, HTTP5175. Визуальная самопроверка BLOCKED до просмотра пользователем; следующие цепочки ждут отзыва. Мастер/runtime/TD/3D/Git не изменялись.
+
+
+
+## 03.10.2026 — Стелла: мягкий темп и постоянная карточка между вопросами
+
+По отзыву доработана только первая цепочка VK Видео на5175: исходная кнопка сохраняется между вопросами, содержимое crossfade; Motion spring управляет уходом/входом, исходный LumiCells startFloat добавляет движение. Gate сбрасывается по phaseKey без remount; первый полёт длиннее в1.25раза, hold350ms прежний. [Исследование](docs/Research/stella-soft-inertia-20261003.md), [проверка](artifacts/reports/stella-soft-inertia-20261003.md).
+
+PASS: duplicate guard, typecheck/lint,92/92 теста, изолированная сборка и HTTP5175/Motion;18 защищённых файлов совпадают с резервом. Визуальная оценка BLOCKED до пользовательского просмотра; устранение воспринимаемого зависания не утверждено по CPU-тестам. Другие цепочки ждут отзыва, runtime/мастер/TD/3D/Git не менялись.
+
+
+
+## 03.10.2026 — Стелла: непрерывный переход вопрос1→ответ→вопрос2
+
+Реализована малая цепочка VK Видео с постоянным логотипом и исходной выбранной кнопкой. Motion AnimatePresence/useAnimate удерживает уходящие части, embedded AnswerFlight не дублирует интерфейс; новый вопрос получает отдельный gate. Пауза, фокус и запрет ввода уходящего слоя сохранены. Авторские полёты/рандом/350ms неизменны.
+
+PASS: duplicate guard, typecheck/lint,91/91 тестов (реальные ReactDOM/Motion в jsdom для перехода), изолированная build, HTTP5175+Motion;19 защищённых файлов совпадают с резервом. [Отчёт](artifacts/reports/stella-continuous-transition-20261003.md). Визуальная проверка BLOCKED до пользовательского просмотра. Остальные цепочки ещё прежние; перенос после отзыва. Runtime/мастер/TD/3D/Git не менялись.
+
+
+## 03.10.2026 — Стелла: исследование непрерывных переходов
+
+Найден remount foreground из-за RingActions key=phaseKey, повторный screen-arrive и замена выбранной кнопки копией; RingScene сохраняется. Отдельно выявлена зависимость сброса RingCue/busy от remount. Исследованы Motion13.5.0, React19.3 ViewTransition/AnimateView, RTG4.4.5, реальные issues и лицензии; предложены постоянная оболочка и готовый AnimatePresence с сохранением LumiCells. [Исследование и малый план](docs/Research/stella-continuous-transitions-20261003.md), [аудит исходников](artifacts/reports/stella-transition-audit-20261003.md).
+
+Проверены источники, npm-метаданные, локальные ссылки и SHA. Реализация/зависимости/runtime не менялись; браузер, сборка и нагрузочные тесты не запускались. Устранение разрывов ещё не реализовано; следующая итерация — только вопрос1→reveal→вопрос2 VK Видео с пользовательской приёмкой.
+
+
+## 03.10.2026 — Стелла: случайный разлёт тегов
+
+Колонка заменена случайными точками вокруг сохранённого ответа: готовый seeded LumiCells задаёт параметры исходного полёта. Раскладка новая для ответа/группы, стабильная при паузе; карточка и350ms сохранены. PASS: duplicate guard, typecheck/lint,86/86 CPU-тестов, отдельная build, HTTP5175,13 защищённых файлов совпадают с резервом. [Исследование](docs/Research/stella-random-spread-20261003.md), [проверка](artifacts/reports/stella-random-spread-20261003.md). Визуальная проверка BLOCKED до пользовательского кадра, утверждение ожидается. Runtime/мастер/TD/Git не менялись.
+
+
+## 03.10.2026 — Стелла: короткая остановка и постоянная карточка ответа
+
+После отзыва пользователя остановка каждой группы тегов уменьшена1200→350ms; авторские полёты и покачивание не менялись. Выбранная карточка VK Видео/MAX или кнопка согласия на фото остаётся на прежнем месте до следующего экрана, включая смену групп. Теги приземляются рядом с карточкой; исходные тексты/иллюстрации и сценарий сохранены.
+
+PASS: duplicate guard, typecheck/lint,79/79 CPU-тестов, отдельная build и HTTP5175; SHA исходного motion/сценария сохранены. [Отчёт и референс](artifacts/reports/stella-persistent-answer-20261003.md). Визуальная проверка обновления BLOCKED до пользовательского кадра, утверждение ожидается. Runtime/мастер/TD и Git stage/commit/push не менялись.
+
+
+## 03.10.2026 — Стелла: авторская анимация распространена на все метаданные
+
+По запросу пользователя общий AnswerFlight подключён ко всем трём вопросам VK Видео, согласию на фото, Discovery activation и обоим вопросам MAX. Списки без потерь показываются группами по четыре; пустые ответы не получают искусственных тегов. MAX сохраняет свою палитру/шрифт. Готовый LumiCells flight/Choreographer не менялся; сценарные данные, вычисление миссий и события сохранены.
+
+PASS: duplicate guard, typecheck/lint,78/78 CPU-тестов, отдельная build, шесть HTTP-проверок5175 и сверка неизменённых файлов с резервом. [Отчёт](artifacts/reports/stella-all-tags-20261003.md). Визуальная самопроверка BLOCKED до пользовательского отзыва; открыты читаемость и длительность групп6–9s. Runtime/мастер/3D/TD и Git stage/commit/push не затронуты.
+
+
+## 03.10.2026 — Стелла: авторские полёты LumiCells перенесены в первый ответ
+
+GSAP-эксперимент заменён на исходные flyIn/startFloat/flyOut, материал плашек и Choreographer LumiCells1007717. flight.ts/scene.css сохранены побайтно; адаптированы только одноразовое завершение, пауза/отмена и привязка к метаданным первого вопроса VK Видео. Свободные компактные плашки, пружинная посадка и покачивание; после1200ms чтения — авторский разлёт. GSAP-зависимости удалены, резерв сохранён.
+
+PASS: duplicate guard, typecheck, lint,57/57 CPU-тестов, отдельная production build, HTTP6 новых/действующих точек на5175; сервер запущен штатным скрытым launcher. [Отчёт и SHA](artifacts/reports/stella-native-flight-20261003.md). Проверено сохранение сценарных данных и движка. Самостоятельный браузерный просмотр не выполнялся; визуальная самопроверка BLOCKED, утверждение пользователя ожидается. Следующий экран — после отзыва. Мастер/runtime/3D/TD и Git stage/commit/push не затронуты.
+
+
+## 02.10.2026 — Финальный сценарий: аудит спецификации и выбор архитектуры стенда
+
+Сохранён клиентский `VK_MAX_Stand_Agent_Handoff.md` без изменений, SHA-256 исходника и копии совпал; по прямому указанию пользователя назначен финальным сценарием. [Аудит](artifacts/reports/stand-architecture-audit-20261002.md) сопоставляет спецификацию, инвентарь 01.10 и код. [Выбрано](docs/Research/stand-runtime-architecture-20261002.md): отдельный master со сценарием/сессиями/TD-масками/аудио, 4 локальных GPU-исполнителя и 3 Kinect NUC. Арка+лента — базовое размещение с будущей проверкой портов и нагрузки. Финальные текстуры локальны; между ПК — события и компактные карты без потерь. Отмечены незакрытые remap лент, физическая синхронизация стены, сенсоры, agent launcher/Стелла whitelist, текущий stopWorkers при disconnect и отсутствие сквозных cue ACK.
+
+Обновлены общие архитектура/дизайн/бэклог и приоритет старой матрицы. Проверка: чтение исходников и спецификаций, SHA-256 копии, расчёты каналов и локальные ссылки. Доступы/удалённые ПК не проверялись по последнему указанию пользователя; ключи не читались. Runtime, TD, процессы и конфиги не менялись; сборки, визуальный обход и нагрузочные тесты не запускались. Это решение для внедрения, не подтверждение deployment или FPS. Следующая малая итерация — серверная VisitSession и события Стеллы; аппаратные TBD перечислены в аудите.
+
+
+## 02.10.2026 — Стелла: GSAP-формат отклонён, изучена авторская хореография LumiCells
+
+Пользователь отклонил веер тегов на GSAP и указал на исходные механизмы LumiCells. Изучены demo/scene/flight.ts, choreography.ts, bubbles.tsx, scene.css и SceneBinder: WAAPI spring flyIn, startFloat, flyOut/recall, компактные градиентные плашки и фазовая связь с pulse/lift/light. [Исследование и карта исходников](docs/Research/stella-lumicells-native-motion-20261002.md). Предыдущая рекомендация GSAP для этого приёма отменена; следующая правка должна опираться на авторские функции с адаптацией паузы и сценарных callbacks.
+
+Проверены исходники и локальные ссылки; изменена только документация. Код локальной5175 пока содержит отклонённую итерацию, runtime/мастер/TD не менялись. Тесты/сборка и браузер не запускались. Перенос ещё не выполнен; визуальная самопроверка BLOCKED до пользовательского кадра/отзыва.
+
+
+## 02.10.2026 — Стелла: первый вылет тегов на GSAP
+
+На отдельной странице5175 реализован один проверяемый этап: четыре варианта первого вопроса VK Видео выдают метаданные по дугам, с остановкой для чтения и уходом. GSAP3.15.0/MotionPath и @gsap/react2.1.2 работают поверх прежнего LumiCells; timeline и свет синхронизированы через onBeforeFrame, пауза/отмена/reduced motion учтены. Кнопочный движок, бизнес-правила и контент сохранены.
+
+PASS: duplicate guard, typecheck, lint,61/61 CPU-тестов, отдельная production build, HTTP новых модулей/зависимостей. [Технический отчёт и резерв](artifacts/reports/stella-tag-flight-20261002.md). Runtime/мастер/3D и Git stage/commit/push не затронуты. Визуальная самопроверка BLOCKED до пользовательского кадра; следующая итерация после отзыва о вылете из первого вопроса.
+
+
+## 02.10.2026 — уточнено владение объектами сессии
+
+По уточнению пользователя в [аудит единого backend](artifacts/reports/stand-unified-session-tracking-audit-20261002.md) добавлен реестр сессионных сущностей: каждый тег, видеокарточка и QR получает собственный ID и связь с `visitSessionId`; связь с физическим треком человека возникает отдельно. Проверено по коду: операторский `journey.packet` уже содержит теги/видеоассеты и копируется в слот стены, но QR финала стелы пока статичный ассет, а полного реестра/сессионного токена нет. Код и работающий вывод не менялись; тесты рендера не требовались.
+
+
+## 02.10.2026 — Стелла: исследование анимации ответов
+
+Изучены текущие компоненты/таймеры и исходный LumiCells; сопоставлены официальные API и лицензии GSAP, Motion, Anime.js, React Spring, AutoAnimate и WAAPI. Рекомендован GSAP + MotionPath для одного проверяемого веера тегов; подготовлены фазы на 2300 ms, карта сценариев, условия паузы/отмены и сохранения дизайна. Найдены ограничения auto-tracking JS-transform и отсутствие автоматического затухания influence от opacity.
+
+[Основной MD](docs/Research/stella-motion-libraries-20261002.md), [технический аудит и SHA](artifacts/reports/stella-motion-audit-20261002.md). Проверены локальные ссылки и исходники. Установка, изменения кода, сборка, браузер/GPU и Git stage/commit/push не выполнялись. Следующий этап — отдельная реализация одного ответа и визуальный отзыв; параметры движения пока гипотезы.
+
+
+
+## 02.10.2026 — аудит единой сессии стелы и трекинга посетителя
+
+Проверены действующие Stand Service, события стелы, сценарный маршрут, depth-силуэт и отчёт Kinect Agent. [Аудит](artifacts/reports/stand-unified-session-tracking-audit-20261002.md) фиксирует существующие границы и предлагает Stand Service как единый центр `VisitSession/JourneySession`, отдельные camera tracking/fusion-агенты и явную связь сессии с временным ID посетителя. `ownerId` сейчас обозначает слот контента, не установленного человека; live-маска не разделяет людей, а обновлённая стела публикует события пока только внутри браузера. Код, рендер и TD не менялись; аппаратная, визуальная и нагрузочная проверки не проводились. Первый малый этап — доставить и сохранять события стелы в мастере без изменения изображения.
+
+
+## 02.10.2026 — Stella: скачано и перенесено обновление GitHub3e02630
+
+Предыдущая локальная версия сохранена в проверенный ZIP (79 файлов), upstream скачан отдельно. Перенесены тексты/метаданные ответов, Discovery activation, подготовка к фото и QR-финал; бизнес MAX всегда ведёт к продвижению, «спасибо» возвращает домой. Наш LumiCells-дизайн/кнопки/палитры/заставка сохранены; нижняя треть декоративная.
+
+PASS: duplicate guard, typecheck, lint,51/51 Vitest, отдельная Vite build, HTTP новых модулей/CSS и совпадение QR по SHA. Сервер отдельной страницы запущен на http://localhost:5175/stella/; runtime/мастер/3D не обновлялись, Git stage/commit/push не выполнялись. Визуальная самопроверка BLOCKED до пользовательского кадра; открыты художественная оценка и сканирование QR телефоном. Камера остаётся имитацией. [Проверка и резерв](artifacts/reports/stella-update-20261002/README.md).
+
+
+
+## 02.10.2026 — TD morph распространён на заднюю стену и арку
+
+По запросу масок на все поверхности добавлены независимые morph_large/fine в существующие Masks/Main (106×19 / 212×38) и Masks/Arch (80×8 / 160×16). Ribbon сохраняет предыдущую пару для обеих лент. Main использует общий рисунок до разделения на атласы MainLeft/MainRight. Upgrader поддерживает один или два атласа, сохраняет существующие physical/color и пользовательские morph-входы при повторном запуске. Отдельные TOX не создавались и не обновлялись; сохранён текущий TD-проект .20/base. Стела использует другой кольцевой renderer и пока не подключена; уточнение о её включении отправлено пользователю.
+
+PASS: syntax Python, duplicate guard, 9 CPU-тестов приёмника; малый TD readback всех четырёх атласов — capability=1, ошибки physical R и morph G равны 0 на всех восьми страницах. TD Main/Arch: 0 ошибок/предупреждений. Три HTTP/source hash совпадают с уже собранным общим рендером; повторная WEB-сборка не требовалась. Перезапущены только Left/Right/Arch через штатный API: running/error=null, обе маски live, Spout sending. Ribbon и режим run/economy сохранены. Финальный материал и стык ждут пользовательского просмотра; браузер, тяжёлые GPU-прогоны и видео не запускались. [Проверки и пути](artifacts/reports/td-cell-morph-20261002.md#расширение-на-main-и-arch).
+
+
+## 02.10.2026 — MAX WebGL: свободная ширина стены, шаг 400 и прорисовка связей
+
+В Reveal шаг ряда увеличен до 400 px между центрами. В режиме wall/service иконки не затухают на границе игровой зоны, DOM overflow открыт; drag ограничен полной шириной сцены и прежней вертикальной полосой. Камера и возврат штатной раскладки после задания сохранены. Связь маршрута раскрывается вдоль кривой за текущие 1,2 с; пять связей телефона — в фазе его появления со сдвигом 50 мс. LineSegments2 ограничивает число сегментов и дробный конец; частицы за концом скрываются. Общий clock/renderer, без новых таймеров и RT. Старые потребители связей без reveal показывают полную длину. Site и контент не менялись.
+
+PASS: 63 CPU-теста (~226 мс), syntax четырёх модулей, duplicate guard, изолированная WebGL/shared сборка. Браузер, GPU и мастер не запускались; визуальная приёмка пользователем. URL: http://localhost:8770/max-game/guided-reveal/?backend=local&layout=wall — Ctrl+F5, блогер: проверить шаг, рост линка, drag влево за игровую рамку и возврат после задания.
+
+
+
+## 02.10.2026 — интернет-доступ требуется всем ПК стенда
+
+По прямому уточнению пользователя [REMOTE_CONNECTIVITY](apps/stand-service/docs/REMOTE_CONNECTIVITY.md) расширен с трёх NUC на все ПК проекта: мастер, VK Видео, MAX, лента, арка, стела, Kinect NUC и последующие подключения. Адреса назначения и исходящие TCP22/443 прежние; проверка должна выполняться на каждом ПК. Текст/ссылки проверены, сетевые правила/удалённые ПК/агенты/серверы/БД не менялись; готовность после применения allowlist ещё не проверена. Билды/браузер/нагрузочные прогоны не выполнялись.
+
+
+## 01.10.2026 — логотип-заставка и продуктовый тон локальной стелы
+
+По двум референсам добавлена presentation-only фаза после выбора: native cue260ms → оригинальный логотип1200ms → прежнее вступление; кнопок на заставке нет, session-start не повторяется. Тот же LumiCells transition380ms меняет поле на синий VK Видео/фиолетовый MAX, тон сохраняется по ветке и сбрасывается домой. ProductEntry обеспечивает паузу/отмену/reduced motion; field/grid/shaders/native-кнопки прежние. PASS: typecheck/lint,45 Vitest, duplicate guard,6 live HTTP-модулей/CSS,9 файлов бизнес-логики/кнопок с прежними SHA. Только localhost:5175/stella через Vite; runtime/архив/мастер не обновлялись. [Отчёт среференсами](artifacts/reports/stella-brand-entry-20261001/README.md), [локальный контракт](apps/stella-prototype/docs/LOCAL_PAGE.md). Визуальная самопроверка BLOCKED до нового кадра; художественное утверждение/длительность/плавность ожидаются. Браузер/нагрузка/видео не запускались.
+
+
+## 01.10.2026 — отдельная локальная страница стелы без мастера и3D
+
+По прямому запросу пользователя поднят source/Vite на localhost:5175/stella/: собственная сессия/origin, hot reload, loopback/strictPort и точный fs.allow; добавлен Start-Local.bat. Дизайн/движок/кнопки/сценарии прежние, следующий визуальный цикл выполняется здесь без apps-сборки/интеграции/перезапуска vk-stella. PASS: typecheck/lint, PS parser, duplicate guard, repeat/reuse, 35 HTTP-модулей/ассетов/шрифтов/LumiCells/Vite-client и отказ403 для существующего файла корня вне allowlist. Ошибка первичного ready-probe устранена прямым loopback без системного proxy; отдельный сервер продолжает отвечать после завершения launcher. Мастер не мутировался, runtime не собирался; поколения его источников изменились во время read-only сравнения, совпадение не утверждается. [Инструкция](apps/stella-prototype/docs/LOCAL_PAGE.md), [отчёт](artifacts/reports/stella-local-page-20261001.md). Браузер не открывался; визуальная оценка ожидает пользователя. Голос/камера/доставка не менялись.
+
+
+## 01.10.2026 — стела перекомпонована по четырём новым референсам
+
+Последнее указание пользователя заменяет прежний вид: видимое кольцо отключено конфигом, сетка80 вместо38/gap0.45/brightness0.4, свет приглушён без размытия клеток. Вход — два оригинальных символа рядом; вопросы —2×2, центрированные компактные действия вступления/фото, номера шагов и4 брендовые иллюстрации первого вопроса. Движок/native-кнопки/сценарии/worker не менялись:13 source-файлов побайтно сохраняют baseline. PASS: typecheck/lint,39 Vitest, duplicate guard, штатная сборка0.5.1,19 HTTP/SHA, resource provenance иZIP/docs. Применено только vk-stella: generationb50f41f7-12a8-4fb3-a56c-e3cd430fe6ff, кадры73→134, Spout sending/registered; профиль810×1440/transport810×1442, назначения и другие generation сохранены. [Отчёт с4 референсами](artifacts/reports/stella-reference-layout-20261001/README.md), [контракт](apps/stella-prototype/docs/RING_INTERFACE.md). Визуальная самопроверка BLOCKED до нового кадра пользователя; художественная оценка/плавность ожидаются. Иллюстрация интервью отличается от референса (брендовый разговор вместо человека); браузер/нагрузка/видео/TD не запускались. Голос/камера/доставка не менялись.
+
+
+## 01.10.2026 — весь дизайн стелы заменён интерфейсом исходного кольца
+
+По уточнению пользователя исходный визуальный слой исключён на всех экранах; содержательная часть сохранена. Один постоянный оригинальный `reference/sphere` LumiCells, общие light/shadow/pulse/lift-теги, лёгкие красные/синие и фиолетовые/голубые действия, новые вопросы/результаты/фото/условия; вся интерактивная зона выше y=1280. Общий старый фон worker и PNG/WebP не входят в активный runtime. PASS: typecheck/lint, 39 CPU + 3 интеграционных теста, syntax, duplicate guard, сборки, 6/6 побайтно неизменных business-файлов, 14 HTTP/SHA, source/runtime/HTTP worker, ZIP/docs. Применено только к vk-stella: generation 83e745c3-7fc3-466c-8a83-f457c2ebb170, кадры 63→183, Spout sending/registered; назначения и generation остальных четырёх источников сохранены. Ранее выбранное качество сохранено: program810×1440, transport810×1442 при логическом UI1080×1920. [Контракт](apps/stella-prototype/docs/RING_INTERFACE.md), [отчёт](artifacts/reports/stella-ring-interface-20261001.md). Визуальная самопроверка BLOCKED до кадра пользователя; художественная оценка/плавность/досягаемость ожидаются. Браузер, GPU-нагрузка, видео и приём TD не проводились; голос, камера и сквозная доставка остаются открыты.
+
+
+## 01.10.2026 — первый экран стелы пересобран на исходном кольце LumiCells
+
+По запросу пользователя выполнена одна малая итерация дизайна: стартовый выбор VK Видео/MAX использует оригинальный `<lumi-cells>` commit 1007717, `reference/sphere`, сине-фиолетовую палитру, чёткие клетки и два вертикальных hit-target в y=790…1228. Подключены оригинальные light/shadow/pulse `data-lc-*`; один выбор даёт 420 ms реакции, пауза сохраняет остаток, reduced motion убирает ожидание, unmount отменяет callback. Worker ждёт успешно отрисованный `lc-ready`, на входе не рисует старый фон, остальные экраны сохраняет. Runtime 0.4.0 собран штатно; применён перезапуском только vk-stella. PASS: typecheck/lint, 22 CPU-теста и 3 интеграционных теста, Node syntax, duplicate guard, 44 локальные ссылки, 22 HTTP/SHA и worker source/runtime/HTTP; финальная generation 5fb5b262-9f91-416f-870e-baa9170d799f, кадры 9→123, Spout sending/registered. Назначения и generation остальных источников сохранены. [Контракт](apps/stella-prototype/docs/RING_HOME.md), [отчёт](artifacts/reports/stella-ring-home-20261001.md). Браузер не открывался; визуальная самопроверка BLOCKED до кадра пользователя, художественная оценка ожидается. Следующие экраны не перевёрстаны, голос/сквозная доставка не подключены; нагрузочный тест и приём TD не проводились.
+
+
+## 01.10.2026 — базовый пресет и изменения JSON теперь доходят до Spout/TD
+
+Устранено расхождение между общей GPU-картой и рабочим выводом: Stand Service теперь читает выбранные слоты задника/ленты/арки напрямую из серверного JSON, собирает базовый слот 0 из тех же арт-параметров, что редактор, и отправляет изменения worker без ручной кнопки. Прямые изменения файла подхватываются опросом; общие вид/Energy/заполнение передаются из редактора автоматически. Левый задний worker начинает с общего региона `REAR_WALL`, чтобы не инициализировать маску ленты. По уточнению пользователя о разных местах крупной/мелкой сетки предпросмотр переведён с времени вкладки на `field.time` мастера (арка — `archField.time`) с той же задержкой 120 мс, что в рабочем shader. PASS: duplicate guard, 30/30 коротких Node-тестов, синтаксис, сборки Ribbon/Viewer/Service, SHA source/runtime; штатный `run` перезапущен, 5/5 источников и Spout sending, TD 6/6 LIVE без ошибок, активный rear slot 0 совпадает с `cubes-art.json` по seed/scale. Уменьшенный TD-кадр просмотрен, но совпадение после выравнивания фазы ожидает обновления пользовательской вкладки и нового скриншота. Низкий FPS остаётся: короткий Check показал 4.0/4.5/28.8/4.3/1.9 по ribbon/left/stella/arch/right; нагрузочный тест не выполнялся. [Отчёт](artifacts/reports/lumicells-td-live-mask-20261001/README.md).
+
+
+## 01.10.2026 — изучены исходное Кольцо Саурона и теги LumiCells
+
+По указанию пользователя начато с определения в DESIGN_DOCUMENT: кольцо — исходный LumiCells `reference/sphere`, Discovery — отдельная белая сущность. [Исследование](docs/Research/stella-ring-controls-20261001.md) связывает персонажа с общей production-матрицей, описывает 18 параметров sphere, 12 `data-lc-*`, Web Component/API и фактические ограничения прямого Controller/Engine с CUBES-маской. Добавлены ссылки и уточнения в дизайн стелы, общий дизайн, архитектуру, бэклог и оглавление исследований. Проверка: исходные schema/presets/GLSL/parser/event handlers и текущий адаптер прочитаны; локальные ссылки и формат diff проверены. Runtime, сервисы, TD и браузер не менялись. Нерешённое: адаптер ответов/состояний и визуальное совпадение оригинального кольца ещё не реализованы/не утверждены.
+
+
+## 01.10.2026 — быстрее уменьшение DOM-превью; восстановлен GPU-запуск
+
+В preview worker горизонтальные координаты билинейного уменьшения считаются один раз на кадр, без функции на каждый пиксель. Четыре формата побайтно совпали с прежним результатом, Node-тесты 5/5; CPU-микрозамер MAX 2048×640→960×300: 6,47→3,17 мс. При первом применении полной сборки обнаружился WebGL `0x501` на ленте, арке и левой стене: сохранённый `fill.mode=0` ошибочно включал экспериментальный fill-движок. Mode 0 теперь использует обычный LumiCells; временная диагностика удалена, штатные Start/Check снова 5/5 running. Живые capture MAX/стелы ≈19–21 FPS, поэтому цель 30/60 FPS остаётся открытой. Браузер/TD не трогали. Из-за параллельного расхождения `server.mjs` последние runtime-правки применены узким сборщиком, ZIP требует последующей согласованной сборки. [Замер и ограничения](artifacts/reports/dom-preview-resize-20261001.md).
+
+
+## 01.10.2026 — единый дизайн-документ стелы по новым входным данным
+
+Три файла пользователя из Downloads сохранены побайтово в docs/Research/stella-inputs-20261001 с SHA-256; разобраны сценарии, восемь встроенных иллюстраций и три листа Excel. Создан [единый дизайн-документ](apps/stella-prototype/docs/DESIGN.md): назначение стелы, полные ветки MAX/VK Видео, веса и метаданные, карта экранов, устройство нового прототипа, связь со стендом, визуальные требования и открытые решения. Исторический USERFLOW отмечен устаревшим основанием; SERVICE и три общих документа ссылаются на новый. PASS статической сверки: 18 наборов метаданных, восемь весов и 16 исходов. [Отчёт](artifacts/reports/stella-design-20261001/README.md). Код/runtime/конфиги и мастер не менялись; браузер не открывался. Голос, реальное фото, сквозная передача и художественная приёмка остаются неподтверждёнными; не представлены готовыми функциями.
+
+
+## 01.10.2026 — локальный редактор трёх масок LumiCells
+
+В общем просмотрщике задняя стена, лента и арка получили независимые маски с разными начальными offsets/seed, финальный рендер и сырую серую `M` под ним, локальные контролы числовых параметров маски/порогов и кольца задника, раздельное хранение в браузере/сброс/экспорт JSON. Оба слоя каждой поверхности читают один её профиль. Рабочие источники и режим показа не переключались. Node syntax, duplicate guard, lookup shader build, штатные Ribbon/Viewer build, source/runtime SHA и HTTP200 файлов PASS. Общие Ribbon tests:155 PASS,2 FAIL из-за `fetch(file://)` в Node. Штатный dev-Start запустил HTTP, но `Check` дважды показал `WebGL 0x501` до configureNative у ribbon-up/video-wall-left/vk-arch; vk-stella/max-wall-right running. Причина не определена. Браузерная визуальная проверка по правилу пользователя не проводилась; вид, редактирование в UI и FPS ждут его кадра. [Контракт](apps/stand-viewer/docs/COMMON_PIXELMAP.md), [отчёт](artifacts/reports/lumicells-surface-mask-editor-20261001.md).
+
+
+## 01.10.2026 — дополнение GitHub завершёнными отчётами
+
+После основного push отдельно сохранены готовые отчёты по обновлению стелы и проверке Kinect, а также связанные общие документы. Текущие незакоммиченные изменения редактора маски продолжаются параллельно: source снова отличается от runtime, поэтому они не включены в это дополнение. Проверены текстовые кандидаты на маркеры секретов; браузер/сборка/применение не выполнялись.
+
+
+
+## 01.10.2026 — обновление стелы из GitHub до e7ac9c3
+
+Установлены девять upstream-коммитов, интеграция 0.3.0: вступления, Discovery, выбор пола перед имитацией фото, локальные события и панель демонстрационных условий. Сохранены сервисный ввод, пауза, готовность и общий фон; резерв до импорта сохранён. PASS: duplicate guard, typecheck/lint, 18 Vitest + 3 интеграционных + 8 pointer-тестов, сборка, syntax, 20 HTTP SHA и ZIP CRC. Перезапущена только стела: running, кадры идут; назначения/профили/outputs сохранены. Общий Check FAIL из-за GPU 0x501 у ленты, левой стены и арки; до импорта все источники уже были updating, причинность этих ошибок не установлена. Вкладки не открывались; визуальная приёмка ожидает пользователя. [Отчёт](artifacts/reports/stella-update-20261001/README.md).
+
+
+## 01.10.2026 — перепроверена гипотеза занятой Azure на центральном NUC
+
+По вопросу пользователя выполнен только read-only process/module inventory через Producer Kit SSH. На DESKTOP-VF0M2LR/.146 в13:18:51Z обнаружены Chrome10/Edge10 процессов и Kinect v2 Monitor/Service, k4aviewer/TouchDesigner не найдены; loaded k4a/depthengine modules отсутствуют, unreadable modules0. Это не доказывает отсутствие доступа к RGB через UVC/browser и не исключает любого конкурирующего приложения, но владелец depth через Sensor SDK не обнаружен. Старый USB response12/16bytes остаётся конкретным местом отказа, не доказательством поломки или причины «камера занята». [Receipt](artifacts/reports/kinect-agent-20261001/capture-owner-recheck-final.txt). Камера/превью/захват/процессы/службы/мастер не запускались/не закрывались. Первый запрос прошёл inventory, но упал при JSON из-за автоматического PowerShell Matches; переменная переименована sdkProcesses, повтор сериализации PASS, неудачный stdout сохранён. API эксклюзивного open сверён с первичным Microsoft SDK; реальный владелец камеры и восстановление по-прежнему не установлены.
+
+
+## 01.10.2026 — серверная изоляция MAX без управления браузером
+
+По прямому уточнению пользователя браузер не трогали: открытая страница служила только фоном нагрузки, изменения выполнялись штатным `/api/instance` и проверялись `/api/diagnostics/history`. Текущая сессия с receiver `hidden=false` чередовала≈25 и≈30FPS; `hidden=false` не доказывает, что окно не закрыто другим приложением. При стабильном≈30FPS MAX остановлен на16с и восстановлен в `finally`: CPU главного сервера≈60→38% одного ядра, capture стелы≈19,6→20,9FPS, левая стена≈29,8FPS/fence≈4,7–4,8мс без изменения. Краткий startup MAX вызвал один кадр-срез13,2FPS/fence32,6мс, затем восстановление; новая generation running, Check dev5/5 PASS. Вывод: MAX добавляет серверную нагрузку и очередь захвата, но не объясняет текущую просадку левой стены; в этом отрезке она не воспроизвелась. [Замер и ограничения](artifacts/reports/3d-subscription-isolation-20261001.md). Никаких вкладок, browser UI, тяжёлых GPU-тестов и записи видео.
+
+
+## 01.10.2026 — изоляция видеоподписок 3D по источникам
+
+В панели источников 3D добавлен локальный переключатель «Видео в 3D» для каждого источника. Он освобождает/восстанавливает только WebRTC-подписку и VideoTexture текущего просмотрщика; рабочий генератор, Spout и назначение экрана не меняются. Это проверяемый первый шаг аудита влияния открытого 3D на GPU fence левой стены, DOM/OSR-захват MAX/стелы и readback арки/ленты. Синтаксис и duplicate guard PASS; штатная сборка Viewer (78 файлов), совпадение SHA source/runtime и HTTP200 новой версии PASS. Штатный Check показал dev5/5 running; мастер и источники не перезапускались. Пользовательское включение/выключение и причинный эффект ещё не проверены; тяжёлых тестов и браузерного обхода не было. [Сценарий и ограничения](artifacts/reports/3d-subscription-isolation-20261001.md). Случайно присланные скриншоты силуэта к этой задаче не относятся; его визуал не менялся.
+
+После сообщения пользователя «выключил» пассивный серверный history показал реальный интервал 0 peers левой стены при остальных четырёх активных. При нём FPS её генератора 24,9→26,0, GPU fence wait 8,9→9,1 мс: ощутимого выигрыша от снятия одной подписки нет. С 11:59:04 UTC подписчик снова зарегистрирован; причина серверу неизвестна. Предыдущий эпизод около7 FPS этим коротким опытом не воспроизведён; следующий контроль — снять только видео MAX при подключённой левой стене. [Цифры и ограничения](artifacts/reports/3d-subscription-isolation-20261001.md).
+
+После второго пользовательского контроля MAX peer исчез на24с при сохранении левого peer. Левая стена осталась≈25FPS/fence≈8,5–8,7мс. Стела при устойчивой собственной подписке получила host queue≈10,2→0мс и hostTotal≈33,1→22,5мс, но capture FPS лишь16,7→17,3; переходное переподключение стелы исключено из этого сравнения. При скрытии всей вкладки левая стена вернулась к≈29,8FPS/fence≈4,9мс. Значит, проблема связана с видимым просмотрщиком в целом; отдельные левые и MAX-подписки её не объясняют. Следующая короткая изоляция — видимая 3D-сцена без всех пяти локальных видео, без остановки генераторов. [Замер](artifacts/reports/3d-subscription-isolation-20261001.md).
+
+Третий пользовательский контроль: все5 peers=0 в 12:36:08–44 UTC, генераторы не остановились. При предполагаемо видимой сцене левая стена осталась≈24,8FPS/fence≈9,8мс; в предшествующем hidden с пятью peers было29,7FPS/fence≈4,9мс. Само получение видео не объясняет просадку; код указывает на постоянный 3D render с2048² тенями и вторым полным проходом Reflector. Это пока кандидат, не доказанный источник; следующий A/B — локально выключить только зеркальный проход пола. [Данные и оговорка о неизвестной visibility без peer](artifacts/reports/3d-subscription-isolation-20261001.md).
+
+Для этого A/B добавлен временный «Зеркальный проход пола: вкл/выкл» в панель 3D; базовый пол/тени/видео/сохранённые настройки не изменены. Синтаксис3 JS, duplicate guard, сборка Viewer78 файлов, source/runtime SHA и live HTTP200 трёх модулей PASS; стандартный Check dev5/5 running. Мастер не перезапускался, браузер агент не открывал. Пользовательский A/B и фактический прирост пока не измерены. [Отчёт](artifacts/reports/3d-subscription-isolation-20261001.md).
+
+
+## 01.10.2026 — найден первый узкий участок FPS при видимом 3D
+
+По сообщению пользователя о минуте в активном 3D без новых запусков/вкладок разобраны серверные history-снимки двух устойчивых видимых и одного скрытого интервала. [Измерения](artifacts/reports/video-stage-telemetry-20261001.md#замер-после-пользовательской-минуты-в-3d): левая стена 29,1→7,0 FPS генератора при росте ожидания GPU fence 5,4→60,2 мс; submit2,7 мс, sender/decoder около6–7 FPS. У MAX/стелы источник около24–26 FPS, но общая DOM/OSR-очередь даёт около4 FPS до encode. Арка/лента при видимом окне sender около18/17 FPS и GPU preview readback около14/12 мс; конечный decode близок к sender. Это локализация стадий, не доказательство чистого GPU execution time и не исправление; тяжёлых тестов/браузерного обхода не было. Пользовательские кадры дополнительно показали визуальное несоответствие нового силуэта референсу; художественное исправление остаётся отдельной короткой итерацией.
+
+
+## 01.10.2026 — возвращён силуэт управляемого посетителя до трёх персонажей
+
+По запросу пользователя сравнены текущий одиночный тракт и состояние перед commit `99c4f78`, добавившим visitor simulation. Корень отличия — рабочий `visitor-simulation.json`: `enabled=true` и `hidePlayerSilhouette=true`. Сохранён резерв JSON, изменены только эти поля на `false`; 16-ракурсная текстура `PERSON_JAMIE`, `walk` depth, fill0.32/edge1.9/dynamics0.85/trail0.14, эмиссия флюида от движения и first-person камера не менялись. Duplicate guard PASS, штатный Check dev 5/5 running, живой GET вернул оба `false` без ошибки. [Отчёт](artifacts/reports/first-person-silhouette-restore-20261001.md). Браузер не открывался по правилу пользователя; совпадение фактуры/движения на стене и пользовательская оценка ожидаются. Для проверки открыть `/viewer/show/` и походить у левой стены.
+
+
+## 01.10.2026 — пассивный аудит FPS видеотекстур стенда
+
+Без открытия браузера и перезапуска мастера сопоставлены 120 снимков `/api/diagnostics/history`, штатный Check и код всех пяти видеотрактов. [Отчёт](artifacts/reports/live-video-fps-audit-20261001.md): dev сейчас ограничивает генераторы 30 FPS; при видимом 3D-получателе левая стена падает с 29,8 до 5,4 FPS уже в рабочем генераторе (средний кадр 5,6→93,3 мс), а MAX/стела сохраняют генерацию около 25 FPS, но общая последовательная очередь DOM/OSR-захвата выдаёт по 4,1–4,2 FPS на поток. Арка/лента теряют часть кадров после генератора; точная промежуточная стадия пока не инструментирована. Визуал, настройки, процессы и код не менялись. Следующая короткая итерация — разметить времена render/GPU fence/preview readback и sender stats, затем сверить с видимым получателем; тяжёлый прогон без отдельного согласия не проводился.
+
+
+## 01.10.2026 — архитектура сквозного сценария VK Видео
+
+Разобраны матрица ID 1–20, локальная анкета стелы, текущий операторский `/api/journey`, автономная арка, общий видеоцикл ленты и owner-контент левой стены. [Аудит](artifacts/reports/vk-route-runtime-audit-20261001.md) отделяет работающее от исторических описаний. [Предложение state machine](docs/Research/vk-route-state-machine-20261001.md): мастер владеет сессией/пакетом и идемпотентной доставкой; surface cues/ack и tracking существуют как связанные, но независимые модели. Исходники/runtime, мастер и визуал не менялись. Проверено чтением кода и сценарных контрактов, без браузера/GPU/TD. Открыты интеграция анкеты, cue арки/Discovery/ленты, привязка посетителя и физическая роль Discovery относительно середины ленты. Следующий шаг — один чистый reducer без визуальных изменений, после отдельной обратной связи пользователя.
+
+
+## 01.10.2026 — первый Kinect Agent: central NUC → VK Видео, USB блокирует реальный захват
+
+До реализации создан контракт `apps/kinect-agent/docs/README.md`; исходники/штатный builder в `artifacts/kinect-agent/`, runtime в `apps/kinect-agent/`, отдельные Start-Kinect/Stop-Kinect/Check-Kinect в существующей STARTUP. Реализованы headless .NET Framework x64 capture/receiver: WFOV binned512×512/30Гц, RGB/IMU/body tracking OFF, lossless DEPTH16 byteplanes+Deflate Fastest, mTLS1.2 с public SHA256 pinning, SHA каждого кадра/ACK, latest-frame queue1, bounded decode/таймауты/reconnect, numeric JSON CPU/RAM/FPS/bytes/gaps/p95 и bounded SDK warning/error callback. Это отдельный sensor protocol, master auth не ослаблялся. Fusion/calibration/compact mask/image API/интеграция в стенд/автозапуск не реализованы.
+
+Через штатный Producer Kit fleet/SSH/SFTP mini-runtime установлен на центральный NUC.146 и ПК VK Видео.120 в C:/VK_DigitalProducts/apps/kinect-agent. На каждом созданы собственные PFX/DPAPI в secrets; private material не читался/не переносился. На receiver узкое правило exe/TCP8782/local.120/remote.146. Start-Process child при выходе SSH прекращался: принят ручной ScheduledTask VK-Kinect-Agent, Interactive current user/Highest без trigger. Левый NUC недоступен через оба маршрута; пользователь отдельно разрешил замену на central→VK Видео для того же30-секундного depth-only теста. Правый NUC/viewer/мастер/TD/рендер/драйверы/чужие службы не изменялись.
+
+Малый actual-LAN smoke:3 synthetic frames captured/ACK/received, errors0, совпавший SHA256; ACK p95≈4,10мс/decode≈2,26мс по3 кадрам, не steady FPS и не one-way latency. Camera run завершился до start_cameras:0 кадров. Независимый native open-only probe выявил DEV_CMD_DEPTH_READ_PRODUCT_SN0x115, status response12 вместо16bytes → serialnum → open failed. PnP OK/count1 не доказывают рабочий захват. Ранний generic текст про занятый viewer не подтвердился и исправлен в агенте; точная причина плохого USB ответа ещё неизвестна. Требуется физическая проверка питания/USB, потом следующая отдельная проверка. При100Mbps link GPU-ПК lossless compression не гарантирует30Гц raw WFOV; production compact field остаётся следующим этапом.
+
+Подготовка исправляла SFTP exit0 без файлов при stdin, загрузку System.Security для DPAPI, Windows path firewall и churn hashes csc. Собственные предыдущие бинарники сохранены на удалённых узлах в workspace/backups; failed identity только в secrets. Финальная сборка с SDK callback установлена/хэши подтверждены на двух ПК, но новый callback не проверен повторным open после обновления. Compile/selftest ABI/random-lossless/truncated/oversize, PS parser, Python AST, source/runtime/manifest/templates/local links, duplicate guard PASS. Обе роли штатно остановлены:0 processes/0 listeners, tasks Ready; configs/identity/firewall сохранены для следующей итерации. [Полный отчёт, structured summary и исходные receipts](artifacts/reports/kinect-agent-20261001/README.md); обновлены общие architecture/backlog/design и аппаратный контракт. Браузер/видео/Blender/широкие WEB-сборки/Git staging/commit/push не выполнялись.
+
+
+## 01.10.2026 — статический аудит готовности распределённой директории
+
+По вопросу пользователя проверены текущие LAN source/runtime, module-registry, startup-health/STARTUP и portable builder, а не только старый LAN.md. [Аудит](artifacts/reports/distributed-directory-readiness-20261001.md): основа pairing/agent/control/digest и переносимой сборки есть; полный распределённый стенд не готов. Standard startup запрещает agent, роль-specific Start/Stop/Check ещё не принята; route Стеллы отсутствует в двух whitelist, agent numeric diagnostics ограничены. Kinect native agents/fusion/calibration/binary masks остаются проектом. Важное уточнение: builder уже генерирует корневые Start-Agent.bat/Pair.bat в ZIP, хотя в текущем apps/STARTUP их нет; не объявлять механизм упаковки отсутствующим. Старый LAN.md0.3.0 не доказывает нынешний физический LAN. Прочитан vk-master-startup. Состав файлов/branches/маршруты проверены статически; первоначальные предполагаемые standard-launcher/depth-settings.mjs пути отсутствовали, Windows glob заменён корректным фильтром. Runtime/configs/сервисы/камеры/SSH/браузер/сборки/пакеты/нагрузочные тесты не менялись и не запускались. Полные hashes актуального ZIP и приёмка реальных узлов не проверены. Следующая отдельная итерация — единый стандарт renderer-agent, затем один физический узел.
+
+
+## 01.10.2026 — доступ к Producer Kit и подготовка аппаратного переноса
+
+Изучены внешний PRODUCER-KIT/его AGENTS/WORKLOG, SSH handoff, Local fleet и Control/rqlite схема. Через существующий pinning SSH прочитана production группа VK_DigitalProducts на двух VPS: одинаковые7 enabled UUID, registry generation1/clock53, два reachable voter, Selectel leader. Реальные SSH/CIM всех7 через Selectel и hostname всех7 через CloudCore PASS; ключи/пароли не читались и не выводились, БД/удалённые приложения/службы не менялись. Штатный fleet обновляет только локальные ACL/known_hosts.
+
+[Инвентарь и JSON доказательства](artifacts/reports/hardware-readiness-20261001/README.md); [план/контракт переноса](apps/stand-service/docs/HARDWARE_DEPLOYMENT.md). Фактически VK Видео4090, MAX3080, арка3080, Стелла3080Ti;3 NUC IrisXe≈8GiB. Все GPU Ethernet100Mbps против NUC1Gbps. TD найден в стандартной папке только на2 NUC; альтернативные установки/лицензии не проверены. Отдельного подтверждённого владельца ленты нет. Standard master запрещает agent, нет актуального Agent-wrapper, LAN whitelist не включает Stella worker route; runtime/ZIP и реальный LAN/Spout/TD/FPS остаются отдельными шагами.
+
+Сохранены скрипты лёгкого чтения в workspace/tasks/hardware-readiness-20261001 и targets.json со статусом readiness-only; после начального encoding-дефекта CIM JSON повторён с UTF8/base64, актуальные отчёты корректны. Проверка совпадения7+7 результатов/UUID/двух registry и duplicate guard PASS. Обновлены общие docs и добавлена запись снизу во внешний WORKLOG Producer Kit по его правилу. Рабочий код/config мастера не менялся, сборка/публикация/перенос не выполнялись, вкладки и GPU stress не запускались. Следующий шаг — согласованная схема владельцев и один аппаратный пилот после устранения отмеченных препятствий.
+
+
+## 01.10.2026 — следующий аудит доставки, подтверждение улучшения пользователем
+
+Пользователь подтвердил улучшение и отсутствие прежних просадок до 3 FPS. Прочитана серверная история: 18 снимков с visible connected receivers, левая/лента/арка ≈22–30 FPS, MAX/стела ≈14–21 при генераторах ≈26–30; packetsLost=0, decode MAX/стелы≈0,55–1,2 мс. Замеренная последовательная capture/resize очередь и ожидание следующего draw остаются ограничениями формирования превью; MAX фактически 960×300 против half 1536×640 слева. [Аудит D01–D06 и приоритеты](artifacts/reports/next-delivery-audit-20261001.md), метрики рядом JSON.
+
+Четыре малых CPU-воспроизведения установленного runtime подтвердили: lost offer удерживает connecting без retry; disconnected не восстанавливается; поздний async reject старого поколения закрывает новый peer; зависший capture блокирует второй источник несмотря на maxAge. 4 PASS здесь — наблюдение дефектов, не их ремонт. Production не менялся/не перезапускался, новых реальных подписок/вкладок/GPU stress нет. Следующая короткая правка — владение async callback и deadline/recovery connectService; затем отдельный capture lifecycle/pipeline. 60 FPS/единый half и точные причины старых пропаж MAX остаются открытыми.
+
+
+## 01.10.2026 — общая страница по пиксельной карте
+
+Добавлена `/viewer/common-map.html`: задний экран 7168×1280 включает VK Видео и MAX, рядом в координатах проектной карты показаны Лента 1, Лента 2 и внутренняя арка. Использованы существующие четыре WebRTC-потока и `project-pixelmap.json`; генераторы, Spout, TD, игра MAX и стела не менялись. Canvas уменьшен только для браузерного предпросмотра. Размещение изображения ленты по строкам модулей предварительное, аппаратная UV-развёртка не утверждена. [Контракт страницы](apps/stand-viewer/docs/COMMON_PIXELMAP.md).
+
+Проверки этой итерации: `node --check` PASS, guard дубликатов PASS, штатная сборка viewer (74 файла) PASS, хэши трёх файлов source/runtime совпали; HEAD страницы, JS, CSS и карты вернули 200. Визуальный браузерный обход агент не выполнял по действующему указанию пользователя. Открыто: скриншот и оценка композиции пользователем, точная UV-развёртка и реальный физический вывод.
+
+
+## 01.10.2026 — исправлен пересчёт пустой маски силуэтов
+
+Первая отдельная правка по запросу исправления ошибок: DepthSilhouettes переиспользует полностью затухшую нулевую маску без пиксельных проходов; свежий ввод немедленно возобновляет обработку, старые coverage/trail затухают по прежним правилам, настройки/размеры/off корректно инвалидируют результат. Физические флюиды сохранены. 21 малый CPU-тест PASS, source/runtime syntax и duplicate guard PASS. build_service_slice применил только depth-silhouettes.mjs; резерв workspace/backups/depth-idle-20261001, SHA-256 source/runtime/manifest совпадают, portable ZIP не обновлялся.
+
+Штатные Stop.bat/Start.bat --no-open: offline затем dev5/5 running, сохранены enabled, новые generation, Spout/NDI off. Пассивная API-проверка: пустой depth 17,05→0,00–0,01 мс; event-loop p95 62–76→25–32 мс. При одном активном DOM capture стела host ≈20–22 FPS вместо ≈7; с двумя MAX/стела ≈15–16 FPS каждый. Это host-ready, не конечный video FPS; нагрузка клиентов менялась. MAX начал capture/receiver-отчёты, затем они снова отсутствовали, происхождение смены клиента не установлено; lifecycle не исправлен этой правкой. [Отчёт](artifacts/reports/depth-idle-fix-20261001.md). Вкладки/GPU stress не запускались. Следующая отдельная итерация — recovery MAX после отзыва пользователя; цель 60 FPS остаётся открытой.
+
+
+## 01.10.2026 — найден пустой depth-проход в главном потоке
+
+По запросу пользователя проанализированы накопленные API-метрики без браузера: основной CPU 97–108% одного ядра/event-loop p95 62–76 мс; стела генерирует ≈30 FPS, но host preview 6,4–7,9 FPS/IPC 114–125 мс при почти нулевом queue wait. Отдельный live depth-mask read подтвердил 17,05 мс обработки 768×384 без свежего ввода, все depth-источники offline. Код fieldPulse продолжает этот полный проход ≈30 раз/с. Малое CPU-воспроизведение сохранено отдельно; короткая неоднородная выборка не выдана за постоянную live стоимость. [Диагноз и первая ограниченная правка](artifacts/reports/preview-diagnosis-20261001.md).
+
+Ремонт не применён: следующий шаг — idle fast path после полного затухания маски, с сохранением нового ввода и локальных флюидов, затем сравнение того же API. MAX имеет серверный peer, но ноль worker capture requests: конкретный механизм потери подписки ещё открыт. Receiver/encode ещё не измерены; весь лаг и 60 FPS не объявлены решёнными. Проверки этой итерации — read-only API, малое CPU-воспроизведение, syntax/duplicate guard; нет перезапуска/GPU stress/визуального обхода.
+
+
+## 01.10.2026 — серверная телеметрия стенда вместо чтения панели по скриншоту
+
+По уточнению пользователя диагностический сбор перенесён в мастер: GET/api/diagnostics и /api/diagnostics/history, снимки2с/история120, numeric-only отчёты существующих WebRTC-клиентов, журнал с timestamps/ротацией4×≈4МиБ в workspace/runtime/diagnostics. [Контракт](apps/stand-service/docs/DIAGNOSTICS.md). CPU/RAM/GPU/event-loop, состояние/генерация/размеры/тайминг каждого источника, per-source queue/capture/bitmap/copy/resizeRoundTrip/hostTotal и IPC/paint. Клиент автоматически сообщает decoded/presentedFPS, actual size, packet/drop/jitter/decode; token/SDP/изображения/ввод не сохраняются. Для загрузки нового receiverReporter уже открытой странице нужна однократная пользовательская перезагрузка; отсутствие receivers не выдано за0FPS.
+
+Инструментация не меняет caps/частоты/материал/механизм capture и не устраняет лаг. Prepared service изменения сохранены; build_service_slice применил только delta из сохранённой source-базы, обновил runtime manifest, полный переносимый ZIP не пересоздавал. Добавление stand-telemetry учтено будущим build_service.py. Резервы source/runtime — workspace/backups/telemetry-20261001.
+
+Применение: Stop.bat подтвердил offline, Start.bat --no-open dev5/5 PASS, Spout/NDI off. Новые generation/HTTP диагностических модулей/API и продвижение журналов проверены, браузер не открывался.3малых CPU-теста PASS (bounded probe, capture stages сmock, whitelist/журнал/отсутствующие receivers), source/runtime node --check, duplicate guard. Windows EPERM isolated test runner обойдён штатным --test-isolation=none. Первый [live серверный снимок](artifacts/reports/telemetry-live-20261001.json): eventLoop p95≈76мс, стела capture≈45мс, resize round trip≈46мс, IPC≈118мс, paint≈0,17мс. Это измеренные стадии существующей нагрузки, не GPUstress/V8stack и не окончательный диагноз. Receiver-метрики ещё пусты до обновления клиентского модуля пользователем. [Проверка интеграции](artifacts/reports/telemetry-integration-20261001.json).
+
+
+## 01.10.2026 — аудит текущих живых выходов по двум кадрам пользователя
+
+Проверен текущий master без перезапуска/изменения источников и без открытия вкладок: Check5/5 PASS;11 API-снимков за8,35с — постоянные generation, running/error=null, один зарегистрированный peer на источник, средние FPS29,48–29,79 при цели30. Прежняя просадка19–25FPS сейчас не повторилась. Кадры пользователя подтверждают delivered FPS: левая24,0, MAX8,9, стела4,9, лента23,8, арка23,0. Это деградация уже без3D. MAX960×300/стела304×540 имеют отдельный DOM cap, тогда как левая1536×640; API previewSize DOM неверно описывает generic cap.
+
+[Аудит A01–A10 и план следующих отдельных итераций](artifacts/reports/current-previsor-audit-20261001.md): общая последовательная capture очередь, нет capture deadline/полной telemetry/recovery, разные caps/несинхронная rear доставка, dev30 и prepared/runtime divergence.7 publicHTTP хэшей совпадают с apps;9/12 проверенных service source файлов отличаются от runtime. Пользовательские PNG сохранены сSHA-256. [Нагрузка](artifacts/reports/source-load-current-20261001.json):GPU14%,39°C, VRAM9136/16303МиБ, RAMfree35,57ГиБ; основной Electron≈105,9% одного CPU, но точный stack неизвестен. [CPU fixture](artifacts/reports/current-cpu-stages-20261001.json) занял<1с: resizeMAX≈5,6мс/стела≈3,3мс, базовая симуляция+serialization≈7,15мс/tick безdepth. Это не live capture timings, resize не объявлен единственной причиной.
+
+Лог не менялся после08:05:18MSK;170Output closed в tail900 — история, не текущие отказы. Preview warnings обычно не записываются без diagnostics. Выполнены малые syntax/duplicate/link checks, безGPU stress и самостоятельного визуального обхода. Ремонт/новые timings production не внедрялись. Следующая маленькая правка — измерение capture/queue/resize/IPC/paint по каждому DOM-источнику; после неё проверка пользователя, затем конкретный ремонт.
+
+
+## 30.09.2026 — перепроверена причина рывков фона
+
+По замечанию пользователя отдельно проверены часы LumiCells/плашек и фактический preview-тракт. [Диагностика](artifacts/reports/background-stutter-20260930.md), [малые замеры](artifacts/reports/background-stutter-20260930.json). Подтверждены dev30, потери video FPS на пользовательском кадре и CPU readback/capture в путях preview. Фон использует интерполированное simulation.time из SSE field (120-мс буфер с удержанием последнего времени), GPU-плашки — непрерывные project/rear часы; MAX/стела дополнительно имеют DOM/RAF. Отдельного внутреннего лимита фон4 FPS не найдено. Поле за4,5 с шло≈25,8 Гц без нулевых шагов, максимум69 мс; зависание фазы внутри renderer этим замером не доказано. Время GPU самого LumiCells пока не публикуется, окончательный виновник readback/capture/кодека не локализован. Уточнён контракт мониторинга.
+
+Check.bat PASS dev, пять источников running без error; generation стабильны, кадры продвигаются. Дельта API-счётчиков не названа точным FPS из-за асинхронных heartbeat. Вкладки не открывались, нагрузочных прогонов/видео нет. Runtime, настройки и рендер не менялись. Предложен следующий отдельный шаг: независимые общие аналитические часы фона с сохранением физического поля/ввода; затем пользовательская сверка и отдельная работа с preview.
+
+
+## 30.09.2026 — единый размер клеток в пикселях заднего экрана
+
+По уточнению пользователя число рядов на основном заднем полотне задаёт один рабочий шаг `1280 / rows` пикселей для задней стены, ленты, арки и стелы; прежние12 рядов по высоте *каждого* экрана давали разный физический размер. В master UI оставлен один общий ползунок2…128/default12, у арки отдельно только скругление; редактор арки в профиле LumiCells тоже скрывает неработающий локальный ползунок рядов. Рендер получает общий pitch через pixel-map referenceRows до любых crop; сервер рассылает изменения этого общего числа и отдельному процессу арки. Материалы, общий задний домен и нативное разрешение не изменены.
+
+Проверено минимально по просьбе пользователя: duplicate guard, node --check,11 малых тестов, штатные сборки Ribbon/Stand PASS. Пять затронутых источников сначала перезапущены последовательно, каждый получил новую generation и состояние running. Для обновления серверной рассылки выполнен штатный Stop/Start; встроенный Check PASS: пять источников running и Spout sending. Одна вкладка мастера: общая настройка12, отдельного размера арки нет, ошибок console0. TD и художественное сравнение не проверялись по прямой просьбе пользователя; если изображение не совпадёт, он сообщит. [Краткий отчёт](artifacts/reports/lumicells-shared-pixel-grid-20260930/README.md). Нагрузочные проверки и Git не выполнялись; Check не является замером стабильного FPS.
+
+
+## 30.09.2026 — исправлено реальное количество рядов LumiCells
+
+После запроса увеличить клетки в девять раз добавленный множитель появился в UI, но не менял изображение: ключ конфигурации адаптера его не учитывал. Пользователь указал на фактические ~100 рядов при «8» в мастере. Причина — пересчёт значения по физической высоте ленты и скрытый авторский лимит 2048 клеток по длинной стороне. Множитель удалён. Для LumiCells введено отдельное число видимых рядов по высоте каждого логического экрана; общее заднее полотно 7168×1280 делится только при выводе. Диапазон2…128, default12; оба сохранённых источника (общий и арка) переведены на12. Физическая симуляция сохраняет метрические координаты; рабочая сетка учитывает фактический лимит текстуры GPU.
+
+Проверено: duplicate guard PASS; сборка vendored LumiCells, Ribbon/Stand/Viewer; 6 source/runtime SHA совпадают; node --check и11 малых тестов PASS, включая2/12/128 на всех форматах и смену значения в живом адаптере. Штатный Stop/Start/Check: 5 источников running, Spout sending, новые generation. Мастер в одной вкладке показывает2…128/12, ошибок console0. TD принимает6/6, ошибок/предупреждений0; фактические кадры левой/правой стены, стелы, арки и ленты просмотрены — крупная сетка соответствует около12 рядам по высоте. [Отчёт и кадры](artifacts/reports/lumicells-cell-scale-20260930/README.md). Во время последующей проверки у стелы и MAX возник `GPU program capture timeout`; они штатно перезапущены по отдельности. Повторный Check PASS, позже оба остаются running и TD показывает6/6. Этот известный по прежним логам транспортный сбой остаётся открытым для отдельной диагностики. Открыто: художественное утверждение, нагрузочная проверка60 FPS (не проводилась); текущий Check показывает FPS ниже60 на ряде источников. Git/публикация не выполнялись.
+
+
+## 30.09.2026 — TD Textures без потери рабочего разрешения
+
+По прямому запросу отменены cap1920×1080 и усреднение4×2 в TD-распаковщике. Причина подтверждена: Spout3072×1282→TD1920×800, а не3702. Теперь каждый texel переносится в logicalSize без фильтра, исключаются только stamp/padding. Все шесть поверхностей LIVE: ленты10240×512, left3072×1280, right4096×1280, стела1080×1920, арка5120×512. Assets/scripts обновлены, live DAT перезагружены, штатный Refresh применил native-texel-v1 без перестроения сцены/перезапуска мастера. Текущий пользовательский корень/CUBES/камера не изменялись; .toe не пересохранён, следующий запуск применит новые assets. Резерв сохранён.
+
+Guard/11CPU PASS; Envoy errors/warnings0, нативный кадр левой стены и внутренний3DShowreal/out1 просмотрены. RGB native-копии точно совпал с замороженным исходным кадром без stamp(max0); первоначальная проверка ориентации numpy дала расхождение, фактическое расположение служебных строк установлено и задокументировано. Краткий lock восстановлен. После transient FPS49 при reload короткий TD-status60FPS, это не60FPS мастера/Spout. Одна WEB-вкладка просмотрена, console0. [Отчёт и кадры](artifacts/reports/td-native-20260930/README.md). Для сторон>16384 нужен отдельный tiled TD-вывод, скрытого downscale нет. Тяжёлых тестов/видео/Git/публикаций нет; художественное утверждение отдельно.
+
+
+## 30.09.2026 — чёткие клетки LumiCells и авторский Pulse на весь стенд
+
+По уточнениям пользователя клетки сделаны основной чёткой текстурой: дополнительная softness0, halo0.08, bloom0.28, haze0; сглаживание исходного stamp сохранено. Четыре независимых параметра добавлены в существующий редактор/API/JSON; старые конфиги принимаются без сброса остальных настроек. Затем авторский `Pulse` включён для всех пяти источников с сохранением оригинальной механики импульса, брендовой палитры и единого заднего домена7168×1280 до crop. Reference/Waves оставлены для возврата. Старые материалы не смешиваются, исходный playground не изменён, физические флюиды/foreground/native Spout сохранены, NDI выключен.
+
+Guard/syntax/164Node PASS; малая GPU-проверка Reference и Pulse original-vs-adapted max0, full-vs-crops max0, input/toggle/decay/ring PASS, atlas max1, GL error0. Проверено сохранение ползунка после reload. Штатные Ribbon0.29.0/Service0.12.0 сборки, Stop/Start/Check код0; новые generation всех источников, running/error=null, source/runtime/HTTP SHA PASS, Spout sending/registered. Просмотрены сопоставимые до/после и живые изображения стелы и финального стенда. Общие документы, AGENTS и контракт LumiCells обновлены. [Отчёт, кадры и данные](artifacts/reports/lumicells-sharp-20260930/README.md).
+
+Художественное утверждение отдельно; общий уменьшенный 3D-кадр не доказывает нативную детализацию всех поверхностей. TD выключен, его приём не проверен; ввод другой прогулки не перехватывался.60FPS не достигнуты, короткий Check с просмотрщиком около4.7–15.6FPS Spout; профилирование остаётся в бэклоге. Тяжёлых тестов/видео/Git/внешних публикаций нет. Мастер оставлен работающим с Pulse.
+
+
+## 30.09.2026 — фон мастера полностью на LumiCells; оригинальный playground отдельно
+
+По прямому запросу перенесён полный разрешённый Engine/Controller LumiCells1007717 в существующий WebGL2-контекст. Профиль lumicells-v1 обходит прежние материалы/шейдеры/DOF/подложку/halo; авторские field/stamp/composite/bloom/haze/tonemap сохранены. Брендовая палитра, общая фаза/домен7168×1280 до crop, существующий foreground и физический ввод сохранены. Исправлены межпроходные GL bindings, immutable texture resize, двойной sRGB в program atlas и отдельный ring-ввод арки. Lift отключён для общего домена, auto-downscale запрещён. Работают сетка/зазор/скругление/скорость, палитра мастера; старые неиспользуемые ползунки недоступны, JSON для возврата сохранён.
+
+Штатные Ribbon215/Service112/viewer67 сборки, guard/syntax/161Node PASS. Малый GPU original-vs-adapted фаз0/12 и full-vs-crops max0; input/toggle/decay/ring PASS, atlas max1, GL error0. Мастер обновлён через Stop/Start, новые generation пяти источников, source/runtime/HTTP SHA PASS, все Spout sending/registered, NDI off. Полный запуск сперва дал ложный1.5с timeout; ожидание первого ответа своего cold spawn повышено до8с без ослабления preflight, финальный Start код0. Временные файловые блокировки сборки устранены после штатного offline/повтора, без удаления исходников.
+
+Визуально просмотрены оригинал/адаптер, живые rear/стела/арка/лента и после финальной правки — весь WEB-стенд; console warn/error0, кадры сохранены. Уменьшенное превью не доказывает нативную детализацию на всех поверхностях. TD выключен по Envoy, не запускался: приём TD не проверен.60FPS не достигнуты: последний короткий Check при открытом оригинальном360×360 около8…16FPS Spout; это не нагрузочный benchmark. Профилирование/оптимизация остаются в бэклоге, тяжёлые тесты и видео не проводились, художественное утверждение отдельно.
+
+Дополнительный запрос: собрана и открыта отдельная локальная авторская страница `/ribbon/lumicells-original.html?lang=ru`, оригинальные demo/src без правок, React/ReactDOM19.3.0 локально; настройки не отправляются мастеру. Проверены Reference/Waves/размеры/demo toggle, показана панель, оставлен Reference360×360 без HTML-контента. Отчёт: [LumiCells](artifacts/reports/lumicells-background-20260930/README.md); контракт: [LUMICELLS_BACKGROUND](apps/stand-service/docs/LUMICELLS_BACKGROUND.md). Общие документы, AGENTS и visual/neon skills обновлены. Пользовательские разрешения/назначения/игровые настройки сохранены; Git и публикаций нет.
+
+
+## 30.09.2026 — LumiCells скачан и исследован
+
+По запросу пользователя сохранены ZIP и полный распакованный supsad/lumicells в docs/Research/lumicells-20260930; main commit1007717d72cfd9d768d4b9a3f7fc80a126e49c51, provenance/SHA/инвентарь. Sandbox сеть отказала, публичный download выполнен с разрешённым доступом; GitHub API rate-limit обойдён через git ls-remote и commit-codeload, без ключей. Сторонние документы не применялись как инструкции нашего проекта.
+
+Прочитаны controller/engine/field/composite/stamp/lift/bloom, modes, geometry/perf/clock/schema/facade, tests/tune; просмотрены hero и авторский playground в малом360×360 с выключением контента/паузой, console warn/error0, вкладка закрыта. Исследование различает опубликованный preview неизвестного commit и скачанные исходники. Полезны energy/envelope/accent, широкая оболочка/редкие края, wave/pulse, расчёт один раз на клетку, stamp, минимальные uploads и deterministic phases. Основная сетка2D, lifts отдельные quad; физического fluid solver/Spout/LAN/tiling нет. Auto-downscale и default4.2MP нельзя переносить на наш fixed-resolution вывод. README GPU-цифры не измерены нами.
+
+UNLICENSED/private, LICENSE отсутствует; прямой перенос требует авторского разрешения, прошлое разрешение NlK3Wt не относится к этому проекту. Интеграция не выполнена, native/fluid/настройки/мастер не переключены; зависимости/build/test scripts upstream не запускались. Исследование и план адаптации сохранены в MD, индекс и три общих документа обновлены. Archive SHA/побайтная сверка187файлов/локальные ссылки/duplicate guard PASS;28test-файлов инвентаризированы, не запускались. [Полный разбор](docs/Research/lumicells-20260930/README.md). Художественный апрув/тест нативной стелы/производительность остаются следующими этапами; видео/Git/публикации нет.
+
+
+## 30.09.2026 — MAX Reveal: перекрывающееся раскрытие и перелёт в ряд
+
+По последнему уточнению старты иконок разнесены на260ms при проявлении420ms: следующая не ждёт завершения предыдущей. После посадки вокруг ладони узлы по квадратичным дугам занимают горизонтальный ряд (900ms, stagger120ms); камера следует заданиям и телефону. Ручные координаты/ответы сохраняются, стандартные старые композиции этого эксперимента переходят в ряд. ID показывает порядок демонстрации, подпись независимости сохранена. Guided/Line и мастер не переключены, новый вариант только локальный.
+
+В фактическом браузере обнаружено и исправлено расхождение DOM/WebGL: геометрическая pose не содержала step, цели попадали под undefined и видимые карточки оставались в центре. Теперь идентификатор берётся из DOM-узла, видимые и интерактивные позы согласованы. Диагностический код удалён. Guard/syntax/110 CPU/check-local PASS; сборка214файлов/89модулей;3runtime→HTTP SHA PASS. Одна вкладка: последовательное раскрытие, окружность→ряд, один телефон, завершение видеозвонка→следующее задание, закрытие/продолжение. Console warn/error отсутствуют. Кадры и отдельные статусы в [отчёте](artifacts/reports/max-reveal-row-20260930/README.md). Физическая читаемость и художественное утверждение не заявляются; видео/нагрузочного теста/публикации/Git действий нет.
+
+
+## 30.09.2026 — NlK3Wt: брендовый потоковый фон на всём стенде
+
+По новому указанию пользователя (разрешение автора сообщено для демонстрационного шоурила) реализован именованный nlk3wt-flow-v1: одна плоскость тонких реальных3Dинстансов со стеклом, тёмной фаской, внутренним переливом и насыщенными пиками f+f²; низкочастотная деформация протяжённых гребней вместо шумовых островов. Поперечная warp-амплитуда ограничена0.28. Размер0…min(0.95,1-gap), depth/brightness; общий rear7168×1280 и брендовый переход VK Видео→MAX до crop3072+4096. Стела получает потоковый фон этого профиля, прежний круг/frosted и v6 доступны. Ambient halo уменьшен отдельно, physical pointer/contour solver, локальная оптическая кривая и near/mid/far kernels/gains сохранены. API/селектор/лаборатория используют общий shader.
+
+Сначала разобраны30конфликтующих текстовых `(2)`: обе стороны сохранены и архивированы в workspace/backups/nlk3wt-flow-20260930, glass/interaction/configureLight восстановлены; актуальные MAX изменения/очередь present сохранены. Guard PASS.154Ribbon+30serviceCPU, финальные6profileCPU,syntax и штатные Ribbon/Service(--preserve-native)/Viewer сборки PASS. Загружен новый валидатор штатным Stop→Start; финальные5источников обновлены последовательными restart. Всеrunning/Spout sending;7source-runtime-HTTP SHA PASS, generations/frame advance, рабочие размеры/assignments/outputs неизменны, NDIoff. Одна вкладка:5реальных потоков, WEB3DViewer, native-sized ROI640×320/640×400, material фронт/25°/normals без bloom, phase0/40/100, on/off interaction(75362изменённых канала→0), реальный mouse stroke и walk provider3посетителя. Камерыoffline. Нагрузочного прогона/видео/remote/Gitпубликации нет.
+
+Исправлен ошибочный размер DOFфильтра в crop-fixture: стык max1/255 во всех фазах. Строгий полнокадровый crop≤2 остаётся FAIL:3/5канальных выбросов10/11 вне стыка, mean≈0.00055…0.00079; причина полностью не установлена. ANGLEwarnings остаются, compile/feedback/console errors не найдены. TDприём BLOCKED: приложение закрыто(get_td_status), автоматически не запускалось. Художественный апрув и60FPS не заявляются; MAX эксплуатационный счётчик≈30FPS, измерение/async present в бэклоге. Мастер оставлен работающим.
+
+[Контракт](apps/stand-service/docs/FLOW_BACKGROUND.md), [отчёт/изображения](artifacts/reports/nlk3wt-flow-20260930/README.md), [исследование/permission provenance](docs/Research/shadertoy-NlK3Wt-material-study-20260930.md). Общие BACKLOG/DESIGN_DOCUMENT/ARCHITECTURE обновлены. Оригинал bitless и исходный SHA сохранены.
+
+
+
+## 30.09.2026 — повторный аудит NlK3Wt и архив исходника
+
+По запросу пользователя повторно прочитан полный GLSL ShaderToy NlK3Wt, сохранены155строк/6338байт, SHA-256, provenance и screenshot живой страницы. Разобраны value noise, маски граней, нелинейное ядро, стоимость10noise/46hash до compiler optimization, undefined smoothstep и неинициализированные чтения. Проверены официальные условия ShaderToy: default CC BY-NC-SA3.0, прямой коммерческий перенос не разрешён автоматически. Исследование сопоставлено с shared glass/CellGrid3D/SurfaceField/SharedFluid, историческими кадрами и27.32sзамером. Рекомендация — самостоятельный перенос световой логики в одну тонкую instanced плоскость, сначала на стеле, без замены физического fluid.
+
+Проверка полноты и SHA оригинала PASS; живой источник просмотрен. Точное ROI/native сравнение BLOCKED, FPS нового порта NOT RUN. Во время аудита canonical renderer и документация сменили содержание; reviewed versions обнаружены в `(2)` с совпадающими SHA. Два проверенных renderer-файла сохранены в artifacts/workspace/backups/shadertoy-audit-20260930. Read-only duplicate guard через bundled Python FAIL; причины внешнего изменения не установлены. Код/runtime/config не изменялись, сборка/мастер/TD/нагрузочные тесты не запускались; конфликты не удалялись. Общие документы и Research index дополнены. [Исследование](docs/Research/shadertoy-NlK3Wt-material-study-20260930.md), [технический аудит](artifacts/reports/shadertoy-NlK3Wt-audit-20260930.md). Перед внедрением требуется каноническая ревизия, затем comparable sample и художественный апрув.
+
+
+## 29.09.2026 — сохранение проекта в GitHub перед выключением ПК
+
+По прямому запросу пользователя подготовлен общий коммит текущего состояния: стела/круговой импульс, матовое стекло и локальные флюиды, накопленные изменения MAX, исходники, runtime, исследования и отчёты. Ветка codex/project-structure, origin premium-producer/VK_DigitalProducts. Предварительная проверка: 481 изменённый/новый файл, около32.4MiB, файлов свыше25MiB нет; запрещённые каталоги и непустые секретные JSON-поля в кандидаты не попали. Результаты тестов предыдущих задач сохранены; новые нагрузочные прогоны не запускались. После успешного push предусмотрены штатный Stop.bat и выключение Windows по запросу пользователя.
+
+
+## 29.09.2026 — динамический круговой импульс на стеле
+
+Применены visual-reference-gate, neon, project-motion, live-verification/startup и Envoy etiquette. Добавлен stella-pulse.js: рампа 6.4s с непрерывным noise; 32×57, яркость управляет инстансным размером 0…0.95 и Z, темнота скрывает клетки. Сохранены стекло и локальные флюиды. Только vk-stella получил отдельные bloom-настройки; JSON/разрешения не переписаны. Кольцо изолировано от остальных поверхностей.
+
+153 Ribbon +10 service CPU PASS, syntax/guard, штатные сборки и4 source/runtime/HTTP SHA PASS. Первый shader draft исправлен до live; transient build write error прошёл при штатном повторе. Обновлена только generation стелы, прочие4 сохранены; Check PASS. Одна вкладка: фиксированные фазы и рабочий WebRTC preview; реальный Spout→TD стелы просмотрен, Textures0errors/0warnings. Сохранены референсы, критерии и реальные кадры. ANGLE warnings общего поля остаются. Нагрузки/видео/публикации не было; FPS остаётся отложенным, художественная приёмка за пользователем.
+
+[Отчёт](artifacts/reports/stella-pulse-20260929/README.md), [контракт](apps/stand-service/docs/STELLA_PULSE.md).
+
+
+
+## 29.09.2026 — возвращены локальные флюиды силуэтов и мыши
+
+По новому указанию пользователя текущий frosted-glass материал сохранён, физическая система остаётся обязательной локальной реакцией. Причина потери вида: luminous-путь свёл solver density к слабой добавке без прежнего пика/рельефа. Добавлен пассивный pointerDye в прежний SharedFluid, optional interaction=pointer+contour; autoEmit отделён от нового локального слоя. SurfaceField RG8 возвращает прежнюю плотностную кривую(exposure1.5/knee1.8), локальное ядро/цветной halo и near-relief. Геометрия/стекло, сохранённые настройки материала и физики не менялись; один solver, прежние масштаб/силы/curl/затухание, контур0.5s, wrap арки.
+
+28CPU-тестов, syntax, guard, штатная Service106files сборка и source/runtime/HTTP проверены. Для серверного изменения выполнен стандартный Stop→Start. Обнаружена гонка cold-start стелы(documentElement ещё null); исправлена optional-проверка, перезапущена только стела, повторный Check5running/Spout PASS. Одна вкладка: presentation/mouse, малый shader-контроль, Viewer с существующими3посетителями;21силуэтный эмиттер, live walk-source. Envoy TD Textures0errors/0warnings, SCREEN_LEFT просмотрен/сохранён. Физические камеры offline; их приём не утверждался.
+
+Изолированное on/off-сравнение подтверждает локальное ядро/ореол и точное возвращение к фону после исчезновения. Известный strict crop-test остаётся FAIL; ANGLE warning без compile/feedback error записан в отчёт. Полное художественное совпадение со старым кадром не заявлено. Нагрузочные прогоны/FPS остаются отложенными; видео/Selectel/Git-публикации не было. TD-сеть/камера не менялись, временная вкладка закрыта, мастер работает.
+
+[Отчёт и кадры](artifacts/reports/local-fluid-20260929/README.md), [контракт](apps/stand-service/docs/LOCAL_FLUID.md). Обновлены AGENTS и три общих документа, резерв исходников — artifacts/workspace/backups/local-fluid-20260929. Указание о сохранении локальных флюидов закреплено для следующих изменений фона/материала.
+
+
+## 29.09.2026 — цветное матовое стекло и органическое поле на стенде
+
+Применены visual-reference-gate, neon/reference-review, live-verification/startup и Envoy workflow. Реализован общий frosted-glass-v1 для лаборатории и production:65вершин/плитку, толщина6%, фаска/нормали, независимые тело/отражение/эмиссия, статический предфильтрованный atlas, трёхмасштабное детерминированное поле. Добавлены профиль/матовость/отражение/оптическая глубина/перелив/эмиссия; legacy и старые конфиги сохранены. Стела получила общий портретный фон под прозрачным интерактивным iframe. Финально исправлены аддитивное высветление граней и масштаб поля стелы. Rear остаётся одним7168×1280, native Spout и уменьшенный preview, NDI off.
+
+Штатные сборки Ribbon/Service/Stella/Viewer/MAX; syntax15,153Ribbon+5timing/ACK+18rear CPU-тестов PASS, guard и MAX check-local PASS. 17source/runtime/HTTP SHA совпали; все5generation обновлены, разрешения сохранены, Check PASS. Envoy подтвердил6LIVE и0errors/0warnings Textures; просмотрены все поверхности и out1. В одной вкладке проверены настройки/возврат профиля, материал фронт/наклон/диагностические слои и3фазы поля. Сохранены реальные кадры, а не только кодовые проверки. TD-сеть и камера не менялись.
+
+Согласованный нагрузочный прогон27.32s выявил MAX≈30/стела≈50SpoutFPS. Введён bounded PresentMonitor, малые тесты прошли. Пользователь отложил дальнейшую оптимизацию/повторный нагрузочный прогон в бэклог; новый прогон не проводился. 60FPS не подтверждены. Открыты художественная доводка ярких акцентов, native ROI сравнение с референсом и строгий crop-test(max3–6/255, FAIL); окружение TD остаётся без световых отражений концепта. ANGLE warning старых fluidDensity/maxAtmosphere в fixture сохранён в отчёте.
+
+[Полный отчёт и кадры](artifacts/reports/frosted-glass-20260929/README.md), [контракт](apps/stand-service/docs/FROSTED_GLASS.md); обновлены три общих документа и инструкции лаборатории/стелы. Исходный резерв — artifacts/workspace/backups/frosted-glass-20260929/before.zip. Чужие изменения сохранены, без Git/Selectel-публикации и видео. Мастер оставлен работать. Внедрение не объявляется полной художественной приёмкой.
+
+
+## 2026-09-29 — задний экран закреплён как одно непрерывное полотно
+
+Исправлена регрессия MAX: локальные замены палитры, плотности и клеточного материала нарушали стык при уже общих crop. Теперь оба worker вычисляют общий переход VK Видео→MAX в X2560…3840, общие фоновые часы и квадраты. Квадраты продолжаются через X3072; локальные карточки/связи/UI/стекло плавно исчезают за256px до границы. Standalone-материал сохраняет прежний режим. Правило «задний экран — ОДИН экран» записано в AGENTS и трёх общих документах. [Контракт](apps/stand-service/docs/REAR_WALL.md).
+
+Проверены syntax14JS,164CPU-теста,4штатные сборки и14HTTP SHA=source=runtime. Общие зависимости применены штатными перезапусками5источников, Check.bat pass. Одна вкладка: общий живой поток иWEB-3D, без console ошибок. Подключение TD через Envoy MCP:6LIVE, Textures/3DShowreal без ошибок, снят внутреннийout1; патч/камера не менялись. [Отчёт и снимки](artifacts/reports/rear-wall-continuity-20260929/README.md).
+
+Только локально, без Selectel/Git-публикации/видео/тяжёлых тестов. Frame lock между отдельнымиПК, физическийLED и60FPS не подтверждены; общий clock не устраняет разную задержку независимых получателей. MAX по короткому Check остаётся около25FPS. Художественная приёмка — за пользователем.
+
+
+
+## 2026-09-29 — Синхронизация актуального проекта с GitHub
+
+Подготовлен снимок рабочей ветки codex/project-structure: MAX, VK Видео, стела, пиксельные карты, документация и отчёты. Из брендовых выгрузок публикуются только финальные материалы BRANDS; сырые экспорты Figma и секреты исключены. Добавлены точечные правила сохранения байтов исходников/runtime, чтобы checkout не нарушал манифесты.
+
+Проверены139JS, семь runtime-комплектов, штатный Check.bat и одна вкладка реальных выходов MAX/VK Видео без ошибок консоли. Node:642/649; Stella:13/13. Семь сбоев общего набора оставлены явно описанными в [отчёте](artifacts/reports/github-sync-20260929/README.md) с логами. TD-приём, художественная приёмка и60FPS не подтверждались; Selectel не затрагивался.
+
+
+
+## 2026-09-29 — MAX: стела исключена из игровых миссий
+
+Исправлено ошибочное включение стелы и перехода к стенду в два тестовых сценария. Удалены demo-stela и его зависимость, обычный старт «Открыть MAX» восстановлен без отдельного demo-переименования. Первый игровой task — создание Цифрового ID, Госуслуги остаются внутри него; финальный QR сохранён. Общие reducer, этапы сборки/выполнения, основные четыре миссии не изменены. Существующий restore отбрасывает удалённый этап, сохраняя ответы ID и остальные задания; это проверено регрессией. Текущая документация и проектный skill уточнены.
+
+119 CPU-тестов, syntax пяти модулей, build179/74 и check-local прошли. Одной вкладкой проверены «Открыть MAX» и picker «Создать Цифровой ID», console error/warn отсутствуют. HTTP app.js и каталога совпадают с runtime. MAX перезапущен (generation5919b55d-a56c-4e0e-96be-f6914a1b59df), остальные четыре generation не изменены; Check.bat pass. [Дополнение к отчёту](artifacts/reports/max-presentation-missions-20260929/README.md). Только локально. Selectel/Git/видео/тяжёлые тесты не выполнялись, приём TD и художественная оценка остаются непроверенными.
+
+
+
+## 2026-09-29 — MAX: две презентационные миссии от стелы до QR
+
+Добавлены «Получение льготы · тест» и «Продвижение бизнеса · тест» в клиентскую игру и локальный мастер. Обе содержат учебный путь стелы, создание ID, явное действие пользователя в Госуслугах, возврат в MAX и игровой финал с QR https://max.ru/ (адрес подтверждён пользователем). Бизнес поддерживает канал/бот/витрину. Четыре основные миссии сохранены; дополнительные не блокируют общий финал. [Контракт](apps/max-game/docs/PRESENTATION_MISSIONS.md).
+
+Проверено: syntax, 118 CPU-тестов, build179/74, check-local, HTTP=runtime для четырёх файлов, Check.bat pass. Одной вкладкой пройдена льгота до QR и проверено меню в фактическом потоке мастера. Найденный при первом запуске пробел WebGL-каталога исправлен и покрыт тестом; после исправления console error/warn нет. Перезапущен только MAX, остальные generation сохранены. [Отчёт](artifacts/reports/max-presentation-missions-20260929/README.md).
+
+Открыто: физическая стела/сессия, реальная авторизация, скан телефоном и tracking QR, аппаратный приём TD и художественная приёмка. Это тестовые симуляции, не действующие Госуслуги/бизнес/льготы. Только локально; Selectel, Git commit/push, тяжёлые GPU-тесты и видео не выполнялись.
+
+
+## 2026-09-29 — общая проектная пиксельная карта r1
+
+Подготовлена [единая спецификация](docs/PROJECT_PIXELMAP.md) для контента, сервисов, WEB/TD и LED-маппинга. [Комплект](artifacts/DESIGN/pixelmap/README.md): три листа PDF A3, JSON с координатами/источниками/снимком renderProfile, CSV модулей, SVG/PNG-маски и обзор. Существующие PIXELMAP.pdf/svg сохранены; в общий охват добавлена стела. Зафиксированы стена 7168×1280 с делением 3072+4096, начало ленты снизу/конец сверху, внутренний рендер лент/арки 2× по осям и независимость native/transport.
+
+Проверено: хеши исходников, соответствие геометрии плагину, границы/пересечения всех 422 элементов CSV, точные размеры и бинарные пиксели пяти PNG, суммы, три отрендеренных листа PDF. [Отчёт](artifacts/reports/project-pixelmap-20260929/README.md). Отличия от текущих renderProfile явно перечислены; геометрия модели, runtime-конфиги, мастер и TD не менялись, нагрузочных тестов не было.
+
+Открыто: назначение физических сторон ленты, стык Ленты2 и 24/25 px, непрерывные UV и аппаратная коммутация, модель панели стелы. Карта - рабочая проектная база, а не утверждённый controller remap и не подтверждение 60 FPS.
+
+
+## 2026-09-29 — Figma-плагин общей пиксельной карты
+
+Создан [stand-pixelmap](artifacts/DESIGN/figma-plugins/stand-pixelmap/README.md): общий лист, пять фреймов 1:1, независимые GUIDES, модульная сетка/номера, фигурные маски двух лент, JSON и матты SVG/PNG. Направление по уточнению пользователя: начало снизу, конец сверху. Стена 7168×1280 разделена 3072+4096; Лента1 2010×2176, рабочая сборка Ленты2 1892×2176, арка 2560×256, стела 1080×1920. [Инструкция](apps/stand-service/docs/PIXELMAP_PLUGIN.md); обновлены три общих документа.
+
+Проверено: синтаксис JS, четыре малых Node-теста геометрии и Figma mock; одна вкладка браузерного стенда показывает все поверхности и создаёт ссылку PNG. [Отчёт](artifacts/reports/stand-pixelmap-plugin-20260929/README.md). Нативный запуск Figma и сохранённый PNG не подтверждены: автоматизация скачивания возвращает таймаут. В консоли есть неатрибутированная ошибка MutationObserver, происхождение не установлено.
+
+Открыто: аппаратная раскладка/порты, физические стороны, стыковка блоков Ленты2 и округление 24/25 px. В плагине они помечены явно; рабочую сборку не выдаём за утверждённый режим контроллера. Приложения, конфиги, TD и модель не изменены; мастер не запускался, тяжёлые тесты и публикация не выполнялись.
+
+
+## 2026-09-29 — клиентская production-матрица и сценарий работы стенда
+
+Оригинальный [Production_Matrix_VK_Motion.xlsx](artifacts/client-input/production-matrix-20260929/README.md) побайтно скопирован из Telegram Desktop/Downloads с SHA-256. Подготовлены [разбор книги](docs/Research/production-matrix-20260929/README.md), полное извлечение ячеек и [сквозной сценарий в MD](docs/Research/production-matrix-20260929/STAND_SCENARIO.md): стела → арка → Discovery → медиалента → стена VK Видео. Обновлены входящее оглавление, Research и три общих документа.
+
+Проверено: CRC/хеш копии, оба видимых листа, все 20 ID/строк, 14 колонок, справочники и диапазоны валидации. Все 20 строк имеют статус «Нужен референс», ссылки/комментарии пусты, формул и встроенных ассетов нет. В сценарии сохранены объекты, движение, звук и четыре передачи; дополнительные reset/queue/fallback отмечены как предложения. Прочитаны service.ts стелы и journey-model.js: существующий сокращённый маршрут не содержит отдельного Discovery. [Отчёт](artifacts/reports/production-matrix-20260929/README.md).
+
+Открыто: место/поверхность Discovery, ветка MAX (отсутствует в книге), длительности/референсы/звук, session↔tracking и многопользовательская работа, соответствие Personal Orbit текущей композиции. Исходный Excel и runtime не изменены, мастер/TD не запускались, нагрузочные тесты, сообщения ответственным и публикация не выполнялись.
+
+
+## 2026-09-29 — клиентское оборудование, пиксельные карты и электропроект
+
+В [клиентские входные материалы](artifacts/client-input/equipment-and-pixelmaps-20260929/README.md) побайтно сохранены CSV и ZIP из Downloads; извлечены пять исходных PDF, записаны происхождение и SHA-256. Подготовлены [исследование с расчётами](docs/Research/equipment-pixelmaps-20260929/README.md) и [MD с уточнениями подрядчику](docs/Research/equipment-pixelmaps-20260929/supplier-brief.md). Обновлены оглавление исследований и три общих документа.
+
+Проверено: CRC архива и хеши семи файлов; пять записей CSV; 14 страниц электропроекта и четыре одностраничные карты; визуально прочитаны карты/значимые электротаблицы и схемы; сняты сохранённые render-профили мастера. Выявлены: стена 7168×1280; арка нативно 2560×256, предложение 5120×512 при двойной плотности вместо нынешних 6656×512; фигурная лента 2010×2176 с 102 уникальными контурами модулей; электропроект 29,30/19,78 кВт при лимите 20 кВт. [Отчёт проверки](artifacts/reports/equipment-pixelmaps-20260929/README.md).
+
+Открыто: вторая сторона ленты и назначение 336 модулей, LED-процессоры/EDID, host арки, NUC/SDK и PTZ, touch и размер стелы (55″ в CSV против 86″ iiyama в электропроекте и около 76,2″ в модели), состав и питание реальных ПК. Приложения, конфиги, WEB-модель и TD не менялись; нагрузочные проверки, измерение FPS/мощности и отправка документов подрядчику не выполнялись.
+
+
+## 2026-09-29 — Стела: upstream c1a3b12, интеграция 0.2.1
+
+Получены два новых коммита: новые формулировки вопросов/ответов VK Видео, «Сделаем твоё фото?» и миссия MAX «Общение на максимум». Локальные content-файлы сверены с прежним upstream, source/runtime зарезервированы; мост ввода/паузы и настройки сохранены. Собраны приложение и ZIP 0.2.1, обновлены инструкция и общие документы. GitHub releases пуст: отдельный финальный релиз не подтверждён.
+
+Typecheck/lint, 13 Vitest +11 Node-тестов, синтаксис JS прошли; 20 HTTP SHA и CRC архива совпали. Только vk-stella перезапущен, остальные поколения/профили/назначения/выходы сохранены; Check5running/Spout. В одной вкладке Viewer проверены переходы до двух обновлённых вопросов и ввод на 3D-стеле, console чистая. [Отчёт](artifacts/reports/stella-update-20260929/README.md). Фото/голос и передача результатов на стены остаются имитацией/не реализованы; TD/оборудование не проверялись. Без тяжёлых тестов, видео, Git-записи и Selectel; мастер оставлен работать.
+
+
+## 2026-09-29 — единое написание названия сервиса MAX
+
+По прямому указанию пользователя закреплено написание MAX только латинскими заглавными M, A, X для всех текстов проекта, включая игру, стелу, макеты/Figma и документацию. Обновлены AGENTS.md, дизайн проекта, скиллы max-brand/max-game-development, README и manifest брендового пакета, каноническое правило max.naming.service в rules.json и документация клиентского вординга игры. Оригинальные документы/логотипы, технические имена и Max Sans исключены из переименования.
+
+Проверено: JSON брендового пакета разбирается, displayName и правило согласованы, ссылки в добавленных инструкциях разрешаются. Изменены только правила и документация; массовый аудит существующих экранных текстов в эту задачу не входил. Сборка и публикация приложения не требовались. Нерешённых вопросов по формулировке правила нет.
+
+
+## 2026-09-28 — DOCX подтверждён как действующий вординг MAX
+
+Повторное вложение «Сценарии_пути_пользователя_MAX_23_09.docx» сверено с сохранённым оригиналом: SHA256 и все 29 абзацев совпадают; дополнительная копия не создавалась. В [MISSIONS.md](apps/max-game/docs/MISSIONS.md) добавлены формулировки игровых заданий и словарь экранных подписей, подтверждена совместная актуальность DOCX и нового сообщения. Прежняя трактовка отсутствия group/reaction/sector как решённого удаления снята: итоговая обязательность этих шагов остаётся открытой. Область реализации по-прежнему только игра, без переноса макетов стелы.
+
+Проверены текст DOCX, ссылки свода и diff; код/сборки/сервер не менялись. Документация и общий бэклог уточнены. Не решены состав сокращённого пути и недостающие экранные материалы; новая публикация игры не требовалась.
+
+
+## 2026-09-28 — пошаговый путь MAX опубликован на Selectel
+
+По новому запросу пользователя активирован релиз20260928T115856Z на https://futuronika.pro/vk/max-game/; предыдущий20260928T111712Z сохранён.162 файла, server SHA/Caddy validate/atomic switch и HTTPS SHA162/162 — pass. Check-local текущей сборки — pass. Одна вкладка: сохранённый план → следующий плюс/выбор статистики без «Миссии» → «Путь намечен» → Continue → задание; console warn/error пустая. Проверка Enter, без сброса сохранений; мышь/тач и полный свежий путь не заявляются. [Отчёт](artifacts/reports/max-selectel-20260928T115856Z/README.md).
+
+Мастер/стела не запускались и не менялись; закрытые документы не опубликованы. Без Git/shutdown/видео/нагрузки. Последующие изменения снова локальные до отдельного запроса публикации.
+
+
+
+## 2026-09-28 — MAX опубликован на Selectel по запросу пользователя
+
+Релиз20260928T111712Z активирован на https://futuronika.pro/vk/max-game/; прежний20260928T085347Z сохранён.162 публичных файла, server SHA/Caddy validate/atomic switch и HTTPS SHA162/162 — успешно. Короткая проверка одной вкладкой: CTA, четыре миссии, нулевой уровень ID, постановка, попап и смена шага; console warn/error пустая. [Отчёт и снимок](artifacts/reports/max-selectel-20260928T111712Z/README.md).
+
+Стела/локальный мастер не менялись; мастер не запускался. Клиентский DOCX/incoming/документы/секреты исключены из публичного пакета. Без Git, shutdown, видео или нагрузки. Полный визуальный проход всех сценариев и FPS не заявляются.
+
+
+
+## 2026-09-28 — MAX: игровой сценарий клиента23.09, без стелы
+
+Клиентский DOCX сохранён в artifacts/max-game/incoming без изменения SHA, рядом текст/вложенные изображения/происхождение. По уточнению пользователя перенесены только p0–p23: четыре игровые миссии; блок вордингов и макеты стелы p27–p28 исключены. Стела этой задачей не менялась. ID получил обязательный нулевой этап; бизнес — sector → account → явный выбор инструмента. Выбор формата сообщения/эмоции и сферы сохраняется, меняет следующий экран. Добавлены reducer gates, миграция прогресса и единый источник result в client-missions.json. [Контракт и матрица](apps/max-game/docs/CLIENT_WORDING.md).
+
+193 MAX/glass+110 Ribbon tests, syntax, MAX build/check-local, viewer build и diff-check — pass. Ribbon builder снова остановлен ранее зафиксированным Windows OSError22 на существующем шрифте; MAX собран успешно. [Отчёт](artifacts/reports/max-client-wording-20260928/README.md). Мастер оставлен выключенным по предыдущей команде; браузерная/визуальная проверка новой версии не выполнена. Только локально, без публикации/Git/видео/нагрузки.
+
+
+
+## 2026-09-28 — Стела: выбран UX крупных вертикально расположенных карточек
+
+Пользователь выбрал насыщенный ранний вариант как основу: две большие карточки друг под другом, крупные логотипы, пояснения и стрелки. Подготовлен [вход v6](docs/Research/stella-final-screens-20260928/home-v6-large-cards.png) с этим UX, кольцом-собеседником и пиксельными флюидами. Разделение вселенных и верхние2/3 сохранены; нижняя карточка визуально заканчивается около1095 из1672px, ниже только эффект. Промпты и выбранный референс сохранены, документы уточнены.
+
+Это растровая концепция image_gen: новая генерация ещё не утверждена, размеры/hit-target и оригинальные SVG/шрифты требуют проверки при вёрстке. Исходники приложения, runtime, конфиги и GitHub не менялись; тесты/запуск стенда для генераций не проводились.
+
+
+## 2026-09-28 — Стела: концепция выбора двух вселенных
+
+Изучены локальные пакеты MAX/VK Видео, брендовые и визуальные skills, текущие тексты/фоны и референсы стенда. Подготовлены генерации image_gen; после уточнений пользователя актуальна v5: нейтральный выбор вселенной → отдельные MAX и VK Видео, постоянное пиксельное кольцо-собеседник, флюиды и сетка, весь интерактив в верхних двух третях, низ декоративный. [Исследование, текущий лист и промпты](docs/Research/stella-final-screens-20260928/README.md). Исходный пользовательский референс сохранён, ранние варианты помечены черновиками.
+
+Визуально проверены разделение брендов, наличие кольца и расположение нижних контролов выше границы 2/3 на итоговом растре. Это концепция: SVG/шрифты/точные размеры/hit-target и движение подлежат проверке при вёрстке; художественный выбор открыт. Общие документы фиксируют направление, не внедрение. Runtime, серверы, конфиги и GitHub не менялись; браузерные/нагрузочные тесты и запись видео не выполнялись.
+
+
+## 2026-09-28 — мастер открыт штатным Start по запросу пользователя
+
+Выполнен apps/STARTUP/Start.bat по vk-master-startup: существующий run-мастер переиспользован, страница открыта в браузере, проверка вернула 0. Пять источников running, Spout sending/registered, счётчики продвигаются. В коротком снимке лента/арка/левая стена/стела около 59–60 FPS, MAX около 30 FPS. Одна временная вкладка фактического мастера: режим «Показ», сервисы видны, консоль warn/error пустая; проверочная вкладка закрыта. Код и настройки не менялись, перезапуска источников не было. Приём TD и длительная производительность в этой проверке не подтверждались; мастер оставлен работать.
+
+
+## 2026-09-28 — Стела: обновление upstream до 261070b
+
+Установлены 16 новых коммитов прототипа из переименованного репозитория vk-prototip/vk-max-stela-prototype: вступительные экраны VK Видео/MAX, утверждённые тексты и переносы, повторный подбор миссии, WebP-фоны и предзагрузка. Локальный мост ввода/паузы сохранён; добавлена совместимость с SSR-тестами. Собран runtime 0.2.0 и ZIP. Устаревшие неизменённые runtime-ассеты перенесены в резерв; исходные PNG сохранены. Общие документы и инструкция приложения обновлены.
+
+Typecheck, lint, 13 тестов прототипа и 11 тестов интеграции/указателя прошли; сборка, node --check, 20 HTTP SHA и CRC архива успешны. Перезапущен только vk-stella; назначения, профили, выходы и поколения остальных источников сохранены, Check: пять running/Spout. В одной вкладке 3D проверены выбор MAX → вступление → «НАЧАТЬ» → первый вопрос и возврат, консоль без ошибок. [Отчёт](artifacts/reports/stella-update-20260928/README.md). Распознавание речи и передача результатов на стены не реализованы; аппаратная/художественная приёмка остаётся открытой. Тяжёлых тестов, видео, Git-записи и пересборки полного portable не было.
+
+
+## 2026-09-28 — реальное преломление панели и Frost кнопок в обеих версиях MAX
+
+Причина отклонения: standalone имел только CSS-стекло, а CSS-заливки нового Journey перекрывали shader controls в мастере. Подключён общий PANEL_GLASS_FRAGMENT к standalone через отдельный linear HalfFloat RT; большая панель теперь искажает реальные фоновые волны. Кнопки используют отдельный профиль пользователя:−45°/80%,Refraction100,Depth33.47,Frost56.25,Dispersion/Splay0; панель−68°/70%,Depth116.91,Frost0. Числа Figma — референс, WEB-калибровка описана отдельно. Убраны перекрывающие CSS-заливки; Frost фильтрует mip-фон и9 выборок, без резких копий волн, с фиолетовой передачей. Радиусы/bounds standalone учитывают transform/letterbox; перекрытые диалогом контролы исключены. Текст/иконки резкие, механика и физическая полоса сохранены.
+
+Проверено130 профильных/игровых и110 Ribbon тестов, синтаксис, check-local, штатные сборки. Мастер стартовал через STARTUP после штатно завершённой вчера сессии; первоначальный sandbox-запуск получилEPERM, разрешённый штатный запуск успешен. Затем перезапущен толькоMAX. Check:5running/Spout, MAX17.6FPS (не нагрузочный замер и не60FPS); приёмTD не проверен. Коротко просмотрены standalone меню с Frost и реальный поток мастера, native CTA→меню, console без warn/error. [Отчёт](artifacts/reports/max-glass-materials-20260928/README.md).
+
+Исправление опубликовано по прежнему адресу Selectel, релиз20260928T034241Z;162/162 HTTPS SHA совпали. Обновлены документация и skills. Открыты художественная/аппаратная приёмка и производительность; новых тяжёлых прогонов/видео не было. В этой итерации Git stage/commit/push и выключение ПК не выполнялись.
+
+
+
+## 2026-09-27 — Снимок проекта для GitHub
+
+Подготовлена синхронизация рабочей ветки codex/project-structure: MAX и Stella, финальные брендовые пакеты, обновления мастера, документация и отчёты. По уточнению пользователя полная Figma-выгрузка исключена из публикуемого дерева и добавлена в .gitignore, файлы сохранены локально; правило записано в AGENTS. Начатая до уточнения загрузка сырых LFS-объектов остановлена до публикации коммита. Добавлены правила сохранения точных байтов сборок, чтобы checkout не нарушал манифесты. Секреты и локальное состояние исключены.
+
+Проверено: синтаксис308JS, семь runtime-манифестов, штатный Check.bat и одна вкладка экрана MAX без ошибок консоли. Общий набор:371/374; Figma отдельно13/13. Остались LAN-fixture без Stella и устаревшее ожидание shared-flow, а также неповторившийся сбой Figma в общем запуске. [Отчёт и логи](artifacts/reports/github-sync-20260927/README.md). TD-приём, художественная приёмка и60FPS не подтверждались.
+
+
+
+## 2026-09-27 — исправлены паузы выдачи и PNG-превью MAX/стеллы
+
+Убран дополнительный setTimeout(33) после каждого кадра; используется frameDelay с бюджетом 16,67 мс и добавлен FrameTiming. Preview больше не делает resize/toPNG в Electron main и PNG decode в renderer: один отдельный Node worker уменьшает BGRA bitmap до RGBA 960×540 max/10 FPS. Общая очередь ограничивает capture/resize, дедуплицирует источник и пропускает просроченные запросы. Full capturePage/toBitmap пока остаётся CPU-веткой; GPU-only preview не объявляется готовым. Final Spout, профили, визуал, native binary/fences не изменены; maxServiceState и остальные параллельные исходные изменения сохранены.
+
+Пройдены node --check, 22 профильные CPU и 110 Ribbon, штатные сборки Service/Viewer/Ribbon. Stop подтвердил offline; первый Start получил sandbox EPERM, штатный повтор с разрешением успешен. Пять новых generation, running/Spout registered/sending, исходные settings/profiles/assignments/enabled/outputs структурно сохранены. В одной временной вкладке проверены master → presentation MAX → стелла: полная композиция видна, правильные пропорции, video 960×300 и 304×540 readyState=4, warn/error пусты; вкладка закрыта. HTTP/runtime/source SHA совпали. Игровая память сброшена перезапуском.
+
+Короткий Check: Ribbon 52,8, левый 56,8, стелла 52,9, арка 56,0, MAX 18,8 FPS; следующий снимок ~54/54/52/57/20. Это не A/B и не приёмка 60 FPS: перезапуск, игровые состояния и переподключение клиентов отличаются. Открыты bottleneck MAX, стадийные времена, GPU-preview и длительная приёмка. Тяжёлых тестов/видео/проверки TD нет. [Отчёт](artifacts/reports/spout-dispatch-fix-20260927/README.md). Общие документы и SPOUT_PRIMARY_PIPELINE обновлены; полный master ZIP не обновлялся. Git stage/commit/push не выполнялись.
+
+
+## 2026-09-27 — диагностика 5–12 FPS Spout при невысокой загрузке GPU
+
+По жалобе пользователя выполнена пассивная диагностика по vk-master-startup: штатный Check.bat, фильтрованный API state, чтение кода и SHA source/runtime/HTTP. [Отчёт](artifacts/reports/spout-fps-20260927/README.md), evidence.json и startup-check.json. Пять источников running, Spout sending/registered, но Check показывает 5,1–11,5 FPS; NDI выключен. У MAX/стеллы найден цикл с дополнительными 33 мс после present (60 уникальных program FPS недостижимы этим циклом), у их preview — capturePage/resize/toPNG в общем Electron main. Общая очередь native и fences остаются кандидатами задержек; вклад каждой стадии не измерен. Низкая загрузка из скриншота не доказывает нехватку GPU/VRAM или причину в разрешении.
+
+Приоритет в общих документах уточнён: preview/main-thread и планирование выдачи, стадийные измерения, затем effects. Код/runtime/конфиги не менялись, источники и игровые сессии не перезапускались. HTTP совпал с runtime; MAX source отличается (новый maxServiceState), параллельные изменения не затрагивались. Совпадение HTTP не выдаётся за проверку JS уже загруженного процесса. Браузер/TD/нагрузочные тесты/видео не запускались, независимый FPS приёмника не измерен. Исправления и приёмка стабильных 60 FPS остаются открытыми; отчёт не объявляет PNG единственной причиной.
+
+
+## 2026-09-27 — управление стелой в 3D-прогулке
+
+По замечанию пользователя добавлен явный вход «Подойти к стеле» рядом с MAX в источниках Viewer. Ранее стела уже принимала raycast-ввод, но только в активной прогулке, а автоматический подход и подсказки были только для MAX. Общая функция подхода теперь выбирает реальную поверхность SCREEN_STELLA либо игровую область SCREEN_RIGHT, проверяет свободную линию взгляда и включает прогулку. Подсказки учитывают оба экрана. Геометрия, настройки и процессы источников не менялись.
+
+Viewer собран штатно; node --check и 21 CPU-тест (ввод/прогулка/контракт стелы) прошли. В одной вкладке реального /viewer/show/ выполнен подход и тап MAX на 3D-стеле: открылся вопрос анкеты, dataset подтвердил SCREEN_STELLA/up; консоль без error/warn. Check подтвердил пять running/Spout sending. Аппаратный ввод, TD и нагрузка не проверялись. [Проверка](artifacts/reports/stella-3d-input-20260927/README.md). Уже открытую вкладку Viewer нужно обновить; мастер/игровые сессии не перезапускались.
+
+
+### 2026-09-27 — GitHub-прототип VK/MAX установлен сервисом стелы
+
+- Полный portable ZIP обновлён со стелой: 487 файлов, 428 544 973 байт. HTTP `/stella/assets/app.js` совпадает по SHA-256 с manifest установленной сборки.
+- По запросу пользователя импортирован vk-prototip/vk-max-stella-prototype, commit `842ae44151e02f4a9c15781e53072c5fe486e813`. Исходники и pinned зависимости — artifacts/stella-prototype, runtime — apps/stella-prototype, штатный сборщик build_stella_prototype.py. Дизайн, тексты, локальные ассеты и сценарии сохранены.
+- `vk-stella` / `SCREEN_STELLA` теперь использует React-прототип через stella-worker: полная DOM-композиция Chromium → GPU/Spout, WebRTC и pointer API существующего источника. Пауза блокирует ввод/анимации/таймер сканирования, cancel подавляет ложный click. В Viewer разрешён прежний raycast-ввод для стелы; мастер ведёт в живой presentation. Назначения, профили и outputs не изменены.
+- Добавлены маршрут /stella/, приложение в LAN digest и полный portable builder. Для применения серверных изменений мастер штатно Stop → offline → Start; Check подтвердил пять running/Spout sending с продвижением кадров. Сборки прототипа/мастера/Viewer обновлены. Приём TD не проверялся, патч не менялся.
+- Проверено: TypeScript, lint, Vite, 4 теста сценариев, 27 CPU-тестов сервиса/ввода, 7 тестов Viewer, JS syntax. В короткой браузерной проверке живого потока нажатие MAX открыло анкету; «Назад» вернул стартовый экран. Пропорции и оригинальные ресурсы видны, error/warn консоли отсутствуют. [Отчёт](artifacts/reports/stella-prototype-20260927/README.md).
+- Открыто: передача результатов анкеты на стены отсутствует в upstream и не добавлялась; аппаратная touch/LED и 60 FPS требуют отдельной приёмки. Полное прохождение/живой ввод 3D-стелы не проверялись. [Контракт](apps/stella-prototype/docs/SERVICE.md).
+
+
+## 2026-09-27 — единый стандарт запуска мастера и восстановление TD
+
+Создан обязательный skill artifacts/skills/vk-master-startup/SKILL.md, связан с AGENTS, vk-live-verification и MAX development. Все штатные входы мастера сведены к apps/STARTUP: Start/Stop/Check, run, localhost:8770. Сервисные батники/npm и portable-корневые батники делегируют одному пути. Проверка принадлежности проекта/узла, конфликтующих аргументов, готовности включённых источников и продвижения program/Spout встроена в запуск; Check пассивный, результат без токенов в runtime/master-startup-check.json. Stop ожидает offline API. Явный dev и LAN-agent сохранены для профильных задач.
+
+Установлена причина отсутствия автоматического Spout в TD: master слушал localhost/IPv6, старый патч обращался к 127.0.0.1. live_surfaces.py нормализует локальный URL при запросе, сохраняет remote URL и параметр пользователя. DAT подхватил код без перезапуска/сохранения .toe: 6/6 LIVE, Textures без ошибок, внутренний 3DShowreal/out1 с текстурами проверен. Камера/модель не менялись.
+
+13/13 CPU-тестов, node --check, Python AST и 4 URL-кейса прошли; skill quick_validate прошёл через существующий TD Python (bundled Python без PyYAML, ничего не установлено). Штатная сборка Stand Service, реальные Start --no-open/Check и сервисный делегат из другой папки прошли; generation не изменились. В одной вкладке мастер показал пять работающих источников, console warn/error пустая. Документация приложения и общие три документа обновлены. Отчёт: artifacts/reports/master-startup-20260927/.
+
+Полный portable ZIP обновлён штатным сборщиком, все SHA/CRC проверены.
+
+Открыто: холодный запуск/остановка действующего стенда в этой задаче не тестировались, проверка portable на чистом ПК и целевые 60 FPS. Мастер/TD оставлены работать; тяжёлого прогона, видео и Git-публикации нет. Предыдущая реплика об отсутствующей игре MAX устарела: по актуальному коду/WORKLOG игра уже входит в max-wall-right; новая проверка опирается на живой state, а не фиксированный список старых модулей.
+
+
+## 2026-09-27 — реальные тапы по игре MAX на 3D-стенде
+
+В Viewer добавлен отсутствовавший ввод по поверхности MAX: raycast ближайшей видимой грани, UV фактически отображаемой текстуры, pointer down/move/up/cancel в тот же сервис max-wall-right. Мышь над игрой не вращает камеру; вне игры камера работает как раньше. Жест отменяется на краю экрана, при потере фокуса, смене generation/назначения и паузе; удержание поддерживается heartbeat. Добавлена кнопка «Играть в MAX на 3D-стенде»: ракурс по позиции и нормали UV-центра игровой зоны, выход из прогулки, сворачивание панели. GLB, назначения и игровые правила не менялись.
+
+130/130 CPU-тестов, синтаксис трёх JS и diff-check прошли. Viewer собран штатным build_bundle.py. Полный vk_master_0.12.0_windows_x64.zip: 604 файла, 431 991 947 байт, CRC/SHA проверены. HTTP-хеши viewer/service-preview/screen-pointer совпали с runtime; пять источников running с прежними generation. После явного согласия пользователя одна вкладка localhost:8770/viewer/show/: игра видна на правой изогнутой поверхности, реальный тап по стартовой кнопке открыл обучение, камера не сдвинулась, консоль без warn/error. Сохранены снимок и диагностика в artifacts/reports/max-3d-taps-20260927/. Вкладка закрыта, рабочие сервисы не перезапускались. Предыдущее упоминание готового ввода из 3D было преждевременным — тогда существовал только presentation; теперь путь Viewer подтверждён.
+
+Открыты аппаратный touch, физическая LED-приёмка и длительная производительность. Браузером подтверждён один тап; drag/cancel проверены CPU-тестами, полное прохождение не выполнялось. Без записи видео и Git-публикации. Обновлены действующая документация Viewer и три общих документа.
+
+
+## 2026-09-27 — интеграция брендбука VK Видео в WEB-сборки
+
+Прочитаны vk-video-brand, scope/rules, пакет и INTEGRATION; применены vk-webgl-neon и vk-ribbon-reference-review. В Ribbon, Video Wall и VK Video Flow подключены оригинальные логотипы, восемь начертаний VK Sans Display/Text, палитра #FF2B42/#0077FF и синий фон/сияние с #0040FF. Готовый wordmark заменяет нарисованный знак/заглушку; на стеле и левой стене сохраняются пропорции при разных размерах выходов. Положение логотипов/заголовка вынесено в content/brand-layout.json. Общий шейдер оформляет контент тремя ступенями с увеличением толщины наружу и вписывает медиа без растяжения. Статический frame.svg больше не используется текущими видео, сохранён как прежний ресурс.
+
+Прямое смешивание красного и синего убрано из флюидного света и оставшегося legacy tint; красные акценты остаются в дискретных плашках и оригинальном логотипе. Соседние красно-синие линии рамки на уменьшенном выходе визуально смешивались, поэтому все три ступени сделаны синими. MAX, общая топология полотна, JSON пользователя и физика кластеров не изменены. Стабильная контрольная точка механики сохранена; её непринятый арт-результат не объявляется исправленным этой интеграцией.
+
+Сборщик Ribbon проверяет SHA выбранных 2 SVG/8 TTF (~0,5 МБ), генерирует CSS/provenance; build-manifest трёх потребителей содержит происхождение. Обновлены четыре комплекта/ZIP штатными сборщиками (включая Viewer), документация приложений и три общих документа. Проверено 141/141 Node-тестов, синтаксис 13 JS, CRC ZIP, хеши файлов и сохранение четырёх рабочих JSON. Короткий браузерный проход: runtime-файлы, одна вкладка/один контекст, 960×400, 90 кадров; шрифты загружены, GL=0, новые ошибки/предупреждения отсутствуют, переполнения нет. Первоначальное предупреждение драйвера о face исправлено. Отчёт и снимок: artifacts/reports/vk-video-integration-20260927/.
+
+Нерешённое: художественная переработка плотных кластеров, утверждение на LED и полный стендовый прогон. Видеошейдер проверен компиляцией, проигрывание роликов в этом проходе не проверялось. Рабочий localhost:8770 ответил тайм-аутом; интеграция проверена изолированно, сервис не перезапускался. Без записи видео, тяжёлых GPU-тестов, commit/push.
+
+
+
+## 2026-09-25 — исследование и архитектура личных кластеров, без реализации
+
+
+
+По запросу пользователя проведено исследование Obsidian, силовых/compound-графов и обхода групп: 23 первичных источника, сравнение 11 готовых вариантов. Подготовлены apps/video-wall/docs/CLUSTER_RESEARCH.md и CLUSTER_ARCHITECTURE.md. Предложены два уровня «человек → центр/QR → личные узлы», непересекающиеся оболочки с containment, инерция по площади, связи, раздельные настройки сил/расстояний, управление вместимостью и QR. Рекомендация — сохранить общий Three/worker и специализированный solver; WebCola сравнить для начальной раскладки, fCoSE оставить альтернативой. Это исследовательский выбор, не результат бенчмарка. MVP и три общих документа получили ссылки и явную отметку «не реализовано».
+
+
+
+Проверено: существующее поведение сверено с model.js/avoidance.js/engine.js и контрактами worker/tracking; локальные ссылки новых документов и добавленных разделов существуют, блоки Markdown закрыты. SHA-256 восьми файлов artifacts/video-wall до/после совпали. Исходники, настройки, runtime, серверы и зависимости этой задачей не менялись. Проверка документов выполнена PowerShell (алиас python недоступен). Отчёт artifacts/reports/personal-clusters-research-20260925/verification.json.
+
+
+
+Не решены: адрес/выдача и TTL QR, физическая привязка camera track к owner/session, целевая вместимость реального экрана и согласование поведения переполнения. Проверки PoC, реального FPS/latency и сканирования на LED только запланированы, не объявлены пройденными. Реализация по явному указанию пользователя не начата; runtime/браузерные/GPU-тесты и сборки для этой документальной задачи не запускались. Видео, stage/commit/push не выполнялись.
+
+
+
+
+## 2026-09-25 — крупность сетки и скругления в мастере
+
+
+
+Добавлен раздел «Сетка и квадраты»: общие настройки лент/стеллы/задних экранов и отдельные настройки арки. Ползунки rows 8–32 и roundness 0–0.8 сохраняются через существующий /api/config после отпускания, с защитой expectedRevision. В Ribbon параметры перенесены в первую группу вместе с зазором. Убрана минимальная кривизна: 0% создаёт точный плоский квадрат. Разрешения и рендер-проходы не менялись. Обновлены документ Service и три общих документа.
+
+
+
+Проверено: node --check трёх JS; 117/117 Ribbon/pixel-map/surface-visual CPU, включая точные углы при нуле и скругление малых значений. Viewer/Ribbon/Service собраны штатно с preserve-native. Одна браузерная вкладка: оба блока управления видны, нулевое скругление сохранилось после reload; живая левая стена отображается с корректными пропорциями, console warn/error пустая. Во время проверки происходили параллельные перезапуски и изменения настроек: чужие значения не откатывались, восстановлено только собственное тестовое скругление общей сетки до 0.38. Последние rows=8 у общей сетки и арки сохранены. На финальной проверке пять источников running/error=null, мастер работает. Отчёт artifacts/reports/grid-controls-20260925/verification.json. Длительный FPS не проверялся; тяжёлых тестов, видео, stage/commit/push не было.
+
+
+
+
+## 2026-09-25 — Spout исправлен в мастере, приём TD восстановлен и пережил stop/start
+
+
+
+Исправлены GPUOutputHub close lifecycle (учёт уже закрывающихся записей, ожидание ACK/exit, удержание имени до освобождения), порядок GPUWorkerHost stop (painting → native close → destroy window), WAIT_ABANDONED в собственной SpoutSharedMemory. Native каждые 2 с проверяет discovery; missing становится blocked в API/UI вместо ложного sending, переходы пишутся в runtime log, публикация/повторное объявление продолжаются без падения всех выходов. В assets TD set_sender чинит сброшенное на blank CONSTANT выражение основного Ribbon receiver; оно восстановлено в работающем патче.
+
+
+
+Envoy get_sessions/claim_scope недоступны со старой регистрацией. Текущий leaked mutex освобождён разово на главном потоке TD после 3 проверок count=0/owned=1/совпадения PID/TID (16:33:03 MSK, released=true); временный код полностью удалён, auto-release не добавлен. Первая попытка OpenMutex с access=3 ничего не открыла; исправленная маска 0x100001 прошла. После установки новой сборки выполнен один обычный stop/start: native завершился, mutex свободен, 6/6 LIVE вернулись без recovery. Два кадра TD 16:37:29/33: все 5 digest меняются, размеры правильные, cook/script errors пусты. Settings/profiles/outputs до/после структурно совпадают. .toe, модель и камера сохранены без изменений.
+
+
+
+Проверено: node --check четырёх JS; 15 GPU/native CPU, 106 Ribbon CPU, 10 TD CPU и отдельный CPU-тест реальной SpoutSharedMemory с уникальным mutex без GPU. Исправлен старый atlas test: legacy координаты 23434×1080 теперь имеют стабильный fixture вместо чтения меняющегося live-профиля; текущий план проверяется отдельно. Native/Viewer/Ribbon/Service собраны. MSBuild PATH/Path исправлен только в окружении запуска; sandbox EPERM при первом запуске Electron разрешён повтором вне sandbox. В одной вкладке проверены мастер/вид/пропорции и console warn/error=[], после stop/start reload чистый; вкладка закрыта. Остались обычные IPC rejection при закрытии windows (Output closed/Unknown GPU output owner), не runtime ошибки источников.
+
+
+
+Мастер оставлен работающим. Отчёт: artifacts/reports/spout-fix-20260925/README.md, verification.json и JSONL/журналы. Тест Spout: artifacts/service/tests/spout-lock; резерв/временные пробники: artifacts/workspace/tasks/spout-fix-20260925. Обновлены документы TD/Service и три общих документа. Нагрузочных GPU-тестов, видео, stage/commit/push не было. Точная исходная точка захвата в бинарной библиотеке TD и восстановление Envoy остаются открытыми; длительная стабильность не заявлена.
+
+
+
+
+## 2026-09-25 — повтор Spout: сохранены согласованные логи мастера и TD
+
+
+
+По запросу пользователя сняты 45 внешних метаданных с шагом 1 с (16:14:54–16:15:39 MSK) и 30 main-thread выборок TD (16:15:28–16:15:57). Каталог SpoutSenderNames пуст во всех 45 точках; NtQueryMutant показывает одного владельца PID 30772/TID 30136/count=0. TD подтвердил PID/TID callback, продолжает кадры (+1740), HTTP age <2 с; все пять действующих входов 128×128, 6 поверхностей NO SIGNAL, cook/script errors пусты. Мастер running/error=null, поколения стабильны, counters растут (средняя публикация 19.88–36.75 FPS); это не получение TD. Предварительный Wait(0)=258. В серии mutex только читался, ReleaseMutex не выполнялся.
+
+
+
+Накопленный runtime log и времена процессов сохранены: мастер/native стартовали 16:01:40, TD 10:25:56, перед стартом есть ошибки закрытия workers/старого GPU процесса. Связь перезапуска с захватом mutex остаётся гипотезой, момент начала сбоя не записан. Найдены направления исправления: различать publication/discovery, ждать уже начатые native close ACK/exit, проверить WAIT_ABANDONED в bundled SDK (ветка не учитывает передачу владения). Реализация SDK внутри TD неизвестна; точная первопричина пока не доказана.
+
+
+
+Envoy по-прежнему disconnected: старая регистрация VK_DP_Show.4/PID 26392 при живом TD 30772. Диагностика выполнена через существующий assets syncfile на главном потоке, ограничена owner-local storage. После сбора временная функция удалена; live_surfaces.py побайтово совпадает с резервом, ast.parse пройден. .toe, модель, камера, настройки и процессы не менялись. Постоянных изменений исполняемого кода нет, сборки/браузерные/нагрузочные тесты не требовались и не проводились; видео/Git stage/commit/push нет. Приём на конец замеров не восстановлен. Отчёт: artifacts/reports/td-spout-recurrence-20260925/README.md, сырые JSONL, summary, process timestamps, master log. Обновлены TD-документ и три общих документа; исправлена устаревшая фраза о fatal ошибке регистрации. Резерв/пробники: artifacts/workspace/tasks/td-spout-recurrence-20260925.
+
+
+
+
+## 2026-09-25 — сильные физические струи от контура, затухание ≤0.5 с
+
+
+
+Пользователь отметил, что прежняя эмиссия не воспринимается как физический флюид. Выяснено: после борьбы с засветкой импульс и плотность были чрезмерно ослаблены. Теперь от 48 кандидатов контура пульсируют более сильные наружные импульсы с небольшой касательной составляющей; они попадают в существующие vx/vy, pressure/curl/advection SharedFluid, как курсор. Это переносимая симуляцией плотность, не дорисованный шейдерный ореол.
+
+
+
+Добавлены ленивые contourDye/contourNext, переносимые тем же полем скорости. Их ограниченная плотность 4 теряет 8 единиц/сек по реальному elapsed: после прекращения подпитки весь вклад достигает нуля максимум за 0.5 с, независимо от скорости симуляции. Длинная dye курсора/фона сохраняет прежнее затухание. Импульс остаётся частью общего движения жидкости; 0.5 с относятся к видимому свету струи. При общей паузе симуляция заморожена. Снимок density суммирует оба канала; clear очищает оба. Отдельного solver/renderer/pressure-прохода не добавлено. Заполненный силуэт, слои контента и pose 30 Гц сохранены; размеры/настройки/модель не менялись.
+
+
+
+Проверено: node --check изменённых JS; 134/134 Ribbon/depth/walk/arch/contour CPU. Новые проверки подтверждают перенос плотности общим полем, исчезновение максимального импульса за 0.5 с при speed 0.1/1/2, задержанный тик и сохранность обычной dye. Двадцатисекундная эмиссия не пишет в длинный канал и полностью гаснет за полсекунды после остановки. Собраны Service/Viewer/Ribbon. Базовая проверка одной вкладкой: силуэт и наружные струи видимы, console warn/error пустая, pose 30 Гц (HTTP 9 мс, маска 5.5 мс), пять источников running/error=null; lifetimeMs=500 в API. Отчёт: artifacts/reports/contour-jets-20260925/verification.json.
+
+
+
+Документы Service/Video Wall и три общих документа обновлены. Мастер оставлен работающим, временная вкладка закрыта. Физическая камера/живое перемещение с pointer lock в IAB не проверялись; художественная приёмка характера струй открыта. Тяжёлых GPU-тестов, записи видео, stage/commit/push не было.
+
+
+
+
+## 2026-09-25 — диагностика отсутствия текстур TD: каталог Spout и mutex
+
+
+
+Мастер передавал все пять источников с актуальными размерами. Прочитаны свежие API, TD surface_status, планы, ошибки, sender-параметры и флаги: все шесть поверхностей NO SIGNAL, приёмники 128×128, корректные имена/размеры preview, autosync=true, свежий HTTP, cook/script errors отсутствуют. Shared GPU texture info существовала, но SpoutSenderNames был пуст и снаружи sandbox тоже. Read-only NtQueryMutant подтвердил владельца каталожного mutex — PID 30772 / TID 30136 (главный поток TD); count=0, внешний WaitForSingleObject(0)=258. Повтор сбоя 24.09; связь с конкретной сменой разрешения не доказана.
+
+
+
+Envoy get_td_status/switch_instance показали старую недоступную регистрацию VK_DP_Show.4, живой TD PID другой. По debug-operator/td-recovery диагностика выполнена ограниченными main-thread callback через существующий assets syncfile, без перезапуска/закрытия патча. Подготовленный разовый recovery повторно проверял ownership и мог снять ровно одно удержание только на своём подтверждённом потоке. На момент вызова блокировка уже была свободна (count=1, owner=null), released=false — никакого принудительного ReleaseMutex не выполнено. После этого каталог содержал все пять отправителей. Конкретное действие, освободившее mutex внутри TD, не установлено; это восстановление текущего приёма, не постоянное исправление причины.
+
+
+
+Проверено в TD: 6/6 LIVE; Ribbon transport 5120×1026 -> preview 1920×96, арка 6656×514 -> 1920×148, задние экраны и стелла также принимаются. Две финальные выборки через 4.016 с: у всех пяти выходов меняется digest, пиксели непустые/неплоские, receiver/preview/out1 без cook/script errors. PNG ленты/арки визуально просмотрены. Первая диагностическая версия с module-global счётчиком не сохранила вторую выборку между DAT lifecycle; финальная пара ограничена owner-local storage. Временный код полностью удалён, live_surfaces.py побайтово совпадает с резервом; синтаксис Python проверен. .toe, камера, модели, native bridge и мастер-конфиги не менялись.
+
+
+
+Одна браузерная вкладка мастера: все сервисы работают, размеры прежние, console warn/error пусты, внешний вид просмотрен; вкладка закрыта. Сборки/CPU-регрессии не запускались: постоянных изменений исполняемого кода нет. Нагрузочных GPU-тестов, видео, stage/commit/push не было. Отчёт и подтверждения: artifacts/reports/td-signal-20260925; резерв/CPU probes: artifacts/workspace/tasks/td-signal-20260925. Обновлены TD-документ и три общих документа. Открыты устойчивость каталога/причина удержания mutex внутри TD и восстановление Envoy; автоматический release блокировок не добавлен.
+
+
+
+
+## 2026-09-25 — заполненный depth-силуэт, флюид от контура и глубина контента
+
+
+
+Свежий DEPTH16-контур теперь подаёт наружные импульсы в существующий SharedFluid.splat, как ввод мыши. Мягкая эмиссия работает и при неподвижной фигуре, не зависит от числа превью и не использует скелет. Первый живой вариант оказался слишком плотным, что пользователь отметил как пятно: заменён на прерывистые струи с ограниченным вкладом 0.65, меньшим радиусом и стартом снаружи контура. Свежая маска определяет точки, старый trail не эмитирует; при возрасте входа >300 мс эмиссия прекращается. Ограничение до 96 кандидатов на серверный шаг.
+
+
+
+По следующему уточнению пользователя силуэт именно заполненный и непрозрачный: coverage проходит через alpha SurfaceField в CellGrid3D, внутренние клетки остаются видимыми/близкими, динамика меняет свет. Флюид визуально позади тела. WallLayer использует ту же coverage для скрытия задней части орбиты тегов/изображений; передняя остаётся поверх. Это сценический Z орбиты относительно тела, без метрической калибровки карточек по сенсору. Обновлены документы приложений и три общих документа.
+
+
+
+Проверено: синтаксис изменённых JS; 130/130 Ribbon/depth/arch/fluid/wall и 12/12 GPU/native contract CPU-тестов, включая 20 секунд моделируемого стояния без накопления сплошной засветки и сохранность флюида мыши. Собраны Service, Ribbon, Video Wall, Viewer. Короткая проверка в одной вкладке после коррекции: видимый заполненный силуэт реальной модели прогулки, эмиттеры активны (снимок 22), консоль warn/error пустая, 5 источников running/error=null. Встроенный браузер не разрешает pointer lock: живую ходьбу в этой вкладке не проверяли, смена положения контура покрыта CPU-тестом. Физическая камера и художественная приёмка остаются открытыми. Отчёт: artifacts/reports/contour-fluid-20260925.
+
+
+
+При перезапуске обнаружен отдельный сбой повторного объявления Spout, останавливавший все поверхности. RegisterSenderName возвращает false также при уже существующем имени после гонки с очисткой receiver: повторное объявление теперь повторяется следующим интервалом, не завершает весь GPU hub. Проверки владения текстурой/именем перед публикацией сохранены; чужие записи/процессы не менялись. Native пересобран (для MSBuild убрано дублирование PATH/Path только в окружении запуска сборки), Service восстановлен. Мастер оставлен работающим. Без тяжёлого GPU-прогона, записи видео, изменения модели и Git stage/commit/push.
+
+
+
+
+## 2026-09-25 — рабочие разрешения по LED-оценке, лента и арка ×2
+
+
+
+По указанию пользователя применены сохранённые профили: Ribbon 10240×512 и арка 6656×512 — удвоение по каждой оси относительно предварительных 5120×256 / 3328×256. Это не подтверждённые паспортные LED-размеры: число блоков ещё требует монтажной карты. Для обоих minShortSide=512 и lockAspect=true с новой базой, иначе прежний минимум 1080 увеличил бы program. VK Видео 3072×1280, MAX 4096×1280, стелла 1080×1920 сохранены. Две стороны ленты используют один ribbon-up. Изменены только профили текущего проекта через API с актуальными ревизиями, исходники/заводские размеры сброса не менялись.
+
+
+
+Перед сменой каждого профиля его источник остановлен, затем восстановлен; settings, outputs, enabled, clocks, assignments и остальные профили структурно сверены с резервом — совпадают. Нагрузка ленты по числу выходных пикселей уменьшилась примерно в 4.8 раза; это не измерение FPS. Spout Ribbon 5120×1026 (два участка 5120×512 после stamp), арка 6656×514. Мастер подтвердил все 5 actual renderSize, running/error=null и Spout sending; NDI оставлен выключенным. Модель/UV/камера/скрипты TD не изменялись. Новые programPlan доступны существующей автосинхронизации TD; отдельная живая диагностика TD в этот раз не проводилась.
+
+
+
+Проверено: 106/106 существующих Ribbon CPU, сборки Viewer/Ribbon/Service и полный portable ZIP (SHA/CRC проверяются сборщиком). Изменённых JS нет, новые тесты для настройки не добавлялись. Одна временная браузерная вкладка: последовательно Ribbon и арка, видимые движущиеся кадры и прежние физические пропорции, readyState=4, preview 1920×96 / 1920×148, console warn/error пусты. Вкладка закрыта, мастер оставлен работающим. Тяжёлых GPU-тестов, видео и Git stage/commit/push не было.
+
+
+
+Резерв: artifacts/workspace/tasks/display-resolutions-20260925. Отчёт: artifacts/reports/display-resolutions-20260925/verification.json. Текущие профили и основание расчёта описаны в apps/stand-service/docs/RESOLUTION.md; три общих документа обновлены. Переносимый архив: artifacts/workspace/dist/vk_master_0.12.0_windows_x64.zip. Открыты монтажная пикселькарта, физическая LED-приёмка и приёмка стабильных 60 FPS.
+
+
+
+
+## 2026-09-25 — заднее полотно 7168×1280, разделение 3072+4096
+
+
+
+По явному выбору пользователя: VK Видео / SCREEN_LEFT — 3072×1280, начало (0,0); MAX / SCREEN_RIGHT — 4096×1280, начало (3072,0). Сетка 28×5 модулей 256×256, разделение 12+16 колонок. Профили применены через API с актуальными ревизиями; lock включён, minimum short side 1080. Для снижения пика памяти два источника перед сменой размеров остановлены и затем возвращены в работу. Остальные профили, настройки сцен, outputs, enabled и assignments побайтово/структурно сверены с резервом, сохранены.
+
+
+
+В исходниках мастера добавлен rear-wall.js: единая утверждённая карта, новые defaultSize, состояние реального рендера/Spout и экспорт JSON. Старые сохранённые пользовательские профили при чтении не перезаписываются. /api/state.rearWall не считает старый кадр или обновляющийся источник готовым; карта показывает отклонение профиля/назначения. В UI появилась карточка общего полотна и кнопка скачивания. Геометрия, исходные статические текстуры и симуляционная pixelMap не менялись. MAX рендерится шестью тайлами в один program; два Spout-потока остаются раздельными. Подробности — apps/stand-service/docs/REAR_WALL.md; три общих документа и TD-документация обновлены.
+
+
+
+Мастер подтвердил actual renderSize 3072×1280 / 4096×1280 и sending. Transport 3072×1282 / 4096×1282 включает две служебные строки. Живой TD автоматически обновил programPlan: receiver принимает эти размеры, preview/out1 — 1920×800 / 1920×600, 6/6 поверхностей LIVE, ошибки обоих receiver/preview/out1 пусты. Подключение Envoy проверено дважды: connected=false, старая регистрация VK_DP_Show.4 при другом живом PID. TD не перезапускался; точечная read-only диагностика через существующий syncfile DAT выполнена на главном потоке и удалена. Рабочий assets/scripts/live_surfaces.py после проверки побайтово совпадает с резервом; .toe, камера и сеть не менялись.
+
+
+
+Проверки: node --check трёх изменённых JS; 22/22 Service/Resolution/Rear-wall CPU и 106/106 Ribbon CPU. Первый Service-запуск дал sandbox EPERM при Python spawn; разрешённый повтор прошёл полностью. Новые тесты проверяют покрытие/кратность карты, executable single/tiled plans, размеры transport, ожидание старого кадра/статуса/Spout, ошибочное назначение и сохранность legacy-профиля при перезапуске. Scoped diff --check без ошибок (только уведомления CRLF). Собраны Service, Viewer, Ribbon и полный portable ZIP с проверкой SHA/CRC: artifacts/workspace/dist/vk_master_0.12.0_windows_x64.zip (375 файлов, 421201247 байт).
+
+
+
+Базовая проверка одной браузерной вкладки: новый блок мастера, экспорт без ошибок консоли, поочерёдные живые previews MAX и VK Видео. Подтверждены video readyState=4 и новые уменьшенные размеры; UI и видимое изображение просмотрены. Отчёты — artifacts/reports/rear-wall-20260925; резерв профилей/TD-скрипта — artifacts/workspace/tasks/rear-wall-20260925. Сервис оставлен работающим, временная вкладка закрыта. Тяжёлых тестов, видео, stage/commit/push не было. Аппаратная LED-приёмка, синхронизация двух ПК и гарантированные 60 FPS не проверялись; текущая телеметрия UI была ниже цели, подготовка разрешения не является оптимизацией FPS.
+
+
+
+
+## 2026-09-25 — пропорциональный просмотрщик всех экранов
+
+
+
+Причина широкого/высокого превью арки: Flow использовал aspect видеопотока 1280×320 (4:1), хотя physical UV strip имеет аспект 12.135:1. В Flow-атласе все пять выходов теперь показываются по физическим размерам surface-geometry.json и в одном масштабе px/метр. Стела/стены стоят рядом, ленты и арка отдельными узкими строками; обе ленты остаются одной карточкой. Добавлены «Вместить», 150%, 200%, внутренний скролл и размеры в метрах. Убрана sticky-панель общей карты, перекрывавшая атлас при прокрутке. Саму общую симуляционную карту не перепаковывали.
+
+
+
+attachAtlasInput получает аспект видимой физической поверхности вместо aspect декодера. Отдельный presentation также показывает физические пропорции с учётом ROI и доступного окна/fullscreen. Новый общий helper surface-preview.js; модель, UV, renderSize, сценные настройки и движок не менялись. Документация MVP Flow и три корневых документа обновлены.
+
+
+
+Проверено: node --check четырёх изменённых JS; 3/3 input-теста (включая точность мыши на анаморфном выходе 4:1→12:1) и 106/106 Ribbon CPU. Flow, Service, Viewer, Ribbon пересобраны. Одна браузерная вкладка: атлас с пятью живыми выходами, увеличение 200%, отдельное превью арки. DOM-аспекты согласованы с моделью; арка в отдельном окне 12.13579 при исходном видео 1280×320, readyState=4. Console warn/error пусты. Отчёт и исходный скриншот: artifacts/reports/proportional-viewer-20260925. Временная вкладка закрыта, сервис оставлен работающим. Тяжёлых тестов, видео, TD-изменений и Git stage/commit/push не было. Размеры взяты из модели; аппаратная LED-калибровка остаётся отдельной задачей.
+
+
+
+
+## 2026-09-25 — направление нижней ленты исправлено в TouchDesigner
+
+
+
+Причина: обе стороны получали общий Textures/out1 без компенсации противоположных продольных UV. WEB уже имел поворот нижней live-текстуры на 180°, TD его не повторял. Добавлен Textures/lower_ribbon_direction (Transform TOP, 180°, pivot 0.5/0.5) после SCREEN_LINE_DOWN; MAT_SCREEN_LINE_DOWN ссылается на эту копию. Исходный Spout, верхняя сторона, OBJ, камера и геометрия не менялись. Проход выполняется на уменьшенном 1920×88, нового приёмника/генератора нет. При статическом назначении угол 0°. Идемпотентная установка и применение при смене назначений находятся в переносимом assets/scripts/live_surfaces.py; подключённый syncfile применил исправление в открытом TD и повторит его при следующем старте.
+
+
+
+Подключение Envoy MCP проверено: query_network/get_sessions не отвечают, get_td_status показывает устаревшую регистрацию VK_DP_Show.4 и другой живой PID. TD не перезапускался. Фактическая структура и параметры прочитаны разовым диагностическим callback через существующий файловый DAT; обнаружены /project1/Textures и /project1/3DShowreal. Правка выполнена на главном потоке TD. В процессе выявлено имя параметра аннотации Titletext вместо title; исправлено по живому списку параметров, финальная проверка не показывает script/cook errors и warnings. Новая группа находится отдельно на сетке; out1 и прежние группы сохранены.
+
+
+
+Проверено три разных живых кадра: сравнение в одном цветовом пространстве с исходной маленькой копией, развёрнутой по обеим осям, даёт максимальную попиксельную ошибку 0; размер не меняется. Итоговый 3DShowreal/out1 захвачен и просмотрен. 8/8 CPU TD (маршруты/атлас/OBJ UV), 2/2 WEB orientation, отдельные проверки static/reassignment и синтаксис Python. Одна браузерная вкладка мастера показывает пять работающих источников и прежние размеры, console warn/error пусты; закрыта. Диагностические функции после проверки удалены из рабочего скрипта.
+
+
+
+Резерв: artifacts/workspace/tasks/td-ribbon-direction-20260925. Проверки/кадры: artifacts/reports/td-ribbon-direction-20260925. Обновлены документация TD и три общих документа. .toe отдельно не сохранялся; перенос исправления обеспечен уже подключённым assets-скриптом, холодное повторное открытие не проверялось. Не выполнялись нагрузочные тесты, запись видео или Git stage/commit/push.
+
+
+
+
+## 2026-09-25 — отменена масштабная переделка арки
+
+
+
+По прямому указанию пользователя отклонён эксперимент открытой спирали: изменение формы оказалось чрезмерным. Восстановлены точные stand.glb и screens.json из artifacts/workspace/spiral-20260925, сохранённые до переделки. Возвращены прежние арка, оба корпуса и окончания обеих лент; сохранены более ранние пользовательские изменения модели, включая Стеллу 9:16. Проверено побайтовое совпадение исходной и runtime-модели с резервом: SHA-256 8c62d4e355f45b06178ca3ee7aa0e784a1eac3a7bbf3bfcde3eb0981184c637a.
+
+
+
+Отменены зависимые изменения pixel-map, SurfaceField, описания Viewer и вызов спиральной перестройки из импортера. Прежние arch-seam sampling и тесты восстановлены. Экспериментальные генератор/тест перенесены в workspace и не участвуют в сборке. Пересозданы прежние surface-geometry, UV SVG и переносимые TD OBJ/manifest (27 частей); два лишних экспериментальных OBJ убраны из assets в workspace. Открытый патч TD и .toe в этой задаче не редактировались. Предшествующий поворот живой нижней ленты Viewer сохранён, он был сделан до отменённой геометрической итерации.
+
+
+
+Viewer, Service --preserve-native и Ribbon пересобраны. Первый повтор сборки Service встретил временный доступ к surface-geometry.json; штатный повтор завершился. check_glb: 25 узлов, 285851 треугольник, UV без нарушений; node --check, 10/10 профильных тестов. Мастер запущен: пять источников running/error=null. Одна браузерная вкладка: прежняя форма видна, ошибок/warn нет; вкладка закрыта. Полные тесты экспериментальной версии были прерваны пользователем и не объявляются пройденными. Тяжёлых GPU-прогонов, видео, Git-операций не было. Проверка точного отката: artifacts/reports/spiral-20260925/rollback.json. Бэклог/дизайн/архитектура отмечают отмену; дальнейшие правки стыка должны сохранять основную форму арки.
+
+
+
+
+## 2026-09-25 — исправлена сама геометрия Стеллы под 9:16
+
+
+
+Пользователь показал сжатую по ширине Стеллу: предыдущая правка изменила program до 1080×1920, но оставила физическую плоскость 0.686872×1.686872 м (0.407:1). Исправлена общая каноническая GLB-модель: активный экран теперь 0.948866×1.686872 м, отношение 0.5625 (9:16). SCREEN_STELLA, STELLA_CASING, STELLA_SUPPORT и два основания расширены по X в 1.3814298 раза вокруг центра экрана. Высота, Y/Z и центр экрана сохранены; нормали преобразованы обратным масштабом и нормализованы. UV, индексы и байты всех остальных объектов проверены на неизменность. Перед правкой сохранены GLB, manifest/screens и .toe в artifacts/workspace/stella-geometry-20260925.
+
+
+
+Генератор build_final_model.py применяет ту же коррекцию пяти частей при будущем импорте FBX; общий контракт пропорций вынесен в stella_geometry.py. В screens.json Стелла имеет номинальные 1080×1920 с явной resolution_basis; расчёт P2.6 остаётся отдельной справкой. Обновлены surface-geometry.json, электрический инвентарь без изменения мощностей, TD OBJ и manifest, размеры экранов и документация Viewer/Service/TD, три общих документа. Viewer, Service --preserve-native и Ribbon пересобраны. Первый проход сборки Service встретил временный WinError 1224 при замене файла; штатный повтор успешен, изменений упаковщика в этой задаче нет.
+
+
+
+Envoy MCP всё ещё connected=false при живом TD. Через уже действующую syncfile-связь DAT на главном потоке проверен реальный параметр File In SOP refreshpulse и применена идемпотентная sync_stella_geometry: пять OBJ перечитаны без перестройки сцены. Эта миграция выполняется также при открытии прежнего .toe с актуальными assets. Из фактических точек /project1/3DShowreal/stand/SCREEN_STELLA/mesh получено отношение 0.5625000177, errors пусты. После запуска мастера таблица TD показывает 6/6 LIVE; Стелла получает 1080×1922 со stamp и строит превью 608×1080. Кадр out1 просмотрен; единичный PNG сохранён для проверки, временная функция захвата/диагностики удалена из runtime-кода. Камера/Home не менялись; текущая пользовательская камера отличается от Home и сохранена. Бинарный .toe не пересохранялся.
+
+
+
+Проверено: check_glb (25 объектов, 285851 треугольник, UV без нарушений), 8/8 TD CPU с новым утверждением 9:16 по OBJ/manifest и 1080×1920 по каталогу, 10/10 Service CPU, 100/100 Ribbon CPU, Python AST. Сравнение с резервом подтверждает изменение только POSITION/NORMAL пяти частей Стеллы; отношение размера пикселя по X/Y совпадает. Одна браузерная вкладка 800×600: обновлённая модель и пять живых WebRTC-потоков, ошибок/warn нет. Мастер перезапущен, пять источников running/error=null. Тяжёлых тестов, видео, Git stage/commit/push нет. Материалы: artifacts/reports/stella-geometry-20260925 (JSON проверки и TD preview). Предыдущая запись о сохранении узкой геометрии отменена этим уточнением.
+
+
+
+
+## 2026-09-25 — внешняя арка исключена из мастер-проекта, Стелла 1080×1920
+
+
+
+По уточнению пользователя внешнего экрана арки физически нет. SCREEN_ARKA_OUTER/vk-arch-outer исключены из общего контракта ролей, каталога поверхностей, server defaults/миграции, journey prepare, пиксель-карты, мастера, Flow и Viewer. Старые конфиги больше не запускают этот worker; внешнюю арку нельзя назначить через API. Остались пять источников на шесть поверхностей: обе ленты делят ribbon-up. В текущем configs/stand-service.json Стелла переведена в 1080×1920, lockAspect=true, minShortSide=1080; новый профиль/«Исходный размер» также 1080×1920, последующие пользовательские профили миграция сохраняет. В таблице назначений мастера показывается фактический размер источника; расчётный LED-размер модели подписывается отдельно при отсутствии program.
+
+
+
+Перед правкой сохранены GLB, screens.json, config и VK_DP_Show.toe в artifacts/workspace/surfaces-20260925. Из канонического GLB удалены только node/mesh/material внешнего экрана; остальные узлы, материалы и весь бинарный блок проверены на идентичность резерву. Итог: 25 объектов, 285851 треугольник, шесть экранов. Генератор FBX→GLB больше не создаёт внешнюю поверхность; расчётный электрический каталог пересобран без неё, исторические мощности PDF не менялись. OBJ-manifest TD пересобран: 27 частей. Размеры корпуса/геометрии Стеллы пока сохранены из исходной модели; по отдельному вопросу об изменении геометрии под 9:16 ответ не получен. Разрешение program и физический размер модели не отождествляются.
+
+
+
+Envoy MCP get_td_status: TD жив, но подключение по-прежнему отсутствует после прошлого запуска. Рабочая syncfile-связь DAT позволила применить штатную идемпотентную миграцию live_surfaces.py: в открытом /project1/3DShowreal отключены render/cooking SCREEN_ARKA_OUTER, cooking приёмника vk_arch_outer; старый route переведён в no_signal. Фактические флаги подтверждены TD-записью apps/TD/logs/six-surface-layout.json. Камера/Home не менялись. Бинарный .toe в этом ходе не пересохранялся: обновлённые assets/scripts применяют миграцию и при последующем открытии старого патча. Полные 6/6 LIVE в TD через MCP не проверены; это не подменяется статусом отправителей мастера.
+
+
+
+Проверено: 29 профильных Service CPU-тестов (28 сразу, один subprocess-тест повторён отдельно с системным разрешением после sandbox EPERM), 100/100 Ribbon CPU, 8/8 TD CPU, синтаксис изменённых JS и Python, check_glb без нарушений UV. Новый тест проверяет Full HD default Стеллы, удаление старого worker/назначений, сохранение пользовательского профиля, journey prepare без восстановления внешней арки и отказ старому surface ID. Штатно пересобраны Stand Viewer, Stand Service --preserve-native, Ribbon MVP, VK Video Flow. Native не менялся. После чистого stop/start мастер на 8770: все пять источников running/error=null, Spout sending, Стелла program 1080×1920 / transport 1080×1922 (двухстрочный stamp), NDI выключен.
+
+
+
+Короткая базовая проверка по одной вкладке 800×600: мастер показывает одну Арку и профиль Стеллы 1080×1920; Flow — пять видимых превью readyState=4, Стелла 608×1080; Viewer — шесть назначений, пять живых WebRTC-потоков, консоль warn/error пустая. Это базовая проверка, не измерение 60 FPS под нагрузкой. Тяжёлых тестов и видео не было. Общие три документа и документация приложений обновлены. Отчёт: artifacts/reports/surfaces-20260925/verification.json. Git stage/commit/push не выполнялись.
+
+
+
+
+## 2026-09-25 — актуальный снимок для GitHub
+
+
+
+По запросу пользователя подготовлена синхронизация codex/project-structure приватного premium-producer/VK_DigitalProducts: Stand Service 0.12.0, Ribbon 0.29.0, Video Wall и VK Video Flow 0.2.0, обновлённый Viewer, сохранённые патчи TD с assets, проектные инструкции, конфиги, документация и отчёты. Пересобраны пять приложений; окончания строк runtime-исходников приведены к Git checkout для воспроизводимости manifest-хешей. Native сохранён без преобразования байтов. В .gitignore добавлен воспроизводимый TDImportCache, .tog отмечен бинарным. Исходные модели, текстуры и сохранённые версии .toe включены; secrets, workspace, окружения и локальные настройки подключения исключены.
+
+
+
+Проверено: 192/192 Node-теста, 8/8 CPU-тестов TD, синтаксис 135 изменённых JS/MJS/CJS, verify_structure (83 Python-файла, ссылки Viewer/Ribbon), пять штатных сборок и native provenance. Для совпадения хешей после Git checkout экспорт surface-geometry.json явно использует LF; правила сохранения native-байтов имеют приоритет над добавленными Embody правилами расширений. LAN-тест исправлен под текущий контракт: ввод изменяет общее поле на мастере, агент получает field, а не старое stroke-событие. Тест отключает автоматическую эмиссию только в своей временной конфигурации, проверяет пустое поле и появление чернил, учитывает разбиение SSE на chunks. Сканирование текстовых кандидатов на ключи/токены — без находок; файлов больше лимита GitHub 100 МиБ нет.
+
+
+
+Базовая проверка одной вкладки: мастер подключён, шесть источников работают; Ribbon показывает теги и карточки, WebRTC 1920×88 в области 1240×57, console warn/error пусты. При нормализации dev-исходников watcher повторно столкнулся с известным занятым именем Spout; штатный stop/start восстановил вывод. Алгоритм замены Spout owner не изменялся. Проверочная вкладка закрыта; тяжёлых GPU-тестов, видео, изменений GLB или live-патча TD нет. Художественная приёмка, физическая depth-камера и измерение полной задержки остаются открытыми. Main не объединяется с рабочей веткой в рамках этого запроса.
+
+
+
+
+## 2026-09-24 — первое лицо, живой depth-силуэт и сокращение задержек
+
+
+
+Прогулка возвращена от первого лица. Собственный меш не закрывает камеру; матрица/геометрия PERSON_JAMIE продолжает работать в независимом depth-проходе. GLB и статичный исходный скан не менялись. Основной силуэт берётся из свежей depthmap сразу: удалены 90 мс нарастания, ~217 мс затухания движущейся позы и 70 мс смешивания масок. Пространственный 3×3 фильтр сохранён; fadeMs действует при потере камеры. Новый sequence обходит 16 мс cache. Виртуальный capture — целевые 30 Гц вместо 10, асинхронный PBO/fence, восстановление render state до ожидания, один захват/один запрос/один заменяемый свежим ожидающий кадр; кадры старше 120 мс отбрасываются. Poll маски 16 мс вместо 67. WebRTC preview только левой стены — до 30 вместо 15 Гц, optional jitterBufferTarget=0.
+
+
+
+RGBA8 внутренней маски разделяет coverage, текущий контур и короткий trail. След переносится/рассеивается с затуханием 85 мс и малой амплитудой; он не удерживает старую яркую позу. В SurfaceField добавлен медленно меняющийся рисунок света на фиксированной сетке: неоднородный разорванный контур и слабое заполнение. Время независимо от паузы флюида. Без деформаций тела/UV, общего размытия карточек или отдельного billboard. Это художественный перенос света, не новый физический fluid solver. На /wall — регуляторы «Живой рисунок» (.85) и «Лёгкий след» (.14). Старая палитра и остальные настройки сохранены; hash stand-service.json совпадает с резервом начала итерации.
+
+
+
+Проверено: 84/84 Service CPU, 107/107 Viewer+Ribbon, syntax JS, сборки Viewer/Ribbon/Video Wall/Service, соответствие runtime исходникам. Новые тесты подтверждают мгновенное удаление предыдущего тела при перемещении, новый кадр внутри cache-интервала, отдельный след до точного нуля, свежий пустой кадр, скрытую собственную модель и замену ожидающего HTTP-кадра без очереди. CPU-бенчмарк 320×132→468×195: медиана до 5.20 мс / после 4.76 мс, p95 6.53 / 6.81 мс. Основное сокращение задержки — устранение ожиданий и смешивания поз, не ускорение CPU. Полная motion-to-photon задержка не измерена.
+
+
+
+Базовый просмотр по одной вкладке 800×600: первое лицо, реальный силуэт на стене, поступающие 320×132 кадры, console warn/error пусты. В наблюдаемом статусе async readback ~5 мс, HTTP ~2–3 мс; маска CPU 4.20 мс, возраст входа 21 мс. IAB не разрешил Pointer Lock: ручная непрерывная ходьба остаётся для обычного браузера. После последнего упрощения feed до одной текстуры проверены шейдеры и видимое превью /wall. Перезапуск одного worker столкнулся с занятым именем Spout; штатный stop/start сервиса освободил владельца, все шесть выходов running/error=null. Механика параллельной замены Spout owner не исправлялась. TD и native не менялись. Вкладки закрыты, viewport восстановлен, временная depth-сессия освобождена. Нагрузочного GPU-прогона и записи видео нет.
+
+
+
+Документация Viewer/Video Wall и общие три документа обновлены. Референсы с hash, тесты и измерения — artifacts/reports/silhouette-motion-20260924; резерв/скрипты — artifacts/workspace/silhouette-motion-20260924. Открыты художественная/ручная приёмка, физическая камера и её калибровка, измерение полной задержки. Сервис работает на 8770. Git stage/commit/push не выполнялись.
+
+
+
+
+## 2026-09-24 — исправление: управляемая модель прогулки как источник depthmap
+
+
+
+Пользователь отклонил условные контуры демо и уточнил: нужна реальная 3D-модель в прогулке и проекция её силуэта. Удалён процедурный генератор человечков. Режим demo мигрирует в walk, удалён счётчик условных фигур. Viewer использует подробный PERSON_JAMIE из существующего GLB: геометрия клонирована в памяти, рост 1.78 м, камера за спиной, координаты тела отделены от камеры. Сохранены Pointer Lock, WASD, столкновения; камера проверяет препятствие позади. Исходный Jamie временно скрыт во время управления, чтобы исключить двойника/невидимое препятствие, затем видимость восстанавливается. GLB, Blender и исходные материалы не менялись.
+
+
+
+Добавлены walk-avatar.js и walk-depth.js: barycentric UV ближайших треугольников SCREEN_LEFT, локальные dP/du/dv, глубинный проход реальной геометрии 320×132 до 10 Гц, RG8→U16 LE миллиметры и прежний DEPTH16 API. Силуэт связан с координатами/поворотом управляемого меша; это не готовая текстура и не скелет. Один временный источник viewer-walk, без зеркала физической камеры, с владением сессией, закрытием по собственному token и TTL. Живые камеры отделены режимом live. Вторая прогулка не перехватывает уже активную; её UI явно сообщает об этом. При закрытии/уходе силуэт угасает через существующую обработку и тот же CellGrid3D/bloom.
+
+
+
+Проверено: 82/82 CPU-теста Service, 106/106 Viewer+Ribbon; syntax JS, штатные сборки Viewer/Video Wall/Service. Новые проверки: движение тела и следящей камеры, исходная геометрия неизменна, рост/видимость персонажа, ориентация UV по реальной стене, режим walk без процедурных фигур, отсутствие зеркала, lease/close/re-entry. Короткая базовая проверка одной вкладки 800×600 показала реальную модель и общую живую стену, console warn/error пусты. Встроенный браузер отказал Pointer Lock, поэтому ручная непрерывная ходьба в нём не проверена. Уже существующая другая 3D-прогулка владела источником; тестовая вкладка корректно получила конфликт, чужая сессия не перехватывалась. Через API подтверждены приходящие 320×132 DEPTH16 кадры и непустая coverage/edge маска. Нагрузочный GPU-тест и запись видео не выполнялись; viewport восстановлен, тестовая вкладка закрыта.
+
+
+
+Локальный сервис перезапущен на 8770, шесть выходов running/error=null. Остальные настройки/назначения не сбрасывались. Документация Viewer — apps/Stand Viewer/docs/WALK_DEPTH.md; Video Wall и три общих документа обновлены. Отчёты — artifacts/reports/walk-depth-20260924. Открыто: ручная приёмка WASD в обычном браузере, художественная приёмка, физические камеры/калибровка. Исходный персонаж — статичный скан без анимации походки; он перемещается и поворачивается целиком. Виртуальная локальная ортографическая UV-проекция не заявляется точной моделью оптики Kinect. Git stage/commit/push не выполнялись.
+
+
+
+
+## 2026-09-24 — depth-only силуэты на общей сетке и левой стене 3D
+
+
+
+По указанию пользователя предыдущее предложение body-index/tracks заменено исключительно DEPTH16. Добавлены depth-silhouettes.mjs: диапазон расстояний, вычитание пустой сцены, зеркало и 2D-прямоугольники до трёх камер, max-union, coverage/контур, временное сглаживание и угасание до нуля. API принимает бинарные U16 LE миллиметры с проверкой размеров, сессии, sequence, Host/Origin и CSRF. Кадры/пустой фон только в памяти. Настройки сохраняются в ProjectStore; старые конфиги получают off. Количество живых силуэтов не связано с двумя owners. Личность и ownerId не вычисляются.
+
+
+
+SurfaceField принимает отдельную RG8-маску в координатах SCREEN_LEFT, объединяет её свет с флюидом до существующего CellGrid3D/Z/DOF/bloom. Контент остаётся сверху, фон и fluid не маскируются телом; отдельного рендера человека нет. В 3D силуэты находятся на самой левой стене через прежний program/WebRTC, тот же кадр идёт в Spout. В /wall добавлены режимы off/demo/live, параметры, загрузка одного raw-кадра, пустой фон, зоны камер и ссылка 3D. Demo — явно синтетическая depthmap, 1–8 фигур. Сейчас оставлен demo=3 для просмотра. Добавлен переносимый Python producer: Sensor SDK ctypes (без Body Tracking) или stdin; SDK не установлен, физическая камера не запускалась.
+
+
+
+Проверено: 81/81 CPU-тест Service (включая настоящий Python stdin → локальный HTTP), 100/100 Ribbon, node --check изменённых JS, Python AST/CLI, пример JSON, сборки Video Wall/Service/Viewer/Ribbon. Python subprocess потребовал штатного снятия sandbox EPERM для CPU-теста. Базовая проверка в одной вкладке обнаружила GL-ошибку при изменении размера уже загруженной текстуры; исправлено пересоздание texture, добавлен код WebGL в диагностику worker. После исправления видны три силуэта на стене и в 3D (проверен внутренний ракурс), все шесть видео readyState=4, консоль warn/error пустая. Временный viewport 800×600 восстановлен, вкладка возвращена на настройки стены. Это короткий базовый просмотр действующих выходов; отдельный запрошенный расширенный GPU smoke без подтверждения не запускался, записи видео нет.
+
+
+
+Локальный сервис обновлён и запущен на 8770. В сравнении с резервом изменились только depthSilhouettes/projectRevision; instances, назначения, размеры, Spout-флаги и пользовательский контент сохранены. Шесть источников работают; повторения Spout mutex сбоя в этой проверке не было. Документы Video Wall, три корневых документа и сетевое ТЗ обновлены; подробности приложения не перенесены в корневую docs. Отчёт/тесты — artifacts/reports/depth-silhouettes-20260924, служебные файлы/резерв — artifacts/workspace/depth-silhouettes-20260924.
+
+
+
+Открыто: физическая Azure Kinect/задержка, точная калибровка камер и wall projection, защищённая передача с NUC, устранение пространственных дублей перекрывающихся камер и связь с персональными пакетами. Depth-only выделяет все объекты зоны, а не семантически только людей; мебель исключается пустой сценой/диапазоном. Текущий camera adapter имеет локальный ingress, не завершённое LAN-решение. Художественная приёмка остаётся пользователю. Git stage/commit/push не выполнялись; TD/.toe/native и модель не изменялись.
+
+
+
+
+## 2026-09-24 — исследование силуэтов всех посетителей левой стены
+
+
+
+Подготовлено apps/Video Wall/docs/USER_SILHOUETTES.md: визуальный разбор нового референса, сравнение источников маски, путь Azure Kinect body-index/depth/tracks → калибровка/объединение в TD → временный вход Service → общий материал CellGrid3D. Ключевые ограничения найдены в коде: validWall допускает ровно двух owners, WallLayer получает только тестовые present/x/y, масок тела и камерного адаптера нет. Предложены tracks независимо от владельцев контента, силуэты всех обнаруженных людей, ручная подтверждённая связь с сессией для первого MVP, TTL/угасание/обработка перекрытий и устранение дублей камер. Материал — контур и слабое заполнение на той же сетке, отдельный силуэтный вход, selective bloom до карточек; тело не переносится как dye. Движение может отдельно воздействовать на существующий флюид.
+
+
+
+Проверены первичные документы Microsoft Body Tracking/Calibration/multi-camera и Derivative Kinect Azure TOP/CHOP; источники в документе. Подготовлен пример silhouette-frame.example.json (проект протокола, не runtime API), бюджет маски и последовательность MVP/камерной интеграции. Общие DESIGN_DOCUMENT/ARCHITECTURE/BACKLOG обновлены, добавлен VK-025 со статусом «Запланировано», сетевое ТЗ дополнено потребностью в синхронной body-index карте. Документация реализации находится в приложении. Исходный референс без изменения и SHA-256 — artifacts/reports/left-wall-silhouettes-20260924.
+
+
+
+Проверено: существующие исходники/текущая карта (SCREEN_LEFT 156×65, полный map 811×65), локальные ссылки, корректность JSON/размера бинарного payload и единственность строки VK-025. Короткий просмотр существующей Flow в одной вкладке: карта видима, console warn/error пусты. Код/конфиги/runtime/TD не менялись, сборщики и GPU-нагрузка не запускались, камерная реализация не заявляется готовой. Открыто: расположение/покрытие трёх Kinect, GPU NUC, измеренная задержка/ёмкость, калибровка и автоматическая связь с тестом. Реализацию визуального MVP можно начинать с явно тестовых масок. Git stage/commit/push не выполнялись.
+
+
+
+
+## 2026-09-24 — единая плоская пиксель-карта и проверка переходов
+
+
+
+По утверждённому пользователем порядку стела → арка → лента → левая стена → правая стена заменена world→UV проекция фона. Она складывала кривые меши назад и сжимала выборку длинных лент в узкие полосы. Теперь один SharedFluid, соседние положительно ориентированные crop-области с целочисленными границами клеток, единый физический шаг и общие snapshots. Поле 640×51 при текущей карте; высота определяется аспектом при запуске. Обе ленты — тот же ribbon-up, внешняя арка получает фон участка внутренней при сохранении собственного выхода. Геометрия/UV, native-код, настройки и назначения выходов не изменены. Уже доставленный пользовательский пакет на левой стене сохранён; его owners/session отличаются от раннего резерва, не откатывались.
+
+
+
+На /flow основное превью — вся карта тем же RibbonEngine, с границами и масштабом ×2/×4. Никакой склейки видеокадров и дополнительной симуляции. Мышь проходит через границы, длинные штрихи интерполируются без дыр; stale mapKey отклоняется. Состояние и поле идут в одном SSE. Атлас шести экранов с контентом раскрывается отдельно, подписки освобождаются при закрытии. Сущность/теги фронтальны, Z/DOF клеток сохранены. Палитра и динамическая подложка используют координаты карты; переход в фиолетовый привязан к началу правого участка.
+
+
+
+Проверено: 71/71 CPU-тест Service, 100/100 Ribbon, syntax изменённых JS, штатные сборки Service/Flow/Viewer/Ribbon. Проверки включают одинаковое направление и шаг при 8/12/24/32 рядах, перенос dye через границу, непрерывный stroke, SSE карты и отказ старой раскладке. Согласованный изолированный GPU smoke: шесть выходов 285504 px + карта 96536 px, около минуты (ограничение 75 с), без Spout/записи. Все шесть running; в одной браузерной вкладке видны карта и яркие штрихи через арка→лента и лента→левый экран, console warn/error пусты. На автоматическом закрытии smoke отмечен IPC Unknown GPU output owner; он не возникал в рабочем рендере.
+
+
+
+После обновления рабочего сервиса повторилась ранее описанная чужая зависшая блокировка SpoutSenderNames_mutex: внешнему потоку недоступна, на главном потоке TD Wait(0)=0; диагностический захват сразу сбалансирован. Разово освобождён один подтверждённый оставшийся захват на том же потоке, после чего внешняя проверка успешна. Автоматическое освобождение не добавлялось, TD/.toe и его операторы не изменялись. После штатного перезапуска все шесть рабочих источников running/error=null, все шесть браузерных видео readyState=4, видимый атлас и консоль проверены. Причина повторного удержания mutex в TD остаётся нерешённой.
+
+
+
+Материалы — artifacts/reports/pixel-map-20260924 (CPU, smoke, verification.json). Runtime-файлы сверены с исходниками; назначения, палитра, параметры визуала, размеры и Spout-флаги сохранены. Документы трёх общих разделов и Service/Flow обновлены. Это логическая непрерывная развёртка, не доказательство физического совмещения всех ответвлений и замыкания арки u=0/u=1; аппаратная/художественная приёмка и генлок остаются открыты. Git stage/commit/push не выполнялись.
+
+
+
+
+## 2026-09-24 — все поверхности TD получают живой Spout; пользовательский Home
+
+
+
+Через локальный Envoy MCP (9870, VK_DP_Show, TD 2025.32460) подключены все семь SCREEN_* в Textures/3DShowreal. SCREEN_* теперь стабильные Select TOP по назначениям мастера; исходные изображения сохранены как STATIC_SCREEN_*. Шесть действующих приёмников, обе ленты используют один ribbon-up по актуальному контракту параллельно обновлённого мастера; внешняя арка получает vk-arch-outer. Отдельный резервный ribbon_down не назначен. Spout включён у назначенных источников, NDI выключен. Сервисные размеры/контент/UV/OBJ не менялись этой задачей. Асинхронный native Web Client обновляет назначения и programPlan каждые 2 секунды; каждый атлас распаковывается с удалением stamp/padding в копию не более 1920×1080. Повторных генераторов нет. Таблица surface_status, 8-секундный контроль свежести, явная заглушка при отсутствии сигнала, статический кадр только по явному назначению мастера. В кэш не попадает csrf; все добавленные TD-скрипты/данные находятся в assets.
+
+
+
+После перезапуска отправители имели shared-текстуры и растущие счётчики, но TD возвращал 128×128. Односекундный native приём Стеллы с проверкой frame stamp прошёл. Каталог Spout был пуст; внешний WaitOne(0) не мог взять SpoutSenderNames_mutex, а главный поток TD мог. На этом потоке разово освобождена одна ранее удерживаемая блокировка, следующий ReleaseMutex вернул ERROR_NOT_OWNER (288). Принудительное освобождение не добавлено в runtime. После штатного запуска мастера все семь поверхностей LIVE. В gpu-hub.h добавлены контроль фактического имени и повторное объявление собственного sender при пропаже из каталога (раз в 2 секунды); недоступная регистрация теперь явно ошибочна. Этот контроль сам не лечит зависший сторонний mutex. Native bridge и Service собраны штатными сборщиками. Начальная сборка потребовала устранить дубли PATH/Path только в окружении дочернего MSBuild.
+
+
+
+По последнему указанию текущий пользовательский ракурс сохранён как Home: eye=(6.645486687,4.319472873,18.045416262), target=(0.563804977,1.282707738,0.386105948), горизонтальный FOV=25°. Home и builder используют эти значения. Разрешение 3D 3840×2160, ./out1 панели и offset заднего экрана сохранены. Навигация не изменена.
+
+
+
+Проверено: синтаксис 5 Python-скриптов; 8/8 CPU-тестов TD и 8/8 CPU-тестов GPU output/sync. Живые проверки разрешения ссылок для static/missing/reassignment, offline guard, Home и ./out1 — 6/6; назначения восстановлены. Отдельно проверены шесть непустых кадров и общий 3D-стенд; /project1 без ошибок/предупреждений. Одна браузерная вкладка мастера показывает работающие сцены, console warn/error пусты; прежний горизонтальный overflow карточек на узком viewport не менялся. Это не нагрузочная/FPS-приёмка; тяжёлых тестов и записи видео не было. Envoy save job_9eb8d8c3 завершён: VK_DP_Show.4.toe скопирован в основной VK_DP_Show.toe. Резерв — artifacts/workspace/td-stand-20260924/VK_DP_Show-before-all-live.toe. Доказательства — artifacts/reports/td-stand-20260924/all-live-{stand.jpg,captures.json,status.json}.
+
+
+
+Обновлены инструкция TD, NATIVE_OUTPUTS и три общих документа. Открыто: устойчивые 60 уникальных кадров/аппаратный генлок, перенос полного show-комплекта, обратный интерактивный ввод из TD. Причина первоначального захвата mutex внутри TD отдельно не доказана; повторный такой сбой требует диагностики, не автоматического снятия чужих блокировок. Git stage/commit/push не выполнялись.
+
+
+
+
+## 2026-09-24 — атлас Flow, мышь и один источник обеих лент
+
+
+
+На /flow вместо переключателя одиночных экранов — компактный атлас шести источников: обе ленты одной карточкой, стела, обе стороны арки, левая и правая стены. Пропорции сохраняются, этап маршрута выделяется рамкой, ссылки открывают отдельный экран. Превью используют существующие видеопотоки. На прежней странице вообще отсутствовал pointer handler: подключён общий createFluidInput Ribbon с hover без кнопки и touch-drag, правильной object-fit UV, ограниченной очередью, сбросом при уходе/смене generation и cleanup. Счётчик под карточкой подтверждает приём штрихов. SharedFluid.splat теперь обновляет sequence даже при остановленном времени.
+
+
+
+По новому уточнению пользователя нижняя лента НЕ самостоятельный источник: legacy ribbon-down мигрирует в ribbon-up, назначения обеих физических лент связаны, prepare маршрута и новые конфиги учитывают это. Миграция рабочего конфига сохранена через API. Резерв до миграции — artifacts/workspace/flow-atlas-20260924/stand-service.before.json. TD/.toe и модель не изменялись; для аппаратного дубля в TD должен использоваться один верхний Spout-поток на обоих получателях.
+
+
+
+Проверено: 65/65 CPU-тестов Service, 100/100 Ribbon; syntax изменённых JS. Тесты покрывают hover, touch, чёрные поля video, смену generation, очередь медленного HTTP, snapshot на паузе и миграцию лент. Flow, Viewer, Ribbon собраны. Обычный build_service сначала остановлен несобранными параллельными C++-правками. Добавлен --preserve-native: WEB-сборка допускает сохранение бинарника только при идентичности установленного binary/hash record и всех native JS bindings; SHA бинарника проверяется. C++ не редактировался этой задачей.
+
+
+
+Короткая базовая проверка — одна вкладка, изолированный сервис8772 без Spout/видео, ~0.285 Мп после исправления слишком низкого тестового размера наружной арки (40 px давали capture timeout из-за минимальной высоты окна; заменено на 64 px). Все шесть кадров появились. При отключённом autoEmit и очищенном поле drag над левой стеной создал яркий световой след, видимый также на связанных поверхностях; console warn/error пусты. Smoke остановлен, отдельные IPC-сообщения на замене/закрытии тестовых выходов сохранены в отчёте. Основной сервис временно падал с Spout sender registration failed во время параллельной работы «МАСТЕР-ПРОЕКТ»; затем восстановился после её правок. Финальная проверка8770: шесть running/error=null, все video.readyState=4, пропорции/атлас видимы, console warn/error пусты. Оставлена рабочая вкладка /flow. Размеры, настройки сцен и Spout-флаги оставшихся источников сохранены.
+
+
+
+Материалы: artifacts/reports/flow-atlas-20260924. Обновлены три общих документа, MVP Flow и контракт общего движка. Автоматическая проверка запретила сообщение с внутренними диагностическими данными в соседнюю задачу без разрешения пользователя; сообщение не отправлялось, после восстановления сервиса передача больше не нужна. Открыто: аппаратное назначение дубля в TD и художественная приёмка пользователем; нагрузочного прогона и записи видео не было.
+
+
+
+
+## 2026-09-24 — замечания подрядчика к сетевому ТЗ
+
+
+
+Обновлено docs/tech_docs/NETWORK_BRIEF.md и три общих документа: сеть 1 Гбит/с, Cat5e или выше; 10 Гбит/с только при выявленном ограничении. Белый IP/4G вынесены в согласуемые опции. Удалённый доступ уточнён как доступ администраторов без требования S2S; размещение и владелец VPN-сервера ещё согласуются. Ответственность за сеть лидара отделена от настройки в TD; совместный тест на складе обязателен.
+
+
+
+Проверено: кабельные требования 1000BASE-T по официальной документации Cisco; объём ТЗ меньше 4000 символов, сохранены адрес Dante и программное управление камерами. Это изменения документации; браузерные/нагрузочные проверки не запускались, оборудование не настраивалось. Не решено: схема VPN, опции интернета, достаточность гигабитной сети на реальных потоках и аппаратная приёмка.
+
+
+
+
+## 2026-09-24 — фронтальная сущность и теги без перспективного разворота
+
+
+
+По уточнению пользователя убраны повороты сущности по Y/Z и все повороты карточек JourneyLayer; tagPose стелы и арки больше не выдаёт rotation/turn. В арке сохраняются траектория и плавное окрашивание, без вращения карточки ребром и зеркального текста. Ribbon TagBatch и теги стены уже фронтальны, их глубина/равномерный масштаб/фокус не менялись. Старый spin сохранён в конфиге для совместимости, рендер его не использует. Обновлены три общих документа и контракты приложений.
+
+
+
+Проверено: node --check изменённых JS, тесты journey и ribbon_*.test.mjs прошли; текущий тест хореографии обновлён под нулевые углы. Собраны VK Video Flow, Stand Service, Viewer и Ribbon; изменённые runtime engine.js/journey-model.js совпадают SHA-256 с исходниками. При сборке Viewer был временный WinError 1224 (повтор прошёл), Ribbon — повторная блокировка неизменяемого index.html. Сборщик теперь не переписывает идентичный HTML; повторная сборка успешна. Основной мастер восстановлен. Короткая проверка в одной вкладке /service/presentation.html?instance=vk-stella: сущность фронтальна, пропорции сохранены, живая сцена видима, console warn/error пусты. Новых нагрузочных тестов, видео, Git-операций, изменений настроек пользователя и TD не было. Подробная художественная оценка остаётся пользователю.
+
+
+
+
+## 2026-09-24 — мышь в активном окне TD 3DShowreal
+
+
+
+Короткая финальная проверка в одной браузерной вкладке: мастер открыт, сервис подключён, Ribbon/Spout отправляет 7812×3242, страница видима, console warn/error пусты. Рендер и ввод TD проверялись отдельно через MCP; интерфейс мастера этой задачей не изменялся.
+
+
+
+Добавлена локальная навигация в панели COMP 3DShowreal: ЛКМ + движение вращает камеру вокруг target, ПКМ панорамирует camera и target вместе, колесо приближает/отдаляет. Panel Execute DAT mouse_navigation читает только lselect/rselect/u/v/wheel этой панели. Контроллер apps/TD/assets/scripts/showreal_navigation.py подключён относительным путём, включён также в установщик build_stand.py. Панель показывает out1 в режиме Best Fit; mousewheel и UV правой кнопки включены. Дистанция 0.25–250 м, угол подъёма ±85°, без скачка при первом нажатии и без глобального опроса мыши. Текущие camera=(4.5,6.4,15.5), target=(0,1.8,0), пользовательские 3840×2160 сохранены.
+
+
+
+Проверено через документированный TD interactMouse, по разным реальным кадрам: ЛКМ изменила позицию камеры при неизменном target и дистанции 16.782729 м; ПКМ сдвинула eye/target одинаково, сохранив дистанцию; wheel=+1 уменьшил дистанцию до 14.884946 м при неизменном target. Первая проверка колеса выявила лишний hover guard: instant wheel событие приходило после сброса hover. Guard убран, локальная привязка Panel Execute сохранена; повторная проверка прошла. После тестов исходный ракурс восстановлен. Дополнительно прошли syntax двух Python-файлов, обратимость zoom, пределы угла/больших wheel-значений. Финальный get_op_errors: 0 ошибок/0 предупреждений; layout проверен, отдельная аннотация добавлена. Снимок artifacts/reports/td-stand-20260924/navigation-restored-view.jpg показывает сохранённый ракурс с видимой живой лентой.
+
+
+
+MCP save job_f29d3a3f завершён: VK_DP_Show.2.toe и VK_DP_Show.toe сохранены. Обновлены инструкция TD и три общих документа. Резерв до навигации: artifacts/workspace/td-stand-20260924/VK_DP_Show-before-navigation.toe. Новых нагрузочных тестов, видеозаписи и Git-операций не было. Управление работает в активном Viewer/окне именно COMP 3DShowreal; отдельный просмотрщик TOP out1 не принимает panel-события. Физический drag пользователя не автоматизировался; проверен штатный путь событий панели в TD.
+
+
+
+
+## 2026-09-24 — краткая редакция ТЗ сети и оборудования
+
+
+
+По указанию пользователя в docs/tech_docs/NETWORK_BRIEF.md название сокращено до TD, формулировки сделаны короче. Детали реализации убраны из основного текста, операторы и варианты транспорта оставлены краткими примерами в скобках; инструкция sendBytes удалена. Сохранены требования к сети, IP и физическому порту Dante, программному управлению камерами, потокам Kinect, приёму лидара и поканальному звуку.
+
+
+
+Проверено: размер меньше 4000 символов, полное название TD и sendBytes отсутствуют. Изменения редакционные, код и оборудование не затронуты; браузерные проверки не запускались. Открытые вопросы прежние: адресная схема, номер порта свитча, поддержка протоколов поставленными камерами и аппаратная приёмка.
+
+
+
+
+## 2026-09-24 — сквозной визуальный MVP VK Видео
+
+
+
+Stand Service 0.10.0: добавлены модули stella и arch, экземпляры vk-stella/vk-arch и приложение VK Video Flow (artifacts/vk-video → apps/VK Video Flow). Маршрут /flow/: существующая белая сущность на чёрной стеле → выпуск белых тегов вверх → вращение в арке с окрашиванием около середины → цветные теги + текущий контент на Ribbon → автоматическая доставка личного набора на левую стену. Интервал элементов 0.7 секунды; медиа появляются на ленте. На время маршрута обычные теги/продукты Ribbon скрываются в рендере, его фон/флюид/сохранённые настройки не меняются. Использованы существующая маска EntityRenderer, шрифт, каталоги, crop и локальные моковые фото; новых логотипов/ассетов не рисовалось.
+
+
+
+Координатор хранит один journey с ownerId/sessionId, неизменяемым packet, общим clock, revision и receipt. Сценарий живёт без вкладки; пауза/продолжение/отмена, busy и revision conflict, идемпотентный текущий runId. Доставка и квитанция атомарны; другой владелец не изменяется. При недоступности источника clock блокируется; после восстановления продолжение ручное. При штатном закрытии сохраняется пауза, после аварии — последняя граница этапа. Набор в пути скрыт на стене; после доставки плавно проявляется и ждёт посетителя (present=false). Полный опрос заменён выбором 1–8 тем и кнопкой; камеры, видео, многосессионная очередь и длительное хранение истории id ещё не реализованы.
+
+
+
+В мастер/Viewer добавлены ссылки и роли, в LAN/portable builder — новый runtime. Профили новых сцен демонстрационные: 540×960 и 1280×320. Основной мастер 8770 восстановлен; команда подготовки включила новые источники и назначила стелу, обе поверхности арки и левую стену. Прежние экземпляры и параметры/разрешения/выходы Ribbon и Video Wall структурно неизменны относительно artifacts/workspace/vk-video-smoke-20260924/project-before.json; прежние назначения лент сохранены. Обе стороны арки пока получают одинаковый поток; физическое направление/UV и генлок отдельно не приняты. Живой TD/.toe и внешнее оборудование не менялись.
+
+
+
+Проверки: 154/154 CPU-тестов service/Ribbon плюс отдельный LAN transport 1/1 с mock worker-ами (вне песочницы для PowerShell тестового сертификата); добавлены тесты общей хореографии, валидации, busy/дубликата, паузы/restart, атомарной доставки, остановки источника/блокировки и отмены. node --check изменённых модулей; пять штатных сборок с совпадающими runtime hash. Одна вкладка: изолированные 270×480, 960×240, 1920×88, 960×398, одновременно одно превью; сущность/арка/лента/ожидание стены видимы, ошибки консоли отсутствуют. Проверена фактическая автоматическая доставка с тем же sessionId и пакетом. Замеченное наложение карточек исправлено увеличением интервала и удалением наклона на Ribbon, после холодного запуска визуально проверено. Состояние проекта не заменялось тестовым. Отчёты artifacts/reports/vk-video-flow-20260924; fixture и логи artifacts/workspace/vk-video-smoke-20260924. Тяжёлых GPU-прогонов и записи видео не было.
+
+
+
+Открыто: при одновременном горячем обновлении трёх малых worker-ов в первой проверке появились updating/stale; в это же время основной мастер был снова запущен. Причина и изоляция общей GPU-нагрузки не доказаны. Убрано ненужное пересоздание сцен стелы/арки при правке только editor.js; их dev watcher теперь реагирует на engine.js/scene-model.js. Проверка завершена штатно, холодный старт финальной малой сцены и доставка прошли. Это не приёмка одновременных hot-swap или длительной производительности 23K. Основной blocker производительности из предыдущих записей не закрыт. Полный portable/физическая LAN, камеры, опрос и художественная приёмка остаются. Git stage/commit/push/PR и внешний деплой не выполнялись.
+
+
+
+
+## 2026-09-24 — TouchDesigner: живой Ribbon Spout и стенд из отдельных OBJ
+
+
+
+Через подключённый Envoy MCP (VK_DP_Show, localhost:9870, TD 2025.32460) реализованы /project1/Textures и /project1/3DShowreal. Исходный syphonspoutin1 сохранён: один точный sender VK-003229b1-ribbon-up-program, исходный атлас 7812×3242 без уменьшения. GLSL собирает логическую ленту 23434×1080 в общую копию 1920×88 для 3D, исключая stamp 64×2 и padding последнего сегмента. Полноширинный 23K TOP и повторный рендер Ribbon не создаются. Добавлены параметры соединения, явный индикатор отсутствия/несовпадения сигнала и асинхронный Refresh programPlan из мастера. Оба SCREEN_LINE используют ribbon-up, остальные экраны TD пока статические.
+
+
+
+Каноническая GLB экспортирована без Blender в 28 отдельных OBJ (286281 треугольник), сохранены нормали, мировые координаты и UV с преобразованием V. Модель-источник не изменена: SHA-256 d0429b2a3fceba2f92dcb7c0686477fdb15f07bd9e7286da20e7e948ef150edc. 16 материалов, 12 исходных PNG, модель, карта, скрипты/GLSL и геометрия значка камеры находятся в apps/TD/assets; все файловые ссылки новых сцен относительные assets/.... Render 1280×720/MSAA4, камера и три источника света; логические группы подписаны. Исходный патч сохранён в artifacts/workspace/td-stand-20260924/VK_DP_Show-before.toe.
+
+
+
+Проверено: живой приём и читаемая распакованная лента, наложение на обе поверхности, статические экраны и люди, Refresh, восстановление после исчезновения sender. Начальный чёрный кадр статических Movie File In исправлен через Specify Index=0/Play; после повторного просмотра все материалы видимы. 4/4 малых CPU-теста прошли: стыки и короткая последняя область, защита карты, shader guard, OBJ/UV/ассеты и hash GLB. Финальные get_op_errors для обоих COMP: 0 ошибок и 0 предупреждений; размещение проверено get_network_layout. Сохранение подтверждено MCP job_96c4c451 (done), файлы VK_DP_Show.toe и VK_DP_Show.1.toe обновлены. Одна браузерная вкладка мастера: сервис подключён, верные размеры Ribbon/Spout, console warn/error пусты. Снимки: artifacts/reports/td-stand-20260924. Обновлены три общих документа и apps/TD/docs/STAND_AND_TEXTURES.md.
+
+
+
+При начале источник был выключен; запуск из песочницы блокировался EPERM, разрешённый запуск штатного launcher вне неё восстановил Spout. Позднее источник снова исчез, причина остановки не установлена; повторный штатный запуск восстановил приём. Параллельная работа в проекте обновила мастер до 0.10.0; чужие настройки не изменялись. Разовый снимок TD при живой сцене показал 59 FPS; это не доказательство постоянных 60 уникальных кадров. Новых нагрузочных прогонов, видео и Git stage/commit/push не было.
+
+
+
+Открыто: живые потоки остальных сервисов в TD и синхронизация назначений, обнаружение зависшего кадра, нагрузочная приёмка/все поверхности. Новая сцена хранит свои зависимости в assets, но полный перенос на другой ПК не проверен: существующая инфраструктура Embody/Envoy (.venv, YAML и управляемая externalizations.tsv) требует отдельной упаковки. Не выдавать .toe+assets за проверенный перенос всего MCP-окружения.
+
+
+
+
+## 2026-09-24 — MVP персонального облака левого экрана
+
+
+
+Добавлен модуль video-wall 0.1.0 в общий Stand Service 0.9.0: исходники artifacts/video-wall, runtime apps/Video Wall, сборщик build_video_wall.py. Один worker через существующий GPUAtlas/OSR и WebRTC preview; новых серверов/портов нет. video-wall-left включён, назначен SCREEN_LEFT, профиль 2602×1080; Spout/NDI нового источника выключены. Мастер восстановлен на 8770. Все прежние экземпляры Ribbon поблочно равны резерву artifacts/workspace/left-wall-mvp-20260924/state-before.json; прежние назначения лент сохранены.
+
+
+
+Два независимых набора ownerId/sessionId: первый посетитель отсутствует, контент плавает в домашней зоне; второй присутствует, его облако плавно следует за тестовой позицией. При уходе возвращается в ожидание. Редактор с закреплённым финальным превью, присутствием/X/Y, параметрами движения, назначением на стену и приёмом текущего набора Ribbon. API wall/receive с проверкой владельца, активных тегов и ревизии переносит текстовые теги и существующие медиа с crop, не меняя другого владельца. Тестовые настройки/пакеты сохраняются в ProjectStore. Передача второму владельцу проверена: 60 тегов и 3 медиа, первый сохранил 6 тегов/2 медиа. Одновременно выводятся до 8 тегов на владельца.
+
+
+
+Референс сохранён без изменения с SHA-256 в artifacts/reports/left-wall-reference-20260924. Неизвестные логотипы/ассеты обозначены красным «?», новые логотипы и предметные иллюстрации не рисовались. Четыре локальных моковых изображения NASA Image Library со ссылками/credits/hash в assets/sources.json. Текстовые плашки созданы кодом. Обновлены общие BACKLOG/DESIGN_DOCUMENT/ARCHITECTURE, подробный контракт apps/Video Wall/docs/MVP.md и ссылки сервиса. В portable builder и LAN-регистрацию добавлен новый модуль; полный portable и физический LAN не принимались.
+
+
+
+Проверено: 151/151 CPU-тестов service/Ribbon плюс 1/1 LAN transport с тестовыми worker-ами (отдельный разрешённый запуск вне песочницы, блокировавшей PowerShell), node --check 11 JS-модулей, четыре штатных сборки, контроль хешей runtime-манифестов. Одна браузерная вкладка: running 2602×1080, живой preview 1920×796/readyState 4, корректное отношение сторон, видимые локальные картинки/текстовые карточки, console error/warn пусты. Проверены смена X второго владельца и возврат 0.73, его уход/возврат и reload; итог visitor-01 отсутствует, visitor-02 присутствует. При проверке найден /wall/ 404 — исправлен index fallback и повторно проверен после перезапуска. Тяжёлых GPU-прогонов и записи видео не было. Отчёт artifacts/reports/left-wall-mvp-20260924.
+
+
+
+Границы MVP: присутствие и координаты тестовые, камер/распознавания нет. Ribbon передаётся явной кнопкой/HTTP-снимком настроенной композиции; автоматический producer после теста Stella и поток персональных событий ещё не реализованы. Тизеры пока статичные, ротации всего каталога/очереди видео нет. Фон процедурный, отдельного fluid solver нет. Длительная производительность общей 23K-сборки этим MVP не подтверждена, прежний блокер производительности остаётся. Публикация на внешний сервер, Git stage/commit/push/PR не выполнялись.
+
+
+
+
+## 2026-09-24 — рендер больших полотен · Stand Service 0.6.0 / Ribbon 0.25.0
+
+
+
+Реализован tiled runtime: core до 1920×1080, поля эффектов 64 px и чётная сетка bloom; до 64 частей на источник без выделения полного canvas. Одна сцена/симуляция/время на группу, global camera/input, отдельные координаты экранных частиц, ввод/clear и config на границе кадра. Preview публикуется после всей группы, полноразмерные части идут в именованные Spout/NDI каналы. NativeOutputGroup проверяет порядок, общий frameId и готовность всех частей протокола; NDI timecode общий. Сервер принимает только complete tileProof. Большие профили теперь применимы; порог 1080/замок/legacy до Apply сохранены. Обновлены три общих документа и документация приложения.
+
+
+
+Проверено: 143/143 CPU-теста (в том числе API ready-swap для 23434×1080/13 частей), syntax 81 JS/CJS/MJS, штатные сборки Viewer/Ribbon/Service и native bridge MSVC. Короткий paused GPU smoke 8200×32 выдал 5 частей без ошибки. В единственной браузерной вкладке сравнены 3200×180 целиком и по двум частям: seamMean 0, max 1/255, GL error 0, повторного шага симуляции нет. Исправлен выявленный тестом screen-space offset PixelTags. Независимые приёмники Spout/NDI получили по 3 кадра двух каналов 319×179, NDI 320×180, цвета правильные. Evidence: tiled-tests-20260924.txt, tiled-gpu-20260924.json, tiled-seams-20260924.json, tiled-native-20260924.json в artifacts/reports.
+
+
+
+Автоматическая проверка разрешений отклонила полный GPU-прогон 23434×1080 как тяжёлый тест, запрещённый AGENTS.md. Вместо него выполнены малые проверки выше; 23K подтверждён CPU-контрактом, но не нагрузочной аппаратной приёмкой. Разделение частей одного источника между ПК, физическая LAN/genlock, GPU zero-copy, длительный FPS и чистый ПК остаются нерешёнными. До 64 частей — защитный лимит, не гарантия производительности. 3D/WebRTC — обзорное превью, исходные растры и сетка жидкости не получают новых деталей от одного повышения выхода.
+
+
+
+Portable 0.6.0: 286 записей, 217290447 байт, SHA-256 ca5bf2de94a1f8ee4c7acd909222612fc6a023d0356fad2c4c572a14e3a5f4d3; ZIP CRC и все hashes проверены сборщиком. Проверены 183 runtime-файла трёх приложений; итог artifacts/reports/tiled-checks-20260924.json.
+
+
+
+Рабочий мастер 8770 возвращён на 0.6.0, up работает с прежними 3884×179 и обоими native-выходами, down выключен. Конфиг побайтово сохранён: SHA-256 48f20ce08f31877ca06d216d88a3037e8a4aeb4112e38f144b8ef81a058d2f0d, ревизия 9. UI показывает доступный план 23435×1080/13 частей; полноразмерный Apply автоматически не нажат. Blender/GLB, чужие серверы, staging/commit/push/PR не затронуты.
+
+
+
+
+
+
+
+
+## 2026-09-24 — подготовка архитектурных исследований к реализации
+
+
+
+По запросу пользователя подготовлен пакет перехода к разработке; код MVP не создавался. Общий BACKLOG содержит 11 последовательных шагов с входами и критериями выхода, привязанных к существующим VK-ID, и первую конкретную постановку VK-001 (контракты/registry/fixtures без изменения активных configs). ARCHITECTURE 0.13 фиксирует контрактную базу, версии/revisions, ошибки/ACK, владельцев, staged migration, сохранение legacy IDs/assignments и rollback runtime вместе со snapshot. DESIGN_DOCUMENT уточняет поэтапное включение ролей и раздельные состояния сохранения/применения/сессии/сигнала.
+
+
+
+В apps/Stand Service/docs/IMPLEMENTATION.md подготовлены карта фактических файлов, будущие границы host/agents/store/input/session/frame, legacy API compatibility, LAN pairing, тестовая матрица, команды проверок и условия native/portable. Добавлена ссылка из SERVICE.md. Выявлен и учтён whitelist сборщика: новые shared/adapter-файлы не попадут в runtime автоматически. Цикл ожидания composition/native/MVP снят поэтапными контрактными и аппаратными проверками. Исторические художественные альтернативы не объявлены обязательной повторной реализацией.
+
+
+
+Аудит artifacts/reports/implementation-readiness-20260924.md связывает три основных архитектурных исследования и supporting materials конфигов/контента/модели/Stella/touch с работами. Внешние условия (второй ПК, touch, SDK/toolchain/лицензии, LED-паспорта и независимые приёмники) отделены от доступных сейчас контрактов, миграции, LocalAgent и меню. Реализация и будущие аппаратные пробы остаются запланированными; новые реестры задач/статусов и корневые папки не создавались.
+
+
+
+Проверено: один базовый CPU-прогон Service/Ribbon/Viewer walk — 117/117, без пропусков; лог artifacts/reports/implementation-baseline-tests-20260924.txt. Тесты использовали fake workers, ephemeral loopback и временные stateFile, не боевой сервис. Node v25.9.0. Проверка семи документов — без новых ошибок ссылок, 24 уникальных VK-ID, 11 шагов с зависимостями только назад; 154 файла исходников/runtime совпадают с build-manifest. Две прежние ссылки TECH_DIRECTOR_BRIEF.md остаются VK-016. Машинный отчёт artifacts/reports/implementation-readiness-checks-20260924.json; baseline/checker/diff — artifacts/workspace/implementation-readiness-20260924/.
+
+
+
+Одна браузерная вкладка существующего Ribbon: ready=true, canvas 7768×358, видимый результат/пропорции сохранены, console error/warn нет; вкладка закрыта, настройки не менялись. JS, configs, runtime, GLB и серверы не изменялись; сборки не требовались. SDK не устанавливались, сети/firewall не менялись, тяжёлых GPU-прогонов/видео и Git staging/commit/push/PR не было. Следующая работа: VK-001 по подготовленной постановке; неизвестные аппаратные параметры не блокируют этот старт.
+
+
+
+
+## 2026-09-24 — комплексное исследование пяти интерактивных сервисов
+
+
+
+Последнее указание пользователя отменяет реализацию MVP сейчас: новые вводные включены в исследовательскую программу и потенциальную архитектуру. Код MVP не создавался. Исследование artifacts/reports/interactive-master-research-20260924.md связывает предыдущие исследования мастера и LAN с пятью ролями: стела, арка, Ribbon, левая стена VK Видео, правая MAX. Сверены фактические worker/server/preview, семь поверхностей, роли стен и userflow стелы; проверены первичные источники W3C Pointer Events/WebRTC, Three.js Raycaster, Electron offscreen, Spout и NDI.
+
+
+
+В ARCHITECTURE добавлены 0.10–0.12: service/instance/stream/surface/output различаются, реестр потоков не является общей GPU-памятью LAN; локальный ввод отделён от межзонных команд и видео; владельцы config/app/session/GPU-state заданы отдельно. Предусмотрены multitouch/cancel, mapping/UV, ввод из 3D, stale-frame/revision, дедупликация и неподтверждённая передача при disconnect. Выделен риск canvas-only захвата: HTML-кнопки/текст Stella должны входить в полную композицию того же исполнителя. В документации Stand Service добавлены варианты и gate проверки DOM/WebGL-композиции и обратного ввода. Дизайн описывает пять карточек сервисов, явную сетку preview, тест взаимодействия и демонстрационный переход сессии.
+
+
+
+Общий BACKLOG уточнён: VK-018 завершён только как документальное исследование; VK-023 (интерактивный контракт/композиция) и VK-024 (сквозной MVP пяти ролей) запланированы. Программа будущих проб: контракты → интерактивная композиция → одна сессия → физические LAN/native outputs → пять ролей и portable. Длительные аппаратные пробы не выполнялись и не разрешаются этим документом автоматически. Никаких новых корневых папок, отдельных бэклогов или приложений не создано.
+
+
+
+Проверено: шесть затронутых документов, новые ссылки/якоря без ошибок, 24 уникальных ID задач; все 154 runtime-файла совпадают с исходниками/build-manifest по SHA-256. Две предсуществующие битые ссылки TECH_DIRECTOR_BRIEF.md остаются VK-016. Машинный отчёт artifacts/reports/interactive-master-checks-20260924.json; baseline/checker/diff — artifacts/workspace/interactive-master-research-20260924/. Короткая проверка одной вкладки Ribbon 8768: ready=true, canvas 7768×358, видны полная лента и крупный фрагмент, пропорции сохранены, console error/warn нет; настройки не менялись, вкладка закрыта. Node-тесты и сборки для документационных правок не запускались.
+
+
+
+Открыто: технические прототипы и измерения, hardware touch/контроллер MAX, паспортные размеры/FPS, полная композиция/задержки, реальные Spout/NDI-приёмники, второй физический ПК, идентификация посетителя и арбитраж сессий. Код, configs, GLB, SDK, сетевые доступы и серверы не менялись; тяжёлых GPU-прогонов, видео и Git staging/commit/push/PR не было.
+
+
+
+
+## 2026-09-23 — новая модель FBX 22.09.2026 · Viewer model.1
+
+
+
+Импортирован пользовательский 22_09_2026.fbx (SHA-256 ad0e37de15b8214344be12486b01bad1b0a8d02263bb7ec2da69ba87fdf4b25c) без Blender. Исходник, проверенный профиль и резервная копия всех прежних web-assets с 45 SHA-256 — artifacts/web/source/2026-09-23/. До замены GLB исходников и runtime совпадали. ufbx извлёк 825 мешей, включены 24 тела стенда / 26 узлов / 286 281 треугольник. Имена и ID новой FBX сопоставлены явно с прежними ролями; профиль проверяет точный хеш источника.
+
+
+
+Побайтовое сравнение массивов подтвердило: стены, арки, стелла, подиум и мебель прежние; изменены корпус и верхние концы лент, добавлены три человека. SCREEN_* и назначения сохранены. Лента низ: 9,726 м, 3741×178 вместо 3847×178; верх: 9,797 м, 3768×179 вместо 3884×179 (предварительный P2.6). Перепечены исходные макеты, SVG UV и калибровочные PNG. Все пять остальных экранных текстур совпали с предыдущими по SHA-256. Petra/Ramona с поставленными текстурами, Jamie — нейтральный материал из-за отсутствия доступного bitmap. Настройка людей действует на все три фигуры; прогулка использует для них простые объёмы, скрытые фигуры не блокируют путь.
+
+
+
+Сервис перезапущен только на своём 8770 для перечитывания метаданных; верхний Ribbon и его назначение восстановлены. Нативные размеры сцен Ribbon сохранены (3884×179 / 3847×178): полный контент сжимается вдоль новой UV, автоматической миграции композиции нет. Другие серверы не менялись. Обновлены документация Viewer, размеры, три общих документа, ссылка интерфейса с исторического аудита на актуальные размеры.
+
+
+
+Проверено: check_glb — встроенные ресурсы, геометрия, семь UV без вырожденных/зеркальных треугольников; AST трёх Python-файлов; node --check трёх JS; 103/103 теста (99 Ribbon и 4 прогулки, включая скрытые фигуры). Собраны Viewer 2026.09.23-model.1 и Ribbon 0.24.1; у Ribbon первый запуск дал временный Errno 22 записи index.html, повтор прошёл. SHA-256 всех 63 файлов Viewer исходники/комплект и пяти основных HTTP-файлов совпали. Одна браузерная вкладка: запуск, пропорции и видимый стенд, hide/restore людей, размер верхней 3768×179, WebRTC ready=4 / 1942×90; консоль без ошибок/предупреждений. Первый временный таб был закрыт браузерным окружением при загрузке, проверка завершена в повторно открытой вкладке. Тяжёлых GPU-прогонов и записи видео не было.
+
+
+
+Отчёты artifacts/reports/model-20260923-{import,comparison,checks}.json. Открыто: художественная приёмка, текстура Jamie, окончательная LED-раскладка и решение о миграции нативных композиций Ribbon под новые длины. Захват мыши в IAB повторно не проверялся; прежнее ограничение хоста остаётся. Git staging/commit/push и публикация не выполнялись.
+
+
+
+
+## 2026-09-23 — общий локальный сервис и живой Ribbon на стенде · Stand Service 0.1.0
+
+
+
+Реализован и запущен общий сервис на http://127.0.0.1:8770/ . Исходники artifacts/service, комплект apps/Stand Service; Setup/Start/Stop, dev/run режимы, локальные HTTP/SSE и управляемые фоновые Electron 44.4.5 GPU-исполнители с включённой песочницей. Начальная установка бинарного Electron выполнена из официального пакета; для запуска GPU потребовалось выйти из ограниченной оболочки команд, собственная sandbox Electron сохранена. Другие серверы не менялись.
+
+
+
+Два независимых экземпляра «Одного потока» (верх/низ) включаются и назначаются семи экранам прямо в Viewer. Финальный canvas после карточек копируется в ограниченное превью и передаётся WebRTC → VideoTexture. При нуле клиентов симуляция продолжает работать, захват/кодирование останавливаются. Сервисный редактор Ribbon показывает тот же выход, отправляет параметры/жесты и не создаёт второй движок; межвкладочная рассылка его жестов отключена против дублирования. Файловые параметры, clock, revisions и назначения — configs/stand-service.json; пользовательские макеты Viewer не удаляются. Самостоятельные приложения на 8767/8768 сохранены.
+
+
+
+Dev-watch объединяет изменения JS/JSON/GLSL Ribbon, проверяет JS и меняет исполнитель только после ready новой версии. Ошибка новой версии оставляет старую; исправлены гонка поздней подписки при смене generation и повторное подключение после перезапуска сервиса. Камера/назначения/параметры сохраняются, GPU-флюид при замене движка пересоздаётся. Run использует сборки apps без watcher. Обновлены документация сервиса/Ribbon/Viewer, три общих документа и бэклог: первый путь реализован, другие приложения и аппаратная приёмка остаются в работе.
+
+
+
+Проверки: node --check десяти runtime JS/CJS/MJS; 112/112 тестов (10 сервиса, 99 Ribbon, 3 прогулки), AST трёх сборщиков. Собраны Viewer 2026.09.23-service.1 (63 файла), Ribbon 0.24.1 (78), Service 0.1.0 (12); SHA-256 153 файлов исходники/комплекты совпали, ZIP CRC и сохранение docs пройдены. У Ribbon один раз был временный Errno 22 записи entrypoint, повторная штатная сборка прошла. Пять ключевых HTTP-файлов совпали; проверены маршруты run-комплекта с подставным исполнителем.
+
+
+
+Короткие функциональные проверки в одной клиентской вкладке одновременно: запуск/видимые пропорции, живой верхний поток 1942×90, пауза/продолжение, редактор меняет gap .18→.25 (подтверждено сервисом и файлом)→.18, автоматическое обновление generation после правки исходника без reload Viewer. Без всех клиентских вкладок один generation продолжил frame 2967→5799 при clients=0. Повторное открытие получило текущий поток. Дополнительно кратко включена/назначена нижняя лента: оба исполнителя ready, два независимых видеопотока (адаптивное разрешение); затем нижняя выключена и возвращён макет. Консоль финального Viewer/редактора без ошибок/предупреждений. Тяжёлых GPU-прогонов и видео не было. Отчёт: artifacts/reports/stand-service-20260923.json.
+
+
+
+Оставлен работающий dev-сервис из apps/Stand Service с верхней лентой; Stop.bat останавливает только его. Ограничения: адаптер пока только Ribbon continuous; превью через видеокодек, не нативный LED-выход; dev/run не одновременно; нет сохранения произвольного GPU-состояния и гарантий сна/выхода из ОС. Целевые FPS/задержка/цвет на оборудовании не измерялись. GLB, Git staging/commit/push и публикация сайта не менялись.
+
+
+
+
+## 2026-09-23 — прогулка от первого лица · Stand Viewer 2026.09.23-walk.1
+
+
+
+По запросу пользователя добавлен режим «Прогулка» в показ и настройки: WASD/стрелки, обзор мышью, Shift для ускорения, Esc для остановки и освобождения курсора. Высота глаз 1,7 м над подиумом, скорость 1,4/3 м/с, FOV 65°. Орбитальная камера отключается на время прогулки; возврат сохраняет прежнюю позицию, кнопки ракурсов переключают в обычный обзор. При недоступном Pointer Lock работает обзор перетаскиванием. Потеря фокуса/скрытие вкладки очищает ввод; поля настроек не запускают ходьбу. Простые столкновения проверяются по треугольникам стен/арки/мебели, движение ограничено областью вокруг модели. GLB и материалы не менялись.
+
+
+
+Исходники — artifacts/web; комплект обновлён защищённым build_bundle.py, включены walk-controls.js и документация apps/Stand Viewer/docs/WALKTHROUGH.md в ZIP. Обновлены три общих документа и README просмотрщика. Проверено: node --check трёх JS, 90 Node-тестов (88 Ribbon + 2 прогулки: движение, диагональ, тонкая стена, остановка, восстановление), Python AST сборщика, 62 файла по SHA-256 исходники/комплект/HTTP, ZIP CRC и сохранение документации. Отчёт artifacts/reports/viewer-walk-20260923.json.
+
+
+
+Короткая проверка в одной вкладке: show/settings запускаются, пропорции сохранены, виден стенд с уровня глаз, работает поворот мышью с перетаскиванием, Esc и возврат общего вида; ошибок/предупреждений консоли нет. Встроенный браузер отказал в Pointer Lock, проверен запасной режим; реальный захват мыши в обычном браузере остаётся на пользовательской проверке. Тесты подтверждают обработку WASD и столкновения, аппаратной приёмки нет. Высота фиксирована и за краем подиума; нет лестниц/прыжков/полноценной физики. Сервер просмотрщика запущен штатным start.py на 8767 из apps/Stand Viewer скрытым процессом. Тяжёлые GPU-прогоны, видео, Blender, публикация и Git staging/commit/push не выполнялись.
+
+
+
+
+## 2026-09-23 — две визуальные раскадровки стелы
+
+
+
+По запросу пользователя встроенным image_gen созданы две отдельные картинки по интерфейсам из исходной презентации: artifacts/DESIGN/stella-storyboard-vk-v1.png (10 кадров, первый контакт → пять шагов VK → арка → стена) и stella-storyboard-max-v1.png (8 кадров, первый контакт → три вопроса → миссия → стена MAX). Референсы — image7 и image6 из PPTX. Сохранены пиксельное кольцо, тёмный фон и брендовые акценты. Показаны основные пути; отказ от оцифровки и уточнение миссии обозначены подписями. Промпты и ограничения: artifacts/reports/stella-storyboards-prompts-20260923.md. Ссылки добавлены в userflow и общий дизайн; реализация и статусы задач не менялись.
+
+
+
+Обе картинки просмотрены, последовательности и наличие всех вопросов проверены, копирование в проект подтверждено SHA-256. Фактическое разрешение — 1672×941 у каждой картинки. Нумерация определяет чтение по рядам; соединительная стрелка VK между рядами неточна. Пространство, дополнительные слоганы и иконки — элементы концепта, не утверждённая архитектура или механика миссий. Художественная приёмка остаётся пользователю.
+
+
+
+Короткая базовая проверка существующего Ribbon в одной вкладке: ready=true, canvas 3884×179, отображение ~1215×56, фон/теги/сущность видны, ошибок и предупреждений консоли нет; вкладка закрыта. Код, модель, настройки и runtime не изменялись. Нагрузочных прогонов, сборок и видео не было. Приложение стелы по-прежнему не реализовано.
+
+
+
+
+## 2026-09-23 — сценарий стелы как первой точки контакта
+
+
+
+По запросу пользователя сохранена исходная презентация AI_Stella_Conversation_Storyboard_VK_MAX_UPDATED_2209_v3.pptx в artifacts/DESIGN/. Изучены все 15 слайдов и семь встроенных изображений. Подготовлен apps/Stella/docs/USERFLOW.md: первый экран, две ветки, три вопроса MAX и выбор миссии, пять шагов VK Видео с оцифровкой между образами и стилем, реплики, карта состояний, возвраты/сброс, передача следующей зоне и критерии будущей приёмки. apps/Stella пока содержит только документацию, приложения нет.
+
+
+
+Старая нумерация и поздние правки презентации сведены в единую последовательность. Неопределённые лимиты выбора, продолжение после «Не сейчас», финальные реплики и системные переходы явно отмечены как рабочие предложения. Общий дизайн теперь различает путь VK Видео через арку и приглашение MAX к своей стене; архитектура ссылается на проектируемую передачу сессии, VK-007 сохраняет статус «Запланировано». Новый отдельный бэклог не создавался.
+
+
+
+Проверены побайтовая копия по SHA-256, CRC PPTX, порядок 15 слайдов, пять локальных ссылок Markdown и ссылки из трёх общих документов. Разбор и проверка: artifacts/reports/stella-storyboard-20260923.json. По общему правилу выполнен короткий smoke check существующего Ribbon 0.11.3 в одной вкладке: ready=true, canvas 3884×179, отображение ~1215×56, видны фон/теги/сущность и фрагмент; ошибок/предупреждений консоли нет, вкладка закрыта. Это не тест приложения стелы. Код, модель, runtime-комплекты и сервер не изменялись; сборки, нагрузочные проверки и видео не выполнялись.
+
+
+
+Открыто: каталоги и лимиты выбора, правила матчинга MAX, получение цифрового образа и путь без него, привязка сессии к человеку, подтверждение передачи зонам, таймауты/сбои и оборудование. Эти вопросы перечислены в userflow; сценарные предложения не выданы за согласованные или реализованные функции.
+
+
+
+
+## 2026-09-23 — исследование дополнено AI-зеркалом и «Расписанием»
+
+
+
+По уточнению пользователя расширен раздел 12 docs/Research/WEB_GRAPHICS_AND_AGENTS_2026-09-23.md. Найден основной набор «Расписания» в BEELINE-2026/final_schedule/workspace/skills: полностью прочитаны четыре SKILL.md и четыре references о дизайне, хореографии, реализации и приёмке. Сверены motion/layout/deck-модули, выбранные участки App.tsx, тесты и acceptance-валидатор; у BFM-AIMIRROR изучены гайды и код переходов, HUD, рамок, прогресса и очистки. Просмотрены три существующих изображения: два референса расписания и исторический контактный лист зеркала, без запуска приложений.
+
+
+
+В рекомендации добавлены приоритет ручного ввода, cancel/settle без потери выбранного состояния, fade-out/move/fade-in карточек, постоянный каркас и разделение snapshot/entrance. Отмечены границы переноса и расхождения: временной процент Mirror не равен backend-прогрессу; локальный t затеняет функцию локализации в ветке overdue; acceptance-скрипт не проверяет содержимое evidence. Это анализ исходников, не подтверждение дефекта текущего production. Копия общего гайда в Schedule совпала с Mirror после нормализации переводов строк. Дополнительно изучены четыре iart skills с конкретными замечаниями к CSS/GLSL/particle-примерам. В общие дизайн и архитектуру добавлены ссылки на обоснования; новые задачи или реализованные функции не объявлялись.
+
+
+
+Обновлён существующий JSON-отчёт: 31 дополнительный локальный источник с SHA-256, четыре удалённых blob, методы и ограничения. Проверены JSON, 14 локальных ссылок исследования, новые ссылки/якоря общих документов, соответствие хеша документа отчёту. Приватный BEELINE, код VK, модель и зависимости не изменялись; тесты приложений, сборки, браузер/GPU, камера, AI API, установка skills и Git-публикация не выполнялись. Художественная и аппаратная приёмка остаются отдельными от этого исследования.
+
+
+
+
+
+
+## 2026-09-23 — три основных документа всего проекта
+
+
+
+По новому явному указанию пользователя созданы docs/BACKLOG.md, docs/DESIGN_DOCUMENT.md и docs/ARCHITECTURE.md. Они объединяют стеллу, арку, обе ленты, продуктовые стены, Viewer, редакторы, конфиги, ассеты, события, вывод и комплекты приложений. Учтена новая структура: старые материалы находятся в docs/other/, исследования — в docs/Research/; в этой задаче они не перемещались и не удалялись. AGENTS.md обновлён: прежний запрет бэклогов заменён правилом трёх общих документов без отдельных реестров приложений.
+
+
+
+Зафиксированы действующие ограничения дизайна и состояние Ribbon 0.8.3/Viewer; целевые контракты и интеграции явно отделены от готового кода. В общий бэклог внесены 16 связанных задач, включая GPU-вихревой фон по референсу haxiomic/GPU-Fluid-Experiments. Предварительное чтение README, GPUFluid.hx, project.xml и NOTES.md отражено как исследование, не как внедрение. Работа над эффектом остановлена по команде пользователя; runtime и apps не менялись.
+
+
+
+Проверены локальные ссылки трёх новых документов, взаимные ссылки, уникальность ID и ссылки на задачи бэклога. Обнаруженные старые пути в справочниках и ожидание отсутствующего корневого README инструментом переноса вынесены в VK-016; весь архив справочников этой задачей не исправлялся. Браузер/GPU, сборка, Git и серверы не запускались/не изменялись.
+
+
+
+
+## 2026-09-22 — аудит дизайнерского контента и веб-технологий
+
+
+
+Изучены четыре присланных JPG: сенсорная стелла (touch подтверждён пользователем), левая стена, предположительно арка и лента. Оригиналы побайтово сохранены в apps/web/assets/research/content-20260922; размеры, SHA-256 и приближённые границы полос записаны в reports/content-audit-20260922.json. Сопоставлены новые пропорции из screens.json и более ранние PNG assets/UX. Установлено: макет стеллы около 9:16 не совпадает с модельной гранью 0,407:1; требуется паспорт панели, прежние 264×649 P2.6 не являются подтверждённым разрешением touch-дисплея. Левая композиция требует адаптации к холсту примерно на 9,6% шире относительно высоты. Чёрные поля и системная полоса в JPG отмечены как элементы презентации.
+
+
+
+Подготовлены CONTENT_AUDIT_2026-09-22.md и /content-audit/: разбор четырёх поверхностей, предлагаемая визуальная режиссура, состояния сенсорного интерфейса, синхронные события, сравнение Three.js/WebGL2, PixiJS, GSAP, Rive, Lottie и WebGPU. По официальной документации исследованы Electron offscreen + native Spout и альтернативный Web Render TOP в TouchDesigner с Spout/NDI. Зафиксированы экспериментальный статус shared texture Electron, необходимость отдельного touch-канала, нечётные расчётные ширины для NDI, допущения производительности и план аппаратных испытаний.
+
+
+
+Веб-страница проверена визуально на desktop и 390×844; 14 разделов, четыре референса, содержание, локальные ссылки и якоря. Ошибок/предупреждений консоли нет; синтаксис Python-инструментов проверен AST. Контрольная сумма действующего GLB не изменилась. Новых библиотек не устанавливали; Blender, нативный вывод, видеопотоки и оборудование площадки не запускали. В README добавлены ссылки и уточнение разрешения стеллы; аудит добавлен в состав переносимых сборок.
+
+
+
+
+## 2026-09-22 — исследование живого визуального организма
+
+
+
+Добавлены apps/web/VISUAL_SYSTEM_RESEARCH_2026-09-22.md и /visual-research/: 12 разделов, три ссылки на визуально проверенные авторские демо, сравнение механизмов, источники лицензий и план трёх проб. Направление уточнено до управляемой материи: деформируемая оболочка, направленные волокна, сборка формы и раскрытие медиа, связанные событиями стеллы и общим временем.
+
+
+
+В браузере просмотрены Matrix Sentinels, WebGL Fluid Simulation (также проверено действие Random splats), Kinetic Images; изучены первичные статьи и отдельные участки кода. MIT подтверждён для Matrix/Fluid/Three.js, Zlib для postprocessing, MIT для Troika/tween.js; лицензия кода Kinetic Images остаётся неподтверждённой. Это отбор, не аппаратный benchmark. В наборе CloudAI-X skills отмечены ошибки примеров shader.userData и StringKeyframeTrack для morph weights. Прочитан frontend-design с Apache-2.0; дополнительные skills не установлены. Чтение официального каталога через list-skills.py завершилось HTTP 403; релевантный специализированный плагин в выполненном поиске не найден.
+
+
+
+Обновлены ссылки README, контекст предыдущего аудита и состав архивов. Новый генератор отчёта проверен AST, локальные ссылки и якоря корректны. HTML просмотрен на desktop и viewport 390×844: 12 разделов, три карточки, горизонтального переполнения страницы нет, ошибок и предупреждений консоли нет. Код рендера, модель и её материалы не изменялись; SHA-256 GLB 80e41d7cc68e0e45f404a051adfa36c3fc60e02db592c0a8c0e36d1639b7899b. Blender, TouchDesigner и нативный транспорт не запускались.
+
+
+
+
+
+
+## 2026-09-22 — исследование перспективной 3D-сцены и фокуса
+
+
+
+Подготовлен Content Dev/Research/PERSPECTIVE_3D_RESEARCH_2026-09-22.md: сравнение ортографии, XYZ с управляемым blur и общего DOF, камера для 21,698:1, текст/прозрачность/сортировка инстансов, единая неподвижная плоскость фона и экранные шлейфы пространственного движения. Проверены первичные документация и исходники BokehPass/BokehShader/transparent manual r180 и postprocessing. Сохранены аналитические расчёты: vertical FOV 45° даёт horizontal 167,3°; HFOV 75° соответствует VFOV около 4,051°; рассчитаны экранные размеры, число пикселей/выборок и базовая память target. Это не GPU-бенчмарк.
+
+
+
+Добавлены G-12 и RIB-123–127, обновлены индексы Research, связь с предыдущей архитектурой и дизайн-документ 1.6. XYZ + управляемый blur — рекомендуемый кандидат для сравнения A/B/C, не уже проверенная реализация. Runtime, сборка, сервер и референсы не менялись; зависимости не устанавливались.
+
+
+
+
+
+
+## 2026-09-22 — единая архитектура и контракт grayscale-маски
+
+
+
+По запросу пользователя создан apps/web/Content Dev/Ribbon MVP/ARCHITECTURE.md 1.0. Объединены единое поле из первого исследования и выбранная пользователем XYZ-система тегов из второго: неподвижная сетка, маска/шум, квадрат → белый круг, перспективная камера, управляемый blur, JSON/atlas, событие тег → центр → продукт, clock, pipeline и проверки. Уточнено: чёрная маска не даёт белых кругов или белого halo, включая работающий шум; серые значения непрерывны, белые дают яркие ядра. Синее базовое поле под чёрной маской допустимо.
+
+
+
+Дизайн-документ 1.7 пока содержит ссылку на выбранный план и сохраняет фактическое приложение 0.2.0. RIB-130 требует после реализации заменить старое описание фактическим поведением, параметрами, кадрами и проверками; задача не закрыта ссылкой на архитектуру. Добавлены RIB-128/129, уточнены цели и выбранный XYZ-профиль RIB-124/125/127; полный A/B/C не является блокером пользовательского выбора. Исследования/референсы сохранены, исторический flow JSON помечен. Код, сборка и сервер этим этапом не менялись.
+# 05.10.2026 — единый кандидат 0501.2-стенд
+
+По прямому поручению пользователя исправлен неполный перенос между0410 standalone и0501 installed candidate. Перенесены принятые правки в `integrations/master/stella-candidate` без замены серверного приложения старым standalone. Сохранены shared camera, capture retry/fence/consent poster-v1, VK/MAX protocol clients, actual package QR, AUDIO-02 observer и цифровой поток изbebca47.
+
+Согласие теперь настоящее в обеих точках входа; Q2 новая пара/азарт, исходный popcorn mask; правильные camera/final copy/переносы. Ordinary/skip не показывают фото, Discovery7s без текста; ранний server final ждёт окончания визуала без старого ACK. Final20 видимых активных секунд, пауза сохраняет остаток; серверный допуск/release не изменён. Master QR привязан к текущему пакету и удаляет предыдущий QR при смене package. Scan/camera retry сохраняют данные и прежнюю семантику запросов.
+
+Новые12SFX и готовые Discovery/question WAV скопированы без синтеза. Стенду предоставлен центральный аудиокаталог21cue с физическими SHA; установка каталога на MASTER необходима вместе с UI. Полные фото/camera/final WAV остаются pending, старые несовпадающие записи не играют. Контролируемый WhiteEntity и его observer/hooks сохранены, новый failure callback не отправляет ложный completion.
+
+Typecheck/build PASS, full265/265tests/47files PASS, ESLint0errors/2existingwarnings. Принятые assets сверены SHA с0410, central WAV21/21. No браузер/headless/paidAI/syntheticcamera/secret export/deploy. Root README переключён на единую сборку; source old standalone/pins/stand companion/vendors неизменны. См. `integrations/master/UNIFIED_BUILD.md` и `artifacts/reports/stella-unified-20261005.md`.

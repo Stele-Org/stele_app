@@ -1,0 +1,16 @@
+[
+  {
+    "source": "01_BOEVIK_M.png",
+    "output": "01_BOEVIK_M.png",
+    "tool": "image_gen.imagegen",
+    "prompt": "Edit the provided original cinematic poster into a clean background plate for later inserting a different person. Remove ONLY the large foreground male hero completely: head, hair, face, neck, body, clothing, straps, arms and all personal equipment. Seamlessly reconstruct the burning city, road, distant architecture, fire and smoke behind his former silhouette. Keep the entire existing poster composition and framing EXACTLY: same landscape aspect ratio, unchanged left typography 'ГЕРОЙ' and 'ВК ВИДЕО' including distressed texture, placement and size, helicopter, flipped burning car, police lights, skyline, original color grading, exposure and detail. Do not move or crop anything. Preserve all already visible pixels as closely as possible; edit only the removed hero area. No new people, faces, silhouettes, human shadows or clothing fragments. Not a transparent cutout: fill the removed region with coherent scenery. Output one finished clean poster, not a comparison.",
+    "review": "Foreground hero removed; reconstructed scenery and title inspected."
+  },
+  {
+    "source": "01_BOEVIK_F.png",
+    "output": "01_BOEVIK_F.png",
+    "tool": "image_gen.imagegen",
+    "prompt": "Edit the supplied original poster into a clean background plate. Completely remove the large foreground female hero at right, including all hair, head, body, black tactical suit, straps, gloves, hands and pistol. Reconstruct coherent burning city, road, buildings, smoke and fire behind her former silhouette. Preserve composition and landscape framing, all visible background objects including overturned burning car and police lights, all original color grading. Preserve the original large Russian lettering 'ГЕРОИНЯ' and 'ВК ВИДЕО', exactly its placement, distressed letterforms, white/red colors and scale. No new people, faces, silhouettes, clothing fragments or floating weapons. Fill removed region with environment, not transparency. Preserve the already visible areas as closely as possible. One finished poster, no comparison, no crop.",
+    "review": "Foreground heroine and gun removed; reconstructed scenery and title inspected."
+  }
+]

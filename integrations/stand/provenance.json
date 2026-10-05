@@ -1,0 +1,53 @@
+{
+  "version": "STELLA-DESIGN-SYNC-05 + STELLA-AUDIO-02",
+  "verifiedInstalled": "2026-10-05",
+  "files": [
+    {
+      "path": "app/stella-kiosk/main.cjs",
+      "sha256": "677c256aa6fbf0a9845693ea8968cc28a9f28d400d13bf1627a8284b9cd6243e"
+    },
+    {
+      "path": "app/stella-kiosk/start.cjs",
+      "sha256": "d9194f468b0920a0ab67f958da6e9951e8a1c5f7b71177614aad1bd1627bd3d0"
+    },
+    {
+      "path": "app/stella-kiosk/display-policy.cjs",
+      "sha256": "352d480f40a095b44f2c3b0ec92a2a968ac3211467ca2ba32a8f48b0df101467"
+    },
+    {
+      "path": "app/stella-kiosk/ui-ready.cjs",
+      "sha256": "3a65d576387f84a7f56fb21b62283eec167f256209973b5da8685f6edd5cd868"
+    },
+    {
+      "path": "app/stella-kiosk/package.json",
+      "sha256": "51cd4900a537e60eb8f44811735e32ac37e7f3089f93bab41598a78ffb830394"
+    },
+    {
+      "path": "app/stella-adapter/local-server.mjs",
+      "sha256": "5745e8d528fc79cdf6cacca4742a9abbb2b8744af36469a909772b7b2ee952c7"
+    },
+    {
+      "path": "app/stella-adapter/stella-package.mjs",
+      "sha256": "60ab6e4462256655750e2e69cf5d981ee4bbfa55301dae7b75ec3ffe6bfeb79d"
+    },
+    {
+      "path": "app/stella-adapter/accepted-build-manifest.json",
+      "sha256": "93e8700fc99a3c8f53c9ca22c139ccf3ab4ce127c9e1e335763c234b4c081b95"
+    },
+    {
+      "path": "app/master-audio/control/audio-client.mjs",
+      "sha256": "5065afec376ead575cc369a30e7d1906c497a5927c0d8bc69c28a4053cfe9543"
+    },
+    {
+      "path": "app/master-audio/control/local-audio-bridge.mjs",
+      "sha256": "2f5738389a2598864ca9bfa4352edda8abc66259041cb42d524248fac2750d3f"
+    }
+  ],
+  "excluded": [
+    "config and certificates",
+    "visitor and session data",
+    "runtime executables",
+    "MASTER backend"
+  ],
+  "sourceUi": "../master/stella-candidate"
+}

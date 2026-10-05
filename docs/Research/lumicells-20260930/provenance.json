@@ -1,0 +1,11 @@
+{
+  "repository": "https://github.com/supsad/lumicells",
+  "remoteHEAD": [
+    "ref: refs/heads/main\tHEAD",
+    "1007717d72cfd9d768d4b9a3f7fc80a126e49c51\tHEAD"
+  ],
+  "commit": "1007717d72cfd9d768d4b9a3f7fc80a126e49c51",
+  "downloadedAt": "2026-09-30T09:59:24.5195815Z",
+  "archiveSHA256": "FA1A8C02C6B456E23EF216151AA89483872CCF0BCE44381FCA72CC0810A2E197",
+  "permissionRecord": "permission.json"
+}

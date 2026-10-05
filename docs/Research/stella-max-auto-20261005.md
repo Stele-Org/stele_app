@@ -1,0 +1,11 @@
+# MAX: авторежим без тестового квиза — 05.10.2026
+
+Основа — существующий production stella-max-v1/max-show-v1, а не новый сценарный движок. Прочитаны актуальные F/artifacts/local-master/max_api.py, max_show_workflows.py, max_show_domain.py, max_show_store.py, registry.py, max_models.py; UI/client взяты из0501-2-стенд/f24a10677fe05fee5e1d23bed519c84a8f817d2c. В новых библиотеках нет необходимости: готовые admission/reconciliation и BrandSplash/ProductEntry сохраняются.
+
+GET /max/definition даёт showMode.enabled. POST /stella/max/admissions с requestId/sessionId/visitId/stationId уже запускает admit_max_show_v1. Этот DBOS workflow сам выполняет prepare_assignment/assign/observe для digital-id. show.canonical создаётся после успешного assign receipt, canonicalError описывает ошибку; один admission ещё не означает подтверждённую canonical-миссию. answer/confirm в showMode только меняют декоративные экраны Стеллы, для запуска миссии не нужны. Реальный game completed переводит show.gamePhase в videos.
+
+Используем существующий client.begin с сохранённым pending/receipt, единый логотип BrandSplash1200ms с паузой и reduced-motion. После окончания логотипа и подтверждённого canonical assignment показываем RingHomeScreen в том же MAX-компоненте. Нельзя вызвать старый onExit: MasterShell перепроверит занятую станцию и снова выберет MAX. Декоративные вопросы/reveal/mission-final не монтируются для show-run. Для свободной станции после reload showMode показывает Home без автоматического admission. Окончательный отказ admission не маскируется возвратом: предлагается явный повтор, polling не создаёт новый запрос. Pending/неопределённость остаются у имеющегося transport.
+
+Серверное ограничение подтверждено кодом: station освобождается только при cancelled/expired. cancel прекращает canonical-сессию; confirm лишь меняет screen. Команды detach/release с продолжающимся show-run нет. Поэтому Home является только представлением: пока сервер держит station, новый допуск VK/MAX заблокирован прежним canStart. Изменение этого контракта требует отдельного малого шага интегратора F с generation fencing; UI не подделывает release и не отменяет миссию.
+
+Это исследование действующего кода и опыта имеющейся интеграции, без установки, внешних запросов к мастеру или новых предположительных API. Проверка: ../../artifacts/reports/stella-max-auto-20261005.md.

@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "assets": {
+    "ambienceMain": "stella_ambience_loop_main.wav",
+    "ambienceScan": "stella_ambience_loop_scan.wav",
+    "buttonClick": "stella_button_click.wav",
+    "scanStart": ["stella_scan_start_1.wav", "stella_scan_start_2.wav"],
+    "scanEnd": ["stella_scan_end_1.wav", "stella_scan_end_2.wav"],
+    "transitions": ["stella_transition_1.wav", "stella_transition_2.wav", "stella_transition_3.wav", "stella_transition_4.wav", "stella_transition_5.wav"]
+  }
+}

@@ -1,0 +1,223 @@
+[
+  {
+    "asset": "popcorn.svg",
+    "source": "artifacts/DESIGN/UI/stela/Стела UX/STELLA-13.svg",
+    "sourceSha256": "4c09fb352aad1a5011691dbdab7ef82df3991f5c0a0d5dd225db0d3476e69c93",
+    "sha256": "95ec4393f4b54b7a09d7179f26c74b1a22a80feabdda11976edd5f394809cd48",
+    "viewBox": [
+      "555",
+      "560",
+      "468",
+      "280"
+    ],
+    "removedLabelPaths": 1
+  },
+  {
+    "asset": "microphone.svg",
+    "source": "artifacts/DESIGN/UI/stela/Стела UX/STELLA-11.svg",
+    "sourceSha256": "789daa2749655d78bc32ad089b74d1b2c61dd394e9ce5a94e00badcce7b3dd96",
+    "sha256": "5e2a7393946bf7f841ef2b2878142c9db080162fd194de56377ca6135f6cf174",
+    "viewBox": [
+      "558.5",
+      "549",
+      "468.438",
+      "280"
+    ],
+    "removedLabelPaths": 0
+  },
+  {
+    "asset": "conversation.svg",
+    "source": "artifacts/DESIGN/UI/stela/Стела UX/STELLA-12.svg",
+    "sourceSha256": "04a125cf82b6267d22564331871eaadd98c2e880eb92ec1b030ca37e8d1203f2",
+    "sha256": "67b734d29d7f7d92d0d9db679ca2ecda7393b2cdf5257c8af0176436fc0ff5ca",
+    "viewBox": [
+      "45.2676",
+      "868.172",
+      "468",
+      "280"
+    ],
+    "removedLabelPaths": 0
+  },
+  {
+    "asset": "lightbulb.svg",
+    "source": "artifacts/DESIGN/UI/stela/Стела UX/STELLA-11.svg",
+    "sourceSha256": "789daa2749655d78bc32ad089b74d1b2c61dd394e9ce5a94e00badcce7b3dd96",
+    "sha256": "bab200f54ab09d4959c51f75954b4a39e2b14eab1753df442c86dc044eb3f08c",
+    "viewBox": [
+      "556.102",
+      "868.172",
+      "468.438",
+      "280"
+    ],
+    "removedLabelPaths": 1
+  },
+  {
+    "asset": "action.svg",
+    "source": "artifacts/DESIGN/UI/stela/Стела UX/STELLA-11.svg",
+    "sourceSha256": "789daa2749655d78bc32ad089b74d1b2c61dd394e9ce5a94e00badcce7b3dd96",
+    "sha256": "51ec9f89ef44f559245afe6528a692aabcfdcade19a956734039964f5119c856",
+    "viewBox": [
+      "45.2676",
+      "549",
+      "468",
+      "280"
+    ],
+    "removedLabelPaths": 0
+  },
+  {
+    "asset": "heroes.svg",
+    "source": "artifacts/DESIGN/UI/stela/Стела UX/STELLA-12.svg",
+    "sourceSha256": "04a125cf82b6267d22564331871eaadd98c2e880eb92ec1b030ca37e8d1203f2",
+    "sha256": "9899035d338ddfc318434350baf25fe60a639ae7a0ac2ca2b79e370844dd956c",
+    "viewBox": [
+      "45.2676",
+      "549",
+      "468",
+      "280"
+    ],
+    "removedLabelPaths": 0
+  },
+  {
+    "asset": "sofa.svg",
+    "source": "artifacts/DESIGN/UI/stela/Стела UX/STELLA-10.svg",
+    "sourceSha256": "2465426ee68488976a37d5b025c21e657228a1dd3e7a440ba492d0baae9747df",
+    "sha256": "3d0dfc6231c2097fab7e06399d49f0cc56a64a039f5812ab980284d42c9dba8b",
+    "viewBox": [
+      "45.2676",
+      "549",
+      "468",
+      "280"
+    ],
+    "removedLabelPaths": 0
+  },
+  {
+    "asset": "travel.svg",
+    "source": "artifacts/DESIGN/UI/stela/Стела UX/STELLA-10.svg",
+    "sourceSha256": "2465426ee68488976a37d5b025c21e657228a1dd3e7a440ba492d0baae9747df",
+    "sha256": "ed9eaed30578835184faf831cf4406fc9f3b18aa66abf8a6f4b540ea9fb536d7",
+    "viewBox": [
+      "45.2676",
+      "869.172",
+      "468",
+      "280"
+    ],
+    "removedLabelPaths": 0
+  },
+  {
+    "asset": "explorer.svg",
+    "source": "artifacts/DESIGN/UI/stela/Стела UX/STELLA-12.svg",
+    "sourceSha256": "04a125cf82b6267d22564331871eaadd98c2e880eb92ec1b030ca37e8d1203f2",
+    "sha256": "9b38f8b7636353241d17edd01c8e7c10b4e228f9cb9a06b5e55bf3dcd6677ee4",
+    "viewBox": [
+      "556.102",
+      "868.172",
+      "468.438",
+      "280"
+    ],
+    "removedLabelPaths": 1
+  },
+  {
+    "asset": "party.svg",
+    "source": "artifacts/DESIGN/UI/stela/Стела UX/STELLA-10.svg",
+    "sourceSha256": "2465426ee68488976a37d5b025c21e657228a1dd3e7a440ba492d0baae9747df",
+    "sha256": "cbce84cd44adb1586e8b91a6557bd8930c36b195ebe3b97f801745a217f41f85",
+    "viewBox": [
+      "558.5",
+      "549",
+      "468.438",
+      "280"
+    ],
+    "removedLabelPaths": 0
+  },
+  {
+    "asset": "business.svg",
+    "source": "artifacts/DESIGN/UI/stela/Стела UX/STELLA-20.svg",
+    "sourceSha256": "b716a529fe205dbd482529f4813f68200573049b9be89ba4835b821781f62b77",
+    "sha256": "3833b6805584112b51fd0d744295d8457ebfc9aa074acdab66530f7b4ba3803d",
+    "viewBox": [
+      "45.2656",
+      "549",
+      "465",
+      "280"
+    ],
+    "removedLabelPaths": 1
+  },
+  {
+    "asset": "personal.svg",
+    "source": "artifacts/DESIGN/UI/stela/Стела UX/STELLA-20.svg",
+    "sourceSha256": "b716a529fe205dbd482529f4813f68200573049b9be89ba4835b821781f62b77",
+    "sha256": "9f845666ba4c514711edd7378a4b8a269fc00fb35adf81c0ec3cf585e67ff11c",
+    "viewBox": [
+      "558.5",
+      "549",
+      "465",
+      "280"
+    ],
+    "removedLabelPaths": 1
+  },
+  {
+    "asset": "identity.svg",
+    "source": "artifacts/DESIGN/UI/stela/Стела UX/STELLA-8.svg",
+    "sourceSha256": "a6c5b59557b326b70c2392c7b6e02c8ff8a7d5ea1c103e187b4f89299f14489c",
+    "sha256": "ca959186ed4f793e2cfd706c4e343d67f50d2e36d4ad1ecb577bbe963ba9f49e",
+    "viewBox": [
+      "50.8828",
+      "552.375",
+      "465",
+      "280"
+    ],
+    "removedLabelPaths": 1
+  },
+  {
+    "asset": "connection.svg",
+    "source": "artifacts/DESIGN/UI/stela/Стела UX/STELLA-8.svg",
+    "sourceSha256": "a6c5b59557b326b70c2392c7b6e02c8ff8a7d5ea1c103e187b4f89299f14489c",
+    "sha256": "8fa6e2fe6c6f3d8d5b18e192caca1ec408bf912f55b250b8e141bd3fe02b25fd",
+    "viewBox": [
+      "564.117",
+      "552.375",
+      "465",
+      "280"
+    ],
+    "removedLabelPaths": 1
+  },
+  {
+    "asset": "visibility.svg",
+    "source": "artifacts/DESIGN/UI/stela/Стела UX/STELLA-8.svg",
+    "sourceSha256": "a6c5b59557b326b70c2392c7b6e02c8ff8a7d5ea1c103e187b4f89299f14489c",
+    "sha256": "0514eecaa61f412f9167f189aec579410846d4d58903c79c361edd973c852a57",
+    "viewBox": [
+      "307.5",
+      "872.727",
+      "465",
+      "280"
+    ],
+    "removedLabelPaths": 1
+  },
+  {
+    "asset": "touch-hand.svg",
+    "source": "artifacts/DESIGN/UI/stela/Стела UX/STELLA-7.svg",
+    "sourceSha256": "26c17fd26ae1e6c5569bfe15163141d5753c161f096d04bc93de2ceefb0bc76f",
+    "sha256": "814fa6d78b7edaacba8edb659ba32948d86824e81a60c0986ceb283ae0904840",
+    "viewBox": [
+      "532.436",
+      "1101.23",
+      "280.903",
+      "237.125"
+    ],
+    "removedLabelPaths": 0
+  },
+  {
+    "asset": "max-cta.svg",
+    "source": "artifacts/DESIGN/UI/stela/Стела UX/STELLA-7.svg",
+    "sourceSha256": "26c17fd26ae1e6c5569bfe15163141d5753c161f096d04bc93de2ceefb0bc76f",
+    "sha256": "09b29a1cbf0f2b61777051707f519390a32426756cefcfe1580dafe5a01e6195",
+    "viewBox": [
+      "360",
+      "1051.41",
+      "360",
+      "140"
+    ],
+    "removedLabelPaths": 0
+  }
+]

@@ -1,0 +1,31 @@
+{
+  "source": "https://github.com/supsad/lumicells",
+  "commit": "1007717d72cfd9d768d4b9a3f7fc80a126e49c51",
+  "license": "UNLICENSED in upstream package.json; colleague code use explicitly authorized by project owner",
+  "files": {
+    "flight.ts": {
+      "sourceSha256": "2dda96bce6ff646fe3a8b763e019e62401d9772034a6e3ef84a3b37831723cfb",
+      "localSha256": "2dda96bce6ff646fe3a8b763e019e62401d9772034a6e3ef84a3b37831723cfb"
+    },
+    "choreography.ts": {
+      "sourceSha256": "d538bf692afb3bb112ce461a30890fa68958058027c8e97028f08c5dc8c64055",
+      "localSha256": "1d437be4351feff98c65ad2abfabec3c5e9dc41fa3db08435efde9b2ef1e5b71"
+    },
+    "types.ts": {
+      "sourceSha256": "e62a8dd1d1b3c7517da7e3880a32823378cda1246af91e885a16c909eb25c771",
+      "localSha256": "e62a8dd1d1b3c7517da7e3880a32823378cda1246af91e885a16c909eb25c771"
+    },
+    "layout.ts": {
+      "sourceSha256": "0d67e1f91a3280b56e5b1b22905d15335d462ef3ff945f202ee5114918c6f43f",
+      "localSha256": "0d67e1f91a3280b56e5b1b22905d15335d462ef3ff945f202ee5114918c6f43f"
+    },
+    "scene.css": {
+      "sourceSha256": "d6d4bc5a58751498899345f58d6005c2842e77a7ff87ba4f5183e2e1d9550c5b",
+      "localSha256": "d6d4bc5a58751498899345f58d6005c2842e77a7ff87ba4f5183e2e1d9550c5b"
+    }
+  },
+  "changes": {
+    "choreography.ts": "one-shot reveal; pause/play; cancellable waits use empty native WAAPI effects; dispose settles outstanding flight jobs; expected infinite-float cancellation is caught; optional travel-duration multiplier (default 1), used as 1.25 only by first continuous VK reveal; hold unchanged",
+    "bubbles.ts": "type-only mount contract from upstream bubbles.tsx"
+  }
+}

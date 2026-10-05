@@ -1,0 +1,108 @@
+{
+  "date": "2026-10-04",
+  "owner": "cleanplates_08_10",
+  "count": 6,
+  "notes": [
+    "Fantasy keeps flying dragon and distant tiny decorative villagers; removes only foreground hero.",
+    "Horror removes clawed shoulder hand and faint attached ghost face along with hero.",
+    "Adventure F reconstructed hidden valley with waterfalls."
+  ],
+  "entries": [
+    {
+      "source": "08_ADVENTURE_M.png",
+      "source_dimensions": [
+        2688,
+        1520
+      ],
+      "output": "08_ADVENTURE_M.png",
+      "output_dimensions": [
+        1668,
+        943
+      ],
+      "prompt": "Edit target: the attached original adventure movie poster. Create a clean background plate by completely removing ONLY the large foreground male explorer on the right: face, hair, hat, whole body, clothing, hands, held parchment map, backpack, straps and personal equipment. Reconstruct the empty jungle, ancient Mayan pyramid and valley naturally behind the removed silhouette. Preserve EXACT composition, landscape framing, dramatic golden sunset, every visible architectural detail, jungle and foreground treasure/compasses/stone idol, and ALL original Russian typography on left 'герой' and 'ВК ВИДЕО' with its existing size, position, stone texture and gold. Do not crop, move or redesign anything. Keep already visible scene as close to unchanged as possible; inpaint only the person's area. No new person, shadow, human silhouette or floating map/equipment. Return a finished opaque clean poster, original aspect ratio, highest available resolution.",
+      "tool": "image_gen__imagegen",
+      "transparent_background": false,
+      "qa": "Viewed original before edit and generated output after edit. Main hero and attached props removed. Readable original Russian headline preserved; coherent restored scenery. Generative reconstruction is not pixel-identical and output resolution is lower than source."
+    },
+    {
+      "source": "08_ADVENTURE_F.png",
+      "source_dimensions": [
+        2688,
+        1520
+      ],
+      "output": "08_ADVENTURE_F.png",
+      "output_dimensions": [
+        1668,
+        943
+      ],
+      "prompt": "Edit target: the attached original adventure movie poster. Create a clean background plate by completely removing ONLY the large foreground female explorer on the right: face, hair, braid, hat, entire body, clothing, hands, held parchment map, backpack, straps, necklace and personal equipment. Reconstruct empty jungle, ancient Mayan pyramid and valley naturally behind the removed silhouette. Preserve EXACT composition, landscape framing, dramatic golden sunset, architectural details, jungle and foreground treasure/compasses/stone idol, and ALL original Russian typography on left 'героиня' and 'ВК ВИДЕО' with existing size, position, stone texture and gold. Do not crop, move or redesign anything. Keep already visible scenery as close to unchanged as possible; inpaint only the person's area. No new person, shadow, human silhouette or floating map/equipment. Return one finished opaque clean poster, original aspect ratio, highest available resolution.",
+      "tool": "image_gen__imagegen",
+      "transparent_background": false,
+      "qa": "Viewed original before edit and generated output after edit. Main hero and attached props removed. Readable original Russian headline preserved; coherent restored scenery. Generative reconstruction is not pixel-identical and output resolution is lower than source."
+    },
+    {
+      "source": "09_HORROR_M.png",
+      "source_dimensions": [
+        2688,
+        1520
+      ],
+      "output": "09_HORROR_M.png",
+      "output_dimensions": [
+        1668,
+        943
+      ],
+      "prompt": "Edit the attached original horror movie poster to create a clean background plate. Remove the foreground male hero completely (head, hair, face, neck, body, black hoodie) AND remove the inhuman clawed hand resting on his shoulder. Remove any faint human face or silhouette attached behind him. Fill their entire former area seamlessly with an EMPTY abandoned dark corridor continuing the original walls, doors, floor and shadows. Keep the exact original landscape composition, left distressed Russian title 'ГЕРОЙ' and 'ВК ВИДЕО', placement, typography, cold blue/green color treatment, peeling left doorframe and green wall lamp at right. Preserve already visible surroundings as close to unchanged as possible, no cropping or redesign. Absolutely no human, ghost, monster, face, hand, clothing or residual silhouette. Do not brighten the scene. One finished opaque clean poster at original aspect ratio.",
+      "tool": "image_gen__imagegen",
+      "transparent_background": false,
+      "qa": "Viewed original before edit and generated output after edit. Main hero and attached props removed. Readable original Russian headline preserved; coherent restored scenery. Generative reconstruction is not pixel-identical and output resolution is lower than source."
+    },
+    {
+      "source": "09_HORROR_F.png",
+      "source_dimensions": [
+        2688,
+        1520
+      ],
+      "output": "09_HORROR_F.png",
+      "output_dimensions": [
+        1668,
+        943
+      ],
+      "prompt": "Edit the attached original horror movie poster to create a clean background plate. Remove the foreground female hero completely (head, hair, face, neck, body, black hoodie) AND remove the inhuman clawed hand resting on her shoulder. Remove any faint human face or silhouette attached behind her. Fill their entire former area seamlessly with an EMPTY abandoned dark corridor continuing the original walls, doors, floor and shadows. Keep the exact original landscape composition, left distressed Russian title 'ГЕРОИНЯ' and 'ВК ВИДЕО', placement, typography, cold blue/green color treatment, peeling left doorframe and green wall lamp at right. Preserve already visible surroundings as close to unchanged as possible, no cropping or redesign. Absolutely no human, ghost, monster, face, hand, clothing or residual silhouette. Do not brighten the scene. One finished opaque clean poster at original aspect ratio.",
+      "tool": "image_gen__imagegen",
+      "transparent_background": false,
+      "qa": "Viewed original before edit and generated output after edit. Main hero and attached props removed. Readable original Russian headline preserved; coherent restored scenery. Generative reconstruction is not pixel-identical and output resolution is lower than source."
+    },
+    {
+      "source": "10_FANTASY_M.png",
+      "source_dimensions": [
+        2688,
+        1520
+      ],
+      "output": "10_FANTASY_M.png",
+      "output_dimensions": [
+        1667,
+        943
+      ],
+      "prompt": "Edit target: this original fantasy movie poster. Remove ONLY the large foreground male elf archer completely: face, hair, pointed ears, body, green cloak, armour, arms, bow, quiver and all arrows and straps. Seamlessly reconstruct the empty medieval village, bridge, river, misty valley and distant mountains behind his entire silhouette. Keep the exact existing landscape composition and framing, warm sunset, dramatic clouds, flying dragon at upper right, castle at right, distant tiny villagers on the bridge, left stone wall/banner, right lantern and architecture. Keep ALL original gold Russian typography 'герой' and 'ВК ВИДЕО' and ornaments at identical positions, sizes and styling. No cropping, redesign, added characters or foreground figure fragments. Preserve already visible scenery as closely as possible; only fill hero's former area. Return one finished opaque clean poster at original aspect ratio and highest available resolution.",
+      "tool": "image_gen__imagegen",
+      "transparent_background": false,
+      "qa": "Viewed original before edit and generated output after edit. Main hero and attached props removed. Readable original Russian headline preserved; coherent restored scenery. Generative reconstruction is not pixel-identical and output resolution is lower than source."
+    },
+    {
+      "source": "10_FANTASY_F.png",
+      "source_dimensions": [
+        2688,
+        1520
+      ],
+      "output": "10_FANTASY_F.png",
+      "output_dimensions": [
+        1668,
+        943
+      ],
+      "prompt": "Edit target: this original fantasy movie poster. Remove ONLY the large foreground female elf archer completely: face, long pale hair, hair ornaments, pointed ears, body, green cloak, armour, arms, bow, quiver and all arrows and straps. Seamlessly reconstruct the empty medieval village, bridge, river, misty valley and distant mountains behind her entire silhouette. Keep the exact existing landscape composition and framing, warm sunset, dramatic clouds, flying dragon at upper right, castle at right, distant tiny villagers on the bridge, left stone wall/banner, right lantern and architecture. Keep ALL original gold Russian typography 'героиня' and 'ВК ВИДЕО' and ornaments at identical positions, sizes and styling. No cropping, redesign, added characters or foreground figure fragments. Preserve already visible scenery as closely as possible; only fill hero's former area. Return one finished opaque clean poster at original aspect ratio and highest available resolution.",
+      "tool": "image_gen__imagegen",
+      "transparent_background": false,
+      "qa": "Viewed original before edit and generated output after edit. Main hero and attached props removed. Readable original Russian headline preserved; coherent restored scenery. Generative reconstruction is not pixel-identical and output resolution is lower than source."
+    }
+  ]
+}

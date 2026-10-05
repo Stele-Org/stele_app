@@ -1,0 +1,21 @@
+/* Restore the supplied STELLA-5 composition before the extra profile paragraph.
+ * Source: artifacts/DESIGN/UI/stela/new/STELLA-5.png and the October 3 layout. */
+.screen.screen--vk-final #vk-result-title {
+  top: 450px;
+  left: 160px;
+  width: 760px;
+  font-size: 48px;
+  line-height: 1.08;
+}
+
+.screen.screen--vk-final .vk-final-qr {
+  top: 717px;
+  left: 296px;
+  width: 487px;
+  height: 487px;
+}
+
+.screen.screen--vk-final .vk-final-caption {
+  top: 1160px;
+  font-size: 25px;
+}

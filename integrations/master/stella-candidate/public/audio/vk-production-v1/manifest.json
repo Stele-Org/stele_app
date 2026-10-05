@@ -1,0 +1,250 @@
+{
+  "version": 1,
+  "status": "candidate_not_deployed",
+  "source": "AUDIO-02 bank retained; verified October 4 Discovery studio and 12 user-supplied SFX copied byte for byte. Existing accepted manifests remain historical.",
+  "mapping": {
+    "onboarding": "Screen1.wav",
+    "question:0": "Screen2.wav",
+    "question:1": "Screen3.wav",
+    "question:2": "Screen4.wav",
+    "photochoice": null,
+    "camera": null,
+    "particles": "Screen7.wav",
+    "final": null,
+    "home": null,
+    "scanning": "Scan.wav (loop)",
+    "answer-reveal": "ChangeScreen[1..5] sequential",
+    "photo-reveal": "ChangeScreen[1..5] sequential",
+    "button-click": "Click.wav",
+    "screen-change": null,
+    "ambience-main": "AmbienceMain.wav",
+    "scan-start": [
+      "ScanStart1.wav",
+      "ScanStart2.wav"
+    ],
+    "scan-end": [
+      "ScanEnd1.wav",
+      "ScanEnd2.wav"
+    ]
+  },
+  "pending": {
+    "Screen5": "Photo instructions changed; exact full recording unavailable.",
+    "Screen6": "Old Screen6 says Discovery activation on camera; camera instruction recording unavailable.",
+    "Screen8": "Final recording has extra paragraph and old direction to wall; exact approved final unavailable."
+  },
+  "assets": [
+    {
+      "file": "Screen1.wav",
+      "bytes": 2553518,
+      "sha256": "2d4c953cead1b98a1411faf3f766d76f52a40c78f4f56c0f731f52a320469249",
+      "seconds": 14.443287981859411,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "waveFormatTag": 1
+    },
+    {
+      "file": "Screen2.wav",
+      "bytes": 2152102,
+      "sha256": "ebb31994562fd38762f294dd34cc63d6d7b39a0e2bfefbcde0671ad2abe7b6fb",
+      "seconds": 12.172131519274377,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "waveFormatTag": 1
+    },
+    {
+      "file": "Screen3.wav",
+      "bytes": 249678,
+      "sha256": "bce2390d4ece1d1bbd00b48f6cd863a5bc3ddfa3a674c9ce8d6be64506312d00",
+      "seconds": 5.2,
+      "channels": 1,
+      "sampleRate": 24000,
+      "bitsPerSample": 16,
+      "waveFormatTag": 1,
+      "source": "artifacts/stella-prototype/public/voice/vasilisa/vk-question-ideal-content.wav",
+      "transcript": "Каким должен быть идеальный контент на вечер? Выбери ответ на экране.",
+      "verification": "Read-only local cached faster-whisper-small ASR confirmed question and generic instruction. No synthesis."
+    },
+    {
+      "file": "Screen4.wav",
+      "bytes": 2604332,
+      "sha256": "02f7fb031506fce6921964941cfc4b11cf119f3cea8ed16d54e2b718d983d65b",
+      "seconds": 14.73079365079365,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "waveFormatTag": 1
+    },
+    {
+      "file": "Screen5.wav",
+      "bytes": 2349238,
+      "sha256": "7390adab0bae900c113ec5bcd9bf2d9c1233e581178a0dcef75787485ee5b0e0",
+      "seconds": 13.28750566893424,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "waveFormatTag": 1
+    },
+    {
+      "file": "Screen6.wav",
+      "bytes": 429012,
+      "sha256": "93a0a7c12e3c1d0f3c3e0e65de7d399ad7a956d6c60f4a28ebbf96ece4411488",
+      "seconds": 2.4230839002267572,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "waveFormatTag": 1
+    },
+    {
+      "file": "Screen7.wav",
+      "bytes": 1194272,
+      "sha256": "5b47fecca5313665cdd7a34e392a082b66104b345f8b50f9474d38bb2dfe0a4d",
+      "seconds": 6.77,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "waveFormatTag": 1
+    },
+    {
+      "file": "Screen8.wav",
+      "bytes": 3296594,
+      "sha256": "0f8571cdf9509b95c8f6cdee2424b410518eb2092be6e2039303f73aa3d6866d",
+      "seconds": 18.6475283446712,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "waveFormatTag": 1
+    },
+    {
+      "file": "Click.wav",
+      "bytes": 172880,
+      "sha256": "b0c51d24bffa6cb2446f32757587e71108d6320f063c06f069f9d248a2848252",
+      "seconds": 0.6,
+      "channels": 2,
+      "sampleRate": 48000,
+      "bitsPerSample": 24,
+      "waveFormatTag": 1
+    },
+    {
+      "file": "ChangeScreen.wav",
+      "bytes": 691280,
+      "sha256": "a019a3fc6711ddcc29262739842bcc38d7d7da7eb80727811250fbd896c79e44",
+      "seconds": 2.4,
+      "channels": 2,
+      "sampleRate": 48000,
+      "bitsPerSample": 24,
+      "waveFormatTag": 1
+    },
+    {
+      "file": "Tags.wav",
+      "bytes": 1292342,
+      "sha256": "4952db05acd4a687695d9b0c5db9018032df439d2d0da5dbe8b20cb3d9809471",
+      "seconds": 7.307709750566893,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "waveFormatTag": 1
+    },
+    {
+      "file": "Scan.wav",
+      "bytes": 6220880,
+      "sha256": "de719ef299dfd589a12b6de877fb1aa078167a63c826e7e00bc298419b22aa18",
+      "seconds": 21.6,
+      "channels": 2,
+      "sampleRate": 48000,
+      "bitsPerSample": 24,
+      "waveFormatTag": 1
+    },
+    {
+      "file": "AmbienceMain.wav",
+      "bytes": 16588880,
+      "sha256": "7cf0a8372950283729161cfe3b20a3abc47e63a9237641d2edad6667d4493509",
+      "seconds": 57.6,
+      "channels": 2,
+      "sampleRate": 48000,
+      "bitsPerSample": 24,
+      "waveFormatTag": 1
+    },
+    {
+      "file": "ChangeScreen2.wav",
+      "bytes": 691280,
+      "sha256": "0ad48f62f86c86b6419aba0056a82fac67527335ccae99505211450e8dc26714",
+      "seconds": 2.4,
+      "channels": 2,
+      "sampleRate": 48000,
+      "bitsPerSample": 24,
+      "waveFormatTag": 1
+    },
+    {
+      "file": "ChangeScreen3.wav",
+      "bytes": 1209680,
+      "sha256": "7dda0d6b4c6f67ec9919506bcc33b7bf1ef0fa6ecb05e19d3392e3155b57100c",
+      "seconds": 4.2,
+      "channels": 2,
+      "sampleRate": 48000,
+      "bitsPerSample": 24,
+      "waveFormatTag": 1
+    },
+    {
+      "file": "ChangeScreen4.wav",
+      "bytes": 1209680,
+      "sha256": "5b39aeb87c9cff5f1f3ee632fea4ca0ab924488b2925ec4059348a19c7f310ca",
+      "seconds": 4.2,
+      "channels": 2,
+      "sampleRate": 48000,
+      "bitsPerSample": 24,
+      "waveFormatTag": 1
+    },
+    {
+      "file": "ChangeScreen5.wav",
+      "bytes": 864080,
+      "sha256": "bfaeecd3968da1506b690626e286c7253fc03a2c3aedb3e315e7150eb7fff4a1",
+      "seconds": 3.0,
+      "channels": 2,
+      "sampleRate": 48000,
+      "bitsPerSample": 24,
+      "waveFormatTag": 1
+    },
+    {
+      "file": "ScanStart1.wav",
+      "bytes": 691280,
+      "sha256": "2971ae5a7b80db39bed0e82c712a2d8d80e22efbfd30449f0b80a8692a2db889",
+      "seconds": 2.4,
+      "channels": 2,
+      "sampleRate": 48000,
+      "bitsPerSample": 24,
+      "waveFormatTag": 1
+    },
+    {
+      "file": "ScanStart2.wav",
+      "bytes": 583280,
+      "sha256": "f7996ca83d05475a4885e8f2a00dc86c8990e3deec4e678d1fc0b0ede9fbe129",
+      "seconds": 2.025,
+      "channels": 2,
+      "sampleRate": 48000,
+      "bitsPerSample": 24,
+      "waveFormatTag": 1
+    },
+    {
+      "file": "ScanEnd1.wav",
+      "bytes": 432080,
+      "sha256": "e2fa8ba655601b19155a5ed702ba6935f74138f74f8c76506f31b7bac52e1745",
+      "seconds": 1.5,
+      "channels": 2,
+      "sampleRate": 48000,
+      "bitsPerSample": 24,
+      "waveFormatTag": 1
+    },
+    {
+      "file": "ScanEnd2.wav",
+      "bytes": 432080,
+      "sha256": "e8499f9589391e4289ab112960c2d0f7b706acdeee4f4d5059f47013c676378b",
+      "seconds": 1.5,
+      "channels": 2,
+      "sampleRate": 48000,
+      "bitsPerSample": 24,
+      "waveFormatTag": 1
+    }
+  ]
+}

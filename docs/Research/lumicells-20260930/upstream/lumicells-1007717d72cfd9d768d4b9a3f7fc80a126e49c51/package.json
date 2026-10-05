@@ -1,0 +1,106 @@
+{
+  "name": "lumicells",
+  "version": "0.1.0",
+  "description": "Live WebGL2 neon pixel-grid background with a tuning playground, React wrapper and Web Component",
+  "keywords": [
+    "webgl",
+    "webgl2",
+    "shader",
+    "background",
+    "pixel",
+    "neon",
+    "glow",
+    "animation",
+    "react",
+    "web-component",
+    "generative"
+  ],
+  "homepage": "https://supsad.github.io/lumicells/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/supsad/lumicells.git"
+  },
+  "bugs": {
+    "url": "https://github.com/supsad/lumicells/issues"
+  },
+  "type": "module",
+  "private": true,
+  "license": "UNLICENSED",
+  "main": "./dist/lib/lumicells.js",
+  "module": "./dist/lib/lumicells.js",
+  "types": "./dist/types/core/index.d.ts",
+  "unpkg": "./dist/lib/lumicells-element.iife.js",
+  "jsdelivr": "./dist/lib/lumicells-element.iife.js",
+  "exports": {
+    ".": {
+      "types": "./dist/types/core/index.d.ts",
+      "import": "./dist/lib/lumicells.js",
+      "default": "./dist/lib/lumicells.js"
+    },
+    "./schema": {
+      "types": "./dist/types/schema/index.d.ts",
+      "import": "./dist/lib/lumicells-schema.js",
+      "default": "./dist/lib/lumicells-schema.js"
+    },
+    "./react": {
+      "types": "./dist/types/react/index.d.ts",
+      "import": "./dist/lib/lumicells-react.js",
+      "default": "./dist/lib/lumicells-react.js"
+    },
+    "./element": {
+      "types": "./dist/types/element/index.d.ts",
+      "import": "./dist/lib/lumicells-element.js",
+      "default": "./dist/lib/lumicells-element.js"
+    },
+    "./element/define": {
+      "types": "./dist/types/element/define.d.ts",
+      "import": "./dist/lib/lumicells-element-define.js",
+      "default": "./dist/lib/lumicells-element-define.js"
+    },
+    "./schema.json": "./dist/lib/lumicells.schema.json",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist/lib",
+    "dist/types"
+  ],
+  "sideEffects": [
+    "./src/element/define.ts",
+    "./src/element/iife.ts",
+    "./dist/lib/lumicells-element-define.js",
+    "./dist/lib/lumicells-element.iife.js"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run typecheck && vite build",
+    "build:lib": "vite build --config vite.lib.config.ts && vite build --config vite.element.config.ts && tsc -p tsconfig.lib.json && node scripts/fix-dts.mjs",
+    "check:types": "node scripts/check-types.mjs",
+    "preview": "vite preview",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.node.json --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write ."
+  },
+  "peerDependencies": {
+    "react": ">=19"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.14",
+    "@types/node": "^24.19.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "jsdom": "^30.1.1",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.1",
+    "vitest": "^5.0.2"
+  }
+}

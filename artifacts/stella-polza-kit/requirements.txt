@@ -1,0 +1,3 @@
+# Direct runtime dependencies. requirements.lock.txt pins the full verified environment.
+httpx==0.28.1
+Pillow==12.3.0

@@ -1,0 +1,16 @@
+{
+  "repository": "https://github.com/supsad/lumicells",
+  "commit": "1007717d72cfd9d768d4b9a3f7fc80a126e49c51",
+  "entry": "demo/main.tsx",
+  "sourceModified": false,
+  "htmlChanges": "compiled JS/CSS references only",
+  "dependencies": {
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "engine": "unmodified upstream",
+  "files": {
+    "playground.js": "d6dc5c188f6950851951660000748098c339fda32b3e30ff21a7152d7704c2a6",
+    "playground.css": "ccf13936d87c82dad9f5a72d7a69824be277858d8150923f30479da670a0a733"
+  }
+}

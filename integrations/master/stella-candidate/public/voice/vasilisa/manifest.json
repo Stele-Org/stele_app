@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "voice": "Василиса",
+  "ready": true,
+  "assets": {
+    "home": "home.wav",
+    "vk-onboarding": "vk-onboarding.wav",
+    "max-onboarding": "max-onboarding.wav",
+    "vk-question-evening": "vk-question-evening.wav",
+    "vk-question-ideal-content": "vk-question-ideal-content.wav",
+    "vk-question-discovery": "vk-question-discovery.wav",
+    "max-audience": "max-audience.wav",
+    "max-goal": "max-goal.wav",
+    "vk-digitize": "vk-digitize.wav",
+    "vk-gender": "vk-gender.wav",
+    "vk-camera": "vk-camera.wav",
+    "vk-scanning": "vk-scanning.wav",
+    "vk-particles": "vk-discovery-activation-studio.wav",
+    "vk-discovery-activation": "vk-discovery-activation-studio.wav",
+    "vk-final": "vk-final.wav",
+    "max-result-digital-id": "max-result-digital-id.wav",
+    "max-result-communication": "max-result-communication.wav",
+    "max-result-blogger": "max-result-blogger.wav",
+    "max-result-business-promotion": "max-result-business-promotion.wav"
+  }
+}

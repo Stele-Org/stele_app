@@ -1,0 +1,22 @@
+{
+  "asset": "vk-new-drive.svg",
+  "changeDate": "2026-10-04",
+  "change": "User-supplied cheering couple replaces the embedded image; rounded card, placement, clipping and gradient preserved. Raster pixels unchanged.",
+  "originalAssetSha256": "fc204270f10f7e730e6d44d5c4df40cde3bdf5fc83a5f0af7e601ac728b214c5",
+  "sha256": "ed367a74c2af8fac90e626ffa7efccda4eaf744543e7b1d75c94db39c3329d1b",
+  "sourceImage": "../images/vk-drive-cheering-couple.png",
+  "sourceImageOriginalName": "Ликующая пара на синем диване.png",
+  "sourceImageSha256": "b6dd495c474fe99ec7501be3b891e8bb9f388b5f4ec2ecd3a780675172f349cd",
+  "sourceImageSize": [
+    1536,
+    1024
+  ],
+  "sourceImageMode": "RGBA",
+  "renderedImageArea": [
+    156,
+    574,
+    346,
+    231
+  ],
+  "permission": "User supplied this image and requested its use for this VK Video answer card. No additional public license asserted."
+}

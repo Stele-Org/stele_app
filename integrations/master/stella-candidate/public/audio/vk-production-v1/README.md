@@ -1,0 +1,13 @@
+# AUDIO-02: кандидат переноса звука 0410
+
+Это новый локальный кандидат. Принятые installed/build manifests и стенд этим не обновлены. `central-catalogue.candidate.json` — машиночитаемая карта ID, путей, SHA256, bus, loop и статуса воспроизведения для интегратора; это не схема отсутствующего здесь backend MASTER.
+
+Сохраняются AUDIO-02 observer, `stand-audio-v1`, реальные Howler seek/volume/playing clocks, прежние `stella.Screen1`–`Screen8`, `Click`, `ChangeScreen`, `Tags`, `Scan` и разделение voice/vk. Electron остаётся muted; слышимый выход принадлежит центральному MASTER/Dante. Не включать локальный выход для обхода центра.
+
+Изменены исходные записи существующих IDs: Screen3 — готовая принятая реплика вопроса «Каким должен быть идеальный контент на вечер? Выбери ответ на экране» без старого «Чтобы смеяться»; Screen7 — полный Discovery studio 6,77 с / вставленная пауза 400 мс; Click — новый клик; ChangeScreen — transition 1; Scan — новый ambience сканирования с loop=true. Исходные PCM скопированы без синтеза или изменения скорости. Screen5/6/8 не воспроизводятся: утверждённые новые тексты фото, камеры и финала находятся в `voice/vasilisa/phrases.json`, pending — рядом. Старый Screen6 произносил Discovery на камере. Точных новых WAV фото/камеры/финала нет.
+
+Добавлены девять ID: `stella.AmbienceMain`, `stella.ChangeScreen2`–`5`, `stella.ScanStart1`/`2`, `stella.ScanEnd1`/`2`. Их нужно зарегистрировать на центральном MASTER одновременно с SHA-совпадающими файлами и новой UI-сборкой. Зарегистрировать loop=true для Scan/AmbienceMain. Иначе центральный каталог может отклонить новые IDs или проиграть прежние записи существующих IDs. Сам центральный каталог/backend не экспортирован; transport companion sources и accepted pins не менялись.
+
+Новый банк основан на 12 WAV `public/sound/stella/` с исходным SHA/provenance. Фон main вне фактического scanning, scan только на scanning; клик после принятия RingActions, не от document click. Переходы на answer-reveal/photo-reveal идут 1→2→3→4→5→1 и сбрасываются на home. Scan start/end идут парами 1/1→2/2; пропуск фото не запускает scan. Поллинг не повторяет звук. Пауза/hidden/условия останавливают one-shots и приостанавливают фон. Серверные transitions/ACK/сроки сценария остаются у MASTER.
+
+`useMasterMaxAudio` использует общий SFX/центральный observer, без ошибочной VK Screen-озвучки на MAX. Standalone preview использует те же исходные SFX и voice pending gate; его локальный плеер не заменяет production MASTER.
