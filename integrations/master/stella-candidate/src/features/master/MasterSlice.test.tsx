@@ -5,6 +5,7 @@ import { afterEach, beforeEach, expect, it, vi } from 'vitest'
 import { vkCopy } from '../../content/vkVideo'
 import type { Snapshot } from './slice-client.mjs'
 import type { TagReveal } from '../prototype/tag-reveal'
+import { PRODUCT_ENTRY_MS } from '../prototype/product-entry'
 vi.mock('./useMasterAudio', () => ({ useMasterAudio: vi.fn() }))
 
 const mocks = vi.hoisted(() => ({ emit: null as null | ((state: Snapshot) => void), complete: vi.fn(), choosePhoto: vi.fn(), control: vi.fn(), dispose: vi.fn(), whiteMount: vi.fn(), whiteUnmount: vi.fn(), white: [] as { onComplete: () => void; playing: boolean; stage: string; silhouetteSrc?: string; generationDurationSeconds: number }[], visuals: [] as { reveal: TagReveal; onComplete: () => void; playing: boolean }[] }))
@@ -93,7 +94,7 @@ it('finishes Discovery before showing an early server final and starts the final
     act(() => vi.advanceTimersByTime(1)); expect(host.querySelector('[data-screen="home"]')).not.toBeNull()
   } finally { act(() => root.unmount()) }
 })
-it('real BrandSplash completes while 750ms server polling continues beyond its 1200ms duration', () => {
+it('real BrandSplash completes while 750ms server polling continues beyond its duration', () => {
   vi.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout', 'setInterval', 'clearInterval', 'performance'] })
   vi.stubGlobal('IS_REACT_ACT_ENVIRONMENT', true)
   vi.stubGlobal('ResizeObserver', class { observe() {} disconnect() {} })
@@ -108,9 +109,9 @@ it('real BrandSplash completes while 750ms server polling continues beyond its 1
   expect(host.querySelector('.master-visitor-status')).toBeNull()
   act(() => host.querySelector<HTMLButtonElement>('button[aria-label="VK Видео"]')!.click())
   expect(host.querySelector('.brand-splash')).not.toBeNull()
-  for (let poll = 1; poll <= 4; poll++) {
+  for (let poll = 1; poll <= Math.ceil(PRODUCT_ENTRY_MS / 750) + 2; poll++) {
     act(() => { vi.advanceTimersByTime(750); mocks.emit!(structuredClone(free)) })
-    if (poll === 1) expect(host.querySelector('.brand-splash')).not.toBeNull()
+    if (poll * 750 < PRODUCT_ENTRY_MS) expect(host.querySelector('.brand-splash')).not.toBeNull()
     else {
       expect(host.querySelector('.brand-splash')).toBeNull()
       expect(host.querySelector('.screen--onboarding')).not.toBeNull()

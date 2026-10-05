@@ -4,6 +4,7 @@ import { ChevronRight } from 'lucide-react'
 import type { QuestionPresentation } from '../features/prototype/question-presentation'
 import type { TagReveal } from '../features/prototype/tag-reveal'
 import { answerCardPosition } from '../features/prototype/answer-card-layout'
+import { ARRIVE_EASE, ARRIVE_MS, ARRIVE_STAGGER_MS } from '../features/prototype/arrival'
 import { startFloat } from '../vendor/lumicells-scene/flight'
 import { AnswerFlight } from './AnswerFlight'
 import { BackButton } from './BackButton'
@@ -26,14 +27,16 @@ function useSoftPresence(kind: 'card' | 'copy' | 'heading', order = 0, onReady?:
     let cancelled = false
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     const card = kind === 'card'
-    const duration = reduced ? 0 : present ? (card ? .55 : kind === 'heading' ? .62 : .42) : card ? .44 : .28
+    const duration = reduced ? 0 : present ? (card ? ARRIVE_MS / 1000 : kind === 'heading' ? .62 : .42) : card ? .44 : .28
     const animation = animate(scope.current,
       card ? { opacity: present ? 1 : 0, y: reduced || present ? 0 : -38, scale: reduced || present ? 1 : .96 }
         : { opacity: present ? 1 : 0 },
-      card && !reduced ? {
-        type: 'spring', stiffness: 90, damping: 18, mass: 1.1, restDelta: .2, restSpeed: 2,
-        opacity: { type: 'tween', duration, ease: 'easeInOut' }, delay: order * (present ? .045 : .025),
-      } : { duration, ease: 'easeInOut' })
+      // Answer cards arrive in the rhythm of the onboarding steps; leaving keeps its quick spring.
+      card && present && !reduced ? { duration, ease: ARRIVE_EASE, delay: order * ARRIVE_STAGGER_MS / 1000 }
+        : card && !reduced ? {
+          type: 'spring', stiffness: 90, damping: 18, mass: 1.1, restDelta: .2, restSpeed: 2,
+          opacity: { type: 'tween', duration, ease: 'easeInOut' }, delay: order * .025,
+        } : { duration, ease: 'easeInOut' })
     controls.current = animation
     void animation.then(() => {
       if (cancelled) return

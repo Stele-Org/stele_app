@@ -1,6 +1,8 @@
 import type { Product } from '../../types/prototype'
+import { ARRIVE_MS } from './arrival'
 
-export const PRODUCT_ENTRY_MS = 1200
+/** The logo arrives, holds and leaves; each third takes one arrival (`brand-logo-arrive` in global.css). */
+export const PRODUCT_ENTRY_MS = 3 * ARRIVE_MS
 
 /** One confirmed choice; a service pause freezes the remaining visual cue. */
 export class ProductEntry {
