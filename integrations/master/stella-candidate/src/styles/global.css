@@ -279,3 +279,27 @@ h1, h2, p { margin: 0; }
 .answer-flight[data-description='true'] .progress-copy { top: 320px; }
 .answer-flight[data-description='true'] .progress-copy h1 { font-size: 44px; }
 .answer-flight[data-description='true'] .progress-copy p { margin-top: 24px; font-size: 28px; }
+/* Softer screen changes, 05.10.2026. Entering content arrives in a short cascade instead of one block;
+ * `backwards` returns each element to its own transitions once it has landed. */
+@keyframes soft-arrive { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+@keyframes soft-fade { from { opacity: 0; } to { opacity: 1; } }
+.stella-product-header { animation: soft-fade 520ms ease-out backwards; }
+.screen--onboarding { animation: none; }
+.screen--onboarding > .product-mark { animation: soft-fade 520ms ease-out backwards; }
+.screen--onboarding .onboarding-intro h1, .screen--onboarding .onboarding-step, .screen--onboarding .onboarding-actions, .screen--onboarding .back-button { animation: soft-arrive 560ms cubic-bezier(.2, .7, .2, 1) backwards; }
+.screen--onboarding .onboarding-step { animation-delay: 110ms; }
+.screen--onboarding .onboarding-step + .onboarding-step { animation-delay: 200ms; }
+.screen--onboarding .onboarding-step + .onboarding-step + .onboarding-step { animation-delay: 290ms; }
+.screen--onboarding .onboarding-actions { animation-delay: 320ms; }
+.screen--onboarding .back-button { animation-delay: 400ms; }
+/* Leaving, local scenario only: while an accepted tap plays its 260ms cue, the screen it leaves fades out,
+ * so the next one does not replace it with a cut. The server mode keeps its content visible:
+ * there the next screen waits for MASTER and a refused action must not leave an empty screen. */
+.experience:not([data-master-slice]) .screen--home .home-intro,
+.experience:not([data-master-slice]) .screen--onboarding .onboarding-intro { transition: opacity 240ms ease, transform 240ms ease; }
+.experience:not([data-master-slice]) .screen--home:has(.product-tag[data-active='true']) .home-intro,
+.experience:not([data-master-slice]) .screen--onboarding:has(.onboarding-start[data-active='true']) .onboarding-intro { opacity: 0; transform: translateY(-12px); }
+.experience:not([data-master-slice]) .screen--home:has(.product-tag[data-active='true']) .product-tag { opacity: 0; transition: opacity 200ms ease 60ms, transform 180ms ease-out; }
+.experience:not([data-master-slice]) .screen--onboarding .onboarding-actions { transition: opacity 200ms ease 60ms; }
+.experience:not([data-master-slice]) .screen--onboarding:has(.onboarding-start[data-active='true']) .onboarding-actions,
+.experience:not([data-master-slice]) .screen--onboarding:has(.onboarding-start[data-active='true']) .back-button { opacity: 0; }
