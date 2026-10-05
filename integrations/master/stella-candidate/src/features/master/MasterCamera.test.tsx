@@ -18,7 +18,7 @@ it('requires explicit M/F and consent; unknown result retries same capture inste
   await act(async()=>root.render(<MasterCamera fence={{sessionId:'s',revision:4,screen:'camera'}} enabled upload={upload} skip={()=>{}}/>))
   expect(host.querySelector('h1')?.textContent).toBe('Смотри в камеру над экраном')
   expect(host.querySelector('.master-camera-terms-body')?.textContent).toContain('7. Другие условия')
-  expect(host.querySelector('.master-camera-terms-body')?.textContent).toContain('Редакция от 04.10.2026.')
+  expect(host.querySelector('.master-camera-terms-body')?.textContent).toContain('Редакция от 05.10.2026.')
   const button=()=>[...host.querySelectorAll('button')].find(b=>b.textContent?.includes('фото')||b.textContent?.includes('этого снимка'))!
   expect(button().disabled).toBe(true)
   act(()=>host.querySelector<HTMLInputElement>('input[type=radio]')!.click());expect(button().disabled).toBe(true)
