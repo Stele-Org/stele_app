@@ -30,11 +30,13 @@ it('catalog includes late-screen content and CSS decoration without duplicate UR
   const actual = await vi.importActual<typeof import('./content-assets')>('./content-assets')
   expect(new Set(actual.contentImages).size).toBe(actual.contentImages.length)
   const required = await Promise.all([
-    import('../assets/ux-reference/vk-new-home.svg'), import('../assets/ux-reference/vk-new-camera.svg'),
+    import('../assets/ux-reference/home-vk-video.svg'), import('../assets/ux-reference/home-max.svg'), import('../assets/ux-reference/vk-new-camera.svg'),
     import('../assets/ux-reference/vk-new-silhouette.svg'), import('../assets/ux-reference/vk-new-qr.svg'),
     import('../assets/ux-reference/max-cta.svg'),
   ])
   for (const asset of required) expect(actual.contentImages).toContain(asset.default)
+  // The retired 4 MB start-screen raster is no longer fetched at startup.
+  expect(actual.contentImages.some(url => url.includes('vk-new-home'))).toBe(false)
   expect(actual.contentFonts).toHaveLength(7)
 })
 

@@ -1,0 +1,43 @@
+{
+  "changeDate": "2026-10-05",
+  "change": "User supplied the correct start-screen logos and their placement. Both SVG files are copied byte for byte; the application positions them at their native size.",
+  "layout": {
+    "source": "artifacts/DESIGN/UI/stela/STELLA Start.png",
+    "sha256": "df4a40fbf4ff7c0efd0d7a31beae9e3e41967f105cd73cc48a055450d0405ab4",
+    "canvas": [
+      1080,
+      1920
+    ]
+  },
+  "assets": [
+    {
+      "asset": "home-vk-video.svg",
+      "source": "artifacts/DESIGN/UI/stela/_Logo.svg",
+      "sha256": "ae35e5531fb79b12bdbdacbbdc1db97c5cad889d39037d30dd7e07d9ba03af44",
+      "size": [
+        511,
+        181
+      ],
+      "placement": [
+        54.5,
+        618
+      ],
+      "note": "The file includes 45px of clear space around the mark; the icon lands at x 99.5, y 663."
+    },
+    {
+      "asset": "home-max.svg",
+      "source": "artifacts/DESIGN/UI/stela/Max.svg",
+      "sha256": "c1a52b88f0d4edbaa98b0d6c7e8ee475e537f213d0f01516a72410876e7dca1f",
+      "size": [
+        287,
+        92
+      ],
+      "placement": [
+        648,
+        663
+      ]
+    }
+  ],
+  "measured": "Pixel bounds in the layout: VK icon x 99..188, y 664..752; VK wordmark x 221..516; MAX symbol x 648..738, y 663..753; MAX wordmark x 762..932.",
+  "permission": "Provided client artwork used within this project; no additional public license asserted."
+}

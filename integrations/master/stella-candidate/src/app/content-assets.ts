@@ -4,7 +4,8 @@ import videoMono from '../../../DESIGN/BRANDS/vk-video/assets/logos/vk-video-mon
 import maxMono from '../../../DESIGN/BRANDS/MAX/assets/logos/max-mono-white.svg'
 import videoSymbol from '../../../DESIGN/BRANDS/vk-video/assets/logos/vk-video-symbol-color.svg'
 import maxSymbol from '../../../DESIGN/BRANDS/MAX/assets/logos/max-symbol-color.svg'
-import home from '../assets/ux-reference/vk-new-home.svg'
+import homeVideo from '../assets/ux-reference/home-vk-video.svg'
+import homeMax from '../assets/ux-reference/home-max.svg'
 import cameraBorder from '../assets/ux-reference/vk-camera-discovery-border.svg'
 import camera from '../assets/ux-reference/vk-new-camera.svg'
 import silhouette from '../assets/ux-reference/vk-new-silhouette.svg'
@@ -15,7 +16,7 @@ import { optionArtwork } from '../components/question-artwork'
 
 // Use the same Vite URLs as the screens/CSS: no duplicate fetch/blob URL layer.
 export const contentImages = [...new Set([
-  home, videoLogo, maxLogo, maxSymbol, videoSymbol, videoMono, maxMono,
+  homeVideo, homeMax, videoLogo, maxLogo, maxSymbol, videoSymbol, videoMono, maxMono,
   ...Object.values(referenceCards), ...Object.values(optionArtwork),
   camera, cameraBorder, silhouette, qr, maxCta,
 ])]

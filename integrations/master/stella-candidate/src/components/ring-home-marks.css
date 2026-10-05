@@ -1,22 +1,13 @@
-/* Preserve both original assets. At a common 2048px raster, alpha >= 128:
- * VK bounds [321, 299, 1762, 1740] = 1441px square;
- * MAX bounds [0, 5, 2046, 2043] = 2046 x 2038px.
- * Normalize VK's transparent padding to MAX's visible 255.75px width within
- * the existing 256px buttons. Uniform scaling preserves the original shape.
+/* Start-screen logos, 05.10.2026: both client SVG files are shown at their native size and placed
+ * as in artifacts/DESIGN/UI/stela/STELLA Start.png (1080 x 1920).
+ * VK Видео: 511 x 181 file with 45px of clear space, placed at (54.5, 618); its icon lands at (99.5, 663).
+ * MAX: 287 x 92 file at (648, 663), inside a touch area with the same 45px margin.
+ * Both marks share one vertical centre, y = 708.5.
  */
-.screen--home .product-tag .product-mark--vk-video {
-  position: relative;
-  width: 256px;
-  height: 256px;
-}
-
-.screen--home .product-tag .product-mark--vk-video .product-mark__image {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: calc(256px * 2046 / 1441);
-  height: auto;
-  /* Align measured alpha centers; MAX center is (1023, 1024) / 2048. */
-  transform: translate(calc(-50% - 3.231px), calc(-50% + 0.799px));
-  pointer-events: none;
-}
+.screen--home .product-tag--vk-video { left: 54.5px; width: 511px; }
+/* One pixel taller than the VK area, so the 92px mark sits exactly on y = 663. */
+.screen--home .product-tag--max { left: 603px; width: 377px; height: 182px; min-height: 182px; }
+.screen--home .product-tag .product-mark { height: auto; }
+.screen--home .product-tag .product-mark__image { max-width: none; pointer-events: none; }
+.screen--home .product-tag--vk-video .product-mark__image { width: 511px; height: 181px; }
+.screen--home .product-tag--max .product-mark__image { width: 287px; height: 92px; }

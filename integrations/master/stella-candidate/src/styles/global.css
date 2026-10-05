@@ -87,11 +87,9 @@ h1, h2, p { margin: 0; }
 .back-button svg { width: 30px; height: 30px; }
 .home-intro { position: absolute; top: 360px; left: 110px; width: 860px; text-align: center; }
 .home-intro h1 { font-size: 82px; line-height: 1.1; font-weight: 600; text-transform: uppercase; }
-.home-choices { position: absolute; top: 633px; left: 230px; width: 620px; display: flex; flex-direction: row; justify-content: space-between; }
-.product-tag { position: relative; width: 256px; height: 256px; min-height: 256px; padding: 0; background: transparent; box-shadow: none; border-radius: 48px; display: grid; place-items: center; }
+.home-choices { position: absolute; inset: 0; }
+.product-tag { position: absolute; top: 618px; height: 181px; min-height: 181px; padding: 0; background: transparent; box-shadow: none; border-radius: 48px; display: grid; place-items: center; }
 .product-tag:hover:not(:disabled) { box-shadow: none; }
-.product-tag .product-mark { height: 256px; }
-.product-tag .product-mark__image { height: 256px; width: 256px; }
 .question-heading { position: absolute; top: 335px; left: 60px; width: 960px; text-align: center; }
 .screen-step { display: none; }
 .question-heading h1 { font-size: 48px; font-weight: 600; line-height: 1.12; }
