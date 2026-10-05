@@ -41,10 +41,10 @@ const SCREEN_LEFT = 10, SCREEN_RIGHT = 1070, MIDDLE = 540
 /** The longest code a tag turns into: '#', nine letters, ':' and two hex digits (tagCode in tag-dissolve.ts). */
 const CODE_LENGTH = 13
 
-/** Upper bound of a landed VK Видео tag (tag-dissolve.css): the readable word or its code, whichever is wider. */
+/** Upper bound of a landed tag of the particle scene (tag-dissolve.css): the readable word or its code, whichever is wider. */
 export function dissolveTagBox(label: string, primary: boolean): TagBox {
   const font = primary ? 38 : 32, padding = primary ? 48 : 40
-  // Advance per character: VK Sans Display stays under .64em, the monospace code under .56em.
+  // Advance per character: VK Sans Display and Max Sans stay under .64em, the monospace code under .56em.
   const text = Math.max([...label].length * .64, CODE_LENGTH * .56) * font
   return { w: Math.ceil(text + padding * 2 + 4), h: primary ? 92 : 80 }
 }
@@ -66,11 +66,14 @@ export function clearTagPositions(card: AnswerCardRect, boxes: TagBox[], seed: n
   const slots = card.photo
     // The photo answer: two tags above it, two below.
     ? [band(490, 40, true), band(480, 40, false), band(1120, 25, true), band(1190, 25, false)]
-    : card.top < 700
-      // An answer of the top row: two tags beside it, two in the band below.
-      ? [column(610, 25), column(815, 30), band(1045, 15, true), band(1195, 20, false)]
-      // An answer of the bottom row: nothing fits under it, so two tags go above and two beside.
-      : [band(620, 30, true), band(630, 25, false), column(845, 30), column(1060, 30)]
+    : Math.abs(card.left + card.width / 2 - MIDDLE) < 60
+      // A lone answer in the middle of the bottom row (MAX): no room beside or under it, two rows of tags above.
+      ? [band(495, 12, true), band(495, 12, false), band(645, 15, true), band(645, 15, false)]
+      : card.top < 700
+        // An answer of the top row: two tags beside it, two in the band below.
+        ? [column(610, 25), column(815, 30), band(1045, 15, true), band(1195, 20, false)]
+        // An answer of the bottom row: nothing fits under it, so two tags go above and two beside.
+        : [band(620, 30, true), band(630, 25, false), column(845, 30), column(1060, 30)]
   const columnWidth = (box: TagBox) => cardOnLeft ? SCREEN_RIGHT - cardRight - clear(box) : card.left - clear(box) - SCREEN_LEFT
   const shuffle = <T>(items: T[]) => {
     for (let i = items.length - 1; i > 0; i--) {

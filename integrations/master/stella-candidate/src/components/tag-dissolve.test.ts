@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import { beforeEach, expect, it, vi } from 'vitest'
 import type { BubbleEntry } from '../vendor/lumicells-scene/bubbles'
-import { TagDissolve, encodeText, tagCode, tagDissolveTimeline, tagThreads, threadCrossings, threadsUnderTags, type Thread } from './tag-dissolve'
+import { MAX_CELLS, TagDissolve, encodeText, tagCode, tagDissolveTimeline, tagThreads, threadCrossings, threadsUnderTags, type TagDissolveLook, type Thread } from './tag-dissolve'
 import { clearTagPositions, dissolveTagBox } from '../features/prototype/tag-layout'
 import { tagBatches } from '../features/prototype/tag-reveal'
 import { answerCardPosition } from '../features/prototype/answer-card-layout'
@@ -22,7 +22,7 @@ beforeEach(() => { clock.tracks.length = 0 })
 const words = ['обсуждения', 'сериал', 'премьера', 'популярное']
 const places = [[.74, .46], [.26, .65], [.74, .81], [.26, .99]]
 
-function scene(reduced = false, retiring: HTMLElement | null = null) {
+function scene(reduced = false, retiring: HTMLElement | null = null, look?: TagDissolveLook) {
   const root = document.createElement('div')
   const flights: string[] = []
   const entries: BubbleEntry[] = words.map((word, i) => {
@@ -37,20 +37,22 @@ function scene(reduced = false, retiring: HTMLElement | null = null) {
       info: () => ({ id: String(i), label: word, kind: 'topic', color: '#0481f5', selected: i === 0 }),
     }
   })
-  const drawn: string[] = []
+  const drawn: string[] = [], inks: string[] = []
   const context = new Proxy({}, {
-    get: (_target, key) => key === 'createLinearGradient' ? () => ({ addColorStop() {} }) : () => { drawn.push(String(key)) },
-    set: () => true,
+    get: (_target, key) => key === 'createLinearGradient' ? () => ({ addColorStop: (_at: number, color: string) => { inks.push(color) } }) : () => { drawn.push(String(key)) },
+    set: (_target, key, value) => { if (key === 'fillStyle' || key === 'shadowColor') inks.push(String(value)); return true },
   })
   const canvas = { getContext: () => context, getBoundingClientRect: () => ({ width: 1080 }), width: 0, height: 0 } as unknown as HTMLCanvasElement
   const closing = vi.fn(), done = vi.fn()
   const motion = new TagDissolve(root, () => entries,
     () => ({ onFlight: (_el, info, phase) => { flights.push(`${root.dataset.phase}:${info.label}:${phase}`) } }),
-    { canvas, card: { x: 45, y: 549, w: 468, h: 280 }, seed: 7, reduced, onClosing: closing, retiring })
+    { canvas, card: { x: 45, y: 549, w: 468, h: 280 }, seed: 7, reduced, onClosing: closing, retiring, look })
   void motion.revealOnce(350, done)
   const track = clock.tracks.at(-1)!
-  const at = (time: number) => { drawn.length = 0; track.options.onUpdate(time); return drawn.filter(call => call === 'arc').length }
-  return { root, entries, flights, closing, done, motion, track, at }
+  /** Paints the frame at `time` and counts the shapes of one kind in it; `inks` then holds its colours. */
+  const shapes = (time: number, shape: string) => { drawn.length = 0; inks.length = 0; track.options.onUpdate(time); return drawn.filter(call => call === shape).length }
+  const at = (time: number) => shapes(time, 'arc')
+  return { root, entries, flights, closing, done, motion, track, at, shapes, inks }
 }
 
 it('keeps the accepted D2 timings for four tags', () => {
@@ -264,4 +266,23 @@ it('keeps reduced motion to a short readable fade without flights or dots', () =
   track.options.onComplete()
   expect(flights).toHaveLength(16)
   expect(done).toHaveBeenCalledOnce()
+})
+
+it('paints MAX with square cells in the colours of its field instead of round dots, on the same clock', () => {
+  const dots = scene(), cells = scene(false, null, MAX_CELLS)
+  expect(cells.track.options.duration).toBe(dots.track.options.duration)
+  // While the tags fly, both draw the same threads with a round light at the head of each, MAX in its own colours.
+  expect(cells.shapes(1.2, 'arc')).toBe(dots.shapes(1.2, 'arc'))
+  expect(cells.shapes(1.2, 'arc')).toBeGreaterThan(0)
+  expect(cells.inks).toEqual(expect.arrayContaining([...MAX_CELLS.thread, MAX_CELLS.glow, MAX_CELLS.head, MAX_CELLS.headGlow]))
+  // The cloud: the same seeded particles, circles for VK Видео and upright squares for MAX.
+  const round = dots.shapes(8, 'arc')
+  expect(round).toBeGreaterThan(50)
+  expect(dots.shapes(8, 'roundRect')).toBe(0)
+  expect(cells.shapes(8, 'arc')).toBe(0)
+  expect(cells.shapes(8, 'roundRect')).toBe(round)
+  const colours = new Set(cells.inks.filter(ink => ink.startsWith('rgba(')).map(ink => ink.slice(5, ink.lastIndexOf(','))))
+  expect([...colours].sort()).toEqual([...MAX_CELLS.particles].sort())
+  // The palette of the MAX cell field (ring-scene-config) is among them.
+  expect(MAX_CELLS.particles).toEqual(expect.arrayContaining(['71,26,255', '110,26,255', '149,0,255']))
 })

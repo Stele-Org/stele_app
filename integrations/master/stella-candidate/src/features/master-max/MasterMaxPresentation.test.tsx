@@ -11,7 +11,7 @@ vi.mock('./max-client.mjs',()=>({createMaxClient:({onChange}:{onChange:(s:MaxSna
 vi.mock('../../components/RingScene',()=>({RingScene:({children,playing}:{children:ReactNode;playing:boolean})=><div data-ring-playing={String(playing)}>{children}</div>}))
 vi.mock('../../components/ContinuousQuestions',()=>({ContinuousQuestions:({interactive,onSelect}:{interactive:boolean;onSelect:(id:string)=>void})=><button disabled={!interactive} onClick={()=>onSelect('personal')}>Answer</button>}))
 vi.mock('../../service',()=>({useServicePlaying:()=>mocks.hostPlaying,markServiceReady:async()=>{}}))
-import {Choreographer} from '../../vendor/lumicells-scene/choreography'
+import {TagDissolve} from '../../components/tag-dissolve'
 import {MasterMaxSlice} from './MasterMaxSlice'
 const before:MaxSnapshot={health:{instanceKey:'dataset'},station:{sessionId:'session'},session:{protocol:'stella-max-v1',sessionId:'session',phase:'active',screen:'audience',revision:0,answers:{},actions:['answer'],tagsMax:[],definition:{questions:[{id:'audience',prompt:'Audience',options:[{id:'personal',label:'Personal'}]},{id:'goal',prompt:'Goal',options:[{id:'access',label:'ID'}]}],missions:[]}},game:{waitingCount:0,gameBusy:false},available:true,fresh:true,online:true,busy:false,pending:null,error:'',notice:'',storageError:'',canRetry:false}
 const after:MaxSnapshot={...before,session:{...before.session!,screen:'goal',revision:1,answers:{audience:'personal'},tagsMax:[{id:'personal',label:'Personal tag',visible:true}]}}
@@ -23,8 +23,8 @@ beforeEach(async()=>{
  vi.stubGlobal('IS_REACT_ACT_ENVIRONMENT',true);vi.stubGlobal('ResizeObserver',class{observe(){}disconnect(){}});vi.stubGlobal('matchMedia',()=>({matches:false}))
  mocks.hostPlaying=true;finishes=[]
  // Actual React AnswerFlight lifecycle; only its WAAPI runner is held in jsdom.
- run=vi.spyOn(Choreographer.prototype,'revealOnce').mockImplementation(async(_hold,done)=>{finishes.push(done)})
- dispose=vi.spyOn(Choreographer.prototype,'dispose');playing=vi.spyOn(Choreographer.prototype,'setPlaying')
+ run=vi.spyOn(TagDissolve.prototype,'revealOnce').mockImplementation(async(_hold,done)=>{finishes.push(done)})
+ dispose=vi.spyOn(TagDissolve.prototype,'dispose');playing=vi.spyOn(TagDissolve.prototype,'setPlaying')
  host=document.createElement('div');document.body.append(host);root=createRoot(host)
  await act(async()=>root.render(<MasterMaxSlice onExit={()=>{}}/>));emit(before)
 })

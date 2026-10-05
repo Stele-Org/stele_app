@@ -3,6 +3,7 @@ import { clearTagPositions, dissolveTagBox, tagPositions, type AnswerCardRect, t
 import { tagBatches, type TagReveal } from './tag-reveal'
 import { answerCardPosition } from './answer-card-layout'
 import { vkPhotoOptions, vkQuestions } from '../../content/vkVideo'
+import { maxAudienceOptions, maxGoalOptions } from '../../content/max'
 
 const cards: TagReveal['answerCard'][] = [undefined,
   ...[0, 1, 2, 3].map(index => ({ index, tone: 'blue' as const })),
@@ -46,10 +47,13 @@ describe('bounded random layout passed to native LumiCells flight', () => {
   })
 })
 
-describe('VK Видео tags keep clear of the answer card', () => {
+describe('tags of the particle scene keep clear of the answer card', () => {
   const grid: AnswerCardRect[] = [0, 1, 2, 3].map(slot => answerCardPosition({ slot, product: 'vk-video', layout: 'grid', choiceCount: 4 }))
   const photo: AnswerCardRect = { ...answerCardPosition({ slot: 0, product: 'vk-video', layout: 'photo', choiceCount: 2 }), photo: true }
-  const real = [...vkQuestions.flatMap(question => question.options), ...vkPhotoOptions].flatMap(option => tagBatches(option.metadata))
+  // MAX: two answers in the top row for the first question, a lone third answer in the middle of the bottom row for the second.
+  const max: AnswerCardRect[] = [0, 1].map(slot => answerCardPosition({ slot, product: 'max', layout: 'grid', choiceCount: 4 }))
+    .concat(answerCardPosition({ slot: 2, product: 'max', layout: 'grid', choiceCount: 3 }))
+  const real = [...vkQuestions.flatMap(question => question.options), ...vkPhotoOptions, ...maxAudienceOptions, ...maxGoalOptions].flatMap(option => tagBatches(option.metadata))
   // Not in the content today: two tags too wide for the column beside the card, and a short batch.
   const synthetic = [['наука', 'документальное кино', 'образовательные шоу', 'люди'], ['шоу'], ['новости', 'главный герой']]
   const batches = [...real, ...synthetic].map(tags => tags.map((tag, i) => dissolveTagBox(tag, i === 0)))
@@ -62,9 +66,11 @@ describe('VK Видео tags keep clear of the answer card', () => {
     expect(dissolveTagBox('рекомендации', true).w).toBeGreaterThanOrEqual(379)
     expect(dissolveTagBox('документальное кино', false).w).toBeGreaterThanOrEqual(429)
     expect(dissolveTagBox('шоу', false)).toMatchObject({ h: 80 })
+    // Max Sans: the widest MAX tag measures 403 px.
+    expect(dissolveTagBox('поддержка клиентов', false).w).toBeGreaterThanOrEqual(403)
   })
 
-  it.each([...grid, photo])('lands every tag at least one and a half of its height away from card %j', card => {
+  it.each([...grid, photo, ...max])('lands every tag at least one and a half of its height away from card %j', card => {
     const rect = { l: card.left, r: card.left + card.width, t: card.top, b: card.top + card.height }
     for (const boxes of batches) for (let seed = 0; seed < 60; seed++) {
       const layout = clearTagPositions(card, boxes, seed, 0)
@@ -74,10 +80,11 @@ describe('VK Видео tags keep clear of the answer card', () => {
         return { l: x - box.w / 2, r: x + box.w / 2, t: y - box.h / 2, b: y + box.h / 2, h: box.h }
       })
       for (const [i, tag] of placed.entries()) {
-        // On the screen, under the heading (hidden for the photo answer) and inside the content area.
+        // On the screen, under the heading and inside the content area. The photo answer hides its heading;
+        // the lone MAX answer in the middle has a one-line heading, and its tags stand in two rows right under it.
         expect(tag.l).toBeGreaterThanOrEqual(10)
         expect(tag.r).toBeLessThanOrEqual(1070)
-        expect(tag.t).toBeGreaterThanOrEqual(card.photo ? 380 : 535)
+        expect(tag.t).toBeGreaterThanOrEqual(card.photo ? 380 : Math.abs(card.left + card.width / 2 - 540) < 60 ? 430 : 535)
         expect(tag.b).toBeLessThanOrEqual(1270)
         // The requirement itself, with room for the sway of the tag and the float of the card.
         expect(apart(tag, rect)).toBeGreaterThanOrEqual(tag.h * 1.5 + 16)

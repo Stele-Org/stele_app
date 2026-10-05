@@ -2,6 +2,7 @@
 // stay readable, encode, scatter into Discovery dots and leave past the top-right corner.
 // Timings and curves are the accepted prototype's (artifacts/DESIGN/claude-design-stela-20261005),
 // except the last second of the dots, which speeds up (user request, 06.10.2026).
+// MAX runs the same scene with its own colours and square cells instead of round dots (user request, 06.10.2026).
 import { animate, type AnimationPlaybackControls } from 'motion'
 import type { BubbleEntry } from '../vendor/lumicells-scene/bubbles'
 import { seeded } from '../vendor/lumicells-scene/flight'
@@ -203,11 +204,39 @@ interface Tag {
   dots: Dot[] | null
 }
 
+/** What the scene is painted with: the colours of the threads and the particles a tag falls apart into. */
+export interface TagDissolveLook {
+  /** Round Discovery dots, or square cells like those of the LumiCells field behind the screen. */
+  particle: 'dot' | 'cell'
+  /** A thread runs from faint at the card to bright at the tag. */
+  thread: readonly [string, string]
+  glow: string
+  /** The light that flies at the head of a thread, and its glow. */
+  head: string
+  headGlow: string
+  /** Particle colours as `r,g,b`; every particle keeps one of them. */
+  particles: readonly string[]
+}
+
+/** VK Видео, the accepted Claude Design scene. */
+export const DISCOVERY_DOTS: TagDissolveLook = {
+  particle: 'dot', thread: ['rgba(80,140,255,0.05)', 'rgba(150,215,255,0.95)'], glow: '#3f8cff',
+  head: 'rgba(225,242,255,.95)', headGlow: '#7fd8ff', particles: ['255,255,255'],
+}
+/** MAX (user request, 06.10.2026): the same scene in the colours of the MAX cell field (ring-scene-config),
+ * with one lighter tint so the cloud reads over that field. */
+export const MAX_CELLS: TagDissolveLook = {
+  particle: 'cell', thread: ['rgba(110,26,255,0.05)', 'rgba(196,176,255,0.95)'], glow: '#6E1AFF',
+  head: 'rgba(240,232,255,.95)', headGlow: '#00BFFF', particles: ['71,26,255', '110,26,255', '149,0,255', '183,156,255'],
+}
+
 export interface TagDissolveOptions {
   canvas: HTMLCanvasElement | null
   card: CardBox
   seed: number
   reduced: boolean
+  /** Round dots unless stated otherwise. */
+  look?: TagDissolveLook
   /** The scene is about to end: the caller may retire the retained answer card. */
   onClosing?: () => void
   /** The answer card of the last batch: it fades while its dots fly to the heap and leave past the corner. */
@@ -459,7 +488,7 @@ export class TagDissolve {
       context.setTransform(ratio, 0, 0, ratio, 0, 0)
       this.context = context
     }
-    const g = this.context
+    const g = this.context, look = this.options.look ?? DISCOVERY_DOTS
     g.clearRect(0, 0, STAGE_SIDE, CANVAS_HEIGHT)
     g.lineCap = 'round'
     for (const tag of this.tags) {
@@ -467,9 +496,9 @@ export class TagDissolve {
       g.globalAlpha = tag.life
       const head = bezier(tag.origin, tag.bend, tag.rest, tag.eased)
       const gradient = g.createLinearGradient(tag.origin.x, tag.origin.y, head.x, head.y)
-      gradient.addColorStop(0, 'rgba(80,140,255,0.05)')
-      gradient.addColorStop(1, 'rgba(150,215,255,0.95)')
-      g.shadowColor = '#3f8cff'; g.shadowBlur = 16; g.strokeStyle = gradient; g.lineWidth = 2.8
+      gradient.addColorStop(0, look.thread[0])
+      gradient.addColorStop(1, look.thread[1])
+      g.shadowColor = look.glow; g.shadowBlur = 16; g.strokeStyle = gradient; g.lineWidth = 2.8
       g.beginPath()
       for (let i = 0; i <= 28; i++) {
         const point = bezier(tag.origin, tag.bend, tag.rest, tag.eased * i / 28)
@@ -477,7 +506,7 @@ export class TagDissolve {
       }
       g.stroke()
       if (tag.progress < 1) {
-        g.fillStyle = 'rgba(225,242,255,.95)'; g.shadowColor = '#7fd8ff'; g.shadowBlur = 26
+        g.fillStyle = look.head; g.shadowColor = look.headGlow; g.shadowBlur = 26
         g.beginPath(); g.arc(head.x, head.y, 5, 0, Math.PI * 2); g.fill()
       }
       g.shadowBlur = 0
@@ -504,8 +533,13 @@ export class TagDissolve {
         }
       }
       if (radius < 0.3 || alpha < 0.02) continue
-      g.fillStyle = `rgba(255,255,255,${alpha})`
-      g.beginPath(); g.arc(at.x, at.y, radius, 0, Math.PI * 2); g.fill()
+      // The colour is tied to the dot's own angle, so the look does not disturb the seeded scatter.
+      g.fillStyle = `rgba(${look.particles[Math.floor(dot.angle / (Math.PI * 2) * look.particles.length) % look.particles.length]},${alpha})`
+      g.beginPath()
+      // A cell is an upright square with softened corners, like the cells of the field; a dot is a circle.
+      if (look.particle === 'cell') g.roundRect(at.x - radius, at.y - radius, radius * 2, radius * 2, radius * 0.36)
+      else g.arc(at.x, at.y, radius, 0, Math.PI * 2)
+      g.fill()
     }
   }
 }

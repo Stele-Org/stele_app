@@ -1,13 +1,14 @@
-/* Claude Design «D2 код → шарики»: threads and dots on one canvas over the full 1080 × 1920 frame. */
+/* Claude Design «D2 код → шарики»: threads and dots on one canvas over the full 1080 × 1920 frame.
+ * VK Видео and MAX share the tag box; each product has its own frame colours, and MAX falls apart into square cells. */
 .tag-dissolve__canvas { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; pointer-events: none; }
-.answer-flight--vk-video .answer-flight__visuals .tag-dissolve__tag {
+.answer-flight .answer-flight__visuals .tag-dissolve__tag {
   --a: 0;
   width: auto; min-width: 0; max-width: none; height: 80px; padding: 0 40px; border: 2px solid transparent; border-radius: 14px;
   font: var(--weight-text) 32px/1 'VK Sans Display', Arial, sans-serif; letter-spacing: 0; white-space: nowrap; color: #fff;
   transition: none; will-change: transform, opacity, filter;
 }
-.answer-flight--vk-video .answer-flight__visuals .tag-dissolve__tag::before, .answer-flight--vk-video .answer-flight__visuals .tag-dissolve__tag::after { display: none; }
-.answer-flight--vk-video .answer-flight__visuals .tag-dissolve__tag[data-kind='primary'] { height: 92px; padding: 0 48px; font-size: 38px; }
+.answer-flight .answer-flight__visuals .tag-dissolve__tag::before, .answer-flight .answer-flight__visuals .tag-dissolve__tag::after { display: none; }
+.answer-flight .answer-flight__visuals .tag-dissolve__tag[data-kind='primary'] { height: 92px; padding: 0 48px; font-size: 38px; }
 /* Gradient frame: the border sweeps around the perimeter, the driver turns --a. */
 .answer-flight--vk-video[data-tag-look='gradient'] .answer-flight__visuals .tag-dissolve__tag {
   background: linear-gradient(#070a2a, #070a2a) padding-box, conic-gradient(from calc(var(--a) * 1deg), #1a3cff, #3ee0ff, #b44bff, #ff2b6e, #1a3cff) border-box;
@@ -16,4 +17,11 @@
 /* Solid fill: blue and red tags alternate. */
 .answer-flight--vk-video[data-tag-look='solid'] .answer-flight__visuals .tag-dissolve__tag { background: #1546ff; box-shadow: 0 0 34px rgba(40, 90, 255, .8); }
 .answer-flight--vk-video[data-tag-look='solid'] .answer-flight__visuals .tag-dissolve__tag[data-tone='red'] { background: #ff2b45; box-shadow: 0 0 34px rgba(255, 43, 69, .75); }
-.answer-flight--vk-video .answer-flight__visuals .tag-dissolve__tag[data-encoded] .lc-scene-label { font-family: ui-monospace, Consolas, monospace; font-weight: 500; color: #9fe0ff; }
+.answer-flight .answer-flight__visuals .tag-dissolve__tag[data-encoded] .lc-scene-label { font-family: ui-monospace, Consolas, monospace; font-weight: 500; color: #9fe0ff; }
+/* MAX: the same turning frame in the colours of its cell field. */
+.answer-flight--max .answer-flight__visuals .tag-dissolve__tag {
+  font-family: 'Max Sans', Arial, sans-serif;
+  background: linear-gradient(#12052e, #12052e) padding-box, conic-gradient(from calc(var(--a) * 1deg), #6E1AFF, #00BFFF, #9500FF, #5B33FF, #6E1AFF) border-box;
+  box-shadow: 0 0 22px rgba(110, 26, 255, .5), inset 0 0 16px rgba(110, 26, 255, .2); text-shadow: 0 0 12px rgba(170, 140, 255, .5);
+}
+.answer-flight--max .answer-flight__visuals .tag-dissolve__tag[data-encoded] .lc-scene-label { color: #cdbdff; }

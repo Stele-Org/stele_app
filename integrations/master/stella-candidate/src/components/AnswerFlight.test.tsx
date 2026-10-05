@@ -25,7 +25,7 @@ vi.mock('../vendor/lumicells-scene/choreography', () => ({ Choreographer: class 
   dispose() { this.run.disposed = true }
 } }))
 // VK Видео runs the Claude Design dot scene behind the same adapter contract.
-vi.mock('./tag-dissolve', () => ({ TagDissolve: class {
+vi.mock('./tag-dissolve', () => ({ DISCOVERY_DOTS: { particle: 'dot' }, MAX_CELLS: { particle: 'cell' }, TagDissolve: class {
   run: (typeof runs)[number]
   constructor(host: HTMLElement, entries: () => BubbleEntry[], hooks: () => DemoSceneProps, options: { card: { x: number; y: number; w: number; h: number }; onClosing?: () => void; retiring?: HTMLElement | null }) {
     const { card } = options
@@ -64,12 +64,15 @@ it.each([
     const origin = runs.at(-1)!.route!.origin
     expect(origin.fx).toBeCloseTo((expected.left + expected.width / 2) / 1080)
     expect(origin.fy).toBeCloseTo((expected.top - 100 + expected.height / 2) / 1080)
-    expect(host.querySelector('.tag-dissolve__canvas') !== null).toBe(product === 'vk-video')
-    expect(host.querySelector('.answer-flight')!.getAttribute('data-tag-look')).toBe(product === 'vk-video' ? 'gradient' : null)
+    // Both products run the thread-and-particles scene: VK Видео in dots, MAX in cells of its field.
+    expect(host.querySelector('.tag-dissolve__canvas')).not.toBeNull()
+    expect(host.querySelector('.answer-flight')!.getAttribute('data-effect')).toBe(product === 'vk-video' ? 'discovery-dots' : 'field-cells')
+    expect(host.querySelector('.lc-scene-bubble')!.classList.contains('tag-dissolve__tag')).toBe(true)
+    expect(host.querySelector('.answer-flight')!.getAttribute('data-tag-look')).toBe('gradient')
     expect(runs.at(-1)!.entries()[0].info().label).toBe('Серверный тег')
     expect(host.querySelector('[role="status"]')?.textContent).toBe('Текст сервера. Серверный тег.')
-    if (product === 'vk-video') {
-      // The dot scene fades this very card, and its tag lands one and a half tag heights (92 px) clear of it.
+    {
+      // The scene fades this very card, and its tag lands one and a half tag heights (92 px) clear of it.
       expect(runs.at(-1)!.retiring).toBe(card)
       const slot = host.querySelector<HTMLElement>('.lc-scene-slot')!, box = dissolveTagBox('Серверный тег', true)
       const x = parseFloat(slot.style.left) / 100 * 1080, y = parseFloat(slot.style.top) / 100 * 1080 + 100
@@ -91,8 +94,8 @@ it.each(['vk-video', 'max'] as const)('notifies only once at final %s batch exit
     const run = runs.at(-1)!; run.host.dataset.phase = phase
     for (const entry of run.entries()) run.hooks().onFlight?.(entry.el, entry.info(), 'start')
   })
-  // MAX retires the answer when its last tags start to leave; VK when the dot scene announces its end.
-  const leave = () => { fire('leaving'); if (product === 'vk-video') act(() => runs.at(-1)!.closing!()) }
+  // The answer retires when the particle scene announces its end, not when the tags start to leave.
+  const leave = () => { fire('leaving'); act(() => runs.at(-1)!.closing!()) }
   try {
     render(exit)
     fire('entering'); leave()

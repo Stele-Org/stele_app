@@ -14,9 +14,13 @@ import { ringToneColors } from './RingTag'
 import { CameraPreview } from './CameraPreview'
 import { AnswerStream } from './answer-stream'
 import './answer-stream.css'
-import { TagDissolve } from './tag-dissolve'
+import { DISCOVERY_DOTS, MAX_CELLS, TagDissolve, type TagDissolveLook } from './tag-dissolve'
 import './tag-dissolve.css'
 import { readTagLook } from '../features/prototype/tag-look'
+
+/** Both products show their tags with the thread-and-particles scene: VK Видео in round Discovery dots,
+ * MAX in square cells like those of its field. `null` would bring back the LumiCells flight for a product. */
+const SCENES: Record<TagReveal['product'], TagDissolveLook | null> = { 'vk-video': DISCOVERY_DOTS, max: MAX_CELLS }
 
 export function AnswerFlight({ reveal, playing, onComplete, onFinalExit, embedded = false, flightDurationScale = 1, showProductMark = true }: {
   reveal: TagReveal; playing: boolean; onComplete: (reveal: TagReveal) => void; onFinalExit?: (reveal: TagReveal) => void; embedded?: boolean; flightDurationScale?: number
@@ -28,8 +32,8 @@ export function AnswerFlight({ reveal, playing, onComplete, onFinalExit, embedde
   const stream = useRef<AnswerStream | null>(null)
   const [batch, setBatch] = useState(0)
   const [seed] = useState(() => Math.floor(Math.random() * 0x100000000))
-  // VK Видео follows the accepted Claude Design scene; MAX keeps the LumiCells flight.
-  const dissolve = reveal.product === 'vk-video'
+  const scene = SCENES[reveal.product]
+  const dissolve = scene !== null
   const [look] = useState(() => readTagLook(typeof window === 'undefined' ? '' : window.location.search))
   const tags = reveal.batches[batch]
   const card = reveal.answerCard
@@ -37,7 +41,7 @@ export function AnswerFlight({ reveal, playing, onComplete, onFinalExit, embedde
   const artwork = card?.artworkId && referenceCards[card.artworkId]
   const cardPosition = useMemo(() => card ? answerCardPosition({ slot: card.index, product: reveal.product,
     layout: card.photo ? 'photo' : 'grid', choiceCount: card.centered ? 3 : 4 }) : undefined, [card, reveal.product])
-  // VK Видео tags keep clear of the answer card; MAX keeps its regions.
+  // Tags of the particle scene keep clear of the answer card; the LumiCells flight keeps its regions.
   const positions = useMemo(() => dissolve && card && cardPosition
     ? clearTagPositions({ ...cardPosition, photo: Boolean(card.photo) }, tags.map((tag, i) => dissolveTagBox(tag, i === 0)), seed, batch)
     : tagPositions(card, seed, batch), [dissolve, card, cardPosition, tags, seed, batch])
@@ -109,7 +113,7 @@ export function AnswerFlight({ reveal, playing, onComplete, onFinalExit, embedde
       ?? host.closest('.answer-flight')?.querySelector<HTMLElement>('.answer-flight__answer') ?? null
     const motion = dissolve
       ? new TagDissolve(host, () => entries, () => hooks, {
-        canvas: dots.current, seed: seed + batch, reduced: reduced(),
+        canvas: dots.current, seed: seed + batch, reduced: reduced(), look: scene ?? undefined,
         // The answer thins out while the dots of the last batch gather and leave.
         retiring: last ? answer : null,
         // Stage fractions to the 1080px-wide screen; the stage starts 100px below its top.
@@ -133,7 +137,7 @@ export function AnswerFlight({ reveal, playing, onComplete, onFinalExit, embedde
       for (const rec of records) rec.handle?.dispose()
       choreographer.current = null
     }
-  }, [reveal, onComplete, batch, tags, positions, flightDurationScale, dissolve, seed])
+  }, [reveal, onComplete, batch, tags, positions, flightDurationScale, dissolve, scene, seed])
 
   useLayoutEffect(() => {
     choreographer.current?.setPlaying(playing)
@@ -141,7 +145,7 @@ export function AnswerFlight({ reveal, playing, onComplete, onFinalExit, embedde
   }, [playing, reveal, batch])
 
   return (
-    <section className={`screen answer-flight answer-flight--${reveal.product}`} data-has-answer={Boolean(card)} data-description={Boolean(reveal.description)} aria-label="Метаданные ответа" data-motion="lumicells-native-flight" data-effect={dissolve ? 'discovery-dots' : 'digital-answer-stream'} data-tag-look={dissolve ? look : undefined}>
+    <section className={`screen answer-flight answer-flight--${reveal.product}`} data-has-answer={Boolean(card)} data-description={Boolean(reveal.description)} aria-label="Метаданные ответа" data-motion="lumicells-native-flight" data-effect={scene ? scene.particle === 'cell' ? 'field-cells' : 'discovery-dots' : 'digital-answer-stream'} data-tag-look={dissolve ? look : undefined}>
       {!embedded && showProductMark && <ProductMark product={reveal.product} />}
       {!embedded && <div className={card ? 'question-heading' : 'progress-copy'} data-lc-influence="shadow" data-lc-strength="0.35"><h1>{reveal.prompt ?? reveal.label}</h1>{reveal.description && <p>{reveal.description}</p>}</div>}
       {!embedded && card && (
