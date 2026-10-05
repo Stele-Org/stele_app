@@ -136,6 +136,23 @@ describe('continuous first VK question with real Motion presence', () => {
     expect(select).toHaveBeenCalledTimes(2)
   }, 10000)
 
+  it('lets the field shadow of each card and of Back arrive with the element, not ahead of it', async () => {
+    show(0)
+    const cards = vkQuestions[0].options.map(item => button(item.id))
+    const backButton = host.querySelector<HTMLButtonElement>('[aria-label="Назад"]')!
+    const shadow = (element: Element) => Number(element.getAttribute('data-lc-strength'))
+    // Still transparent: nothing may hide the field behind them yet.
+    for (const element of [...cards, backButton]) expect(element.getAttribute('data-lc-strength')).toBe('0')
+    await wait(500)
+    // The first card set off after 220ms; the last one (760ms) and Back (800ms) have not started.
+    expect(shadow(cards[0])).toBeGreaterThan(0)
+    expect(shadow(cards[0])).toBeLessThan(1)
+    expect(shadow(cards[3])).toBe(0)
+    expect(shadow(backButton)).toBe(0)
+    await wait(1700)
+    for (const element of [...cards, backButton]) expect(element.getAttribute('data-lc-strength')).toBe('1')
+  })
+
   it('pauses outgoing cards and float, then resumes and resets input on Back', async () => {
     show(0)
     await wait()
@@ -187,6 +204,8 @@ describe('continuous first VK question with real Motion presence', () => {
     await wait(80)
     expect(host.querySelectorAll('.continuous-question')).toHaveLength(1)
     expect(button(vkQuestions[1].options[0].id).disabled).toBe(false)
+    // Nothing arrives gradually, so the cards cast their shadow at once.
+    expect(button(vkQuestions[1].options[0].id).getAttribute('data-lc-strength')).toBe('1')
     expect(floats).toHaveLength(0)
   })
 })

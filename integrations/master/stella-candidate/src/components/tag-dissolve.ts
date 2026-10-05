@@ -1,6 +1,7 @@
 // Claude Design «D2 код → шарики», принято 05.10.2026: tags leave the answer along light threads,
 // stay readable, encode, scatter into Discovery dots and leave past the top-right corner.
-// Timings and curves are the accepted prototype's (artifacts/DESIGN/claude-design-stela-20261005).
+// Timings and curves are the accepted prototype's (artifacts/DESIGN/claude-design-stela-20261005),
+// except the last second of the dots, which speeds up (user request, 06.10.2026).
 import { animate, type AnimationPlaybackControls } from 'motion'
 import type { BubbleEntry } from '../vendor/lumicells-scene/bubbles'
 import { seeded } from '../vendor/lumicells-scene/flight'
@@ -28,10 +29,22 @@ const SCATTER_DELAY = 1.0
 const SCATTER = 2.0
 const GATHER = 1.95
 const EXIT = 1.2
-/** Dots keep leaving after the last tag is gone: delay + scatter + gather + exit, with a short rest. */
+/** The cloud of dots speeds up over its last second on screen and ends RUSH_RATE times as fast as authored. */
+const RUSH = 1.0
+const RUSH_RATE = 3
+/** Authored seconds that second swallows on top of its own. */
+const RUSH_SAVED = RUSH * (RUSH_RATE - 1) / 2
+/** Dots keep leaving after the last tag is gone: delay + scatter + gather + exit, with a short rest; the rush shortens it. */
 const TAIL = 6.75
 /** The retained answer card retires just before the scene ends. */
 const CLOSING_LEAD = 0.8
+/** The answer card has faded this long before the last dot leaves (user request, 06.10.2026). */
+const CARD_LEAD = 0.75
+/** A thread bends off the straight line by this much, px: the authored curve first, flatter ones if curves would cross. */
+const BENDS = [140, 90, 45, 0]
+/** Straight pieces a thread is checked by, and the room kept around a landed tag, px. */
+const THREAD_STEPS = 32
+const TAG_MARGIN = 10
 const HEAP: Point = { x: 1010, y: 520 }
 const HEAP_RADIUS = 145
 const REDUCED_SECONDS = 2.4
@@ -57,15 +70,22 @@ const glyph = () => GLYPHS[Math.floor(Math.random() * GLYPHS.length)]
 export function tagDissolveTimeline(count: number) {
   const encodeAt = LEAD + Math.max(0, count - 1) * STAGGER + FLIGHT + IDLE
   const lastDissolve = encodeAt + Math.max(0, count - 1) * ENCODE_STAGGER + ENCODED_HOLD
+  const gone = lastDissolve + SCATTER_DELAY + SCATTER + GATHER + EXIT - RUSH_SAVED, rush = gone - RUSH
   return {
     enter: (index: number) => LEAD + index * STAGGER,
     encode: (index: number) => encodeAt + index * ENCODE_STAGGER,
     dissolve: (index: number) => encodeAt + index * ENCODE_STAGGER + ENCODED_HOLD,
     /** The first dot sets off for the heap: 6.95 s for four tags. */
     gather: encodeAt + ENCODED_HOLD + SCATTER,
-    /** The last dot has left past the corner: 11.46 s for four tags. */
-    gone: lastDissolve + SCATTER_DELAY + SCATTER + GATHER + EXIT,
-    duration: lastDissolve + TAIL,
+    /** The cloud starts to speed up: 9.46 s for four tags. */
+    rush,
+    /** The last dot has left past the corner: 10.46 s for four tags. */
+    gone,
+    /** The answer card has faded: 9.71 s for four tags. */
+    cardGone: gone - CARD_LEAD,
+    duration: lastDissolve + TAIL - RUSH_SAVED,
+    /** Scene time to the clock of the dots and of the answer card that fades with them: it runs ahead during the rush. */
+    cloud: (time: number) => time <= rush ? time : time + (RUSH_RATE - 1) * (time - rush) ** 2 / (2 * RUSH),
   }
 }
 
@@ -97,6 +117,62 @@ function cardEdge(card: CardBox, target: Point): Point {
   const dx = target.x - cx, dy = target.y - cy
   const k = Math.min(card.w / 2 / Math.abs(dx || 1e-3), card.h / 2 / Math.abs(dy || 1e-3))
   return { x: cx + dx * k * 0.9, y: cy + dy * k * 0.9 }
+}
+
+/** The path of a tag from the answer card and the light thread it leaves behind. */
+export interface Thread { origin: Point; bend: Point; rest: Point }
+/** A landed tag, px. */
+export interface TagSize { w: number; h: number }
+
+const turn = (a: Point, b: Point, c: Point) => (b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x)
+const meet = (a: Point, b: Point, c: Point, d: Point) => turn(a, b, c) * turn(a, b, d) < 0 && turn(c, d, a) * turn(c, d, b) < 0
+const flipped = (mask: number) => { let count = 0; for (let bits = mask; bits; bits >>= 1) count += bits & 1; return count }
+const trace = ({ origin, bend, rest }: Thread) => Array.from({ length: THREAD_STEPS + 1 }, (_, i) => bezier(origin, bend, rest, i / THREAD_STEPS))
+
+/** How many pairs of threads cross each other. */
+export function threadCrossings(threads: Thread[]) {
+  const lines = threads.map(trace)
+  let pairs = 0
+  for (let a = 0; a < lines.length; a++) for (let b = a + 1; b < lines.length; b++) {
+    const one = lines[a], other = lines[b]
+    if (one.some((point, i) => i > 0 && other.some((to, j) => j > 0 && meet(one[i - 1], point, other[j - 1], to)))) pairs++
+  }
+  return pairs
+}
+
+/** How many threads run under a landed tag that is not their own; the margin covers the sway of the tag. */
+export function threadsUnderTags(threads: Thread[], sizes: TagSize[]) {
+  return threads.filter((thread, i) => trace(thread).some(point => threads.some(({ rest }, j) => j !== i
+    && Math.abs(point.x - rest.x) < sizes[j].w / 2 + TAG_MARGIN && Math.abs(point.y - rest.y) < sizes[j].h / 2 + TAG_MARGIN))).length
+}
+
+/**
+ * Threads from the answer card to the landing places of its tags, bent so that no two cross and, where the sizes of
+ * the tags are known, none runs under a tag of another thread (user request, 06.10.2026).
+ * The authored look, neighbours bending opposite ways by 140px, stays wherever it is clear. Otherwise the fewest threads
+ * turn the other way, and the curves flatten only if no set of turns is clear: straight threads cannot cross,
+ * each lies on its own ray from the centre of the card.
+ */
+export function tagThreads(card: CardBox, rests: Point[], sizes?: TagSize[]): Thread[] {
+  const base = rests.map(rest => {
+    const origin = cardEdge(card, rest)
+    const nx = -(rest.y - origin.y), ny = rest.x - origin.x, length = Math.hypot(nx, ny) || 1
+    return { origin, rest, middle: { x: (origin.x + rest.x) / 2, y: (origin.y + rest.y) / 2 }, normal: { x: nx / length, y: ny / length } }
+  })
+  // Every choice of turned threads, the fewest turns first; ten threads are far more than a batch holds.
+  const turns = Array.from({ length: 2 ** Math.min(base.length, 10) }, (_, mask) => mask).sort((a, b) => flipped(a) - flipped(b))
+  let best: Thread[] = [], least = Infinity
+  for (const amount of BENDS) for (const mask of turns) {
+    const threads = base.map(({ origin, rest, middle, normal }, index) => {
+      const reach = amount * (index % 2 ? 1 : -1) * (mask >> index & 1 ? -1 : 1)
+      return { origin, rest, bend: { x: middle.x + normal.x * reach, y: middle.y + normal.y * reach } }
+    })
+    // A crossing weighs more than any number of threads under tags.
+    const clashes = threadCrossings(threads) * (base.length + 1) + (sizes ? threadsUnderTags(threads, sizes) : 0)
+    if (!clashes) return threads
+    if (clashes < least) { best = threads; least = clashes }
+  }
+  return best
 }
 
 interface Dot {
@@ -134,7 +210,7 @@ export interface TagDissolveOptions {
   reduced: boolean
   /** The scene is about to end: the caller may retire the retained answer card. */
   onClosing?: () => void
-  /** The answer card of the last batch: it fades for as long as its dots fly to the heap and past the corner. */
+  /** The answer card of the last batch: it fades while its dots fly to the heap and leave past the corner. */
   retiring?: HTMLElement | null
 }
 
@@ -152,7 +228,9 @@ export class TagDissolve {
   private contextRequested = false
   private tags: Tag[] = []
   private closing = false
-  private retire: { from: number; to: number; strength: string | null } | null = null
+  /** `strength` is the card's shadow in the cell field when its fade begins: a card tapped early is still arriving at the start. */
+  private retire: { from: number; to: number; strength?: string | null } | null = null
+  private cloud = (time: number) => time
   private readonly random: () => number
 
   constructor(
@@ -170,15 +248,14 @@ export class TagDissolve {
     this.busy = true
     const entries = [...this.entries()].sort((a, b) => a.item.order - b.item.order)
     const timeline = tagDissolveTimeline(entries.length), reduced = this.options.reduced
+    const threads = tagThreads(this.options.card, entries.map(entry => ({ x: entry.item.fx * STAGE_SIDE, y: entry.item.fy * STAGE_SIDE + STAGE_TOP })),
+      entries.map(entry => ({ w: entry.el.offsetWidth || 240, h: entry.el.offsetHeight || 80 })))
     this.tags = entries.map((entry, index) => {
-      const rest = { x: entry.item.fx * STAGE_SIDE, y: entry.item.fy * STAGE_SIDE + STAGE_TOP }
-      const origin = cardEdge(this.options.card, rest)
-      const nx = -(rest.y - origin.y), ny = rest.x - origin.x, length = Math.hypot(nx, ny) || 1, side = index % 2 ? 1 : -1
+      const { origin, bend, rest } = threads[index]
       const word = entry.info().label
       return {
-        entry, word, code: tagCode(word, index), seed: index + 2, origin, rest,
+        entry, word, code: tagCode(word, index), seed: index + 2, origin, bend, rest,
         label: entry.el.querySelector<HTMLElement>('.lc-scene-label'),
-        bend: { x: (origin.x + rest.x) / 2 + nx / length * 140 * side, y: (origin.y + rest.y) / 2 + ny / length * 140 * side },
         enter: reduced ? 0 : timeline.enter(index), arrive: reduced ? REDUCED_FADE : timeline.enter(index) + FLIGHT,
         encode: timeline.encode(index), dissolve: reduced ? REDUCED_SECONDS - REDUCED_FADE : timeline.dissolve(index),
         gone: reduced ? REDUCED_SECONDS : timeline.dissolve(index) + FADE,
@@ -187,9 +264,9 @@ export class TagDissolve {
     })
     this.setPhase('entering')
     const duration = reduced ? REDUCED_SECONDS : timeline.duration
+    if (!reduced) this.cloud = timeline.cloud
     if (this.options.retiring) this.retire = {
-      from: reduced ? REDUCED_SECONDS - REDUCED_FADE : timeline.gather, to: reduced ? REDUCED_SECONDS : timeline.gone,
-      strength: this.options.retiring.getAttribute('data-lc-strength'),
+      from: reduced ? REDUCED_SECONDS - REDUCED_FADE : timeline.gather, to: reduced ? REDUCED_SECONDS : timeline.cardGone,
     }
     const tick = (time: number) => { if (reduced) this.reducedFrame(time); else this.frame(time, duration) }
     return new Promise(resolve => {
@@ -225,7 +302,7 @@ export class TagDissolve {
     const card = this.options.retiring
     if (card && this.retire && this.busy) {
       card.style.removeProperty('opacity')
-      if (this.retire.strength !== null) card.setAttribute('data-lc-strength', this.retire.strength)
+      if (this.retire.strength != null) card.setAttribute('data-lc-strength', this.retire.strength)
     }
     this.context?.clearRect(0, 0, STAGE_SIDE, CANVAS_HEIGHT)
     for (const tag of this.tags) {
@@ -312,14 +389,17 @@ export class TagDissolve {
       this.closing = true
       this.options.onClosing?.()
     }
-    this.paint(time)
+    this.paint(this.cloud(time))
   }
 
-  /** The card and its shadow in the cell field thin out together with the dots that carry the answer away. */
+  /** The card and its shadow in the cell field thin out together with the dots that carry the answer away,
+   * on their clock, and are gone CARD_LEAD before the last dot. */
   private fadeCard(time: number) {
     const card = this.options.retiring, retire = this.retire
     if (!card || !retire || time < retire.from) return
-    const left = 1 - inOut(clamp((time - retire.from) / (retire.to - retire.from)))
+    if (retire.strength === undefined) retire.strength = card.getAttribute('data-lc-strength')
+    const clock = this.cloud, from = clock(retire.from)
+    const left = 1 - inOut(clamp((clock(time) - from) / (clock(retire.to) - from)))
     card.style.opacity = left.toFixed(3)
     if (retire.strength === null) return
     // LumiCells follows the attribute; twenty steps keep the mutations rare.
@@ -364,6 +444,7 @@ export class TagDissolve {
     return dots
   }
 
+  /** `time` is the clock of the dots; the threads follow the tags, which are gone before the rush. */
   private paint(time: number) {
     const canvas = this.options.canvas
     if (!canvas) return

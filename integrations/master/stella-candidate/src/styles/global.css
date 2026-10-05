@@ -57,12 +57,20 @@ html[data-service-paused="true"] * {
   font-display: swap;
   font-weight: 400;
 }
-:root { font-family: 'VK Sans Display', Arial, sans-serif; color: #fff; background: #0D001A; font-synthesis: none; text-rendering: optimizeLegibility; }
+:root { --weight-heading: 400; --weight-text: 600; --weight-action: 700; font-family: 'VK Sans Display', Arial, sans-serif; color: #fff; background: #0D001A; font-synthesis: none; text-rendering: optimizeLegibility; }
 * { box-sizing: border-box; }
 html, body, #root { width: 100%; height: 100%; margin: 0; overflow: hidden; overscroll-behavior: none; }
 body { position: fixed; inset: 0; }
 button { font: inherit; -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
 h1, h2, p { margin: 0; }
+/* One weight per role on every screen, measured in artifacts/DESIGN/UI/stela/STELLA Onboard.png: headings regular,
+ * reading text and answer tiles demibold, buttons bold. Max Sans ships a single weight and is not affected. */
+.stella-content { font-weight: var(--weight-text); }
+.stella-content h1, .terms-header h2 { font-weight: var(--weight-heading); }
+.ring-tag { font-weight: var(--weight-action); }
+.option-button, .gender-option, .digitize-notice { font-weight: var(--weight-text); }
+/* The legal documents keep their own text face. */
+.terms-body, .master-camera-terms-body { font-weight: 400; }
 .prototype-viewport { position: fixed; inset: 0; height: 100dvh; display: grid; place-items: center; }
 .prototype-canvas { position: relative; overflow: hidden; }
 .ring-scene { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
@@ -86,13 +94,13 @@ h1, h2, p { margin: 0; }
 .back-button { --tag-color: #0040FF; --tag-glow: #0040FF30; position: absolute; top: 1192px; left: 407.5px; width: 265px; min-height: 100px; height: 100px; border-radius: 35px; padding: 20px 30px; display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 34px; background: var(--tag-color); }
 .back-button svg { width: 30px; height: 30px; }
 .home-intro { position: absolute; top: 360px; left: 110px; width: 860px; text-align: center; }
-.home-intro h1 { font-size: 82px; line-height: 1.1; font-weight: 600; }
+.home-intro h1 { font-size: 82px; line-height: 1.1; }
 .home-choices { position: absolute; inset: 0; }
 .product-tag { position: absolute; top: 618px; height: 181px; min-height: 181px; padding: 0; background: transparent; box-shadow: none; border-radius: 48px; display: grid; place-items: center; }
 .product-tag:hover:not(:disabled) { box-shadow: none; }
 .question-heading { position: absolute; top: 335px; left: 60px; width: 960px; text-align: center; }
 .screen-step { display: none; }
-.question-heading h1 { font-size: 48px; font-weight: 600; line-height: 1.12; }
+.question-heading h1 { font-size: 48px; line-height: 1.12; }
 .options { position: absolute; left: 30px; top: 540px; width: 1020px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 40px; }
 .option-button { position: relative; width: 100%; height: 260px; padding: 34px 40px; display: flex; align-items: flex-end; font-size: 36px; line-height: 1.12; overflow: hidden; border-radius: 60px; }
 .option-button > span { position: relative; z-index: 1; max-width: 390px; }
@@ -100,10 +108,10 @@ h1, h2, p { margin: 0; }
 .option-artwork { position: absolute; top: 8px; right: 14px; width: 245px; height: 238px; object-fit: contain; pointer-events: none; }
 .option-button--illustrated::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, var(--tag-color) 8%, transparent 70%); pointer-events: none; }
 .onboarding-intro { position: absolute; top: 335px; left: 110px; width: 860px; }
-.onboarding-intro h1 { font-size: 70px; line-height: 1.08; font-weight: 600; white-space: pre-line; text-align: center; }
+.onboarding-intro h1 { font-size: 70px; line-height: 1.08; white-space: pre-line; text-align: center; }
 .onboarding-steps { margin: 70px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 28px; }
 .onboarding-step { display: flex; align-items: flex-start; gap: 28px; font-size: 36px; line-height: 1.15; padding: 0 65px; }
-.onboarding-step__label { flex: none; width: 60px; font-size: 88px; line-height: .95; font-weight: 600; }
+.onboarding-step__label { flex: none; width: 60px; font-size: 88px; line-height: .95; }
 .onboarding-step p { max-width: 640px; }
 .onboarding-actions { position: absolute; top: 910px; left: 110px; width: 860px; display: flex; flex-direction: column; align-items: center; }
 .onboarding-voice { font-size: 30px; line-height: 1.18; max-width: 800px; text-align: center; opacity: .65; order: 0; }
@@ -114,7 +122,7 @@ h1, h2, p { margin: 0; }
 .experience--vk-video .onboarding-start { --tag-color: #FF2B42; --tag-glow: #FF2B4230; }
 .screen--onboarding .back-button { top: 1242px; }
 .photo-glyph { display: none; }
-.screen--digitize h1 { position: absolute; top: 335px; left: 110px; width: 860px; font-size: 74px; line-height: 1.1; font-weight: 600; text-align: center; }
+.screen--digitize h1 { position: absolute; top: 335px; left: 110px; width: 860px; font-size: 74px; line-height: 1.1; text-align: center; }
 .digitize-description { position: absolute; top: 505px; left: 190px; width: 700px; font-size: 36px; line-height: 1.2; text-align: center; white-space: pre-line; }
 .digitize-actions { position: absolute; top: 750px; left: 325px; width: 430px; display: flex; flex-direction: column; align-items: center; gap: 40px; }
 .digitize-actions .primary-button { --tag-color: #FF2B42; --tag-glow: #FF2B4230; width: 430px; min-height: 144px; }
@@ -123,14 +131,14 @@ h1, h2, p { margin: 0; }
 .digitize-notice:hover:not(:disabled) { box-shadow: none; }
 .digitize-terms-link { text-decoration: underline; text-underline-offset: 4px; }
 .gender-panel { position: absolute; top: 380px; left: 140px; width: 800px; text-align: center; }
-.gender-panel h1 { font-size: 70px; line-height: 1.1; font-weight: 600; }
+.gender-panel h1 { font-size: 70px; line-height: 1.1; }
 .gender-options { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; margin-top: 160px; }
 .gender-option { font-size: 76px; text-align: center; height: 240px; }
 .scan-copy { position: absolute; top: 540px; left: 140px; width: 800px; text-align: center; }
 .scan-copy > svg { width: 72px; height: 72px; stroke-width: 1; margin-bottom: 24px; }
-.scan-copy h1 { font-size: 64px; line-height: 1.1; font-weight: 600; }
+.scan-copy h1 { font-size: 64px; line-height: 1.1; }
 .scan-copy p { margin-top: 24px; font-size: 32px; opacity: .65; }
-.screen--result h1 { position: absolute; top: 380px; left: 110px; width: 860px; font-size: 64px; line-height: 1.12; font-weight: 600; text-align: center; }
+.screen--result h1 { position: absolute; top: 380px; left: 110px; width: 860px; font-size: 64px; line-height: 1.12; text-align: center; }
 .mission-label { display: block; font-size: 30px; opacity: .65; margin-bottom: 24px; }
 .mission-name { display: block; white-space: pre-line; }
 .result-copy { position: absolute; top: 820px; left: 140px; width: 800px; font-size: 36px; line-height: 1.2; text-align: center; }
@@ -143,7 +151,7 @@ h1, h2, p { margin: 0; }
 .terms-panel { position: absolute; top: 260px; left: 65px; width: 950px; height: 925px; padding: 36px; display: flex; flex-direction: column; border: 1px solid #0077FF60; border-radius: 32px; background: #0D001A; box-shadow: 0 0 25px #0077FF20; transform: translateY(16px); transition: transform 220ms ease; }
 .terms-overlay[data-open='true'] .terms-panel { transform: translateY(0); }
 .terms-header { display: flex; align-items: flex-start; flex: none; gap: 24px; padding-bottom: 30px; }
-.terms-header h2 { flex: 1; font-size: 36px; line-height: 1.1; font-weight: 600; }
+.terms-header h2 { flex: 1; font-size: 36px; line-height: 1.1; }
 .terms-close { width: 72px; height: 72px; min-height: 72px; border-radius: 18px; padding: 15px; flex: none; }
 .terms-body { flex: 1; min-height: 0; overflow: auto; scrollbar-color: #0077FF #0D001A; font-family: 'VK Sans Text', Arial, sans-serif; font-size: 26px; line-height: 1.4; }
 .terms-document section { margin-bottom: 32px; }
@@ -164,7 +172,7 @@ h1, h2, p { margin: 0; }
 @keyframes screen-arrive { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
 .home-intro h1, .onboarding-step p { white-space: pre-line; }
 .progress-copy { position: absolute; top: 360px; left: 110px; width: 860px; text-align: center; }
-.progress-copy h1 { font-size: 56px; line-height: 1.12; font-weight: 600; }
+.progress-copy h1 { font-size: 56px; line-height: 1.12; }
 .progress-copy p { margin-top: 36px; font-size: 34px; line-height: 1.2; opacity: .7; }
 .answer-flight { animation: none; z-index: 2; pointer-events: none; }
 /* The upper 2/3 define layout, not a crop: flights may cross the content boundary. */
@@ -206,14 +214,14 @@ h1, h2, p { margin: 0; }
  * with a 68px number badge centred on the left edge of the frame and on the description.
  * The frame has no fill: the background field shows through. */
 .experience--vk-video .screen--onboarding .onboarding-steps { position: absolute; top: 287px; left: 159px; width: 568px; margin: 0; gap: 34px; }
-/* Sizes measured in artifacts/DESIGN/UI/stela/STELLA Onboard.png: title 65px regular, step text 33px on a 37px line. */
-.experience--vk-video .screen--onboarding .onboarding-intro h1 { font-size: 65px; line-height: 1.12; font-weight: 400; }
-.experience--vk-video .screen--onboarding .onboarding-step { position: relative; height: 170px; padding: 0 28px 0 78px; align-items: center; gap: 0; border: 3px solid #0040FF; border-radius: 40px; font-size: 33px; line-height: 37px; font-weight: 600; }
+/* Sizes measured in artifacts/DESIGN/UI/stela/STELLA Onboard.png: title 65px, step text 33px on a 37px line. */
+.experience--vk-video .screen--onboarding .onboarding-intro h1 { font-size: 65px; line-height: 1.12; }
+.experience--vk-video .screen--onboarding .onboarding-step { position: relative; height: 170px; padding: 0 28px 0 78px; align-items: center; gap: 0; border: 3px solid #0040FF; border-radius: 40px; font-size: 33px; line-height: 37px; }
 .experience--vk-video .screen--onboarding .onboarding-step__label { position: absolute; left: -34px; top: 50%; width: 68px; height: 68px; margin-top: -34px; border-radius: 20px; background: #0040FF; display: grid; place-items: center; font-size: 33px; line-height: 1; }
 .onboarding-actions { top: 885px; }
 /* Start button as in the same layout: 312 x 103 at (384, 1094), lower-case bold label. */
 .experience--vk-video .screen--onboarding .onboarding-actions { top: 1094px; }
-.experience--vk-video .screen--onboarding .onboarding-start { width: 312px; height: 103px; min-height: 103px; margin-top: 0; padding: 0; border-radius: 34px; font-size: 38px; font-weight: 700; }
+.experience--vk-video .screen--onboarding .onboarding-start { width: 312px; height: 103px; min-height: 103px; margin-top: 0; padding: 0; border-radius: 34px; font-size: 38px; }
 .onboarding-start { margin-top: 36px; width: 360px; min-height: 140px; }
 .screen--onboarding .onboarding-touch { font-size: 25px; }
 .screen--result .mission-label { font-size: 46px; opacity: 1; }
@@ -245,7 +253,7 @@ h1, h2, p { margin: 0; }
 .vk-final-qr img { position: absolute; top: -795px; left: -270px; width: 810px; height: 1440px; max-width: none; }
 
 /* October 3 supplied VK artwork and copy; shared motion and MAX layout are unchanged. */
-.experience--vk-video .continuous-option .option-button--reference .continuous-card-label { max-width: 405px; white-space: pre-line; font-weight: 600; }
+.experience--vk-video .continuous-option .option-button--reference .continuous-card-label { max-width: 405px; white-space: pre-line; }
 .vk-onboarding-art { position: absolute; left: 628.825px; top: 584.109px; width: 389.949px; height: 150.04px; pointer-events: none; }
 .vk-camera-button { margin-top: 190px; padding: 0; width: 300px; height: 220px; background: transparent; box-shadow: none; }
 .vk-camera-button img { width: 100%; height: 100%; object-fit: contain; }

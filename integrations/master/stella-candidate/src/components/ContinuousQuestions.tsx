@@ -1,5 +1,6 @@
 import { createContext, useContext, useCallback, useEffectEvent, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { AnimatePresence, useAnimate, usePresence } from 'motion/react'
+import { animate as animateValue, type AnimationPlaybackControls } from 'motion'
 import { ChevronRight } from 'lucide-react'
 import type { QuestionPresentation } from '../features/prototype/question-presentation'
 import type { TagReveal } from '../features/prototype/tag-reveal'
@@ -17,11 +18,27 @@ import { CameraPreview } from './CameraPreview'
 // Exiting children still receive playback changes through this persistent context.
 const Playback = createContext(true)
 
+/** The shadow a landed card or button casts in the cell field (RingTag's own default). */
+const FIELD_SHADOW = 1
+
+/** LumiCells shadows any element that has a box, visible or not, so the shadow of an arriving element has to arrive
+ * with it: otherwise a card that is still transparent already hides the field behind it.
+ * Twenty steps keep the attribute mutations rare, as in TagDissolve. */
+function arriveShadow(element: Element, delayMs: number) {
+  const write = (value: number) => {
+    const strength = String(Math.round(value * 20) / 20)
+    if (element.getAttribute('data-lc-strength') !== strength) element.setAttribute('data-lc-strength', strength)
+  }
+  write(0)
+  return animateValue(0, FIELD_SHADOW, { duration: ARRIVE_MS / 1000, delay: delayMs / 1000, ease: ARRIVE_EASE, onUpdate: write })
+}
+
 function useSoftPresence(kind: 'card' | 'copy' | 'heading', order = 0, onReady?: () => void) {
   const playing = useContext(Playback)
   const [present, safeToRemove] = usePresence()
   const [scope, animate] = useAnimate<HTMLDivElement>()
   const controls = useRef<ReturnType<typeof animate> | null>(null)
+  const shadow = useRef<AnimationPlaybackControls | null>(null)
   const finish = useEffectEvent(() => { if (present) onReady?.(); else safeToRemove?.() })
   useLayoutEffect(() => {
     let cancelled = false
@@ -40,6 +57,9 @@ function useSoftPresence(kind: 'card' | 'copy' | 'heading', order = 0, onReady?:
           opacity: { type: 'tween', duration, ease: 'easeInOut' }, delay: order * .025,
         } : { duration, ease: 'easeInOut' })
     controls.current = animation
+    // The card's shadow in the field rises with the card itself; a leaving card drops it at once (shadowStrength).
+    const tile = card && present && !reduced ? scope.current.querySelector('[data-lc-influence]') : null
+    shadow.current = tile && arriveShadow(tile, ARRIVE_LEAD_MS + order * ARRIVE_STAGGER_MS)
     void animation.then(() => {
       if (cancelled) return
       controls.current = null
@@ -56,11 +76,13 @@ function useSoftPresence(kind: 'card' | 'copy' | 'heading', order = 0, onReady?:
       if (underway) animation.stop()
       else animation.cancel()
       controls.current = null
+      shadow.current?.stop()
+      shadow.current = null
     }
   }, [present, kind, order, animate, scope])
   useLayoutEffect(() => {
-    if (playing) controls.current?.play()
-    else controls.current?.pause()
+    if (playing) { controls.current?.play(); shadow.current?.play() }
+    else { controls.current?.pause(); shadow.current?.pause() }
   }, [playing, present])
   return { scope, present }
 }
@@ -75,7 +97,24 @@ function Copy({ children, heading = false, onReady }: { children: ReactNode; hea
  * one that returns later, when the server allows the action again, appears at once. */
 function Extra({ withQuestion, children }: { withQuestion: boolean; children: ReactNode }) {
   const [arriving] = useState(withQuestion)
-  return <div className="continuous-extra" data-arriving={arriving}>{children}</div>
+  const ref = useRef<HTMLDivElement>(null)
+  const shadows = useRef<AnimationPlaybackControls[]>([])
+  const playing = useContext(Playback)
+  // Its shadow in the field arrives with the control: the same 800ms delay as `soft-descend` in global.css.
+  useLayoutEffect(() => {
+    if (!arriving || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const cast = [...ref.current!.querySelectorAll('[data-lc-influence]')]
+    shadows.current = cast.map(element => arriveShadow(element, 800))
+    return () => {
+      for (const run of shadows.current) run.stop()
+      shadows.current = []
+      for (const element of cast) element.setAttribute('data-lc-strength', String(FIELD_SHADOW))
+    }
+  }, [arriving])
+  useLayoutEffect(() => {
+    for (const run of shadows.current) { if (playing) run.play(); else run.pause() }
+  }, [playing])
+  return <div ref={ref} className="continuous-extra" data-arriving={arriving}>{children}</div>
 }
 
 function FloatingCard({ slot, children }: { slot: number; children: ReactNode }) {
@@ -114,7 +153,7 @@ function AnswerOption({ slot, question, retained, onSelect, authoritativeCopy }:
       style={{ opacity: 0, transform: 'translateY(-24px) scale(.98)', ...position }}>
       <FloatingCard slot={slot}>
         <RingTag disabled={!present} tone={tone} className={`${photo ? slot === 0 ? 'primary-button' : 'secondary-button' : gender ? 'gender-option' : 'option-button'} ${artwork ? 'option-button--reference' : ''}`}
-          shadowStrength={present ? 1 : 0} data-option-id={option.id} data-retained={retained}
+          shadowStrength={present ? FIELD_SHADOW : 0} data-option-id={option.id} data-retained={retained}
           aria-label={gender ? option.id === 'male' ? 'Мужской' : 'Женский' : option.label} onClick={() => { if (present) onSelect(option.id) }}>
           <AnimatePresence initial={false} mode="sync">
             <Copy key={option.id}>

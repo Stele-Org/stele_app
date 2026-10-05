@@ -1,7 +1,11 @@
 // @vitest-environment jsdom
 import { beforeEach, expect, it, vi } from 'vitest'
 import type { BubbleEntry } from '../vendor/lumicells-scene/bubbles'
-import { TagDissolve, encodeText, tagCode, tagDissolveTimeline } from './tag-dissolve'
+import { TagDissolve, encodeText, tagCode, tagDissolveTimeline, tagThreads, threadCrossings, threadsUnderTags, type Thread } from './tag-dissolve'
+import { clearTagPositions, dissolveTagBox } from '../features/prototype/tag-layout'
+import { tagBatches } from '../features/prototype/tag-reveal'
+import { answerCardPosition } from '../features/prototype/answer-card-layout'
+import { vkPhotoOptions, vkQuestions } from '../content/vkVideo'
 
 type ClockOptions = { duration: number; ease: string; onUpdate: (time: number) => void; onComplete: () => void }
 const clock = vi.hoisted(() => ({ tracks: [] as Array<{
@@ -56,33 +60,63 @@ it('keeps the accepted D2 timings for four tags', () => {
   expect(timeline.encode(0)).toBeCloseTo(3.95)
   expect(timeline.dissolve(0)).toBeCloseTo(4.95)
   expect(timeline.dissolve(3)).toBeCloseTo(5.31)
-  expect(timeline.duration).toBeCloseTo(12.06)
-  // Dots fly to the heap from 6.95 s; the last one is gone past the corner at 11.46 s.
+  expect(timeline.duration).toBeCloseTo(11.06)
+  // Dots fly to the heap from 6.95 s; the last one is gone past the corner at 10.46 s.
   expect(timeline.gather).toBeCloseTo(6.95)
-  expect(timeline.gone).toBeCloseTo(11.46)
+  expect(timeline.gone).toBeCloseTo(10.46)
+  // The answer card has faded 0.75 s before that.
+  expect(timeline.cardGone).toBeCloseTo(9.71)
 })
 
-it('fades the answer card and its field shadow for as long as the dots gather and leave', () => {
+it('speeds the cloud up over its last second: two authored seconds pass in one', () => {
+  const timeline = tagDissolveTimeline(4)
+  expect(timeline.rush).toBeCloseTo(9.46)
+  // Before the rush the dots keep the authored clock.
+  expect(timeline.cloud(6.95)).toBe(6.95)
+  expect(timeline.cloud(timeline.rush)).toBe(timeline.rush)
+  // Constant acceleration: a quarter of the extra second by the middle, all of it at the end.
+  expect(timeline.cloud(9.96)).toBeCloseTo(10.21)
+  expect(timeline.cloud(timeline.gone)).toBeCloseTo(11.46)
+  // The clock runs at the authored rate where the rush begins and three times as fast where it ends.
+  const rate = (at: number) => (timeline.cloud(at + 1e-4) - timeline.cloud(at)) / 1e-4
+  expect(rate(timeline.rush)).toBeCloseTo(1, 2)
+  expect(rate(timeline.gone - 1e-4)).toBeCloseTo(3, 2)
+})
+
+it('fades the answer card and its field shadow while the dots gather, and ends 0.75 s before the last dot leaves', () => {
   const card = document.createElement('button')
   card.setAttribute('data-lc-strength', '1')
   const { at, track, done } = scene(false, card)
   at(6.9)
   expect(card.style.opacity).toBe('')
   expect(card.getAttribute('data-lc-strength')).toBe('1')
-  at(6.95 + 4.51 / 2)
+  // Half-way through the 2.8225 s the fade takes on the clock of the dots.
+  at(6.95 + 2.8225 / 2)
   expect(Number(card.style.opacity)).toBeCloseTo(0.5, 2)
   expect(card.getAttribute('data-lc-strength')).toBe('0.5')
-  const early = Number(card.style.opacity)
-  at(10.25)
-  expect(Number(card.style.opacity)).toBeLessThan(early)
+  // Nearly gone when the cloud starts its rush, and gone a quarter of a second into it.
+  at(9.46)
+  expect(Number(card.style.opacity)).toBeCloseTo(0.025, 2)
   expect(Number(card.style.opacity)).toBeGreaterThan(0)
-  at(11.46)
+  at(9.71)
   expect(Number(card.style.opacity)).toBe(0)
   expect(card.getAttribute('data-lc-strength')).toBe('0')
+  at(10.46)
+  expect(Number(card.style.opacity)).toBe(0)
   // A finished scene leaves the card faded for its exit.
   track.options.onComplete()
   expect(done).toHaveBeenCalledOnce()
   expect(Number(card.style.opacity)).toBe(0)
+})
+
+it('fades the shadow from what the card casts when its fade begins: a card tapped early is still arriving', () => {
+  const card = document.createElement('button')
+  card.setAttribute('data-lc-strength', '0.4')
+  const { at } = scene(false, card)
+  at(1)
+  card.setAttribute('data-lc-strength', '1')
+  at(6.95 + 2.8225 / 2)
+  expect(card.getAttribute('data-lc-strength')).toBe('0.5')
 })
 
 it('gives the answer card back when the scene is interrupted, and leaves earlier batches alone', () => {
@@ -99,6 +133,38 @@ it('gives the answer card back when the scene is interrupted, and leaves earlier
   expect(card.style.opacity).toBe('')
 })
 
+it('routes the threads of every real batch so that none crosses another or runs under a tag of another', () => {
+  const cards = [
+    ...[0, 1, 2, 3].map(slot => ({ ...answerCardPosition({ slot, product: 'vk-video', layout: 'grid', choiceCount: 4 }), photo: false })),
+    { ...answerCardPosition({ slot: 0, product: 'vk-video', layout: 'photo', choiceCount: 2 }), photo: true },
+  ]
+  const batches = [...vkQuestions.flatMap(question => question.options), ...vkPhotoOptions].flatMap(option => tagBatches(option.metadata))
+  // The look before the fix: neighbours bend opposite ways by 140px whatever happens.
+  const authored = (threads: Thread[]) => threads.map(({ origin, rest }, index) => {
+    const nx = -(rest.y - origin.y), ny = rest.x - origin.x, length = Math.hypot(nx, ny) || 1, reach = index % 2 ? 140 : -140
+    return { origin, rest, bend: { x: (origin.x + rest.x) / 2 + nx / length * reach, y: (origin.y + rest.y) / 2 + ny / length * reach } }
+  })
+  let crossedBefore = 0, kept = 0, layouts = 0
+  for (const card of cards) for (const tags of batches) for (let seed = 0; seed < 60; seed++) {
+    const sizes = tags.map((tag, i) => dissolveTagBox(tag, i === 0))
+    const rests = clearTagPositions(card, sizes, seed, 0).map(({ fx, fy }) => ({ x: fx * 1080, y: fy * 1080 + 100 }))
+    const threads = tagThreads({ x: card.left, y: card.top, w: card.width, h: card.height }, rests, sizes)
+    expect(threads).toHaveLength(tags.length)
+    expect(threadCrossings(threads)).toBe(0)
+    expect(threadsUnderTags(threads, sizes)).toBe(0)
+    // Every thread keeps the authored depth of its curve: none had to flatten.
+    for (const { origin, bend, rest } of threads) expect(Math.hypot(bend.x - (origin.x + rest.x) / 2, bend.y - (origin.y + rest.y) / 2)).toBeCloseTo(140)
+    const before = authored(threads)
+    layouts++
+    if (threadCrossings(before)) crossedBefore++
+    // A layout that was clear already is left exactly as authored.
+    if (!threadCrossings(before) && !threadsUnderTags(before, sizes)) { kept++; expect(threads).toEqual(before) }
+  }
+  // The defect was real: about a fifth of the layouts crossed; most of the rest stay untouched.
+  expect(crossedBefore / layouts).toBeGreaterThan(0.15)
+  expect(kept / layouts).toBeGreaterThan(0.5)
+})
+
 it('turns a Russian tag into a short stable code', () => {
   expect(tagCode('сериал', 1)).toMatch(/^#serial:[0-9A-F]{2}$/)
   expect(tagCode('сериал', 1)).toBe(tagCode('сериал', 1))
@@ -111,7 +177,7 @@ it('turns a Russian tag into a short stable code', () => {
 
 it('runs one linear clock for the whole batch and reports every flight exactly once', () => {
   const { root, entries, flights, closing, done, track, at } = scene()
-  expect(track.options.duration).toBeCloseTo(12.06)
+  expect(track.options.duration).toBeCloseTo(11.06)
   expect(track.options.ease).toBe('linear')
   expect(root.dataset.phase).toBe('entering')
 
@@ -147,7 +213,9 @@ it('runs one linear clock for the whole batch and reports every flight exactly o
   expect(new Set(flights).size).toBe(16)
   expect(closing).not.toHaveBeenCalled()
 
-  at(11.3)
+  at(10.2)
+  expect(closing).not.toHaveBeenCalled()
+  at(10.3)
   expect(closing).toHaveBeenCalledOnce()
   expect(done).not.toHaveBeenCalled()
   track.options.onComplete()
@@ -162,6 +230,9 @@ it('scatters each tag into dots that all leave before the scene ends', () => {
   // Mid-scatter and mid-gather: the dots of four tags are on screen, the threads are gone.
   expect(at(7)).toBeGreaterThan(200)
   expect(at(9)).toBeGreaterThan(200)
+  // The rush: dots are still leaving half-way through it and none is left once it ends.
+  expect(at(9.96)).toBeGreaterThan(0)
+  expect(at(10.47)).toBe(0)
   expect(at(track.options.duration)).toBe(0)
 })
 
