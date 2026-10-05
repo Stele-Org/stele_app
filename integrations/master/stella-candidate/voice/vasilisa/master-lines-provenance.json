@@ -1,0 +1,47 @@
+{
+  "changeDate": "2026-10-05",
+  "change": "User asked to copy the spoken lines of the master (stand) mode into the local voice folder. Files are byte-for-byte copies of the AUDIO-02 bank; no synthesis, trimming or resampling.",
+  "copied": [
+    {
+      "cue": "vk-onboarding",
+      "asset": "vk-onboarding-studio.wav",
+      "source": "public/audio/vk-production-v1/Screen1.wav",
+      "sha256": "2d4c953cead1b98a1411faf3f766d76f52a40c78f4f56c0f731f52a320469249",
+      "bytes": 2553518,
+      "replaced": "vk-onboarding.wav"
+    },
+    {
+      "cue": "vk-question-evening",
+      "asset": "vk-question-evening-studio.wav",
+      "source": "public/audio/vk-production-v1/Screen2.wav",
+      "sha256": "ebb31994562fd38762f294dd34cc63d6d7b39a0e2bfefbcde0671ad2abe7b6fb",
+      "bytes": 2152102,
+      "replaced": "vk-question-evening.wav"
+    },
+    {
+      "cue": "vk-question-discovery",
+      "asset": "vk-question-discovery-studio.wav",
+      "source": "public/audio/vk-production-v1/Screen4.wav",
+      "sha256": "02f7fb031506fce6921964941cfc4b11cf119f3cea8ed16d54e2b718d983d65b",
+      "bytes": 2604332,
+      "replaced": "vk-question-discovery.wav"
+    }
+  ],
+  "alreadyIdentical": [
+    {
+      "cue": "vk-question-ideal-content",
+      "asset": "vk-question-ideal-content.wav",
+      "source": "public/audio/vk-production-v1/Screen3.wav",
+      "sha256": "bce2390d4ece1d1bbd00b48f6cd863a5bc3ddfa3a674c9ce8d6be64506312d00"
+    },
+    {
+      "cue": "vk-particles, vk-discovery-activation",
+      "asset": "vk-discovery-activation-studio.wav",
+      "source": "public/audio/vk-production-v1/Screen7.wav",
+      "sha256": "5b47fecca5313665cdd7a34e392a082b66104b345f8b50f9474d38bb2dfe0a4d"
+    }
+  ],
+  "notCopied": "Screen5, Screen6 and Screen8 (photo, camera, final): the master mode does not play them either, their text no longer matches the approved copy. The local cues vk-digitize, vk-camera and vk-final stay pending.",
+  "verification": "SHA256 equality with the master bank only. The words spoken in Screen1, Screen2 and Screen4 were not transcribed or listened to by the agent.",
+  "format": "Screen1, Screen2, Screen4: PCM 16 bit, 44.1 kHz, stereo."
+}
