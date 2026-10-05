@@ -86,7 +86,7 @@ h1, h2, p { margin: 0; }
 .back-button { --tag-color: #0040FF; --tag-glow: #0040FF30; position: absolute; top: 1192px; left: 407.5px; width: 265px; min-height: 100px; height: 100px; border-radius: 35px; padding: 20px 30px; display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 34px; background: var(--tag-color); }
 .back-button svg { width: 30px; height: 30px; }
 .home-intro { position: absolute; top: 360px; left: 110px; width: 860px; text-align: center; }
-.home-intro h1 { font-size: 82px; line-height: 1.1; font-weight: 600; text-transform: uppercase; }
+.home-intro h1 { font-size: 82px; line-height: 1.1; font-weight: 600; }
 .home-choices { position: absolute; inset: 0; }
 .product-tag { position: absolute; top: 618px; height: 181px; min-height: 181px; padding: 0; background: transparent; box-shadow: none; border-radius: 48px; display: grid; place-items: center; }
 .product-tag:hover:not(:disabled) { box-shadow: none; }
