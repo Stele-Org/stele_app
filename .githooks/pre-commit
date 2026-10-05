@@ -1,0 +1,6 @@
+#!/bin/sh
+# Blocks a commit that stages a secret. Enabled by `scripts/stella.ps1 setup` (core.hooksPath=.githooks).
+root=$(git rev-parse --show-toplevel)
+gitleaks="$root/.tools/gitleaks/gitleaks.exe"
+[ -x "$gitleaks" ] || gitleaks=$(command -v gitleaks) || { echo "Gitleaks not found: run scripts/stella.ps1 setup" >&2; exit 1; }
+exec "$gitleaks" git "$root" --pre-commit --staged --config "$root/.gitleaks.toml" --no-banner --redact

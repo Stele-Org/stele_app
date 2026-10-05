@@ -1,0 +1,9 @@
+# Used only for scanning working files (`gitleaks dir`). Same rules as .gitleaks.toml;
+# skips downloaded third-party trees that git never versions. Do not add project paths or findings here.
+title = "Stella working-files scan"
+[extend]
+path = ".gitleaks.toml"
+
+[[allowlists]]
+description = "Downloaded toolchain and package caches, ignored by git"
+paths = ['''(^|/)node_modules/''', '''^\.tools/''', '''(^|/)\.cache/''', '''^\.git/''']

@@ -1,5 +1,15 @@
 > Исторический документ. Актуальный статус пакета и запуск — в корневом README.md.
 
+# Локальный репозиторий и материалы Claude Design — 05.10.2026
+
+Пакет STELLA-CAMERA-ROTATE-01 развёрнут в локальном git-репозитории. `main`/`b12eef5` с тегом `baseline/stella-camera-rotate-01` — пакет без изменений; все 827 файлов сверены с `PACKAGE-MANIFEST.json`. Исходники приложения в `integrations/master/stella-candidate` не менялись.
+
+Добавлены: `scripts/stella.ps1` с командами запуска и проверок, закреплённые Node.js 24.21.0 и Gitleaks 8.30.1 в `.tools`, git-хуки с Gitleaks, порядок работы в [DEV_WORKFLOW.md](DEV_WORKFLOW.md). Системный Node.js 22 не тронут.
+
+В проект внесены материалы сессии Claude Design «Анализ дизайна Стелы»: страницы прототипа в `artifacts/DESIGN/claude-design-stela-20261005` и разбор в [docs/Research/stella-claude-design-session-20261005.md](../Research/stella-claude-design-session-20261005.md). Приняты варианты: теги «D2 код → шарики» с двумя видами тега, Discovery «пульс + нейросеть» на 23,3 с. Это референс анимаций; в приложение он не перенесён. До переноса нужно решить четыре вопроса из разбора, первый — переносить ли в существующие `AnswerFlight` и `WhiteEntity` на LumiCells.
+
+Проверки: типы PASS; сборка в `.cache/build-check` PASS и побайтно совпала с принятой, 101 из 101; смок-тест без браузера PASS 11 из 11; Gitleaks без находок. Vitest 302 из 304: два теста запуска камеры устарели после строгого выбора BRIO. ESLint: 12 ошибок `react-hooks` в коде MASTER и MAX. Оба отклонения есть в исходном пакете. Браузер, камера, MASTER и AI не запускались. Отчёт: `artifacts/reports/project-setup-20261005.md`.
+
 # Локальная правка авторежима MAX —05.10.2026
 
 Получена ветка0501-2-стенд/f24a106. В codex/stella-max-auto-20261005 MAX showMode после полного логотипа и canonical ACK возвращает Home, без тестового квиза.24tests/types/build PASS. Это локальный кандидат, не установленный runtime. Прежний декор отменён. Preview5306 — локальный сценарий; серверный авторежим требует master API. Станция остаётся во владении F до его release; миссия не отменяется. Подробности: ../../artifacts/reports/stella-max-auto-20261005.md.

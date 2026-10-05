@@ -1,3 +1,15 @@
+## 05.10.2026 — локальный репозиторий, инструменты и материалы Claude Design
+
+Проанализирован пакет STELLA-CAMERA-ROTATE-01: 827 файлов, приложение React 19 / Vite 8 / TypeScript 6 в `integrations/master/stella-candidate`, LumiCells из `artifacts/ribbon` и `docs/Research`. Целостность по `PACKAGE-MANIFEST.json` PASS. Создан git-репозиторий: `main`/`b12eef5`, тег `baseline/stella-camera-rotate-01`, рабочая ветка `codex/project-setup-20261005`.
+
+Приложению нужен Node.js 24+, в системе 22.14.0. Node.js 24.21.0 и Gitleaks 8.30.1 поставлены в `.tools` со сверкой SHA256, без прав администратора; системный Node.js не менялся. `npm ci --ignore-scripts`: 227 пакетов, lockfile без изменений. Добавлены `scripts/stella.ps1`, смок-тест `scripts/smoke.mjs`, хуки `pre-commit` и `pre-push` с Gitleaks, [DEV_WORKFLOW.md](DEV_WORKFLOW.md).
+
+Внесены материалы сессии Claude Design: страницы прототипа в `artifacts/DESIGN/claude-design-stela-20261005` с provenance и SHA, разбор и итоговые тайминги в `docs/Research/stella-claude-design-session-20261005.md`. Транскрипт чата прочитан из handoff-пакета, на этом компьютере его нет; в разборе он изложен. Исходники приложения не менялись, перенос анимаций не начат.
+
+Типы PASS; сборка в отдельную папку PASS, 101 из 101 файла совпал с принятой сборкой; смок-тест 11 из 11; Gitleaks без находок. Vitest 302 из 304, ESLint 12 ошибок — отклонения исходного пакета, описаны в [отчёте](../../artifacts/reports/project-setup-20261005.md). `dist` не пересобирался. Браузер, headless, камера, MASTER и AI не запускались. Push, сайт, F и стенд не затронуты.
+
+Трафик SIM: не измерено; на ПК разработчика скачаны Node.js, Gitleaks и npm-пакеты; 0 МБ передачи файлов на стенд.
+
 ## 05.10.2026 — Стелла: откат декора,0501-2-стенд и MAX auto-home
 
 Последний декор отменён, старый checkout чист и dist вернулся к исходному SHA. Загружена GitHub0501-2-стенд/f24a106. На её основе локально исправлен авторежим MAX: полный логотип, существующий admission/canonical ACK, затем Home без тестовых вопросов/reveal/mission-final. Без fake answer/confirm/cancel. Reload и отказ запуска обработаны, ручной режим сохранён. Typecheck/build/24теста/duplicate PASS, локальный preview5306 HTTP200. Браузер не использовался. Возврат визуальный: сервер пока держит station до завершения/отмены, новый допуск запрещён. F/стенд/сайт/GitHub не обновлялись. [Отчёт](artifacts/reports/stella-max-auto-20261005.md), [исследование контракта](docs/Research/stella-max-auto-20261005.md).

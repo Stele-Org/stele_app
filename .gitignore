@@ -26,3 +26,6 @@ artifacts/workspace/
 !artifacts/workspace/tests/**
 .DS_Store
 Thumbs.db
+
+# Pinned local toolchain downloaded by scripts/setup-tools.ps1.
+/.tools/

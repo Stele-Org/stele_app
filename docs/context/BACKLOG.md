@@ -1,3 +1,11 @@
+# Бэклог локального репозитория — 05.10.2026
+
+1. Анимации из Claude Design: решить, куда переносить теги «D2 код → шарики» и Discovery «пульс + нейросеть» — в `AnswerFlight` и `WhiteEntity` на LumiCells или отдельной страницей. Ответ «Vanilla HTML/JS» дан для пустого репозитория и требует подтверждения. [Разбор](../Research/stella-claude-design-session-20261005.md).
+2. Те же анимации: что происходит на экране тегов после ухода шариков; длительность Discovery 23,3 с против 7 с в приложении; стыковка конца и начала сцены при повторе.
+3. Обновить два устаревших теста камеры под выбор BRIO по `deviceId`: `App.camera.test.tsx`, `ContentReady.test.tsx`.
+4. Разобрать 12 ошибок ESLint `react-hooks` в `MasterMaxSlice.tsx`, `presentation-playing.ts`, `usePresentationCompletion.ts`.
+5. Решить, нужен ли удалённый репозиторий и хранение `dist` и медиа в нём: рабочие файлы занимают около 530 МБ.
+
 # Исторические выдержки: docs/BACKLOG.md
 
 Срез 04.10.2026. Актуальный статус — CURRENT_STATE.md.

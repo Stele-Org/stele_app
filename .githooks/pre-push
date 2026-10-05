@@ -1,0 +1,8 @@
+#!/bin/sh
+# AGENTS.md: before every push scan working files and the whole git history with Gitleaks.
+root=$(git rev-parse --show-toplevel)
+gitleaks="$root/.tools/gitleaks/gitleaks.exe"
+[ -x "$gitleaks" ] || gitleaks=$(command -v gitleaks) || { echo "Gitleaks not found: run scripts/stella.ps1 setup" >&2; exit 1; }
+cd "$root" || exit 1
+"$gitleaks" dir . --config .gitleaks.workdir.toml --no-banner --redact || exit 1
+exec "$gitleaks" git . --config .gitleaks.toml --no-banner --redact

@@ -2,7 +2,21 @@
 
 Это переносимый снимок исходников и последней установленной нами сборки STELLA-CAMERA-ROTATE-01. Включены незакоммиченные правки, которые отсутствуют в исходной Git-ветке. Начинайте здесь; прежние документы в docs содержат исторические планы и ограничения.
 
+## Локальный репозиторий
+
+С 05.10.2026 пакет ведётся в локальном git-репозитории. Тег `baseline/stella-camera-rotate-01` — пакет в полученном виде. Первый запуск на новой машине, PowerShell из корня проекта:
+
+```powershell
+.\scripts\stella.ps1 setup    # Node.js 24 и Gitleaks в .tools, npm ci, git-хуки
+.\scripts\stella.ps1 smoke    # проверка типов, сборка, смок-тест без браузера
+.\scripts\stella.ps1 dev      # http://127.0.0.1:5218/stella/
+```
+
+Системный Node.js не используется и не меняется. Все команды и порядок работы с git: [docs/context/DEV_WORKFLOW.md](docs/context/DEV_WORKFLOW.md). Прототипы анимаций из Claude Design: [artifacts/DESIGN/claude-design-stela-20261005](artifacts/DESIGN/claude-design-stela-20261005/README.md), запуск `.\scripts\stella.ps1 design`.
+
 ## Быстрый старт
+
+Ниже исходная инструкция пакета; она работает, если в системе уже стоит Node.js 24+.
 
 Нужен Node.js24+ и npm. Из корня распакованного архива:
 
