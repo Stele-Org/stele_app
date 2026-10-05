@@ -20,9 +20,9 @@ it('fills the whole frame below the logo with a form of large dots and a field o
 })
 
 it('ends with the wave, without the closing hold of the prototype', () => {
-  expect(DISCOVERY_NETWORK_SECONDS).toBe(22.8)
+  expect(DISCOVERY_NETWORK_SECONDS).toBe(22.3)
   // Shortly before the end the wave is still crossing the far corners.
-  const late = frame(22.5).points
+  const late = frame(22.1).points
   expect(late.some((point, i) => point.radius > dots[i].radius + 0.01)).toBe(true)
 })
 
@@ -67,7 +67,7 @@ it('pulses for five seconds, then unfolds into the network and works for six', (
 
 it('returns to the starting frame and ends with a wave that has left the screen', () => {
   expect(frame(21.2).network).toBe(0)
-  const crest = frame(22.1).points
+  const crest = frame(21.9).points
   expect(crest.some((point, i) => point.radius > dots[i].radius + 3)).toBe(true)
   const end = frame(DISCOVERY_NETWORK_SECONDS)
   expect(end.pulse).toBe(0)

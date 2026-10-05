@@ -50,12 +50,12 @@ afterEach(async () => {
 
 const render = (node: React.ReactNode) => act(async () => { root.render(node) })
 
-it('plays the authored 22.8-second scene once and completes the scenario at its end', async () => {
+it('plays the authored 22.3-second scene once and completes the scenario at its end', async () => {
   const complete = vi.fn()
   await render(<DiscoveryNetwork playing cueKey="session:particles" onComplete={complete} />)
   const track = clock.tracks.at(-1)!
   expect(host.querySelector('canvas.vk-discovery-network')).not.toBeNull()
-  expect(track.options.duration).toBe(22.8)
+  expect(track.options.duration).toBe(22.3)
   expect(track.options.ease).toBe('linear')
   expect(track.options.repeat).toBe(0)
   expect(track.pause).not.toHaveBeenCalled()
@@ -103,7 +103,7 @@ it.each(['generation', 'activation'] as const)('shows the scene for the %s stage
   expect(host.querySelector('.vk-discovery-network')).not.toBeNull()
   expect(host.querySelector('.vk-white-entity')).toBeNull()
   expect(clock.renderers).toBe(0)
-  expect(clock.tracks.at(-1)!.options.duration).toBe(22.8)
+  expect(clock.tracks.at(-1)!.options.duration).toBe(22.3)
   act(() => clock.tracks.at(-1)!.options.onComplete())
   expect(complete).toHaveBeenCalledOnce()
 })

@@ -286,6 +286,8 @@ h1, h2, p { margin: 0; }
 @keyframes soft-fade { from { opacity: 0; } to { opacity: 1; } }
 .stella-product-header { animation: soft-fade 1040ms ease-out backwards; }
 .screen--onboarding { animation: none; }
+/* The final screen of VK Видео is simply there once the Discovery wave has passed: no arrival at all. */
+.screen--vk-final { animation: none; }
 .screen--onboarding > .product-mark { animation: soft-fade 1040ms ease-out backwards; }
 .screen--onboarding .onboarding-intro h1, .screen--onboarding .onboarding-step, .screen--onboarding .onboarding-actions, .screen--onboarding .back-button { animation: soft-arrive 1120ms cubic-bezier(.2, .7, .2, 1) backwards; }
 .screen--onboarding .onboarding-step { animation-delay: 220ms; }
