@@ -1,9 +1,20 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { RingCue, RING_CUE_MS } from './ring-cue'
+import { RingCue, RING_CUE_MS, SCREEN_EXIT_CUE_MS } from './ring-cue'
 
 describe('shared ring action choreography', () => {
   beforeEach(() => vi.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout', 'performance'] }))
   afterEach(() => vi.useRealTimers())
+  it('holds a screen-leaving action for its own longer cue and still skips it for reduced motion', () => {
+    const leave = vi.fn(), reduced = vi.fn(), cue = new RingCue()
+    expect(cue.choose(leave, false, SCREEN_EXIT_CUE_MS)).toBe(true)
+    vi.advanceTimersByTime(SCREEN_EXIT_CUE_MS - 1)
+    expect(leave).not.toHaveBeenCalled()
+    vi.advanceTimersByTime(1)
+    expect(leave).toHaveBeenCalledOnce()
+    expect(new RingCue().choose(reduced, true, SCREEN_EXIT_CUE_MS)).toBe(true)
+    vi.advanceTimersByTime(0)
+    expect(reduced).toHaveBeenCalledOnce()
+  })
   it('commits only the first answer after its native pulse cue', () => {
     const first = vi.fn(), second = vi.fn(), cue = new RingCue()
     expect(cue.choose(first, false)).toBe(true)

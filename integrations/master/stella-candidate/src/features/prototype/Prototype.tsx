@@ -16,6 +16,7 @@ import { AnswerFlight } from '../../components/AnswerFlight'
 import { ContinuousQuestions } from '../../components/ContinuousQuestions'
 import { questionPresentation } from './question-presentation'
 import { timedTransition } from './timed-transition'
+import { SCREEN_EXIT_CUE_MS } from './ring-cue'
 import { readDiscoveryPreview } from './discovery-preview'
 import { tagPresentation, type TagReveal } from './tag-reveal'
 import { BrandSplash } from '../../components/BrandSplash'
@@ -344,13 +345,14 @@ export function Prototype() {
           <main className={`experience experience--${product ?? 'entry'}`} data-screen={screen.type}>
         {enteringProduct ? <BrandSplash product={enteringProduct} playing={playing} onComplete={completeProductEntry} /> : <>
         {screen.type === 'home' && (
-          <RingHomeScreen onSelect={startProduct} />
+          <RingHomeScreen onSelect={startProduct} exitCueMs={SCREEN_EXIT_CUE_MS} />
         )}
 
         {(screen.type === 'max-onboarding' || screen.type === 'vk-onboarding') && (
           <OnboardingScreen
             showProductMark={product !== 'vk-video'}
             product={screen.type === 'max-onboarding' ? 'max' : 'vk-video'}
+            exitCueMs={SCREEN_EXIT_CUE_MS}
             onStart={() => setScreen(screen.type === 'max-onboarding'
               ? { type: 'max-audience' }
               : { type: 'vk-question', index: 0, answers: [] })}

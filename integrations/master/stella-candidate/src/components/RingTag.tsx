@@ -8,10 +8,12 @@ interface RingTagProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   tone?: TagTone
   navigation?: boolean
   shadowStrength?: number
+  /** Pause between the accepted tap and its action; the default is the 260ms ring cue. */
+  cueMs?: number
   ref?: Ref<HTMLButtonElement>
 }
 
-export function RingTag({ tone = 'blue', navigation = false, shadowStrength = 1, className = '', disabled, onClick, children, ref, ...props }: RingTagProps) {
+export function RingTag({ tone = 'blue', navigation = false, shadowStrength = 1, cueMs, className = '', disabled, onClick, children, ref, ...props }: RingTagProps) {
   const { busy, enabled, active, run } = useRingActions()
   const id = useId()
   return (
@@ -22,7 +24,7 @@ export function RingTag({ tone = 'blue', navigation = false, shadowStrength = 1,
       data-lc-pulse="click"
       onClick={event => {
         if (event.detail > 1) return
-        run(() => onClick?.(event), navigation, id)
+        run(() => onClick?.(event), navigation, id, cueMs)
       }}>
       {children}
     </button>

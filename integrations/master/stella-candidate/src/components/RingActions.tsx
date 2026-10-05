@@ -14,10 +14,10 @@ export function RingActions({ playing, children, phaseKey }: { playing: boolean;
     return () => { gate.dispose(); cue.current = null }
   }, [phaseKey])
   useLayoutEffect(() => { cue.current?.setPlaying(playing) }, [playing, phaseKey])
-  const run = (action: () => void, navigation: boolean, id: string) => {
+  const run = (action: () => void, navigation: boolean, id: string, cueMs?: number) => {
     const gate = cue.current
     if (!gate || !playing) return false
-    const accepted = navigation ? gate.navigate(action) : gate.choose(action, window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+    const accepted = navigation ? gate.navigate(action) : gate.choose(action, window.matchMedia('(prefers-reduced-motion: reduce)').matches, cueMs)
     if (accepted && !navigation) setSelection({ phase: phaseKey, id })
     if (accepted) emitAcceptedSoundAction(true)
     return accepted

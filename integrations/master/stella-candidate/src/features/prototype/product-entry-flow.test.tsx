@@ -6,7 +6,7 @@ import { Prototype } from './Prototype'
 vi.mock('../sound/use-stella-sound', () => ({ useStellaSound: () => {} }))
 vi.mock('../voice/use-screen-narration', () => ({ useScreenNarration: () => {} }))
 import { PRODUCT_ENTRY_MS } from './product-entry'
-import { RING_CUE_MS } from './ring-cue'
+import { RING_CUE_MS, SCREEN_EXIT_CUE_MS } from './ring-cue'
 
 // Exercise the real product selection and BrandSplash; GPU and service are outside this check.
 vi.mock('../../components/RingScene', () => ({ RingScene: ({ children }: { children: ReactNode }) => <div>{children}</div> }))
@@ -42,7 +42,12 @@ it('takes actual VK selection through its logo splash before showing the instruc
   const select = host.querySelector<HTMLButtonElement>('button[aria-label="VK Видео"]')!
   expect(select).not.toBeNull()
   act(() => select.click())
-  act(() => vi.advanceTimersByTime(RING_CUE_MS))
+  // Leaving the start screen takes the longer cue: the screen fades out before the splash.
+  expect(SCREEN_EXIT_CUE_MS).toBe(2 * RING_CUE_MS)
+  act(() => vi.advanceTimersByTime(SCREEN_EXIT_CUE_MS - 1))
+  expect(host.querySelector('main')?.getAttribute('data-screen')).toBe('home')
+  expect(select.getAttribute('data-active')).toBe('true')
+  act(() => vi.advanceTimersByTime(1))
 
   const splash = host.querySelector('.brand-splash[data-product="vk-video"]')
   expect(splash).not.toBeNull()

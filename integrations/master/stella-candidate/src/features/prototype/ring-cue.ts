@@ -1,4 +1,6 @@
 export const RING_CUE_MS = 260
+/** A longer cue for taps that leave a whole screen: it covers the 480ms fade of that screen. */
+export const SCREEN_EXIT_CUE_MS = 520
 
 /** One action per visible phase. Navigation/unmount cancels it; pause freezes its cue. */
 export class RingCue {
@@ -9,10 +11,10 @@ export class RingCue {
   private playing = true
   private disposed = false
 
-  choose(action: () => void, reducedMotion: boolean) {
+  choose(action: () => void, reducedMotion: boolean, duration = RING_CUE_MS) {
     if (this.disposed || !this.playing || this.action) return false
     this.action = action
-    this.remaining = reducedMotion ? 0 : RING_CUE_MS
+    this.remaining = reducedMotion ? 0 : duration
     this.arm()
     return true
   }

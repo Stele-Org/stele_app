@@ -11,9 +11,11 @@ interface OnboardingScreenProps {
   onBack: () => void
   showProductMark?: boolean
   voiceEnabled?: boolean
+  /** The local scenario fades the screen out before leaving it and lengthens the tap cue to match. */
+  exitCueMs?: number
 }
 
-export function OnboardingScreen({ product, onStart, onBack, showProductMark = true, voiceEnabled = true }: OnboardingScreenProps) {
+export function OnboardingScreen({ product, onStart, onBack, showProductMark = true, voiceEnabled = true, exitCueMs }: OnboardingScreenProps) {
   const introduction = onboardingIntroductions[product]
   const [voiceIntroduction, voiceExample] = onboardingCopy.voice.split(' Скажи, ')
   // VK Видео follows STELLA Onboard.png: a lower-case start button stands alone, without voice or touch hints
@@ -39,7 +41,7 @@ export function OnboardingScreen({ product, onStart, onBack, showProductMark = t
           <span className="onboarding-voice-example">{`Скажи, ${voiceExample}`}</span>
         </p>}
         {extras && <p className="onboarding-touch">{onboardingCopy.touch}</p>}
-        <RingTag tone={product === 'max' ? 'violet' : 'red'} className="primary-button onboarding-start" onClick={onStart}>
+        <RingTag tone={product === 'max' ? 'violet' : 'red'} cueMs={exitCueMs} className="primary-button onboarding-start" onClick={onStart}>
           {product === 'vk-video' ? 'начать' : onboardingCopy.start}
         </RingTag>
       </div>
