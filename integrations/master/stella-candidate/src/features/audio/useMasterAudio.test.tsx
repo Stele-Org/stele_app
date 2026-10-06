@@ -58,13 +58,17 @@ it('keeps mismatched photo and camera silent; particles use the complete verifie
   expect(masterNarration('photochoice')).toBe('Screen5')
   expect(masterNarration('final')).toBe('Screen8')
   expect(masterNarration('particles')).toBe('Screen7')
-  expect(masterNarration('home')).toBeNull()
+  expect(masterNarration('home')).toBe('Screen0')
 })
-it('preloads a shared central bank once; home has no automatic audio before accepted input', async () => {
-  await render({}); expect(mock.sounds).toHaveLength(21)
-  expect(mock.sounds.every(s => s.play.mock.calls.length === 0)).toBe(true)
+it('preloads a shared central bank once; home speaks its greeting and plays no effects before accepted input', async () => {
+  await render({}); expect(mock.sounds).toHaveLength(22)
+  expect(sound('Screen0').play).toHaveBeenCalledOnce()
+  expect(mock.sounds.filter(s => s !== sound('Screen0')).every(s => s.play.mock.calls.length === 0)).toBe(true)
+  // Polling the same idle start screen does not greet again; leaving it stops the greeting.
+  await render({revision:2}); expect(sound('Screen0').play).toHaveBeenCalledOnce()
   await render({screen:'onboarding'}); expect(sound('Screen1').play).toHaveBeenCalledOnce()
-  await render({screen:'question',questionIndex:0}); expect(mock.sounds).toHaveLength(21)
+  expect(sound('Screen0').stop).toHaveBeenCalledWith(12)
+  await render({screen:'question',questionIndex:0}); expect(mock.sounds).toHaveLength(22)
   expect(sound('Screen1').stop).toHaveBeenCalledWith(12)
 })
 it('does not replay voice or ordered effects on polling; accepted reveals cycle through all five and reset on home', async () => {
@@ -168,4 +172,12 @@ it('retains AUDIO03 metadata without assigning VK narration to MAX or claiming S
   expect(setMasterAudioState).toHaveBeenLastCalledWith(expect.objectContaining({
     branch: 'max', screen: 'brand-entry', narrationEnabled: false, narrationCue: null, reason: 'brand_splash',
   }))
+  // The start screen is common to both products: the MAX slice greets on it too, and on nothing else.
+  function MaxHome({ screen }: { screen: string }) { useMasterMaxAudio({ screen, playing: true }); return null }
+  await act(async () => root.render(<MaxHome screen="home" />))
+  expect(setMasterAudioState).toHaveBeenLastCalledWith(expect.objectContaining({ branch: 'max', screen: 'home', narrationCue: 'Screen0', reason: 'scene_active' }))
+  expect(sound('Screen0').play).toHaveBeenCalledOnce()
+  await act(async () => root.render(<MaxHome screen="onboarding" />))
+  expect(setMasterAudioState).toHaveBeenLastCalledWith(expect.objectContaining({ branch: 'max', screen: 'onboarding', narrationEnabled: false, narrationCue: null }))
+  expect(sound('Screen1').play).not.toHaveBeenCalled()
 })

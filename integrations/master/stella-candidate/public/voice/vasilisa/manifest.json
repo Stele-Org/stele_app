@@ -3,7 +3,7 @@
   "voice": "Василиса",
   "ready": true,
   "assets": {
-    "home": "home.wav",
+    "home": "home-studio.wav",
     "vk-onboarding": "vk-onboarding-studio.wav",
     "max-onboarding": "max-onboarding.wav",
     "vk-question-evening": "vk-question-evening-studio.wav",

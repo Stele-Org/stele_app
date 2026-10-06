@@ -7,7 +7,7 @@ import { narrationId, parseVoiceManifest } from './narration'
 
 it('maps every meaningful state to an existing recording and preserves exact current question copy', () => {
   const samples: ScreenState[] = [
-    { type: 'vk-onboarding' }, { type: 'max-onboarding' },
+    { type: 'home' }, { type: 'vk-onboarding' }, { type: 'max-onboarding' },
     { type: 'max-audience' }, { type: 'max-goal', audience: 'business' },
     ...[0, 1, 2].map(index => ({ type: 'vk-question' as const, index, answers: [] })),
     { type: 'vk-digitize', answers: [], rankedThemes: [], discoveryAnswerId: 'hero' },
@@ -18,7 +18,7 @@ it('maps every meaningful state to an existing recording and preserves exact cur
     ...(['digital-id', 'communication', 'blogger', 'business-promotion'] as const).map(mission => ({ type: 'max-result' as const, mission })),
   ]
   const copy = new Map(phrases.phrases.map(phrase => [phrase.id, phrase.text]))
-  expect(new Set(samples.map(sample => narrationId(sample)))).toEqual(new Set([...copy.keys()].filter(id => id !== 'home')))
+  expect(new Set(samples.map(sample => narrationId(sample)))).toEqual(new Set(copy.keys()))
   expect(copy.size).toBe(phrases.phrases.length)
   vkQuestions.forEach((question, index) => {
     expect(copy.get(narrationId({ type: 'vk-question', index, answers: [] })!)).toContain(question.prompt)

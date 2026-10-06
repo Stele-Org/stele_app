@@ -137,11 +137,16 @@ it('StrictMode discards the first async manifest response and unloads the only a
   expect(sound.play).toHaveBeenCalledOnce()
 })
 
-it('keeps the retained home greeting silent on opening and return', async () => {
-  await act(async () => root.render(<Harness screen={{type:'home'}} />))
-  expect(audio.sounds).toHaveLength(0)
-  await act(async () => root.render(<Harness />))
+it('greets on the start screen on opening and on every return, and stays silent under the brand splash', async () => {
   await act(async () => root.render(<Harness screen={{type:'home'}} />))
   expect(audio.sounds).toHaveLength(1)
-  expect(audio.sounds[0].source.endsWith('/home.wav')).toBe(false)
+  expect(audio.sounds[0].source).toBe('/stella/voice/vasilisa/home.wav')
+  // The chosen product's logo covers the start screen: the greeting stops with it.
+  await act(async () => root.render(<Harness screen={{type:'home'}} brandSplash />))
+  expect(audio.sounds[0].unload).toHaveBeenCalledOnce()
+  await act(async () => root.render(<Harness />))
+  await act(async () => root.render(<Harness screen={{type:'home'}} />))
+  expect(audio.sounds).toHaveLength(3)
+  expect(audio.sounds[2].source).toBe('/stella/voice/vasilisa/home.wav')
+  expect(audio.sounds[2]).not.toBe(audio.sounds[0])
 })

@@ -1,7 +1,7 @@
 import { Howl } from 'howler'
 import { ensureMasterAudioObserver } from './remote-audio-observer'
 
-export const AUDIO_FILES = ['Screen1', 'Screen2', 'Screen3', 'Screen4', 'Screen5', 'Screen6', 'Screen7', 'Screen8', 'Click', 'ChangeScreen', 'Tags', 'Scan', 'AmbienceMain', 'ChangeScreen2', 'ChangeScreen3', 'ChangeScreen4', 'ChangeScreen5', 'ScanStart1', 'ScanStart2', 'ScanEnd1', 'ScanEnd2'] as const
+export const AUDIO_FILES = ['Screen0', 'Screen1', 'Screen2', 'Screen3', 'Screen4', 'Screen5', 'Screen6', 'Screen7', 'Screen8', 'Click', 'ChangeScreen', 'Tags', 'Scan', 'AmbienceMain', 'ChangeScreen2', 'ChangeScreen3', 'ChangeScreen4', 'ChangeScreen5', 'ScanStart1', 'ScanStart2', 'ScanEnd1', 'ScanEnd2'] as const
 export type AudioCue = typeof AUDIO_FILES[number]
 const banks = new Map<string, Map<AudioCue, Howl>>()
 
@@ -21,6 +21,8 @@ export function productionAudio(base: string): Map<AudioCue, Howl> {
 
 export function masterNarration(screen: string, questionIndex?: number): AudioCue | null {
   switch (screen) {
+    // The start screen greets the visitor (recording added by the user on 06.10.2026): once each time it appears.
+    case 'home': return 'Screen0'
     case 'onboarding': return 'Screen1'
     case 'question': return (['Screen2', 'Screen3', 'Screen4'] as const)[questionIndex ?? -1] ?? null
     // Enabled by the user on 06.10.2026 as recorded, although the bank marked it as not matching the changed photo copy.

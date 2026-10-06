@@ -10,6 +10,7 @@ import { getReadyNarrationAsset } from './ready-narration-asset'
 // The same pairs as masterNarration() in features/audio/production-audio.ts, and the line of the scanning screen,
 // which the user added to the bank on 06.10.2026 and which the stand mode does not play yet.
 const lines: [string, ScreenState][] = [
+  ['Screen0', { type: 'home' }],
   ['Screen1', { type: 'vk-onboarding' }],
   ['Screen2', { type: 'vk-question', index: 0, answers: [] }],
   ['Screen3', { type: 'vk-question', index: 1, answers: [] }],

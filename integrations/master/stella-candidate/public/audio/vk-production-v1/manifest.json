@@ -11,7 +11,7 @@
     "camera": null,
     "particles": "Screen7.wav",
     "final": "Screen8.wav",
-    "home": null,
+    "home": "Screen0.wav",
     "scanning": "Scan.wav (loop)",
     "answer-reveal": "ChangeScreen[1..5] sequential",
     "photo-reveal": "ChangeScreen[1..5] sequential",
@@ -31,6 +31,18 @@
     "Screen6": "Old Screen6 says Discovery activation on camera; camera instruction recording unavailable."
   },
   "assets": [
+    {
+      "file": "Screen0.wav",
+      "bytes": 1414702,
+      "sha256": "8d3e5513facee8035d892d08c5be432ad1066937219a5283f90600fb1a32b43b",
+      "seconds": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "waveFormatTag": 1,
+      "source": "Studio line for the start screen, added by the user on 2026-10-06.",
+      "verification": "Not transcribed or listened to by the agent; header and SHA only. No synthesis."
+    },
     {
       "file": "Screen1.wav",
       "bytes": 2553518,
