@@ -27,6 +27,7 @@
 | `.\scripts\stella.ps1 build-check` | Проверка типов и сборка в `.cache/build-check`. Папку `dist` не трогает. |
 | `.\scripts\stella.ps1 smoke` | Смок-тест без браузера, см. ниже |
 | `.\scripts\stella.ps1 design` | Исходные страницы прототипа Claude Design для сравнения: http://127.0.0.1:5219/ |
+| `.\scripts\stella.ps1 record` | Открывает приложение в отдельном Chrome для записи экрана: отслеживание перекрытия окна и видеооверлеи отключены. Dev-сервер, если он не запущен, задача запускает сама в новом окне. Параметры адреса — аргументом в кавычках, см. [LINKS.md](../../LINKS.md) |
 | `.\scripts\stella.ps1 verify-dist` | Сверка `dist` с принятым манифестом сборки |
 | `.\scripts\stella.ps1 verify-package` | Сверка рабочих файлов с `PACKAGE-MANIFEST.json`: показывает, что изменено относительно полученного пакета |
 | `.\scripts\stella.ps1 secrets` | Gitleaks по рабочим файлам и по истории git |
