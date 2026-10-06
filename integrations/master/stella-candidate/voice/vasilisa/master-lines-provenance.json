@@ -31,10 +31,10 @@
       "cue": "vk-question-ideal-content",
       "asset": "vk-question-ideal-content-studio.wav",
       "source": "public/audio/vk-production-v1/Screen3.wav",
-      "sha256": "87987d162c0963d9492e38c54aafc42047d5d33479c77bfe171b3fb0b4e8008f",
-      "bytes": 2059926,
+      "sha256": "5ffb00df16f528fd07dc614ef6f3677ade73830149f9c16dd5ebc13266d880c6",
+      "bytes": 1409480,
       "replaced": "vk-question-ideal-content.wav",
-      "note": "Copied again on 2026-10-06 after the user corrected Screen3 in the master bank; the copy of 2026-10-05 (sha256 4d5f9639571ea70bb7e5becebe841155e58098ef227bd4ced3ef87d309ce3f3c) was overwritten."
+      "note": "Copied again on 2026-10-06, the third time: Screen3 in the master bank was assembled from its question and Choice_filler.wav (screen3-join-provenance.json). The earlier copies (sha256 4d5f9639571ea70bb7e5becebe841155e58098ef227bd4ced3ef87d309ce3f3c and 87987d162c0963d9492e38c54aafc42047d5d33479c77bfe171b3fb0b4e8008f) were overwritten."
     },
     {
       "cue": "vk-final",

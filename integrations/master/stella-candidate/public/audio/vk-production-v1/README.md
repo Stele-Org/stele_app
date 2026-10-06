@@ -18,6 +18,8 @@
 
 06.10.2026, вечером: пользователь заменил запись `Screen1` (17,54 с вместо 14,44 с, SHA256 `48411bf3…`); описания в `manifest.json` и `central-catalogue.candidate.json` обновлены, новую запись агент не прослушивал. На центральном MASTER нужно зарегистрировать новый файл.
 
+06.10.2026, ещё позже: `Screen3` по поручению пользователя собрана заново: вопрос из прежней записи (первые 2,95 с), пауза и с 3,74 с весь `Choice_filler.wav`; 7,99 с, SHA256 `5ffb00df…`. Сам `Choice_filler.wav` из папки банка удалён. На центральном MASTER нужно зарегистрировать новый файл `Screen3`. Подробности — `voice/vasilisa/screen3-join-provenance.json`.
+
 Добавлены девять ID: `stella.AmbienceMain`, `stella.ChangeScreen2`–`5`, `stella.ScanStart1`/`2`, `stella.ScanEnd1`/`2`. Их нужно зарегистрировать на центральном MASTER одновременно с SHA-совпадающими файлами и новой UI-сборкой. Зарегистрировать loop=true для Scan/AmbienceMain. Иначе центральный каталог может отклонить новые IDs или проиграть прежние записи существующих IDs. Сам центральный каталог/backend не экспортирован; transport companion sources и accepted pins не менялись.
 
 Новый банк основан на 12 WAV `public/sound/stella/` с исходным SHA/provenance. Фон main вне фактического scanning, scan только на scanning; клик после принятия RingActions, не от document click. Переходы на answer-reveal/photo-reveal идут 1→2→3→4→5→1 и сбрасываются на home. Scan start/end идут парами 1/1→2/2; пропуск фото не запускает scan. Поллинг не повторяет звук. Пауза/hidden/условия останавливают one-shots и приостанавливают фон. Серверные transitions/ACK/сроки сценария остаются у MASTER.

@@ -49,10 +49,10 @@ export const vkQuestions: [VkQuestion<WeightedOption>, VkQuestion<WeightedOption
     id: 'ideal-content',
     prompt: 'Каким должен быть идеальный контент на вечер?',
     options: [
-      { id: 'drive', label: 'Чтобы был азарт и драйв', metadata: ['драйв', 'азарт', 'игры', 'авто'], plusTwo: 'Игры и авто', plusOne: 'Кино' },
-      { id: 'heroes', label: 'Чтобы переживать за героев', metadata: ['переживания', 'чувства', 'герои', 'эмоции'], plusTwo: 'Спорт', plusOne: 'Культура и образование' },
-      { id: 'learn', label: 'Чтобы узнать что-то новое', metadata: ['культура', 'обучение', 'культура', 'факты'], plusTwo: 'Новости и бизнес', plusOne: 'Наука' },
-      { id: 'rest', label: 'Чтобы отключить голову и отдохнуть', metadata: ['музыка', 'медиа', 'отдых', 'лёгкий контент'], plusTwo: 'Музыка', plusOne: 'Медиа и шоу' },
+      { id: 'drive', label: 'Драйвовый',metadata: ['драйв', 'азарт', 'игры', 'авто'], plusTwo: 'Игры и авто', plusOne: 'Кино' },
+      { id: 'heroes', label: 'Захватывающий',metadata: ['переживания', 'чувства', 'герои', 'эмоции'], plusTwo: 'Спорт', plusOne: 'Культура и образование' },
+      { id: 'learn', label: 'Познавательный',metadata: ['культура', 'обучение', 'культура', 'факты'], plusTwo: 'Новости и бизнес', plusOne: 'Наука' },
+      { id: 'rest', label: 'Расслабляющий',metadata: ['музыка', 'медиа', 'отдых', 'лёгкий контент'], plusTwo: 'Музыка', plusOne: 'Медиа и шоу' },
     ],
   },
   {

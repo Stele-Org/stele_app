@@ -65,16 +65,16 @@
       "loop": false,
       "playbackEnabled": true,
       "file": "Screen3.wav",
-      "bytes": 2059926,
-      "sha256": "87987d162c0963d9492e38c54aafc42047d5d33479c77bfe171b3fb0b4e8008f",
-      "seconds": 11.65,
+      "bytes": 1409480,
+      "sha256": "5ffb00df16f528fd07dc614ef6f3677ade73830149f9c16dd5ebc13266d880c6",
+      "seconds": 7.99,
       "channels": 2,
       "sampleRate": 44100,
       "bitsPerSample": 16,
       "waveFormatTag": 1,
-      "source": "Studio recording corrected by the user on 2026-10-06; replaces the recording of 2026-10-05 (sha256 4d5f9639571ea70bb7e5becebe841155e58098ef227bd4ced3ef87d309ce3f3c, 10.35 s).",
+      "source": "Assembled on 2026-10-06 at the user's request from two studio recordings: the question of the previous Screen3 (sha256 87987d162c0963d9492e38c54aafc42047d5d33479c77bfe171b3fb0b4e8008f, its first 2.95 s) and the whole Choice_filler.wav (sha256 90cf5b0632882105a5822fd81fb230988d7b9738e250078daa494505b0b0e20e) from 3.74 s. See voice/vasilisa/screen3-join-provenance.json.",
       "transcript": null,
-      "verification": "Supplied by the user on 2026-10-06. Not transcribed or listened to by the agent; header and SHA only. No synthesis."
+      "verification": "By signal level only. Not transcribed or listened to by the agent. No synthesis."
     },
     {
       "assetId": "stella.Screen4",

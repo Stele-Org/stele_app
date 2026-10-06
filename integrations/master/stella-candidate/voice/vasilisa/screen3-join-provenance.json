@@ -1,0 +1,36 @@
+{
+  "asset": "public/audio/vk-production-v1/Screen3.wav",
+  "copies": [
+    "public/voice/vasilisa/vk-question-ideal-content-studio.wav"
+  ],
+  "changeDate": "2026-10-06",
+  "change": "User asked to leave only the question in Screen3, cut its end off and continue it, one second after the question, with the whole file Choice_filler; then to delete Choice_filler.",
+  "question": {
+    "sha256": "87987d162c0963d9492e38c54aafc42047d5d33479c77bfe171b3fb0b4e8008f",
+    "bytes": 2059926,
+    "seconds": 11.651,
+    "where": "Git history: Screen3.wav as committed before this change",
+    "speechFound": "Louder than -48 dB: 0.03-2.73, 3.16-4.89, 5.07-6.71, 6.93-8.60, 8.84-10.36, 10.53-11.46 s. The first stretch decays to the noise floor by 2.77 s; the pause after it lasts until 3.15 s.",
+    "kept": "Samples 0-2.95 s unchanged: the first stretch of speech and the beginning of the pause after it.",
+    "cut": "At 2.95 s, inside the pause 2.77-3.15 s; the last 40 ms are faded out, their peak is 0.0004 of full scale."
+  },
+  "continuation": {
+    "file": "Choice_filler.wav",
+    "sha256": "90cf5b0632882105a5822fd81fb230988d7b9738e250078daa494505b0b0e20e",
+    "bytes": 751910,
+    "seconds": 4.25,
+    "pcmSha256": "407d71e4bb9ff6e200e47b0e075126a166d1e72fe815de0f5ab2eed6604e13fe",
+    "where": "Supplied by the user in public/audio/vk-production-v1 on 2026-10-06; never committed, deleted at the user's request after the join. Its samples live on unchanged at the end of Screen3.",
+    "speechFound": "Louder than -48 dB: 0.03-3.84 s of 4.25 s.",
+    "placed": "The whole recording, sample for sample, from 3.74 s: its speech begins 1.0 s after the question dies away at 2.77 s. Digital silence between 2.95 and 3.74 s."
+  },
+  "tool": "voice/scripts/join-lines.mjs <Screen3> 2.95 <Choice_filler> 3.74 <target> 40",
+  "result": {
+    "sha256": "5ffb00df16f528fd07dc614ef6f3677ade73830149f9c16dd5ebc13266d880c6",
+    "bytes": 1409480,
+    "seconds": 7.99,
+    "format": "PCM 16 bit, 44100 Hz, 2 channels"
+  },
+  "notCarried": "Extra chunks of the studio files (JUNK, LGWV, bext).",
+  "verification": "By signal level only. The agent did not listen to the recordings and did not transcribe them: that the first stretch of speech is the question alone follows from the user's description and from its length, not from the audio."
+}
