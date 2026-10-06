@@ -30,10 +30,10 @@
       "cue": "vk-question-ideal-content",
       "asset": "vk-question-ideal-content-studio.wav",
       "source": "public/audio/vk-production-v1/Screen3.wav",
-      "sha256": "4d5f9639571ea70bb7e5becebe841155e58098ef227bd4ced3ef87d309ce3f3c",
-      "bytes": 1829374,
+      "sha256": "87987d162c0963d9492e38c54aafc42047d5d33479c77bfe171b3fb0b4e8008f",
+      "bytes": 2059926,
       "replaced": "vk-question-ideal-content.wav",
-      "note": "Copied on 2026-10-05 after the user replaced Screen3 in the master bank; until then the local file was already identical to the previous Screen3 (sha256 bce2390d4ece1d1bbd00b48f6cd863a5bc3ddfa3a674c9ce8d6be64506312d00)."
+      "note": "Copied again on 2026-10-06 after the user corrected Screen3 in the master bank; the copy of 2026-10-05 (sha256 4d5f9639571ea70bb7e5becebe841155e58098ef227bd4ced3ef87d309ce3f3c) was overwritten."
     },
     {
       "cue": "vk-final",
@@ -43,6 +43,15 @@
       "bytes": 3296594,
       "replaced": "vk-final.wav",
       "note": "Copied on 2026-10-05 when the user asked to enable Screen8. Enabled on the final screen by the user on 2026-10-05, as recorded. Known difference from the approved final copy: an extra paragraph and the old direction to the wall. Not listened to by the agent."
+    },
+    {
+      "cue": "vk-scanning",
+      "asset": "vk-scanning-studio.wav",
+      "source": "public/audio/vk-production-v1/Screen_Scan.wav",
+      "sha256": "22b3bb4db8acfd3262d08b195a1daee77056b98ab3a00cb7d523ced8094e78d7",
+      "bytes": 430126,
+      "replaced": "vk-scanning.wav",
+      "note": "Copied on 2026-10-06: the user added Screen_Scan to the master bank as the line of the scanning screen. The stand mode does not play it yet."
     }
   ],
   "alreadyIdentical": [
@@ -55,6 +64,6 @@
     }
   ],
   "notCopied": "Screen5 and Screen6 (photo, camera): the master mode does not play them either, their text no longer matches the approved copy. The local cues vk-digitize and vk-camera stay pending.",
-  "verification": "SHA256 equality with the master bank only. The words spoken in Screen1, Screen2, Screen3, Screen4 and Screen8 were not transcribed or listened to by the agent.",
-  "format": "Screen1, Screen2, Screen3, Screen4, Screen8: PCM 16 bit, 44.1 kHz, stereo."
+  "verification": "SHA256 equality with the master bank only. The words spoken in Screen1, Screen2, Screen3, Screen4, Screen8 and Screen_Scan were not transcribed or listened to by the agent.",
+  "format": "Screen1, Screen2, Screen3, Screen4, Screen8, Screen_Scan: PCM 16 bit, 44.1 kHz, stereo."
 }

@@ -54,16 +54,16 @@
     },
     {
       "file": "Screen3.wav",
-      "bytes": 1829374,
-      "sha256": "4d5f9639571ea70bb7e5becebe841155e58098ef227bd4ced3ef87d309ce3f3c",
-      "seconds": 10.35,
+      "bytes": 2059926,
+      "sha256": "87987d162c0963d9492e38c54aafc42047d5d33479c77bfe171b3fb0b4e8008f",
+      "seconds": 11.65,
       "channels": 2,
       "sampleRate": 44100,
       "bitsPerSample": 16,
       "waveFormatTag": 1,
-      "source": "Studio recording supplied by the user on 2026-10-05; replaces the previous Screen3 (sha256 bce2390d4ece1d1bbd00b48f6cd863a5bc3ddfa3a674c9ce8d6be64506312d00, 5.2 s, mono 24 kHz).",
+      "source": "Studio recording corrected by the user on 2026-10-06; replaces the recording of 2026-10-05 (sha256 4d5f9639571ea70bb7e5becebe841155e58098ef227bd4ced3ef87d309ce3f3c, 10.35 s).",
       "transcript": null,
-      "verification": "The user confirmed the file on 2026-10-05. Not transcribed or listened to by the agent; header and SHA only. No synthesis."
+      "verification": "Supplied by the user on 2026-10-06. Not transcribed or listened to by the agent; header and SHA only. No synthesis."
     },
     {
       "file": "Screen4.wav",
@@ -115,6 +115,19 @@
       "bitsPerSample": 16,
       "waveFormatTag": 1,
       "verification": "Enabled on the final screen by the user on 2026-10-05, as recorded. Known difference from the approved final copy: an extra paragraph and the old direction to the wall. Not listened to by the agent."
+    },
+    {
+      "file": "Screen_Scan.wav",
+      "bytes": 430126,
+      "sha256": "22b3bb4db8acfd3262d08b195a1daee77056b98ab3a00cb7d523ced8094e78d7",
+      "seconds": 2.43,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "waveFormatTag": 1,
+      "source": "Studio line for the scanning screen, added by the user on 2026-10-06.",
+      "verification": "Not transcribed or listened to by the agent; header and SHA only. No synthesis.",
+      "status": "Played by the local scenario as vk-scanning. Not mapped in the stand mode: no cue in production-audio.ts and no ID in the central catalogue yet."
     },
     {
       "file": "Click.wav",
