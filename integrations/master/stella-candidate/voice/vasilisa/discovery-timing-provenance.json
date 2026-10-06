@@ -8,7 +8,7 @@
   "change": "User asked to synchronise the Discovery lines with the scene: the first phrase while the dots appear, with a 0.5 s delay; the second from 6.0 s, with the pulse.",
   "source": {
     "asset": "vk-discovery-activation-studio.wav",
-    "sha256": "5b47fecca5313665cdd7a34e392a082b66104b345f8b50f9474d38bb2dfe0a4d"
+    "sha256": "5269296696a24d1769e48c959a31fe1355dd5a43cd7450240e4ab29d956f0e6b"
   },
   "edit": "Both phrases are copied sample for sample from the source; only the silence before and between them is new. No synthesis, resampling, trimming or voice modification.",
   "segments": [
@@ -32,6 +32,6 @@
   "durationSeconds": 10.14,
   "format": "PCM 16 bit, 44100 Hz, 2 channels",
   "bytes": 1788740,
-  "sha256": "84bee388ef2257fa05942573be82a374462d77366f39ac5edceb30ff9c596631",
+  "sha256": "368c5c9c60363937636703531878ecfa8bfe3a1cff5055be8efc90ce64d029f8",
   "verification": "PCM equality of both phrases with the source and digital silence elsewhere (src/features/voice/discovery-timing.test.ts). The agent did not listen to the recording; which phrase is which follows studio-activation-provenance.json."
 }

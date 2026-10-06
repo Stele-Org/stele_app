@@ -1,0 +1,238 @@
+{
+  "changeDate": "2026-10-06",
+  "change": "User asked to check the level of all spoken lines and to bring it to the first voice file, the one of the start screen.",
+  "reference": {
+    "file": "public/audio/vk-production-v1/Screen0.wav",
+    "loudness": -14.6,
+    "note": "Not changed."
+  },
+  "measure": "Integrated loudness of ITU-R BS.1770-4 in LUFS (K-weighting, 400 ms blocks, gates at -70 LUFS and -10 LU); a mono file is measured as it sounds, on both loudspeakers.",
+  "edit": "Every sample of a file is multiplied by one factor. Where single peaks would pass 0.98 of full scale the factor dips for a few milliseconds around them (peak limiter, both channels together); the frames concerned and the deepest dip are listed. Length, format and the other chunks of the files are unchanged. No synthesis or resampling.",
+  "tool": "voice/scripts/level-lines.mjs apply <Screen0> <files>",
+  "tolerance": "Files within 0.3 LU of the reference are left as they are.",
+  "bank": {
+    "folder": "public/audio/vk-production-v1",
+    "lines": [
+      {
+        "file": "Screen1.wav",
+        "loudnessBefore": -15.06,
+        "peakBefore": 0.914,
+        "sha256Before": "48411bf3b72d298452aeab7161618382031960cdc0e992bd0403845dc8612bbb",
+        "gainDb": 0.46,
+        "loudnessAfter": -14.6,
+        "peakAfter": 0.964,
+        "sha256After": "f15653c241c8ffcb382c1d2de06e4afb8575f27d5829902f21457e978923fc9e"
+      },
+      {
+        "file": "Screen2.wav",
+        "loudnessBefore": -17.34,
+        "peakBefore": 0.904,
+        "sha256Before": "ebb31994562fd38762f294dd34cc63d6d7b39a0e2bfefbcde0671ad2abe7b6fb",
+        "gainDb": 2.74,
+        "limiter": {
+          "framesOverCeiling": 155,
+          "secondsOverCeiling": 0.0035,
+          "deepestDipDb": -2.04
+        },
+        "loudnessAfter": -14.7,
+        "peakAfter": 0.98,
+        "sha256After": "acb2aac433b093e122853532f9e3c98747ed281b3185a4c38d8afcebf7b065d0"
+      },
+      {
+        "file": "Screen3.wav",
+        "loudnessBefore": -13.14,
+        "peakBefore": 0.973,
+        "sha256Before": "5ffb00df16f528fd07dc614ef6f3677ade73830149f9c16dd5ebc13266d880c6",
+        "gainDb": -1.46,
+        "loudnessAfter": -14.6,
+        "peakAfter": 0.822,
+        "sha256After": "2ea17b6b6cefb85800d820dfeb36a0a846abd75d50f3a5073768558d1790e7b0"
+      },
+      {
+        "file": "Screen4.wav",
+        "loudnessBefore": -15.91,
+        "peakBefore": 0.89,
+        "sha256Before": "3debb8d2f602d921adaf4bdc4241e786e9aa608e45b93003bfd190a87a882c32",
+        "gainDb": 1.31,
+        "limiter": {
+          "framesOverCeiling": 13,
+          "secondsOverCeiling": 0.0003,
+          "deepestDipDb": -0.48
+        },
+        "loudnessAfter": -14.61,
+        "peakAfter": 0.98,
+        "sha256After": "46b2e3acc001fb4e6eb74bbf5a803293c20d05eac822a3cb8cb3e50e4736a035"
+      },
+      {
+        "file": "Screen4_Hero.wav",
+        "loudnessBefore": -11.54,
+        "peakBefore": 0.98,
+        "sha256Before": "6096bdb95b74035d1d8b87118e3e0bcc348e583964224c53280dcfcc99511ebf",
+        "gainDb": -3.06,
+        "loudnessAfter": -14.6,
+        "peakAfter": 0.69,
+        "sha256After": "4e271bb2616055fda4a70490ccdf1c0959b472b2e013c5113ba448a834ee81a5"
+      },
+      {
+        "file": "Screen5.wav",
+        "loudnessBefore": -14.28,
+        "peakBefore": 0.85,
+        "sha256Before": "a7870b44f4aaf1ce4249e22713a037cc8ad588c19eb1a47431187680bd4fbd84",
+        "gainDb": -0.32,
+        "loudnessAfter": -14.6,
+        "peakAfter": 0.82,
+        "sha256After": "9b99dc88b7d60c7913a8aa5ebc7125a0051921c13eaf7cbc5959650f1b58e3af"
+      },
+      {
+        "file": "Screen7.wav",
+        "loudnessBefore": -17.77,
+        "peakBefore": 0.566,
+        "sha256Before": "5b47fecca5313665cdd7a34e392a082b66104b345f8b50f9474d38bb2dfe0a4d",
+        "gainDb": 3.17,
+        "loudnessAfter": -14.6,
+        "peakAfter": 0.816,
+        "sha256After": "5269296696a24d1769e48c959a31fe1355dd5a43cd7450240e4ab29d956f0e6b"
+      },
+      {
+        "file": "Screen8.wav",
+        "loudnessBefore": -13.48,
+        "peakBefore": 0.974,
+        "sha256Before": "b16b2f9f242e9755e86cb633de48a0b4a8dfd3f2869b8012f2b915abca981639",
+        "gainDb": -1.11,
+        "loudnessAfter": -14.6,
+        "peakAfter": 0.857,
+        "sha256After": "3a5d2db87aac0f680d6783d533685c62190a6ace2dcb03d38af6b684278f791b"
+      },
+      {
+        "file": "Screen_Scan.wav",
+        "loudnessBefore": -11.58,
+        "peakBefore": 0.998,
+        "sha256Before": "22b3bb4db8acfd3262d08b195a1daee77056b98ab3a00cb7d523ced8094e78d7",
+        "gainDb": -3.02,
+        "loudnessAfter": -14.6,
+        "peakAfter": 0.705,
+        "sha256After": "0b4b0d86f80c418139f3a6409206b0e035725fe416f7d50599b4033100f1fcc6"
+      }
+    ],
+    "localCopies": {
+      "Screen1.wav": "vk-onboarding-studio.wav",
+      "Screen2.wav": "vk-question-evening-studio.wav",
+      "Screen3.wav": "vk-question-ideal-content-studio.wav",
+      "Screen4.wav": "vk-question-discovery-studio.wav",
+      "Screen4_Hero.wav": "vk-hero-chosen-studio.wav",
+      "Screen5.wav": "vk-digitize-studio.wav",
+      "Screen7.wav": "vk-discovery-activation-studio.wav",
+      "Screen8.wav": "vk-final-studio.wav",
+      "Screen_Scan.wav": "vk-scanning-studio.wav"
+    }
+  },
+  "localOnly": {
+    "folder": "public/voice/vasilisa",
+    "note": "Synthesised lines of the MAX branch and of the gender step; they have no counterpart in the master bank.",
+    "lines": [
+      {
+        "file": "max-onboarding.wav",
+        "loudnessBefore": -26.83,
+        "peakBefore": 0.287,
+        "sha256Before": "d79c9c657aa5185e9a9b18a3e3b12229eee2d98a28ef52efe7c8d7900699cfb2",
+        "gainDb": 12.24,
+        "limiter": {
+          "framesOverCeiling": 15,
+          "secondsOverCeiling": 0.0006,
+          "deepestDipDb": -1.57
+        },
+        "loudnessAfter": -14.63,
+        "peakAfter": 0.98,
+        "sha256After": "38f9f898361d10fc4dad90f4adb28f88e8469219bdac38b36d624bd68812d4da"
+      },
+      {
+        "file": "max-audience.wav",
+        "loudnessBefore": -26.44,
+        "peakBefore": 0.2,
+        "sha256Before": "8680f167401ba34ec19b70a8617e83fe8964d95be2f7181c0551baa2dcda8b50",
+        "gainDb": 11.85,
+        "loudnessAfter": -14.6,
+        "peakAfter": 0.783,
+        "sha256After": "30e9c97269200eb06ca673172c1dacb310bffb444b431cf3324ad113707393d3"
+      },
+      {
+        "file": "max-goal.wav",
+        "loudnessBefore": -25.13,
+        "peakBefore": 0.299,
+        "sha256Before": "66d6438e7c3d472b46872d94a3a4749d0566cc1248abfa2dcc5e6f822c026327",
+        "gainDb": 10.53,
+        "limiter": {
+          "framesOverCeiling": 3,
+          "secondsOverCeiling": 0.0001,
+          "deepestDipDb": -0.22
+        },
+        "loudnessAfter": -14.6,
+        "peakAfter": 0.98,
+        "sha256After": "68753a4cb055f7bcdca2f403621d695ba06a69f36ba20dcfc9b188146c101382"
+      },
+      {
+        "file": "vk-gender.wav",
+        "loudnessBefore": -26.87,
+        "peakBefore": 0.229,
+        "sha256Before": "7bcf54aa350089b705b867b7897f3623738163228989266070cc037f82e9e3e2",
+        "gainDb": 12.27,
+        "loudnessAfter": -14.6,
+        "peakAfter": 0.943,
+        "sha256After": "23a65368c71ae8ddfda0c3ee9d626efd000097c023993c29251113d35758c817"
+      },
+      {
+        "file": "max-result-digital-id.wav",
+        "loudnessBefore": -25.01,
+        "peakBefore": 0.299,
+        "sha256Before": "152b430a411add863fcbd03298b864172528b19f9f6abe79fd692861e23faf9c",
+        "gainDb": 10.41,
+        "limiter": {
+          "framesOverCeiling": 1,
+          "secondsOverCeiling": 0,
+          "deepestDipDb": -0.1
+        },
+        "loudnessAfter": -14.6,
+        "peakAfter": 0.98,
+        "sha256After": "fa2928d4a1ddbcee8e7334b764f7c44c0a3616a2663ac394e1b16f9613baa2e2"
+      },
+      {
+        "file": "max-result-communication.wav",
+        "loudnessBefore": -23.65,
+        "peakBefore": 0.322,
+        "sha256Before": "fc75e78ed60bc904024d0cd6b18206d4e5a493e259b6545cf7c175be38321325",
+        "gainDb": 9.05,
+        "loudnessAfter": -14.6,
+        "peakAfter": 0.913,
+        "sha256After": "9cec0d17d02b9cc80341c9ea88ae00f0ae5600c7787449acf334dbc81cd30192"
+      },
+      {
+        "file": "max-result-blogger.wav",
+        "loudnessBefore": -25.88,
+        "peakBefore": 0.217,
+        "sha256Before": "7b66456254341d84a6428d96dea80a451f561e61d1907ed3558299f284d5d293",
+        "gainDb": 11.28,
+        "loudnessAfter": -14.6,
+        "peakAfter": 0.795,
+        "sha256After": "3eb351a94aecd3de053cae662b1ed48d45a504144ad542d8ca41f35482995730"
+      },
+      {
+        "file": "max-result-business-promotion.wav",
+        "loudnessBefore": -24.66,
+        "peakBefore": 0.391,
+        "sha256Before": "88d882356056643ec3a9602158d33953f155b5d1dfd290fc76430d28377290f8",
+        "gainDb": 10.07,
+        "limiter": {
+          "framesOverCeiling": 16,
+          "secondsOverCeiling": 0.0007,
+          "deepestDipDb": -2.08
+        },
+        "loudnessAfter": -14.61,
+        "peakAfter": 0.98,
+        "sha256After": "6aab21d805c1902220807242ebbeaaa628432752466d00a29526f1f0d390b79a"
+      }
+    ]
+  },
+  "rebuilt": "public/voice/vasilisa/vk-discovery-timed-studio.wav: assembled again by voice/scripts/time-discovery-line.mjs from the levelled Screen7 (discovery-timing-provenance.json).",
+  "notLevelled": "Screen6.wav and vk-camera.wav: the camera line is not played in either mode. Sound effects and ambience are not spoken lines.",
+  "verification": "By measurement only: the agent did not listen to the recordings."
+}

@@ -6,7 +6,7 @@
       "cue": "vk-onboarding",
       "asset": "vk-onboarding-studio.wav",
       "source": "public/audio/vk-production-v1/Screen1.wav",
-      "sha256": "48411bf3b72d298452aeab7161618382031960cdc0e992bd0403845dc8612bbb",
+      "sha256": "f15653c241c8ffcb382c1d2de06e4afb8575f27d5829902f21457e978923fc9e",
       "bytes": 3100576,
       "replaced": "vk-onboarding.wav",
       "note": "Copied again on 2026-10-06 after the user replaced Screen1 in the master bank; the copy of 2026-10-05 (sha256 2d4c953cead1b98a1411faf3f766d76f52a40c78f4f56c0f731f52a320469249) was overwritten."
@@ -15,7 +15,7 @@
       "cue": "vk-question-evening",
       "asset": "vk-question-evening-studio.wav",
       "source": "public/audio/vk-production-v1/Screen2.wav",
-      "sha256": "ebb31994562fd38762f294dd34cc63d6d7b39a0e2bfefbcde0671ad2abe7b6fb",
+      "sha256": "acb2aac433b093e122853532f9e3c98747ed281b3185a4c38d8afcebf7b065d0",
       "bytes": 2152102,
       "replaced": "vk-question-evening.wav"
     },
@@ -23,7 +23,7 @@
       "cue": "vk-question-discovery",
       "asset": "vk-question-discovery-studio.wav",
       "source": "public/audio/vk-production-v1/Screen4.wav",
-      "sha256": "3debb8d2f602d921adaf4bdc4241e786e9aa608e45b93003bfd190a87a882c32",
+      "sha256": "46b2e3acc001fb4e6eb74bbf5a803293c20d05eac822a3cb8cb3e50e4736a035",
       "bytes": 829124,
       "replaced": "vk-question-discovery.wav",
       "note": "Copied again on 2026-10-06 after Screen4 in the master bank was cut to the question alone (screen4-trim-provenance.json). The copy of 2026-10-05 (sha256 02f7fb031506fce6921964941cfc4b11cf119f3cea8ed16d54e2b718d983d65b) was overwritten."
@@ -32,7 +32,7 @@
       "cue": "vk-hero-chosen",
       "asset": "vk-hero-chosen-studio.wav",
       "source": "public/audio/vk-production-v1/Screen4_Hero.wav",
-      "sha256": "6096bdb95b74035d1d8b87118e3e0bcc348e583964224c53280dcfcc99511ebf",
+      "sha256": "4e271bb2616055fda4a70490ccdf1c0959b472b2e013c5113ba448a834ee81a5",
       "bytes": 972840,
       "note": "Added on 2026-10-06: the continuation of the third question, spoken only on the reveal of the answer «hero». No earlier local recording."
     },
@@ -40,7 +40,7 @@
       "cue": "vk-question-ideal-content",
       "asset": "vk-question-ideal-content-studio.wav",
       "source": "public/audio/vk-production-v1/Screen3.wav",
-      "sha256": "5ffb00df16f528fd07dc614ef6f3677ade73830149f9c16dd5ebc13266d880c6",
+      "sha256": "2ea17b6b6cefb85800d820dfeb36a0a846abd75d50f3a5073768558d1790e7b0",
       "bytes": 1409480,
       "replaced": "vk-question-ideal-content.wav",
       "note": "Copied again on 2026-10-06, the third time: Screen3 in the master bank was assembled from its question and Choice_filler.wav (screen3-join-provenance.json). The earlier copies (sha256 4d5f9639571ea70bb7e5becebe841155e58098ef227bd4ced3ef87d309ce3f3c and 87987d162c0963d9492e38c54aafc42047d5d33479c77bfe171b3fb0b4e8008f) were overwritten."
@@ -49,16 +49,16 @@
       "cue": "vk-final",
       "asset": "vk-final-studio.wav",
       "source": "public/audio/vk-production-v1/Screen8.wav",
-      "sha256": "0f8571cdf9509b95c8f6cdee2424b410518eb2092be6e2039303f73aa3d6866d",
-      "bytes": 3296594,
+      "sha256": "3a5d2db87aac0f680d6783d533685c62190a6ace2dcb03d38af6b684278f791b",
+      "bytes": 2447984,
       "replaced": "vk-final.wav",
-      "note": "Copied on 2026-10-05 when the user asked to enable Screen8. Enabled on the final screen by the user on 2026-10-05, as recorded. Known difference from the approved final copy: an extra paragraph and the old direction to the wall. Not listened to by the agent."
+      "note": "Copied again on 2026-10-06 after the user replaced Screen8 in the master bank; the copy of 2026-10-05 (sha256 0f8571cdf9509b95c8f6cdee2424b410518eb2092be6e2039303f73aa3d6866d) was overwritten. Not listened to by the agent."
     },
     {
       "cue": "vk-scanning",
       "asset": "vk-scanning-studio.wav",
       "source": "public/audio/vk-production-v1/Screen_Scan.wav",
-      "sha256": "22b3bb4db8acfd3262d08b195a1daee77056b98ab3a00cb7d523ced8094e78d7",
+      "sha256": "0b4b0d86f80c418139f3a6409206b0e035725fe416f7d50599b4033100f1fcc6",
       "bytes": 430126,
       "replaced": "vk-scanning.wav",
       "note": "Copied on 2026-10-06: the user added Screen_Scan to the master bank as the line of the scanning screen. The stand mode does not play it yet."
@@ -67,7 +67,7 @@
       "cue": "vk-digitize",
       "asset": "vk-digitize-studio.wav",
       "source": "public/audio/vk-production-v1/Screen5.wav",
-      "sha256": "a7870b44f4aaf1ce4249e22713a037cc8ad588c19eb1a47431187680bd4fbd84",
+      "sha256": "9b99dc88b7d60c7913a8aa5ebc7125a0051921c13eaf7cbc5959650f1b58e3af",
       "bytes": 1058444,
       "replaced": "vk-digitize.wav",
       "note": "Copied on 2026-10-06 when the user asked to enable Screen5. Enabled on the photo screen by the user on 2026-10-06 and cut at 6.0 s the same day at their request: the first two phrases stay, everything from the third phrase on is removed. Not listened to by the agent; the cut lies in the pause found by signal level at 5.82-6.12 s."
@@ -87,7 +87,7 @@
       "cue": "vk-particles, vk-discovery-activation",
       "asset": "vk-discovery-activation-studio.wav",
       "source": "public/audio/vk-production-v1/Screen7.wav",
-      "sha256": "5b47fecca5313665cdd7a34e392a082b66104b345f8b50f9474d38bb2dfe0a4d",
+      "sha256": "5269296696a24d1769e48c959a31fe1355dd5a43cd7450240e4ab29d956f0e6b",
       "supersededBy": "vk-discovery-timed-studio.wav: the same two phrases with pauses matched to the Discovery scene, see discovery-timing-provenance.json"
     }
   ],

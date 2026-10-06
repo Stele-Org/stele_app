@@ -47,7 +47,7 @@
     {
       "file": "Screen1.wav",
       "bytes": 3100576,
-      "sha256": "48411bf3b72d298452aeab7161618382031960cdc0e992bd0403845dc8612bbb",
+      "sha256": "f15653c241c8ffcb382c1d2de06e4afb8575f27d5829902f21457e978923fc9e",
       "seconds": 17.538480725623582,
       "channels": 2,
       "sampleRate": 44100,
@@ -60,7 +60,7 @@
     {
       "file": "Screen2.wav",
       "bytes": 2152102,
-      "sha256": "ebb31994562fd38762f294dd34cc63d6d7b39a0e2bfefbcde0671ad2abe7b6fb",
+      "sha256": "acb2aac433b093e122853532f9e3c98747ed281b3185a4c38d8afcebf7b065d0",
       "seconds": 12.172131519274377,
       "channels": 2,
       "sampleRate": 44100,
@@ -70,7 +70,7 @@
     {
       "file": "Screen3.wav",
       "bytes": 1409480,
-      "sha256": "5ffb00df16f528fd07dc614ef6f3677ade73830149f9c16dd5ebc13266d880c6",
+      "sha256": "2ea17b6b6cefb85800d820dfeb36a0a846abd75d50f3a5073768558d1790e7b0",
       "seconds": 7.99,
       "channels": 2,
       "sampleRate": 44100,
@@ -83,7 +83,7 @@
     {
       "file": "Screen4.wav",
       "bytes": 829124,
-      "sha256": "3debb8d2f602d921adaf4bdc4241e786e9aa608e45b93003bfd190a87a882c32",
+      "sha256": "46b2e3acc001fb4e6eb74bbf5a803293c20d05eac822a3cb8cb3e50e4736a035",
       "seconds": 4.7,
       "channels": 2,
       "sampleRate": 44100,
@@ -96,7 +96,7 @@
     {
       "file": "Screen4_Hero.wav",
       "bytes": 972840,
-      "sha256": "6096bdb95b74035d1d8b87118e3e0bcc348e583964224c53280dcfcc99511ebf",
+      "sha256": "4e271bb2616055fda4a70490ccdf1c0959b472b2e013c5113ba448a834ee81a5",
       "seconds": 5.5,
       "channels": 2,
       "sampleRate": 44100,
@@ -110,7 +110,7 @@
     {
       "file": "Screen5.wav",
       "bytes": 1058444,
-      "sha256": "a7870b44f4aaf1ce4249e22713a037cc8ad588c19eb1a47431187680bd4fbd84",
+      "sha256": "9b99dc88b7d60c7913a8aa5ebc7125a0051921c13eaf7cbc5959650f1b58e3af",
       "seconds": 6,
       "channels": 2,
       "sampleRate": 44100,
@@ -131,7 +131,7 @@
     {
       "file": "Screen7.wav",
       "bytes": 1194272,
-      "sha256": "5b47fecca5313665cdd7a34e392a082b66104b345f8b50f9474d38bb2dfe0a4d",
+      "sha256": "5269296696a24d1769e48c959a31fe1355dd5a43cd7450240e4ab29d956f0e6b",
       "seconds": 6.77,
       "channels": 2,
       "sampleRate": 44100,
@@ -140,19 +140,19 @@
     },
     {
       "file": "Screen8.wav",
-      "bytes": 3296594,
-      "sha256": "0f8571cdf9509b95c8f6cdee2424b410518eb2092be6e2039303f73aa3d6866d",
-      "seconds": 18.6475283446712,
+      "bytes": 2447984,
+      "sha256": "3a5d2db87aac0f680d6783d533685c62190a6ace2dcb03d38af6b684278f791b",
+      "seconds": 13.846190476190475,
       "channels": 2,
       "sampleRate": 44100,
       "bitsPerSample": 16,
       "waveFormatTag": 1,
-      "verification": "Enabled on the final screen by the user on 2026-10-05, as recorded. Known difference from the approved final copy: an extra paragraph and the old direction to the wall. Not listened to by the agent."
+      "verification": "Studio recording replaced by the user on 2026-10-06; replaces the recording enabled on 2026-10-05 (sha256 0f8571cdf9509b95c8f6cdee2424b410518eb2092be6e2039303f73aa3d6866d, 18.65 s). Not transcribed or listened to by the agent; header and SHA only. No synthesis."
     },
     {
       "file": "Screen_Scan.wav",
       "bytes": 430126,
-      "sha256": "22b3bb4db8acfd3262d08b195a1daee77056b98ab3a00cb7d523ced8094e78d7",
+      "sha256": "0b4b0d86f80c418139f3a6409206b0e035725fe416f7d50599b4033100f1fcc6",
       "seconds": 2.43,
       "channels": 2,
       "sampleRate": 44100,

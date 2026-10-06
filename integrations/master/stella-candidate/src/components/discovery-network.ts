@@ -1,12 +1,14 @@
 // Claude Design «D1 пульс + нейросеть», принято 05.10.2026: the dot pattern appears, rests, pulses,
 // unfolds into a working neural network, returns to the same frame and ends with a wave.
 // Geometry and timings are the accepted prototype's (artifacts/DESIGN/claude-design-stela-20261005),
-// except its end: the final wave crosses the screen half a second faster, takes the dots away behind its front
-// (user, 06.10.2026) and the closing hold is gone, so the scenario leaves for the final screen as soon as the wave
+// except its end: the final wave takes 1.52 s (user, 06.10.2026: twice the 0.76 s it had been cut to), takes the dots
+// away behind its front and the closing hold is gone, so the scenario leaves for the final screen as soon as the wave
 // has passed and the space is empty.
 
-/** Authored on the 1080 × 1920 canvas; dots never rise above the logo line. The wave ends at 22.26 s. */
-export const DISCOVERY_NETWORK_SECONDS = 22.3
+/** Authored on the 1080 × 1920 canvas; dots never rise above the logo line. The wave ends at 23.02 s. */
+export const DISCOVERY_NETWORK_SECONDS = 23.06
+/** The pattern stands still here, between its appearance and the pulse: the frame for reduced motion. */
+export const DISCOVERY_REST_AT = 5
 /** The appearance front needs this long to reach the far corners; each dot then grows for one second. */
 const APPEAR_SPREAD = 2.8
 /** The second spoken phrase starts with the pulse (voice/scripts/time-discovery-line.mjs). */
@@ -16,7 +18,7 @@ const NETWORK_AT = 11
 const UNFOLD_SECONDS = 2.8
 const RETURN_AT = 19.8
 const WAVE_AT = 21.5
-const WAVE_SECONDS = 0.76
+const WAVE_SECONDS = 1.52
 const WAVE_RADIUS = 1250
 /** Half the width of the crest; a dot the front has passed by this far is gone. */
 const WAVE_CREST = 110

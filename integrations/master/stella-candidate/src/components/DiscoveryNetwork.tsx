@@ -1,7 +1,7 @@
 import { useLayoutEffect, useRef } from 'react'
 import { animate, type AnimationPlaybackControls } from 'motion'
 import { useReducedMotion } from 'motion/react'
-import { DISCOVERY_NETWORK_SECONDS, discoveryDots, paintDiscoveryNetwork } from './discovery-network'
+import { DISCOVERY_NETWORK_SECONDS, DISCOVERY_REST_AT, discoveryDots, paintDiscoveryNetwork } from './discovery-network'
 
 type Props = {
   playing: boolean
@@ -12,7 +12,7 @@ type Props = {
   onComplete?: () => void
 }
 
-/** Recommendation stage of Discovery: one Motion clock drives the authored 22.3-second canvas scene. */
+/** Recommendation stage of Discovery: one Motion clock drives the authored 23.06-second canvas scene. */
 export function DiscoveryNetwork({ playing, loop = false, cueKey, onComplete }: Props) {
   const layer = useRef<HTMLCanvasElement>(null)
   const clock = useRef<AnimationPlaybackControls | null>(null)
@@ -44,7 +44,7 @@ export function DiscoveryNetwork({ playing, loop = false, cueKey, onComplete }: 
       if (canvas.width !== width) { canvas.width = width; canvas.height = Math.round(width * 1920 / 1080) }
       context.setTransform(width / 1080, 0, 0, width / 1080, 0, 0)
       // Reduced motion keeps the resting pattern for the same duration.
-      paintDiscoveryNetwork(context, dots, reducedMotion ? DISCOVERY_NETWORK_SECONDS : time)
+      paintDiscoveryNetwork(context, dots, reducedMotion ? DISCOVERY_REST_AT : time)
     }
     paint(0)
     const controls = animate(0, DISCOVERY_NETWORK_SECONDS, {

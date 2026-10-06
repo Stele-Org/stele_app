@@ -1,5 +1,5 @@
 import { expect, it } from 'vitest'
-import { DISCOVERY_NETWORK_SECONDS, discoveryDots, discoveryNetworkFrame } from './discovery-network'
+import { DISCOVERY_NETWORK_SECONDS, DISCOVERY_REST_AT, discoveryDots, discoveryNetworkFrame } from './discovery-network'
 
 const dots = discoveryDots()
 const frame = (time: number) => discoveryNetworkFrame(dots, time)
@@ -20,14 +20,15 @@ it('fills the whole frame below the logo with a form of large dots and a field o
 })
 
 it('ends with the wave, without the closing hold of the prototype', () => {
-  expect(DISCOVERY_NETWORK_SECONDS).toBe(22.3)
+  expect(DISCOVERY_NETWORK_SECONDS).toBe(23.06)
   // Shortly before the end the wave is still crossing the far corners, and everything nearer is already swept away.
-  const late = frame(22.1).points, far = (i: number) => Math.hypot(dots[i].x - 555, dots[i].y - 1150)
+  const late = frame(22.7).points, far = (i: number) => Math.hypot(dots[i].x - 555, dots[i].y - 1150)
   expect(late.some((point, i) => far(i) > 900 && point.radius > 0.3 && point.alpha > 0.02)).toBe(true)
   expect(late.every((point, i) => far(i) > 870 || point.radius === 0)).toBe(true)
 })
 
 it('starts empty, grows from the centre and rests on the exact pattern', () => {
+  expect(DISCOVERY_REST_AT).toBe(5)
   expect(frame(0).points.every(point => point.radius === 0 || point.alpha === 0)).toBe(true)
   const early = frame(1.2).points
   const centre = early.filter((_, i) => Math.hypot(dots[i].x - 555, dots[i].y - 1150) < 200)
@@ -71,17 +72,18 @@ it('returns to the starting frame and ends with a wave that sweeps every dot awa
   const before = frame(21.5).points
   expect(before.every(point => point.radius > 0 && point.alpha > 0)).toBe(true)
   // Mid-way: dots swell on the crest, the space inside the front is empty, the dots ahead of it are untouched.
-  const crest = frame(21.9).points, radius = (21.9 - 21.5) / 0.76 * 1250
+  // The wave takes 1.52 s to reach its full radius.
+  const crest = frame(22.3).points, radius = (22.3 - 21.5) / 1.52 * 1250
   const fromCentre = (i: number) => Math.hypot(dots[i].x - 555, dots[i].y - 1150)
   expect(crest.some((point, i) => point.radius > dots[i].radius + 3)).toBe(true)
   expect(crest.filter((_, i) => fromCentre(i) < radius - 110).length).toBeGreaterThan(100)
   expect(crest.every((point, i) => fromCentre(i) >= radius - 110 || (point.radius === 0 && point.alpha === 0))).toBe(true)
   expect(crest.every((point, i) => fromCentre(i) <= radius + 110 || point.alpha === before[i].alpha)).toBe(true)
   // A dot never grows back once the front has passed it.
-  const later = frame(22).points
+  const later = frame(22.5).points
   expect(later.every((point, i) => fromCentre(i) >= radius || point.radius <= crest[i].radius)).toBe(true)
   // The scene ends on empty space, and stays empty.
-  for (const time of [22.2, DISCOVERY_NETWORK_SECONDS, 30]) {
+  for (const time of [22.9, DISCOVERY_NETWORK_SECONDS, 30]) {
     const end = frame(time)
     expect(end.network).toBe(0)
     expect(end.points.every(point => point.radius === 0 && point.alpha === 0)).toBe(true)

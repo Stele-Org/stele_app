@@ -20,7 +20,8 @@
   "edit": "PCM concatenation of unchanged supplied recordings; only silent edges trimmed. No synthesis, resampling or voice modification.",
   "insertedSilenceMs": 400,
   "durationSeconds": 6.77,
-  "sha256": "5b47fecca5313665cdd7a34e392a082b66104b345f8b50f9474d38bb2dfe0a4d",
+  "sha256": "5269296696a24d1769e48c959a31fe1355dd5a43cd7450240e4ab29d956f0e6b",
+  "levelled": "On 2026-10-06 every sample was multiplied by one factor (+3.17 dB) to bring the line to the loudness of Screen0: levelling-provenance.json. Before that the file had sha256 5b47fecca5313665cdd7a34e392a082b66104b345f8b50f9474d38bb2dfe0a4d.",
   "cues": [
     "vk-discovery-activation",
     "vk-particles"
