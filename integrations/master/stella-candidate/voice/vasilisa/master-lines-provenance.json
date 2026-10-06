@@ -23,10 +23,18 @@
       "cue": "vk-question-discovery",
       "asset": "vk-question-discovery-studio.wav",
       "source": "public/audio/vk-production-v1/Screen4.wav",
-      "sha256": "a78d0293df7c2cc83b8fdfe3c24ecfa4000d2715714bea65fe5a49acda2a9128",
-      "bytes": 1949264,
+      "sha256": "3debb8d2f602d921adaf4bdc4241e786e9aa608e45b93003bfd190a87a882c32",
+      "bytes": 829124,
       "replaced": "vk-question-discovery.wav",
-      "note": "Copied again on 2026-10-06: Screen4 in the master bank was assembled from its question and Hero_filler.wav (screen4-join-provenance.json). The copy of 2026-10-05 (sha256 02f7fb031506fce6921964941cfc4b11cf119f3cea8ed16d54e2b718d983d65b) was overwritten."
+      "note": "Copied again on 2026-10-06 after Screen4 in the master bank was cut to the question alone (screen4-trim-provenance.json). The copy of 2026-10-05 (sha256 02f7fb031506fce6921964941cfc4b11cf119f3cea8ed16d54e2b718d983d65b) was overwritten."
+    },
+    {
+      "cue": "vk-hero-chosen",
+      "asset": "vk-hero-chosen-studio.wav",
+      "source": "public/audio/vk-production-v1/Screen4_Hero.wav",
+      "sha256": "6096bdb95b74035d1d8b87118e3e0bcc348e583964224c53280dcfcc99511ebf",
+      "bytes": 972840,
+      "note": "Added on 2026-10-06: the continuation of the third question, spoken only on the reveal of the answer «hero». No earlier local recording."
     },
     {
       "cue": "vk-question-ideal-content",
@@ -84,6 +92,6 @@
     }
   ],
   "notCopied": "Screen6 (camera): the master mode does not play it either, by the note of the bank it speaks the Discovery activation instead of the camera instruction. The local cue vk-camera stays pending.",
-  "verification": "SHA256 equality with the master bank only. The words spoken in Screen0, Screen1, Screen2, Screen3, Screen4, Screen5, Screen8 and Screen_Scan were not transcribed or listened to by the agent.",
-  "format": "Screen0, Screen1, Screen2, Screen3, Screen4, Screen5, Screen8, Screen_Scan: PCM 16 bit, 44.1 kHz, stereo."
+  "verification": "SHA256 equality with the master bank only. The words spoken in Screen0, Screen1, Screen2, Screen3, Screen4, Screen5, Screen8, Screen_Scan and Screen4_Hero were not transcribed or listened to by the agent.",
+  "format": "Screen0, Screen1, Screen2, Screen3, Screen4, Screen5, Screen8, Screen_Scan, Screen4_Hero: PCM 16 bit, 44.1 kHz, stereo."
 }

@@ -1,13 +1,15 @@
+import { vkQuestions } from '../../content/vkVideo'
 import type { ScreenState } from '../prototype/Prototype'
 
 /** The visitor starts the home conversation: the start screen speaks only when the greeting is asked for
- * (`?greeting=1`, see greeting.ts). The brand splash and the tag reveals stay silent. */
+ * (`?greeting=1`, see greeting.ts). The brand splash and the tag reveals stay silent, except one: the third question
+ * continues for the visitor who chose to become the hero (user, 06.10.2026). */
 export function narrationId(screen: ScreenState, brandSplash = false, greeting = false): string | null {
   if (brandSplash) return null
   switch (screen.type) {
     case 'home': return greeting ? 'home' : null
+    case 'vk-answer-reveal': return screen.questionIndex === 2 && vkQuestions[2].options[screen.optionIndex]?.id === 'hero' ? 'vk-hero-chosen' : null
     case 'max-answer-reveal':
-    case 'vk-answer-reveal':
     case 'vk-photo-reveal': return null
     case 'vk-question': return ['vk-question-evening', 'vk-question-ideal-content', 'vk-question-discovery'][screen.index] ?? null
     case 'max-result': return `max-result-${screen.mission}`

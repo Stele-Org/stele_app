@@ -55,7 +55,7 @@ export function MasterSlice({ onSelectMax }: { onSelectMax?: () => void }) {
   const product = screen === 'home' ? null : 'vk-video'
   const playing = usePresentationPlaying(hostPlaying, snapshot, state)
   const skipPhoto = bypassPhoto(state)
-  useMasterAudio({screen: skipPhoto && ['photochoice', 'camera'].includes(screen) ? 'photo-bridge' : visualScreen, sessionId: state?.sessionId, questionIndex: ['question', 'answer-reveal'].includes(visualScreen) ? state?.questionIndex : undefined, playing, splash,
+  useMasterAudio({screen: skipPhoto && ['photochoice', 'camera'].includes(screen) ? 'photo-bridge' : visualScreen, sessionId: state?.sessionId, questionIndex: ['question', 'answer-reveal'].includes(visualScreen) ? state?.questionIndex : undefined, answerId: visualScreen === 'answer-reveal' ? state?.answers?.[state.questionIndex ?? -1]?.answerId : undefined, playing, splash,
     blocked: screen === 'camera' && consentOpen,
     effectsPlaying: hostPlaying && snapshot?.online === true && state?.phase !== 'paused',
     revision: state?.revision, instanceKey: snapshot?.health?.instanceKey})

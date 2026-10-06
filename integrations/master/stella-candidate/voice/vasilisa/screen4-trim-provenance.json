@@ -1,0 +1,34 @@
+{
+  "asset": "public/audio/vk-production-v1/Screen4.wav",
+  "copies": [
+    "public/voice/vasilisa/vk-question-discovery-studio.wav"
+  ],
+  "changeDate": "2026-10-06",
+  "change": "User asked to leave only the question in the voice track of the third question and to speak the content of Hero_filler only when the visitor chooses «Хочу стать героем VK Видео». An earlier version of the same day joined both into one file; the user corrected it.",
+  "source": {
+    "sha256": "02f7fb031506fce6921964941cfc4b11cf119f3cea8ed16d54e2b718d983d65b",
+    "bytes": 2604332,
+    "seconds": 14.73,
+    "where": "Git history: Screen4.wav as committed before 2026-10-06"
+  },
+  "speechFound": "Louder than -48 dB: 0.16-3.36, 3.64-4.54, 4.83-7.15, 7.42-9.69, 9.95-12.11, 12.37-14.62 s. The second stretch decays to the noise floor by 4.58 s; the pause after it lasts until 4.81 s.",
+  "kept": "Samples 0-4.7 s unchanged: the first two stretches of speech and the beginning of the pause after them. The question on the screen has two sentences («Рекомендации Discovery решили немного вас удивить. Что показывать?»), and the two stretches (3.2 s and 0.9 s) fit them; the four stretches of 2.2-2.3 s after them fit the four answers.",
+  "edit": "Cut at 4.7 s, inside the pause 4.58-4.81 s; the last 40 ms are faded out, their peak is 0.0003 of full scale. Extra chunks of the studio file (JUNK, LGWV, bext) are not carried over. No synthesis or resampling.",
+  "tool": "voice/scripts/trim-line.mjs <source> <target> 4.7 40",
+  "result": {
+    "sha256": "3debb8d2f602d921adaf4bdc4241e786e9aa608e45b93003bfd190a87a882c32",
+    "bytes": 829124,
+    "seconds": 4.7,
+    "format": "PCM 16 bit, 44100 Hz, 2 channels"
+  },
+  "continuation": {
+    "asset": "public/audio/vk-production-v1/Screen4_Hero.wav",
+    "copy": "public/voice/vasilisa/vk-hero-chosen-studio.wav",
+    "sha256": "6096bdb95b74035d1d8b87118e3e0bcc348e583964224c53280dcfcc99511ebf",
+    "bytes": 972840,
+    "seconds": 5.5,
+    "origin": "Supplied by the user on 2026-10-06 as Hero_filler.wav; renamed, not edited.",
+    "played": "On the reveal of the answer «hero» to the third question: cue Screen4_Hero in the stand mode, vk-hero-chosen in the local scenario."
+  },
+  "verification": "By signal level only. The agent did not listen to the recordings and did not transcribe them: that the first two stretches of speech are the question alone follows from the text of the screen and from their lengths, not from the audio."
+}

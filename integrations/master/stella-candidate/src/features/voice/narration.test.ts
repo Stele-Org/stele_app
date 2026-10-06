@@ -40,6 +40,12 @@ it('suppresses brand splash and answer reveals instead of reading the old questi
   expect(narrationId({ type: 'vk-answer-reveal', questionIndex: 0, optionIndex: 0, label: '', metadata: [], next })).toBeNull()
   expect(narrationId({ type: 'vk-photo-reveal', answerId: 'accept', metadata: [], next })).toBeNull()
   expect(narrationId({ type: 'vk-question', index: 99, answers: [] })).toBeNull()
+  // One reveal speaks: the third question continues for the visitor who chose to become the hero.
+  const reveal = (questionIndex: number, optionIndex: number) => narrationId({ type: 'vk-answer-reveal', questionIndex, optionIndex, label: '', metadata: [], next })
+  expect(vkQuestions[2].options[2].id).toBe('hero')
+  expect(reveal(2, 2)).toBe('vk-hero-chosen')
+  expect([0, 1, 3].map(option => reveal(2, option))).toEqual([null, null, null])
+  expect(reveal(1, 2)).toBeNull()
 })
 
 it('accepts only the expected voice manifest and local generated audio filenames', () => {

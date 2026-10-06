@@ -9,12 +9,14 @@ import { getReadyNarrationAsset } from './ready-narration-asset'
 
 // The same pairs as masterNarration() in features/audio/production-audio.ts, and the line of the scanning screen,
 // which the user added to the bank on 06.10.2026 and which the stand mode does not play yet.
+// Screen4_Hero continues the third question on the reveal of its answer «hero» only.
 const lines: [string, ScreenState][] = [
   ['Screen0', { type: 'home' }],
   ['Screen1', { type: 'vk-onboarding' }],
   ['Screen2', { type: 'vk-question', index: 0, answers: [] }],
   ['Screen3', { type: 'vk-question', index: 1, answers: [] }],
   ['Screen4', { type: 'vk-question', index: 2, answers: [] }],
+  ['Screen4_Hero', { type: 'vk-answer-reveal', questionIndex: 2, optionIndex: 2, label: '', metadata: [], next: { type: 'home' } }],
   ['Screen5', { type: 'vk-digitize', answers: [], rankedThemes: [], discoveryAnswerId: 'hero' }],
   ['Screen8', { type: 'vk-final', themes: [] }],
   ['Screen_Scan', { type: 'vk-scanning', themes: [] }],

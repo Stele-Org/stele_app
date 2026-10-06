@@ -65,10 +65,10 @@ it('keeps mismatched photo and camera silent; particles use the complete verifie
   expect(masterNarration('home', undefined, true)).toBe('Screen0')
 })
 it('preloads a shared central bank once; home has no automatic audio before accepted input', async () => {
-  await render({}); expect(mock.sounds).toHaveLength(22)
+  await render({}); expect(mock.sounds).toHaveLength(23)
   expect(mock.sounds.every(s => s.play.mock.calls.length === 0)).toBe(true)
   await render({screen:'onboarding'}); expect(sound('Screen1').play).toHaveBeenCalledOnce()
-  await render({screen:'question',questionIndex:0}); expect(mock.sounds).toHaveLength(22)
+  await render({screen:'question',questionIndex:0}); expect(mock.sounds).toHaveLength(23)
   expect(sound('Screen1').stop).toHaveBeenCalledWith(12)
 })
 // Order matters for the next two: once sound has run on the page it stays allowed.
@@ -111,6 +111,24 @@ it('does not replay voice or ordered effects on polling; accepted reveals cycle 
   expect(sound('Tags').play).not.toHaveBeenCalled()
   await render({screen:'home'}); await render({screen:'photo-reveal'})
   expect(sound('ChangeScreen').play).toHaveBeenCalledTimes(3)
+})
+it('continues the third question only on the reveal of the hero answer, once', async () => {
+  expect(masterNarration('answer-reveal', 2, false, 'hero')).toBe('Screen4_Hero')
+  expect(masterNarration('answer-reveal', 2, false, 'popular')).toBeNull()
+  expect(masterNarration('answer-reveal', 1, false, 'hero')).toBeNull()
+  expect(masterNarration('answer-reveal', 2)).toBeNull()
+  expect(masterNarration('question', 2, false, 'hero')).toBe('Screen4')
+  await render({screen:'question',questionIndex:2}); expect(sound('Screen4').play).toHaveBeenCalledOnce()
+  await render({screen:'answer-reveal',questionIndex:2,answerId:'popular'})
+  expect(sound('Screen4').stop).toHaveBeenCalledWith(12)
+  expect(sound('Screen4_Hero').play).not.toHaveBeenCalled()
+  await render({screen:'question',questionIndex:2,sessionId:'s2'})
+  await render({screen:'answer-reveal',questionIndex:2,answerId:'hero',sessionId:'s2'})
+  expect(sound('Screen4_Hero').play).toHaveBeenCalledOnce()
+  // Polling the same reveal does not speak again; leaving it stops the line.
+  await render({screen:'answer-reveal',questionIndex:2,answerId:'hero',sessionId:'s2',revision:2})
+  expect(sound('Screen4_Hero').play).toHaveBeenCalledOnce()
+  await render({screen:'photochoice',sessionId:'s2'}); expect(sound('Screen4_Hero').stop).toHaveBeenCalledWith(12)
 })
 it('pauses and resumes the same narration id; finished narration never restarts', async () => {
   await render({screen:'particles'}); sound('Screen7').emit('play')

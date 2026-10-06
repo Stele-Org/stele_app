@@ -29,7 +29,7 @@
 
 06.10.2026, ещё позже: `Screen3` по поручению пользователя собрана из вопроса прежней записи и целого `Choice_filler.wav`, который начинается через секунду после вопроса: `scripts/join-lines.mjs`, подробности в `vasilisa/screen3-join-provenance.json`. Результат скопирован побайтно поверх `vk-question-ideal-content-studio.wav`.
 
-06.10.2026, затем: тем же скриптом `Screen4` собрана из вопроса прежней записи и целого `Hero_filler.wav` через секунду после вопроса (`vasilisa/screen4-join-provenance.json`); результат скопирован побайтно поверх `vk-question-discovery-studio.wav`.
+06.10.2026, затем: `Screen4` обрезана до одного вопроса (`scripts/trim-line.mjs`, `vasilisa/screen4-trim-provenance.json`) и скопирована побайтно поверх `vk-question-discovery-studio.wav`. Запись пользователя `Hero_filler.wav` вошла в банк как `Screen4_Hero.wav`; её побайтная копия `vk-hero-chosen-studio.wav` подключена как `vk-hero-chosen` и звучит только на сцене тегов ответа «Хочу стать героем VK Видео» — единственной говорящей сцене тегов (`../src/features/voice/narration.ts`). Текста этой реплики в `phrases.json` нет: слова записи агент не знает.
 
 ## Реплики Discovery по хронометражу сцены, 05.10.2026
 
