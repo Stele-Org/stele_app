@@ -45,13 +45,16 @@
     },
     {
       "file": "Screen1.wav",
-      "bytes": 2553518,
-      "sha256": "2d4c953cead1b98a1411faf3f766d76f52a40c78f4f56c0f731f52a320469249",
-      "seconds": 14.443287981859411,
+      "bytes": 3100576,
+      "sha256": "48411bf3b72d298452aeab7161618382031960cdc0e992bd0403845dc8612bbb",
+      "seconds": 17.538480725623582,
       "channels": 2,
       "sampleRate": 44100,
       "bitsPerSample": 16,
-      "waveFormatTag": 1
+      "waveFormatTag": 1,
+      "source": "Studio recording replaced by the user on 2026-10-06; replaces the recording of the AUDIO-02 bank (sha256 2d4c953cead1b98a1411faf3f766d76f52a40c78f4f56c0f731f52a320469249, 14.44 s).",
+      "transcript": null,
+      "verification": "Supplied by the user on 2026-10-06. Not transcribed or listened to by the agent; header and SHA only. No synthesis."
     },
     {
       "file": "Screen2.wav",

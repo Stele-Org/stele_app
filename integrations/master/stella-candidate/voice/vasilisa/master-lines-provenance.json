@@ -6,9 +6,10 @@
       "cue": "vk-onboarding",
       "asset": "vk-onboarding-studio.wav",
       "source": "public/audio/vk-production-v1/Screen1.wav",
-      "sha256": "2d4c953cead1b98a1411faf3f766d76f52a40c78f4f56c0f731f52a320469249",
-      "bytes": 2553518,
-      "replaced": "vk-onboarding.wav"
+      "sha256": "48411bf3b72d298452aeab7161618382031960cdc0e992bd0403845dc8612bbb",
+      "bytes": 3100576,
+      "replaced": "vk-onboarding.wav",
+      "note": "Copied again on 2026-10-06 after the user replaced Screen1 in the master bank; the copy of 2026-10-05 (sha256 2d4c953cead1b98a1411faf3f766d76f52a40c78f4f56c0f731f52a320469249) was overwritten."
     },
     {
       "cue": "vk-question-evening",
