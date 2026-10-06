@@ -12,11 +12,6 @@ export interface VoiceCommand {
   words?: string[]
 }
 
-const home: VoiceCommand[] = [
-  { target: '.product-tag--vk-video', stems: ['видео', 'вконтакте'], words: ['вк', 'vk'] },
-  { target: '.product-tag--max', stems: ['макс'], words: ['max', 'мах'] },
-]
-
 // «Скажи, например, „поехали“»: any word that means «начинаем».
 const start: VoiceCommand[] = [
   { target: '.onboarding-start', stems: ['поехал', 'нач', 'старт', 'погнал', 'вперед'], words: ['давай', 'давайте', 'готов', 'готова'] },
@@ -52,10 +47,10 @@ const options = (list: readonly { id: string }[]): VoiceCommand[] => list.map(({
 /**
  * The commands of a screen whose line asks the visitor for an answer; no commands, no microphone.
  * The photo step is absent on purpose: its «Начать» accepts the terms of personal data, and that takes a tap.
+ * The start screen is absent too: the product is chosen by a tap, with the greeting or without it.
  */
 export function voiceCommands(screen: ScreenState): VoiceCommand[] {
   switch (screen.type) {
-    case 'home': return home
     case 'vk-onboarding':
     case 'max-onboarding': return start
     case 'vk-question': return options(vkQuestions[screen.index]?.options ?? [])

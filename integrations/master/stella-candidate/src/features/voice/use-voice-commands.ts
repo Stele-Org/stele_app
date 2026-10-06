@@ -5,8 +5,14 @@ import { matchVoiceCommand, type VoiceCommand } from './voice-commands'
 export const LISTEN_MS = 30000
 // The browser ends its session after a silence; the pause before the next one keeps a failing start from spinning.
 const RESUME_MS = 250
+// After a passing failure the next session waits longer: the network, a busy microphone, another tab that took
+// the recogniser, a page that was covered for a moment.
+const RETRY_MS = 1000
 // With these the microphone will not work until the page is opened again: do not ask on every screen.
-const refusals = new Set<SpeechRecognitionErrorCode>(['not-allowed', 'service-not-allowed', 'audio-capture', 'language-not-supported'])
+const refusals = new Set<SpeechRecognitionErrorCode>(['not-allowed', 'service-not-allowed', 'language-not-supported'])
+// Always in the console, like the camera's: when the microphone went on and why it went off. What was heard is
+// printed only on request (`debug`).
+const report = (...details: unknown[]) => console.info('[stella-mic]', ...details)
 
 // The part of the browser's recogniser used here; the DOM typings describe its events but not the recogniser itself.
 interface Recogniser {
@@ -38,7 +44,9 @@ interface VoiceCommandOptions {
 /**
  * Opens the microphone while `active` and gives the first recognised command to `onCommand`. Speech is recognised by
  * the browser (Web Speech API); where the browser has none, nothing happens and the screen is answered by touch.
- * Nothing that was heard is kept. Returns whether the microphone is on right now.
+ * A session that fails is followed by another until the answer or the end of the wait; only a refusal ends it.
+ * A page that is not seen does not listen. Nothing that was heard is kept.
+ * Returns whether the microphone is on right now.
  */
 export function useVoiceCommands({ active, commands, onCommand, debug = false }: VoiceCommandOptions): boolean {
   const [listening, setListening] = useState(false)
@@ -48,50 +56,66 @@ export function useVoiceCommands({ active, commands, onCommand, debug = false }:
 
   useEffect(() => {
     const Recognition = recognition()
-    if (!active || !commands.length || refused.current || !Recognition) return
-    const trace = (...details: unknown[]) => { if (debug) console.debug('[stella-mic]', ...details) }
+    if (!active || !commands.length || refused.current) return
+    if (!Recognition) { report('unavailable', 'the browser recognises no speech'); return }
     let stopped = false
     let resume: number | undefined
-    const deadline = window.setTimeout(() => stop('no-answer'), LISTEN_MS)
     let session: Recogniser | null = null
-    const stop = (reason: string) => {
-      if (stopped) return
-      stopped = true
-      trace('off', reason)
+    const close = () => {
       window.clearTimeout(resume)
-      window.clearTimeout(deadline)
       if (session) { session.onstart = session.onresult = session.onerror = session.onend = null; session.abort() }
       session = null
       setListening(false)
     }
+    const stop = (reason: string) => {
+      if (stopped) return
+      stopped = true
+      report('off', reason)
+      window.clearTimeout(deadline)
+      document.removeEventListener('visibilitychange', seen)
+      close()
+    }
     const listen = () => {
+      // The browser gives no microphone to a page that is not seen; `seen` listens again when it is back.
+      if (document.hidden) return
       const current = session = new Recognition()
+      let failed = false
       current.lang = 'ru-RU'
       current.continuous = true
       current.interimResults = false
       current.maxAlternatives = 3
-      current.onstart = () => { trace('on'); setListening(true) }
+      current.onstart = () => setListening(true)
       current.onresult = event => {
         for (let index = event.resultIndex; index < event.results.length; index += 1) {
           const result = event.results[index]
           if (!result.isFinal) continue
           const heard = Array.from(result, reading => reading.transcript)
           const target = matchVoiceCommand(heard, commands)
-          trace('heard', heard, target)
+          if (debug) report('heard', heard, target)
           if (target && handler.current(target)) { stop('answered'); return }
         }
       }
       current.onerror = event => {
         if (event.error === 'no-speech') return
-        if (refusals.has(event.error)) refused.current = true
-        stop(event.error)
+        if (refusals.has(event.error)) { refused.current = true; stop(event.error); return }
+        failed = true
+        report('failed', event.error)
       }
+      // Every session ends, after a silence or after a failure; the question is still open, so listen on.
       current.onend = () => {
+        session = null
         setListening(false)
-        resume = window.setTimeout(listen, RESUME_MS)
+        resume = window.setTimeout(listen, failed ? RETRY_MS : RESUME_MS)
       }
-      try { current.start() } catch { stop('start-failed') }
+      try { current.start() } catch { failed = true; current.onend() }
     }
+    const seen = () => {
+      close()
+      if (!document.hidden) listen()
+    }
+    const deadline = window.setTimeout(() => stop('no-answer'), LISTEN_MS)
+    document.addEventListener('visibilitychange', seen)
+    report('on')
     listen()
     return () => stop('left')
   }, [active, commands, debug])

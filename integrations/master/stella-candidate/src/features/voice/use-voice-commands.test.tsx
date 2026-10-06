@@ -22,6 +22,8 @@ class Session {
   end() { act(() => this.onend?.()) }
 }
 let sessions: Session[]
+let hidden: boolean
+const cover = (value: boolean) => act(() => { hidden = value; document.dispatchEvent(new Event('visibilitychange')) })
 let root: Root, host: HTMLDivElement
 const start: VoiceCommand[] = [{ target: '.start', stems: ['поехал'] }]
 const other: VoiceCommand[] = [{ target: '.other', stems: ['дальше'] }]
@@ -36,6 +38,9 @@ const show = (active: boolean, commands?: VoiceCommand[]) => act(() => root.rend
 
 beforeEach(() => {
   sessions = []
+  hidden = false
+  vi.spyOn(document, 'hidden', 'get').mockImplementation(() => hidden)
+  vi.spyOn(console, 'info').mockImplementation(() => {})
   pressed.mockReset().mockReturnValue(true)
   vi.stubGlobal('IS_REACT_ACT_ENVIRONMENT', true)
   vi.stubGlobal('webkitSpeechRecognition', Session)
@@ -44,7 +49,7 @@ beforeEach(() => {
 })
 afterEach(() => {
   act(() => root.unmount()); host.remove()
-  vi.useRealTimers(); vi.unstubAllGlobals()
+  vi.useRealTimers(); vi.restoreAllMocks(); vi.unstubAllGlobals()
 })
 
 it('opens the microphone only when asked to and closes it when the screen stops waiting', () => {
@@ -116,28 +121,67 @@ it('goes off when nobody answers', () => {
   expect(sessions[0].abort).toHaveBeenCalledOnce()
 })
 
-it('does not ask for the microphone again after a refusal, and tries again after a passing failure', () => {
+it('listens on after a passing failure and gives up for good only after a refusal', () => {
   show(true)
-  sessions[0].fail('network')
+  sessions[0].fail('network'); sessions[0].end()
+  expect(listening()).toBe('false')
+  expect(console.info).toHaveBeenLastCalledWith('[stella-mic]', 'failed', 'network')
+  pass(999)
+  expect(sessions).toHaveLength(1)
+  pass(1)
+  expect(sessions).toHaveLength(2)
+  expect(listening()).toBe('true')
+  // Another tab took the recogniser, or the microphone was busy for a moment.
+  sessions[1].fail('aborted'); sessions[1].end(); pass(1000)
+  sessions[2].fail('audio-capture'); sessions[2].end(); pass(1000)
+  expect(sessions).toHaveLength(4)
+  sessions[3].say('поехали')
+  expect(pressed).toHaveBeenCalledExactlyOnceWith('.start')
+
+  show(false); show(true)
+  sessions[4].fail('not-allowed')
+  expect(listening()).toBe('false')
+  expect(console.info).toHaveBeenLastCalledWith('[stella-mic]', 'off', 'not-allowed')
+  pass(LISTEN_MS)
+  show(false); show(true)
+  expect(sessions).toHaveLength(5)
+})
+
+it('does not listen while the page is not seen and listens again when it is back', () => {
+  hidden = true
+  show(true)
+  expect(sessions).toHaveLength(0)
+  cover(false)
+  expect(sessions).toHaveLength(1)
+  expect(listening()).toBe('true')
+  cover(true)
+  expect(sessions[0].abort).toHaveBeenCalledOnce()
   expect(listening()).toBe('false')
   pass(1000)
   expect(sessions).toHaveLength(1)
-  show(false); show(true)
+  cover(false)
   expect(sessions).toHaveLength(2)
-  sessions[1].fail('not-allowed')
-  show(false); show(true)
+  sessions[1].say('поехали')
+  expect(pressed).toHaveBeenCalledExactlyOnceWith('.start')
+  // Answered: the page coming back later opens nothing.
+  cover(true); cover(false)
   expect(sessions).toHaveLength(2)
-  expect(listening()).toBe('false')
 })
 
-it('leaves the screen to touch where the browser recognises no speech or will not start', () => {
+it('leaves the screen to touch where the browser recognises no speech, and tries on while it will not start', () => {
   vi.stubGlobal('webkitSpeechRecognition', undefined)
   show(true)
   expect(listening()).toBe('false')
+  expect(console.info).toHaveBeenLastCalledWith('[stella-mic]', 'unavailable', 'the browser recognises no speech')
   vi.stubGlobal('SpeechRecognition', class extends Session { start = vi.fn(() => { throw new DOMException('busy', 'InvalidStateError') }) })
   show(false); show(true)
   expect(sessions).toHaveLength(1)
   expect(listening()).toBe('false')
   pass(1000)
-  expect(sessions).toHaveLength(1)
+  expect(sessions).toHaveLength(2)
+  // Until the wait for an answer is over.
+  pass(LISTEN_MS)
+  const tried = sessions.length
+  pass(5000)
+  expect(sessions).toHaveLength(tried)
 })

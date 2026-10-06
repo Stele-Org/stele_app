@@ -58,15 +58,7 @@ it('takes the likeliest reading that names an answer', () => {
   expect(matchVoiceCommand(['сериал и интервью', 'сериал'], evening)).toBeNull()
 })
 
-it('starts a product by its name and the scenario by any word for «начинаем»', () => {
-  const home = voiceCommands({ type: 'home' })
-  expect(matchVoiceCommand(['ВК Видео'], home)).toBe('.product-tag--vk-video')
-  expect(matchVoiceCommand(['VK видео'], home)).toBe('.product-tag--vk-video')
-  expect(matchVoiceCommand(['Макс'], home)).toBe('.product-tag--max')
-  expect(matchVoiceCommand(['MAX'], home)).toBe('.product-tag--max')
-  // «вк» is a whole word: «включи» does not choose VK Видео.
-  expect(matchVoiceCommand(['включи что-нибудь'], home)).toBeNull()
-  expect(matchVoiceCommand(['макс или видео'], home)).toBeNull()
+it('starts the scenario by any word for «начинаем»', () => {
   for (const screen of [{ type: 'vk-onboarding' }, { type: 'max-onboarding' }] satisfies ScreenState[]) {
     for (const phrase of ['Поехали!', 'начинаем', 'давай начнём', 'вперёд', 'ну давай']) {
       expect(matchVoiceCommand([phrase], voiceCommands(screen)), phrase).toBe('.onboarding-start')
@@ -75,8 +67,9 @@ it('starts a product by its name and the scenario by any word for «начина
   }
 })
 
-it('has no commands where the voice asks nothing, and none on the consent to personal data', () => {
+it('has no commands where the voice asks nothing, and none on the start screen or the consent to personal data', () => {
   const silent: ScreenState[] = [
+    { type: 'home' },
     { type: 'vk-digitize', answers: [], rankedThemes: [], discoveryAnswerId: 'hero' },
     { type: 'vk-camera', themes: [] }, { type: 'vk-scanning', themes: [] }, { type: 'vk-photo-review', themes: [] },
     { type: 'vk-particles', themes: [] }, { type: 'vk-final', themes: [] }, { type: 'max-result', mission: 'blogger' },

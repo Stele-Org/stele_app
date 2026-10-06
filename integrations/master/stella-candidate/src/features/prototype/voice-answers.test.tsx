@@ -46,6 +46,12 @@ async function say(phrase: string) {
   act(() => open.onresult?.({ resultIndex: 0, results: [Object.assign([{ transcript: phrase }], { isFinal: true })] }))
   await pass(700)
 }
+/** The visitor taps a button; the press takes its cue to act. */
+async function tap(selector: string) {
+  act(() => host.querySelector<HTMLButtonElement>(selector)!.click())
+  await pass(700)
+}
+const endSplash = () => act(() => host.querySelector<HTMLButtonElement>('[data-splash-complete]')!.click())
 const endReveal = () => act(() => host.querySelector<HTMLButtonElement>('[data-reveal-complete]')!.click())
 const show = (search: string) => { window.history.replaceState(null, '', search); act(() => root.render(<Prototype />)) }
 
@@ -67,25 +73,28 @@ afterEach(() => {
   window.history.replaceState(null, '', window.location.pathname)
 })
 
-it('with ?mic=1 answers the screens by voice: product, start and questions; the consent to the photo takes a tap', async () => {
-  show('?mic=1')
+it('with ?mic=1 answers the screens by voice: start and questions; the product and the consent to the photo take a tap', async () => {
+  show('?mic=1&greeting=1')
   expect(state()).toBe('home')
+  // The start screen never listens, greeted or not: the product is chosen by a tap.
+  await pass(1000)
+  expect(sessions).toHaveLength(0)
+  expect(indicator()).toBeNull()
+
+  await tap('.product-tag--vk-video')
+  expect(state()).toBe('vk-onboarding')
+  // The microphone stays off under the brand splash, which says nothing.
+  expect(sessions).toHaveLength(0)
+  endSplash()
   expect(sessions).toHaveLength(1)
   expect(indicator()).not.toBeNull()
   await say('даже не знаю')
-  expect(state()).toBe('home')
-
-  await say('ВК Видео')
   expect(state()).toBe('vk-onboarding')
-  // The microphone went off with the answer and stays off under the brand splash, which says nothing.
-  expect(sessions[0].abort).toHaveBeenCalledOnce()
-  expect(sessions).toHaveLength(1)
-  expect(indicator()).toBeNull()
-  act(() => host.querySelector<HTMLButtonElement>('[data-splash-complete]')!.click())
-  expect(sessions).toHaveLength(2)
 
   await say('Поехали!')
   expect(state()).toBe('vk-question')
+  // The microphone went off with the answer and is opened again by the question.
+  expect(sessions[0].abort).toHaveBeenCalledOnce()
   await say('стендап')
   expect(state()).toBe('vk-answer-reveal')
   // The reveal of the answer asks nothing.
@@ -108,7 +117,10 @@ it('with ?mic=1 answers the screens by voice: product, start and questions; the 
 it('keeps the microphone off until the voice has asked', async () => {
   voice.silent = true
   show('?mic=1')
+  await tap('.product-tag--vk-video')
+  endSplash()
   await pass(1000)
+  expect(state()).toBe('vk-onboarding')
   expect(sessions).toHaveLength(0)
   expect(indicator()).toBeNull()
 })
