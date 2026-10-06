@@ -29,3 +29,7 @@ Thumbs.db
 
 # Pinned local toolchain downloaded by scripts/setup-tools.ps1.
 /.tools/
+
+# Visitor photos written by the dev server are personal data: only the description of the directory is versioned.
+/PhotoStorage/*
+!/PhotoStorage/README.md

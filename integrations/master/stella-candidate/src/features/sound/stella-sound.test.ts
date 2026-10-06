@@ -104,6 +104,17 @@ it('pairs alternating scan start/end cues and swaps main ambience to scan then b
   expect(played(assets.scanEnd)).toEqual([assets.scanEnd[0], assets.scanEnd[1], assets.scanEnd[0]])
 })
 
+it('ends the scan into the check of its photo: the end cue plays there and not again when Discovery follows', () => {
+  context()
+  player.acceptedAction(false)
+  context(scan())
+  context({ type: 'vk-photo-review', themes: ['Кино'] })
+  expect(played(assets.scanEnd)).toEqual([assets.scanEnd[0]])
+  expect(plays(assets.ambienceMain)).toBe(2)
+  context(particles())
+  expect(played(assets.scanEnd)).toEqual([assets.scanEnd[0]])
+})
+
 it.each(['hidden', 'blocked', 'playing'] as const)('pauses the bed on %s, stops cues and resumes the same bed without replaying stale effects', gate => {
   context()
   player.acceptedAction(true)

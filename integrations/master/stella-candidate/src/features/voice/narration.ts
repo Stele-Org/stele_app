@@ -10,7 +10,8 @@ export function narrationId(screen: ScreenState, brandSplash = false, greeting =
     case 'home': return greeting ? 'home' : null
     case 'vk-answer-reveal': return screen.questionIndex === 2 && vkQuestions[2].options[screen.optionIndex]?.id === 'hero' ? 'vk-hero-chosen' : null
     case 'max-answer-reveal':
-    case 'vk-photo-reveal': return null
+    case 'vk-photo-reveal':
+    case 'vk-photo-review': return null // The check of the photo has no line of its own.
     case 'vk-question': return ['vk-question-evening', 'vk-question-ideal-content', 'vk-question-discovery'][screen.index] ?? null
     case 'max-result': return `max-result-${screen.mission}`
     default: return screen.type

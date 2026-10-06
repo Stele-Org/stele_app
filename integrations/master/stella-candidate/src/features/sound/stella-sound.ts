@@ -89,7 +89,8 @@ export function createStellaSound(base: string) {
         currentScan = scanIndex++ % assets.scanStart.length
         shot(assets.scanStart[currentScan])
       }
-      if (from?.type === 'vk-scanning' && next.screen.type === 'vk-particles') {
+      // The scan ends into the check of its photo, or straight into Discovery when there is no photo.
+      if (from?.type === 'vk-scanning' && (next.screen.type === 'vk-particles' || next.screen.type === 'vk-photo-review')) {
         shot(assets.scanEnd[currentScan % assets.scanEnd.length])
       }
     },

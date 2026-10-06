@@ -257,6 +257,13 @@ h1, h2, p { margin: 0; }
 .vk-onboarding-art { position: absolute; left: 628.825px; top: 584.109px; width: 389.949px; height: 150.04px; pointer-events: none; }
 .vk-camera-button { margin-top: 190px; padding: 0; width: 300px; height: 220px; background: transparent; box-shadow: none; }
 .vk-camera-button img { width: 100%; height: 100%; object-fit: contain; }
+/* Photo check after the scan (local scenario, 06.10.2026): a square as high as it is wide, filled by the middle of the frame
+ * whatever its proportions, and two choices under it. */
+.photo-review-frame { position: absolute; top: 330px; left: 110px; width: 860px; height: 860px; }
+.photo-review-image { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 48px; box-shadow: 0 14px 36px #00002166; }
+.photo-review-actions { position: absolute; top: 1230px; left: 110px; width: 860px; display: flex; align-items: center; justify-content: center; gap: 40px; }
+.photo-review-actions .primary-button { width: 415px; min-height: 140px; border-radius: 40px; }
+.photo-review-actions .secondary-button { width: 358px; min-height: 120px; border-radius: 35px; font-size: 36px; background: #0040FF; }
 .vk-processing-art { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; mix-blend-mode: color-dodge; mask-image: linear-gradient(transparent, transparent); }
 .vk-white-entity { display: block; position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; mix-blend-mode: screen; }
 .vk-white-entity:not([data-state='ready']) { visibility: hidden; }

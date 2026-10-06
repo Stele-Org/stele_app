@@ -44,6 +44,8 @@ import { createBrowserEventSink, createEventPublisher } from './events'
 import { markServiceReady, useServicePlaying } from '../../service'
 import { useScreenNarration } from '../voice/use-screen-narration'
 import { useStellaSound } from '../sound/use-stella-sound'
+import { useScanPhoto } from './scan-photo'
+import { storeApprovedPhoto } from './photo-storage-client'
 
 export type ScreenState =
   | { type: 'home' }
@@ -60,6 +62,7 @@ export type ScreenState =
   | { type: 'vk-gender'; answers: string[]; rankedThemes: VkTheme[] }
   | { type: 'vk-camera'; themes: VkTheme[] }
   | { type: 'vk-scanning'; themes: VkTheme[] }
+  | { type: 'vk-photo-review'; themes: VkTheme[] }
   | { type: 'vk-particles'; themes: VkTheme[] }
   | { type: 'vk-discovery-activation'; themes: VkTheme[]; metadata: string[] }
   | { type: 'vk-final'; themes: VkTheme[] }
@@ -71,11 +74,14 @@ const canvasHeight = 1920
 export function Prototype() {
   const [discoveryPreview] = useState(() => readDiscoveryPreview(window.location.search, import.meta.env.DEV))
   const [screen, setScreen] = useState<ScreenState>(() => discoveryPreview?.screen ?? homeState)
+  // The camera photographs the visitor while the scan is on the screen; the check of that photo follows the scan.
+  const { url: photoUrl, taken: photoTaken, held: heldPhoto, discard: discardPhoto } = useScanPhoto(screen.type === 'vk-scanning' && !discoveryPreview?.hold)
   const completeDiscoveryScan = useCallback(() => {
     if (discoveryPreview?.hold) return
-    setScreen(current => current.type === 'vk-scanning'
-      ? { type: 'vk-particles', themes: current.themes } : current)
-  }, [discoveryPreview])
+    // No camera or no frame: nothing to check, the scenario goes on as it did before.
+    setScreen(current => current.type !== 'vk-scanning' ? current
+      : { type: photoTaken() ? 'vk-photo-review' : 'vk-particles', themes: current.themes })
+  }, [discoveryPreview, photoTaken])
   const completeDiscoveryGeneration = useCallback(() => {
     if (discoveryPreview?.hold) return
     setScreen(current => current.type === 'vk-particles' || current.type === 'vk-discovery-activation'
@@ -114,7 +120,8 @@ export function Prototype() {
     setPublisher(createEventPublisher(crypto.randomUUID(), sink))
     setScreen(homeState)
     setEnteringProduct(null)
-  }, [sink])
+    discardPhoto()
+  }, [sink, discardPhoto])
 
   useLayoutEffect(() => {
     const fitCanvas = () => {
@@ -290,13 +297,23 @@ export function Prototype() {
     setScreen({ type: 'vk-camera', themes: screen.rankedThemes.slice(0, 3) })
   }
 
+  // The page releases the photo either way. An approved one is first handed to the local storage of the dev server;
+  // a photo the visitor chose to repeat is not stored anywhere.
+  const leavePhotoReview = (next: 'vk-particles' | 'vk-camera') => {
+    if (screen.type !== 'vk-photo-review') return
+    const approved = next === 'vk-particles' ? heldPhoto() : null
+    if (approved) void storeApprovedPhoto(approved)
+    discardPhoto()
+    setScreen({ type: next, themes: screen.themes })
+  }
+
   const product = screen.type === 'home' ? null : screen.type.startsWith('max-') ? 'max' : 'vk-video'
   const phase: RingPhase = enteringProduct ? 'brand-entry' : termsMounted ? 'terms'
     : screen.type === 'home' ? 'entry'
     : ['vk-scanning', 'vk-particles', 'vk-camera', 'vk-discovery-activation'].includes(screen.type) ? 'processing'
     : screen.type.endsWith('result') || screen.type === 'vk-final' ? 'result'
     : screen.type.endsWith('onboarding') ? 'intro'
-    : screen.type === 'vk-digitize' || screen.type === 'vk-gender' ? 'photo' : 'question'
+    : screen.type === 'vk-digitize' || screen.type === 'vk-gender' || screen.type === 'vk-photo-review' ? 'photo' : 'question'
   const phaseKey = `${screen.type}:${screen.type === 'vk-question' ? screen.index : ''}:${termsMounted}:${termsOpen}:${enteringProduct ?? ''}`
   const actionPhase = useMemo(() => ({ id: phaseKey }), [phaseKey])
   const continuousQuestion = questionPresentation(screen)
@@ -387,6 +404,20 @@ export function Prototype() {
                 onClick={() => setScreen({ type: 'vk-scanning', themes: screen.themes })}>
                 <img src={cameraReference} alt="" aria-hidden="true" />
               </RingTag>
+            </div>
+          </section>
+        )}
+
+        {screen.type === 'vk-photo-review' && (
+          <section className="screen screen--vk-photo-review" aria-label="Проверка фото">
+            <div className="photo-review-frame">
+              {photoUrl && <img className="photo-review-image" src={photoUrl} alt="Твоё фото" draggable={false}
+                data-lc-influence="shadow" data-lc-strength="1" data-lc-falloff="2.5" data-lc-padding="12" />}
+            </div>
+            <div className="photo-review-actions">
+              {/* "Повторить" returns to the camera prompt: the visitor gets ready and the scan photographs again. */}
+              <RingTag tone="blue" className="secondary-button" onClick={() => leavePhotoReview('vk-camera')}>{vkCopy.photoRetake}</RingTag>
+              <RingTag tone="red" className="primary-button" onClick={() => leavePhotoReview('vk-particles')}>{vkCopy.photoContinue}</RingTag>
             </div>
           </section>
         )}

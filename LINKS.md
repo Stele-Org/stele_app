@@ -36,6 +36,9 @@
 | Discovery «пульс + нейросеть» | <http://127.0.0.1:5218/stella/?discovery=generation> |
 | Этап сканирования | <http://127.0.0.1:5218/stella/?discovery=scan> |
 | Сканирование и далее по сценарию | <http://127.0.0.1:5218/stella/?discovery=sequence> |
+| Сканирование со съёмкой и проверка фото, любая камера | <http://127.0.0.1:5218/stella/?camera=any&discovery=sequence> |
+
+Фото, одобренное на экране проверки кнопкой «Продолжить», dev-сервер сохраняет в папку [PhotoStorage](PhotoStorage/README.md) в корне проекта.
 
 В `?reveal=` подставляется id ответа из `integrations/master/stella-candidate/src/content/vkVideo.ts`, например `series`, `standup`, `interview`.
 

@@ -23,6 +23,9 @@ export const vkCopy = {
   thanks: 'спасибо',
   finalQrCaption: 'Узнай больше о Discovery',
   cameraPrompt: 'Смотри в камеру над экраном',
+  // The check of the photo taken during the scan: the two choices named by the user, 06.10.2026.
+  photoContinue: 'Продолжить',
+  photoRetake: 'Повторить',
 }
 
 export const vkThemes: VkTheme[] = [

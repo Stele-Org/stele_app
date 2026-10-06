@@ -1,7 +1,8 @@
 // Browserless smoke test: starts the real Vite dev server on a spare port, requests the entry page and
 // every module of the application graph over HTTP, then checks the build output and the design prototypes.
 // No browser, camera, MASTER backend or AI is involved.
-import { readFile, readdir, stat } from 'node:fs/promises'
+import { mkdtemp, readFile, readdir, rm, stat } from 'node:fs/promises'
+import { tmpdir } from 'node:os'
 import { createHash } from 'node:crypto'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import path from 'node:path'
@@ -17,7 +18,10 @@ const check = (name, ok, detail = '') => results.push({ name, ok: !!ok, detail }
 const exists = file => stat(file).then(() => true, () => false)
 const files = async dir => (await readdir(dir, { recursive: true, withFileTypes: true })).filter(entry => entry.isFile()).map(entry => path.join(entry.parentPath, entry.name))
 
-// 1. Dev server: entry page, module graph, public assets.
+// 1. Dev server: entry page, module graph, public assets, local photo storage.
+// The storage route is exercised against a temporary directory, never the PhotoStorage of the project.
+const photoDirectory = await mkdtemp(path.join(tmpdir(), 'stella-smoke-photos-'))
+process.env.STELLA_PHOTO_STORAGE = photoDirectory
 const vite = await import(pathToFileURL(path.join(candidate, 'node_modules/vite/dist/node/index.js')).href)
 const server = await vite.createServer({ configFile: path.join(candidate, 'vite.config.ts'), server: { port: 5290, strictPort: false }, logLevel: 'error', clearScreen: false })
 try {
@@ -63,8 +67,22 @@ try {
     if (response.status === 200 && bytes.length === (await stat(file)).size) served++
   }
   check('dev: public assets', served === sample.length, `${served}/${sample.length} sampled of ${publicFiles.length}`)
+
+  const photo = Buffer.concat([Buffer.from([0xff, 0xd8, 0xff, 0xe0]), Buffer.alloc(64, 7), Buffer.from([0xff, 0xd9])])
+  const store = (headers = {}) => fetch(base + 'photo-storage', { method: 'POST', body: photo,
+    headers: { 'Content-Type': 'image/jpeg', 'X-Capture-Id': 'smoke-test-0001', 'X-Camera-Upright': '1', ...headers } })
+  const first = await store()
+  const receipt = await first.json()
+  const repeat = await store()
+  const foreign = await store({ Origin: 'https://example.com', 'X-Capture-Id': 'smoke-test-0002' })
+  const stored = await readdir(photoDirectory)
+  const whole = stored.length === 2 && stored.includes(receipt.file) && stored.includes(receipt.file.replace(/\.jpg$/, '.json'))
+    && createHash('sha256').update(await readFile(path.join(photoDirectory, receipt.file))).digest('hex') === receipt.sha256
+  check('dev: photo storage', first.status === 201 && repeat.status === 200 && foreign.status === 403 && whole,
+    `new ${first.status}, repeat ${repeat.status}, foreign origin ${foreign.status}, files ${stored.length}`)
 } finally {
   await server.close()
+  await rm(photoDirectory, { recursive: true, force: true })
 }
 
 // 2. Build output of `stella.ps1 build-check` (kept apart from the accepted dist).
