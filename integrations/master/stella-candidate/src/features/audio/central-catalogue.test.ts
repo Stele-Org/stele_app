@@ -18,8 +18,12 @@ it('provides every existing and new central cue with matching physical asset, SH
 })
 
 it('keeps pending spoken cues disabled and complete Discovery inside the seven-second animation', () => {
-  for (const cue of ['Screen5', 'Screen6']) expect(catalogue.assets.find(a => a.uiCue === cue)?.playbackEnabled).toBe(false)
-  for (const screen of ['photochoice','camera']) expect(masterNarration(screen)).toBeNull()
+  expect(catalogue.assets.find(a => a.uiCue === 'Screen6')?.playbackEnabled).toBe(false)
+  expect(masterNarration('camera')).toBeNull()
+  // The user enabled the photo line as recorded; a visitor who skips the photo hears nothing (photo-bridge).
+  expect(masterNarration('photochoice')).toBe('Screen5')
+  expect(masterNarration('photo-bridge')).toBeNull()
+  expect(catalogue.assets.find(a => a.uiCue === 'Screen5')).toMatchObject({ playbackEnabled: true, bus: 'voice' })
   // The user enabled the final line as recorded; it must end before the final screen leaves after 20 s.
   expect(masterNarration('final')).toBe('Screen8')
   expect(catalogue.assets.find(a => a.uiCue === 'Screen8')).toMatchObject({ playbackEnabled: true, bus: 'voice' })

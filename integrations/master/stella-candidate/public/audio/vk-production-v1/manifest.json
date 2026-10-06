@@ -7,7 +7,7 @@
     "question:0": "Screen2.wav",
     "question:1": "Screen3.wav",
     "question:2": "Screen4.wav",
-    "photochoice": null,
+    "photochoice": "Screen5.wav",
     "camera": null,
     "particles": "Screen7.wav",
     "final": "Screen8.wav",
@@ -28,7 +28,6 @@
     ]
   },
   "pending": {
-    "Screen5": "Photo instructions changed; exact full recording unavailable.",
     "Screen6": "Old Screen6 says Discovery activation on camera; camera instruction recording unavailable."
   },
   "assets": [
@@ -83,7 +82,8 @@
       "channels": 2,
       "sampleRate": 44100,
       "bitsPerSample": 16,
-      "waveFormatTag": 1
+      "waveFormatTag": 1,
+      "verification": "Enabled on the photo screen by the user on 2026-10-06, as recorded. The bank marked it as not matching the changed photo instructions. Not listened to by the agent."
     },
     {
       "file": "Screen6.wav",

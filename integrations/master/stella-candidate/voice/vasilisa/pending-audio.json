@@ -5,12 +5,6 @@
   "releaseRequirement": "Render and verify the approved text and delivery pauses before removing a cue from this pending list. The current generator reads text only and does not implement delivery.pauseAfterSegments. pauseDurationMs=null means the duration is not yet specified, not zero.",
   "cues": [
     {
-      "id": "vk-digitize",
-      "status": "awaiting_render",
-      "staleAsset": "vk-digitize.wav",
-      "staleAssetSha256": "5e0b474ea5dd85baa1603a1e9d471def0a09394ede6a68dba8ae02a3c0ac042c"
-    },
-    {
       "id": "vk-camera",
       "status": "awaiting_render",
       "staleAsset": "vk-camera.wav",

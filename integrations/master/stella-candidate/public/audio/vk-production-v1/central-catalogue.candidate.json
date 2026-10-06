@@ -77,7 +77,7 @@
       "path": "audio/vk-production-v1/Screen5.wav",
       "bus": "voice",
       "loop": false,
-      "playbackEnabled": false,
+      "playbackEnabled": true,
       "file": "Screen5.wav",
       "bytes": 2349238,
       "sha256": "7390adab0bae900c113ec5bcd9bf2d9c1233e581178a0dcef75787485ee5b0e0",
@@ -85,7 +85,8 @@
       "channels": 2,
       "sampleRate": 44100,
       "bitsPerSample": 16,
-      "waveFormatTag": 1
+      "waveFormatTag": 1,
+      "verification": "Enabled on the photo screen by the user on 2026-10-06, as recorded. The bank marked it as not matching the changed photo instructions. Not listened to by the agent."
     },
     {
       "assetId": "stella.Screen6",

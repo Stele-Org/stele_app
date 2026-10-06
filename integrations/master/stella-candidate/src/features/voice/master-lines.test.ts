@@ -14,6 +14,7 @@ const lines: [string, ScreenState][] = [
   ['Screen2', { type: 'vk-question', index: 0, answers: [] }],
   ['Screen3', { type: 'vk-question', index: 1, answers: [] }],
   ['Screen4', { type: 'vk-question', index: 2, answers: [] }],
+  ['Screen5', { type: 'vk-digitize', answers: [], rankedThemes: [], discoveryAnswerId: 'hero' }],
   ['Screen8', { type: 'vk-final', themes: [] }],
   ['Screen_Scan', { type: 'vk-scanning', themes: [] }],
 ]
@@ -35,11 +36,8 @@ it('names only recordings that exist in the local voice folder', () => {
   }
 })
 
-it('keeps the photo and camera lines silent in both modes until matching recordings exist', () => {
-  expect(Object.keys(bank.pending)).toEqual(['Screen5', 'Screen6'])
-  const silent: ScreenState[] = [
-    { type: 'vk-digitize', answers: [], rankedThemes: [], discoveryAnswerId: 'hero' },
-    { type: 'vk-camera', themes: [] },
-  ]
+it('keeps the camera line silent in both modes until a matching recording exists', () => {
+  expect(Object.keys(bank.pending)).toEqual(['Screen6'])
+  const silent: ScreenState[] = [{ type: 'vk-camera', themes: [] }]
   for (const screen of silent) expect(getReadyNarrationAsset(publicManifest as VoiceManifest, narrationId(screen))).toBeUndefined()
 })

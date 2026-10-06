@@ -52,6 +52,15 @@
       "bytes": 430126,
       "replaced": "vk-scanning.wav",
       "note": "Copied on 2026-10-06: the user added Screen_Scan to the master bank as the line of the scanning screen. The stand mode does not play it yet."
+    },
+    {
+      "cue": "vk-digitize",
+      "asset": "vk-digitize-studio.wav",
+      "source": "public/audio/vk-production-v1/Screen5.wav",
+      "sha256": "7390adab0bae900c113ec5bcd9bf2d9c1233e581178a0dcef75787485ee5b0e0",
+      "bytes": 2349238,
+      "replaced": "vk-digitize.wav",
+      "note": "Copied on 2026-10-06 when the user asked to enable Screen5. Enabled on the photo screen by the user on 2026-10-06, as recorded. The bank marked it as not matching the changed photo instructions. Not listened to by the agent."
     }
   ],
   "alreadyIdentical": [
@@ -63,7 +72,7 @@
       "supersededBy": "vk-discovery-timed-studio.wav: the same two phrases with pauses matched to the Discovery scene, see discovery-timing-provenance.json"
     }
   ],
-  "notCopied": "Screen5 and Screen6 (photo, camera): the master mode does not play them either, their text no longer matches the approved copy. The local cues vk-digitize and vk-camera stay pending.",
-  "verification": "SHA256 equality with the master bank only. The words spoken in Screen1, Screen2, Screen3, Screen4, Screen8 and Screen_Scan were not transcribed or listened to by the agent.",
-  "format": "Screen1, Screen2, Screen3, Screen4, Screen8, Screen_Scan: PCM 16 bit, 44.1 kHz, stereo."
+  "notCopied": "Screen6 (camera): the master mode does not play it either, by the note of the bank it speaks the Discovery activation instead of the camera instruction. The local cue vk-camera stays pending.",
+  "verification": "SHA256 equality with the master bank only. The words spoken in Screen1, Screen2, Screen3, Screen4, Screen5, Screen8 and Screen_Scan were not transcribed or listened to by the agent.",
+  "format": "Screen1, Screen2, Screen3, Screen4, Screen5, Screen8, Screen_Scan: PCM 16 bit, 44.1 kHz, stereo."
 }

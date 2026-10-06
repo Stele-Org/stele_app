@@ -23,9 +23,10 @@ export function masterNarration(screen: string, questionIndex?: number): AudioCu
   switch (screen) {
     case 'onboarding': return 'Screen1'
     case 'question': return (['Screen2', 'Screen3', 'Screen4'] as const)[questionIndex ?? -1] ?? null
-    // Approved photo/camera scripts await matching recordings. Their
-    // legacy files stay in the source bank but must never substitute new copy.
-    case 'photochoice':
+    // Enabled by the user on 06.10.2026 as recorded, although the bank marked it as not matching the changed photo copy.
+    case 'photochoice': return 'Screen5'
+    // The approved camera script awaits a matching recording. Its legacy file
+    // stays in the source bank but must never substitute new copy.
     case 'camera': return null
     // Enabled by the user on 05.10.2026 as recorded, although it differs from the approved final copy.
     case 'final': return 'Screen8'
