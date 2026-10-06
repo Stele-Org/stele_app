@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { fileURLToPath } from 'node:url'
-import { photoStorage } from './dev-server/photo-storage'
+import { photoStorage } from './dev-server/photo-storage.ts'
 
 const root = fileURLToPath(new URL('../../../', import.meta.url))
 const candidateRoot = fileURLToPath(new URL('.', import.meta.url))

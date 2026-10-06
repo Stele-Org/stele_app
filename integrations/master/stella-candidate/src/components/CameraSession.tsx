@@ -6,8 +6,10 @@ import { readCameraPolicy, type CameraPolicy } from './camera-policy'
 /** One application-owned video-only stream; screens only attach previews. */
 export function CameraSessionProvider({ children }: { children: ReactNode }) {
   const [session, setSession] = useState<CameraSession>({ stream: null, status: 'requesting' })
-  // The address is not even read in a build: the bundler drops this branch together with the reader.
-  const [policy] = useState<CameraPolicy>(() => import.meta.env.DEV ? readCameraPolicy(window.location.search) : 'unique-brio-exact')
+  // The stand build is neither the dev server nor a test build: there the bundler drops this branch together with
+  // the reader, and the address is not even read.
+  const [policy] = useState<CameraPolicy>(() => import.meta.env.DEV || import.meta.env.VITE_STELLA_TEST_BUILD === '1'
+    ? readCameraPolicy(window.location.search) : 'unique-brio-exact')
   const requester = useRef<() => void>(() => {})
   const requestAccess = useCallback(() => requester.current(), [])
   useEffect(() => {

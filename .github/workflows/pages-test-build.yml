@@ -1,0 +1,53 @@
+# Publishes a test build of the Stella UI to GitHub Pages for testers outside the stand.
+# Started by hand only: Actions -> "Test build to GitHub Pages" -> Run workflow.
+# Steps for the repository settings and for the testers: apps/stella-prototype/docs/GITHUB_PAGES.md
+#
+# The build differs from the stand build in one variable, VITE_STELLA_TEST_BUILD=1: any camera instead of the
+# stand's BRIO, the greeting on the start screen, and one press before the application starts.
+# A Pages site is public: publish only what may be shown outside the project (NOTICE.md).
+name: Test build to GitHub Pages
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: integrations/master/stella-candidate
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: integrations/master/stella-candidate/package-lock.json
+      - run: npm ci --ignore-scripts
+      # A project site lives under /<repository>/, not under the /stella/ of the stand.
+      - run: npm run build -- --base=/${{ github.event.repository.name }}/
+        env:
+          VITE_STELLA_TEST_BUILD: '1'
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: integrations/master/stella-candidate/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
