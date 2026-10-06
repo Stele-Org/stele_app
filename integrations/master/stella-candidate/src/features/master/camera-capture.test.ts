@@ -46,3 +46,19 @@ it('encodes a 90 degree clockwise portrait frame before JPEG encoding', async ()
   expect(context.rotate.mock.invocationCallOrder[0]).toBeLessThan(context.drawImage.mock.invocationCallOrder[0])
   expect([canvas.width, canvas.height]).toEqual([0, 0])
 })
+
+it('encodes the frame of an upright camera as it comes, without the turn', async () => {
+  const context = { drawImage: vi.fn(), translate: vi.fn(), rotate: vi.fn() }
+  let encodedSize: number[] = []
+  const canvas = { width: 0, height: 0, getContext: () => context, toBlob: (callback: BlobCallback) => {
+    encodedSize = [canvas.width, canvas.height]
+    callback(new Blob(['jpeg'], { type: 'image/jpeg' }))
+  } }
+  vi.spyOn(document, 'createElement').mockReturnValue(canvas as unknown as HTMLCanvasElement)
+  const source = video()
+  await capturePhoto(source, new AbortController().signal, true)
+  expect(encodedSize).toEqual([960, 540])
+  expect(context.translate).not.toHaveBeenCalled()
+  expect(context.rotate).not.toHaveBeenCalled()
+  expect(context.drawImage).toHaveBeenCalledExactlyOnceWith(source, 0, 0, 960, 540)
+})

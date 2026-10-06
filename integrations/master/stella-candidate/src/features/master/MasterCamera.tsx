@@ -16,7 +16,7 @@ interface Props {
   onTermsOpenChange?: (open: boolean) => void
 }
 function Capture({ fence, enabled, upload, skip, onTermsOpenChange }: Props) {
-  const { status, requestAccess } = useCameraSession()
+  const { status, requestAccess, upright } = useCameraSession()
   const video = useRef<HTMLVideoElement>(null)
   const [appearance, setAppearance] = useState<'male' | 'female' | null>(null)
   const [consent, setConsent] = useState(false)
@@ -38,7 +38,7 @@ function Capture({ fence, enabled, upload, skip, onTermsOpenChange }: Props) {
     try {
       if (!pending.current) {
         if (!video.current) throw Error('Камера недоступна')
-        const blob = await capturePhoto(video.current, signal)
+        const blob = await capturePhoto(video.current, signal, upright)
         const imageBase64 = await photoBase64(blob, signal)
         pending.current = { fence: { ...fence }, payload: { captureId: crypto.randomUUID(), expectedRevision: fence.revision,
           appearance, consent: { accepted: true, version: 'poster-v1' }, imageBase64 } }

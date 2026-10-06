@@ -12,7 +12,7 @@
 .\scripts\stella.ps1 dev      # http://127.0.0.1:5218/stella/
 ```
 
-Системный Node.js не используется и не меняется. Все команды и порядок работы с git: [docs/context/DEV_WORKFLOW.md](docs/context/DEV_WORKFLOW.md). Сцены из Claude Design — показ тегов VK Видео и Discovery — работают внутри приложения. Предпросмотр в dev-сервере: `/stella/?reveal=series` и `/stella/?discovery=generation`. Исходные страницы прототипа: [artifacts/DESIGN/claude-design-stela-20261005](artifacts/DESIGN/claude-design-stela-20261005/README.md).
+Системный Node.js не используется и не меняется. Ссылки для запуска всех конфигураций (мастер, приветствие, любая камера, предпросмотры): [LINKS.md](LINKS.md). Все команды и порядок работы с git: [docs/context/DEV_WORKFLOW.md](docs/context/DEV_WORKFLOW.md). Сцены из Claude Design — показ тегов VK Видео и Discovery — работают внутри приложения. Предпросмотр в dev-сервере: `/stella/?reveal=series` и `/stella/?discovery=generation`. Исходные страницы прототипа: [artifacts/DESIGN/claude-design-stela-20261005](artifacts/DESIGN/claude-design-stela-20261005/README.md).
 
 ## Быстрый старт
 
@@ -47,6 +47,8 @@ npm --prefix integrations/master/stella-candidate run build
 ## Камера и локальный браузер
 
 На стенде Electron44.4.5 выдаёт video-only разрешение своему origin/main frame. В обычном браузере нового разработчика сначала разрешите камеру для localhost и перезагрузите страницу: если браузер скрывает имена устройств, строгий поиск BRIO завершится labels-unavailable и НЕ откроет другую камеру для получения permission prompt. Нужна подключённая BRIO. Автоповтор после USB-переподключения в этой версии не реализован; требуется перезапуск.
+
+Для разработки без BRIO в dev-сервере есть переключатель: http://127.0.0.1:5218/stella/?camera=any открывает камеру браузера по умолчанию и показывает её без поворота на 90°. В собранном приложении и на стенде переключателя нет.
 
 ## MASTER и звук
 

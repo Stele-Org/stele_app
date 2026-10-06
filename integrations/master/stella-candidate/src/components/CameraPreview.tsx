@@ -8,7 +8,7 @@ import './camera-preview.css'
 export function CameraPreview({ active, captureRef }: { active: boolean; captureRef?: RefObject<HTMLVideoElement | null> }) {
   const internalRef = useRef<HTMLVideoElement>(null)
   const videoRef = captureRef ?? internalRef
-  const { stream, status } = useCameraSession()
+  const { stream, status, upright } = useCameraSession()
   const [failedStream, setFailedStream] = useState<MediaStream | null>(null)
   useEffect(() => {
     const video = videoRef.current
@@ -47,7 +47,7 @@ export function CameraPreview({ active, captureRef }: { active: boolean; capture
   const previewStatus = stream && failedStream === stream ? 'unavailable' : status
   const message = previewStatus === 'requesting' || previewStatus === 'denied' ? 'Разреши доступ к камере'
     : previewStatus === 'unavailable' ? 'Камера недоступна' : null
-  return <div className="camera-preview" data-camera-status={previewStatus}>
+  return <div className="camera-preview" data-camera-status={previewStatus} data-camera-mount={upright ? 'upright' : undefined}>
     <video ref={videoRef} className="camera-preview__video" muted playsInline aria-hidden="true" />
     <img className="camera-preview__discovery" src={discoveryBorder} alt="" aria-hidden="true" draggable={false} />
     {message && <span className="camera-preview__status" role="status">{message}</span>}

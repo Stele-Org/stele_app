@@ -1,10 +1,13 @@
 import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
 import { cameraDevices, cameraDiagnostic, cameraError, cameraTrack } from './camera-diagnostics'
 import { CameraSessionContext, type CameraSession } from './camera-session-context'
+import { readCameraPolicy, type CameraPolicy } from './camera-policy'
 
 /** One application-owned video-only stream; screens only attach previews. */
 export function CameraSessionProvider({ children }: { children: ReactNode }) {
   const [session, setSession] = useState<CameraSession>({ stream: null, status: 'requesting' })
+  // The address is not even read in a build: the bundler drops this branch together with the reader.
+  const [policy] = useState<CameraPolicy>(() => import.meta.env.DEV ? readCameraPolicy(window.location.search) : 'unique-brio-exact')
   const requester = useRef<() => void>(() => {})
   const requestAccess = useCallback(() => requester.current(), [])
   useEffect(() => {
@@ -40,9 +43,15 @@ export function CameraSessionProvider({ children }: { children: ReactNode }) {
       const current = () => !disposed && requestEpoch === epoch
       const started = performance.now()
       const elapsed = () => Math.round(performance.now() - started)
-      cameraDiagnostic('selection.start', { epoch: requestEpoch, policy: 'unique-brio-exact' })
+      cameraDiagnostic('selection.start', { epoch: requestEpoch, policy })
       const slowRequest = pendingDiagnostic = window.setTimeout(() => { if (current() && pending) cameraDiagnostic('request.pending', { epoch: requestEpoch, elapsedMs: elapsed() }) }, 10000)
       const capture = async () => {
+        if (policy === 'any-local') {
+          // Dev server only: the browser's default camera. Asking for it is also what brings up the permission prompt,
+          // which the BRIO search below never reaches on a machine without one.
+          cameraDiagnostic('request.start', { epoch: requestEpoch, elapsedMs: elapsed(), constraints: { video: true, audio: false } })
+          return navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+        }
         const devices = await navigator.mediaDevices.enumerateDevices()
         if (!current()) { cameraDiagnostic('selection.stale', { epoch: requestEpoch }); return null }
         const cameras = devices.filter(device => device.kind === 'videoinput')
@@ -112,6 +121,6 @@ export function CameraSessionProvider({ children }: { children: ReactNode }) {
       window.removeEventListener('pagehide', leave)
       window.removeEventListener('pageshow', restore)
     }
-  }, [])
-  return <CameraSessionContext.Provider value={{ ...session, requestAccess }}>{children}</CameraSessionContext.Provider>
+  }, [policy])
+  return <CameraSessionContext.Provider value={{ ...session, requestAccess, upright: policy === 'any-local' }}>{children}</CameraSessionContext.Provider>
 }

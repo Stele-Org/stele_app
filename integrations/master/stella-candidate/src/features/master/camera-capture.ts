@@ -1,5 +1,6 @@
-/** Browser Canvas2D owns frame sampling/encoding; no face inference or uploads. */
-export async function capturePhoto(video: HTMLVideoElement, signal: AbortSignal): Promise<Blob> {
+/** Browser Canvas2D owns frame sampling/encoding; no face inference or uploads.
+ * `upright` is a developer's own camera (`?camera=any`, dev server only): its frame is encoded as it comes. */
+export async function capturePhoto(video: HTMLVideoElement, signal: AbortSignal, upright = false): Promise<Blob> {
   signal.throwIfAborted()
   const stream = video.srcObject as MediaStream | null
   if (!stream?.getVideoTracks().some(track => track.readyState === 'live' && track.enabled && !track.muted)
@@ -8,14 +9,16 @@ export async function capturePhoto(video: HTMLVideoElement, signal: AbortSignal)
   const scale = Math.min(1, 960 / Math.max(video.videoWidth, video.videoHeight))
   const frameWidth = Math.max(1, Math.round(video.videoWidth * scale))
   const frameHeight = Math.max(1, Math.round(video.videoHeight * scale))
-  canvas.width = frameHeight
-  canvas.height = frameWidth
+  canvas.width = upright ? frameWidth : frameHeight
+  canvas.height = upright ? frameHeight : frameWidth
   try {
     const context = canvas.getContext('2d')
     if (!context) throw Error('Не удалось подготовить снимок')
     // Stand camera is mounted sideways: encode the same 90° clockwise orientation as its preview.
-    context.translate(canvas.width, 0)
-    context.rotate(Math.PI / 2)
+    if (!upright) {
+      context.translate(canvas.width, 0)
+      context.rotate(Math.PI / 2)
+    }
     context.drawImage(video, 0, 0, frameWidth, frameHeight)
     const blob = await new Promise<Blob>((resolve, reject) => canvas.toBlob(value => value ? resolve(value) : reject(Error('Ошибка снимка')), 'image/jpeg', .85))
     signal.throwIfAborted()

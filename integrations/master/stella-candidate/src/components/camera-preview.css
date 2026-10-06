@@ -20,6 +20,13 @@
   opacity: 0;
 }
 
+/* A developer's own camera (?camera=any, dev server only) stands upright: no swapped box, no turn. */
+.camera-preview[data-camera-mount="upright"] .camera-preview__video {
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+}
+
 .camera-preview[data-camera-status="ready"] .camera-preview__video {
   opacity: 1;
 }

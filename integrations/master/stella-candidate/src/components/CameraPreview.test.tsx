@@ -229,3 +229,25 @@ it('does not capture if enumeration fails or start a retry loop', async () => {
   expect(enumerate).toHaveBeenCalledOnce()
   expect(loggedEvents()).toContainEqual(expect.objectContaining({ event: 'request.error', name: 'NotAllowedError' }))
 })
+
+// The developer's switch, dev server only (camera-policy.ts): ?camera=any opens the default camera, upright.
+it('opens the default camera upright when the dev server is asked for any camera, and never without being asked', async () => {
+  const webcam = { kind: 'videoinput', label: 'HD Pro Webcam C920 (046d:082d)', deviceId: 'webcam', groupId: 'webcam-group' } as MediaDeviceInfo
+  enumerate.mockResolvedValue([webcam])
+  // Without the switch a machine with no BRIO gets no camera and no permission prompt.
+  await act(async () => root.render(screen(true)))
+  expect(request).not.toHaveBeenCalled()
+  expect(host.querySelector('[data-camera-status="unavailable"]')).not.toBeNull()
+  expect(host.querySelector('[data-camera-mount]')).toBeNull()
+  await act(async () => root.render(null))
+  window.history.replaceState(null, '', '?camera=any')
+  try {
+    const { stream } = cameraStream(); request.mockResolvedValue(stream)
+    await act(async () => root.render(screen(true)))
+    expect(request).toHaveBeenCalledExactlyOnceWith({ video: true, audio: false })
+    expect(host.querySelector('video')!.srcObject).toBe(stream)
+    expect(host.querySelector('.camera-preview')!.getAttribute('data-camera-status')).toBe('ready')
+    expect(host.querySelector('.camera-preview')!.getAttribute('data-camera-mount')).toBe('upright')
+    expect(loggedEvents()).toContainEqual(expect.objectContaining({ event: 'selection.start', policy: 'any-local' }))
+  } finally { window.history.replaceState(null, '', window.location.pathname) }
+})
