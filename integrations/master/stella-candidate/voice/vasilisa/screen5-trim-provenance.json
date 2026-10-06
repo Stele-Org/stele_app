@@ -1,0 +1,25 @@
+{
+  "asset": "public/audio/vk-production-v1/Screen5.wav",
+  "copies": [
+    "public/voice/vasilisa/vk-digitize-studio.wav"
+  ],
+  "changeDate": "2026-10-06",
+  "change": "User asked to cut Screen5 from the phrase with «Да, давайте» to the end, so that the first two phrases remain.",
+  "source": {
+    "sha256": "7390adab0bae900c113ec5bcd9bf2d9c1233e581178a0dcef75787485ee5b0e0",
+    "bytes": 2349238,
+    "seconds": 13.29,
+    "where": "Git history: the file as committed before this change"
+  },
+  "pausesFound": "Quieter than -50 dB: 0.00-0.26, 1.14-1.40, 5.82-6.12, 7.18-7.44, 8.08-8.36 s. Speech: 0.26-1.12, 1.40-5.82, 6.12-7.16, 7.44-8.08, 8.36-13.2 s.",
+  "kept": "Samples 0-6.0 s unchanged: the first two stretches of speech (0.26-1.12 and 1.40-5.82 s) and the pause after them.",
+  "edit": "Cut at 6.0 s, inside the pause 5.82-6.12 s; the last 40 ms are faded out, their peak is 0.0002 of full scale. Extra chunks of the studio file (JUNK, LGWV, bext) are not carried over. No synthesis or resampling.",
+  "tool": "voice/scripts/trim-line.mjs <source> <target> 6.0 40",
+  "result": {
+    "sha256": "a7870b44f4aaf1ce4249e22713a037cc8ad588c19eb1a47431187680bd4fbd84",
+    "bytes": 1058444,
+    "seconds": 6,
+    "format": "PCM 16 bit, 44100 Hz, 2 channels"
+  },
+  "verification": "By signal level only. The agent did not listen to the recording and did not transcribe it: that the third stretch of speech begins the phrase with «Да, давайте» follows from the user and from the approved text, not from the audio."
+}

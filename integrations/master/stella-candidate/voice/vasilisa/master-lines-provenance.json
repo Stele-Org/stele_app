@@ -57,10 +57,10 @@
       "cue": "vk-digitize",
       "asset": "vk-digitize-studio.wav",
       "source": "public/audio/vk-production-v1/Screen5.wav",
-      "sha256": "7390adab0bae900c113ec5bcd9bf2d9c1233e581178a0dcef75787485ee5b0e0",
-      "bytes": 2349238,
+      "sha256": "a7870b44f4aaf1ce4249e22713a037cc8ad588c19eb1a47431187680bd4fbd84",
+      "bytes": 1058444,
       "replaced": "vk-digitize.wav",
-      "note": "Copied on 2026-10-06 when the user asked to enable Screen5. Enabled on the photo screen by the user on 2026-10-06, as recorded. The bank marked it as not matching the changed photo instructions. Not listened to by the agent."
+      "note": "Copied on 2026-10-06 when the user asked to enable Screen5. Enabled on the photo screen by the user on 2026-10-06 and cut at 6.0 s the same day at their request: the first two phrases stay, everything from the third phrase on is removed. Not listened to by the agent; the cut lies in the pause found by signal level at 5.82-6.12 s."
     }
   ],
   "alreadyIdentical": [
