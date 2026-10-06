@@ -114,7 +114,7 @@ it.each(['familiar', 'new', 'popular'])('VK %s bypasses photo and completes the 
   expect(recommendations).toHaveLength(1)
   expect(recommendations[0]).toMatchObject({ discoveryAnswerId: answer, photoMode: 'not-requested' })
   expect(events.some(event => event.type === 'answer' && event.questionId === 'photo')).toBe(false)
-  expect(host.querySelector('#vk-result-title')?.textContent).toBe('Пройди к левой панели\nVK Видео – там твоя подборка\nоживёт вокруг тебя')
+  expect(host.querySelector('#vk-result-title')?.textContent).toBe('Пройди к экрану\nVK Видео – там твоя подборка\nоживёт вокруг тебя.')
   expect(host.querySelector('.vk-final-direction')).toBeNull()
   expect(host.querySelector('.vk-final-qr img')?.getAttribute('src')).toContain('vk-new-qr')
   expect(host.querySelector('.result-thanks')).toBeNull()
@@ -141,7 +141,7 @@ it('photo terms restore input/focus; accept goes directly to camera, silhouette,
   expect(document.activeElement).toBe(host.querySelector('.digitize-notice'))
   await choose('accept')
   expect(host.querySelector('.question-heading')?.hasAttribute('hidden')).toBe(true)
-  expect(host.querySelector('.digitize-description')?.hasAttribute('hidden')).toBe(true)
+  expect(host.querySelector('.digitize-description')).toBeNull()
   await finishReveal(0, 'vk-camera')
   expect(host.querySelector('[aria-label="Мужской"]')).toBeNull()
   expect(host.querySelector('.vk-camera-button')).not.toBeNull()
@@ -165,15 +165,11 @@ it('photo terms restore input/focus; accept goes directly to camera, silhouette,
   expect(events.some(event => event.type === 'answer' && event.questionId === 'gender')).toBe(false)
 }, 15000)
 
-it('back from photo allows replacing the Discovery answer without publishing a stale recommendation', async () => {
+it('offers no way back from the photo step, only its two answers', async () => {
   await vkThird('hero'); await finishReveal(2, 'vk-digitize')
-  await click('[aria-label="Назад"]'); expect(state()).toBe('vk-question')
-  expect(buttons()).toHaveLength(4)
-  await choose('popular'); await finishReveal(0, 'vk-discovery-activation')
-  const recommendations = events.filter(event => event.type === 'vk-recommendation')
-  expect(recommendations).toHaveLength(1)
-  expect(recommendations[0]).toMatchObject({ discoveryAnswerId: 'popular', photoMode: 'not-requested' })
-  expect(events.some(event => event.type === 'answer-cleared' && event.questionId === 'discovery')).toBe(true)
+  expect(host.querySelector('[aria-label="Назад"]')).toBeNull()
+  expect([...buttons()].map(button => button.dataset.optionId)).toEqual(['accept', 'skip'])
+  expect(events.some(event => event.type === 'answer-cleared' && event.questionId === 'discovery')).toBe(false)
 }, 10000)
 
 it('switches hero grid to photo without retaining the enlarged old heading or static hero image', async () => {
@@ -185,7 +181,15 @@ it('switches hero grid to photo without retaining the enlarged old heading or st
   act(() => flight.onComplete(flight.reveal))
   expect(state()).toBe('vk-digitize')
   expect(host.querySelectorAll('.question-heading h1')).toHaveLength(1)
-  expect(host.querySelector('.question-heading h1')?.textContent).toBe('Сделаем фото?')
+  expect(host.querySelector('.question-heading h1')?.textContent).toBe('Ты – главный герой VK Видео')
+  // The photo step: no description line and no way back, only «Начать» and «Пропустить».
+  expect(host.querySelector('.digitize-description')).toBeNull()
+  expect(host.querySelector('.back-button')).toBeNull()
+  expect([...buttons()].map(button => button.textContent)).toEqual(['Начать', 'Пропустить'])
+  expect(host.querySelector('.digitize-notice')?.textContent).toBe('Отвечая «Начать», вы принимаете условия использования персональных данных.')
+  // The consent line is plain text: it casts no tint or shadow into the cell field, unlike the buttons.
+  expect(host.querySelector('.digitize-notice')?.hasAttribute('data-lc-influence')).toBe(false)
+  expect(buttons()[0].getAttribute('data-lc-influence')).toBe('shadow')
   expect(host.querySelector('#continuous-question-discovery')).toBeNull()
   act(() => flight.onComplete(flight.reveal))
   expect(state()).toBe('vk-digitize')

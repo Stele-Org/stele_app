@@ -44,6 +44,19 @@ describe('accepted VK display wording', () => {
     expect(acceptedVkReveal({ ...reveal, answerCard: { index: 3, tone: 'blue', artworkId: 'rest' } })!.label).toBe('Расслабляющий')
   })
 
+  it('gives the photo step its approved heading and button and drops the description', () => {
+    const skip = { id: 'skip', label: 'Пропустить' }
+    const question: QuestionPresentation = { id: 'photo', product: 'vk-video', prompt: 'Сделаем фото?', description: 'На его основе…',
+      layout: 'photo', answering: false, options: [{ id: 'accept', label: 'Да, давайте' }, skip] }
+    const result = acceptedVkQuestion(question)!
+    expect(result.prompt.replace(/\s+/g, ' ')).toBe('Ты – главный герой VK Видео')
+    expect(result.description).toBeUndefined()
+    expect(result.options).toEqual([{ id: 'accept', label: 'Начать' }, skip])
+    expect(result.options[1]).toBe(skip)
+    expect(question.prompt).toBe('Сделаем фото?')
+    expect(acceptedVkQuestion(result)).toBe(result)
+  })
+
   it('does not replace unknown server wording, null values or MAX display objects', () => {
     expect(acceptedVkAnswerLabel('series', 'Frozen server wording')).toBe('Frozen server wording')
     expect(acceptedVkAnswerLabel(undefined, 'Чтобы смеяться')).toBe('Чтобы смеяться')

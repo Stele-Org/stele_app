@@ -12,12 +12,13 @@ describe('approved VK copy and preserved MAX copy', () => {
       'Расскажи, какой контент ты любишь',
       'Получи персональную подборку от технологии Discovery',
     ])
-    expect(vkCopy.digitizeDescription.replace(/\s+/g, ' ')).toBe('На его основе превратим тебя в главного героя твоей персональной подборки')
   })
 
   it('uses the new three-question VK script and conditional photo step', () => {
-    expect(vkCopy.digitizeQuestion).toBe('Сделаем фото?')
-    expect(`${vkCopy.digitizeNoticePrefix}${vkCopy.digitizeNoticeAction}.`).toBe('Отвечая «Да, давайте», вы принимаете условия использования персональных данных.')
+    expect(vkCopy.digitizeQuestion.replace(/\s+/g, ' ')).toBe('Ты – главный герой VK Видео')
+    expect(vkCopy.digitizeAccept).toBe('Начать')
+    expect('digitizeDescription' in vkCopy).toBe(false)
+    expect(`${vkCopy.digitizeNoticePrefix}${vkCopy.digitizeNoticeAction}.`).toBe('Отвечая «Начать», вы принимаете условия использования персональных данных.')
     expect(vkQuestions.map(({ options }) => options.length)).toEqual([4, 4, 4])
     expect(vkQuestions[0].prompt).toBe('У вас внезапно освободился вечер. Что включаем?')
     expect(vkQuestions[1].options.map(option => option.label)).toEqual(['Драйвовый', 'Захватывающий', 'Познавательный', 'Расслабляющий'])
@@ -34,7 +35,7 @@ describe('approved VK copy and preserved MAX copy', () => {
   it('keeps the start invitation and sends each branch to its panel', () => {
     expect(onboardingCopy.voice).toBe('Со мной можно говорить своими словами. Скажи, например, «поехали»')
     expect(maxTransitionPrompt).toBe('Пройди к правой панели,\nчтобы начать')
-    expect(vkCopy.finalDirection.replace(/\s+/g, ' ')).toBe('Пройди к левой панели VK Видео – там твоя подборка оживёт вокруг тебя')
+    expect(vkCopy.finalDirection.replace(/\s+/g, ' ')).toBe('Пройди к экрану VK Видео – там твоя подборка оживёт вокруг тебя.')
   })
 
   it('uses the new Discovery activation screen copy', () => {

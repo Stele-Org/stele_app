@@ -36,6 +36,7 @@ it('bypasses photo UI for a non-hero through one advertised fenced skip, and kee
       view: { screen: 'photochoice', title: 'Сделаем фото?', options: [{ id: 'accept', label: 'Да, давайте' }, { id: 'skip', label: 'Пропустить' }] } } } as Snapshot
   try {
     act(() => mocks.emit!(choice))
+    expect(host.textContent).not.toContain('главный герой')
     expect(host.textContent).not.toContain('Сделаем фото?')
     expect(mocks.choosePhoto).toHaveBeenCalledExactlyOnceWith({ sessionId: 's', revision: 10, screen: 'photochoice' }, 'skip')
     act(() => mocks.emit!(structuredClone(choice)))
@@ -43,7 +44,9 @@ it('bypasses photo UI for a non-hero through one advertised fenced skip, and kee
     const hero = structuredClone(choice); hero.session!.state!.sessionId = 'hero-session'; hero.station!.sessionId = 'hero-session'
     hero.session!.state!.answers![2].answerId = 'hero'
     act(() => mocks.emit!(hero))
-    expect(host.textContent).toContain('Сделаем фото?')
+    // The stand shows the approved heading of the photo step instead of the server wording.
+    expect(host.textContent).toContain('Ты – главный герой VK Видео')
+    expect(host.textContent).not.toContain('Сделаем фото?')
     expect(mocks.choosePhoto).toHaveBeenCalledOnce()
   } finally { act(() => root.unmount()) }
 })

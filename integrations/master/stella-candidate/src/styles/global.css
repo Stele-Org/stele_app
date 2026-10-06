@@ -280,8 +280,9 @@ h1, h2, p { margin: 0; }
 .answer-flight--vk-video .lc-scene-pill { border: 2px solid #FF2B4266; color: #fff; }
 .answer-flight--vk-video .lc-scene-pill[data-selected] { border-color: #0040FF99; }
 /* Next background iteration: continuous shadows, without pixel-light halos. */
-.stella-content .ring-tag:not(.product-tag), .answer-flight .lc-scene-pill { box-shadow: 0 14px 36px #00002166; }
-.stella-content .ring-tag:not(.product-tag):hover:not(:disabled) { box-shadow: 0 18px 42px #00002180; }
+/* The consent line is plain text: no plate and no shadow under it (user, 06.10.2026). */
+.stella-content .ring-tag:not(.product-tag, .digitize-notice), .answer-flight .lc-scene-pill { box-shadow: 0 14px 36px #00002166; }
+.stella-content .ring-tag:not(.product-tag, .digitize-notice):hover:not(:disabled) { box-shadow: 0 18px 42px #00002180; }
 [data-screen='vk-camera'] .scan-copy { top: 510px; display: flex; flex-direction: column; align-items: center; }
 [data-screen='vk-camera'] .scan-copy h1 { order: 0; font-size: 36px; }
 [data-screen='vk-camera'] .scan-copy > svg { order: 1; margin: 170px 0 0; width: 140px; height: 140px; padding: 34px; border-radius: 36px; background: #FF2B42; stroke-width: 2; }

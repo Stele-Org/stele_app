@@ -1,7 +1,9 @@
 // Claude Design «D1 пульс + нейросеть», принято 05.10.2026: the dot pattern appears, rests, pulses,
 // unfolds into a working neural network, returns to the same frame and ends with a wave.
 // Geometry and timings are the accepted prototype's (artifacts/DESIGN/claude-design-stela-20261005),
-// except its end: the final wave crosses the screen half a second faster and the closing hold is gone, so the scenario leaves for the final screen as soon as the wave has passed.
+// except its end: the final wave crosses the screen half a second faster, takes the dots away behind its front
+// (user, 06.10.2026) and the closing hold is gone, so the scenario leaves for the final screen as soon as the wave
+// has passed and the space is empty.
 
 /** Authored on the 1080 × 1920 canvas; dots never rise above the logo line. The wave ends at 22.26 s. */
 export const DISCOVERY_NETWORK_SECONDS = 22.3
@@ -16,6 +18,8 @@ const RETURN_AT = 19.8
 const WAVE_AT = 21.5
 const WAVE_SECONDS = 0.76
 const WAVE_RADIUS = 1250
+/** Half the width of the crest; a dot the front has passed by this far is gone. */
+const WAVE_CREST = 110
 const CENTER = { x: 555, y: 1150 }
 const LINK_DISTANCE = 130
 const LINK_BUCKETS = 16
@@ -85,17 +89,19 @@ export function discoveryNetworkFrame(dots: DiscoveryDot[], time: number): Disco
     level = level / 6 + 0.5
     let radius = dot.radius + (1.5 + 12 * level ** 3 - dot.radius) * pulse
     const fromCenter = Math.hypot(dot.x - CENTER.x, dot.y - CENTER.y)
-    let crest = 0
-    if (wave > 0 && wave < 1) {
-      const gap = Math.abs(fromCenter - waveRadius)
-      if (gap < 110) crest = (1 - gap / 110) ** 2 * (1 - wave * 0.4)
+    // A dot swells on the crest and is gone once the front has passed: the wave leaves empty space behind it.
+    let crest = 0, swept = 0
+    if (wave > 0) {
+      const behind = waveRadius - fromCenter, gone = clamp(behind / WAVE_CREST)
+      if (wave < 1 && Math.abs(behind) < WAVE_CREST) crest = (1 - Math.abs(behind) / WAVE_CREST) ** 2 * (1 - wave * 0.4)
+      swept = gone * gone * (3 - 2 * gone)
     }
     radius += crest * (dot.alpha === 1 ? 6 : 7)
     // The pattern grows from the centre of the form outwards, each dot with a small overshoot.
     const appear = clamp(time - fromCenter / 1300 * APPEAR_SPREAD - dot.h * 0.3)
     if (appear < 1) radius *= back(appear)
-    const alpha = Math.min(1, (dot.alpha < 1 ? Math.max(dot.alpha, pulse * (0.4 + 0.5 * level)) : 1) + crest * 0.5) * clamp(appear * 2)
-    return { x, y, radius: Math.max(0, radius), alpha, h: dot.h }
+    const alpha = Math.min(1, (dot.alpha < 1 ? Math.max(dot.alpha, pulse * (0.4 + 0.5 * level)) : 1) + crest * 0.5) * clamp(appear * 2) * (1 - swept)
+    return { x, y, radius: Math.max(0, radius) * (1 - swept), alpha, h: dot.h }
   })
   return { points, pulse, network }
 }

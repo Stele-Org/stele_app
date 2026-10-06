@@ -30,7 +30,7 @@ export function questionPresentation(screen: ScreenState): QuestionPresentation 
   }
   if (screen.type === 'vk-digitize' || screen.type === 'vk-photo-reveal') {
     return { id: 'photo', product: 'vk-video', layout: 'photo', prompt: vkCopy.digitizeQuestion,
-      description: vkCopy.digitizeDescription, options: vkPhotoOptions, answering: screen.type === 'vk-photo-reveal',
+      options: vkPhotoOptions, answering: screen.type === 'vk-photo-reveal',
       selectedIndex: screen.type === 'vk-photo-reveal' ? vkPhotoOptions.findIndex(option => option.id === screen.answerId) : undefined }
   }
   if (screen.type === 'vk-gender') return { id: 'gender', product: 'vk-video', layout: 'gender', prompt: vkCopy.genderPrompt,

@@ -1,6 +1,6 @@
 import { createContext, useContext, useCallback, useEffectEvent, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { AnimatePresence, useAnimate, usePresence } from 'motion/react'
-import { animate as animateValue, type AnimationPlaybackControls } from 'motion'
+import type { AnimationPlaybackControls } from 'motion'
 import { ChevronRight } from 'lucide-react'
 import type { QuestionPresentation } from '../features/prototype/question-presentation'
 import type { TagReveal } from '../features/prototype/tag-reveal'
@@ -14,6 +14,7 @@ import { RingActions } from './RingActions'
 import { RingTag } from './RingTag'
 import { referenceCards, vkCardLines } from './ux-artwork'
 import { CameraPreview } from './CameraPreview'
+import { animateFieldShadow } from './field-shadow'
 
 // Exiting children still receive playback changes through this persistent context.
 const Playback = createContext(true)
@@ -21,16 +22,10 @@ const Playback = createContext(true)
 /** The shadow a landed card or button casts in the cell field (RingTag's own default). */
 const FIELD_SHADOW = 1
 
-/** LumiCells shadows any element that has a box, visible or not, so the shadow of an arriving element has to arrive
- * with it: otherwise a card that is still transparent already hides the field behind it.
- * Twenty steps keep the attribute mutations rare, as in TagDissolve. */
+/** The shadow of an arriving element arrives with it (field-shadow.ts): otherwise a card that is still transparent
+ * already hides the field behind it. */
 function arriveShadow(element: Element, delayMs: number) {
-  const write = (value: number) => {
-    const strength = String(Math.round(value * 20) / 20)
-    if (element.getAttribute('data-lc-strength') !== strength) element.setAttribute('data-lc-strength', strength)
-  }
-  write(0)
-  return animateValue(0, FIELD_SHADOW, { duration: ARRIVE_MS / 1000, delay: delayMs / 1000, ease: ARRIVE_EASE, onUpdate: write })
+  return animateFieldShadow(element, 0, FIELD_SHADOW, { durationMs: ARRIVE_MS, delayMs, ease: ARRIVE_EASE })
 }
 
 function useSoftPresence(kind: 'card' | 'copy' | 'heading', order = 0, onReady?: () => void) {
@@ -218,7 +213,8 @@ export function ContinuousQuestions({ question, reveal, playing, onSelect, onBac
             </AnimatePresence>
             {!question.answering && <>
               {children && <Extra key={`extra:${question.id}`} withQuestion={readyPhase !== phase}>{children}</Extra>}
-              {backEnabled && <Extra key={`back:${question.id}`} withQuestion={readyPhase !== phase}><BackButton product={question.product} onClick={() => { if (enabled) onBack() }} /></Extra>}
+              {/* The photo step has no way back (user, 06.10.2026): it is answered by «Начать» or «Пропустить». */}
+              {backEnabled && question.layout !== 'photo' && <Extra key={`back:${question.id}`} withQuestion={readyPhase !== phase}><BackButton product={question.product} onClick={() => { if (enabled) onBack() }} /></Extra>}
             </>}
           </RingActions>
         </div>

@@ -220,14 +220,7 @@ export function Prototype() {
         publisher.clear('max', 'audience')
         setScreen({ type: 'max-audience' })
         break
-      case 'vk-digitize':
-        publisher.clear('vk-video', 'discovery')
-        setScreen({
-          type: 'vk-question',
-          index: 2,
-          answers: screen.answers,
-        })
-        break
+      // The photo step (vk-digitize) has no back button: user, 06.10.2026.
       case 'vk-gender':
         publisher.clear('vk-video', 'photo')
         setScreen({ type: 'vk-digitize', answers: screen.answers, rankedThemes: screen.rankedThemes, discoveryAnswerId: 'hero' })
@@ -467,7 +460,7 @@ export function Prototype() {
             <ContinuousQuestions key={`${continuousQuestion.product}:${continuousQuestion.layout}`} question={continuousQuestion} reveal={tagReveal} playing={playing && !termsMounted} interactionKey={termsMounted}
               showProductMark={product !== 'vk-video'}
               onSelect={selectQuestion} onBack={goBack} onComplete={completeAnswerFlight}>
-              {screen.type === 'vk-digitize' && <RingTag ref={termsTriggerRef} navigation className="digitize-notice"
+              {screen.type === 'vk-digitize' && <RingTag ref={termsTriggerRef} navigation flat className="digitize-notice"
                 aria-haspopup="dialog" aria-expanded={termsMounted} onClick={() => setTermsMounted(true)}>
                 {vkCopy.digitizeNoticePrefix}<span className="digitize-terms-link">{vkCopy.digitizeNoticeAction}</span>.
               </RingTag>}

@@ -21,9 +21,10 @@ it('fills the whole frame below the logo with a form of large dots and a field o
 
 it('ends with the wave, without the closing hold of the prototype', () => {
   expect(DISCOVERY_NETWORK_SECONDS).toBe(22.3)
-  // Shortly before the end the wave is still crossing the far corners.
-  const late = frame(22.1).points
-  expect(late.some((point, i) => point.radius > dots[i].radius + 0.01)).toBe(true)
+  // Shortly before the end the wave is still crossing the far corners, and everything nearer is already swept away.
+  const late = frame(22.1).points, far = (i: number) => Math.hypot(dots[i].x - 555, dots[i].y - 1150)
+  expect(late.some((point, i) => far(i) > 900 && point.radius > 0.3 && point.alpha > 0.02)).toBe(true)
+  expect(late.every((point, i) => far(i) > 870 || point.radius === 0)).toBe(true)
 })
 
 it('starts empty, grows from the centre and rests on the exact pattern', () => {
@@ -65,17 +66,25 @@ it('pulses for five seconds, then unfolds into the network and works for six', (
   expect(moved.length).toBeGreaterThan(dots.length / 2)
 })
 
-it('returns to the starting frame and ends with a wave that has left the screen', () => {
+it('returns to the starting frame and ends with a wave that sweeps every dot away behind it', () => {
   expect(frame(21.2).network).toBe(0)
-  const crest = frame(21.9).points
+  const before = frame(21.5).points
+  expect(before.every(point => point.radius > 0 && point.alpha > 0)).toBe(true)
+  // Mid-way: dots swell on the crest, the space inside the front is empty, the dots ahead of it are untouched.
+  const crest = frame(21.9).points, radius = (21.9 - 21.5) / 0.76 * 1250
+  const fromCentre = (i: number) => Math.hypot(dots[i].x - 555, dots[i].y - 1150)
   expect(crest.some((point, i) => point.radius > dots[i].radius + 3)).toBe(true)
-  const end = frame(DISCOVERY_NETWORK_SECONDS)
-  expect(end.pulse).toBe(0)
-  expect(end.network).toBe(0)
-  end.points.forEach((point, i) => {
-    expect(point.x).toBe(dots[i].x)
-    expect(point.y).toBe(dots[i].y)
-    expect(point.radius).toBeCloseTo(dots[i].radius)
-    expect(point.alpha).toBeCloseTo(dots[i].alpha)
-  })
+  expect(crest.filter((_, i) => fromCentre(i) < radius - 110).length).toBeGreaterThan(100)
+  expect(crest.every((point, i) => fromCentre(i) >= radius - 110 || (point.radius === 0 && point.alpha === 0))).toBe(true)
+  expect(crest.every((point, i) => fromCentre(i) <= radius + 110 || point.alpha === before[i].alpha)).toBe(true)
+  // A dot never grows back once the front has passed it.
+  const later = frame(22).points
+  expect(later.every((point, i) => fromCentre(i) >= radius || point.radius <= crest[i].radius)).toBe(true)
+  // The scene ends on empty space, and stays empty.
+  for (const time of [22.2, DISCOVERY_NETWORK_SECONDS, 30]) {
+    const end = frame(time)
+    expect(end.network).toBe(0)
+    expect(end.points.every(point => point.radius === 0 && point.alpha === 0)).toBe(true)
+    end.points.forEach((point, i) => { expect(point.x).toBe(dots[i].x); expect(point.y).toBe(dots[i].y) })
+  }
 })

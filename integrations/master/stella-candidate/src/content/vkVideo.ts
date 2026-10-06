@@ -3,12 +3,13 @@ import type { AnswerOption, VkGender, VkQuestion, VkTheme, WeightedOption } from
 // Copy: supplied artifacts/DESIGN/UI/stela/new, October 3. Stable IDs/weights retain the existing data contract.
 // Metadata and score weights: Google Sheets "Метаданные_VK_Видео_и_MAX"; photo skip is overridden by direct user instruction.
 export const vkCopy = {
-  digitizeQuestion: 'Сделаем фото?',
-  digitizeDescription: 'На его основе превратим тебя\nв главного героя твоей\nперсональной подборки',
-  digitizeAccept: 'Да, давайте',
+  // The photo step as changed by the user on 06.10.2026: new heading and button, no description line, no back button.
+  // The non-breaking space keeps the brand name on one line.
+  digitizeQuestion: 'Ты – главный герой VK\u00a0Видео',
+  digitizeAccept: 'Начать',
   digitizeSkip: 'Пропустить',
-  // user-approved: original wording with the requested typo correction.
-  digitizeNoticePrefix: 'Отвечая «Да, давайте», вы принимаете ',
+  // user-approved: the wording with the typo correction requested earlier; the button name follows digitizeAccept.
+  digitizeNoticePrefix: 'Отвечая «Начать», вы принимаете ',
   digitizeNoticeAction: 'условия использования персональных данных',
   // working-draft: short screen heading for the user's requested M/Ж choice.
   genderPrompt: 'Укажи пол',
@@ -16,7 +17,8 @@ export const vkCopy = {
   discoveryActivationTitle: 'Технологии Discovery активированы.',
   discoveryActivationDescription: 'Технологии персонализации Discovery уже начали собирать подборку.',
   finalTitle: 'Готово.\nDiscovery разобрал твои ответы\nи собрал твой профиль интересов:\nтемы, героев, настроение и атмосферу.',
-  finalDirection: 'Пройди к левой панели\nVK Видео – там твоя подборка\nоживёт вокруг тебя',
+  // Changed by the user on 06.10.2026: «к экрану VK Видео» instead of «к левой панели», with the final full stop.
+  finalDirection: 'Пройди к экрану\nVK Видео – там твоя подборка\nоживёт вокруг тебя.',
   // user-approved in the earlier direct request; the new document does not specify this control.
   thanks: 'спасибо',
   finalQrCaption: 'Узнай больше о Discovery',

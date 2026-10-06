@@ -1,4 +1,4 @@
-import { vkQuestions } from '../../content/vkVideo'
+import { vkCopy, vkPhotoOptions, vkQuestions } from '../../content/vkVideo'
 import type { QuestionPresentation } from '../prototype/question-presentation'
 import type { TagReveal } from '../prototype/tag-reveal'
 
@@ -10,8 +10,18 @@ export function acceptedVkAnswerLabel(answerId: string | undefined, serverLabel:
   return (answerId !== undefined && acceptedLabels.get(answerId)) || serverLabel
 }
 
+/** The photo step: the heading and the button approved on 06.10.2026, without the description line. */
+function acceptedPhotoStep(question: QuestionPresentation): QuestionPresentation {
+  const accept = vkPhotoOptions[0]
+  const options = question.options.map(option => option.id === accept.id && option.label !== accept.label ? { ...option, label: accept.label } : option)
+  if (question.prompt === vkCopy.digitizeQuestion && question.description === undefined
+    && options.every((option, index) => option === question.options[index])) return question
+  return { ...question, prompt: vkCopy.digitizeQuestion, description: undefined, options }
+}
+
 export function acceptedVkQuestion(question: QuestionPresentation | null): QuestionPresentation | null {
   if (!question || question.product !== 'vk-video') return question
+  if (question.layout === 'photo') return acceptedPhotoStep(question)
   if (!question.options.some(option => acceptedVkAnswerLabel(option.id, option.label) !== option.label)) return question
   return { ...question, options: question.options.map(option => {
     const label = acceptedVkAnswerLabel(option.id, option.label)
