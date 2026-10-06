@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest'
+import { vkCardLines } from '../components/ux-artwork'
 import { onboardingCopy, onboardingIntroductions } from './onboarding'
 import { vkCopy, vkQuestions } from './vkVideo'
 import { maxTransitionPrompt } from './max'
@@ -23,6 +24,11 @@ describe('approved VK copy and preserved MAX copy', () => {
     expect(vkQuestions[2].prompt).toBe('Рекомендации Discovery решили немного вас удивить. Что показывать?')
     expect(vkQuestions[2].options[2].id).toBe('hero')
     expect(vkQuestions[2].options[3].label).toBe('То, чем прямо сейчас увлечены все')
+  })
+
+  it('breaks the card text of the local scenario into lines without changing the words of the answer', () => {
+    const labels = new Map(vkQuestions.flatMap(question => question.options.map(option => [option.id as string, option.label])))
+    for (const [id, lines] of Object.entries(vkCardLines)) expect(lines.replace(/\s+/g, ' '), id).toBe(labels.get(id))
   })
 
   it('keeps the start invitation and sends each branch to its panel', () => {

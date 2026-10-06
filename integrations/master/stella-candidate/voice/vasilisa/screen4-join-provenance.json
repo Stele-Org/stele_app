@@ -1,0 +1,36 @@
+{
+  "asset": "public/audio/vk-production-v1/Screen4.wav",
+  "copies": [
+    "public/voice/vasilisa/vk-question-discovery-studio.wav"
+  ],
+  "changeDate": "2026-10-06",
+  "change": "User asked to leave only the question in the voice track of the third question, remove the old tail, make a pause of one second after the question and then add the content of the file Hero_filler.",
+  "question": {
+    "sha256": "02f7fb031506fce6921964941cfc4b11cf119f3cea8ed16d54e2b718d983d65b",
+    "bytes": 2604332,
+    "seconds": 14.731,
+    "where": "Git history: Screen4.wav as committed before this change",
+    "speechFound": "Louder than -48 dB: 0.16-3.36, 3.64-4.54, 4.83-7.15, 7.42-9.69, 9.95-12.11, 12.37-14.62 s. The second stretch decays to the noise floor by 4.58 s; the pause after it lasts until 4.81 s.",
+    "kept": "Samples 0-4.7 s unchanged: the first two stretches of speech and the beginning of the pause after them. The question on the screen has two sentences («Рекомендации Discovery решили немного вас удивить. Что показывать?»), and the two stretches (3.2 s and 0.9 s) fit them; the four stretches of 2.2-2.3 s after them fit the four answers.",
+    "cut": "At 4.7 s, inside the pause 4.58-4.81 s; the last 40 ms are faded out, their peak is 0.0003 of full scale."
+  },
+  "continuation": {
+    "file": "Hero_filler.wav",
+    "sha256": "6096bdb95b74035d1d8b87118e3e0bcc348e583964224c53280dcfcc99511ebf",
+    "bytes": 972840,
+    "seconds": 5.5,
+    "pcmSha256": "b1e38caaaad2e09fbf90fa32a295b02ab559d562d82102404bd784df2e16944b",
+    "where": "Supplied by the user in public/audio/vk-production-v1 on 2026-10-06; not committed. Its samples are carried unchanged at the end of Screen4.",
+    "speechFound": "Louder than -48 dB: 0.03-1.08 and 1.36-5.11 s of 5.5 s.",
+    "placed": "The whole recording, sample for sample, from 5.55 s: its speech begins 1.0 s after the question dies away at 4.58 s. Digital silence between 4.7 and 5.55 s."
+  },
+  "tool": "voice/scripts/join-lines.mjs <Screen4> 4.7 <Hero_filler> 5.55 <target> 40",
+  "result": {
+    "sha256": "a78d0293df7c2cc83b8fdfe3c24ecfa4000d2715714bea65fe5a49acda2a9128",
+    "bytes": 1949264,
+    "seconds": 11.05,
+    "format": "PCM 16 bit, 44100 Hz, 2 channels"
+  },
+  "notCarried": "Extra chunks of the studio files (JUNK, LGWV, bext).",
+  "verification": "By signal level only. The agent did not listen to the recordings and did not transcribe them: that the first two stretches of speech are the question alone follows from the text of the screen and from their lengths, not from the audio."
+}

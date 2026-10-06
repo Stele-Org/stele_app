@@ -29,6 +29,8 @@
 
 06.10.2026, ещё позже: `Screen3` по поручению пользователя собрана из вопроса прежней записи и целого `Choice_filler.wav`, который начинается через секунду после вопроса: `scripts/join-lines.mjs`, подробности в `vasilisa/screen3-join-provenance.json`. Результат скопирован побайтно поверх `vk-question-ideal-content-studio.wav`.
 
+06.10.2026, затем: тем же скриптом `Screen4` собрана из вопроса прежней записи и целого `Hero_filler.wav` через секунду после вопроса (`vasilisa/screen4-join-provenance.json`); результат скопирован побайтно поверх `vk-question-discovery-studio.wav`.
+
 ## Реплики Discovery по хронометражу сцены, 05.10.2026
 
 По поручению пользователя реплики Discovery в локальном сценарии привязаны к сцене «пульс + нейросеть»: первая фраза звучит с 0,5 с, пока появляются точки, вторая — с 6,0 с, вместе с пульсом. Для этого `scripts/time-discovery-line.mjs` собирает `../public/voice/vasilisa/vk-discovery-timed-studio.wav` из `vk-discovery-activation-studio.wav`: обе фразы переносятся отсчёт в отсчёт, меняется только тишина перед ними и между ними (0,5 с и 3,27 с вместо 0 и 0,4 с). Длительность 10,14 с. Синтеза, обрезки и изменения частоты нет. Источник, моменты и SHA — `vasilisa/discovery-timing-provenance.json`; равенство фраз исходной записи проверяет `src/features/voice/discovery-timing.test.ts`.

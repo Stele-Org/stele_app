@@ -23,9 +23,10 @@
       "cue": "vk-question-discovery",
       "asset": "vk-question-discovery-studio.wav",
       "source": "public/audio/vk-production-v1/Screen4.wav",
-      "sha256": "02f7fb031506fce6921964941cfc4b11cf119f3cea8ed16d54e2b718d983d65b",
-      "bytes": 2604332,
-      "replaced": "vk-question-discovery.wav"
+      "sha256": "a78d0293df7c2cc83b8fdfe3c24ecfa4000d2715714bea65fe5a49acda2a9128",
+      "bytes": 1949264,
+      "replaced": "vk-question-discovery.wav",
+      "note": "Copied again on 2026-10-06: Screen4 in the master bank was assembled from its question and Hero_filler.wav (screen4-join-provenance.json). The copy of 2026-10-05 (sha256 02f7fb031506fce6921964941cfc4b11cf119f3cea8ed16d54e2b718d983d65b) was overwritten."
     },
     {
       "cue": "vk-question-ideal-content",

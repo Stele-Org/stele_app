@@ -81,13 +81,16 @@
     },
     {
       "file": "Screen4.wav",
-      "bytes": 2604332,
-      "sha256": "02f7fb031506fce6921964941cfc4b11cf119f3cea8ed16d54e2b718d983d65b",
-      "seconds": 14.73079365079365,
+      "bytes": 1949264,
+      "sha256": "a78d0293df7c2cc83b8fdfe3c24ecfa4000d2715714bea65fe5a49acda2a9128",
+      "seconds": 11.05,
       "channels": 2,
       "sampleRate": 44100,
       "bitsPerSample": 16,
-      "waveFormatTag": 1
+      "waveFormatTag": 1,
+      "source": "Assembled on 2026-10-06 at the user's request from two studio recordings: the question of the previous Screen4 (sha256 02f7fb031506fce6921964941cfc4b11cf119f3cea8ed16d54e2b718d983d65b, its first 4.7 s) and the whole Hero_filler.wav (sha256 6096bdb95b74035d1d8b87118e3e0bcc348e583964224c53280dcfcc99511ebf) from 5.55 s. See voice/vasilisa/screen4-join-provenance.json.",
+      "transcript": null,
+      "verification": "By signal level only. Not transcribed or listened to by the agent. No synthesis."
     },
     {
       "file": "Screen5.wav",

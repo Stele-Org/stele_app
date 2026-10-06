@@ -24,15 +24,13 @@ export const referenceCards: Record<string, string> = {
   business, personal, access: identity, connection, visibility,
 }
 
+// Line breaks for the cards of the local scenario. The words must repeat the answer label in content/vkVideo.ts
+// (copy.test.ts checks it); an answer without an entry is shown by its label as is.
 export const vkCardLines: Record<string, string> = {
   series: 'Новый сериал,\nкоторый все\nобсуждают',
   standup: 'Стендап\nили что-нибудь\nсмешное',
   interview: 'Интервью\nс интересным\nчеловеком',
   science: 'Документалку\nили научпоп',
-  drive: 'Чтобы был азарт\nи драйв',
-  heroes: 'Чтобы\nпереживать\nза героев',
-  learn: 'Чтобы узнать\nчто-то новое',
-  rest: 'Чтобы отключить\nголову и отдохнуть',
   familiar: 'Что-то похожее на то,\nчто я уже люблю',
   new: 'Новое,\nно по теме моих\nинтересов',
   hero: 'Хочу стать героем\nVK Видео',
