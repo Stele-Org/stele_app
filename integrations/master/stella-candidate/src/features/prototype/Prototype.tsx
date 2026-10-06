@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import {
+  Mic,
   X,
 } from 'lucide-react'
 import { OnboardingScreen } from '../../components/OnboardingScreen'
@@ -43,6 +44,9 @@ import { calculateThemeScores, getMaxMission, rankThemes } from './logic'
 import { createBrowserEventSink, createEventPublisher } from './events'
 import { markServiceReady, useServicePlaying } from '../../service'
 import { useScreenNarration } from '../voice/use-screen-narration'
+import { readMicrophone } from '../voice/microphone'
+import { voiceCommands } from '../voice/voice-commands'
+import { useVoiceCommands } from '../voice/use-voice-commands'
 import { useStellaSound } from '../sound/use-stella-sound'
 import { useScanPhoto } from './scan-photo'
 import { storeApprovedPhoto } from './photo-storage-client'
@@ -100,8 +104,21 @@ export function Prototype() {
   const viewportRef = useRef<HTMLDivElement>(null)
   const playing = useServicePlaying()
   // The consent text pauses the screen and its sound effects, but not the voice.
-  useScreenNarration({ screen, playing, brandSplash: enteringProduct !== null })
+  const asked = useScreenNarration({ screen, playing, brandSplash: enteringProduct !== null })
   useStellaSound({ screen, playing, blocked: termsMounted })
+  // The microphone opens when the voice has finished the line of a screen that waits for an answer, and what the
+  // visitor says presses the button they named: the same press as a tap, with its cue and its sound.
+  const [microphone] = useState(() => readMicrophone(window.location.search))
+  const commands = useMemo(() => voiceCommands(screen), [screen])
+  const pressNamed = useCallback((target: string) => {
+    const button = viewportRef.current?.querySelector<HTMLButtonElement>(`${target}:not(:disabled)`)
+    button?.click()
+    return !!button
+  }, [])
+  const listening = useVoiceCommands({
+    active: microphone !== 'off' && asked !== null && playing && !termsMounted && enteringProduct === null,
+    commands, onCommand: pressNamed, debug: microphone === 'debug',
+  })
   const transitionRemaining = useRef<{ screen: ScreenState; remaining: number } | null>(null)
 
   useEffect(() => { void markServiceReady().catch(console.error) }, [])
@@ -352,6 +369,7 @@ export function Prototype() {
           {product === 'vk-video' && !enteringProduct && (
             <header className="stella-product-header"><ProductMark product="vk-video" /></header>
           )}
+          {listening && <div className="microphone-indicator" role="status" aria-label="Микрофон включён"><Mic aria-hidden="true" /></div>}
           <RingActions phaseKey={actionPhase} playing={playing}>
           <main className={`experience experience--${product ?? 'entry'}`} data-screen={screen.type}>
         {enteringProduct ? <BrandSplash product={enteringProduct} playing={playing} onComplete={completeProductEntry} /> : <>

@@ -38,8 +38,8 @@ const manifest = { version: 1, voice: 'Василиса', ready: true, assets: {
 function Harness({ screen = { type: 'vk-onboarding' }, playing = true, brandSplash = false }: {
   screen?: ScreenState; playing?: boolean; brandSplash?: boolean
 }) {
-  useScreenNarration({ screen, playing, brandSplash })
-  return <div data-screen={screen.type} />
+  const spoken = useScreenNarration({ screen, playing, brandSplash })
+  return <div data-screen={screen.type} data-spoken={spoken ?? ''} />
 }
 
 beforeEach(() => {
@@ -102,6 +102,26 @@ it('pauses the same clip for host and hidden state, and never restarts a complet
   await act(async () => root.render(<Harness />))
   expect(sound.play).toHaveBeenCalledTimes(count)
   expect(audio.sounds).toHaveLength(1)
+})
+
+it('reports a line only once it has been spoken to its end, and anew on every return to its screen', async () => {
+  const spoken = () => host.firstElementChild!.getAttribute('data-spoken')
+  await act(async () => root.render(<Harness />))
+  act(() => { audio.sounds[0].emit('load'); audio.sounds[0].emit('play') })
+  expect(spoken()).toBe('')
+  act(() => audio.sounds[0].emit('end'))
+  expect(spoken()).toBe('vk-onboarding')
+  // The scenario pause does not take back what has been said.
+  await act(async () => root.render(<Harness playing={false} />))
+  expect(spoken()).toBe('vk-onboarding')
+  await act(async () => root.render(<Harness screen={{ type: 'max-audience' }} />))
+  expect(spoken()).toBe('')
+  // Back on the first screen its line is played again: it has to be heard out again.
+  await act(async () => root.render(<Harness />))
+  expect(audio.sounds).toHaveLength(3)
+  expect(spoken()).toBe('')
+  act(() => { audio.sounds[2].emit('load'); audio.sounds[2].emit('play'); audio.sounds[2].emit('end') })
+  expect(spoken()).toBe('vk-onboarding')
 })
 
 it('does not speak during splash/reveal and starts onboarding only when it becomes visible', async () => {

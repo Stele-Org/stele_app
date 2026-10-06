@@ -21,10 +21,13 @@ interface ActiveNarration {
 }
 
 /** The voice follows the scenario pause and the visibility of the page, nothing else: opening the consent text
- * leaves it speaking (user, 06.10.2026). */
-export function useScreenNarration({ screen, playing, brandSplash }: NarrationOptions) {
+ * leaves it speaking (user, 06.10.2026).
+ * Returns the line of the current screen once it has been spoken to its end, and null until then: the microphone
+ * opens only after the voice has finished asking, so it never hears the voice itself. */
+export function useScreenNarration({ screen, playing, brandSplash }: NarrationOptions): string | null {
   const [greeting] = useState(() => readGreeting(window.location.search))
   const cue = narrationId(screen, brandSplash, greeting)
+  const [spoken, setSpoken] = useState<string | null>(null)
   const [manifest, setManifest] = useState<VoiceManifest | null>(null)
   const active = useRef<ActiveNarration | null>(null)
   const current = useRef({ cue, allowed: playing })
@@ -77,10 +80,12 @@ export function useScreenNarration({ screen, playing, brandSplash }: NarrationOp
     narration.sound.on('pause', () => { if (!disposed) trace('pause') })
     narration.sound.on('playerror', () => { if (!disposed) { narration.phase = 'blocked'; trace('playerror') } })
     narration.sound.on('loaderror', () => { if (!disposed) { narration.phase = 'ended'; trace('loaderror') } })
-    narration.sound.on('end', () => { if (!disposed) { narration.phase = 'ended'; trace('end') } })
+    narration.sound.on('end', () => { if (!disposed) { narration.phase = 'ended'; trace('end'); setSpoken(cue) } })
     narration.attempt()
     return () => {
       disposed = true
+      // A line that is played again on a return to its screen has to be heard out again.
+      setSpoken(null)
       if (active.current === narration) active.current = null
       narration.sound.off()
       narration.sound.stop()
@@ -119,4 +124,6 @@ export function useScreenNarration({ screen, playing, brandSplash }: NarrationOp
       window.removeEventListener('keydown', synchronize)
     }
   }, [playing])
+
+  return spoken === cue ? spoken : null
 }

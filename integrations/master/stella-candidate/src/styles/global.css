@@ -81,6 +81,10 @@ h1, h2, p { margin: 0; }
 .screen > .product-mark { position: absolute; left: 50%; top: 140px; height: 108px; transform: translateX(-50%); }
 .stella-product-header { position: absolute; left: 50%; top: 140px; height: 108px; transform: translateX(-50%); z-index: 4; pointer-events: none; }
 .stella-product-header > .product-mark { height: 100%; }
+/* Shown only while the microphone is actually on (?mic=1). */
+.microphone-indicator { position: absolute; left: 50%; top: 40px; width: 72px; height: 72px; margin-left: -36px; z-index: 4; display: grid; place-items: center; border-radius: 50%; background: #FFFFFF24; color: #fff; pointer-events: none; animation: microphone-listen 1400ms ease-in-out infinite; }
+.microphone-indicator svg { width: 36px; height: 36px; }
+@keyframes microphone-listen { 0%, 100% { box-shadow: 0 0 0 0 #FFFFFF40; } 50% { box-shadow: 0 0 0 14px #FFFFFF00; } }
 .product-mark__image { display: block; height: 100%; width: auto; max-width: 670px; object-fit: contain; }
 .ring-tag { --tag-color: #0077FF; --tag-glow: #0077FF30; border: 0; border-radius: 40px; background: var(--tag-color); color: #fff; padding: 24px 34px; min-height: 112px; text-align: left; cursor: pointer; box-shadow: 0 0 20px var(--tag-glow); transition: transform 180ms ease-out, opacity 160ms ease, box-shadow 180ms ease; }
 .ring-tag--red { --tag-color: #FF2B42; --tag-glow: #FF2B4230; }
