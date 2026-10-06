@@ -10,7 +10,7 @@
 .master-camera-consent { display: flex; align-items: center; gap: 18px; max-width: 790px; font-size: 26px; line-height: 1.25; text-align: left; cursor: pointer; }
 .master-camera-terms { position: relative; width: 790px; font-size: 22px; text-align: center; }
 .master-camera-terms summary { cursor: pointer; text-decoration: underline; text-underline-offset: 5px; }
-.master-camera-terms-body { position: absolute; bottom: 42px; left: 0; z-index: 10; width: 790px; max-height: 690px; overflow: auto; padding: 36px; border: 1px solid #ffffff60; border-radius: 32px; background: #000033; text-align: left; }
+.master-camera-terms-body { position: absolute; bottom: 42px; left: 0; z-index: 10; width: 790px; max-height: 690px; overflow: auto; padding: 36px; border: 1px solid #ffffff60; border-radius: 32px; background: #000000; text-align: left; }
 .master-camera-terms-body h2 { font-size: 30px; }
 .master-camera-terms-body h3 { font-size: 25px; }
 .master-camera-terms-body p, .master-camera-terms-body li { margin-top: 14px; font-size: 22px; line-height: 1.3; }

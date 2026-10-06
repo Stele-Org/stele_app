@@ -3,7 +3,7 @@
   "changeDate": "2026-10-04",
   "change": "User requested removal of the television fragment behind popcorn. Native SVG clipPath keeps the popcorn and striped box; embedded raster, positioning, rounded blue base and lower gradient unchanged.",
   "originalAssetSha256": "d3048d0b67ccf51ff88479bbaefe83ff3fab8aa02ca02769f5669ba93d1a54f3",
-  "sha256": "bc0018b966ad0b571fd5bca17edfcacb7dc2428765aff7b3e30070786feaa686",
+  "sha256": "abbf867c79b7e70932086fca2f8a15dc9bda68532b96f671472aff90499a6c11",
   "embeddedPngSha256": "9bad8d6a648d47d673e01132f840e673c082ef04b0c11a19e31e7d949a098ece",
   "embeddedPngSize": [
     2022,
@@ -12,5 +12,9 @@
   "maskType": "native SVG clipPath",
   "maskId": "clipPopcornOnly",
   "coordinateSystem": "Original PNG pixels, mapped by existing mirrored image transform",
-  "permission": "Provided client artwork used within this project; no additional public license asserted."
+  "permission": "Provided client artwork used within this project; no additional public license asserted.",
+  "recolor": {
+    "note": "Card plate and readability gradient recoloured to #000000 (were #0040FF/#002699, hero plate #000033); embedded pictures unchanged. User request, 2026-10-06.",
+    "previousSha256": "bc0018b966ad0b571fd5bca17edfcacb7dc2428765aff7b3e30070786feaa686"
+  }
 }

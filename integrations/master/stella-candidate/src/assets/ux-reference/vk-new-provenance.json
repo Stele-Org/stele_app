@@ -3,7 +3,7 @@
     "asset": "vk-new-series.svg",
     "source": "artifacts/DESIGN/UI/stela/new/STELLA-2.svg",
     "sourceSha256": "12a172381b9c4b084a96367d02bd4ee0b1969bdabe184e4c6d92d2e82aee1830",
-    "sha256": "bc0018b966ad0b571fd5bca17edfcacb7dc2428765aff7b3e30070786feaa686",
+    "sha256": "abbf867c79b7e70932086fca2f8a15dc9bda68532b96f671472aff90499a6c11",
     "viewBox": [
       "45",
       "549",
@@ -11,52 +11,68 @@
       "280"
     ],
     "removedLabelPaths": 1,
-    "vectorCropProvenance": "vk-popcorn-only.provenance.json"
+    "vectorCropProvenance": "vk-popcorn-only.provenance.json",
+    "recolor": {
+      "note": "Card plate and readability gradient recoloured to #000000 (were #0040FF/#002699, hero plate #000033); embedded pictures unchanged. User request, 2026-10-06.",
+      "previousSha256": "bc0018b966ad0b571fd5bca17edfcacb7dc2428765aff7b3e30070786feaa686"
+    }
   },
   {
     "asset": "vk-new-standup.svg",
     "source": "artifacts/DESIGN/UI/stela/new/STELLA-2.svg",
     "sourceSha256": "12a172381b9c4b084a96367d02bd4ee0b1969bdabe184e4c6d92d2e82aee1830",
-    "sha256": "c5d1ba8fe48e5db8a7e317481254a356d97fe775e0fce207875f620a7db5bf8e",
+    "sha256": "f841681a1fa6acf131a6e7d774ceba367d5e9da1a6d838ddabef8dcffe9ebfd5",
     "viewBox": [
       "557",
       "543",
       "468.438",
       "280"
     ],
-    "removedLabelPaths": 0
+    "removedLabelPaths": 0,
+    "recolor": {
+      "note": "Card plate and readability gradient recoloured to #000000 (were #0040FF/#002699, hero plate #000033); embedded pictures unchanged. User request, 2026-10-06.",
+      "previousSha256": "c5d1ba8fe48e5db8a7e317481254a356d97fe775e0fce207875f620a7db5bf8e"
+    }
   },
   {
     "asset": "vk-new-interview.svg",
     "source": "artifacts/DESIGN/UI/stela/new/STELLA-2.svg",
     "sourceSha256": "12a172381b9c4b084a96367d02bd4ee0b1969bdabe184e4c6d92d2e82aee1830",
-    "sha256": "80a469eee968d0c79282f8d1688b50795fbd4e104441cf8b1d9c7eff62054e7b",
+    "sha256": "3e78086b574460bc71b4c470a17ad80637f510b56ecfeab57c99ecf293271d6c",
     "viewBox": [
       "45",
       "869",
       "468.438",
       "280"
     ],
-    "removedLabelPaths": 1
+    "removedLabelPaths": 1,
+    "recolor": {
+      "note": "Card plate and readability gradient recoloured to #000000 (were #0040FF/#002699, hero plate #000033); embedded pictures unchanged. User request, 2026-10-06.",
+      "previousSha256": "80a469eee968d0c79282f8d1688b50795fbd4e104441cf8b1d9c7eff62054e7b"
+    }
   },
   {
     "asset": "vk-new-science.svg",
     "source": "artifacts/DESIGN/UI/stela/new/STELLA-2.svg",
     "sourceSha256": "12a172381b9c4b084a96367d02bd4ee0b1969bdabe184e4c6d92d2e82aee1830",
-    "sha256": "ef8ec2d703995bcf3cfe582b07c4860ddfcc9fae0ff972f53a79dd84716d7211",
+    "sha256": "3a8c3db83eefdc54410b8060b1d0172b3b22badd21b80487107c9869e1dff043",
     "viewBox": [
       "557",
       "869",
       "468.438",
       "280"
     ],
-    "removedLabelPaths": 1
+    "removedLabelPaths": 1,
+    "recolor": {
+      "note": "Card plate and readability gradient recoloured to #000000 (were #0040FF/#002699, hero plate #000033); embedded pictures unchanged. User request, 2026-10-06.",
+      "previousSha256": "ef8ec2d703995bcf3cfe582b07c4860ddfcc9fae0ff972f53a79dd84716d7211"
+    }
   },
   {
     "asset": "vk-new-drive.svg",
     "source": "artifacts/DESIGN/UI/stela/new/STELLA-3.svg",
     "sourceSha256": "9ec00c62cff933a386770d6c91effde571869dda103b924b3c35796d9c314400",
-    "sha256": "ed367a74c2af8fac90e626ffa7efccda4eaf744543e7b1d75c94db39c3329d1b",
+    "sha256": "dce6a907e8635581b8324d5ece69bf989cdc4acccac397dc39a6c24931aa88e5",
     "viewBox": [
       "45",
       "549",
@@ -64,98 +80,130 @@
       "280"
     ],
     "removedLabelPaths": 1,
-    "imageReplacementProvenance": "vk-drive-cheering-couple.provenance.json"
+    "imageReplacementProvenance": "vk-drive-cheering-couple.provenance.json",
+    "recolor": {
+      "note": "Card plate and readability gradient recoloured to #000000 (were #0040FF/#002699, hero plate #000033); embedded pictures unchanged. User request, 2026-10-06.",
+      "previousSha256": "ed367a74c2af8fac90e626ffa7efccda4eaf744543e7b1d75c94db39c3329d1b"
+    }
   },
   {
     "asset": "vk-new-heroes.svg",
     "source": "artifacts/DESIGN/UI/stela/new/STELLA-3.svg",
     "sourceSha256": "9ec00c62cff933a386770d6c91effde571869dda103b924b3c35796d9c314400",
-    "sha256": "955a5822a314cc3737a5032d74e8d778b61594c9ad2f04947152c2ed6d06b3bb",
+    "sha256": "0cad821841ec7bd05708ca04c97c54892ae560ee580bae9763c6ad814057f8fd",
     "viewBox": [
       "557",
       "543",
       "468.438",
       "280"
     ],
-    "removedLabelPaths": 0
+    "removedLabelPaths": 0,
+    "recolor": {
+      "note": "Card plate and readability gradient recoloured to #000000 (were #0040FF/#002699, hero plate #000033); embedded pictures unchanged. User request, 2026-10-06.",
+      "previousSha256": "955a5822a314cc3737a5032d74e8d778b61594c9ad2f04947152c2ed6d06b3bb"
+    }
   },
   {
     "asset": "vk-new-learn.svg",
     "source": "artifacts/DESIGN/UI/stela/new/STELLA-3.svg",
     "sourceSha256": "9ec00c62cff933a386770d6c91effde571869dda103b924b3c35796d9c314400",
-    "sha256": "4ef9e01a800a8d7973067a765a166d6dce4a8a8691abdb4c71df93c30ac8310d",
+    "sha256": "80858fbb387b6f96d115fc35a2583478bd9594d3c60e127bf9ba4a409e907c54",
     "viewBox": [
       "45",
       "869",
       "468.438",
       "280"
     ],
-    "removedLabelPaths": 1
+    "removedLabelPaths": 1,
+    "recolor": {
+      "note": "Card plate and readability gradient recoloured to #000000 (were #0040FF/#002699, hero plate #000033); embedded pictures unchanged. User request, 2026-10-06.",
+      "previousSha256": "4ef9e01a800a8d7973067a765a166d6dce4a8a8691abdb4c71df93c30ac8310d"
+    }
   },
   {
     "asset": "vk-new-rest.svg",
     "source": "artifacts/DESIGN/UI/stela/new/STELLA-3.svg",
     "sourceSha256": "9ec00c62cff933a386770d6c91effde571869dda103b924b3c35796d9c314400",
-    "sha256": "b0d4f59c9c35238516612d83e8bb8a2c68f18cd4770f94169c40776f9afe7b79",
+    "sha256": "731a4e009d96c597c715d55f9c40d57552c20bd18c281737dd8801adb013af95",
     "viewBox": [
       "557",
       "869",
       "468.438",
       "280"
     ],
-    "removedLabelPaths": 1
+    "removedLabelPaths": 1,
+    "recolor": {
+      "note": "Card plate and readability gradient recoloured to #000000 (were #0040FF/#002699, hero plate #000033); embedded pictures unchanged. User request, 2026-10-06.",
+      "previousSha256": "b0d4f59c9c35238516612d83e8bb8a2c68f18cd4770f94169c40776f9afe7b79"
+    }
   },
   {
     "asset": "vk-new-familiar.svg",
     "source": "artifacts/DESIGN/UI/stela/new/STELLA-7.svg",
     "sourceSha256": "4ae70bb1e96ac474f72ef8595fd8c22374b61bfa09249e4bc2a2e9038589b1a1",
-    "sha256": "6a1e1ddedf676865459daaf202ffdf429aff0f3d4f11f14fe98ea5ce530b4edc",
+    "sha256": "bb56953ecbcaf9ce3d2d7ea6a3adae4f16d05240396227940677ad82ca852332",
     "viewBox": [
       "45",
       "549",
       "468",
       "280"
     ],
-    "removedLabelPaths": 1
+    "removedLabelPaths": 1,
+    "recolor": {
+      "note": "Card plate and readability gradient recoloured to #000000 (were #0040FF/#002699, hero plate #000033); embedded pictures unchanged. User request, 2026-10-06.",
+      "previousSha256": "6a1e1ddedf676865459daaf202ffdf429aff0f3d4f11f14fe98ea5ce530b4edc"
+    }
   },
   {
     "asset": "vk-new-new.svg",
     "source": "artifacts/DESIGN/UI/stela/new/STELLA-7.svg",
     "sourceSha256": "4ae70bb1e96ac474f72ef8595fd8c22374b61bfa09249e4bc2a2e9038589b1a1",
-    "sha256": "cc108292b2edc02f61282daf5fcd63a8a4635a257d3cc728a2531eec9fdac55f",
+    "sha256": "89a0de2c4ed2b82fdf15c796d187875dbab86856082fff51a426157503f375bf",
     "viewBox": [
       "557",
       "550",
       "468.438",
       "280"
     ],
-    "removedLabelPaths": 1
+    "removedLabelPaths": 1,
+    "recolor": {
+      "note": "Card plate and readability gradient recoloured to #000000 (were #0040FF/#002699, hero plate #000033); embedded pictures unchanged. User request, 2026-10-06.",
+      "previousSha256": "cc108292b2edc02f61282daf5fcd63a8a4635a257d3cc728a2531eec9fdac55f"
+    }
   },
   {
     "asset": "vk-new-hero.svg",
     "source": "artifacts/DESIGN/UI/stela/new/STELLA-7.svg",
     "sourceSha256": "4ae70bb1e96ac474f72ef8595fd8c22374b61bfa09249e4bc2a2e9038589b1a1",
-    "sha256": "680c5784d40f4289194393072fe983121ed95c230e4fc475ebae2c72ba614cbb",
+    "sha256": "56dbca3a94d8e7d2a558b559d2b93375b3d29d170079d89faa6783c1c0527b0b",
     "viewBox": [
       "45",
       "869",
       "468.438",
       "280"
     ],
-    "removedLabelPaths": 1
+    "removedLabelPaths": 1,
+    "recolor": {
+      "note": "Card plate and readability gradient recoloured to #000000 (were #0040FF/#002699, hero plate #000033); embedded pictures unchanged. User request, 2026-10-06.",
+      "previousSha256": "680c5784d40f4289194393072fe983121ed95c230e4fc475ebae2c72ba614cbb"
+    }
   },
   {
     "asset": "vk-new-popular.svg",
     "source": "artifacts/DESIGN/UI/stela/new/STELLA-7.svg",
     "sourceSha256": "4ae70bb1e96ac474f72ef8595fd8c22374b61bfa09249e4bc2a2e9038589b1a1",
-    "sha256": "5fb814f1a11f4b8343b1318e1469e675ae76fa9a3039fccb319beb87a0af4d81",
+    "sha256": "5c664d30cba617aef32c140175a8e4d92378906a2466151c52cf399721309406",
     "viewBox": [
       "557",
       "869",
       "468.438",
       "280"
     ],
-    "removedLabelPaths": 1
+    "removedLabelPaths": 1,
+    "recolor": {
+      "note": "Card plate and readability gradient recoloured to #000000 (were #0040FF/#002699, hero plate #000033); embedded pictures unchanged. User request, 2026-10-06.",
+      "previousSha256": "5fb814f1a11f4b8343b1318e1469e675ae76fa9a3039fccb319beb87a0af4d81"
+    }
   },
   {
     "asset": "vk-new-onboarding.svg",

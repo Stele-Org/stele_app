@@ -1,4 +1,4 @@
-.content-loading { position: fixed; inset: 0; display: grid; place-items: center; background: #000426; color: white; font-family: Arial, sans-serif; }
+.content-loading { position: fixed; inset: 0; display: grid; place-items: center; background: #000000; color: white; font-family: Arial, sans-serif; }
 .content-loading__panel { width: min(420px, 85vw); text-align: center; }
 .content-loading h1 { font-size: clamp(22px, 4vw, 32px); margin-bottom: 16px; }
 .content-loading p { font-size: 18px; opacity: .75; }

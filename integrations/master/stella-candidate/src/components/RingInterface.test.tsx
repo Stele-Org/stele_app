@@ -32,7 +32,8 @@ describe('ring interface preserves scenario inputs', () => {
   it.each<RingPhase>(['entry', 'brand-entry', 'intro', 'question', 'photo', 'processing', 'result', 'terms'])('keeps the same native bindings without a visible ring in %s', phase => {
     const config = ringSceneConfig(phase)
     expect(config.modes?.sphere?.weight).toBe(0)
-    expect(config.modes?.flow?.weight).toBe(0.15)
+    // The flow carries the whole field since the cells were made intense (user, 06.10.2026).
+    expect(config.modes?.flow?.weight).toBe(0.85)
     expect(config.color?.palette).toEqual(ringSceneConfig('entry').color?.palette)
     expect(config.interaction?.pointer).toBe(false)
     expect(config.interaction?.click).toBe(false)
@@ -41,5 +42,18 @@ describe('ring interface preserves scenario inputs', () => {
     expect(normalized.issues).toEqual([])
     expect(normalized.config.lift.enabled).toBe(false)
     expect(normalized.config.modes.rain.weight).toBe(0)
+  })
+  it.each(['vk-video', 'max'] as const)('gives the engine a %s field it accepts whole, black behind the cells', product => {
+    const normalized = normalizeConfig(ringSceneConfig('question', product))
+    expect(normalized.issues).toEqual([])
+    expect(normalized.config.background.color).toBe('#000000')
+    expect(normalized.config.animation.sparkle.amount).toBeGreaterThan(0)
+  })
+  it('lights single VK Видео cells in the lighter blue: only full brightness reaches the last palette stop', () => {
+    const { color } = normalizeConfig(ringSceneConfig('question', 'vk-video')).config
+    expect(color.mapping).toBe('intensity')
+    // The engine writes colours in lower case.
+    expect(new Set(color.palette.slice(0, -1))).toEqual(new Set(['#0020ff']))
+    expect(color.palette.at(-1)).toBe('#0040ff')
   })
 })

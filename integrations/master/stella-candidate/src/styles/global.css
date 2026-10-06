@@ -57,7 +57,7 @@ html[data-service-paused="true"] * {
   font-display: swap;
   font-weight: 400;
 }
-:root { --weight-heading: 400; --weight-text: 600; --weight-action: 700; font-family: 'VK Sans Display', Arial, sans-serif; color: #fff; background: #0D001A; font-synthesis: none; text-rendering: optimizeLegibility; }
+:root { --weight-heading: 400; --weight-text: 600; --weight-action: 700; font-family: 'VK Sans Display', Arial, sans-serif; color: #fff; background: #000000; font-synthesis: none; text-rendering: optimizeLegibility; }
 * { box-sizing: border-box; }
 html, body, #root { width: 100%; height: 100%; margin: 0; overflow: hidden; overscroll-behavior: none; }
 body { position: fixed; inset: 0; }
@@ -150,14 +150,14 @@ h1, h2, p { margin: 0; }
 .result-copy--direction { top: 895px; font-size: 34px; }
 .result-reset { position: absolute; top: 1100px; left: 230px; width: 620px; min-height: 120px; justify-content: center; font-size: 38px; }
 #vk-result-title { font-size: 54px; }
-.terms-overlay { position: absolute; inset: 0; height: 1280px; z-index: 5; background: #0D001Acc; opacity: 0; transition: opacity 220ms ease; }
+.terms-overlay { position: absolute; inset: 0; height: 1280px; z-index: 5; background: #000000cc; opacity: 0; transition: opacity 220ms ease; }
 .terms-overlay[data-open='true'] { opacity: 1; }
-.terms-panel { position: absolute; top: 260px; left: 65px; width: 950px; height: 925px; padding: 36px; display: flex; flex-direction: column; border: 1px solid #0077FF60; border-radius: 32px; background: #0D001A; box-shadow: 0 0 25px #0077FF20; transform: translateY(16px); transition: transform 220ms ease; }
+.terms-panel { position: absolute; top: 260px; left: 65px; width: 950px; height: 925px; padding: 36px; display: flex; flex-direction: column; border: 1px solid #0077FF60; border-radius: 32px; background: #000000; box-shadow: 0 0 25px #0077FF20; transform: translateY(16px); transition: transform 220ms ease; }
 .terms-overlay[data-open='true'] .terms-panel { transform: translateY(0); }
 .terms-header { display: flex; align-items: flex-start; flex: none; gap: 24px; padding-bottom: 30px; }
 .terms-header h2 { flex: 1; font-size: 36px; line-height: 1.1; }
 .terms-close { width: 72px; height: 72px; min-height: 72px; border-radius: 18px; padding: 15px; flex: none; }
-.terms-body { flex: 1; min-height: 0; overflow: auto; scrollbar-color: #0077FF #0D001A; font-family: 'VK Sans Text', Arial, sans-serif; font-size: 26px; line-height: 1.4; }
+.terms-body { flex: 1; min-height: 0; overflow: auto; scrollbar-color: #0077FF #000000; font-family: 'VK Sans Text', Arial, sans-serif; font-size: 26px; line-height: 1.4; }
 .terms-document section { margin-bottom: 32px; }
 .terms-document h3 { font-size: 30px; margin: 0 0 16px; }
 .terms-document p { margin-bottom: 16px; }
@@ -202,6 +202,10 @@ h1, h2, p { margin: 0; }
 .continuous-option .ring-tag[data-retained='true']:disabled { opacity: 1; }
 .continuous--grid .option-button { height: 280px; position: relative; background: #0040FF; }
 .continuous--grid.experience--max .option-button { background: #0D001A33; }
+/* VK Видео answer tiles: black plate, blue outline (user, 06.10.2026). The outline lies over the artwork and over the
+   live camera of the «hero» tile; the same tile flying out of the question keeps both. */
+.continuous--grid.experience--vk-video .option-button, .answer-flight--vk-video .answer-flight__answer.option-button { background: #000000; }
+.continuous--grid.experience--vk-video .option-button::before, .answer-flight--vk-video .answer-flight__answer.option-button::before { content: ''; position: absolute; inset: 0; z-index: 2; border: 3px solid #0040FF; border-radius: inherit; pointer-events: none; }
 .reference-card-artwork { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: fill; pointer-events: none; }
 .continuous-option .option-button--reference .continuous-card-copy::after { display: none; }
 .continuous-option .option-button--reference .continuous-card-label { left: 46px; bottom: 34px; max-width: 290px; font-size: 34px; text-shadow: 0 1px 8px #00184466; }
@@ -287,7 +291,8 @@ h1, h2, p { margin: 0; }
 }
 .answer-flight--max .lc-scene-pill { --g-c: #6E1AFF59; color: #fff; }
 .answer-flight--max .lc-scene-pill[data-selected] { --g-c: #00BFFF8C; color: #fff; }
-.answer-flight--vk-video .answer-flight__visuals { --lc-scene-red-fill: #000033; --lc-scene-blue-fill: #000033; }
+/* The pills are filled with the colour of the backdrop: only their border is seen. */
+.answer-flight--vk-video .answer-flight__visuals { --lc-scene-red-fill: #000000; --lc-scene-blue-fill: #000000; }
 .answer-flight--vk-video .lc-scene-pill { border: 2px solid #FF2B4266; color: #fff; }
 .answer-flight--vk-video .lc-scene-pill[data-selected] { border-color: #0040FF99; }
 /* Next background iteration: continuous shadows, without pixel-light halos. */
