@@ -33,7 +33,8 @@ describe('one author motion path for every Stella metadata stage', () => {
     expect(timedTransition(screen)).toBeNull()
   })
 
-  it('reveals accepted photo tags, keeps empty photo/gender choices empty', () => {
+  // The scenario itself shows no tags after the photo answer (Prototype.selectPhoto, all-transitions.test.tsx).
+  it('can reveal photo tags when a screen carries them, keeps empty photo/gender choices empty', () => {
     for (const option of vkPhotoOptions) {
       const screen: ScreenState = { type: 'vk-photo-reveal', answerId: option.id, metadata: option.metadata, next }
       if (option.id === 'accept') {

@@ -14,13 +14,15 @@ import { ringToneColors } from './RingTag'
 import { CameraPreview } from './CameraPreview'
 import { AnswerStream } from './answer-stream'
 import './answer-stream.css'
-import { DISCOVERY_DOTS, MAX_CELLS, TagDissolve, type TagDissolveLook } from './tag-dissolve'
+import { AUTHORED_PACE, BRISK_PACE, DISCOVERY_DOTS, MAX_CELLS, TagDissolve, type TagDissolveLook, type TagDissolvePace } from './tag-dissolve'
 import './tag-dissolve.css'
 import { readTagLook } from '../features/prototype/tag-look'
 
 /** Both products show their tags with the thread-and-particles scene: VK Видео in round Discovery dots,
  * MAX in square cells like those of its field. `null` would bring back the LumiCells flight for a product. */
 const SCENES: Record<TagReveal['product'], TagDissolveLook | null> = { 'vk-video': DISCOVERY_DOTS, max: MAX_CELLS }
+/** VK Видео shows its tags in 6.44 s instead of 11.06 s (user request, 07.10.2026); MAX keeps the accepted rhythm. */
+const PACES: Record<TagReveal['product'], TagDissolvePace> = { 'vk-video': BRISK_PACE, max: AUTHORED_PACE }
 
 export function AnswerFlight({ reveal, playing, onComplete, onFinalExit, embedded = false, flightDurationScale = 1, showProductMark = true }: {
   reveal: TagReveal; playing: boolean; onComplete: (reveal: TagReveal) => void; onFinalExit?: (reveal: TagReveal) => void; embedded?: boolean; flightDurationScale?: number
@@ -113,7 +115,7 @@ export function AnswerFlight({ reveal, playing, onComplete, onFinalExit, embedde
       ?? host.closest('.answer-flight')?.querySelector<HTMLElement>('.answer-flight__answer') ?? null
     const motion = dissolve
       ? new TagDissolve(host, () => entries, () => hooks, {
-        canvas: dots.current, seed: seed + batch, reduced: reduced(), look: scene ?? undefined,
+        canvas: dots.current, seed: seed + batch, reduced: reduced(), look: scene ?? undefined, pace: PACES[reveal.product],
         // The answer thins out while the dots of the last batch gather and leave.
         retiring: last ? answer : null,
         // Stage fractions to the 1080px-wide screen; the stage starts 100px below its top.

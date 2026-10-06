@@ -298,8 +298,10 @@ export function Prototype() {
     publisher.answer('vk-video', 'photo', option)
     publisher.recommendation(calculateThemeScores(screen.answers), screen.rankedThemes,
       screen.discoveryAnswerId, discoveryRules[screen.discoveryAnswerId], answerId === 'accept' ? 'included' : 'skipped')
+    // Neither answer shows tags (user request, 07.10.2026): «Начать» leaves for the camera after the same short cue
+    // as «Пропустить» leaves for Discovery. The tags of «Начать» stay in its answer event.
     setScreen({
-      type: 'vk-photo-reveal', answerId, metadata: option.metadata,
+      type: 'vk-photo-reveal', answerId, metadata: [],
       next: answerId === 'accept'
         ? { type: 'vk-camera', themes: screen.rankedThemes.slice(0, 3) }
         : { type: 'vk-discovery-activation', themes: screen.rankedThemes.slice(0, 3), metadata: [] },

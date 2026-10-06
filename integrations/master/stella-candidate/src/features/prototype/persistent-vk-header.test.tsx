@@ -102,7 +102,9 @@ it('retains the same VK logo and background host from onboarding through the fin
     retained(answer === 'hero' ? 'vk-digitize' : 'vk-question')
   }
   await click('[data-option-id="accept"]')
-  await finishAnswer()
+  // The photo answer has no tag scene: the camera prompt follows its 650 ms cue.
+  retained('vk-photo-reveal')
+  await act(async () => { await new Promise(resolve => setTimeout(resolve, 650)) })
   retained('vk-camera')
   await click('.vk-camera-button')
   retained('vk-scanning')

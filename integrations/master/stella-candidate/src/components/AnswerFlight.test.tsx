@@ -14,7 +14,7 @@ import { dissolveTagBox } from '../features/prototype/tag-layout'
 
 // Adapter contract only; actual author WAAPI lifecycle has separate native-flight tests.
 beforeEach(() => vi.stubGlobal('matchMedia', () => ({ matches: false })))
-const runs = vi.hoisted(() => [] as { host: HTMLElement; entries: () => BubbleEntry[]; hooks: () => DemoSceneProps; done?: () => void; disposed: boolean; route?: FlightRoute; closing?: () => void; retiring?: HTMLElement | null }[])
+const runs = vi.hoisted(() => [] as { host: HTMLElement; entries: () => BubbleEntry[]; hooks: () => DemoSceneProps; done?: () => void; disposed: boolean; route?: FlightRoute; closing?: () => void; retiring?: HTMLElement | null; pace?: unknown }[])
 vi.mock('../vendor/lumicells-scene/choreography', () => ({ Choreographer: class {
   run: (typeof runs)[number]
   constructor(host: HTMLElement, entries: () => BubbleEntry[], hooks: () => DemoSceneProps, ...options: unknown[]) {
@@ -25,11 +25,11 @@ vi.mock('../vendor/lumicells-scene/choreography', () => ({ Choreographer: class 
   dispose() { this.run.disposed = true }
 } }))
 // VK Видео runs the Claude Design dot scene behind the same adapter contract.
-vi.mock('./tag-dissolve', () => ({ DISCOVERY_DOTS: { particle: 'dot' }, MAX_CELLS: { particle: 'cell' }, TagDissolve: class {
+vi.mock('./tag-dissolve', () => ({ DISCOVERY_DOTS: { particle: 'dot' }, MAX_CELLS: { particle: 'cell' }, AUTHORED_PACE: 'authored', BRISK_PACE: 'brisk', TagDissolve: class {
   run: (typeof runs)[number]
-  constructor(host: HTMLElement, entries: () => BubbleEntry[], hooks: () => DemoSceneProps, options: { card: { x: number; y: number; w: number; h: number }; onClosing?: () => void; retiring?: HTMLElement | null }) {
+  constructor(host: HTMLElement, entries: () => BubbleEntry[], hooks: () => DemoSceneProps, options: { card: { x: number; y: number; w: number; h: number }; onClosing?: () => void; retiring?: HTMLElement | null; pace?: unknown }) {
     const { card } = options
-    this.run = { host, entries, hooks, disposed: false, closing: options.onClosing, retiring: options.retiring,
+    this.run = { host, entries, hooks, disposed: false, closing: options.onClosing, retiring: options.retiring, pace: options.pace,
       route: { origin: { fx: (card.x + card.w / 2) / 1080, fy: (card.y - 100 + card.h / 2) / 1080 }, destination: { fx: 0, fy: 0 } } }
     runs.push(this.run)
   }
@@ -67,6 +67,8 @@ it.each([
     // Both products run the thread-and-particles scene: VK Видео in dots, MAX in cells of its field.
     expect(host.querySelector('.tag-dissolve__canvas')).not.toBeNull()
     expect(host.querySelector('.answer-flight')!.getAttribute('data-effect')).toBe(product === 'vk-video' ? 'discovery-dots' : 'field-cells')
+    // VK Видео plays it at the brisk pace, MAX at the accepted one.
+    expect(runs.at(-1)!.pace).toBe(product === 'vk-video' ? 'brisk' : 'authored')
     expect(host.querySelector('.lc-scene-bubble')!.classList.contains('tag-dissolve__tag')).toBe(true)
     expect(host.querySelector('.answer-flight')!.getAttribute('data-tag-look')).toBe('gradient')
     expect(runs.at(-1)!.entries()[0].info().label).toBe('Серверный тег')

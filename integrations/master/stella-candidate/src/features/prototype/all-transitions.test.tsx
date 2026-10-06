@@ -120,7 +120,7 @@ it.each(['familiar', 'new', 'popular'])('VK %s bypasses photo and completes the 
   expect(host.querySelector('.result-thanks')).toBeNull()
 }, 10000)
 
-it('photo terms restore input/focus; accept goes directly to camera, silhouette, particles and result', async () => {
+it('photo terms restore input/focus; accept goes to camera without a tag scene, then silhouette, particles and result', async () => {
   await vkThird('hero'); await finishReveal(2, 'vk-digitize')
   expect(buttons()[0].classList.contains('ring-tag--red')).toBe(true)
   await click('.digitize-notice')
@@ -139,10 +139,19 @@ it('photo terms restore input/focus; accept goes directly to camera, silhouette,
   await click('[aria-label="Закрыть"]')
   expect(host.querySelector('[role="dialog"]')).toBeNull()
   expect(document.activeElement).toBe(host.querySelector('.digitize-notice'))
+  bridge.current = null
   await choose('accept')
   expect(host.querySelector('.question-heading')?.hasAttribute('hidden')).toBe(true)
   expect(host.querySelector('.digitize-description')).toBeNull()
-  await finishReveal(0, 'vk-camera')
+  // «Начать» shows no tags: the camera prompt follows the same 650 ms cue as «Пропустить».
+  expect(state()).toBe('vk-photo-reveal')
+  await wait(650)
+  expect(bridge.current).toBeNull()
+  expect(state()).toBe('vk-camera')
+  expect(buttons()).toHaveLength(0)
+  // Its tags are still reported with the answer.
+  expect(events.find(event => event.type === 'answer' && event.questionId === 'photo'))
+    .toMatchObject({ answerId: 'accept', metadata: ['ракурс', 'освещение', 'композиция', 'обработка'] })
   expect(host.querySelector('[aria-label="Мужской"]')).toBeNull()
   expect(host.querySelector('.vk-camera-button')).not.toBeNull()
   await wait(1850); expect(state()).toBe('vk-scanning')

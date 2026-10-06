@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import { beforeEach, expect, it, vi } from 'vitest'
 import type { BubbleEntry } from '../vendor/lumicells-scene/bubbles'
-import { MAX_CELLS, TagDissolve, encodeText, tagCode, tagDissolveTimeline, tagThreads, threadCrossings, threadsUnderTags, type TagDissolveLook, type Thread } from './tag-dissolve'
+import { BRISK_PACE, MAX_CELLS, TagDissolve, encodeText, tagCode, tagDissolveTimeline, tagThreads, threadCrossings, threadsUnderTags, type TagDissolveLook, type TagDissolvePace, type Thread } from './tag-dissolve'
 import { clearTagPositions, dissolveTagBox } from '../features/prototype/tag-layout'
 import { tagBatches } from '../features/prototype/tag-reveal'
 import { answerCardPosition } from '../features/prototype/answer-card-layout'
@@ -22,7 +22,7 @@ beforeEach(() => { clock.tracks.length = 0 })
 const words = ['обсуждения', 'сериал', 'премьера', 'популярное']
 const places = [[.74, .46], [.26, .65], [.74, .81], [.26, .99]]
 
-function scene(reduced = false, retiring: HTMLElement | null = null, look?: TagDissolveLook) {
+function scene(reduced = false, retiring: HTMLElement | null = null, look?: TagDissolveLook, pace?: TagDissolvePace) {
   const root = document.createElement('div')
   const flights: string[] = []
   const entries: BubbleEntry[] = words.map((word, i) => {
@@ -46,7 +46,7 @@ function scene(reduced = false, retiring: HTMLElement | null = null, look?: TagD
   const closing = vi.fn(), done = vi.fn()
   const motion = new TagDissolve(root, () => entries,
     () => ({ onFlight: (_el, info, phase) => { flights.push(`${root.dataset.phase}:${info.label}:${phase}`) } }),
-    { canvas, card: { x: 45, y: 549, w: 468, h: 280 }, seed: 7, reduced, onClosing: closing, retiring, look })
+    { canvas, card: { x: 45, y: 549, w: 468, h: 280 }, seed: 7, reduced, onClosing: closing, retiring, look, pace })
   void motion.revealOnce(350, done)
   const track = clock.tracks.at(-1)!
   /** Paints the frame at `time` and counts the shapes of one kind in it; `inks` then holds its colours. */
@@ -236,6 +236,69 @@ it('scatters each tag into dots that all leave before the scene ends', () => {
   expect(at(9.96)).toBeGreaterThan(0)
   expect(at(10.47)).toBe(0)
   expect(at(track.options.duration)).toBe(0)
+})
+
+it('plays VK Видео at the brisk pace: 6.44 s for four tags instead of 11.06 s', () => {
+  const timeline = tagDissolveTimeline(4, BRISK_PACE)
+  expect(timeline.enter(0)).toBeCloseTo(0.3)
+  expect(timeline.enter(3)).toBeCloseTo(0.6)
+  expect(timeline.encode(0)).toBeCloseTo(2.7)
+  expect(timeline.dissolve(3)).toBeCloseTo(3.64)
+  expect(timeline.gather).toBeCloseTo(4.5)
+  expect(timeline.rush).toBeCloseTo(5.04)
+  expect(timeline.gone).toBeCloseTo(6.04)
+  expect(timeline.cardGone).toBeCloseTo(5.29)
+  expect(timeline.duration).toBeCloseTo(6.44)
+  // The last second still rushes: two seconds of the dots pass in it.
+  expect(timeline.cloud(timeline.gone)).toBeCloseTo(7.04)
+  // Three tags, as after «Познавательный», take a little less.
+  expect(tagDissolveTimeline(3, BRISK_PACE).duration).toBeCloseTo(6.26)
+  // The line spoken over «Хочу стать героем VK Видео» lasts 5.5 s and ends with the scene.
+  expect(timeline.duration).toBeGreaterThan(5.5 + 0.5)
+})
+
+it('keeps every step of the scene at the brisk pace, in the same order', () => {
+  const card = document.createElement('button')
+  card.setAttribute('data-lc-strength', '1')
+  const { root, entries, flights, closing, done, track, at } = scene(false, card, undefined, BRISK_PACE)
+  expect(track.options.duration).toBeCloseTo(6.44)
+
+  at(0.2)
+  expect(flights).toEqual([])
+  at(0.35)
+  expect(flights).toEqual(['entering:обсуждения:start'])
+
+  // All four have landed and stand readable for a second before the encoding starts at 2.7 s.
+  at(1.75)
+  expect(root.dataset.phase).toBe('idle')
+  at(2.65)
+  expect(entries.map(entry => entry.el.textContent)).toEqual(words)
+  expect(Number(entries[0].el.style.opacity)).toBe(1)
+  expect(entries[0].el.style.filter).toBe('none')
+
+  at(3.35)
+  expect(entries[0].el.textContent!.startsWith('#obsuzhde')).toBe(true)
+  expect(root.dataset.phase).toBe('idle')
+  at(3.45)
+  expect(root.dataset.phase).toBe('leaving')
+
+  // The tags are gone, their dots fill the screen, and the answer card has not begun to fade.
+  expect(at(4.4)).toBeGreaterThan(200)
+  expect(entries.every(entry => Number(entry.el.style.opacity) === 0)).toBe(true)
+  expect(card.style.opacity).toBe('')
+  expect(flights).toHaveLength(16)
+
+  // The card fades from 4.5 s and is gone 0.75 s before the last dot, which leaves at 6.04 s.
+  expect(at(5.2)).toBeGreaterThan(0)
+  expect(Number(card.style.opacity)).toBeGreaterThan(0)
+  at(5.29)
+  expect(Number(card.style.opacity)).toBe(0)
+  expect(closing).not.toHaveBeenCalled()
+  expect(at(6.05)).toBe(0)
+  expect(closing).toHaveBeenCalledOnce()
+  track.options.onComplete()
+  expect(done).toHaveBeenCalledOnce()
+  expect(root.dataset.phase).toBe('hidden')
 })
 
 it('pauses, resumes and restores the tags on dispose', () => {

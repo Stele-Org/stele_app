@@ -2,6 +2,7 @@
 // stay readable, encode, scatter into Discovery dots and leave past the top-right corner.
 // Timings and curves are the accepted prototype's (artifacts/DESIGN/claude-design-stela-20261005),
 // except the last second of the dots, which speeds up (user request, 06.10.2026).
+// VK Видео plays the scene at a brisker pace (user request, 07.10.2026); MAX keeps the authored one.
 // MAX runs the same scene with its own colours and square cells instead of round dots (user request, 06.10.2026).
 import { animate, type AnimationPlaybackControls } from 'motion'
 import type { BubbleEntry } from '../vendor/lumicells-scene/bubbles'
@@ -18,25 +19,31 @@ const STAGE_SIDE = 1080
 const STAGE_TOP = 100
 const CANVAS_HEIGHT = 1920
 
-const LEAD = 0.5
-const STAGGER = 0.15
-const FLIGHT = 1.8
-const IDLE = 1.2
-const ENCODE_STAGGER = 0.12
-const ENCODE = 0.8
-const ENCODED_HOLD = 1.0
-const FADE = 0.45
-const SCATTER_DELAY = 1.0
-const SCATTER = 2.0
-const GATHER = 1.95
-const EXIT = 1.2
+/** The rhythm of one scene, seconds. */
+export interface TagDissolvePace {
+  lead: number; stagger: number; flight: number; idle: number
+  encodeStagger: number; encode: number; encodedHold: number; fade: number
+  scatterDelay: number; scatter: number; gather: number; exit: number
+  /** The scene rests this long after the last dot has left. */
+  rest: number
+}
+/** The accepted prototype: 11.06 s for four tags. MAX keeps it. */
+export const AUTHORED_PACE: TagDissolvePace = {
+  lead: 0.5, stagger: 0.15, flight: 1.8, idle: 1.2, encodeStagger: 0.12, encode: 0.8, encodedHold: 1.0, fade: 0.45,
+  scatterDelay: 1.0, scatter: 2.0, gather: 1.95, exit: 1.2, rest: 0.6,
+}
+/** VK Видео (user request, 07.10.2026): the same scene in 6.44 s for four tags, so that an answer does not hold the
+ * visitor for eleven seconds. The tags still stand readable for about two seconds, and the scene still outlasts
+ * the 5.5 s line spoken over the answer «Хочу стать героем VK Видео». */
+export const BRISK_PACE: TagDissolvePace = {
+  lead: 0.3, stagger: 0.1, flight: 1.1, idle: 1.0, encodeStagger: 0.08, encode: 0.5, encodedHold: 0.7, fade: 0.35,
+  scatterDelay: 0.4, scatter: 1.1, gather: 1.1, exit: 0.8, rest: 0.4,
+}
 /** The cloud of dots speeds up over its last second on screen and ends RUSH_RATE times as fast as authored. */
 const RUSH = 1.0
 const RUSH_RATE = 3
 /** Authored seconds that second swallows on top of its own. */
 const RUSH_SAVED = RUSH * (RUSH_RATE - 1) / 2
-/** Dots keep leaving after the last tag is gone: delay + scatter + gather + exit, with a short rest; the rush shortens it. */
-const TAIL = 6.75
 /** The retained answer card retires just before the scene ends. */
 const CLOSING_LEAD = 0.8
 /** The answer card has faded this long before the last dot leaves (user request, 06.10.2026). */
@@ -67,24 +74,25 @@ const bezier = (a: Point, c: Point, b: Point, t: number): Point => {
 }
 const glyph = () => GLYPHS[Math.floor(Math.random() * GLYPHS.length)]
 
-/** Scene clock for one batch of tags, seconds from the start of the reveal. */
-export function tagDissolveTimeline(count: number) {
-  const encodeAt = LEAD + Math.max(0, count - 1) * STAGGER + FLIGHT + IDLE
-  const lastDissolve = encodeAt + Math.max(0, count - 1) * ENCODE_STAGGER + ENCODED_HOLD
-  const gone = lastDissolve + SCATTER_DELAY + SCATTER + GATHER + EXIT - RUSH_SAVED, rush = gone - RUSH
+/** Scene clock for one batch of tags, seconds from the start of the reveal. The times in the comments are the authored pace's. */
+export function tagDissolveTimeline(count: number, pace: TagDissolvePace = AUTHORED_PACE) {
+  const encodeAt = pace.lead + Math.max(0, count - 1) * pace.stagger + pace.flight + pace.idle
+  const lastDissolve = encodeAt + Math.max(0, count - 1) * pace.encodeStagger + pace.encodedHold
+  // Dots keep leaving after the last tag is gone: delay + scatter + gather + exit; the rush shortens it.
+  const gone = lastDissolve + pace.scatterDelay + pace.scatter + pace.gather + pace.exit - RUSH_SAVED, rush = gone - RUSH
   return {
-    enter: (index: number) => LEAD + index * STAGGER,
-    encode: (index: number) => encodeAt + index * ENCODE_STAGGER,
-    dissolve: (index: number) => encodeAt + index * ENCODE_STAGGER + ENCODED_HOLD,
+    enter: (index: number) => pace.lead + index * pace.stagger,
+    encode: (index: number) => encodeAt + index * pace.encodeStagger,
+    dissolve: (index: number) => encodeAt + index * pace.encodeStagger + pace.encodedHold,
     /** The first dot sets off for the heap: 6.95 s for four tags. */
-    gather: encodeAt + ENCODED_HOLD + SCATTER,
+    gather: encodeAt + pace.encodedHold + pace.scatter,
     /** The cloud starts to speed up: 9.46 s for four tags. */
     rush,
     /** The last dot has left past the corner: 10.46 s for four tags. */
     gone,
     /** The answer card has faded: 9.71 s for four tags. */
     cardGone: gone - CARD_LEAD,
-    duration: lastDissolve + TAIL - RUSH_SAVED,
+    duration: gone + pace.rest,
     /** Scene time to the clock of the dots and of the answer card that fades with them: it runs ahead during the rush. */
     cloud: (time: number) => time <= rush ? time : time + (RUSH_RATE - 1) * (time - rush) ** 2 / (2 * RUSH),
   }
@@ -237,6 +245,8 @@ export interface TagDissolveOptions {
   reduced: boolean
   /** Round dots unless stated otherwise. */
   look?: TagDissolveLook
+  /** The authored rhythm unless stated otherwise. */
+  pace?: TagDissolvePace
   /** The scene is about to end: the caller may retire the retained answer card. */
   onClosing?: () => void
   /** The answer card of the last batch: it fades while its dots fly to the heap and leave past the corner. */
@@ -261,6 +271,7 @@ export class TagDissolve {
   private retire: { from: number; to: number; strength?: string | null } | null = null
   private cloud = (time: number) => time
   private readonly random: () => number
+  private readonly pace: TagDissolvePace
 
   constructor(
     private readonly root: HTMLElement,
@@ -269,6 +280,7 @@ export class TagDissolve {
     private readonly options: TagDissolveOptions,
   ) {
     this.random = seeded(options.seed)
+    this.pace = options.pace ?? AUTHORED_PACE
   }
 
   /** The hold argument belongs to the Choreographer contract; this scene has its own authored pause. */
@@ -276,7 +288,7 @@ export class TagDissolve {
     if (this.busy || this.disposed || this.phase !== 'hidden') return Promise.resolve()
     this.busy = true
     const entries = [...this.entries()].sort((a, b) => a.item.order - b.item.order)
-    const timeline = tagDissolveTimeline(entries.length), reduced = this.options.reduced
+    const timeline = tagDissolveTimeline(entries.length, this.pace), reduced = this.options.reduced
     const threads = tagThreads(this.options.card, entries.map(entry => ({ x: entry.item.fx * STAGE_SIDE, y: entry.item.fy * STAGE_SIDE + STAGE_TOP })),
       entries.map(entry => ({ w: entry.el.offsetWidth || 240, h: entry.el.offsetHeight || 80 })))
     this.tags = entries.map((entry, index) => {
@@ -285,9 +297,9 @@ export class TagDissolve {
       return {
         entry, word, code: tagCode(word, index), seed: index + 2, origin, bend, rest,
         label: entry.el.querySelector<HTMLElement>('.lc-scene-label'),
-        enter: reduced ? 0 : timeline.enter(index), arrive: reduced ? REDUCED_FADE : timeline.enter(index) + FLIGHT,
+        enter: reduced ? 0 : timeline.enter(index), arrive: reduced ? REDUCED_FADE : timeline.enter(index) + this.pace.flight,
         encode: timeline.encode(index), dissolve: reduced ? REDUCED_SECONDS - REDUCED_FADE : timeline.dissolve(index),
-        gone: reduced ? REDUCED_SECONDS : timeline.dissolve(index) + FADE,
+        gone: reduced ? REDUCED_SECONDS : timeline.dissolve(index) + this.pace.fade,
         step: 0, tick: -1, progress: 0, eased: 0, life: 1, center: rest, dots: null,
       }
     })
@@ -386,14 +398,15 @@ export class TagDissolve {
 
   private frame(time: number, duration: number) {
     if (this.disposed) return
+    const pace = this.pace
     for (const tag of this.tags) {
       this.advance(tag, time)
       const el = tag.entry.el
-      const progress = clamp((time - tag.enter) / FLIGHT), eased = 1 - (1 - progress) ** 4
+      const progress = clamp((time - tag.enter) / pace.flight), eased = 1 - (1 - progress) ** 4
       const at = bezier(tag.origin, tag.bend, tag.rest, eased)
       const driftX = Math.sin(time * 0.6 + tag.seed * 1.7) * 7, driftY = Math.cos(time * 0.5 + tag.seed * 2.3) * 9
       const dx = at.x - tag.rest.x + driftX * eased, dy = at.y - tag.rest.y + driftY * eased
-      const life = time > tag.dissolve ? Math.max(0, 1 - (time - tag.dissolve) / FADE) : 1
+      const life = time > tag.dissolve ? Math.max(0, 1 - (time - tag.dissolve) / pace.fade) : 1
       let scale = 0.3 + 0.7 * eased, opacity = Math.min(1, progress * 2.5), blur = (1 - eased) * 9
       if (life < 1) { opacity *= life; blur = Math.max(blur, (1 - life) * 8); scale *= 1 + (1 - life) * 0.08 }
       el.style.transform = `translate(${dx.toFixed(1)}px, ${dy.toFixed(1)}px) scale(${scale.toFixed(3)})`
@@ -405,7 +418,7 @@ export class TagDissolve {
       // A tag that is gone stays invisible: no more text changes, so no layout work behind the dots.
       if (tag.step < 4 && tick !== tag.tick) {
         tag.tick = tick
-        const encoding = clamp((time - tag.encode) / ENCODE)
+        const encoding = clamp((time - tag.encode) / pace.encode)
         this.write(tag, encodeText(tag.word, tag.code, encoding))
         el.toggleAttribute('data-encoded', encoding > 0.3)
       }
@@ -461,10 +474,10 @@ export class TagDissolve {
       if ((column === 0 || column === columns - 1) && (row === 0 || row === rows - 1)) continue
       const size = random()
       const from = { x: left + random() * width, y: top + random() * height }
-      const start = tag.dissolve + random() * SCATTER_DELAY
+      const start = tag.dissolve + random() * this.pace.scatterDelay
       const spread = { x: from.x + (random() - 0.5) * 300, y: from.y + (random() - 0.5) * 220 }
       dots.push({
-        from, spread, start, settled: start + SCATTER, radius: 1.6 + 6 * size * size,
+        from, spread, start, settled: start + this.pace.scatter, radius: 1.6 + 6 * size * size,
         via: { x: (from.x + spread.x) / 2 + (random() - 0.5) * 320, y: (from.y + spread.y) / 2 + (random() - 0.5) * 320 },
         lift: { x: spread.x * 0.55 + HEAP.x * 0.45 + (random() - 0.5) * 180, y: spread.y * 0.25 + HEAP.y * 0.75 + (random() - 0.5) * 120 },
         angle: random() * Math.PI * 2, distance: Math.sqrt(random()) * HEAP_RADIUS,
@@ -488,7 +501,7 @@ export class TagDissolve {
       context.setTransform(ratio, 0, 0, ratio, 0, 0)
       this.context = context
     }
-    const g = this.context, look = this.options.look ?? DISCOVERY_DOTS
+    const g = this.context, look = this.options.look ?? DISCOVERY_DOTS, pace = this.pace
     g.clearRect(0, 0, STAGE_SIDE, CANVAS_HEIGHT)
     g.lineCap = 'round'
     for (const tag of this.tags) {
@@ -517,16 +530,16 @@ export class TagDissolve {
       let at: Point, radius = dot.radius, alpha = 1
       if (time < dot.settled) {
         // The scatter does not come to rest: it is still moving when the gather takes over.
-        const m = clamp((time - dot.start) / SCATTER)
+        const m = clamp((time - dot.start) / pace.scatter)
         at = bezier(dot.from, dot.via, dot.spread, m + 0.5 * m * (1 - m))
         radius *= Math.max(0, back(m)); alpha = Math.min(1, m * 2)
       } else {
         const elapsed = time - dot.settled
         const offset = { x: Math.cos(dot.angle) * dot.distance, y: Math.sin(dot.angle) * dot.distance * 0.92 }
         const heap = { x: HEAP.x + offset.x, y: HEAP.y + offset.y }
-        if (elapsed < GATHER) at = bezier(dot.spread, dot.lift, heap, elapsed / GATHER)
+        if (elapsed < pace.gather) at = bezier(dot.spread, dot.lift, heap, elapsed / pace.gather)
         else {
-          const v = (elapsed - GATHER) / EXIT
+          const v = (elapsed - pace.gather) / pace.exit
           if (v >= 1) continue
           at = bezier(heap, { x: heap.x + 160, y: heap.y - 120 }, { x: 1350 + offset.x * 1.6, y: -220 + offset.y * 1.6 }, 0.5 * v + 0.5 * v * v)
           alpha = 1 - clamp((v - 0.6) / 0.4)
