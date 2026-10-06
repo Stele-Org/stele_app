@@ -22,7 +22,8 @@ const lines: [string, ScreenState][] = [
 // Discovery speaks the same recording (Screen7) re-timed to its scene: discovery-timing.test.ts.
 
 it.each(lines)('the local scenario speaks the master line %s byte for byte', (file, screen) => {
-  const asset = getReadyNarrationAsset(publicManifest as VoiceManifest, narrationId(screen))
+  // With the greeting asked for (?greeting=1): only then does the start screen have a line.
+  const asset = getReadyNarrationAsset(publicManifest as VoiceManifest, narrationId(screen, false, true))
   expect(asset).toBeDefined()
   const bytes = readFileSync(new URL(`../../../public/voice/vasilisa/${asset}`, import.meta.url))
   // Against the file in the bank itself, not only its description: a recording replaced in the bank

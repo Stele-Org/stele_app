@@ -56,6 +56,7 @@ beforeEach(() => {
 afterEach(() => {
   act(() => root.unmount())
   host.remove()
+  window.history.replaceState(null, '', '/')
   vi.restoreAllMocks()
   vi.unstubAllGlobals()
   vi.unstubAllEnvs()
@@ -137,7 +138,17 @@ it('StrictMode discards the first async manifest response and unloads the only a
   expect(sound.play).toHaveBeenCalledOnce()
 })
 
-it('greets on the start screen on opening and on every return, and stays silent under the brand splash', async () => {
+it('keeps the start screen silent unless the page asks for the greeting', async () => {
+  await act(async () => root.render(<Harness screen={{type:'home'}} />))
+  expect(audio.sounds).toHaveLength(0)
+  await act(async () => root.render(<Harness />))
+  await act(async () => root.render(<Harness screen={{type:'home'}} />))
+  expect(audio.sounds).toHaveLength(1)
+  expect(audio.sounds[0].source.endsWith('/home.wav')).toBe(false)
+})
+
+it('with ?greeting=1 greets by itself on opening and on every return, and stays silent under the brand splash', async () => {
+  window.history.replaceState(null, '', '?greeting=1')
   await act(async () => root.render(<Harness screen={{type:'home'}} />))
   expect(audio.sounds).toHaveLength(1)
   expect(audio.sounds[0].source).toBe('/stella/voice/vasilisa/home.wav')
@@ -149,4 +160,37 @@ it('greets on the start screen on opening and on every return, and stays silent 
   expect(audio.sounds).toHaveLength(3)
   expect(audio.sounds[2].source).toBe('/stella/voice/vasilisa/home.wav')
   expect(audio.sounds[2]).not.toBe(audio.sounds[0])
+  // It starts as soon as the recording has loaded, with no tap at all.
+  act(() => { audio.sounds[2].emit('load') })
+  expect(audio.sounds[2].play).toHaveBeenCalledOnce()
+})
+
+it('never starts a held-back greeting by a tap on a product logo, only by a tap elsewhere', async () => {
+  window.history.replaceState(null, '', '?greeting=1')
+  const logo = document.createElement('button')
+  logo.className = 'product-tag'
+  logo.append(document.createElement('img'))
+  document.body.append(logo)
+  const open = async () => {
+    await act(async () => root.render(<Harness />))
+    await act(async () => root.render(<Harness screen={{type:'home'}} />))
+    const sound = audio.sounds.at(-1)!
+    // The browser refuses to start sound before the first gesture on the page.
+    act(() => { sound.emit('load'); sound.emit('playerror') })
+    expect(sound.play).toHaveBeenCalledOnce()
+    return sound
+  }
+  try {
+    const chosen = await open()
+    // The tap that chooses a product, on the logo image itself, together with Howler's unlock on that same tap.
+    act(() => { chosen.emit('unlock'); logo.firstElementChild!.dispatchEvent(new Event('pointerup', { bubbles: true })) })
+    expect(chosen.play).toHaveBeenCalledOnce()
+    // The visitor has chosen: nothing later revives this greeting.
+    act(() => { window.dispatchEvent(new Event('pointerup')); window.dispatchEvent(new Event('keydown')) })
+    expect(chosen.play).toHaveBeenCalledOnce()
+
+    const elsewhere = await open()
+    act(() => window.dispatchEvent(new Event('pointerup')))
+    expect(elsewhere.play).toHaveBeenCalledTimes(2)
+  } finally { logo.remove() }
 })

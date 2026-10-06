@@ -28,9 +28,11 @@ const mock = vi.hoisted(() => {
     emit(event: string) { if (event === 'load') this.loaded = true; this.listeners.get(event)?.forEach(fn => fn()) }
   }
   const sounds: Sound[] = []
-  return { Sound, sounds }
+  /** Web Audio as the page sees it: `suspended` until the first gesture in an ordinary browser. */
+  const howler = { usingWebAudio: true, ctx: { state: 'suspended', addEventListener() {} } }
+  return { Sound, sounds, howler }
 })
-vi.mock('howler', () => ({ Howl: mock.Sound }))
+vi.mock('howler', () => ({ Howl: mock.Sound, Howler: mock.howler }))
 vi.mock('./remote-audio-observer', () => ({ ensureMasterAudioObserver: vi.fn(), setMasterAudioState: vi.fn() }))
 
 let root: Root, host: HTMLDivElement, hidden = false
@@ -50,7 +52,7 @@ beforeEach(() => {
   for (const item of mock.sounds) { item.loaded = true; item.play.mockClear(); item.pause.mockClear(); item.stop.mockClear(); item.volume.mockClear() }
   host = document.createElement('div'); document.body.append(host); root = createRoot(host)
 })
-afterEach(() => { act(() => root.unmount()); host.remove(); vi.restoreAllMocks(); vi.unstubAllGlobals(); vi.unstubAllEnvs() })
+afterEach(() => { act(() => root.unmount()); host.remove(); window.history.replaceState(null, '', '/'); vi.restoreAllMocks(); vi.unstubAllGlobals(); vi.unstubAllEnvs() })
 
 const accepted = (manual = true) => act(() => window.dispatchEvent(new CustomEvent(acceptedSoundAction, { detail: { manual } })))
 it('keeps mismatched photo and camera silent; particles use the complete verified Discovery clip, the final speaks Screen8', () => {
@@ -58,18 +60,42 @@ it('keeps mismatched photo and camera silent; particles use the complete verifie
   expect(masterNarration('photochoice')).toBe('Screen5')
   expect(masterNarration('final')).toBe('Screen8')
   expect(masterNarration('particles')).toBe('Screen7')
-  expect(masterNarration('home')).toBe('Screen0')
+  // The start screen speaks only when the page asks for the greeting (?greeting=1).
+  expect(masterNarration('home')).toBeNull()
+  expect(masterNarration('home', undefined, true)).toBe('Screen0')
 })
-it('preloads a shared central bank once; home speaks its greeting and plays no effects before accepted input', async () => {
+it('preloads a shared central bank once; home has no automatic audio before accepted input', async () => {
   await render({}); expect(mock.sounds).toHaveLength(22)
+  expect(mock.sounds.every(s => s.play.mock.calls.length === 0)).toBe(true)
+  await render({screen:'onboarding'}); expect(sound('Screen1').play).toHaveBeenCalledOnce()
+  await render({screen:'question',questionIndex:0}); expect(mock.sounds).toHaveLength(22)
+  expect(sound('Screen1').stop).toHaveBeenCalledWith(12)
+})
+// Order matters for the next two: once sound has run on the page it stays allowed.
+it('with ?greeting=1 gives the greeting up where the browser still holds sound back: no tap may start it', async () => {
+  window.history.replaceState(null, '', '?greeting=1')
+  mock.howler.ctx.state = 'suspended'
+  await render({})
+  expect(sound('Screen0').play).not.toHaveBeenCalled()
+  // The first tap, wherever it lands, unlocks the page; the greeting of this appearance is already given up.
+  mock.howler.ctx.state = 'running'
+  act(() => { sound('Screen0').emit('unlock'); window.dispatchEvent(new Event('pointerup')); window.dispatchEvent(new Event('keydown')) })
+  await render({revision:2})
+  expect(sound('Screen0').play).not.toHaveBeenCalled()
+})
+it('with ?greeting=1 greets by itself each time the start screen appears, once, also while Howler rests an idle context', async () => {
+  window.history.replaceState(null, '', '?greeting=1')
+  mock.howler.ctx.state = 'running'
+  await render({})
   expect(sound('Screen0').play).toHaveBeenCalledOnce()
   expect(mock.sounds.filter(s => s !== sound('Screen0')).every(s => s.play.mock.calls.length === 0)).toBe(true)
   // Polling the same idle start screen does not greet again; leaving it stops the greeting.
   await render({revision:2}); expect(sound('Screen0').play).toHaveBeenCalledOnce()
-  await render({screen:'onboarding'}); expect(sound('Screen1').play).toHaveBeenCalledOnce()
-  expect(sound('Screen0').stop).toHaveBeenCalledWith(12)
-  await render({screen:'question',questionIndex:0}); expect(mock.sounds).toHaveLength(22)
-  expect(sound('Screen1').stop).toHaveBeenCalledWith(12)
+  await render({screen:'onboarding'}); expect(sound('Screen0').stop).toHaveBeenCalledWith(12)
+  // Howler suspends a silent context after a while; sound has run here, so the next greeting still starts.
+  mock.howler.ctx.state = 'suspended'
+  await render({screen:'home',sessionId:'s2'})
+  expect(sound('Screen0').play).toHaveBeenCalledTimes(2)
 })
 it('does not replay voice or ordered effects on polling; accepted reveals cycle through all five and reset on home', async () => {
   await render({screen:'question',questionIndex:0}); accepted()
@@ -172,7 +198,10 @@ it('retains AUDIO03 metadata without assigning VK narration to MAX or claiming S
   expect(setMasterAudioState).toHaveBeenLastCalledWith(expect.objectContaining({
     branch: 'max', screen: 'brand-entry', narrationEnabled: false, narrationCue: null, reason: 'brand_splash',
   }))
-  // The start screen is common to both products: the MAX slice greets on it too, and on nothing else.
+  // The start screen is common to both products: with ?greeting=1 the MAX slice greets on it too, and on nothing else.
+  act(() => root.unmount()); root = createRoot(host)
+  window.history.replaceState(null, '', '?greeting=1')
+  mock.howler.ctx.state = 'running'
   function MaxHome({ screen }: { screen: string }) { useMasterMaxAudio({ screen, playing: true }); return null }
   await act(async () => root.render(<MaxHome screen="home" />))
   expect(setMasterAudioState).toHaveBeenLastCalledWith(expect.objectContaining({ branch: 'max', screen: 'home', narrationCue: 'Screen0', reason: 'scene_active' }))

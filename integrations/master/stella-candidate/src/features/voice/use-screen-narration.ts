@@ -3,6 +3,7 @@ import { Howl } from 'howler'
 import type { ScreenState } from '../prototype/Prototype'
 import { narrationId, parseVoiceManifest, type VoiceManifest } from './narration'
 import { getReadyNarrationAsset } from './ready-narration-asset'
+import { isProductChoice, readGreeting } from './greeting'
 
 interface NarrationOptions {
   screen: ScreenState
@@ -15,11 +16,14 @@ interface ActiveNarration {
   sound: Howl
   id?: number
   phase: 'idle' | 'starting' | 'playing' | 'paused' | 'blocked' | 'ended'
+  /** The greeting of the start screen: it starts by itself and is never started by choosing a product. */
+  greeting: boolean
   attempt: () => void
 }
 
 export function useScreenNarration({ screen, playing, brandSplash, termsOpen }: NarrationOptions) {
-  const cue = narrationId(screen, brandSplash)
+  const [greeting] = useState(() => readGreeting(window.location.search))
+  const cue = narrationId(screen, brandSplash, greeting)
   const [manifest, setManifest] = useState<VoiceManifest | null>(null)
   const active = useRef<ActiveNarration | null>(null)
   const current = useRef({ cue, allowed: playing && !termsOpen })
@@ -51,6 +55,7 @@ export function useScreenNarration({ screen, playing, brandSplash, termsOpen }: 
     const narration: ActiveNarration = {
       sound: new Howl({ src: [`${base}${asset}`], html5: true, preload: true, autoplay: false, loop: false }),
       phase: 'idle',
+      greeting: cue === 'home',
       attempt: () => {
         if (!allowed() || narration.sound.state() !== 'loaded'
           || narration.phase === 'ended' || narration.phase === 'starting' || narration.phase === 'playing') return
@@ -60,7 +65,8 @@ export function useScreenNarration({ screen, playing, brandSplash, termsOpen }: 
     }
     active.current = narration
     narration.sound.on('load', narration.attempt)
-    narration.sound.on('unlock', narration.attempt)
+    // Howler reports the unlock on the very tap that may be choosing a product: the greeting does not listen to it.
+    if (!narration.greeting) narration.sound.on('unlock', narration.attempt)
     narration.sound.on('play', () => {
       if (disposed) return
       trace('play')
@@ -83,7 +89,7 @@ export function useScreenNarration({ screen, playing, brandSplash, termsOpen }: 
   }, [asset, base, cue])
 
   useEffect(() => {
-    const synchronize = () => {
+    const synchronize = (event?: Event) => {
       const narration = active.current
       if (!narration) return
       if (!current.current.allowed || document.hidden) {
@@ -91,7 +97,15 @@ export function useScreenNarration({ screen, playing, brandSplash, termsOpen }: 
           narration.sound.pause(narration.id)
           narration.phase = 'paused'
         }
-      } else narration.attempt()
+        return
+      }
+      // A greeting the browser held back at the appearance of the start screen may begin with the first tap
+      // elsewhere on the page, but a tap on a product logo gives it up: the visitor is already leaving.
+      if (narration.greeting && event && (narration.phase === 'idle' || narration.phase === 'blocked') && isProductChoice(event.target)) {
+        narration.phase = 'ended'
+        return
+      }
+      narration.attempt()
     }
     synchronize()
     document.addEventListener('visibilitychange', synchronize)

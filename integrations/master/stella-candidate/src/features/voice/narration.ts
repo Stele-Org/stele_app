@@ -1,10 +1,11 @@
 import type { ScreenState } from '../prototype/Prototype'
 
-/** Every meaningful screen speaks, the start screen included (its greeting was added by the user on 06.10.2026).
- * The brand splash and the tag reveals stay silent. */
-export function narrationId(screen: ScreenState, brandSplash = false): string | null {
+/** The visitor starts the home conversation: the start screen speaks only when the greeting is asked for
+ * (`?greeting=1`, see greeting.ts). The brand splash and the tag reveals stay silent. */
+export function narrationId(screen: ScreenState, brandSplash = false, greeting = false): string | null {
   if (brandSplash) return null
   switch (screen.type) {
+    case 'home': return greeting ? 'home' : null
     case 'max-answer-reveal':
     case 'vk-answer-reveal':
     case 'vk-photo-reveal': return null

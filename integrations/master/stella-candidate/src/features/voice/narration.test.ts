@@ -18,7 +18,10 @@ it('maps every meaningful state to an existing recording and preserves exact cur
     ...(['digital-id', 'communication', 'blogger', 'business-promotion'] as const).map(mission => ({ type: 'max-result' as const, mission })),
   ]
   const copy = new Map(phrases.phrases.map(phrase => [phrase.id, phrase.text]))
-  expect(new Set(samples.map(sample => narrationId(sample)))).toEqual(new Set(copy.keys()))
+  // The start screen speaks only when the greeting is asked for (?greeting=1).
+  expect(narrationId({ type: 'home' })).toBeNull()
+  expect(narrationId({ type: 'home' }, true, true)).toBeNull()
+  expect(new Set(samples.map(sample => narrationId(sample, false, true)))).toEqual(new Set(copy.keys()))
   expect(copy.size).toBe(phrases.phrases.length)
   vkQuestions.forEach((question, index) => {
     expect(copy.get(narrationId({ type: 'vk-question', index, answers: [] })!)).toContain(question.prompt)

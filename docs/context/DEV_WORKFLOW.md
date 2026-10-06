@@ -39,6 +39,7 @@
 | Адрес | Что показывает |
 | --- | --- |
 | http://127.0.0.1:5218/stella/ | Весь сценарий |
+| http://127.0.0.1:5218/stella/?greeting=1 | Сценарий с приветствием на стартовом экране; на стенде `?master=1&greeting=1`. Действует и в собранном приложении |
 | http://127.0.0.1:5218/stella/?reveal=series | Сцена тегов одного ответа VK по кругу; `series` — id ответа из `src/content/vkVideo.ts` |
 | http://127.0.0.1:5218/stella/?reveal=series&tagLook=solid | То же с тегами-заливкой |
 | http://127.0.0.1:5218/stella/?discovery=generation | Сцена Discovery «пульс + нейросеть» по кругу |

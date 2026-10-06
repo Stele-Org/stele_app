@@ -1,9 +1,10 @@
-import { useEffect, useLayoutEffect, useRef } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import type { Howl } from 'howler'
-import { masterNarration, productionAudio, type AudioCue } from '../audio/production-audio'
+import { masterNarration, productionAudio, soundAllowed, type AudioCue } from '../audio/production-audio'
 import { createMasterSound } from '../audio/master-sound'
 import { setMasterAudioState } from '../audio/remote-audio-observer'
 import { acceptedSoundAction, hasAcceptedSoundAction } from '../sound/sfx-events'
+import { readGreeting } from '../voice/greeting'
 
 export interface MasterAudioOptions {
   screen: string
@@ -30,6 +31,7 @@ interface Track {
 
 /** UI orchestration over cached Howler clips; never advances the master's scenario. */
 export function useMasterAudio({ screen, sessionId, instanceKey, questionIndex, playing, effectsPlaying = playing, splash = false, narrationEnabled = true, blocked = false, branch = 'vk' }: MasterAudioOptions) {
+  const [greeting] = useState(() => readGreeting(window.location.search))
   const phase = JSON.stringify([instanceKey, sessionId, screen, questionIndex, splash])
   const allowed = useRef(false)
   const synchronize = useRef<() => void>(() => {})
@@ -38,13 +40,13 @@ export function useMasterAudio({ screen, sessionId, instanceKey, questionIndex, 
   // AUDIO03 metadata reports intent/context; observer lifecycle remains the
   // authority for actual voices, including the new ordered SFX and loop beds.
   useEffect(() => {
-    const narrationCue = splash || !narrationEnabled ? null : masterNarration(screen, questionIndex)
+    const narrationCue = splash || !narrationEnabled ? null : masterNarration(screen, questionIndex, greeting)
     setMasterAudioState({ branch, phase: screen, screen, questionIndex: questionIndex ?? -1,
       playing, effectsPlaying, splash, blocked, narrationEnabled, narrationCue,
       effectCue: null, effectMode: 'ordered_sfx',
       reason: splash ? 'brand_splash' : blocked ? 'interaction_blocked' : !playing ? 'presentation_paused'
         : narrationCue ? 'scene_active' : !narrationEnabled ? 'narration_disabled' : 'no_narration_for_screen' })
-  }, [branch, screen, questionIndex, playing, effectsPlaying, splash, blocked, narrationEnabled])
+  }, [branch, screen, questionIndex, playing, effectsPlaying, splash, blocked, narrationEnabled, greeting])
 
   useEffect(() => {
     const bank = productionAudio(import.meta.env.BASE_URL)
@@ -66,6 +68,9 @@ export function useMasterAudio({ screen, sessionId, instanceKey, questionIndex, 
         sound, state: 'idle',
         start: () => {
           if (!mayPlay() || sound.state() !== 'loaded' || ['starting', 'playing', 'ended'].includes(track.state)) return
+          // The greeting starts by itself when the start screen appears. Where the browser still holds sound back,
+          // Howler would queue it for the first tap, which may be the one that chooses a product: give it up instead.
+          if (cue === 'Screen0' && !soundAllowed()) { track.state = 'ended'; return }
           track.state = 'starting'
           sound.volume(voice ? 0.9 : 0.13)
           track.id = track.id === undefined ? sound.play() : sound.play(track.id)
@@ -99,13 +104,14 @@ export function useMasterAudio({ screen, sessionId, instanceKey, questionIndex, 
           console.warn('[stella-audio] asset unavailable:', cue)
         }
       }
-      sound.on('load', track.start).on('unlock', track.start)
+      sound.on('load', track.start)
+      if (cue !== 'Screen0') sound.on('unlock', track.start)
       sound.on('play', onPlay).on('end', onEnd).on('playerror', onError).on('loaderror', onLoadError)
       tracks.push(track)
       if (!voice) effects.push(track)
       return track
     }
-    const cue = splash || !narrationEnabled ? null : masterNarration(screen, questionIndex)
+    const cue = splash || !narrationEnabled ? null : masterNarration(screen, questionIndex, greeting)
     if (cue) narration = attach(cue, true)
     const sync = () => {
       tracks.forEach(track => track.sync())
@@ -126,7 +132,7 @@ export function useMasterAudio({ screen, sessionId, instanceKey, questionIndex, 
       window.removeEventListener('keydown', sync)
     }
     // Phase identity intentionally excludes server revision/checkpoints.
-  }, [phase, screen, questionIndex, splash, narrationEnabled])
+  }, [phase, screen, questionIndex, splash, narrationEnabled, greeting])
 
   useEffect(() => { queueMicrotask(() => synchronize.current()) }, [playing, splash, blocked])
 
