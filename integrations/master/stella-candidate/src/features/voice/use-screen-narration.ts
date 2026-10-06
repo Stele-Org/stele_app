@@ -9,7 +9,6 @@ interface NarrationOptions {
   screen: ScreenState
   playing: boolean
   brandSplash: boolean
-  termsOpen: boolean
 }
 
 interface ActiveNarration {
@@ -21,18 +20,20 @@ interface ActiveNarration {
   attempt: () => void
 }
 
-export function useScreenNarration({ screen, playing, brandSplash, termsOpen }: NarrationOptions) {
+/** The voice follows the scenario pause and the visibility of the page, nothing else: opening the consent text
+ * leaves it speaking (user, 06.10.2026). */
+export function useScreenNarration({ screen, playing, brandSplash }: NarrationOptions) {
   const [greeting] = useState(() => readGreeting(window.location.search))
   const cue = narrationId(screen, brandSplash, greeting)
   const [manifest, setManifest] = useState<VoiceManifest | null>(null)
   const active = useRef<ActiveNarration | null>(null)
-  const current = useRef({ cue, allowed: playing && !termsOpen })
+  const current = useRef({ cue, allowed: playing })
   const base = `${import.meta.env.BASE_URL}voice/vasilisa/`
   const asset = getReadyNarrationAsset(manifest, cue)
 
   useLayoutEffect(() => {
-    current.current = { cue, allowed: playing && !termsOpen }
-  }, [cue, playing, termsOpen])
+    current.current = { cue, allowed: playing }
+  }, [cue, playing])
 
   useEffect(() => {
     const abort = new AbortController()
@@ -117,5 +118,5 @@ export function useScreenNarration({ screen, playing, brandSplash, termsOpen }: 
       window.removeEventListener('pointerup', synchronize)
       window.removeEventListener('keydown', synchronize)
     }
-  }, [playing, termsOpen])
+  }, [playing])
 }

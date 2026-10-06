@@ -93,7 +93,8 @@ export function Prototype() {
   const [canvasScale, setCanvasScale] = useState(1)
   const viewportRef = useRef<HTMLDivElement>(null)
   const playing = useServicePlaying()
-  useScreenNarration({ screen, playing, brandSplash: enteringProduct !== null, termsOpen: termsMounted })
+  // The consent text pauses the screen and its sound effects, but not the voice.
+  useScreenNarration({ screen, playing, brandSplash: enteringProduct !== null })
   useStellaSound({ screen, playing, blocked: termsMounted })
   const transitionRemaining = useRef<{ screen: ScreenState; remaining: number } | null>(null)
 

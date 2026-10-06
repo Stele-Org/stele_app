@@ -37,7 +37,8 @@ export function useMasterAudio({ screen, sessionId, instanceKey, questionIndex, 
   const phase = JSON.stringify([instanceKey, sessionId, screen, questionIndex, splash])
   const allowed = useRef(false)
   const synchronize = useRef<() => void>(() => {})
-  useLayoutEffect(() => { allowed.current = playing && !splash && !blocked }, [playing, splash, blocked])
+  // `blocked` (the consent text is open) stops the sound effects below, never the voice: user, 06.10.2026.
+  useLayoutEffect(() => { allowed.current = playing && !splash }, [playing, splash])
 
   // AUDIO03 metadata reports intent/context; observer lifecycle remains the
   // authority for actual voices, including the new ordered SFX and loop beds.
@@ -136,7 +137,7 @@ export function useMasterAudio({ screen, sessionId, instanceKey, questionIndex, 
     // Phase identity intentionally excludes server revision/checkpoints.
   }, [phase, screen, questionIndex, answerId, splash, narrationEnabled, greeting])
 
-  useEffect(() => { queueMicrotask(() => synchronize.current()) }, [playing, splash, blocked])
+  useEffect(() => { queueMicrotask(() => synchronize.current()) }, [playing, splash])
 
   // SFX persist across phase changes; only real host/visibility/consent pause
   // stops one-shots and pauses the ambience. Polling cannot replay a reveal.

@@ -190,14 +190,16 @@ it('MAX shares the effects without ever using VK Screen narration', async () => 
   expect(sound('Screen1').play).not.toHaveBeenCalled()
   expect(sound('ChangeScreen').play).toHaveBeenCalledOnce()
 })
-it('consent blocking pauses narration and ambience, stops effects and resumes the same bed', async () => {
+it('consent blocking pauses the ambience and stops effects, resumes the same bed, and leaves the voice speaking', async () => {
   await render({screen:'particles'}); accepted(); sound('Screen7').emit('play')
   await render({screen:'particles',blocked:true})
-  expect(sound('Screen7').pause).toHaveBeenCalledWith(12)
+  expect(sound('Screen7').pause).not.toHaveBeenCalled()
+  expect(sound('Screen7').stop).not.toHaveBeenCalled()
   expect(sound('AmbienceMain').pause).toHaveBeenCalledWith(12)
   expect(sound('Click').stop).toHaveBeenCalledWith(12)
   await render({screen:'particles',blocked:false})
   expect(sound('AmbienceMain').play).toHaveBeenLastCalledWith(12)
+  expect(sound('Screen7').play).toHaveBeenCalledOnce()
 })
 it('keeps the already accepted shell gesture when it mounts a new product slice, without replaying a click', async () => {
   emitAcceptedSoundAction(true)

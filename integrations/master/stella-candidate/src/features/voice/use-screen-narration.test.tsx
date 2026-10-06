@@ -35,10 +35,10 @@ let root: Root, host: HTMLDivElement
 let visible = true
 const manifest = { version: 1, voice: 'Василиса', ready: true, assets: { home: 'home.wav', 'max-audience': 'max-audience.wav', 'vk-onboarding': 'vk-onboarding.wav' } }
 
-function Harness({ screen = { type: 'vk-onboarding' }, playing = true, termsOpen = false, brandSplash = false }: {
-  screen?: ScreenState; playing?: boolean; termsOpen?: boolean; brandSplash?: boolean
+function Harness({ screen = { type: 'vk-onboarding' }, playing = true, brandSplash = false }: {
+  screen?: ScreenState; playing?: boolean; brandSplash?: boolean
 }) {
-  useScreenNarration({ screen, playing, termsOpen, brandSplash })
+  useScreenNarration({ screen, playing, brandSplash })
   return <div data-screen={screen.type} />
 }
 
@@ -83,7 +83,7 @@ it('ignores stale load/unlock after switching screens and retries only the curre
   expect(old.play).not.toHaveBeenCalled()
 })
 
-it('pauses the same clip for host, terms and hidden state, and never restarts a completed clip on gestures', async () => {
+it('pauses the same clip for host and hidden state, and never restarts a completed clip on gestures', async () => {
   await act(async () => root.render(<Harness />))
   const sound = audio.sounds[0]
   act(() => { sound.emit('load'); sound.emit('play') })
@@ -94,12 +94,8 @@ it('pauses the same clip for host, terms and hidden state, and never restarts a 
   await act(async () => root.render(<Harness />))
   expect(sound.play).toHaveBeenLastCalledWith(7)
   act(() => sound.emit('play'))
-  await act(async () => root.render(<Harness termsOpen />))
-  expect(sound.pause).toHaveBeenCalledTimes(2)
-  await act(async () => root.render(<Harness />))
-  act(() => sound.emit('play'))
   act(() => { visible = false; document.dispatchEvent(new Event('visibilitychange')) })
-  expect(sound.pause).toHaveBeenCalledTimes(3)
+  expect(sound.pause).toHaveBeenCalledTimes(2)
   act(() => { visible = true; document.dispatchEvent(new Event('visibilitychange')); sound.emit('play'); sound.emit('end') })
   const count = sound.play.mock.calls.length
   act(() => window.dispatchEvent(new Event('pointerup')))
