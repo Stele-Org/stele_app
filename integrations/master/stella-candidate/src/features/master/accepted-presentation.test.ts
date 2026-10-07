@@ -28,6 +28,22 @@ describe('accepted VK display wording', () => {
       .toEqual(['Драйвовый', 'Захватывающий', 'Познавательный', 'Расслабляющий'])
   })
 
+  it('holds «контент на вечер?» together in the heading of the second question when the server sends the same words', () => {
+    const options = ['drive', 'heroes', 'learn', 'rest'].map(id => ({ id, label: acceptedVkAnswerLabel(id, '') }))
+    const question: QuestionPresentation = { id: 'ideal-content', product: 'vk-video', prompt: 'Каким должен быть идеальный контент на вечер?',
+      layout: 'grid', answering: false, options }
+    const result = acceptedVkQuestion(question)!
+    expect(result.prompt).toBe('Каким должен быть идеальный контент\u00a0на\u00a0вечер?')
+    expect(result.options).toEqual(options)
+    expect(question.prompt).toBe('Каким должен быть идеальный контент на вечер?')
+    expect(acceptedVkQuestion(result)).toBe(result)
+    // Other wording from the server is shown as sent, and the other questions have no such breaks.
+    const other = { ...question, prompt: 'Каким должен быть контент на вечер?' }
+    expect(acceptedVkQuestion(other)).toBe(other)
+    const first: QuestionPresentation = { ...question, id: 'evening', prompt: 'У вас внезапно освободился вечер. Что включаем?', options: [{ id: 'series', label: 'Сериал' }] }
+    expect(acceptedVkQuestion(first)).toBe(first)
+  })
+
   it('changes the visible reveal label while keeping raw source, metadata batches and transition identity', () => {
     const next = { type: 'home' as const }
     const source = { type: 'vk-answer-reveal' as const, questionIndex: 1, optionIndex: 0,

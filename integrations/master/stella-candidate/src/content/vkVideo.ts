@@ -52,7 +52,8 @@ export const vkQuestions: [VkQuestion<WeightedOption>, VkQuestion<WeightedOption
   },
   {
     id: 'ideal-content',
-    prompt: 'Каким должен быть идеальный контент на вечер?',
+    // The non-breaking spaces move «контент на вечер?» to the second line together: «вечер?» does not hang alone (user, 07.10.2026).
+    prompt: 'Каким должен быть идеальный контент\u00a0на\u00a0вечер?',
     options: [
       { id: 'drive', label: 'Драйвовый', metadata: ['драйв', 'азарт', 'игры', 'авто'], plusTwo: 'Игры и авто', plusOne: 'Кино' },
       { id: 'heroes', label: 'Захватывающий', metadata: ['переживания', 'чувства', 'герои', 'эмоции'], plusTwo: 'Спорт', plusOne: 'Культура и образование' },

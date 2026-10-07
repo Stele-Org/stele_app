@@ -24,7 +24,8 @@ it('maps every meaningful state to an existing recording and preserves exact cur
   expect(new Set(samples.map(sample => narrationId(sample, false, true)))).toEqual(new Set(copy.keys()))
   expect(copy.size).toBe(phrases.phrases.length)
   vkQuestions.forEach((question, index) => {
-    expect(copy.get(narrationId({ type: 'vk-question', index, answers: [] })!)).toContain(question.prompt)
+    // A heading may hold words together with non-breaking spaces; the spoken text has plain ones.
+    expect(copy.get(narrationId({ type: 'vk-question', index, answers: [] })!)).toContain(question.prompt.replace(/\s+/g, ' '))
   })
   expect(copy.get('max-audience')).toContain(maxPrompts.audience)
   expect(copy.get('max-goal')).toContain(maxPrompts.goal)

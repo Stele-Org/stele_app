@@ -21,6 +21,8 @@ describe('approved VK copy and preserved MAX copy', () => {
     expect(`${vkCopy.digitizeNoticePrefix}${vkCopy.digitizeNoticeAction}.`).toBe('Отвечая «Начать», вы принимаете условия использования персональных данных.')
     expect(vkQuestions.map(({ options }) => options.length)).toEqual([4, 4, 4])
     expect(vkQuestions[0].prompt).toBe('У вас внезапно освободился вечер. Что включаем?')
+    // The words are the same; the last three are held together so that the heading wraps before «контент».
+    expect(vkQuestions[1].prompt).toBe('Каким должен быть идеальный контент\u00a0на\u00a0вечер?')
     expect(vkQuestions[1].options.map(option => option.label)).toEqual(['Драйвовый', 'Захватывающий', 'Познавательный', 'Расслабляющий'])
     expect(vkQuestions[2].prompt).toBe('Рекомендации Discovery решили немного вас удивить. Что показывать?')
     expect(vkQuestions[2].options[2].id).toBe('hero')

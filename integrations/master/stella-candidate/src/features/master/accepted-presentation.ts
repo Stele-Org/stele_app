@@ -5,6 +5,14 @@ import type { TagReveal } from '../prototype/tag-reveal'
 // The second question: all four answers carry the wording approved on 06.10.2026.
 const acceptedLabels = new Map<string, string>(vkQuestions[1].options.map(option => [option.id, option.label]))
 
+// A heading whose words the server sends unchanged takes the approved line breaks of the local one (non-breaking spaces).
+const acceptedPrompts = new Map<string, string>(vkQuestions.map(question => [question.id, question.prompt]))
+const plain = (text: string) => text.replace(/\s+/g, ' ')
+function acceptedPrompt(questionId: string, serverPrompt: string): string {
+  const prompt = acceptedPrompts.get(questionId)
+  return prompt !== undefined && plain(prompt) === plain(serverPrompt) ? prompt : serverPrompt
+}
+
 /** Approved screen wording for an existing answer ID; the server contract remains untouched. */
 export function acceptedVkAnswerLabel(answerId: string | undefined, serverLabel: string): string {
   return (answerId !== undefined && acceptedLabels.get(answerId)) || serverLabel
@@ -22,8 +30,9 @@ function acceptedPhotoStep(question: QuestionPresentation): QuestionPresentation
 export function acceptedVkQuestion(question: QuestionPresentation | null): QuestionPresentation | null {
   if (!question || question.product !== 'vk-video') return question
   if (question.layout === 'photo') return acceptedPhotoStep(question)
-  if (!question.options.some(option => acceptedVkAnswerLabel(option.id, option.label) !== option.label)) return question
-  return { ...question, options: question.options.map(option => {
+  const prompt = acceptedPrompt(question.id, question.prompt)
+  if (prompt === question.prompt && !question.options.some(option => acceptedVkAnswerLabel(option.id, option.label) !== option.label)) return question
+  return { ...question, prompt, options: question.options.map(option => {
     const label = acceptedVkAnswerLabel(option.id, option.label)
     return label === option.label ? option : { ...option, label }
   }) }
