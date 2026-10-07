@@ -1,0 +1,133 @@
+{
+  "covers": [
+    {
+      "theme": "Медиа и шоу",
+      "count": 2
+    },
+    {
+      "theme": "Музыка",
+      "count": 2
+    },
+    {
+      "theme": "Игры и авто",
+      "count": 2
+    }
+  ],
+  "aiCover": [],
+  "coversTotal": 6,
+  "tags": [
+    "шоу",
+    "стендап",
+    "юмор",
+    "комедия",
+    "музыка",
+    "медиа",
+    "отдых",
+    "лёгкий контент",
+    "рекомендации",
+    "для меня",
+    "персонализация",
+    "увлечения"
+  ],
+  "answers": [
+    {
+      "questionId": "evening",
+      "question": "У вас внезапно освободился вечер. Что включаем?",
+      "answerId": "standup",
+      "answer": "Стендап или что-нибудь смешное",
+      "tags": [
+        "шоу",
+        "стендап",
+        "юмор",
+        "комедия"
+      ]
+    },
+    {
+      "questionId": "ideal-content",
+      "question": "Каким должен быть идеальный контент на вечер?",
+      "answerId": "rest",
+      "answer": "Расслабляющий",
+      "tags": [
+        "музыка",
+        "медиа",
+        "отдых",
+        "лёгкий контент"
+      ]
+    },
+    {
+      "questionId": "discovery",
+      "question": "Рекомендации Discovery решили немного вас удивить. Что показывать?",
+      "answerId": "familiar",
+      "answer": "Что-то похожее на то, что я уже люблю",
+      "tags": [
+        "рекомендации",
+        "для меня",
+        "персонализация",
+        "увлечения"
+      ]
+    }
+  ],
+  "themes": [
+    {
+      "theme": "Медиа и шоу",
+      "covers": 2,
+      "score": 3,
+      "rank": 1
+    },
+    {
+      "theme": "Музыка",
+      "covers": 2,
+      "score": 2,
+      "rank": 2
+    },
+    {
+      "theme": "Игры и авто",
+      "covers": 2,
+      "score": 1,
+      "rank": 3
+    },
+    {
+      "theme": "Кино",
+      "covers": 0,
+      "score": 0,
+      "rank": 4
+    },
+    {
+      "theme": "Спорт",
+      "covers": 0,
+      "score": 0,
+      "rank": 5
+    },
+    {
+      "theme": "Культура и образование",
+      "covers": 0,
+      "score": 0,
+      "rank": 6
+    },
+    {
+      "theme": "Новости и бизнес",
+      "covers": 0,
+      "score": 0,
+      "rank": 7
+    },
+    {
+      "theme": "Наука",
+      "covers": 0,
+      "score": 0,
+      "rank": 8
+    }
+  ],
+  "genres": [],
+  "discovery": {
+    "answerId": "familiar",
+    "rule": "По одному видео из Топ 2 тематик для пользователя"
+  },
+  "photo": {
+    "status": "not-requested"
+  },
+  "schemaVersion": 1,
+  "type": "stella-vk-result",
+  "product": "vk-video",
+  "sessionId": "33c5eefc-a1c7-4d44-aba0-c4380af823ce",
+  "createdAt": "2026-10-07T18:44:32.018Z"
+}

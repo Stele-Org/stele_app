@@ -1,0 +1,131 @@
+{
+  "covers": [
+    {
+      "theme": "Наука",
+      "count": 2
+    },
+    {
+      "theme": "Новости и бизнес",
+      "count": 2
+    },
+    {
+      "theme": "Спорт",
+      "count": 2
+    }
+  ],
+  "aiCover": [],
+  "coversTotal": 6,
+  "tags": [
+    "наука",
+    "знания",
+    "документальное кино",
+    "научпоп",
+    "культура",
+    "обучение",
+    "факты",
+    "тренды",
+    "яркое",
+    "все",
+    "топ-5"
+  ],
+  "answers": [
+    {
+      "questionId": "evening",
+      "question": "У вас внезапно освободился вечер. Что включаем?",
+      "answerId": "science",
+      "answer": "Документалку или научпоп",
+      "tags": [
+        "наука",
+        "знания",
+        "документальное кино",
+        "научпоп"
+      ]
+    },
+    {
+      "questionId": "ideal-content",
+      "question": "Каким должен быть идеальный контент на вечер?",
+      "answerId": "learn",
+      "answer": "Познавательный",
+      "tags": [
+        "культура",
+        "обучение",
+        "факты"
+      ]
+    },
+    {
+      "questionId": "discovery",
+      "question": "Рекомендации Discovery решили немного вас удивить. Что показывать?",
+      "answerId": "popular",
+      "answer": "То, чем прямо сейчас увлечены все",
+      "tags": [
+        "тренды",
+        "яркое",
+        "все",
+        "топ-5"
+      ]
+    }
+  ],
+  "themes": [
+    {
+      "theme": "Наука",
+      "covers": 2,
+      "score": 3,
+      "rank": 1
+    },
+    {
+      "theme": "Новости и бизнес",
+      "covers": 2,
+      "score": 2,
+      "rank": 2
+    },
+    {
+      "theme": "Спорт",
+      "covers": 2,
+      "score": 1,
+      "rank": 3
+    },
+    {
+      "theme": "Кино",
+      "covers": 0,
+      "score": 0,
+      "rank": 4
+    },
+    {
+      "theme": "Игры и авто",
+      "covers": 0,
+      "score": 0,
+      "rank": 5
+    },
+    {
+      "theme": "Культура и образование",
+      "covers": 0,
+      "score": 0,
+      "rank": 6
+    },
+    {
+      "theme": "Медиа и шоу",
+      "covers": 0,
+      "score": 0,
+      "rank": 7
+    },
+    {
+      "theme": "Музыка",
+      "covers": 0,
+      "score": 0,
+      "rank": 8
+    }
+  ],
+  "genres": [],
+  "discovery": {
+    "answerId": "popular",
+    "rule": "Самое популярное видео за последние 7 дней из каталога согласованных видео"
+  },
+  "photo": {
+    "status": "not-requested"
+  },
+  "schemaVersion": 1,
+  "type": "stella-vk-result",
+  "product": "vk-video",
+  "sessionId": "73137387-89b7-4922-bd4b-cf42f4394b99",
+  "createdAt": "2026-10-07T18:51:25.837Z"
+}

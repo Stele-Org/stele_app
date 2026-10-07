@@ -1,0 +1,133 @@
+{
+  "covers": [
+    {
+      "theme": "Медиа и шоу",
+      "count": 2
+    },
+    {
+      "theme": "Музыка",
+      "count": 2
+    },
+    {
+      "theme": "Игры и авто",
+      "count": 2
+    }
+  ],
+  "aiCover": [],
+  "coversTotal": 6,
+  "tags": [
+    "шоу",
+    "стендап",
+    "юмор",
+    "комедия",
+    "музыка",
+    "медиа",
+    "отдых",
+    "лёгкий контент",
+    "новинки",
+    "лайки",
+    "интересы",
+    "темы"
+  ],
+  "answers": [
+    {
+      "questionId": "evening",
+      "question": "У вас внезапно освободился вечер. Что включаем?",
+      "answerId": "standup",
+      "answer": "Стендап или что-нибудь смешное",
+      "tags": [
+        "шоу",
+        "стендап",
+        "юмор",
+        "комедия"
+      ]
+    },
+    {
+      "questionId": "ideal-content",
+      "question": "Каким должен быть идеальный контент на вечер?",
+      "answerId": "rest",
+      "answer": "Расслабляющий",
+      "tags": [
+        "музыка",
+        "медиа",
+        "отдых",
+        "лёгкий контент"
+      ]
+    },
+    {
+      "questionId": "discovery",
+      "question": "Рекомендации Discovery решили немного вас удивить. Что показывать?",
+      "answerId": "new",
+      "answer": "Новое, но по теме моих интересов",
+      "tags": [
+        "новинки",
+        "лайки",
+        "интересы",
+        "темы"
+      ]
+    }
+  ],
+  "themes": [
+    {
+      "theme": "Медиа и шоу",
+      "covers": 2,
+      "score": 3,
+      "rank": 1
+    },
+    {
+      "theme": "Музыка",
+      "covers": 2,
+      "score": 2,
+      "rank": 2
+    },
+    {
+      "theme": "Игры и авто",
+      "covers": 2,
+      "score": 1,
+      "rank": 3
+    },
+    {
+      "theme": "Культура и образование",
+      "covers": 0,
+      "score": 0,
+      "rank": 4
+    },
+    {
+      "theme": "Новости и бизнес",
+      "covers": 0,
+      "score": 0,
+      "rank": 5
+    },
+    {
+      "theme": "Кино",
+      "covers": 0,
+      "score": 0,
+      "rank": 6
+    },
+    {
+      "theme": "Спорт",
+      "covers": 0,
+      "score": 0,
+      "rank": 7
+    },
+    {
+      "theme": "Наука",
+      "covers": 0,
+      "score": 0,
+      "rank": 8
+    }
+  ],
+  "genres": [],
+  "discovery": {
+    "answerId": "new",
+    "rule": "Дополнительное видео из тематики 3 или 4"
+  },
+  "photo": {
+    "status": "not-requested"
+  },
+  "schemaVersion": 1,
+  "type": "stella-vk-result",
+  "product": "vk-video",
+  "sessionId": "290a062e-24c7-4b8c-b5bb-3515c684bf60",
+  "createdAt": "2026-10-07T18:44:36.134Z"
+}
