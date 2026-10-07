@@ -7,24 +7,13 @@
     {
       "theme": "Спорт",
       "count": 2
-    }
-  ],
-  "aiCover": [
-    {
-      "genre": "DRAMA",
-      "count": 1,
-      "title": "Драма",
-      "recipeId": "03_DRAMA",
-      "theme": "Спорт"
     },
     {
-      "genre": "HORROR",
-      "count": 1,
-      "title": "Хоррор",
-      "recipeId": "09_HORROR",
-      "theme": "Спорт"
+      "theme": "Новости и бизнес",
+      "count": 2
     }
   ],
+  "aiCover": [],
   "coversTotal": 6,
   "tags": [
     "подкаст",
@@ -100,30 +89,30 @@
     },
     {
       "theme": "Новости и бизнес",
-      "covers": 0,
+      "covers": 2,
       "score": 1,
       "rank": 3
     },
     {
-      "theme": "Игры и авто",
+      "theme": "Музыка",
       "covers": 0,
       "score": 0,
       "rank": 4
     },
     {
-      "theme": "Наука",
+      "theme": "Кино",
       "covers": 0,
       "score": 0,
       "rank": 5
     },
     {
-      "theme": "Кино",
+      "theme": "Наука",
       "covers": 0,
       "score": 0,
       "rank": 6
     },
     {
-      "theme": "Музыка",
+      "theme": "Игры и авто",
       "covers": 0,
       "score": 0,
       "rank": 7
@@ -135,98 +124,7 @@
       "rank": 8
     }
   ],
-  "genres": [
-    {
-      "genre": "DRAMA",
-      "covers": 1,
-      "score": 3,
-      "rank": 1,
-      "title": "Драма",
-      "recipeId": "03_DRAMA",
-      "theme": "Спорт"
-    },
-    {
-      "genre": "HORROR",
-      "covers": 1,
-      "score": 2,
-      "rank": 2,
-      "title": "Хоррор",
-      "recipeId": "09_HORROR",
-      "theme": "Спорт"
-    },
-    {
-      "genre": "HISTORY",
-      "covers": 0,
-      "score": 2,
-      "rank": 3,
-      "title": "Исторический фильм",
-      "recipeId": "04_HISTORY",
-      "theme": "Культура и образование"
-    },
-    {
-      "genre": "MUSICLE",
-      "covers": 0,
-      "score": 0,
-      "rank": 4,
-      "title": "Мюзикл",
-      "recipeId": "06_MUSICLE",
-      "theme": "Музыка"
-    },
-    {
-      "genre": "DETECTIVE",
-      "covers": 0,
-      "score": 0,
-      "rank": 5,
-      "title": "Детектив",
-      "recipeId": "02_DETECTIVE",
-      "theme": "Новости и бизнес"
-    },
-    {
-      "genre": "BOEVIK",
-      "covers": 0,
-      "score": 0,
-      "rank": 6,
-      "title": "Боевик",
-      "recipeId": "01_BOEVIK",
-      "theme": "Игры и авто"
-    },
-    {
-      "genre": "ADVENTURE",
-      "covers": 0,
-      "score": 0,
-      "rank": 7,
-      "title": "Приключения",
-      "recipeId": "08_ADVENTURE",
-      "theme": "Кино"
-    },
-    {
-      "genre": "SCI-FI",
-      "covers": 0,
-      "score": 0,
-      "rank": 8,
-      "title": "Сай-фай",
-      "recipeId": "07_SCI-FI",
-      "theme": "Наука"
-    },
-    {
-      "genre": "FANTASY",
-      "covers": 0,
-      "score": 0,
-      "rank": 9,
-      "title": "Фэнтези",
-      "recipeId": "10_FANTASY",
-      "theme": "Кино"
-    },
-    {
-      "genre": "COMEDY",
-      "covers": 0,
-      "score": 0,
-      "rank": 10,
-      "title": "Комедия",
-      "recipeId": "05_COMEDY",
-      "theme": "Медиа и шоу"
-    }
-  ],
+  "genres": [],
   "discovery": {
     "answerId": "hero",
     "rule": "Формируется пул обложек с учетом выбранных тематик, на которых размещен образ пользователя"
@@ -237,6 +135,6 @@
   "schemaVersion": 1,
   "type": "stella-vk-result",
   "product": "vk-video",
-  "sessionId": "674af3bf-7119-42a1-b640-9befd93fad4e",
-  "createdAt": "2026-10-07T18:47:04.292Z"
+  "sessionId": "4f981d1d-2cfc-49a3-9413-f2d6269e3644",
+  "createdAt": "2026-10-07T19:34:32.322Z"
 }

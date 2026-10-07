@@ -106,13 +106,13 @@
       "rank": 2
     },
     {
-      "theme": "Наука",
+      "theme": "Музыка",
       "covers": 0,
       "score": 1,
       "rank": 3
     },
     {
-      "theme": "Музыка",
+      "theme": "Наука",
       "covers": 0,
       "score": 1,
       "rank": 4
@@ -124,7 +124,7 @@
       "rank": 5
     },
     {
-      "theme": "Спорт",
+      "theme": "Игры и авто",
       "covers": 0,
       "score": 0,
       "rank": 6
@@ -136,7 +136,7 @@
       "rank": 7
     },
     {
-      "theme": "Игры и авто",
+      "theme": "Спорт",
       "covers": 0,
       "score": 0,
       "rank": 8
@@ -162,13 +162,13 @@
       "theme": "Новости и бизнес"
     },
     {
-      "genre": "SCI-FI",
+      "genre": "HORROR",
       "covers": 0,
       "score": 1,
       "rank": 3,
-      "title": "Сай-фай",
-      "recipeId": "07_SCI-FI",
-      "theme": "Наука"
+      "title": "Хоррор",
+      "recipeId": "09_HORROR",
+      "theme": "Спорт"
     },
     {
       "genre": "HISTORY",
@@ -180,46 +180,28 @@
       "theme": "Культура и образование"
     },
     {
-      "genre": "HORROR",
+      "genre": "SCI-FI",
       "covers": 0,
       "score": 1,
       "rank": 5,
-      "title": "Хоррор",
-      "recipeId": "09_HORROR",
-      "theme": "Спорт"
-    },
-    {
-      "genre": "MUSICLE",
-      "covers": 0,
-      "score": 0,
-      "rank": 6,
-      "title": "Мюзикл",
-      "recipeId": "06_MUSICLE",
-      "theme": "Музыка"
+      "title": "Сай-фай",
+      "recipeId": "07_SCI-FI",
+      "theme": "Наука"
     },
     {
       "genre": "COMEDY",
       "covers": 0,
       "score": 0,
-      "rank": 7,
+      "rank": 6,
       "title": "Комедия",
       "recipeId": "05_COMEDY",
       "theme": "Медиа и шоу"
     },
     {
-      "genre": "ADVENTURE",
-      "covers": 0,
-      "score": 0,
-      "rank": 8,
-      "title": "Приключения",
-      "recipeId": "08_ADVENTURE",
-      "theme": "Кино"
-    },
-    {
       "genre": "BOEVIK",
       "covers": 0,
       "score": 0,
-      "rank": 9,
+      "rank": 7,
       "title": "Боевик",
       "recipeId": "01_BOEVIK",
       "theme": "Игры и авто"
@@ -228,10 +210,28 @@
       "genre": "DRAMA",
       "covers": 0,
       "score": 0,
-      "rank": 10,
+      "rank": 8,
       "title": "Драма",
       "recipeId": "03_DRAMA",
       "theme": "Спорт"
+    },
+    {
+      "genre": "ADVENTURE",
+      "covers": 0,
+      "score": 0,
+      "rank": 9,
+      "title": "Приключения",
+      "recipeId": "08_ADVENTURE",
+      "theme": "Кино"
+    },
+    {
+      "genre": "MUSICLE",
+      "covers": 0,
+      "score": 0,
+      "rank": 10,
+      "title": "Мюзикл",
+      "recipeId": "06_MUSICLE",
+      "theme": "Музыка"
     }
   ],
   "discovery": {
@@ -240,11 +240,11 @@
   },
   "photo": {
     "status": "accepted",
-    "captureId": "9181f248-9b16-4386-a147-956025a06eac"
+    "captureId": "e7c795b6-0869-4a09-9026-5c9a75abcb6e"
   },
   "schemaVersion": 1,
   "type": "stella-vk-result",
   "product": "vk-video",
-  "sessionId": "14fc390c-4bf5-48c0-bc64-a8f61ec5d119",
-  "createdAt": "2026-10-07T18:40:19.009Z"
+  "sessionId": "562e1778-9788-4456-bc2a-3eb0536f29c6",
+  "createdAt": "2026-10-07T19:27:49.957Z"
 }

@@ -1,5 +1,5 @@
 // Drives the local VK Видео scenario in a real Chrome over the DevTools protocol: real mouse clicks on the real page.
-// Usage: node drive.mjs <debugPort> <appOrigin> <outFile> <workers> [limit] [fullEvery]
+// Usage: node drive.mjs <debugPort> <appOrigin> <outFile> <workers> [limit] [screenshotsDir]
 import { writeFileSync, mkdirSync } from 'node:fs'
 import path from 'node:path'
 
@@ -51,6 +51,7 @@ class Tab {
       if (method === 'Network.requestWillBeSent' && /\/(result|photo)-storage$/.test(params.request.url)) {
         const kind = params.request.url.endsWith('result-storage') ? 'result' : 'photo'
         this.requests.set(params.requestId, kind)
+        this.sent[kind]++
         this.posts[kind] = { requestId: params.requestId, postData: params.request.postData, headers: params.request.headers }
       }
       if (method === 'Network.responseReceived' && this.requests.has(params.requestId)) this.posts[this.requests.get(params.requestId)].status = params.response.status
@@ -59,7 +60,7 @@ class Tab {
       if (method === 'Runtime.consoleAPICalled' && params.type === 'error') this.errors.push(params.args.map(arg => arg.value ?? arg.description ?? '').join(' ').slice(0, 300))
     })
   }
-  reset() { this.requests = new Map(); this.posts = {}; this.errors = [] }
+  reset() { this.requests = new Map(); this.posts = {}; this.sent = { result: 0, photo: 0 }; this.errors = []; this.clicks = [] }
   send(method, params) { return this.browser.send(method, params, this.sessionId) }
   async evaluate(expression) {
     const { result, exceptionDetails } = await this.send('Runtime.evaluate', { expression, returnByValue: true })
@@ -99,22 +100,36 @@ class Tab {
   }
 }
 
+const questions = ['evening', 'ideal-content', 'discovery']
 const first = ['series', 'standup', 'interview', 'science'], second = ['drive', 'heroes', 'learn', 'rest']
 const passes = []
 for (const a of first) for (const b of second) {
   for (const c of ['familiar', 'new', 'popular']) passes.push({ answers: [a, b, c], photo: 'not-requested' })
   for (const photo of ['accepted', 'unavailable', 'skipped']) passes.push({ answers: [a, b, 'hero'], photo })
 }
-const todo = passes.slice(0, limitArg ? Number(limitArg) : passes.length)
+// The visitor goes back and answers again: `answers` are the ones that stand at the end. A step is `question:answer`,
+// `back:question` (the back button pressed on that question) or `start` (the start button of the introduction).
+passes.push(
+  { name: 'back-from-second-and-third', answers: ['science', 'rest', 'new'], photo: 'not-requested',
+    route: ['evening:series', 'back:ideal-content', 'evening:science', 'ideal-content:drive', 'back:discovery', 'ideal-content:rest', 'discovery:new'] },
+  { name: 'back-three-times-then-hero-skip', answers: ['interview', 'rest', 'hero'], photo: 'skipped',
+    route: ['evening:standup', 'ideal-content:heroes', 'back:discovery', 'ideal-content:learn', 'back:discovery', 'back:ideal-content',
+      'evening:interview', 'ideal-content:rest', 'discovery:hero'] },
+  { name: 'back-to-introduction', answers: ['series', 'drive', 'popular'], photo: 'not-requested',
+    route: ['back:evening', 'start', 'evening:series', 'ideal-content:drive', 'discovery:popular'] },
+  { name: 'back-then-hero-photo-repeated', answers: ['science', 'heroes', 'hero'], photo: 'accepted', retake: true,
+    route: ['evening:science', 'ideal-content:learn', 'back:discovery', 'ideal-content:heroes', 'discovery:hero'] },
+)
+const todo = passes.slice(limitArg && Number(limitArg) < 0 ? Number(limitArg) : 0, limitArg && Number(limitArg) > 0 ? Number(limitArg) : passes.length)
 // One pass of every kind goes on to the last screen, with screenshots on the way.
 const fullKinds = new Set()
 
 async function run(tab, pass) {
   const { answers, photo } = pass
   const kind = `${answers[2]}:${photo}`
-  const full = shotsDir && !fullKinds.has(kind) && (fullKinds.add(kind), true)
+  const full = shotsDir && !pass.route && !fullKinds.has(kind) && (fullKinds.add(kind), true)
   const shot = name => full ? tab.screenshot(path.join(shotsDir, `${answers[2]}-${photo}_${name}.png`)) : null
-  tab.reset(); tab.clicks = []
+  tab.reset()
   const started = Date.now()
   const times = {}
   const mark = name => { times[name] = Date.now() - started }
@@ -123,19 +138,28 @@ async function run(tab, pass) {
   await tab.click('[aria-label="VK Видео"]', 'the VK Видео logo on the start screen', 60000); mark('home')
   await tab.click('.onboarding-start', 'the start button of the introduction'); mark('onboarding')
   const question = id => `.continuous-question[data-question-id="${id}"]`
-  for (const [index, id] of ['evening', 'ideal-content', 'discovery'].entries()) {
-    await tab.click(`${question(id)} [data-option-id="${answers[index]}"]`, `answer ${answers[index]} of question ${id}`); mark(`answer${index + 1}`)
+  for (const [index, step] of (pass.route ?? answers.map((answer, i) => `${questions[i]}:${answer}`)).entries()) {
+    const [id, answer] = step.split(':')
+    if (step === 'start') await tab.click('.onboarding-start', 'the start button of the introduction, again')
+    else if (id === 'back') await tab.click(`${question(answer)} [aria-label="Назад"]`, `«Назад» on question ${answer}`)
+    else await tab.click(`${question(id)} [data-option-id="${answer}"]`, `answer ${answer} of question ${id}`)
+    if (!pass.route) mark(`answer${index + 1}`)
     if (full && index === 0) { await sleep(1500); await shot('tags') }
   }
   if (answers[2] === 'hero') {
     if (photo === 'skipped') { await tab.click(`${question('photo')} [data-option-id="skip"]`, '«Пропустить»'); mark('skip') }
     else {
       await tab.click(`${question('photo')} [data-option-id="accept"]`, '«Начать»'); mark('accept')
-      await tab.click('.vk-camera-button', 'the camera button'); mark('camera')
-      await tab.waitFor(`document.querySelector('main')?.dataset.screen === 'vk-photo-review'`, 'the check of the photo', 30000); mark('review')
-      pass.photoShown = await tab.evaluate(`document.querySelector('img.photo-review-image') ? 'photo' : document.querySelector('.photo-review-image--empty') ? 'black-square' : 'nothing'`)
-      await sleep(300); await shot('photo-review')
-      await tab.click('.photo-review-actions .primary-button', '«Продолжить»'); mark('continue')
+      for (const round of pass.retake ? ['retake', 'keep'] : ['keep']) {
+        await tab.click('.vk-camera-button', 'the camera button'); mark('camera')
+        await tab.waitFor(`document.querySelector('main')?.dataset.screen === 'vk-photo-review'`, 'the check of the photo', 30000); mark('review')
+        pass.photoShown = await tab.evaluate(`document.querySelector('img.photo-review-image') ? 'photo' : document.querySelector('.photo-review-image--empty') ? 'black-square' : 'nothing'`)
+        await sleep(300); await shot('photo-review')
+        if (round === 'retake') {
+          await tab.click('.photo-review-actions .secondary-button', '«Повторить»')
+          pass.sentBeforeKeep = { ...tab.sent }
+        } else { await tab.click('.photo-review-actions .primary-button', '«Продолжить»'); mark('continue') }
+      }
     }
   }
   const sent = Date.now()
@@ -158,6 +182,9 @@ async function run(tab, pass) {
     await sleep(400); await shot('final')
     pass.finalText = await tab.evaluate(`document.querySelector('#vk-result-title')?.textContent ?? null`)
   }
+  // A changed answer must not have sent a result of its own: the count is taken a moment after the last one.
+  if (pass.route) await sleep(2000)
+  pass.resultPosts = tab.sent.result; pass.photoPosts = tab.sent.photo
   pass.times = times; pass.clicks = tab.clicks; pass.errors = tab.errors.slice(0, 5); pass.full = !!full
 }
 
@@ -173,7 +200,7 @@ await Promise.all(Array.from({ length: WORKERS }, async (_, worker) => {
       catch (error) { pass.error = String(error.message ?? error); pass.attempts = attempt }
     }
     done++
-    console.log(`[${done}/${todo.length}] w${worker} ${pass.answers.join('+')} ${pass.photo} -> ${pass.error ? 'FAILED: ' + pass.error : pass.status + ' ' + pass.file}`)
+    console.log(`[${done}/${todo.length}] w${worker} ${pass.name ?? pass.answers.join('+')} ${pass.photo} -> ${pass.error ? 'FAILED: ' + pass.error : pass.status + ' ' + pass.file}`)
     writeFileSync(outFile, JSON.stringify(todo, null, 1))
   }
 }))

@@ -126,19 +126,19 @@
       "rank": 5
     },
     {
-      "theme": "Новости и бизнес",
+      "theme": "Игры и авто",
       "covers": 0,
       "score": 0,
       "rank": 6
     },
     {
-      "theme": "Медиа и шоу",
+      "theme": "Новости и бизнес",
       "covers": 0,
       "score": 0,
       "rank": 7
     },
     {
-      "theme": "Игры и авто",
+      "theme": "Медиа и шоу",
       "covers": 0,
       "score": 0,
       "rank": 8
@@ -173,67 +173,67 @@
       "theme": "Спорт"
     },
     {
-      "genre": "BOEVIK",
-      "covers": 0,
-      "score": 0,
-      "rank": 4,
-      "title": "Боевик",
-      "recipeId": "01_BOEVIK",
-      "theme": "Игры и авто"
-    },
-    {
-      "genre": "COMEDY",
-      "covers": 0,
-      "score": 0,
-      "rank": 5,
-      "title": "Комедия",
-      "recipeId": "05_COMEDY",
-      "theme": "Медиа и шоу"
-    },
-    {
-      "genre": "MUSICLE",
-      "covers": 0,
-      "score": 0,
-      "rank": 6,
-      "title": "Мюзикл",
-      "recipeId": "06_MUSICLE",
-      "theme": "Музыка"
-    },
-    {
-      "genre": "DETECTIVE",
-      "covers": 0,
-      "score": 0,
-      "rank": 7,
-      "title": "Детектив",
-      "recipeId": "02_DETECTIVE",
-      "theme": "Новости и бизнес"
-    },
-    {
-      "genre": "ADVENTURE",
-      "covers": 0,
-      "score": 0,
-      "rank": 8,
-      "title": "Приключения",
-      "recipeId": "08_ADVENTURE",
-      "theme": "Кино"
-    },
-    {
       "genre": "SCI-FI",
       "covers": 0,
       "score": 0,
-      "rank": 9,
+      "rank": 4,
       "title": "Сай-фай",
       "recipeId": "07_SCI-FI",
       "theme": "Наука"
     },
     {
+      "genre": "ADVENTURE",
+      "covers": 0,
+      "score": 0,
+      "rank": 5,
+      "title": "Приключения",
+      "recipeId": "08_ADVENTURE",
+      "theme": "Кино"
+    },
+    {
       "genre": "HISTORY",
       "covers": 0,
       "score": 0,
-      "rank": 10,
+      "rank": 6,
       "title": "Исторический фильм",
       "recipeId": "04_HISTORY",
       "theme": "Культура и образование"
+    },
+    {
+      "genre": "BOEVIK",
+      "covers": 0,
+      "score": 0,
+      "rank": 7,
+      "title": "Боевик",
+      "recipeId": "01_BOEVIK",
+      "theme": "Игры и авто"
+    },
+    {
+      "genre": "MUSICLE",
+      "covers": 0,
+      "score": 0,
+      "rank": 8,
+      "title": "Мюзикл",
+      "recipeId": "06_MUSICLE",
+      "theme": "Музыка"
+    },
+    {
+      "genre": "COMEDY",
+      "covers": 0,
+      "score": 0,
+      "rank": 9,
+      "title": "Комедия",
+      "recipeId": "05_COMEDY",
+      "theme": "Медиа и шоу"
+    },
+    {
+      "genre": "DETECTIVE",
+      "covers": 0,
+      "score": 0,
+      "rank": 10,
+      "title": "Детектив",
+      "recipeId": "02_DETECTIVE",
+      "theme": "Новости и бизнес"
     }
   ],
   "discovery": {
@@ -242,11 +242,11 @@
   },
   "photo": {
     "status": "accepted",
-    "captureId": "a911229b-24f2-48c8-a148-0cb8a93dcdf1"
+    "captureId": "28d44b93-00c5-4b65-9f28-98e8933f35d7"
   },
   "schemaVersion": 1,
   "type": "stella-vk-result",
   "product": "vk-video",
-  "sessionId": "4cad0f31-bffc-41f8-9ec0-5cefa2b41574",
-  "createdAt": "2026-10-07T18:39:22.847Z"
+  "sessionId": "d751086e-fe87-456b-96f4-5576c95b518c",
+  "createdAt": "2026-10-07T19:26:48.945Z"
 }

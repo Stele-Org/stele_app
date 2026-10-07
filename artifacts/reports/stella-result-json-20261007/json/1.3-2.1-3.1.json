@@ -93,25 +93,25 @@
       "rank": 4
     },
     {
-      "theme": "Спорт",
+      "theme": "Наука",
       "covers": 0,
       "score": 0,
       "rank": 5
     },
     {
-      "theme": "Музыка",
+      "theme": "Спорт",
       "covers": 0,
       "score": 0,
       "rank": 6
     },
     {
-      "theme": "Медиа и шоу",
+      "theme": "Музыка",
       "covers": 0,
       "score": 0,
       "rank": 7
     },
     {
-      "theme": "Наука",
+      "theme": "Медиа и шоу",
       "covers": 0,
       "score": 0,
       "rank": 8
@@ -128,6 +128,6 @@
   "schemaVersion": 1,
   "type": "stella-vk-result",
   "product": "vk-video",
-  "sessionId": "538970ec-9e69-4993-a541-97f9d6f2068b",
-  "createdAt": "2026-10-07T18:45:28.966Z"
+  "sessionId": "ede0e11b-ff2e-477b-958a-0a92b7c984fc",
+  "createdAt": "2026-10-07T19:33:00.448Z"
 }

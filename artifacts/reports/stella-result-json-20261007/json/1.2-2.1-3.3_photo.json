@@ -18,11 +18,11 @@
       "theme": "Игры и авто"
     },
     {
-      "genre": "ADVENTURE",
+      "genre": "COMEDY",
       "count": 1,
-      "title": "Приключения",
-      "recipeId": "08_ADVENTURE",
-      "theme": "Кино"
+      "title": "Комедия",
+      "recipeId": "05_COMEDY",
+      "theme": "Медиа и шоу"
     }
   ],
   "coversTotal": 6,
@@ -120,25 +120,25 @@
       "rank": 4
     },
     {
-      "theme": "Музыка",
+      "theme": "Культура и образование",
       "covers": 0,
       "score": 0,
       "rank": 5
     },
     {
-      "theme": "Спорт",
+      "theme": "Музыка",
       "covers": 0,
       "score": 0,
       "rank": 6
     },
     {
-      "theme": "Культура и образование",
+      "theme": "Новости и бизнес",
       "covers": 0,
       "score": 0,
       "rank": 7
     },
     {
-      "theme": "Новости и бизнес",
+      "theme": "Спорт",
       "covers": 0,
       "score": 0,
       "rank": 8
@@ -155,22 +155,22 @@
       "theme": "Игры и авто"
     },
     {
-      "genre": "ADVENTURE",
+      "genre": "COMEDY",
       "covers": 1,
       "score": 2,
       "rank": 2,
-      "title": "Приключения",
-      "recipeId": "08_ADVENTURE",
-      "theme": "Кино"
-    },
-    {
-      "genre": "COMEDY",
-      "covers": 0,
-      "score": 2,
-      "rank": 3,
       "title": "Комедия",
       "recipeId": "05_COMEDY",
       "theme": "Медиа и шоу"
+    },
+    {
+      "genre": "ADVENTURE",
+      "covers": 0,
+      "score": 2,
+      "rank": 3,
+      "title": "Приключения",
+      "recipeId": "08_ADVENTURE",
+      "theme": "Кино"
     },
     {
       "genre": "MUSICLE",
@@ -191,22 +191,22 @@
       "theme": "Спорт"
     },
     {
-      "genre": "SCI-FI",
-      "covers": 0,
-      "score": 0,
-      "rank": 6,
-      "title": "Сай-фай",
-      "recipeId": "07_SCI-FI",
-      "theme": "Наука"
-    },
-    {
       "genre": "FANTASY",
       "covers": 0,
       "score": 0,
-      "rank": 7,
+      "rank": 6,
       "title": "Фэнтези",
       "recipeId": "10_FANTASY",
       "theme": "Кино"
+    },
+    {
+      "genre": "HISTORY",
+      "covers": 0,
+      "score": 0,
+      "rank": 7,
+      "title": "Исторический фильм",
+      "recipeId": "04_HISTORY",
+      "theme": "Культура и образование"
     },
     {
       "genre": "DETECTIVE",
@@ -218,13 +218,13 @@
       "theme": "Новости и бизнес"
     },
     {
-      "genre": "HISTORY",
+      "genre": "SCI-FI",
       "covers": 0,
       "score": 0,
       "rank": 9,
-      "title": "Исторический фильм",
-      "recipeId": "04_HISTORY",
-      "theme": "Культура и образование"
+      "title": "Сай-фай",
+      "recipeId": "07_SCI-FI",
+      "theme": "Наука"
     },
     {
       "genre": "DRAMA",
@@ -242,11 +242,11 @@
   },
   "photo": {
     "status": "accepted",
-    "captureId": "cd03bfdc-7ea0-479d-8ab3-6a38fc1d10a1"
+    "captureId": "97351222-9cd4-4103-aed9-14aebf88f200"
   },
   "schemaVersion": 1,
   "type": "stella-vk-result",
   "product": "vk-video",
-  "sessionId": "6466e33f-05e1-4aea-ab76-f50f21503220",
-  "createdAt": "2026-10-07T18:42:16.756Z"
+  "sessionId": "4fdd48ea-e79b-42e7-81c9-78ccc442bc3a",
+  "createdAt": "2026-10-07T19:29:43.682Z"
 }

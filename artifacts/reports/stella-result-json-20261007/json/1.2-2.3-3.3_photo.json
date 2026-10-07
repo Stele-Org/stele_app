@@ -1,28 +1,28 @@
 {
   "covers": [
     {
-      "theme": "Медиа и шоу",
+      "theme": "Новости и бизнес",
       "count": 2
     },
     {
-      "theme": "Новости и бизнес",
+      "theme": "Медиа и шоу",
       "count": 2
     }
   ],
   "aiCover": [
-    {
-      "genre": "DETECTIVE",
-      "count": 1,
-      "title": "Детектив",
-      "recipeId": "02_DETECTIVE",
-      "theme": "Новости и бизнес"
-    },
     {
       "genre": "COMEDY",
       "count": 1,
       "title": "Комедия",
       "recipeId": "05_COMEDY",
       "theme": "Медиа и шоу"
+    },
+    {
+      "genre": "DETECTIVE",
+      "count": 1,
+      "title": "Детектив",
+      "recipeId": "02_DETECTIVE",
+      "theme": "Новости и бизнес"
     }
   ],
   "coversTotal": 6,
@@ -94,31 +94,31 @@
   ],
   "themes": [
     {
-      "theme": "Медиа и шоу",
+      "theme": "Новости и бизнес",
       "covers": 2,
       "score": 2,
       "rank": 1
     },
     {
-      "theme": "Новости и бизнес",
+      "theme": "Медиа и шоу",
       "covers": 2,
       "score": 2,
       "rank": 2
     },
     {
-      "theme": "Наука",
+      "theme": "Игры и авто",
       "covers": 0,
       "score": 1,
       "rank": 3
     },
     {
-      "theme": "Игры и авто",
+      "theme": "Наука",
       "covers": 0,
       "score": 1,
       "rank": 4
     },
     {
-      "theme": "Музыка",
+      "theme": "Кино",
       "covers": 0,
       "score": 0,
       "rank": 5
@@ -130,13 +130,13 @@
       "rank": 6
     },
     {
-      "theme": "Спорт",
+      "theme": "Музыка",
       "covers": 0,
       "score": 0,
       "rank": 7
     },
     {
-      "theme": "Кино",
+      "theme": "Спорт",
       "covers": 0,
       "score": 0,
       "rank": 8
@@ -144,40 +144,40 @@
   ],
   "genres": [
     {
-      "genre": "DETECTIVE",
-      "covers": 1,
-      "score": 2,
-      "rank": 1,
-      "title": "Детектив",
-      "recipeId": "02_DETECTIVE",
-      "theme": "Новости и бизнес"
-    },
-    {
       "genre": "COMEDY",
       "covers": 1,
       "score": 2,
-      "rank": 2,
+      "rank": 1,
       "title": "Комедия",
       "recipeId": "05_COMEDY",
       "theme": "Медиа и шоу"
     },
     {
-      "genre": "BOEVIK",
-      "covers": 0,
-      "score": 1,
-      "rank": 3,
-      "title": "Боевик",
-      "recipeId": "01_BOEVIK",
-      "theme": "Игры и авто"
+      "genre": "DETECTIVE",
+      "covers": 1,
+      "score": 2,
+      "rank": 2,
+      "title": "Детектив",
+      "recipeId": "02_DETECTIVE",
+      "theme": "Новости и бизнес"
     },
     {
       "genre": "SCI-FI",
       "covers": 0,
       "score": 1,
-      "rank": 4,
+      "rank": 3,
       "title": "Сай-фай",
       "recipeId": "07_SCI-FI",
       "theme": "Наука"
+    },
+    {
+      "genre": "BOEVIK",
+      "covers": 0,
+      "score": 1,
+      "rank": 4,
+      "title": "Боевик",
+      "recipeId": "01_BOEVIK",
+      "theme": "Игры и авто"
     },
     {
       "genre": "HISTORY",
@@ -207,19 +207,10 @@
       "theme": "Спорт"
     },
     {
-      "genre": "FANTASY",
-      "covers": 0,
-      "score": 0,
-      "rank": 8,
-      "title": "Фэнтези",
-      "recipeId": "10_FANTASY",
-      "theme": "Кино"
-    },
-    {
       "genre": "HORROR",
       "covers": 0,
       "score": 0,
-      "rank": 9,
+      "rank": 8,
       "title": "Хоррор",
       "recipeId": "09_HORROR",
       "theme": "Спорт"
@@ -228,9 +219,18 @@
       "genre": "ADVENTURE",
       "covers": 0,
       "score": 0,
-      "rank": 10,
+      "rank": 9,
       "title": "Приключения",
       "recipeId": "08_ADVENTURE",
+      "theme": "Кино"
+    },
+    {
+      "genre": "FANTASY",
+      "covers": 0,
+      "score": 0,
+      "rank": 10,
+      "title": "Фэнтези",
+      "recipeId": "10_FANTASY",
       "theme": "Кино"
     }
   ],
@@ -240,11 +240,11 @@
   },
   "photo": {
     "status": "accepted",
-    "captureId": "2290d69e-7750-4d4a-b9f1-912cf7168f94"
+    "captureId": "4ef52cf4-f222-43b2-bedc-3154b83b9365"
   },
   "schemaVersion": 1,
   "type": "stella-vk-result",
   "product": "vk-video",
-  "sessionId": "ca010e89-76f5-4aa9-9374-f41d71667739",
-  "createdAt": "2026-10-07T18:44:13.970Z"
+  "sessionId": "16ac1e69-48b7-4074-a021-ea18fe546519",
+  "createdAt": "2026-10-07T19:31:44.777Z"
 }

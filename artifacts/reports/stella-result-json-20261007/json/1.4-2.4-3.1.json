@@ -93,13 +93,13 @@
       "rank": 4
     },
     {
-      "theme": "Кино",
+      "theme": "Новости и бизнес",
       "covers": 0,
       "score": 0,
       "rank": 5
     },
     {
-      "theme": "Новости и бизнес",
+      "theme": "Кино",
       "covers": 0,
       "score": 0,
       "rank": 6
@@ -128,6 +128,6 @@
   "schemaVersion": 1,
   "type": "stella-vk-result",
   "product": "vk-video",
-  "sessionId": "2179c762-9b09-4a2e-ac3e-8407515bc616",
-  "createdAt": "2026-10-07T18:52:17.938Z"
+  "sessionId": "feec8140-693a-46d9-bf95-86372dc35b2a",
+  "createdAt": "2026-10-07T19:39:48.753Z"
 }

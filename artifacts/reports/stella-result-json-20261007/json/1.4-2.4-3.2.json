@@ -1,11 +1,11 @@
 {
   "covers": [
     {
-      "theme": "Музыка",
+      "theme": "Наука",
       "count": 2
     },
     {
-      "theme": "Наука",
+      "theme": "Музыка",
       "count": 2
     },
     {
@@ -69,13 +69,13 @@
   ],
   "themes": [
     {
-      "theme": "Музыка",
+      "theme": "Наука",
       "covers": 2,
       "score": 2,
       "rank": 1
     },
     {
-      "theme": "Наука",
+      "theme": "Музыка",
       "covers": 2,
       "score": 2,
       "rank": 2
@@ -99,19 +99,19 @@
       "rank": 5
     },
     {
-      "theme": "Игры и авто",
+      "theme": "Новости и бизнес",
       "covers": 0,
       "score": 0,
       "rank": 6
     },
     {
-      "theme": "Новости и бизнес",
+      "theme": "Кино",
       "covers": 0,
       "score": 0,
       "rank": 7
     },
     {
-      "theme": "Кино",
+      "theme": "Игры и авто",
       "covers": 0,
       "score": 0,
       "rank": 8
@@ -128,6 +128,6 @@
   "schemaVersion": 1,
   "type": "stella-vk-result",
   "product": "vk-video",
-  "sessionId": "b2ef19d7-2869-4cfe-a1e2-206c7a6727e2",
-  "createdAt": "2026-10-07T18:52:18.427Z"
+  "sessionId": "c0fa2ccd-6b07-4310-aec8-342269a8b1ad",
+  "createdAt": "2026-10-07T19:39:50.184Z"
 }

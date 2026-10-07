@@ -85,19 +85,19 @@
       "rank": 3
     },
     {
-      "theme": "Игры и авто",
+      "theme": "Медиа и шоу",
       "covers": 0,
       "score": 0,
       "rank": 4
     },
     {
-      "theme": "Медиа и шоу",
+      "theme": "Кино",
       "covers": 0,
       "score": 0,
       "rank": 5
     },
     {
-      "theme": "Музыка",
+      "theme": "Игры и авто",
       "covers": 0,
       "score": 0,
       "rank": 6
@@ -109,7 +109,7 @@
       "rank": 7
     },
     {
-      "theme": "Кино",
+      "theme": "Музыка",
       "covers": 0,
       "score": 0,
       "rank": 8
@@ -126,6 +126,6 @@
   "schemaVersion": 1,
   "type": "stella-vk-result",
   "product": "vk-video",
-  "sessionId": "420fe83c-77bf-42e3-b984-5ca0726e5250",
-  "createdAt": "2026-10-07T18:51:17.495Z"
+  "sessionId": "feaa2862-75fd-42f3-ab6e-a9a9ad5221e9",
+  "createdAt": "2026-10-07T19:38:49.483Z"
 }

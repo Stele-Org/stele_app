@@ -11,18 +11,18 @@
   ],
   "aiCover": [
     {
+      "genre": "DRAMA",
+      "count": 1,
+      "title": "Драма",
+      "recipeId": "03_DRAMA",
+      "theme": "Спорт"
+    },
+    {
       "genre": "HORROR",
       "count": 1,
       "title": "Хоррор",
       "recipeId": "09_HORROR",
       "theme": "Спорт"
-    },
-    {
-      "genre": "SCI-FI",
-      "count": 1,
-      "title": "Сай-фай",
-      "recipeId": "07_SCI-FI",
-      "theme": "Наука"
     }
   ],
   "coversTotal": 6,
@@ -114,31 +114,31 @@
       "rank": 3
     },
     {
-      "theme": "Кино",
+      "theme": "Медиа и шоу",
       "covers": 0,
       "score": 0,
       "rank": 4
     },
     {
-      "theme": "Новости и бизнес",
+      "theme": "Игры и авто",
       "covers": 0,
       "score": 0,
       "rank": 5
     },
     {
-      "theme": "Музыка",
+      "theme": "Новости и бизнес",
       "covers": 0,
       "score": 0,
       "rank": 6
     },
     {
-      "theme": "Игры и авто",
+      "theme": "Кино",
       "covers": 0,
       "score": 0,
       "rank": 7
     },
     {
-      "theme": "Медиа и шоу",
+      "theme": "Музыка",
       "covers": 0,
       "score": 0,
       "rank": 8
@@ -146,67 +146,67 @@
   ],
   "genres": [
     {
-      "genre": "HORROR",
+      "genre": "DRAMA",
       "covers": 1,
       "score": 2,
       "rank": 1,
+      "title": "Драма",
+      "recipeId": "03_DRAMA",
+      "theme": "Спорт"
+    },
+    {
+      "genre": "HORROR",
+      "covers": 1,
+      "score": 2,
+      "rank": 2,
       "title": "Хоррор",
       "recipeId": "09_HORROR",
       "theme": "Спорт"
     },
     {
       "genre": "SCI-FI",
-      "covers": 1,
+      "covers": 0,
       "score": 2,
-      "rank": 2,
+      "rank": 3,
       "title": "Сай-фай",
       "recipeId": "07_SCI-FI",
       "theme": "Наука"
     },
     {
-      "genre": "DRAMA",
-      "covers": 0,
-      "score": 2,
-      "rank": 3,
-      "title": "Драма",
-      "recipeId": "03_DRAMA",
-      "theme": "Спорт"
-    },
-    {
-      "genre": "ADVENTURE",
-      "covers": 0,
-      "score": 1,
-      "rank": 4,
-      "title": "Приключения",
-      "recipeId": "08_ADVENTURE",
-      "theme": "Кино"
-    },
-    {
       "genre": "DETECTIVE",
       "covers": 0,
       "score": 1,
-      "rank": 5,
+      "rank": 4,
       "title": "Детектив",
       "recipeId": "02_DETECTIVE",
       "theme": "Новости и бизнес"
     },
     {
-      "genre": "MUSICLE",
+      "genre": "ADVENTURE",
       "covers": 0,
-      "score": 0,
-      "rank": 6,
-      "title": "Мюзикл",
-      "recipeId": "06_MUSICLE",
-      "theme": "Музыка"
+      "score": 1,
+      "rank": 5,
+      "title": "Приключения",
+      "recipeId": "08_ADVENTURE",
+      "theme": "Кино"
     },
     {
       "genre": "COMEDY",
       "covers": 0,
       "score": 0,
-      "rank": 7,
+      "rank": 6,
       "title": "Комедия",
       "recipeId": "05_COMEDY",
       "theme": "Медиа и шоу"
+    },
+    {
+      "genre": "BOEVIK",
+      "covers": 0,
+      "score": 0,
+      "rank": 7,
+      "title": "Боевик",
+      "recipeId": "01_BOEVIK",
+      "theme": "Игры и авто"
     },
     {
       "genre": "HISTORY",
@@ -218,22 +218,22 @@
       "theme": "Культура и образование"
     },
     {
-      "genre": "FANTASY",
+      "genre": "MUSICLE",
       "covers": 0,
       "score": 0,
       "rank": 9,
-      "title": "Фэнтези",
-      "recipeId": "10_FANTASY",
-      "theme": "Кино"
+      "title": "Мюзикл",
+      "recipeId": "06_MUSICLE",
+      "theme": "Музыка"
     },
     {
-      "genre": "BOEVIK",
+      "genre": "FANTASY",
       "covers": 0,
       "score": 0,
       "rank": 10,
-      "title": "Боевик",
-      "recipeId": "01_BOEVIK",
-      "theme": "Игры и авто"
+      "title": "Фэнтези",
+      "recipeId": "10_FANTASY",
+      "theme": "Кино"
     }
   ],
   "discovery": {
@@ -242,11 +242,11 @@
   },
   "photo": {
     "status": "accepted",
-    "captureId": "90d4da7e-68e9-4a51-b5e7-a91968d18de9"
+    "captureId": "e69d8808-208a-4fd4-8e0f-34c4755fae55"
   },
   "schemaVersion": 1,
   "type": "stella-vk-result",
   "product": "vk-video",
-  "sessionId": "58b4a26e-6d72-40e7-9b47-836cc1af79c0",
-  "createdAt": "2026-10-07T18:50:59.422Z"
+  "sessionId": "4e431207-4a5f-42e6-a530-f868dd585bb7",
+  "createdAt": "2026-10-07T19:38:28.058Z"
 }

@@ -1,11 +1,11 @@
 {
   "covers": [
     {
-      "theme": "Наука",
+      "theme": "Игры и авто",
       "count": 2
     },
     {
-      "theme": "Игры и авто",
+      "theme": "Наука",
       "count": 2
     }
   ],
@@ -18,11 +18,11 @@
       "theme": "Кино"
     },
     {
-      "genre": "BOEVIK",
+      "genre": "SCI-FI",
       "count": 1,
-      "title": "Боевик",
-      "recipeId": "01_BOEVIK",
-      "theme": "Игры и авто"
+      "title": "Сай-фай",
+      "recipeId": "07_SCI-FI",
+      "theme": "Наука"
     }
   ],
   "coversTotal": 6,
@@ -96,49 +96,49 @@
   ],
   "themes": [
     {
-      "theme": "Наука",
+      "theme": "Игры и авто",
       "covers": 2,
       "score": 2,
       "rank": 1
     },
     {
-      "theme": "Игры и авто",
+      "theme": "Наука",
       "covers": 2,
       "score": 2,
       "rank": 2
     },
     {
-      "theme": "Кино",
+      "theme": "Спорт",
       "covers": 0,
       "score": 1,
       "rank": 3
     },
     {
-      "theme": "Спорт",
+      "theme": "Кино",
       "covers": 0,
       "score": 1,
       "rank": 4
     },
     {
-      "theme": "Новости и бизнес",
+      "theme": "Медиа и шоу",
       "covers": 0,
       "score": 0,
       "rank": 5
     },
     {
-      "theme": "Музыка",
+      "theme": "Новости и бизнес",
       "covers": 0,
       "score": 0,
       "rank": 6
     },
     {
-      "theme": "Культура и образование",
+      "theme": "Музыка",
       "covers": 0,
       "score": 0,
       "rank": 7
     },
     {
-      "theme": "Медиа и шоу",
+      "theme": "Культура и образование",
       "covers": 0,
       "score": 0,
       "rank": 8
@@ -155,22 +155,22 @@
       "theme": "Кино"
     },
     {
-      "genre": "BOEVIK",
+      "genre": "SCI-FI",
       "covers": 1,
       "score": 2,
       "rank": 2,
-      "title": "Боевик",
-      "recipeId": "01_BOEVIK",
-      "theme": "Игры и авто"
-    },
-    {
-      "genre": "SCI-FI",
-      "covers": 0,
-      "score": 2,
-      "rank": 3,
       "title": "Сай-фай",
       "recipeId": "07_SCI-FI",
       "theme": "Наука"
+    },
+    {
+      "genre": "BOEVIK",
+      "covers": 0,
+      "score": 2,
+      "rank": 3,
+      "title": "Боевик",
+      "recipeId": "01_BOEVIK",
+      "theme": "Игры и авто"
     },
     {
       "genre": "DETECTIVE",
@@ -182,37 +182,10 @@
       "theme": "Новости и бизнес"
     },
     {
-      "genre": "HORROR",
-      "covers": 0,
-      "score": 0,
-      "rank": 5,
-      "title": "Хоррор",
-      "recipeId": "09_HORROR",
-      "theme": "Спорт"
-    },
-    {
-      "genre": "FANTASY",
-      "covers": 0,
-      "score": 0,
-      "rank": 6,
-      "title": "Фэнтези",
-      "recipeId": "10_FANTASY",
-      "theme": "Кино"
-    },
-    {
-      "genre": "COMEDY",
-      "covers": 0,
-      "score": 0,
-      "rank": 7,
-      "title": "Комедия",
-      "recipeId": "05_COMEDY",
-      "theme": "Медиа и шоу"
-    },
-    {
       "genre": "HISTORY",
       "covers": 0,
       "score": 0,
-      "rank": 8,
+      "rank": 5,
       "title": "Исторический фильм",
       "recipeId": "04_HISTORY",
       "theme": "Культура и образование"
@@ -221,19 +194,46 @@
       "genre": "MUSICLE",
       "covers": 0,
       "score": 0,
-      "rank": 9,
+      "rank": 6,
       "title": "Мюзикл",
       "recipeId": "06_MUSICLE",
       "theme": "Музыка"
     },
     {
+      "genre": "HORROR",
+      "covers": 0,
+      "score": 0,
+      "rank": 7,
+      "title": "Хоррор",
+      "recipeId": "09_HORROR",
+      "theme": "Спорт"
+    },
+    {
+      "genre": "FANTASY",
+      "covers": 0,
+      "score": 0,
+      "rank": 8,
+      "title": "Фэнтези",
+      "recipeId": "10_FANTASY",
+      "theme": "Кино"
+    },
+    {
       "genre": "DRAMA",
       "covers": 0,
       "score": 0,
-      "rank": 10,
+      "rank": 9,
       "title": "Драма",
       "recipeId": "03_DRAMA",
       "theme": "Спорт"
+    },
+    {
+      "genre": "COMEDY",
+      "covers": 0,
+      "score": 0,
+      "rank": 10,
+      "title": "Комедия",
+      "recipeId": "05_COMEDY",
+      "theme": "Медиа и шоу"
     }
   ],
   "discovery": {
@@ -242,11 +242,11 @@
   },
   "photo": {
     "status": "accepted",
-    "captureId": "948da561-61d4-4550-a96e-f2e5d5aef5be"
+    "captureId": "7a2e9d33-8415-481d-ae66-04dfc6af1b67"
   },
   "schemaVersion": 1,
   "type": "stella-vk-result",
   "product": "vk-video",
-  "sessionId": "9e5c4c38-a0e1-4b43-bbe7-cc3fd53e7656",
-  "createdAt": "2026-10-07T18:50:02.750Z"
+  "sessionId": "46b35a3a-e1a8-408a-94d8-14404a3a7e39",
+  "createdAt": "2026-10-07T19:37:33.325Z"
 }

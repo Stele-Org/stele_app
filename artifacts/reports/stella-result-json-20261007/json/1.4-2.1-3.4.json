@@ -1,15 +1,15 @@
 {
   "covers": [
     {
-      "theme": "Наука",
-      "count": 2
-    },
-    {
       "theme": "Игры и авто",
       "count": 2
     },
     {
-      "theme": "Спорт",
+      "theme": "Наука",
+      "count": 2
+    },
+    {
+      "theme": "Кино",
       "count": 2
     }
   ],
@@ -69,49 +69,49 @@
   ],
   "themes": [
     {
-      "theme": "Наука",
+      "theme": "Игры и авто",
       "covers": 2,
       "score": 2,
       "rank": 1
     },
     {
-      "theme": "Игры и авто",
+      "theme": "Наука",
       "covers": 2,
       "score": 2,
       "rank": 2
     },
     {
-      "theme": "Спорт",
+      "theme": "Кино",
       "covers": 2,
       "score": 1,
       "rank": 3
     },
     {
-      "theme": "Кино",
+      "theme": "Спорт",
       "covers": 0,
       "score": 1,
       "rank": 4
     },
     {
-      "theme": "Культура и образование",
+      "theme": "Медиа и шоу",
       "covers": 0,
       "score": 0,
       "rank": 5
     },
     {
-      "theme": "Музыка",
+      "theme": "Новости и бизнес",
       "covers": 0,
       "score": 0,
       "rank": 6
     },
     {
-      "theme": "Новости и бизнес",
+      "theme": "Музыка",
       "covers": 0,
       "score": 0,
       "rank": 7
     },
     {
-      "theme": "Медиа и шоу",
+      "theme": "Культура и образование",
       "covers": 0,
       "score": 0,
       "rank": 8
@@ -128,6 +128,6 @@
   "schemaVersion": 1,
   "type": "stella-vk-result",
   "product": "vk-video",
-  "sessionId": "e718a2e3-8755-4a03-8617-db2469d415af",
-  "createdAt": "2026-10-07T18:49:28.173Z"
+  "sessionId": "b6239b68-cc27-456a-b6f8-1def36ddfe9a",
+  "createdAt": "2026-10-07T19:36:56.651Z"
 }

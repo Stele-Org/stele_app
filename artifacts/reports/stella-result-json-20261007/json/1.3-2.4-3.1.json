@@ -1,11 +1,11 @@
 {
   "covers": [
     {
-      "theme": "Музыка",
+      "theme": "Культура и образование",
       "count": 2
     },
     {
-      "theme": "Культура и образование",
+      "theme": "Музыка",
       "count": 2
     },
     {
@@ -69,13 +69,13 @@
   ],
   "themes": [
     {
-      "theme": "Музыка",
+      "theme": "Культура и образование",
       "covers": 2,
       "score": 2,
       "rank": 1
     },
     {
-      "theme": "Культура и образование",
+      "theme": "Музыка",
       "covers": 2,
       "score": 2,
       "rank": 2
@@ -93,7 +93,7 @@
       "rank": 4
     },
     {
-      "theme": "Кино",
+      "theme": "Спорт",
       "covers": 0,
       "score": 0,
       "rank": 5
@@ -105,7 +105,7 @@
       "rank": 6
     },
     {
-      "theme": "Спорт",
+      "theme": "Кино",
       "covers": 0,
       "score": 0,
       "rank": 7
@@ -128,6 +128,6 @@
   "schemaVersion": 1,
   "type": "stella-vk-result",
   "product": "vk-video",
-  "sessionId": "bf5f45d4-d959-4f71-b1fa-69c05226bd7d",
-  "createdAt": "2026-10-07T18:48:23.425Z"
+  "sessionId": "2be00d19-a86d-4f47-949d-69c31a238913",
+  "createdAt": "2026-10-07T19:35:55.023Z"
 }

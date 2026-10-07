@@ -114,31 +114,31 @@
       "rank": 3
     },
     {
-      "theme": "Спорт",
+      "theme": "Культура и образование",
       "covers": 0,
       "score": 0,
       "rank": 4
     },
     {
-      "theme": "Кино",
+      "theme": "Наука",
       "covers": 0,
       "score": 0,
       "rank": 5
     },
     {
-      "theme": "Культура и образование",
+      "theme": "Спорт",
       "covers": 0,
       "score": 0,
       "rank": 6
     },
     {
-      "theme": "Новости и бизнес",
+      "theme": "Кино",
       "covers": 0,
       "score": 0,
       "rank": 7
     },
     {
-      "theme": "Наука",
+      "theme": "Новости и бизнес",
       "covers": 0,
       "score": 0,
       "rank": 8
@@ -182,28 +182,19 @@
       "theme": "Кино"
     },
     {
-      "genre": "DETECTIVE",
+      "genre": "HORROR",
       "covers": 0,
       "score": 0,
       "rank": 5,
-      "title": "Детектив",
-      "recipeId": "02_DETECTIVE",
-      "theme": "Новости и бизнес"
-    },
-    {
-      "genre": "HISTORY",
-      "covers": 0,
-      "score": 0,
-      "rank": 6,
-      "title": "Исторический фильм",
-      "recipeId": "04_HISTORY",
-      "theme": "Культура и образование"
+      "title": "Хоррор",
+      "recipeId": "09_HORROR",
+      "theme": "Спорт"
     },
     {
       "genre": "DRAMA",
       "covers": 0,
       "score": 0,
-      "rank": 7,
+      "rank": 6,
       "title": "Драма",
       "recipeId": "03_DRAMA",
       "theme": "Спорт"
@@ -212,19 +203,28 @@
       "genre": "ADVENTURE",
       "covers": 0,
       "score": 0,
-      "rank": 8,
+      "rank": 7,
       "title": "Приключения",
       "recipeId": "08_ADVENTURE",
       "theme": "Кино"
     },
     {
-      "genre": "HORROR",
+      "genre": "HISTORY",
+      "covers": 0,
+      "score": 0,
+      "rank": 8,
+      "title": "Исторический фильм",
+      "recipeId": "04_HISTORY",
+      "theme": "Культура и образование"
+    },
+    {
+      "genre": "DETECTIVE",
       "covers": 0,
       "score": 0,
       "rank": 9,
-      "title": "Хоррор",
-      "recipeId": "09_HORROR",
-      "theme": "Спорт"
+      "title": "Детектив",
+      "recipeId": "02_DETECTIVE",
+      "theme": "Новости и бизнес"
     },
     {
       "genre": "SCI-FI",
@@ -242,11 +242,11 @@
   },
   "photo": {
     "status": "accepted",
-    "captureId": "e82b7492-ed89-4905-81ef-0dd6c52aeb30"
+    "captureId": "c863d9c3-dbf4-4b1b-b4c5-1ae03efad54f"
   },
   "schemaVersion": 1,
   "type": "stella-vk-result",
   "product": "vk-video",
-  "sessionId": "13b5f4e5-f231-4d5c-a2c4-e32ba6446730",
-  "createdAt": "2026-10-07T18:45:10.896Z"
+  "sessionId": "6c3646a0-6e59-4c5e-81ce-1ece6cf0f88f",
+  "createdAt": "2026-10-07T19:32:38.743Z"
 }

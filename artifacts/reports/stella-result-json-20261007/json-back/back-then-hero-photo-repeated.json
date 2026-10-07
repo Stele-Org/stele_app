@@ -1,11 +1,11 @@
 {
   "covers": [
     {
-      "theme": "Наука",
+      "theme": "Спорт",
       "count": 2
     },
     {
-      "theme": "Музыка",
+      "theme": "Наука",
       "count": 2
     }
   ],
@@ -18,11 +18,11 @@
       "theme": "Наука"
     },
     {
-      "genre": "MUSICLE",
+      "genre": "HORROR",
       "count": 1,
-      "title": "Мюзикл",
-      "recipeId": "06_MUSICLE",
-      "theme": "Музыка"
+      "title": "Хоррор",
+      "recipeId": "09_HORROR",
+      "theme": "Спорт"
     }
   ],
   "coversTotal": 6,
@@ -31,10 +31,10 @@
     "знания",
     "документальное кино",
     "научпоп",
-    "музыка",
-    "медиа",
-    "отдых",
-    "лёгкий контент",
+    "переживания",
+    "чувства",
+    "герои",
+    "эмоции",
     "образ",
     "VK Видео",
     "главный герой",
@@ -60,13 +60,13 @@
     {
       "questionId": "ideal-content",
       "question": "Каким должен быть идеальный контент на вечер?",
-      "answerId": "rest",
-      "answer": "Расслабляющий",
+      "answerId": "heroes",
+      "answer": "Захватывающий",
       "tags": [
-        "музыка",
-        "медиа",
-        "отдых",
-        "лёгкий контент"
+        "переживания",
+        "чувства",
+        "герои",
+        "эмоции"
       ]
     },
     {
@@ -96,49 +96,49 @@
   ],
   "themes": [
     {
-      "theme": "Наука",
+      "theme": "Спорт",
       "covers": 2,
-      "score": 2,
+      "score": 3,
       "rank": 1
     },
     {
-      "theme": "Музыка",
+      "theme": "Наука",
       "covers": 2,
       "score": 2,
       "rank": 2
     },
     {
-      "theme": "Медиа и шоу",
+      "theme": "Культура и образование",
       "covers": 0,
       "score": 1,
       "rank": 3
     },
     {
-      "theme": "Спорт",
+      "theme": "Игры и авто",
       "covers": 0,
-      "score": 1,
+      "score": 0,
       "rank": 4
     },
     {
-      "theme": "Кино",
+      "theme": "Медиа и шоу",
       "covers": 0,
       "score": 0,
       "rank": 5
     },
     {
-      "theme": "Игры и авто",
+      "theme": "Музыка",
       "covers": 0,
       "score": 0,
       "rank": 6
     },
     {
-      "theme": "Новости и бизнес",
+      "theme": "Кино",
       "covers": 0,
       "score": 0,
       "rank": 7
     },
     {
-      "theme": "Культура и образование",
+      "theme": "Новости и бизнес",
       "covers": 0,
       "score": 0,
       "rank": 8
@@ -155,19 +155,28 @@
       "theme": "Наука"
     },
     {
-      "genre": "MUSICLE",
+      "genre": "HORROR",
       "covers": 1,
       "score": 2,
       "rank": 2,
-      "title": "Мюзикл",
-      "recipeId": "06_MUSICLE",
-      "theme": "Музыка"
+      "title": "Хоррор",
+      "recipeId": "09_HORROR",
+      "theme": "Спорт"
+    },
+    {
+      "genre": "DRAMA",
+      "covers": 0,
+      "score": 2,
+      "rank": 3,
+      "title": "Драма",
+      "recipeId": "03_DRAMA",
+      "theme": "Спорт"
     },
     {
       "genre": "ADVENTURE",
       "covers": 0,
       "score": 1,
-      "rank": 3,
+      "rank": 4,
       "title": "Приключения",
       "recipeId": "08_ADVENTURE",
       "theme": "Кино"
@@ -176,64 +185,55 @@
       "genre": "DETECTIVE",
       "covers": 0,
       "score": 1,
-      "rank": 4,
+      "rank": 5,
       "title": "Детектив",
       "recipeId": "02_DETECTIVE",
       "theme": "Новости и бизнес"
     },
     {
-      "genre": "FANTASY",
-      "covers": 0,
-      "score": 1,
-      "rank": 5,
-      "title": "Фэнтези",
-      "recipeId": "10_FANTASY",
-      "theme": "Кино"
-    },
-    {
-      "genre": "COMEDY",
-      "covers": 0,
-      "score": 1,
-      "rank": 6,
-      "title": "Комедия",
-      "recipeId": "05_COMEDY",
-      "theme": "Медиа и шоу"
-    },
-    {
-      "genre": "HORROR",
-      "covers": 0,
-      "score": 0,
-      "rank": 7,
-      "title": "Хоррор",
-      "recipeId": "09_HORROR",
-      "theme": "Спорт"
-    },
-    {
       "genre": "HISTORY",
       "covers": 0,
       "score": 0,
-      "rank": 8,
+      "rank": 6,
       "title": "Исторический фильм",
       "recipeId": "04_HISTORY",
       "theme": "Культура и образование"
     },
     {
-      "genre": "DRAMA",
-      "covers": 0,
-      "score": 0,
-      "rank": 9,
-      "title": "Драма",
-      "recipeId": "03_DRAMA",
-      "theme": "Спорт"
-    },
-    {
       "genre": "BOEVIK",
       "covers": 0,
       "score": 0,
-      "rank": 10,
+      "rank": 7,
       "title": "Боевик",
       "recipeId": "01_BOEVIK",
       "theme": "Игры и авто"
+    },
+    {
+      "genre": "COMEDY",
+      "covers": 0,
+      "score": 0,
+      "rank": 8,
+      "title": "Комедия",
+      "recipeId": "05_COMEDY",
+      "theme": "Медиа и шоу"
+    },
+    {
+      "genre": "FANTASY",
+      "covers": 0,
+      "score": 0,
+      "rank": 9,
+      "title": "Фэнтези",
+      "recipeId": "10_FANTASY",
+      "theme": "Кино"
+    },
+    {
+      "genre": "MUSICLE",
+      "covers": 0,
+      "score": 0,
+      "rank": 10,
+      "title": "Мюзикл",
+      "recipeId": "06_MUSICLE",
+      "theme": "Музыка"
     }
   ],
   "discovery": {
@@ -242,11 +242,11 @@
   },
   "photo": {
     "status": "accepted",
-    "captureId": "2e52849e-fd52-4c93-8ba7-f5a82959c7a3"
+    "captureId": "2ee7a254-0663-407c-b03c-3a64c7901d2e"
   },
   "schemaVersion": 1,
   "type": "stella-vk-result",
   "product": "vk-video",
-  "sessionId": "bd897322-2d37-4a99-8402-79d1ce9f477f",
-  "createdAt": "2026-10-07T19:40:27.600Z"
+  "sessionId": "0bf84c54-7541-42f1-883c-9c9d895548dd",
+  "createdAt": "2026-10-07T19:41:52.662Z"
 }

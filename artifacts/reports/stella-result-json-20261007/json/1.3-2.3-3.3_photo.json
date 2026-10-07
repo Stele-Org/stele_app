@@ -112,13 +112,13 @@
       "rank": 3
     },
     {
-      "theme": "Музыка",
+      "theme": "Медиа и шоу",
       "covers": 0,
       "score": 0,
       "rank": 4
     },
     {
-      "theme": "Медиа и шоу",
+      "theme": "Кино",
       "covers": 0,
       "score": 0,
       "rank": 5
@@ -136,7 +136,7 @@
       "rank": 7
     },
     {
-      "theme": "Кино",
+      "theme": "Музыка",
       "covers": 0,
       "score": 0,
       "rank": 8
@@ -189,10 +189,19 @@
       "theme": "Музыка"
     },
     {
-      "genre": "BOEVIK",
+      "genre": "ADVENTURE",
       "covers": 0,
       "score": 0,
       "rank": 6,
+      "title": "Приключения",
+      "recipeId": "08_ADVENTURE",
+      "theme": "Кино"
+    },
+    {
+      "genre": "BOEVIK",
+      "covers": 0,
+      "score": 0,
+      "rank": 7,
       "title": "Боевик",
       "recipeId": "01_BOEVIK",
       "theme": "Игры и авто"
@@ -201,37 +210,28 @@
       "genre": "FANTASY",
       "covers": 0,
       "score": 0,
-      "rank": 7,
+      "rank": 8,
       "title": "Фэнтези",
       "recipeId": "10_FANTASY",
       "theme": "Кино"
     },
     {
-      "genre": "ADVENTURE",
+      "genre": "HORROR",
       "covers": 0,
       "score": 0,
-      "rank": 8,
-      "title": "Приключения",
-      "recipeId": "08_ADVENTURE",
-      "theme": "Кино"
+      "rank": 9,
+      "title": "Хоррор",
+      "recipeId": "09_HORROR",
+      "theme": "Спорт"
     },
     {
       "genre": "COMEDY",
       "covers": 0,
       "score": 0,
-      "rank": 9,
+      "rank": 10,
       "title": "Комедия",
       "recipeId": "05_COMEDY",
       "theme": "Медиа и шоу"
-    },
-    {
-      "genre": "HORROR",
-      "covers": 0,
-      "score": 0,
-      "rank": 10,
-      "title": "Хоррор",
-      "recipeId": "09_HORROR",
-      "theme": "Спорт"
     }
   ],
   "discovery": {
@@ -240,11 +240,11 @@
   },
   "photo": {
     "status": "accepted",
-    "captureId": "63b2a572-d7ed-4a0b-832e-06ae4f9e754b"
+    "captureId": "f3f7340e-0157-4f73-b622-635b218214ef"
   },
   "schemaVersion": 1,
   "type": "stella-vk-result",
   "product": "vk-video",
-  "sessionId": "2bc33116-96ac-409e-a228-1035807e72f2",
-  "createdAt": "2026-10-07T18:48:05.088Z"
+  "sessionId": "23550076-efa3-47a8-bac3-e733e4c87884",
+  "createdAt": "2026-10-07T19:35:33.444Z"
 }

@@ -114,13 +114,13 @@
       "rank": 3
     },
     {
-      "theme": "Спорт",
+      "theme": "Наука",
       "covers": 0,
       "score": 0,
       "rank": 4
     },
     {
-      "theme": "Игры и авто",
+      "theme": "Спорт",
       "covers": 0,
       "score": 0,
       "rank": 5
@@ -132,7 +132,7 @@
       "rank": 6
     },
     {
-      "theme": "Наука",
+      "theme": "Игры и авто",
       "covers": 0,
       "score": 0,
       "rank": 7
@@ -182,22 +182,22 @@
       "theme": "Спорт"
     },
     {
-      "genre": "SCI-FI",
-      "covers": 0,
-      "score": 0,
-      "rank": 5,
-      "title": "Сай-фай",
-      "recipeId": "07_SCI-FI",
-      "theme": "Наука"
-    },
-    {
       "genre": "ADVENTURE",
       "covers": 0,
       "score": 0,
-      "rank": 6,
+      "rank": 5,
       "title": "Приключения",
       "recipeId": "08_ADVENTURE",
       "theme": "Кино"
+    },
+    {
+      "genre": "SCI-FI",
+      "covers": 0,
+      "score": 0,
+      "rank": 6,
+      "title": "Сай-фай",
+      "recipeId": "07_SCI-FI",
+      "theme": "Наука"
     },
     {
       "genre": "DETECTIVE",
@@ -209,19 +209,10 @@
       "theme": "Новости и бизнес"
     },
     {
-      "genre": "BOEVIK",
-      "covers": 0,
-      "score": 0,
-      "rank": 8,
-      "title": "Боевик",
-      "recipeId": "01_BOEVIK",
-      "theme": "Игры и авто"
-    },
-    {
       "genre": "HISTORY",
       "covers": 0,
       "score": 0,
-      "rank": 9,
+      "rank": 8,
       "title": "Исторический фильм",
       "recipeId": "04_HISTORY",
       "theme": "Культура и образование"
@@ -230,10 +221,19 @@
       "genre": "DRAMA",
       "covers": 0,
       "score": 0,
-      "rank": 10,
+      "rank": 9,
       "title": "Драма",
       "recipeId": "03_DRAMA",
       "theme": "Спорт"
+    },
+    {
+      "genre": "BOEVIK",
+      "covers": 0,
+      "score": 0,
+      "rank": 10,
+      "title": "Боевик",
+      "recipeId": "01_BOEVIK",
+      "theme": "Игры и авто"
     }
   ],
   "discovery": {
@@ -242,11 +242,11 @@
   },
   "photo": {
     "status": "accepted",
-    "captureId": "a63af22f-cba3-4ce2-84a2-6efebb27130f"
+    "captureId": "41f0590d-5aaa-4348-b339-97629f04390d"
   },
   "schemaVersion": 1,
   "type": "stella-vk-result",
   "product": "vk-video",
-  "sessionId": "467d0da4-6ff1-4fab-b6fa-f4d7b468232a",
-  "createdAt": "2026-10-07T18:41:19.924Z"
+  "sessionId": "b2086891-1818-47da-ae81-e0aeca95e7a7",
+  "createdAt": "2026-10-07T19:28:50.618Z"
 }
