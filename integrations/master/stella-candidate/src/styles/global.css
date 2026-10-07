@@ -104,7 +104,8 @@ h1, h2, p { margin: 0; }
 .product-tag:hover:not(:disabled) { box-shadow: none; }
 .question-heading { position: absolute; top: 335px; left: 60px; width: 960px; text-align: center; }
 .screen-step { display: none; }
-.question-heading h1 { font-size: 48px; line-height: 1.12; }
+/* A question may set its own line break (content/vkVideo.ts). */
+.question-heading h1 { font-size: 48px; line-height: 1.12; white-space: pre-line; }
 .options { position: absolute; left: 30px; top: 540px; width: 1020px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 40px; }
 .option-button { position: relative; width: 100%; height: 260px; padding: 34px 40px; display: flex; align-items: flex-end; font-size: 36px; line-height: 1.12; overflow: hidden; border-radius: 60px; }
 .option-button > span { position: relative; z-index: 1; max-width: 390px; }

@@ -42,7 +42,8 @@ export const vkThemes: VkTheme[] = [
 export const vkQuestions: [VkQuestion<WeightedOption>, VkQuestion<WeightedOption>, VkQuestion] = [
   {
     id: 'evening',
-    prompt: 'У вас внезапно освободился вечер. Что включаем?',
+    // «Что включаем?» stands on the second line (user, 07.10.2026); the heading keeps line breaks (global.css).
+    prompt: 'У вас внезапно освободился вечер.\nЧто включаем?',
     options: [
       { id: 'series', label: 'Новый сериал, который все обсуждают', metadata: ['обсуждения', 'сериал', 'премьера', 'популярное'], plusTwo: 'Кино', plusOne: 'Музыка' },
       { id: 'standup', label: 'Стендап или что-нибудь смешное', metadata: ['шоу', 'стендап', 'юмор', 'комедия'], plusTwo: 'Медиа и шоу', plusOne: 'Игры и авто' },

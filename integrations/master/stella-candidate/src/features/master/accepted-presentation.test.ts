@@ -28,7 +28,7 @@ describe('accepted VK display wording', () => {
       .toEqual(['Драйвовый', 'Захватывающий', 'Познавательный', 'Расслабляющий'])
   })
 
-  it('holds «контент на вечер?» together in the heading of the second question when the server sends the same words', () => {
+  it('gives the headings of the first two questions their approved line breaks when the server sends the same words', () => {
     const options = ['drive', 'heroes', 'learn', 'rest'].map(id => ({ id, label: acceptedVkAnswerLabel(id, '') }))
     const question: QuestionPresentation = { id: 'ideal-content', product: 'vk-video', prompt: 'Каким должен быть идеальный контент на вечер?',
       layout: 'grid', answering: false, options }
@@ -37,11 +37,13 @@ describe('accepted VK display wording', () => {
     expect(result.options).toEqual(options)
     expect(question.prompt).toBe('Каким должен быть идеальный контент на вечер?')
     expect(acceptedVkQuestion(result)).toBe(result)
-    // Other wording from the server is shown as sent, and the other questions have no such breaks.
+    // Other wording from the server is shown as sent.
     const other = { ...question, prompt: 'Каким должен быть контент на вечер?' }
     expect(acceptedVkQuestion(other)).toBe(other)
+    // The first question puts «Что включаем?» on the second line.
     const first: QuestionPresentation = { ...question, id: 'evening', prompt: 'У вас внезапно освободился вечер. Что включаем?', options: [{ id: 'series', label: 'Сериал' }] }
-    expect(acceptedVkQuestion(first)).toBe(first)
+    expect(acceptedVkQuestion(first)!.prompt).toBe('У вас внезапно освободился вечер.\nЧто включаем?')
+    expect(acceptedVkQuestion(first)!.options).toEqual(first.options)
   })
 
   it('changes the visible reveal label while keeping raw source, metadata batches and transition identity', () => {
