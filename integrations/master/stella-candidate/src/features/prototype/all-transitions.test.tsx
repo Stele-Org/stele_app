@@ -199,9 +199,9 @@ it('photo terms restore input/focus; accept goes to camera without a tag scene, 
   expect(results[0]).toMatchObject({ sessionId: events[0].sessionId, discovery: { answerId: 'hero' }, photo: { status: 'unavailable' } })
   expect(results[0].answers.map(item => item.answerId)).toEqual(['series', 'heroes', 'hero', 'accept'])
   expect(results[0].tags).toHaveLength(16)
-  // The hero's six covers follow the answer: two AI covers by genres and two covers for each of two themes.
-  expect(results[0].aiCover.map(item => item.count)).toEqual([1, 1])
-  expect(results[0].covers.map(item => item.count)).toEqual([2, 2])
+  // Without a photo there is no AI cover: plain recommendations, two covers for each of three themes.
+  expect(results[0].aiCover).toEqual([])
+  expect(results[0].covers.map(item => item.count)).toEqual([2, 2, 2])
   expect(results[0].coversTotal).toBe(6)
   expect(host.querySelector('.vk-white-entity')?.getAttribute('data-stage')).toBe('generation')
   expect(host.querySelector('.vk-white-entity')?.parentElement?.classList.contains('prototype-canvas')).toBe(true)
@@ -230,11 +230,66 @@ it('names the approved photo in the result of the hero and stores the photo unde
   await click('.photo-review-actions .primary-button'); expect(state()).toBe('vk-particles')
   expect(results).toHaveLength(1)
   const { photo } = results[0]
-  expect(results[0].aiCover).toHaveLength(2)
-  expect(results[0].covers).toHaveLength(2)
+  // An approved photo: two AI covers by genres and two covers for each of two themes.
+  expect(results[0].aiCover.map(item => item.count)).toEqual([1, 1])
+  expect(results[0].covers.map(item => item.count)).toEqual([2, 2])
+  expect(results[0].coversTotal).toBe(6)
   expect(photo).toEqual({ status: 'accepted', captureId: expect.stringMatching(/^[0-9a-f-]{36}$/) })
   const stored = vi.mocked(fetch).mock.calls.find(([url]) => String(url).endsWith('/photo-storage'))!
   expect((stored[1]!.headers as Record<string, string>)['X-Capture-Id']).toBe(photo.status === 'accepted' && photo.captureId)
+}, 15000)
+
+it('stores one result with the last answers when the visitor goes back and answers again', async () => {
+  await start('VK Видео')
+  // First question answered, then changed from the second question.
+  await choose('series'); await finishReveal(4, 'vk-question')
+  await click('[aria-label="Назад"]')
+  expect(host.querySelector('.continuous-question')?.getAttribute('data-question-id')).toBe('evening')
+  await choose('science'); await finishReveal(4, 'vk-question')
+  // Second question answered, then changed from the third question.
+  await choose('drive'); await finishReveal(4, 'vk-question')
+  await click('[aria-label="Назад"]')
+  expect(host.querySelector('.continuous-question')?.getAttribute('data-question-id')).toBe('ideal-content')
+  // Nothing is stored while an answer can still be changed.
+  expect(results).toEqual([])
+  expect(events.filter(event => event.type === 'vk-recommendation')).toEqual([])
+  await choose('rest'); await finishReveal(4, 'vk-question')
+  await choose('new')
+  // One result, built from the last answers only: «Документалку» and «Расслабляющий», not «Сериал» and «Драйвовый».
+  expect(results).toHaveLength(1)
+  expect(results[0].answers.map(item => item.answerId)).toEqual(['science', 'rest', 'new'])
+  expect(Object.fromEntries(results[0].themes.filter(item => item.score > 0).map(item => [item.theme, item.score])))
+    .toEqual({ 'Наука': 2, 'Музыка': 2, 'Спорт': 1, 'Медиа и шоу': 1 })
+  expect(results[0].tags).toEqual(['наука', 'знания', 'документальное кино', 'научпоп', 'музыка', 'медиа', 'отдых', 'лёгкий контент', 'новинки', 'лайки', 'интересы', 'темы'])
+  expect(results[0].covers.every(item => ['Наука', 'Музыка', 'Спорт', 'Медиа и шоу'].includes(item.theme))).toBe(true)
+  // The events tell the same story: two answers taken back, one recommendation.
+  expect(events.filter(event => event.type === 'answer-cleared').map(event => event.type === 'answer-cleared' && event.questionId)).toEqual(['evening', 'ideal-content'])
+  const recommended = events.filter(event => event.type === 'vk-recommendation')
+  expect(recommended).toHaveLength(1)
+  expect(recommended[0].type === 'vk-recommendation' && recommended[0].rankedThemes).toEqual(results[0].themes.map(item => item.theme))
+  // And nothing more is sent on the way to the last screen.
+  await finishReveal(0, 'vk-discovery-activation')
+  await click('[data-discovery-complete]'); expect(state()).toBe('vk-final')
+  expect(results).toHaveLength(1)
+}, 15000)
+
+it('stores the hero\'s result once, after a repeated photo, with the answers given last', async () => {
+  await start('VK Видео')
+  await choose('standup'); await finishReveal(4, 'vk-question')
+  await choose('learn'); await finishReveal(4, 'vk-question')
+  await click('[aria-label="Назад"]')
+  await choose('heroes'); await finishReveal(4, 'vk-question')
+  await choose('hero'); await finishReveal(2, 'vk-digitize')
+  await choose('accept'); await wait(650)
+  // «Повторить» on the check of the photo goes round the camera again and stores nothing.
+  await click('.vk-camera-button'); await click('[data-discovery-complete]'); expect(state()).toBe('vk-photo-review')
+  await click('.photo-review-actions .secondary-button'); expect(state()).toBe('vk-camera')
+  expect(results).toEqual([])
+  await click('.vk-camera-button'); await click('[data-discovery-complete]'); expect(state()).toBe('vk-photo-review')
+  await click('.photo-review-actions .primary-button'); expect(state()).toBe('vk-particles')
+  expect(results).toHaveLength(1)
+  expect(results[0].answers.map(item => item.answerId)).toEqual(['standup', 'heroes', 'hero', 'accept'])
+  expect(results[0].photo).toEqual({ status: 'unavailable' })
 }, 15000)
 
 it('offers no way back from the photo step, only its two answers', async () => {
@@ -274,6 +329,8 @@ it('hero photo skip bypasses capture and activates Discovery without claiming a 
   expect(results).toHaveLength(1)
   expect(results[0]).toMatchObject({ discovery: { answerId: 'hero' }, photo: { status: 'skipped' } })
   expect(results[0].answers.map(item => item.answerId)).toEqual(['series', 'heroes', 'hero', 'skip'])
+  expect(results[0].aiCover).toEqual([])
+  expect(results[0].covers.map(item => item.count)).toEqual([2, 2, 2])
   await wait(650)
   expect(state()).toBe('vk-discovery-activation')
   expect(host.querySelector('.vk-white-entity')?.getAttribute('data-stage')).toBe('activation')

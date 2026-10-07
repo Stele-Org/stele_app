@@ -40,7 +40,7 @@ describe('the result of a VK Видео test', () => {
   })
 
   it('puts the covers by themes and the AI covers first in the file, then the tags, then the answers', () => {
-    const result = buildVkResult(choices(['series', 'drive'], 'hero'), { status: 'skipped' }, at)
+    const result = buildVkResult(choices(['series', 'drive'], 'hero'), { status: 'accepted', captureId: 'photo-0001' }, at)
     const order = ['covers', 'aiCover', 'coversTotal', 'tags', 'answers', 'themes', 'genres', 'discovery', 'photo']
     expect(Object.keys(result).slice(0, order.length)).toEqual(order)
     expect(Object.keys(JSON.parse(JSON.stringify(result)) as object).slice(0, order.length)).toEqual(order)
@@ -80,20 +80,34 @@ describe('the result of a VK Видео test', () => {
     for (const item of result.genres) expect(vkGenres.find(genre => genre.id === item.genre)).toMatchObject({ title: item.title, recipeId: item.recipeId, theme: item.theme })
   })
 
-  it.each([{ status: 'accepted', captureId: 'photo-0001' } as const, { status: 'unavailable' } as const, { status: 'skipped' } as const])(
-    'plans the hero\'s covers by the answer, whatever became of the photo: %o', photo => {
-      const result = buildVkResult(choices(['standup', 'rest'], 'hero'), photo, at, () => 0)
-      expect(result.aiCover.map(item => item.count)).toEqual([1, 1])
-      expect(new Set(result.aiCover.map(item => item.genre))).toEqual(new Set(['COMEDY', 'MUSICLE']))
-      expect(result.covers.map(item => item.count)).toEqual([2, 2])
+  it.each([{ status: 'unavailable' } as const, { status: 'skipped' } as const])(
+    'gives a hero without a photo plain recommendations, six covers by three themes and no AI cover: %o', photo => {
+      const drawn = choices(['standup', 'rest'], 'hero')
+      const result = buildVkResult(drawn, photo, at, () => 0)
+      expect(result.aiCover).toEqual([])
+      expect(result.genres).toEqual([])
+      expect(result.covers).toEqual(drawn.rankedThemes.slice(0, 3).map(theme => ({ theme, count: 2 })))
       expect(result.coversTotal).toBe(6)
-      // The reader learns from `photo` whether an AI cover can be made.
+      expect(result.themes.map(item => item.covers)).toEqual([2, 2, 2, 0, 0, 0, 0, 0])
+      // The same covers as for an answer that never offered a photo; the answer of the hero and the photo stay on record.
+      const plain = buildVkResult({ ...drawn, discoveryAnswerId: 'familiar' }, { status: 'not-requested' }, at)
+      expect(result.covers).toEqual(plain.covers)
+      expect(result.discovery.answerId).toBe('hero')
       expect(result.photo).toEqual(photo)
     })
 
+  it('gives the hero AI covers only with an approved photo', () => {
+    const drawn = choices(['standup', 'rest'], 'hero')
+    const result = buildVkResult(drawn, { status: 'accepted', captureId: 'photo-0001' }, at, () => 0)
+    expect(result.aiCover.map(item => item.count)).toEqual([1, 1])
+    expect(new Set(result.aiCover.map(item => item.genre))).toEqual(new Set(['COMEDY', 'MUSICLE']))
+    expect(result.covers.map(item => item.count)).toEqual([2, 2])
+    expect(result.coversTotal).toBe(6)
+  })
+
   it('draws genres with equal points once, by the given draw', () => {
     // standup + learn: COMEDY 2, DETECTIVE 2, then four genres with a point.
-    const pick = (value: number) => buildVkResult(choices(['standup', 'learn'], 'hero'), { status: 'skipped' }, at, () => value)
+    const pick = (value: number) => buildVkResult(choices(['standup', 'learn'], 'hero'), { status: 'accepted', captureId: 'photo-0001' }, at, () => value)
     const low = pick(0), high = pick(0.999)
     for (const result of [low, high]) {
       expect(new Set(result.aiCover.map(item => item.genre))).toEqual(new Set(['COMEDY', 'DETECTIVE']))
@@ -117,8 +131,9 @@ describe('the result of a VK Видео test', () => {
 
   it('gives every combination of answers six covers, the points of the scoring and never a tag twice', () => {
     for (const first of vkQuestions[0].options) for (const second of vkQuestions[1].options) for (const third of vkQuestions[2].options) {
-      const result = buildVkResult(choices([first.id, second.id], third.id), { status: 'not-requested' }, at)
+      // The hero is taken here with an approved photo; without one the covers are those of the other answers.
       const hero = third.id === 'hero'
+      const result = buildVkResult(choices([first.id, second.id], third.id), hero ? { status: 'accepted', captureId: 'photo-0001' } : { status: 'not-requested' }, at)
       expect(result.coversTotal).toBe(6)
       expect(result.covers.reduce((total, item) => total + item.count, 0) + result.aiCover.reduce((total, item) => total + item.count, 0)).toBe(6)
       expect([result.covers.length, result.aiCover.length]).toEqual(hero ? [2, 2] : [3, 0])
@@ -132,7 +147,7 @@ describe('the result of a VK Видео test', () => {
       expect(result.genres.every(item => item.score === genreScores.get(item.genre))).toBe(true)
       expect(result.genres.filter(item => item.covers > 0).every(item => item.score > 0)).toBe(true)
       expect(new Set(result.tags).size).toBe(result.tags.length)
-      expect(result.answers.map(answer => answer.answerId)).toEqual([first.id, second.id, third.id])
+      expect(result.answers.map(answer => answer.answerId)).toEqual(hero ? [first.id, second.id, third.id, 'accept'] : [first.id, second.id, third.id])
     }
   })
 

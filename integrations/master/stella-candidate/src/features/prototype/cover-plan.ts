@@ -6,7 +6,8 @@ import type { VkTheme } from '../../types/prototype'
  *
  * Without AI covers — two covers for each of the three themes with the most points.
  * With AI covers, which carry the visitor's image — one AI cover for each of the two genres with the most points,
- * and two covers for each of the two themes with the most points.
+ * and two covers for each of the two themes with the most points. AI covers take the answer «Хочу стать героем
+ * VK Видео» and an approved photo (`vk-result.ts`): without a photo there is nothing to make them from.
  *
  * The rules of the client's table «Сюрприз Discovery» for the answers 3.1, 3.2 and 3.4 do not change these numbers:
  * this rule replaced the earlier count of videos that followed them.

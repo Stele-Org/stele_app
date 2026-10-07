@@ -20,7 +20,7 @@ export interface VkResult {
   /** The covers by themes: which themes, the best first, and how many covers for each (`cover-plan.ts`). */
   covers: Array<{ theme: VkTheme; count: number }>
   /** The AI covers with the visitor's image: which genres, the best first, and how many for each. `theme` is the
-   * video theme the genre stands for. Empty unless the visitor chose «Хочу стать героем VK Видео». */
+   * video theme the genre stands for. Empty unless the visitor chose «Хочу стать героем VK Видео» and approved a photo. */
   aiCover: Array<{ genre: VkGenre; count: number; title: string; recipeId: string; theme: VkTheme }>
   /** Covers in all, `covers` and `aiCover` together: always six. */
   coversTotal: number
@@ -29,7 +29,7 @@ export interface VkResult {
   answers: Array<{ questionId: string; question: string; answerId: string; answer: string; tags: string[] }>
   /** How the themes scored: all eight, the best first; themes with equal points stand in the order drawn for this visitor. */
   themes: Array<{ theme: VkTheme; covers: number; score: number; rank: number }>
-  /** How the genres scored, for «Хочу стать героем VK Видео» only: all ten, the best first. Empty for the other answers. */
+  /** How the genres scored, all ten, the best first: only where there are AI covers, empty otherwise. */
   genres: Array<{ genre: VkGenre; covers: number; score: number; rank: number; title: string; recipeId: string; theme: VkTheme }>
   /** The answer to the third question and its rule in the client's words. */
   discovery: { answerId: string; rule: string }
@@ -55,7 +55,7 @@ export interface VkResultChoices {
 const plain = (text: string) => text.replace(/\s+/g, ' ')
 const tagsOf = (metadata: string[]) => tagBatches(metadata).flat()
 
-/** `random` settles genres with equal points for the hero; the result is built once for a visitor, so it is drawn once. */
+/** `random` settles genres with equal points for the AI covers; the result is built once for a visitor, so it is drawn once. */
 export function buildVkResult({ sessionId, answers, discoveryAnswerId, rankedThemes }: VkResultChoices, photo: VkResultPhoto, createdAt: string,
   random: () => number = Math.random): VkResult {
   const given = [...answers, discoveryAnswerId].map((answerId, index) => {
@@ -68,11 +68,11 @@ export function buildVkResult({ sessionId, answers, discoveryAnswerId, rankedThe
     const option = vkPhotoOptions.find(({ id }) => id === (photo.status === 'skipped' ? 'skip' : 'accept'))!
     given.push({ questionId: 'photo', question: plain(vkCopy.digitizeQuestion), answerId: option.id, answer: option.label, tags: tagsOf(option.metadata) })
   }
-  // The genres and the AI covers concern the hero alone, and follow the answer, not the photo (user, 07.10.2026):
-  // an AI cover can be made only from an approved photo, which a reader finds in `photo`.
-  const hero = discoveryAnswerId === 'hero'
-  const rankedGenres = hero ? rankGenres(answers, random) : []
-  const plan = planCovers(rankedThemes, rankedGenres, hero)
+  // An AI cover carries the visitor's image, so it takes both the answer of the hero and an approved photo.
+  // A hero without a photo gets plain recommendations, six covers by themes, like every other visitor (user, 08.10.2026).
+  const withAiCovers = discoveryAnswerId === 'hero' && photo.status === 'accepted'
+  const rankedGenres = withAiCovers ? rankGenres(answers, random) : []
+  const plan = planCovers(rankedThemes, rankedGenres, withAiCovers)
   const genre = (id: VkGenre) => { const { title, recipeId, theme } = vkGenres.find(item => item.id === id)!; return { title, recipeId, theme } }
   const themeScores = new Map(calculateThemeScores(answers).map(({ theme, score }) => [theme, score]))
   const genreScores = new Map(calculateGenreScores(answers).map(item => [item.genre, item.score]))
