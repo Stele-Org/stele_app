@@ -20,10 +20,11 @@ describe('genres of the covers for the hero', () => {
     expect(vkGenres).toHaveLength(10)
   })
 
-  it('names the genres as the cover recipes of the poster kit do', () => {
+  it('numbers the genres as the cover recipes of the poster kit do', () => {
+    // The titles are no longer the kit's names of film genres: the user gave their own on 08.10.2026 (vk-result.test.ts).
     const kit = JSON.parse(readFileSync(new URL('../../../../../../artifacts/stella-polza-kit/prompts/recipes.json', import.meta.url), 'utf8')) as
-      { recipes: Array<{ id: string; title: string }> }
-    expect(vkGenres.map(({ recipeId, title }) => ({ id: recipeId, title }))).toEqual(kit.recipes.map(({ id, title }) => ({ id, title })))
+      { recipes: Array<{ id: string }> }
+    expect(vkGenres.map(({ recipeId }) => recipeId)).toEqual(kit.recipes.map(({ id }) => id))
     expect(vkGenres.every(({ id, recipeId }) => recipeId.endsWith(`_${id}`))).toBe(true)
   })
 

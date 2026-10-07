@@ -13,14 +13,14 @@
     {
       "genre": "FANTASY",
       "count": 1,
-      "title": "Фэнтези",
+      "title": "В поисках приключений",
       "recipeId": "10_FANTASY",
       "theme": "Кино"
     },
     {
       "genre": "DETECTIVE",
       "count": 1,
-      "title": "Детектив",
+      "title": "Детективный",
       "recipeId": "02_DETECTIVE",
       "theme": "Новости и бизнес"
     }
@@ -148,7 +148,7 @@
       "covers": 1,
       "score": 2,
       "rank": 1,
-      "title": "Фэнтези",
+      "title": "В поисках приключений",
       "recipeId": "10_FANTASY",
       "theme": "Кино"
     },
@@ -157,7 +157,7 @@
       "covers": 1,
       "score": 2,
       "rank": 2,
-      "title": "Детектив",
+      "title": "Детективный",
       "recipeId": "02_DETECTIVE",
       "theme": "Новости и бизнес"
     },
@@ -175,7 +175,7 @@
       "covers": 0,
       "score": 1,
       "rank": 4,
-      "title": "Исторический фильм",
+      "title": "Исторический",
       "recipeId": "04_HISTORY",
       "theme": "Культура и образование"
     },
@@ -184,7 +184,7 @@
       "covers": 0,
       "score": 1,
       "rank": 5,
-      "title": "Сай-фай",
+      "title": "Фантастический",
       "recipeId": "07_SCI-FI",
       "theme": "Наука"
     },
@@ -193,7 +193,7 @@
       "covers": 0,
       "score": 0,
       "rank": 6,
-      "title": "Комедия",
+      "title": "Весёлый",
       "recipeId": "05_COMEDY",
       "theme": "Медиа и шоу"
     },
@@ -202,7 +202,7 @@
       "covers": 0,
       "score": 0,
       "rank": 7,
-      "title": "Боевик",
+      "title": "Драйвовый",
       "recipeId": "01_BOEVIK",
       "theme": "Игры и авто"
     },
@@ -211,7 +211,7 @@
       "covers": 0,
       "score": 0,
       "rank": 8,
-      "title": "Драма",
+      "title": "Драматический",
       "recipeId": "03_DRAMA",
       "theme": "Спорт"
     },
@@ -220,7 +220,7 @@
       "covers": 0,
       "score": 0,
       "rank": 9,
-      "title": "Приключения",
+      "title": "В поисках приключений",
       "recipeId": "08_ADVENTURE",
       "theme": "Кино"
     },
@@ -229,7 +229,7 @@
       "covers": 0,
       "score": 0,
       "rank": 10,
-      "title": "Мюзикл",
+      "title": "Музыкальный",
       "recipeId": "06_MUSICLE",
       "theme": "Музыка"
     }

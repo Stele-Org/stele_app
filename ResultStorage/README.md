@@ -114,8 +114,8 @@
     { "theme": "Игры и авто", "count": 2 }
   ],
   "aiCover": [
-    { "genre": "FANTASY", "count": 1, "title": "Фэнтези", "recipeId": "10_FANTASY", "theme": "Кино" },
-    { "genre": "BOEVIK", "count": 1, "title": "Боевик", "recipeId": "01_BOEVIK", "theme": "Игры и авто" }
+    { "genre": "FANTASY", "count": 1, "title": "В поисках приключений", "recipeId": "10_FANTASY", "theme": "Кино" },
+    { "genre": "BOEVIK", "count": 1, "title": "Драйвовый", "recipeId": "01_BOEVIK", "theme": "Игры и авто" }
   ],
   "coversTotal": 6
 }
@@ -178,6 +178,22 @@
 | Кино | FANTASY, ADVENTURE |
 
 Жанры названы как рецепты обложек в комплекте: `SCI-FI` и `MUSICLE` — это «SCI FI» и «MUSICAL» из исходных таблиц.
+
+Название жанра для показа (`title`):
+
+| Жанр | `title` |
+|---|---|
+| SCI-FI | Фантастический |
+| HISTORY | Исторический |
+| COMEDY | Весёлый |
+| MUSICLE | Музыкальный |
+| BOEVIK | Драйвовый |
+| DRAMA | Драматический |
+| DETECTIVE | Детективный |
+| FANTASY, ADVENTURE | В поисках приключений |
+| HORROR | Хоррор |
+
+У FANTASY и ADVENTURE название общее: если посетителю достались оба жанра, обе его ИИ-обложки называются одинаково.
 
 ## Фото
 

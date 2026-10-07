@@ -80,6 +80,18 @@ describe('the result of a VK Видео test', () => {
     for (const item of result.genres) expect(vkGenres.find(genre => genre.id === item.genre)).toMatchObject({ title: item.title, recipeId: item.recipeId, theme: item.theme })
   })
 
+  it('names the AI covers by the mood of the cover (user, 08.10.2026)', () => {
+    expect(Object.fromEntries(vkGenres.map(genre => [genre.id, genre.title]))).toEqual({
+      'SCI-FI': 'Фантастический', HISTORY: 'Исторический', COMEDY: 'Весёлый', MUSICLE: 'Музыкальный', BOEVIK: 'Драйвовый',
+      DRAMA: 'Драматический', DETECTIVE: 'Детективный', FANTASY: 'В поисках приключений', ADVENTURE: 'В поисках приключений',
+      // Not in the user's list: the former title stays.
+      HORROR: 'Хоррор',
+    })
+    // standup + rest: COMEDY 3, MUSICLE 3 — the titles reach the covers of the result.
+    const result = buildVkResult(choices(['standup', 'rest'], 'hero'), { status: 'accepted', captureId: 'photo-0001' }, at, () => 0)
+    expect(result.aiCover.map(item => item.title).sort()).toEqual(['Весёлый', 'Музыкальный'])
+  })
+
   it.each([{ status: 'unavailable' } as const, { status: 'skipped' } as const])(
     'gives a hero without a photo plain recommendations, six covers by three themes and no AI cover: %o', photo => {
       const drawn = choices(['standup', 'rest'], 'hero')
