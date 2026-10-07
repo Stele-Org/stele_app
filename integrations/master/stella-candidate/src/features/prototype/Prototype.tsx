@@ -52,6 +52,8 @@ import { useScanPhoto } from './scan-photo'
 import { storeApprovedPhoto } from './photo-storage-client'
 import { buildVkResult, type VkResultChoices } from './vk-result'
 import { storeResult } from './result-storage-client'
+import { useIdleReturn, waitsForVisitor } from './idle-return'
+import { narrationId } from '../voice/narration'
 
 export type ScreenState =
   | { type: 'home' }
@@ -144,6 +146,12 @@ export function Prototype() {
     setEnteringProduct(null)
     discardPhoto()
   }, [sink, discardPhoto])
+  // Nobody acts on a screen that waits for a press: the scenario returns to the start screen like after the last one.
+  // The consent text does not stop the count; reading it by scrolling is acting.
+  useIdleReturn({
+    screen, active: playing && enteringProduct === null && waitsForVisitor(screen),
+    spoken: Boolean(asked) || narrationId(screen) === null, onIdle: reset,
+  })
 
   useLayoutEffect(() => {
     const fitCanvas = () => {
