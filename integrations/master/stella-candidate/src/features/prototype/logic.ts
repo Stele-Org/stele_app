@@ -1,5 +1,6 @@
 import { maxMissionLabels } from '../../content/max'
 import { vkQuestions, vkThemes } from '../../content/vkVideo'
+import { vkGenrePoints, vkGenres, type VkGenre } from '../../content/vkGenres'
 import type {
   MaxAudience,
   MaxGoal,
@@ -59,24 +60,50 @@ export function calculateThemeScores(answerIds: string[]): ThemeScore[] {
   return vkThemes.map((theme) => ({ theme, score: scores.get(theme) ?? 0 }))
 }
 
+/** The best first; items with equal points stand in a drawn order. */
+function rankedByScore<T>(scores: Array<{ item: T; score: number }>, random: () => number): T[] {
+  const scoreLevels = [...new Set(scores.map(({ score }) => score))].sort(
+    (left, right) => right - left,
+  )
+  const selected: T[] = []
+
+  for (const score of scoreLevels) {
+    const tied = scores
+      .filter((entry) => entry.score === score)
+      .map((entry) => entry.item)
+    selected.push(...(tied.length === 1 ? tied : shuffled(tied, random)))
+  }
+
+  return selected
+}
+
 export function rankThemes(
   answerIds: string[],
   random: () => number = Math.random,
 ): VkTheme[] {
-  const scores = calculateThemeScores(answerIds)
-  const scoreLevels = [...new Set(scores.map(({ score }) => score))].sort(
-    (left, right) => right - left,
-  )
-  const selected: VkTheme[] = []
+  return rankedByScore(calculateThemeScores(answerIds).map(({ theme, score }) => ({ item: theme, score })), random)
+}
 
-  for (const score of scoreLevels) {
-    const tiedThemes = scores
-      .filter((item) => item.score === score)
-      .map((item) => item.theme)
-    selected.push(...(tiedThemes.length === 1 ? tiedThemes : shuffled(tiedThemes, random)))
+/** Points of the cover genres for the first two answers (content/vkGenres.ts), in the order of the genre list. */
+export function calculateGenreScores(answerIds: string[]): Array<{ genre: VkGenre; score: number }> {
+  if (answerIds.length !== 2) throw new Error('VK genre scoring requires two answers')
+  const scores = new Map<VkGenre, number>(vkGenres.map(({ id }) => [id, 0]))
+
+  for (const answerId of answerIds) {
+    const points = vkGenrePoints[answerId]
+    if (!points) throw new Error(`Unknown VK answer: ${answerId}`)
+    for (const genre of points.plusTwo) scores.set(genre, (scores.get(genre) ?? 0) + 2)
+    for (const genre of points.plusOne) scores.set(genre, (scores.get(genre) ?? 0) + 1)
   }
 
-  return selected
+  return vkGenres.map(({ id }) => ({ genre: id, score: scores.get(id) ?? 0 }))
+}
+
+export function rankGenres(
+  answerIds: string[],
+  random: () => number = Math.random,
+): VkGenre[] {
+  return rankedByScore(calculateGenreScores(answerIds).map(({ genre, score }) => ({ item: genre, score })), random)
 }
 
 export function selectTopThemes(
