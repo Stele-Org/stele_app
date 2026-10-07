@@ -114,7 +114,7 @@ it.each(['familiar', 'new', 'popular'])('VK %s bypasses photo and completes the 
   expect(recommendations).toHaveLength(1)
   expect(recommendations[0]).toMatchObject({ discoveryAnswerId: answer, photoMode: 'not-requested' })
   expect(events.some(event => event.type === 'answer' && event.questionId === 'photo')).toBe(false)
-  expect(host.querySelector('#vk-result-title')?.textContent).toBe('Пройди к экрану\nVK Видео – там твоя подборка\nоживёт вокруг тебя.')
+  expect(host.querySelector('#vk-result-title')?.textContent).toBe('Пройди к экрану\nVK Видео – там твоя подборка\nоживёт вокруг тебя')
   expect(host.querySelector('.vk-final-direction')).toBeNull()
   expect(host.querySelector('.vk-final-qr img')?.getAttribute('src')).toContain('vk-new-qr')
   expect(host.querySelector('.result-thanks')).toBeNull()

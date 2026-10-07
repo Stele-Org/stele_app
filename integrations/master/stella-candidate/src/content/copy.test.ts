@@ -37,7 +37,7 @@ describe('approved VK copy and preserved MAX copy', () => {
   it('keeps the start invitation and sends each branch to its panel', () => {
     expect(onboardingCopy.voice).toBe('Со мной можно говорить своими словами. Скажи, например, «поехали»')
     expect(maxTransitionPrompt).toBe('Пройди к правой панели,\nчтобы начать')
-    expect(vkCopy.finalDirection.replace(/\s+/g, ' ')).toBe('Пройди к экрану VK Видео – там твоя подборка оживёт вокруг тебя.')
+    expect(vkCopy.finalDirection.replace(/\s+/g, ' ')).toBe('Пройди к экрану VK Видео – там твоя подборка оживёт вокруг тебя')
   })
 
   it('uses the new Discovery activation screen copy', () => {

@@ -17,8 +17,8 @@ export const vkCopy = {
   discoveryActivationTitle: 'Технологии Discovery активированы.',
   discoveryActivationDescription: 'Технологии персонализации Discovery уже начали собирать подборку.',
   finalTitle: 'Готово.\nDiscovery разобрал твои ответы\nи собрал твой профиль интересов:\nтемы, героев, настроение и атмосферу.',
-  // Changed by the user on 06.10.2026: «к экрану VK Видео» instead of «к левой панели», with the final full stop.
-  finalDirection: 'Пройди к экрану\nVK Видео – там твоя подборка\nоживёт вокруг тебя.',
+  // Changed by the user on 06.10.2026: «к экрану VK Видео» instead of «к левой панели»; no full stop at the end (user, 07.10.2026).
+  finalDirection: 'Пройди к экрану\nVK Видео – там твоя подборка\nоживёт вокруг тебя',
   // user-approved in the earlier direct request; the new document does not specify this control.
   thanks: 'спасибо',
   finalQrCaption: 'Узнай больше о Discovery',
