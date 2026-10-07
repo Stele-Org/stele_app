@@ -120,7 +120,7 @@ it.each(['familiar', 'new', 'popular'])('VK %s bypasses photo and completes the 
   expect(host.querySelector('.result-thanks')).toBeNull()
 }, 10000)
 
-it('photo terms restore input/focus; accept goes to camera without a tag scene, then silhouette, particles and result', async () => {
+it('photo terms restore input/focus; accept goes to camera without a tag scene, then silhouette, photo check, particles and result', async () => {
   await vkThird('hero'); await finishReveal(2, 'vk-digitize')
   expect(buttons()[0].classList.contains('ring-tag--red')).toBe(true)
   await click('.digitize-notice')
@@ -162,9 +162,13 @@ it('photo terms restore input/focus; accept goes to camera without a tag scene, 
   expect(entity?.parentElement?.classList.contains('prototype-canvas')).toBe(true)
   expect(entity?.closest('[data-mock-ring-scene]')).toBeNull()
   expect(host.textContent).not.toContain('Технологии Discovery активированы.')
-  await click('[data-discovery-complete]'); expect(state()).toBe('vk-particles')
-  expect(host.querySelector('.vk-white-entity')).toBe(entity)
-  expect(entity?.getAttribute('data-stage')).toBe('generation')
+  // No camera here: the check of the photo shows a black square, and «Продолжить» goes on to Discovery.
+  await click('[data-discovery-complete]'); expect(state()).toBe('vk-photo-review')
+  expect(host.querySelector('.vk-white-entity')).toBeNull()
+  expect(host.querySelector('.photo-review-image--empty')).not.toBeNull()
+  await click('.photo-review-actions .primary-button'); expect(state()).toBe('vk-particles')
+  expect(host.querySelector('.vk-white-entity')?.getAttribute('data-stage')).toBe('generation')
+  expect(host.querySelector('.vk-white-entity')?.parentElement?.classList.contains('prototype-canvas')).toBe(true)
   expect(host.querySelector('.vk-processing-art')).toBeNull()
   expect(host.textContent).not.toContain('Технологии Discovery активированы.')
   await click('[data-discovery-complete]'); expect(state()).toBe('vk-final')

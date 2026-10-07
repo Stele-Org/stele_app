@@ -76,6 +76,7 @@ it('photographs during the scan, shows the photo after it and offers to continue
   await endScan()
   expect(state()).toBe('vk-photo-review')
   expect(host.querySelector<HTMLImageElement>('.photo-review-image')!.getAttribute('src')).toBe('blob:photo-1')
+  expect(host.querySelector('.photo-review-image--empty')).toBeNull()
   expect([...host.querySelectorAll('.photo-review-actions button')].map(button => button.textContent)).toEqual(['Повторить', 'Продолжить'])
 
   // "Повторить": back to the camera prompt, the photo is released without being stored, and the next scan photographs again.
@@ -105,29 +106,60 @@ it('photographs during the scan, shows the photo after it and offers to continue
   expect((init.headers as Record<string, string>)['X-Capture-Id']).toMatch(/^[0-9a-f-]{36}$/)
 })
 
-it('goes straight on, as before, when there is no camera', async () => {
+/** The check without a photo: a black square in place of the image, the same two choices. */
+const blackSquare = () => {
+  expect(state()).toBe('vk-photo-review')
+  const square = host.querySelector('.photo-review-frame > .photo-review-image--empty')!
+  expect(square).not.toBeNull()
+  expect(square.tagName).toBe('DIV')
+  expect(square.classList.contains('photo-review-image')).toBe(true)
+  expect(square.getAttribute('aria-label')).toBe('Фото не снято')
+  expect(square.getAttribute('data-lc-influence')).toBe('shadow')
+  expect(host.querySelector('img.photo-review-image')).toBeNull()
+  expect([...host.querySelectorAll('.photo-review-actions button')].map(button => button.textContent)).toEqual(['Повторить', 'Продолжить'])
+}
+
+it('keeps the check when there is no camera: a black square, and nothing is stored', async () => {
   show()
   await pass(SCAN_SHOT_MS + 500)
   expect(capture.photo).not.toHaveBeenCalled()
   await endScan()
+  blackSquare()
+
+  // "Повторить": the camera prompt and another scan, which ends in the same check.
+  await press('Повторить')
+  expect(state()).toBe('vk-camera')
+  await pass(1850)
+  expect(state()).toBe('vk-scanning')
+  await endScan()
+  blackSquare()
+
+  await press('Продолжить')
   expect(state()).toBe('vk-particles')
+  expect(request).not.toHaveBeenCalled()
+  expect(created).toEqual([])
+  expect(revoked).toEqual([])
 })
 
-it('goes straight on when the frame could not be taken', async () => {
+it('shows the black square when the frame could not be taken', async () => {
   capture.photo.mockRejectedValue(new Error('Кадр камеры ещё не готов'))
   show(ready)
   await pass(SCAN_SHOT_MS + 500)
   expect(capture.photo).toHaveBeenCalledOnce()
   await endScan()
-  expect(state()).toBe('vk-particles')
+  blackSquare()
   expect(created).toEqual([])
+  await press('Продолжить')
+  expect(state()).toBe('vk-particles')
+  expect(request).not.toHaveBeenCalled()
 })
 
-it('does not photograph after a scan that ended before the shot', async () => {
+it('does not photograph after a scan that ended before the shot, and shows the black square', async () => {
   show(ready)
   await pass(1000)
   await endScan()
-  expect(state()).toBe('vk-particles')
+  blackSquare()
   await pass(SCAN_SHOT_MS)
   expect(capture.photo).not.toHaveBeenCalled()
+  blackSquare()
 })

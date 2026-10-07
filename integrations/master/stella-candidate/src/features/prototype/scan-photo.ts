@@ -13,7 +13,7 @@ export const SCAN_SHOT_MS = 3500
  * for the sideways BRIO and left as it comes for an upright camera.
  * The page keeps the photo in memory only, shown through an object URL, and `discard` releases it; what happens to
  * an approved photo is up to the caller (`held`). Without a ready camera, or when the frame fails, there is simply
- * no photo and the scenario goes on as before.
+ * no photo: the check that follows the scan then shows a black square in its place.
  */
 export function useScanPhoto(scanning: boolean) {
   const { stream, status, upright } = useCameraSession()
@@ -52,9 +52,8 @@ export function useScanPhoto(scanning: boolean) {
     }
   }, [scanning, stream, status, upright, replace])
 
-  const taken = useCallback(() => photo.current !== null, [])
   /** The photograph itself, for the caller that keeps an approved one. */
   const held = useCallback((): ApprovedPhoto | null => photo.current && { blob: photo.current.blob, captureId: photo.current.captureId, upright: photo.current.upright }, [])
   const discard = useCallback(() => replace(null), [replace])
-  return { url, taken, held, discard }
+  return { url, held, discard }
 }

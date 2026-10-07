@@ -79,13 +79,12 @@ export function Prototype() {
   const [discoveryPreview] = useState(() => readDiscoveryPreview(window.location.search, import.meta.env.DEV))
   const [screen, setScreen] = useState<ScreenState>(() => discoveryPreview?.screen ?? homeState)
   // The camera photographs the visitor while the scan is on the screen; the check of that photo follows the scan.
-  const { url: photoUrl, taken: photoTaken, held: heldPhoto, discard: discardPhoto } = useScanPhoto(screen.type === 'vk-scanning' && !discoveryPreview?.hold)
+  const { url: photoUrl, held: heldPhoto, discard: discardPhoto } = useScanPhoto(screen.type === 'vk-scanning' && !discoveryPreview?.hold)
   const completeDiscoveryScan = useCallback(() => {
     if (discoveryPreview?.hold) return
-    // No camera or no frame: nothing to check, the scenario goes on as it did before.
-    setScreen(current => current.type !== 'vk-scanning' ? current
-      : { type: photoTaken() ? 'vk-photo-review' : 'vk-particles', themes: current.themes })
-  }, [discoveryPreview, photoTaken])
+    // The check follows every scan (user, 07.10.2026): without a camera or a frame it shows a black square instead of a photo.
+    setScreen(current => current.type !== 'vk-scanning' ? current : { type: 'vk-photo-review', themes: current.themes })
+  }, [discoveryPreview])
   const completeDiscoveryGeneration = useCallback(() => {
     if (discoveryPreview?.hold) return
     setScreen(current => current.type === 'vk-particles' || current.type === 'vk-discovery-activation'
@@ -317,7 +316,7 @@ export function Prototype() {
   }
 
   // The page releases the photo either way. An approved one is first handed to the local storage of the dev server;
-  // a photo the visitor chose to repeat is not stored anywhere.
+  // a photo the visitor chose to repeat is not stored anywhere, and neither is the black square shown without a photo.
   const leavePhotoReview = (next: 'vk-particles' | 'vk-camera') => {
     if (screen.type !== 'vk-photo-review') return
     const approved = next === 'vk-particles' ? heldPhoto() : null
@@ -431,8 +430,10 @@ export function Prototype() {
         {screen.type === 'vk-photo-review' && (
           <section className="screen screen--vk-photo-review" aria-label="Проверка фото">
             <div className="photo-review-frame">
-              {photoUrl && <img className="photo-review-image" src={photoUrl} alt="Твоё фото" draggable={false}
-                data-lc-influence="shadow" data-lc-strength="1" data-lc-falloff="2.5" data-lc-padding="12" />}
+              {photoUrl ? <img className="photo-review-image" src={photoUrl} alt="Твоё фото" draggable={false}
+                data-lc-influence="shadow" data-lc-strength="1" data-lc-falloff="2.5" data-lc-padding="12" />
+                : <div className="photo-review-image photo-review-image--empty" role="img" aria-label="Фото не снято"
+                  data-lc-influence="shadow" data-lc-strength="1" data-lc-falloff="2.5" data-lc-padding="12" />}
             </div>
             <div className="photo-review-actions">
               {/* "Повторить" returns to the camera prompt: the visitor gets ready and the scan photographs again. */}

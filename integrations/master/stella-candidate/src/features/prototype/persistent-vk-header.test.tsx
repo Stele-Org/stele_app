@@ -109,6 +109,8 @@ it('retains the same VK logo and background host from onboarding through the fin
   await click('.vk-camera-button')
   retained('vk-scanning')
   await click('[data-discovery-complete]')
+  retained('vk-photo-review')
+  await click('.photo-review-actions .primary-button')
   retained('vk-particles')
   await click('[data-discovery-complete]')
   retained('vk-final')
