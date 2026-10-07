@@ -50,6 +50,8 @@ import { useVoiceCommands } from '../voice/use-voice-commands'
 import { useStellaSound } from '../sound/use-stella-sound'
 import { useScanPhoto } from './scan-photo'
 import { storeApprovedPhoto } from './photo-storage-client'
+import { buildVkResult, type VkResultChoices } from './vk-result'
+import { storeResult } from './result-storage-client'
 
 export type ScreenState =
   | { type: 'home' }
@@ -119,6 +121,9 @@ export function Prototype() {
     commands, onCommand: pressNamed, debug: microphone === 'debug',
   })
   const transitionRemaining = useRef<{ screen: ScreenState; remaining: number } | null>(null)
+  // The result of the test is stored once every choice is made (vk-result.ts). After «Начать» that is the check of
+  // the photo: until then the choices wait here.
+  const awaitingPhoto = useRef<VkResultChoices | null>(null)
 
   useEffect(() => { void markServiceReady().catch(console.error) }, [])
   const termsTriggerRef = useRef<HTMLButtonElement>(null)
@@ -131,6 +136,7 @@ export function Prototype() {
     if (termsCloseTimeoutRef.current !== null) window.clearTimeout(termsCloseTimeoutRef.current)
     termsCloseTimeoutRef.current = null
     transitionRemaining.current = null
+    awaitingPhoto.current = null
     setTermsOpen(false)
     setTermsMounted(false)
     setPublisher(createEventPublisher(crypto.randomUUID(), sink))
@@ -279,8 +285,9 @@ export function Prototype() {
     publisher.answer('vk-video', question.id, option)
     const rankedThemes = rankThemes(screen.answers)
     if (answerId !== 'hero') {
-      publisher.recommendation(calculateThemeScores(screen.answers), rankedThemes,
+      const { sessionId, occurredAt } = publisher.recommendation(calculateThemeScores(screen.answers), rankedThemes,
         answerId, discoveryRules[answerId], 'not-requested')
+      void storeResult(buildVkResult({ sessionId, answers: screen.answers, discoveryAnswerId: answerId, rankedThemes }, { status: 'not-requested' }, occurredAt))
     }
     setScreen({
       type: 'vk-answer-reveal', questionIndex: screen.index,
@@ -295,8 +302,11 @@ export function Prototype() {
     if (screen.type !== 'vk-digitize') return
     const option = vkPhotoOptions.find(({ id }) => id === answerId)!
     publisher.answer('vk-video', 'photo', option)
-    publisher.recommendation(calculateThemeScores(screen.answers), screen.rankedThemes,
+    const { sessionId, occurredAt } = publisher.recommendation(calculateThemeScores(screen.answers), screen.rankedThemes,
       screen.discoveryAnswerId, discoveryRules[screen.discoveryAnswerId], answerId === 'accept' ? 'included' : 'skipped')
+    const choices: VkResultChoices = { sessionId, answers: screen.answers, discoveryAnswerId: screen.discoveryAnswerId, rankedThemes: screen.rankedThemes }
+    if (answerId === 'accept') awaitingPhoto.current = choices
+    else void storeResult(buildVkResult(choices, { status: 'skipped' }, occurredAt))
     // Neither answer shows tags (user request, 07.10.2026): «Начать» leaves for the camera after the same short cue
     // as «Пропустить» leaves for Discovery. The tags of «Начать» stay in its answer event.
     setScreen({
@@ -321,6 +331,12 @@ export function Prototype() {
     if (screen.type !== 'vk-photo-review') return
     const approved = next === 'vk-particles' ? heldPhoto() : null
     if (approved) void storeApprovedPhoto(approved)
+    // «Продолжить» was the last choice: the result names the approved photo, or says that there is none.
+    if (next === 'vk-particles' && awaitingPhoto.current) {
+      void storeResult(buildVkResult(awaitingPhoto.current,
+        approved ? { status: 'accepted', captureId: approved.captureId } : { status: 'unavailable' }, new Date().toISOString()))
+      awaitingPhoto.current = null
+    }
     discardPhoto()
     setScreen({ type: next, themes: screen.themes })
   }

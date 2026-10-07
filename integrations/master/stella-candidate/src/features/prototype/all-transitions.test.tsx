@@ -6,6 +6,9 @@ import { Prototype } from './Prototype'
 import type { TagReveal } from './tag-reveal'
 import { eventName, type StelaEvent } from './events'
 import type { WhiteEntity as WhiteEntityComponent } from '../../components/WhiteEntity'
+import type { VkResult } from './vk-result'
+import { SCAN_SHOT_MS } from './scan-photo'
+import { CameraSessionContext } from '../../components/camera-session-context'
 
 // Real scenario, publisher, input gate, React and Motion. No GPU or external service.
 vi.mock('../voice/use-screen-narration', () => ({ useScreenNarration: () => {} }))
@@ -23,8 +26,13 @@ const bridge = vi.hoisted(() => ({ current: null as null | {
   onFinalExit?: (reveal: TagReveal) => void; onComplete: (reveal: TagReveal) => void;
 } }))
 vi.mock('../../components/AnswerFlight', () => ({ AnswerFlight: (props: NonNullable<typeof bridge.current>) => { bridge.current = props; return null } }))
+// Only the scan photographs, and only with a ready camera: one test gives it one.
+const capture = vi.hoisted(() => ({ photo: vi.fn<() => Promise<Blob>>() }))
+vi.mock('../master/camera-capture', () => ({ capturePhoto: capture.photo }))
 let root: Root, host: HTMLDivElement, style: HTMLStyleElement
 let events: StelaEvent[]
+/** The results of finished tests the page sent to the storage of the dev server. */
+let results: VkResult[]
 const receive = (event: Event) => events.push((event as CustomEvent<StelaEvent>).detail)
 const wait = (ms = 110) => act(async () => { await new Promise(resolve => setTimeout(resolve, ms)) })
 const state = () => host.querySelector('main')?.getAttribute('data-screen')
@@ -72,6 +80,11 @@ beforeEach(() => {
   vi.stubGlobal('matchMedia', vi.fn(() => ({ matches: true, addListener() {}, removeListener() {}, addEventListener() {}, removeEventListener() {} })))
   vi.spyOn(HTMLMediaElement.prototype, 'pause').mockImplementation(() => {})
   events = []; bridge.current = null
+  results = []
+  vi.stubGlobal('fetch', vi.fn(async (url: string, init?: RequestInit) => {
+    if (String(url).endsWith('/result-storage') && init?.method === 'POST') results.push(JSON.parse(String(init.body)) as VkResult)
+    return new Response(JSON.stringify({ file: 'stored.json' }), { status: 201 })
+  }))
   playback.playing = true
   window.addEventListener(eventName, receive)
   style = document.createElement('style'); style.textContent = '.prototype-viewport { padding: 0px; }'; document.head.append(style)
@@ -100,7 +113,17 @@ it.each([['personal', 'access'], ['business', 'visibility']])('MAX %s/%s retains
 })
 
 it.each(['familiar', 'new', 'popular'])('VK %s bypasses photo and completes the silhouette-free Discovery sequence before final', async (answer) => {
-  await vkThird(answer); await finishReveal(0, 'vk-discovery-activation')
+  await vkThird(answer)
+  // The third answer was the last choice: the result is stored at once, the same as the recommendation event says.
+  const recommended = events.find(event => event.type === 'vk-recommendation')!
+  expect(results).toHaveLength(1)
+  expect(results[0]).toMatchObject({ schemaVersion: 1, type: 'stella-vk-result', product: 'vk-video', sessionId: recommended.sessionId,
+    createdAt: recommended.occurredAt, discovery: { answerId: answer }, photo: { status: 'not-requested' } })
+  expect(results[0].answers.map(item => item.answerId)).toEqual(['series', 'heroes', answer])
+  expect(results[0].tags).toHaveLength(12)
+  expect(recommended.type === 'vk-recommendation' && results[0].themes.map(item => item.theme)).toEqual(recommended.type === 'vk-recommendation' && recommended.rankedThemes)
+  expect(recommended.type === 'vk-recommendation' && results[0].selectedThemes).toEqual(recommended.type === 'vk-recommendation' && recommended.selectedThemes)
+  await finishReveal(0, 'vk-discovery-activation')
   expect(host.querySelector('[data-option-id="accept"]')).toBeNull()
   expect(host.querySelector('.vk-white-entity')?.getAttribute('data-stage')).toBe('activation')
   expect(host.querySelector('.vk-processing-art')).toBeNull()
@@ -166,7 +189,13 @@ it('photo terms restore input/focus; accept goes to camera without a tag scene, 
   await click('[data-discovery-complete]'); expect(state()).toBe('vk-photo-review')
   expect(host.querySelector('.vk-white-entity')).toBeNull()
   expect(host.querySelector('.photo-review-image--empty')).not.toBeNull()
+  // The hero's result waits for the photo: «Продолжить» is the last choice, and here there is no photo to name.
+  expect(results).toEqual([])
   await click('.photo-review-actions .primary-button'); expect(state()).toBe('vk-particles')
+  expect(results).toHaveLength(1)
+  expect(results[0]).toMatchObject({ sessionId: events[0].sessionId, discovery: { answerId: 'hero' }, photo: { status: 'unavailable' } })
+  expect(results[0].answers.map(item => item.answerId)).toEqual(['series', 'heroes', 'hero', 'accept'])
+  expect(results[0].tags).toHaveLength(16)
   expect(host.querySelector('.vk-white-entity')?.getAttribute('data-stage')).toBe('generation')
   expect(host.querySelector('.vk-white-entity')?.parentElement?.classList.contains('prototype-canvas')).toBe(true)
   expect(host.querySelector('.vk-processing-art')).toBeNull()
@@ -176,6 +205,27 @@ it('photo terms restore input/focus; accept goes to camera without a tag scene, 
   expect(host.textContent).not.toContain('Технологии Discovery активированы.')
   expect(events.filter(event => event.type === 'vk-recommendation')).toHaveLength(1)
   expect(events.some(event => event.type === 'answer' && event.questionId === 'gender')).toBe(false)
+}, 15000)
+
+it('names the approved photo in the result of the hero and stores the photo under the same id', async () => {
+  capture.photo.mockImplementation(async () => new Blob(['jpeg'], { type: 'image/jpeg' }))
+  vi.spyOn(HTMLMediaElement.prototype, 'play').mockResolvedValue()
+  URL.createObjectURL = vi.fn(() => 'blob:photo'); URL.revokeObjectURL = vi.fn()
+  const stream = { getTracks: () => [], getVideoTracks: () => [] } as unknown as MediaStream
+  act(() => root.render(<StrictMode><CameraSessionContext.Provider value={{ stream, status: 'ready', upright: true }}><Prototype /></CameraSessionContext.Provider></StrictMode>))
+  await vkThird('hero'); await finishReveal(2, 'vk-digitize')
+  await choose('accept'); await wait(650)
+  await click('.vk-camera-button'); expect(state()).toBe('vk-scanning')
+  await wait(SCAN_SHOT_MS + 100)
+  await click('[data-discovery-complete]'); expect(state()).toBe('vk-photo-review')
+  expect(host.querySelector('img.photo-review-image')?.getAttribute('src')).toBe('blob:photo')
+  expect(results).toEqual([])
+  await click('.photo-review-actions .primary-button'); expect(state()).toBe('vk-particles')
+  expect(results).toHaveLength(1)
+  const { photo } = results[0]
+  expect(photo).toEqual({ status: 'accepted', captureId: expect.stringMatching(/^[0-9a-f-]{36}$/) })
+  const stored = vi.mocked(fetch).mock.calls.find(([url]) => String(url).endsWith('/photo-storage'))!
+  expect((stored[1]!.headers as Record<string, string>)['X-Capture-Id']).toBe(photo.status === 'accepted' && photo.captureId)
 }, 15000)
 
 it('offers no way back from the photo step, only its two answers', async () => {
@@ -210,7 +260,12 @@ it('switches hero grid to photo without retaining the enlarged old heading or st
 
 it('hero photo skip bypasses capture and activates Discovery without claiming a photo', async () => {
   await vkThird('hero'); await finishReveal(2, 'vk-digitize')
-  await choose('skip'); await wait(650)
+  await choose('skip')
+  // «Пропустить» was the last choice.
+  expect(results).toHaveLength(1)
+  expect(results[0]).toMatchObject({ discovery: { answerId: 'hero' }, photo: { status: 'skipped' } })
+  expect(results[0].answers.map(item => item.answerId)).toEqual(['series', 'heroes', 'hero', 'skip'])
+  await wait(650)
   expect(state()).toBe('vk-discovery-activation')
   expect(host.querySelector('.vk-white-entity')?.getAttribute('data-stage')).toBe('activation')
   expect(host.querySelector('.vk-processing-art')).toBeNull()

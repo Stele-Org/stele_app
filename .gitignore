@@ -33,3 +33,7 @@ Thumbs.db
 # Visitor photos written by the dev server are personal data: only the description of the directory is versioned.
 /PhotoStorage/*
 !/PhotoStorage/README.md
+
+# Results of visitors' tests written by the dev server are machine state: only the description of the directory is versioned.
+/ResultStorage/*
+!/ResultStorage/README.md

@@ -31,7 +31,7 @@ export class PhotoRejected extends Error {
   constructor(readonly status: number, message: string) { super(message) }
 }
 
-async function writeWhole(file: string, data: Buffer | string) {
+export async function writeWhole(file: string, data: Buffer | string) {
   await writeFile(`${file}.part`, data)
   await rename(`${file}.part`, file)
 }
@@ -56,7 +56,7 @@ export async function storePhoto(directory: string, photo: { captureId: string; 
   return { stored, created: true }
 }
 
-function readBody(request: IncomingMessage, limit: number): Promise<Buffer> {
+export function readBody(request: IncomingMessage, limit: number): Promise<Buffer> {
   return new Promise((resolve, reject) => {
     if (Number(request.headers['content-length']) > limit) { reject(new PhotoRejected(413, 'Photo too large')); return }
     const chunks: Buffer[] = []
@@ -72,7 +72,7 @@ function readBody(request: IncomingMessage, limit: number): Promise<Buffer> {
 }
 
 /** Only the page this dev server serves may store a photo: a foreign site open in the same browser may not. */
-function ownPage(request: IncomingMessage) {
+export function ownPage(request: IncomingMessage) {
   const site = request.headers['sec-fetch-site']
   if (site && site !== 'same-origin') return false
   const { origin } = request.headers

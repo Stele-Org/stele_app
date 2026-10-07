@@ -97,6 +97,7 @@ it('photographs during the scan, shows the photo after it and offers to continue
   await press('Продолжить')
   expect(state()).toBe('vk-particles')
   expect(revoked).toEqual(['blob:photo-1', 'blob:photo-2'])
+  // This entry starts at the scan, with no answers behind it: there is no result to store, only the photo.
   expect(request).toHaveBeenCalledOnce()
   const [url, init] = request.mock.calls[0]
   expect(url).toBe('/photo-storage')
