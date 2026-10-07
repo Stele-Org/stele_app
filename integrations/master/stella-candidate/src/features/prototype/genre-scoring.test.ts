@@ -4,7 +4,6 @@ import { vkGenrePoints, vkGenres, type VkGenre } from '../../content/vkGenres'
 import { vkQuestions, vkThemes } from '../../content/vkVideo'
 import type { VkTheme } from '../../types/prototype'
 import { calculateGenreScores, rankGenres } from './logic'
-import { planGenreVideos, VIDEOS_PER_GENRE } from './video-plan'
 
 const points = (answers: string[]) => Object.fromEntries(calculateGenreScores(answers).filter(item => item.score > 0).map(item => [item.genre, item.score]))
 
@@ -90,12 +89,10 @@ describe('genres of the covers for the hero', () => {
     expect([...thirds].every(genre => ['BOEVIK', 'MUSICLE', 'HISTORY', 'SCI-FI'].includes(genre))).toBe(true)
   })
 
-  it('gives a video with a cover to each of the three best genres, and they always have points', () => {
-    expect(VIDEOS_PER_GENRE).toBe(1)
+  it('ranks by points for every combination, and at least three genres always have points', () => {
     for (const first of vkQuestions[0].options) for (const second of vkQuestions[1].options) for (const random of [() => 0, () => 0.5, () => 0.999]) {
       const answers = [first.id, second.id]
-      const ranked = rankGenres(answers, random), videos = planGenreVideos(ranked)
-      expect(ranked.map(genre => videos.get(genre))).toEqual([1, 1, 1, 0, 0, 0, 0, 0, 0, 0])
+      const ranked = rankGenres(answers, random)
       const scores = new Map(calculateGenreScores(answers).map(item => [item.genre, item.score]))
       expect(ranked.slice(0, 3).every(genre => scores.get(genre)! > 0)).toBe(true)
       expect(ranked.map(genre => scores.get(genre))).toEqual([...ranked.map(genre => scores.get(genre)!)].sort((a, b) => b - a))

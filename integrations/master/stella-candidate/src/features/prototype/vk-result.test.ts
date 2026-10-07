@@ -10,11 +10,12 @@ const choices = (answers: string[], discoveryAnswerId: string, random = () => 0)
   ({ sessionId, answers, discoveryAnswerId, rankedThemes: rankThemes(answers, random) })
 
 describe('the result of a VK Видео test', () => {
-  it('describes the themes with their videos, the tags, the answers, the choice of Discovery and the photo', () => {
+  it('describes the six covers, the tags, the answers, the scores, the choice of Discovery and the photo', () => {
     const result = buildVkResult(choices(['series', 'drive'], 'familiar'), { status: 'not-requested' }, at)
     expect(result).toEqual({
-      themes: expect.any(Array),
-      genres: [],
+      covers: [{ theme: 'Кино', count: 2 }, { theme: 'Игры и авто', count: 2 }, { theme: 'Музыка', count: 2 }],
+      aiCover: [],
+      coversTotal: 6,
       tags: ['обсуждения', 'сериал', 'премьера', 'популярное', 'драйв', 'азарт', 'игры', 'авто', 'рекомендации', 'для меня', 'персонализация', 'увлечения'],
       answers: [
         { questionId: 'evening', question: 'У вас внезапно освободился вечер. Что включаем?', answerId: 'series',
@@ -24,119 +25,112 @@ describe('the result of a VK Видео test', () => {
         { questionId: 'discovery', question: 'Рекомендации Discovery решили немного вас удивить. Что показывать?', answerId: 'familiar',
           answer: 'Что-то похожее на то, что я уже люблю', tags: ['рекомендации', 'для меня', 'персонализация', 'увлечения'] },
       ],
-      videos: { themes: 5, popular: 0, genres: 0, total: 5 },
-      selectedThemes: ['Кино', 'Игры и авто', 'Музыка'],
-      selectedGenres: [],
-      discovery: { answerId: 'familiar', rule: 'По одному видео из Топ 2 тематик для пользователя', extraThemes: ['Кино', 'Игры и авто'] },
+      themes: expect.any(Array),
+      genres: [],
+      discovery: { answerId: 'familiar', rule: 'По одному видео из Топ 2 тематик для пользователя' },
       photo: { status: 'not-requested' },
       schemaVersion: 1, type: 'stella-vk-result', product: 'vk-video', sessionId, createdAt: at,
     })
     expect(result.themes.slice(0, 3)).toEqual([
-      { theme: 'Кино', videos: 2, score: 3, rank: 1, selected: true },
-      { theme: 'Игры и авто', videos: 2, score: 2, rank: 2, selected: true },
-      { theme: 'Музыка', videos: 1, score: 1, rank: 3, selected: true },
+      { theme: 'Кино', covers: 2, score: 3, rank: 1 },
+      { theme: 'Игры и авто', covers: 2, score: 2, rank: 2 },
+      { theme: 'Музыка', covers: 2, score: 1, rank: 3 },
     ])
-    expect(result.themes.slice(3).every(item => item.videos === 0 && item.score === 0 && !item.selected)).toBe(true)
+    expect(result.themes.slice(3).every(item => item.covers === 0 && item.score === 0)).toBe(true)
   })
 
-  it('puts the themes first in the file, the genres of the hero next to them, then the tags, then the answers', () => {
+  it('puts the covers by themes and the AI covers first in the file, then the tags, then the answers', () => {
     const result = buildVkResult(choices(['series', 'drive'], 'hero'), { status: 'skipped' }, at)
-    expect(Object.keys(result).slice(0, 4)).toEqual(['themes', 'genres', 'tags', 'answers'])
-    expect(Object.keys(JSON.parse(JSON.stringify(result)) as object).slice(0, 4)).toEqual(['themes', 'genres', 'tags', 'answers'])
-    expect(Object.keys(result.themes[0])).toEqual(['theme', 'videos', 'score', 'rank', 'selected'])
-    expect(Object.keys(result.genres[0])).toEqual(['genre', 'videos', 'score', 'rank', 'selected', 'title', 'recipeId', 'theme'])
+    const order = ['covers', 'aiCover', 'coversTotal', 'tags', 'answers', 'themes', 'genres', 'discovery', 'photo']
+    expect(Object.keys(result).slice(0, order.length)).toEqual(order)
+    expect(Object.keys(JSON.parse(JSON.stringify(result)) as object).slice(0, order.length)).toEqual(order)
+    expect(Object.keys(result.covers[0])).toEqual(['theme', 'count'])
+    expect(Object.keys(result.aiCover[0])).toEqual(['genre', 'count', 'title', 'recipeId', 'theme'])
   })
 
-  it('lists all eight themes in the order drawn for the visitor, with their points, and marks the first three', () => {
-    const drawn = choices(['series', 'heroes'], 'hero', () => 0.999)
-    const { themes, selectedThemes } = buildVkResult(drawn, { status: 'skipped' }, at)
-    expect(themes.map(item => item.theme)).toEqual(drawn.rankedThemes)
-    expect(themes.map(item => item.rank)).toEqual([1, 2, 3, 4, 5, 6, 7, 8])
-    expect(new Set(themes.map(item => item.theme))).toEqual(new Set(vkThemes))
-    expect(themes.map(item => item.score)).toEqual([2, 2, 1, 1, 0, 0, 0, 0])
-    expect(themes.map(item => item.videos)).toEqual([1, 1, 1, 0, 0, 0, 0, 0])
-    expect(themes.filter(item => item.selected).map(item => item.theme)).toEqual(selectedThemes)
-    expect(selectedThemes).toEqual(drawn.rankedThemes.slice(0, 3))
-    // The ties are not drawn again: another draw of the same answers gives its own order, and the result keeps it.
-    const other = choices(['series', 'heroes'], 'hero', () => 0)
-    expect(buildVkResult(other, { status: 'skipped' }, at).themes.map(item => item.theme)).toEqual(other.rankedThemes)
-  })
-
-  it.each([
-    // The third answer changes the number of videos as the client's table «Сюрприз Discovery» says (video-plan.ts).
-    ['familiar', ['series', 'drive'], [2, 2, 1, 0], { themes: 5, popular: 0, genres: 0, total: 5 }, ['Кино', 'Игры и авто']],
-    ['new', ['series', 'drive'], [1, 1, 2, 0], { themes: 4, popular: 0, genres: 0, total: 4 }, ['Музыка']],
-    ['hero', ['series', 'drive'], [1, 1, 1, 0], { themes: 3, popular: 0, genres: 3, total: 6 }, []],
-    ['popular', ['series', 'drive'], [1, 1, 1, 0], { themes: 3, popular: 1, genres: 0, total: 4 }, []],
-  ] as const)('counts the videos for the third answer «%s»', (third, answers, firstFour, videos, extraThemes) => {
-    const result = buildVkResult(choices([...answers], third), { status: third === 'hero' ? 'skipped' : 'not-requested' }, at)
-    expect(result.themes.slice(0, 4).map(item => item.videos)).toEqual(firstFour)
-    expect(result.videos).toEqual(videos)
-    expect(result.discovery.extraThemes).toEqual(extraThemes)
-  })
-
-  it('gives «новое» its extra video in the fourth theme when that theme has a point', () => {
-    const drawn = choices(['series', 'heroes'], 'new')
+  it.each(['familiar', 'new', 'popular'])('gives «%s» two covers for each of the three best themes and no AI cover', third => {
+    // The same six covers whatever the third answer is, unless it is the hero.
+    const drawn = choices(['science', 'rest'], third, () => 0.999)
     const result = buildVkResult(drawn, { status: 'not-requested' }, at)
-    expect(result.themes.slice(0, 5).map(item => [item.score, item.videos, item.selected])).toEqual(
-      [[2, 1, true], [2, 1, true], [1, 1, true], [1, 1, false], [0, 0, false]])
-    expect(result.discovery.extraThemes).toEqual([drawn.rankedThemes[3]])
-    expect(result.videos).toEqual({ themes: 4, popular: 0, genres: 0, total: 4 })
+    expect(result.covers).toEqual(drawn.rankedThemes.slice(0, 3).map(theme => ({ theme, count: 2 })))
+    expect(result.aiCover).toEqual([])
+    expect(result.genres).toEqual([])
+    expect(result.coversTotal).toBe(6)
+    expect(result.themes.map(item => item.covers)).toEqual([2, 2, 2, 0, 0, 0, 0, 0])
   })
 
-  it('gives the hero the genres of the covers: all ten with their points, a video for each of the three best', () => {
-    // series + heroes: HORROR 3, FANTASY 2, DRAMA 2 — exactly three genres have points.
-    const result = buildVkResult(choices(['series', 'heroes'], 'hero'), { status: 'accepted', captureId: 'photo-0001' }, at, () => 0)
+  it('gives the hero two AI covers by genres and two covers for each of the two best themes', () => {
+    // series + heroes: genres HORROR 3, FANTASY 2, DRAMA 2; themes Кино 2, Спорт 2, then two with a point.
+    const drawn = choices(['series', 'heroes'], 'hero')
+    const result = buildVkResult(drawn, { status: 'accepted', captureId: 'photo-0001' }, at, () => 0)
+    expect(result.aiCover).toHaveLength(2)
+    expect(result.aiCover[0]).toEqual({ genre: 'HORROR', count: 1, title: 'Хоррор', recipeId: '09_HORROR', theme: 'Спорт' })
+    expect(['FANTASY', 'DRAMA']).toContain(result.aiCover[1].genre)
+    expect(result.aiCover[1].count).toBe(1)
+    expect(result.covers).toEqual(drawn.rankedThemes.slice(0, 2).map(theme => ({ theme, count: 2 })))
+    expect(new Set(result.covers.map(item => item.theme))).toEqual(new Set(['Кино', 'Спорт']))
+    expect(result.coversTotal).toBe(6)
+    // The scores behind it: every theme and every genre with its points and its covers.
+    expect(result.themes.map(item => [item.score, item.covers])).toEqual([[2, 2], [2, 2], [1, 0], [1, 0], [0, 0], [0, 0], [0, 0], [0, 0]])
     expect(result.genres).toHaveLength(10)
-    expect(result.genres[0]).toEqual({ genre: 'HORROR', videos: 1, score: 3, rank: 1, selected: true, title: 'Хоррор', recipeId: '09_HORROR', theme: 'Спорт' })
-    expect(new Set(result.genres.slice(1, 3).map(item => item.genre))).toEqual(new Set(['FANTASY', 'DRAMA']))
-    expect(result.genres.map(item => item.score)).toEqual([3, 2, 2, 0, 0, 0, 0, 0, 0, 0])
-    expect(result.genres.map(item => item.videos)).toEqual([1, 1, 1, 0, 0, 0, 0, 0, 0, 0])
+    expect(result.genres.map(item => [item.score, item.covers])).toEqual([[3, 1], [2, 1], [2, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]])
     expect(result.genres.map(item => item.rank)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
-    expect(result.genres.filter(item => item.selected).map(item => item.genre)).toEqual(result.selectedGenres)
-    expect(result.selectedGenres).toHaveLength(3)
+    expect(result.genres.slice(0, 2).map(item => item.genre)).toEqual(result.aiCover.map(item => item.genre))
     // Each genre names the video theme it stands for and the recipe of its cover.
     for (const item of result.genres) expect(vkGenres.find(genre => genre.id === item.genre)).toMatchObject({ title: item.title, recipeId: item.recipeId, theme: item.theme })
-    // The videos by themes stay, the covers are counted apart.
-    expect(result.themes.map(item => item.videos)).toEqual([1, 1, 1, 0, 0, 0, 0, 0])
-    expect(result.videos).toEqual({ themes: 3, popular: 0, genres: 3, total: 6 })
   })
 
+  it.each([{ status: 'accepted', captureId: 'photo-0001' } as const, { status: 'unavailable' } as const, { status: 'skipped' } as const])(
+    'plans the hero\'s covers by the answer, whatever became of the photo: %o', photo => {
+      const result = buildVkResult(choices(['standup', 'rest'], 'hero'), photo, at, () => 0)
+      expect(result.aiCover.map(item => item.count)).toEqual([1, 1])
+      expect(new Set(result.aiCover.map(item => item.genre))).toEqual(new Set(['COMEDY', 'MUSICLE']))
+      expect(result.covers.map(item => item.count)).toEqual([2, 2])
+      expect(result.coversTotal).toBe(6)
+      // The reader learns from `photo` whether an AI cover can be made.
+      expect(result.photo).toEqual(photo)
+    })
+
   it('draws genres with equal points once, by the given draw', () => {
-    // standup + learn: COMEDY 2, DETECTIVE 2, then four genres with a point: the third is one of them.
+    // standup + learn: COMEDY 2, DETECTIVE 2, then four genres with a point.
     const pick = (value: number) => buildVkResult(choices(['standup', 'learn'], 'hero'), { status: 'skipped' }, at, () => value)
     const low = pick(0), high = pick(0.999)
     for (const result of [low, high]) {
-      expect(new Set(result.selectedGenres.slice(0, 2))).toEqual(new Set(['COMEDY', 'DETECTIVE']))
-      expect(['BOEVIK', 'MUSICLE', 'HISTORY', 'SCI-FI']).toContain(result.selectedGenres[2])
+      expect(new Set(result.aiCover.map(item => item.genre))).toEqual(new Set(['COMEDY', 'DETECTIVE']))
       expect(result.genres.map(item => item.score)).toEqual([2, 2, 1, 1, 1, 1, 0, 0, 0, 0])
     }
     expect(low.genres.map(item => item.genre)).not.toEqual(high.genres.map(item => item.genre))
   })
 
-  it('leaves the genres empty for every answer but the hero', () => {
-    for (const third of ['familiar', 'new', 'popular']) {
-      const result = buildVkResult(choices(['science', 'rest'], third), { status: 'not-requested' }, at)
-      expect(result.genres).toEqual([])
-      expect(result.selectedGenres).toEqual([])
-      expect(result.videos.genres).toBe(0)
-    }
+  it('lists all eight themes in the order drawn for the visitor, with their points', () => {
+    const drawn = choices(['series', 'heroes'], 'new', () => 0.999)
+    const { themes, covers } = buildVkResult(drawn, { status: 'not-requested' }, at)
+    expect(themes.map(item => item.theme)).toEqual(drawn.rankedThemes)
+    expect(themes.map(item => item.rank)).toEqual([1, 2, 3, 4, 5, 6, 7, 8])
+    expect(new Set(themes.map(item => item.theme))).toEqual(new Set(vkThemes))
+    expect(themes.map(item => item.score)).toEqual([2, 2, 1, 1, 0, 0, 0, 0])
+    expect(themes.filter(item => item.covers > 0).map(item => item.theme)).toEqual(covers.map(item => item.theme))
+    // The ties are not drawn again: another draw of the same answers gives its own order, and the result keeps it.
+    const other = choices(['series', 'heroes'], 'new', () => 0)
+    expect(buildVkResult(other, { status: 'not-requested' }, at).themes.map(item => item.theme)).toEqual(other.rankedThemes)
   })
 
-  it('gives every combination of answers the points of the scoring, a consistent count of videos and never a tag twice', () => {
+  it('gives every combination of answers six covers, the points of the scoring and never a tag twice', () => {
     for (const first of vkQuestions[0].options) for (const second of vkQuestions[1].options) for (const third of vkQuestions[2].options) {
       const result = buildVkResult(choices([first.id, second.id], third.id), { status: 'not-requested' }, at)
+      const hero = third.id === 'hero'
+      expect(result.coversTotal).toBe(6)
+      expect(result.covers.reduce((total, item) => total + item.count, 0) + result.aiCover.reduce((total, item) => total + item.count, 0)).toBe(6)
+      expect([result.covers.length, result.aiCover.length]).toEqual(hero ? [2, 2] : [3, 0])
+      expect(result.themes.reduce((total, item) => total + item.covers, 0)).toBe(hero ? 4 : 6)
+      expect(result.genres.reduce((total, item) => total + item.covers, 0)).toBe(hero ? 2 : 0)
       const scores = new Map(calculateThemeScores([first.id, second.id]).map(item => [item.theme, item.score]))
       expect(result.themes.every(item => item.score === scores.get(item.theme))).toBe(true)
       expect(result.themes.map(item => item.score)).toEqual([...result.themes.map(item => item.score)].sort((a, b) => b - a))
-      expect(result.videos.themes).toBe(result.themes.reduce((sum, item) => sum + item.videos, 0))
-      expect(result.videos.genres).toBe(result.genres.reduce((sum, item) => sum + item.videos, 0))
-      expect(result.videos.total).toBe(result.videos.themes + result.videos.popular + result.videos.genres)
-      expect(result.videos.total).toBe({ familiar: 5, new: 4, hero: 6, popular: 4 }[third.id])
-      expect(result.themes.filter(item => item.videos > 0).every(item => item.score > 0)).toBe(true)
+      expect(result.themes.filter(item => item.covers > 0).every(item => item.score > 0)).toBe(true)
       const genreScores = new Map(calculateGenreScores([first.id, second.id]).map(item => [item.genre, item.score]))
       expect(result.genres.every(item => item.score === genreScores.get(item.genre))).toBe(true)
-      expect(result.genres.filter(item => item.videos > 0).every(item => item.score > 0)).toBe(true)
+      expect(result.genres.filter(item => item.covers > 0).every(item => item.score > 0)).toBe(true)
       expect(new Set(result.tags).size).toBe(result.tags.length)
       expect(result.answers.map(answer => answer.answerId)).toEqual([first.id, second.id, third.id])
     }
@@ -158,9 +152,7 @@ describe('the result of a VK Видео test', () => {
     expect(result.answers).toHaveLength(4)
     expect(result.answers[3]).toEqual({ questionId: 'photo', question: 'Ты – главный герой VK Видео', answerId, answer, tags })
     expect(result.tags.slice(12)).toEqual(tags)
-    expect(result.discovery.answerId).toBe('hero')
-    // The genres are counted whatever became of the photo: the reader checks `photo.status` before making covers.
-    expect(result.videos.genres).toBe(3)
+    expect(result.discovery).toEqual({ answerId: 'hero', rule: 'Формируется пул обложек с учетом выбранных тематик, на которых размещен образ пользователя' })
   })
 
   it('refuses answers the test does not have', () => {

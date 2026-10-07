@@ -122,7 +122,10 @@ it.each(['familiar', 'new', 'popular'])('VK %s bypasses photo and completes the 
   expect(results[0].answers.map(item => item.answerId)).toEqual(['series', 'heroes', answer])
   expect(results[0].tags).toHaveLength(12)
   expect(recommended.type === 'vk-recommendation' && results[0].themes.map(item => item.theme)).toEqual(recommended.type === 'vk-recommendation' && recommended.rankedThemes)
-  expect(recommended.type === 'vk-recommendation' && results[0].selectedThemes).toEqual(recommended.type === 'vk-recommendation' && recommended.selectedThemes)
+  // Six covers: two for each of the three themes the recommendation selected, and no AI cover.
+  expect(recommended.type === 'vk-recommendation' && results[0].covers).toEqual(recommended.type === 'vk-recommendation' && recommended.selectedThemes.map(theme => ({ theme, count: 2 })))
+  expect(results[0].aiCover).toEqual([])
+  expect(results[0].coversTotal).toBe(6)
   await finishReveal(0, 'vk-discovery-activation')
   expect(host.querySelector('[data-option-id="accept"]')).toBeNull()
   expect(host.querySelector('.vk-white-entity')?.getAttribute('data-stage')).toBe('activation')
@@ -196,6 +199,10 @@ it('photo terms restore input/focus; accept goes to camera without a tag scene, 
   expect(results[0]).toMatchObject({ sessionId: events[0].sessionId, discovery: { answerId: 'hero' }, photo: { status: 'unavailable' } })
   expect(results[0].answers.map(item => item.answerId)).toEqual(['series', 'heroes', 'hero', 'accept'])
   expect(results[0].tags).toHaveLength(16)
+  // The hero's six covers follow the answer: two AI covers by genres and two covers for each of two themes.
+  expect(results[0].aiCover.map(item => item.count)).toEqual([1, 1])
+  expect(results[0].covers.map(item => item.count)).toEqual([2, 2])
+  expect(results[0].coversTotal).toBe(6)
   expect(host.querySelector('.vk-white-entity')?.getAttribute('data-stage')).toBe('generation')
   expect(host.querySelector('.vk-white-entity')?.parentElement?.classList.contains('prototype-canvas')).toBe(true)
   expect(host.querySelector('.vk-processing-art')).toBeNull()
@@ -223,6 +230,8 @@ it('names the approved photo in the result of the hero and stores the photo unde
   await click('.photo-review-actions .primary-button'); expect(state()).toBe('vk-particles')
   expect(results).toHaveLength(1)
   const { photo } = results[0]
+  expect(results[0].aiCover).toHaveLength(2)
+  expect(results[0].covers).toHaveLength(2)
   expect(photo).toEqual({ status: 'accepted', captureId: expect.stringMatching(/^[0-9a-f-]{36}$/) })
   const stored = vi.mocked(fetch).mock.calls.find(([url]) => String(url).endsWith('/photo-storage'))!
   expect((stored[1]!.headers as Record<string, string>)['X-Capture-Id']).toBe(photo.status === 'accepted' && photo.captureId)

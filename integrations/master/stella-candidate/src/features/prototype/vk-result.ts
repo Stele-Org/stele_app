@@ -2,8 +2,8 @@ import { vkGenres, type VkGenre } from '../../content/vkGenres'
 import { discoveryRules, vkCopy, vkPhotoOptions, vkQuestions } from '../../content/vkVideo'
 import type { VkTheme } from '../../types/prototype'
 import { calculateGenreScores, calculateThemeScores, rankGenres } from './logic'
+import { planCovers } from './cover-plan'
 import { tagBatches } from './tag-reveal'
-import { planGenreVideos, planVideos } from './video-plan'
 
 /** The photo of the visitor as the result knows it. `accepted`: a photo was taken and approved, `captureId` names it
  * in the photo storage. `unavailable`: the visitor agreed to a photo, but none was taken. `skipped`: the visitor
@@ -11,29 +11,28 @@ import { planGenreVideos, planVideos } from './video-plan'
 export type VkResultPhoto = { status: 'accepted'; captureId: string } | { status: 'unavailable' | 'skipped' | 'not-requested' }
 
 /**
- * What the wall of VK Видео and the page behind the QR code are to show for one visitor (user request, 07.10.2026):
- * the themes with the number of videos for each, the genres of the covers for the hero, the tags, the answers,
- * the choice of Discovery and the photo.
- * The fields stand in the order the user asked to read them in: themes (and genres) first, then tags, then answers.
+ * What the wall of VK Видео and the page behind the QR code are to show for one visitor (user request, 07.10.2026).
+ * One form for every answer: the six covers stand first — by themes in `covers`, with the visitor's image by genres
+ * in `aiCover` — then the tags, the answers, and how the themes and the genres scored.
  * The format is described for its readers in `ResultStorage/README.md` in the project root.
  */
 export interface VkResult {
-  /** All themes, the best first, with the number of videos for each (`video-plan.ts`); themes with equal points
-   * stand in the order drawn for this visitor. */
-  themes: Array<{ theme: VkTheme; videos: number; score: number; rank: number; selected: boolean }>
-  /** Only for «Хочу стать героем VK Видео»: all genres of the covers, the best first, with the number of videos
-   * with such a cover; `theme` is the video theme the genre stands for. Empty for the other answers. */
-  genres: Array<{ genre: VkGenre; videos: number; score: number; rank: number; selected: boolean; title: string; recipeId: string; theme: VkTheme }>
+  /** The covers by themes: which themes, the best first, and how many covers for each (`cover-plan.ts`). */
+  covers: Array<{ theme: VkTheme; count: number }>
+  /** The AI covers with the visitor's image: which genres, the best first, and how many for each. `theme` is the
+   * video theme the genre stands for. Empty unless the visitor chose «Хочу стать героем VK Видео». */
+  aiCover: Array<{ genre: VkGenre; count: number; title: string; recipeId: string; theme: VkTheme }>
+  /** Covers in all, `covers` and `aiCover` together: always six. */
+  coversTotal: number
   /** Every tag of the answers once, in the order the visitor met them. */
   tags: string[]
   answers: Array<{ questionId: string; question: string; answerId: string; answer: string; tags: string[] }>
-  /** Videos in all: by the themes above, from the whole catalogue by popularity (outside the themes), and with
-   * covers of the visitor by the genres above. */
-  videos: { themes: number; popular: number; genres: number; total: number }
-  selectedThemes: VkTheme[]
-  selectedGenres: VkGenre[]
-  /** The answer to the third question, its rule in the client's words and the themes it gave one more video to. */
-  discovery: { answerId: string; rule: string; extraThemes: VkTheme[] }
+  /** How the themes scored: all eight, the best first; themes with equal points stand in the order drawn for this visitor. */
+  themes: Array<{ theme: VkTheme; covers: number; score: number; rank: number }>
+  /** How the genres scored, for «Хочу стать героем VK Видео» only: all ten, the best first. Empty for the other answers. */
+  genres: Array<{ genre: VkGenre; covers: number; score: number; rank: number; title: string; recipeId: string; theme: VkTheme }>
+  /** The answer to the third question and its rule in the client's words. */
+  discovery: { answerId: string; rule: string }
   photo: VkResultPhoto
   schemaVersion: 1
   type: 'stella-vk-result'
@@ -55,7 +54,6 @@ export interface VkResultChoices {
 /** Headings hold words together with non-breaking spaces and line breaks; a reader of the result gets plain text. */
 const plain = (text: string) => text.replace(/\s+/g, ' ')
 const tagsOf = (metadata: string[]) => tagBatches(metadata).flat()
-const sum = (items: Array<{ videos: number }>) => items.reduce((total, item) => total + item.videos, 0)
 
 /** `random` settles genres with equal points for the hero; the result is built once for a visitor, so it is drawn once. */
 export function buildVkResult({ sessionId, answers, discoveryAnswerId, rankedThemes }: VkResultChoices, photo: VkResultPhoto, createdAt: string,
@@ -70,28 +68,29 @@ export function buildVkResult({ sessionId, answers, discoveryAnswerId, rankedThe
     const option = vkPhotoOptions.find(({ id }) => id === (photo.status === 'skipped' ? 'skip' : 'accept'))!
     given.push({ questionId: 'photo', question: plain(vkCopy.digitizeQuestion), answerId: option.id, answer: option.label, tags: tagsOf(option.metadata) })
   }
-  const scores = new Map(calculateThemeScores(answers).map(({ theme, score }) => [theme, score]))
-  const plan = planVideos(rankedThemes, scores, discoveryAnswerId)
-  const themes = rankedThemes.map((theme, index) =>
-    ({ theme, videos: plan.videos.get(theme) ?? 0, score: scores.get(theme) ?? 0, rank: index + 1, selected: index < 3 }))
-  // The genres of the covers concern the hero alone: for the other answers there are no covers to plan.
-  const rankedGenres = discoveryAnswerId === 'hero' ? rankGenres(answers, random) : []
-  const genreScores = new Map(calculateGenreScores(answers).map(({ genre, score }) => [genre, score]))
-  const covers = planGenreVideos(rankedGenres)
-  const genres = rankedGenres.map((genre, index) => {
-    const { title, recipeId, theme } = vkGenres.find(({ id }) => id === genre)!
-    return { genre, videos: covers.get(genre) ?? 0, score: genreScores.get(genre) ?? 0, rank: index + 1, selected: index < 3, title, recipeId, theme }
-  })
+  // The genres and the AI covers concern the hero alone, and follow the answer, not the photo (user, 07.10.2026):
+  // an AI cover can be made only from an approved photo, which a reader finds in `photo`.
+  const hero = discoveryAnswerId === 'hero'
+  const rankedGenres = hero ? rankGenres(answers, random) : []
+  const plan = planCovers(rankedThemes, rankedGenres, hero)
+  const genre = (id: VkGenre) => { const { title, recipeId, theme } = vkGenres.find(item => item.id === id)!; return { title, recipeId, theme } }
+  const themeScores = new Map(calculateThemeScores(answers).map(({ theme, score }) => [theme, score]))
+  const genreScores = new Map(calculateGenreScores(answers).map(item => [item.genre, item.score]))
+  const aiCover = plan.aiCover.map(item => ({ ...item, ...genre(item.genre) }))
   // The order of the keys is the order of the file.
   return {
-    themes,
-    genres,
+    covers: plan.themes,
+    aiCover,
+    coversTotal: [...plan.themes, ...plan.aiCover].reduce((total, item) => total + item.count, 0),
     tags: [...new Set(given.flatMap(answer => answer.tags))],
     answers: given,
-    videos: { themes: sum(themes), popular: plan.popular, genres: sum(genres), total: sum(themes) + plan.popular + sum(genres) },
-    selectedThemes: rankedThemes.slice(0, 3),
-    selectedGenres: rankedGenres.slice(0, 3),
-    discovery: { answerId: discoveryAnswerId, rule: discoveryRules[discoveryAnswerId], extraThemes: plan.extraThemes },
+    themes: rankedThemes.map((theme, index) => ({
+      theme, covers: plan.themes.find(item => item.theme === theme)?.count ?? 0, score: themeScores.get(theme) ?? 0, rank: index + 1,
+    })),
+    genres: rankedGenres.map((id, index) => ({
+      genre: id, covers: plan.aiCover.find(item => item.genre === id)?.count ?? 0, score: genreScores.get(id) ?? 0, rank: index + 1, ...genre(id),
+    })),
+    discovery: { answerId: discoveryAnswerId, rule: discoveryRules[discoveryAnswerId] },
     photo,
     schemaVersion: 1, type: 'stella-vk-result', product: 'vk-video', sessionId, createdAt,
   }
