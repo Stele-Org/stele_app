@@ -9,9 +9,13 @@ import { eventName, type StelaEvent } from './events'
 // The real scenario with the real start and onboarding screens. The voice is a stand-in that has finished the line of
 // a screen as soon as the screen is there, or never (`silent`). The question cards are stand-ins as in
 // voice-answers.test.tsx: they carry the `data-option-id` of the real ones and end the reveal of an answer on request.
-const voice = vi.hoisted(() => ({ silent: false }))
+const voice = vi.hoisted(() => ({ silent: false, greet: [] as Array<[string, boolean | undefined]> }))
 vi.mock('../voice/use-screen-narration', () => ({
-  useScreenNarration: ({ screen, brandSplash }: { screen: ScreenState; brandSplash: boolean }) => voice.silent || brandSplash ? null : screen.type,
+  useScreenNarration: ({ screen, brandSplash, greet }: { screen: ScreenState; brandSplash: boolean; greet?: boolean }) => {
+    // Whether the start screen may greet, as the scenario asked for it on its last render of that screen.
+    voice.greet.push([screen.type, greet])
+    return voice.silent || brandSplash ? null : screen.type
+  },
 }))
 vi.mock('../sound/use-stella-sound', () => ({ useStellaSound: () => {} }))
 vi.mock('../../components/RingScene', () => ({ RingScene: ({ children }: { children: ReactNode }) => <div>{children}</div> }))
@@ -49,7 +53,7 @@ async function enter() {
 }
 
 beforeEach(() => {
-  voice.silent = false; playback.playing = true; events = []
+  voice.silent = false; voice.greet = []; playback.playing = true; events = []
   vi.stubGlobal('IS_REACT_ACT_ENVIRONMENT', true)
   vi.stubGlobal('BroadcastChannel', undefined)
   vi.stubGlobal('ResizeObserver', class { observe() {} disconnect() {} })
@@ -94,6 +98,21 @@ it('returns to the start screen 30 seconds after the line of a waiting screen, a
   expect(state()).toBe('home')
   await tap('.product-tag--vk-video')
   expect(events.filter(event => event.type === 'session-start').at(-1)!.sessionId).not.toBe(first)
+})
+
+it('keeps the start screen from greeting after a return for idleness, until somebody chooses a product', async () => {
+  const greets = () => voice.greet.at(-1)
+  act(() => root.render(<Prototype />))
+  expect(greets()).toEqual(['home', true])
+  await tap('.product-tag--vk-video'); endSplash()
+  await pass(IDLE_RETURN_MS)
+  expect(state()).toBe('home')
+  expect(greets()).toEqual(['home', false])
+  await pass(10 * IDLE_RETURN_MS)
+  expect(greets()).toEqual(['home', false])
+  // The next visitor is greeted as usual wherever the scenario brings them back to the start screen by itself.
+  await tap('.product-tag--vk-video')
+  expect(greets()).toEqual(['vk-onboarding', true])
 })
 
 it('starts the wait again with every action of the visitor', async () => {

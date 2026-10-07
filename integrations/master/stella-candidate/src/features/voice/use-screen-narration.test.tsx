@@ -35,10 +35,10 @@ let root: Root, host: HTMLDivElement
 let visible = true
 const manifest = { version: 1, voice: 'Василиса', ready: true, assets: { home: 'home.wav', 'max-audience': 'max-audience.wav', 'vk-onboarding': 'vk-onboarding.wav' } }
 
-function Harness({ screen = { type: 'vk-onboarding' }, playing = true, brandSplash = false }: {
-  screen?: ScreenState; playing?: boolean; brandSplash?: boolean
+function Harness({ screen = { type: 'vk-onboarding' }, playing = true, brandSplash = false, greet }: {
+  screen?: ScreenState; playing?: boolean; brandSplash?: boolean; greet?: boolean
 }) {
-  const spoken = useScreenNarration({ screen, playing, brandSplash })
+  const spoken = useScreenNarration({ screen, playing, brandSplash, greet })
   return <div data-screen={screen.type} data-spoken={spoken ?? ''} />
 }
 
@@ -179,6 +179,22 @@ it('with ?greeting=1 greets by itself on opening and on every return, and stays 
   // It starts as soon as the recording has loaded, with no tap at all.
   act(() => { audio.sounds[2].emit('load') })
   expect(audio.sounds[2].play).toHaveBeenCalledOnce()
+})
+
+it('with ?greeting=1 keeps the start screen silent where the scenario asks for it, and only the start screen', async () => {
+  window.history.replaceState(null, '', '?greeting=1')
+  // The return for idleness: nobody is there to greet.
+  await act(async () => root.render(<Harness screen={{type:'home'}} greet={false} />))
+  expect(audio.sounds).toHaveLength(0)
+  window.dispatchEvent(new Event('pointerup'))
+  expect(audio.sounds).toHaveLength(0)
+  // The other screens speak as always.
+  await act(async () => root.render(<Harness greet={false} />))
+  expect(audio.sounds).toHaveLength(1)
+  expect(audio.sounds[0].source).toBe('/stella/voice/vasilisa/vk-onboarding.wav')
+  await act(async () => root.render(<Harness screen={{type:'home'}} />))
+  expect(audio.sounds).toHaveLength(2)
+  expect(audio.sounds[1].source).toBe('/stella/voice/vasilisa/home.wav')
 })
 
 it('never starts a held-back greeting by a tap on a product logo, only by a tap elsewhere', async () => {

@@ -107,7 +107,10 @@ export function Prototype() {
   const viewportRef = useRef<HTMLDivElement>(null)
   const playing = useServicePlaying()
   // The consent text pauses the screen and its sound effects, but not the voice.
-  const asked = useScreenNarration({ screen, playing, brandSplash: enteringProduct !== null })
+  // The start screen does not greet after a return for idleness: the greeting is for a visitor, and nobody is there
+  // (user, 08.10.2026). It greets again once somebody has chosen a product.
+  const [quietStart, setQuietStart] = useState(false)
+  const asked = useScreenNarration({ screen, playing, brandSplash: enteringProduct !== null, greet: !quietStart })
   useStellaSound({ screen, playing, blocked: termsMounted })
   // The microphone opens when the voice has finished the line of a screen that waits for an answer, and what the
   // visitor says presses the button they named: the same press as a tap, with its cue and its sound.
@@ -146,11 +149,12 @@ export function Prototype() {
     setEnteringProduct(null)
     discardPhoto()
   }, [sink, discardPhoto])
-  // Nobody acts on a screen that waits for a press: the scenario returns to the start screen like after the last one.
-  // The consent text does not stop the count; reading it by scrolling is acting.
+  // Nobody acts on a screen that waits for a press: the scenario returns to the start screen like after the last one,
+  // only without the greeting. The consent text does not stop the count; reading it by scrolling is acting.
+  const returnIdle = useCallback(() => { setQuietStart(true); reset() }, [reset])
   useIdleReturn({
     screen, active: playing && enteringProduct === null && waitsForVisitor(screen),
-    spoken: Boolean(asked) || narrationId(screen) === null, onIdle: reset,
+    spoken: Boolean(asked) || narrationId(screen) === null, onIdle: returnIdle,
   })
 
   useLayoutEffect(() => {
@@ -230,6 +234,7 @@ export function Prototype() {
 
   const startProduct = useCallback((product: 'max' | 'vk-video') => {
     publisher.start(product)
+    setQuietStart(false)
     setScreen({ type: product === 'max' ? 'max-onboarding' : 'vk-onboarding' })
     setEnteringProduct(product)
   }, [publisher])
